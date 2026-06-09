@@ -1,4 +1,4 @@
-# world-vault — Implementation Plan
+# azimuth — Implementation Plan
 
 > **Status:** Draft
 > **Last updated:** YYYY-MM-DD

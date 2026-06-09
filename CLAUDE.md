@@ -1,4 +1,4 @@
-# world-vault
+# azimuth
 
 ## Overview
 
@@ -109,5 +109,5 @@ Frontend env (in `src/frontend/.env.local`):
 
 ## Vault Link
 
-Project note: `05 Projects/World Vault.md` in HemySphere vault (Coding-Factory track, `status: research`).
+Project note: `05 Projects/azimuth.md` in HemySphere vault (Coding-Factory track, `status: research`).
 Research + feasibility: `07 Resources/AI Agents & Agentic Systems/Worldmonitor App – Research.md`.

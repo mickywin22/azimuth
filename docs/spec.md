@@ -1,12 +1,12 @@
-# world-vault — Specification
+# azimuth — Specification
 
 > **Status:** Research (2026-W24)
 > **Last updated:** 2026-06-09
-> **Track:** Coding-Factory KR2 (HemySphere vault: `05 Projects/World Vault.md`)
+> **Track:** Coding-Factory KR2 (HemySphere vault: `05 Projects/azimuth.md`)
 
 ## Demonstrator concept (one paragraph)
 
-World Vault is a **public, read-only knowledge vault that runs the HemySphere L1→L2→L3 wiki doctrine on open global-intelligence data**. It pulls structured briefs from the Worldmonitor public API (`api.worldmonitor.app`) as **L1 source notes** (raw, untouched), runs the existing fleet synthesis pattern to produce **L2 wiki notes** (weekly meta-briefs, cross-linked, the human-readable synthesis), all governed by a small **L3 rule set** (editorial line, attribution, no investment/safety advice). The whole vault is published as a public GitHub repo + static site, so anyone evaluating the HemySphere/Emi doctrine bundle can see a *live working second brain* on a neutral domain — proving the architecture without ever exposing Michael's private Emi vault content or USP. Each weekly synthesis cycle doubles as shareable build-in-public / LinkedIn content.
+azimuth is a **public, read-only knowledge vault that runs the HemySphere L1→L2→L3 wiki doctrine on open global-intelligence data**. It pulls structured briefs from the Worldmonitor public API (`api.worldmonitor.app`) as **L1 source notes** (raw, untouched), runs the existing fleet synthesis pattern to produce **L2 wiki notes** (weekly meta-briefs, cross-linked, the human-readable synthesis), all governed by a small **L3 rule set** (editorial line, attribution, no investment/safety advice). The whole vault is published as a public GitHub repo + static site, so anyone evaluating the HemySphere/Emi doctrine bundle can see a *live working second brain* on a neutral domain — proving the architecture without ever exposing Michael's private Emi vault content or USP. Each weekly synthesis cycle doubles as shareable build-in-public / LinkedIn content.
 
 ## Vision
 
@@ -22,7 +22,7 @@ Give the HemySphere doctrine a public proof point: a self-updating open-intellig
 
 ## Architecture decision (locked in research)
 
-**Path A — API consumer** (Michael 2026-05-12). Hit the public `api.worldmonitor.app` endpoints, transform JSON/CSV briefs into HemySphere-format markdown, publish the derived vault under our own license. **No source fork** → AGPL-3.0 of `koala73/worldmonitor` is not triggered (pure API-consumer use). Attribution via `CREDITS.md`. Paths B (fork+self-host, AGPL applies) and C (commercial license) rejected/deferred. Full legal + data-license analysis: `07 Resources/AI Agents & Agentic Systems/Worldmonitor App – Research.md` § World Vault Feasibility.
+**Path A — API consumer** (Michael 2026-05-12). Hit the public `api.worldmonitor.app` endpoints, transform JSON/CSV briefs into HemySphere-format markdown, publish the derived vault under our own license. **No source fork** → AGPL-3.0 of `koala73/worldmonitor` is not triggered (pure API-consumer use). Attribution via `CREDITS.md`. Paths B (fork+self-host, AGPL applies) and C (commercial license) rejected/deferred. Full legal + data-license analysis: `07 Resources/AI Agents & Agentic Systems/Worldmonitor App – Research.md` § azimuth Feasibility.
 
 ## Core Features (MVP — v0, deferred to build week)
 
@@ -35,7 +35,7 @@ Give the HemySphere doctrine a public proof point: a self-updating open-intellig
   - [ ] Each L1 note carries source + retrieval-timestamp frontmatter; no synthesis in L1
 
 ### F2 — L2 synthesis (weekly meta-brief)
-- **What:** A `world-vault-curator` synthesis pass turns the week's L1 notes into 1–2 cross-linked L2 meta-briefs (e.g. "Energy supply meta-brief" combining oil + power-outage + prediction-market signals).
+- **What:** A `azimuth-curator` synthesis pass turns the week's L1 notes into 1–2 cross-linked L2 meta-briefs (e.g. "Energy supply meta-brief" combining oil + power-outage + prediction-market signals).
 - **Why:** L2 is where AI synthesis adds value beyond the Worldmonitor dashboard itself.
 - **Acceptance criteria:**
   - [ ] Weekly cadence (lower cost, promo-friendly) produces wikilinked L2 notes
@@ -52,13 +52,13 @@ Give the HemySphere doctrine a public proof point: a self-updating open-intellig
 - No individual-country political opinions, no investment advice, no security/safety predictions that could harm readers.
 - Attribution mandatory; per-source license check before any new subset is surfaced.
 
-## Open Questions (carried from `05 Projects/World Vault.md`)
+## Open Questions (carried from `05 Projects/azimuth.md`)
 
 - [ ] Final subset for v0 (which 1–2 themes best demonstrate the doctrine?)
 - [ ] Synthesis cadence: daily vs weekly vs on-demand (research lean: **weekly**)
 - [ ] Storage/publish surface: flat repo vs Quartz static site vs live web app
 - [ ] Sync mechanism: GitHub Actions cron vs local fleet agent
-- [ ] Synthesis engine: dedicated `world-vault-curator` prompt vs extend an existing fleet role
+- [ ] Synthesis engine: dedicated `azimuth-curator` prompt vs extend an existing fleet role
 - [ ] Vault license: MIT vs CC-BY-NC-SA
 
 ## Out of scope this week (W24)

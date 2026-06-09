@@ -1,5 +1,5 @@
 [project]
-name = "world-vault"
+name = "azimuth"
 version = "0.1.0"
 description = "Public demonstrator of the HemySphere L1/L2/L3 vault doctrine, fed by Worldmonitor open-intelligence data"
 requires-python = ">=3.12"

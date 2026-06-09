@@ -1,4 +1,4 @@
-# world-vault — Architecture
+# azimuth — Architecture
 
 > **Status:** Draft
 > **Last updated:** YYYY-MM-DD
