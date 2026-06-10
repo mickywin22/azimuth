@@ -10,19 +10,23 @@ See docs/source-guardrail.md for the human-readable rule.
 from src.backend.guardrail.source_guardrail import (
     DENIED_CONTENT_CLASSES,
     GuardrailResult,
+    Registry,
     SourceEntry,
     Violation,
     check_registry,
     check_source,
     load_registry,
+    parse_credited_keys,
 )
 
 __all__ = [
     "DENIED_CONTENT_CLASSES",
     "GuardrailResult",
+    "Registry",
     "SourceEntry",
     "Violation",
     "check_registry",
     "check_source",
     "load_registry",
+    "parse_credited_keys",
 ]
