@@ -1,0 +1,127 @@
+{
+  "$schema": "./registry.schema.md",
+  "description": "Canonical registry of every WorldMonitor-derived data subset azimuth may surface. The per-source license guardrail (scripts/check_sources.py) validates every entry before any subset is surfaced as L1. A subset that is not in this registry, or whose entry fails the guardrail, MUST NOT be surfaced. See docs/source-guardrail.md.",
+  "content_class_policy": {
+    "allowed": [
+      "market-data",
+      "physical-infrastructure",
+      "natural-hazard",
+      "prediction-market"
+    ],
+    "denied": [
+      "investment-advice",
+      "safety-prediction",
+      "political-opinion"
+    ],
+    "note": "denied classes are the azimuth editorial exclusions (spec.md L3 rule set). prediction-market raw odds are allowed as L1 DATA but carry a synthesis caution forbidding investment framing in L2."
+  },
+  "license_allowlist": [
+    "CC-BY-4.0",
+    "CC0-1.0",
+    "ODbL-1.0",
+    "public-domain",
+    "US-Gov-public-domain",
+    "API-ToS-derived"
+  ],
+  "sources": [
+    {
+      "key": "natural-gas-storage-eu",
+      "endpoint": "/api/economic/v1/get-nat-gas-storage",
+      "upstream_source": "GIE AGSI+ (Gas Infrastructure Europe)",
+      "license": "CC-BY-4.0",
+      "attribution": "Data: GIE AGSI+ via WorldMonitor (api.worldmonitor.app)",
+      "content_class": "physical-infrastructure",
+      "risk_flags": [],
+      "synthesis_cautions": [],
+      "surfaced": true
+    },
+    {
+      "key": "crude-oil-inventories",
+      "endpoint": "/api/economic/v1/get-crude-inventories",
+      "upstream_source": "U.S. EIA (Energy Information Administration)",
+      "license": "US-Gov-public-domain",
+      "attribution": "Data: U.S. EIA via WorldMonitor (api.worldmonitor.app)",
+      "content_class": "physical-infrastructure",
+      "risk_flags": [],
+      "synthesis_cautions": [],
+      "surfaced": true
+    },
+    {
+      "key": "fuel-prices",
+      "endpoint": "/api/economic/v1/list-fuel-prices",
+      "upstream_source": "WorldMonitor aggregated fuel-price feed",
+      "license": "API-ToS-derived",
+      "attribution": "Data: WorldMonitor fuel-price feed (api.worldmonitor.app)",
+      "content_class": "market-data",
+      "risk_flags": [],
+      "synthesis_cautions": ["no-investment-framing"],
+      "surfaced": true
+    },
+    {
+      "key": "energy-prices",
+      "endpoint": "/api/economic/v1/get-energy-prices",
+      "upstream_source": "WorldMonitor aggregated energy spot/forward feed",
+      "license": "API-ToS-derived",
+      "attribution": "Data: WorldMonitor energy-price feed (api.worldmonitor.app)",
+      "content_class": "market-data",
+      "risk_flags": [],
+      "synthesis_cautions": ["no-investment-framing"],
+      "surfaced": true
+    },
+    {
+      "key": "earthquakes",
+      "endpoint": "/api/seismology/v1/list-earthquakes",
+      "upstream_source": "USGS Earthquake Hazards Program",
+      "license": "US-Gov-public-domain",
+      "attribution": "Data: USGS via WorldMonitor (api.worldmonitor.app)",
+      "content_class": "natural-hazard",
+      "risk_flags": [],
+      "synthesis_cautions": ["report-observed-not-predicted"],
+      "surfaced": true
+    },
+    {
+      "key": "prediction-markets",
+      "endpoint": "/api/prediction/v1/list-prediction-markets",
+      "upstream_source": "Polymarket public odds",
+      "license": "API-ToS-derived",
+      "attribution": "Data: Polymarket via WorldMonitor (api.worldmonitor.app)",
+      "content_class": "prediction-market",
+      "risk_flags": [],
+      "synthesis_cautions": ["no-investment-framing", "odds-are-not-forecasts"],
+      "surfaced": false
+    },
+    {
+      "key": "conflict-events-acled",
+      "endpoint": "/api/conflict/v1/list-events",
+      "upstream_source": "ACLED / UCDP",
+      "license": "unknown",
+      "attribution": "",
+      "content_class": "political-opinion",
+      "risk_flags": ["political-opinion", "safety-prediction"],
+      "synthesis_cautions": [],
+      "surfaced": false
+    },
+    {
+      "key": "vessel-tracking-ais",
+      "endpoint": "/api/maritime/v1/ais",
+      "upstream_source": "AIS aggregators",
+      "license": "unknown",
+      "attribution": "",
+      "content_class": "safety-prediction",
+      "risk_flags": ["safety-prediction"],
+      "synthesis_cautions": [],
+      "surfaced": false
+    },
+    {
+      "key": "military-flights-adsb",
+      "endpoint": "/api/aviation/v1/adsb",
+      "upstream_source": "ADS-B Exchange",
+      "license": "unknown",
+      "attribution": "",
+      "content_class": "safety-prediction",
+      "risk_flags": ["safety-prediction", "political-opinion"],
+      "synthesis_cautions": [],
+      "surfaced": false
+    }
+  ]
+}

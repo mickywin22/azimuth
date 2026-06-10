@@ -33,6 +33,23 @@ jobs:
       - name: Ruff format check
         run: ruff format --check src/ tests/
 
+  source-guardrail:
+    name: Source Guardrail
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # Pure-stdlib check -- no dependency install needed. Blocks the build if any
+      # surfaced WorldMonitor subset is missing a license / attribution / credit, or
+      # carries an editorial-exclusion content class (investment / safety / political).
+      - name: Per-source license + content guardrail
+        run: python scripts/check_sources.py
+
   type-check:
     name: Type Check
     runs-on: ubuntu-latest

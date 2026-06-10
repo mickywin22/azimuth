@@ -129,10 +129,10 @@ Trade-off accepted: L2 pauses if the box is down ≥1 week. Stale-data guard (Ph
 
 `vault/00 Rules/` ships as content (part of the demonstrator — evaluators see the L3 layer):
 - `editorial.md` — no individual-country political opinions; no investment advice; no security/safety predictions that could harm readers; uncertainty stated, never dramatised.
-- `attribution.md` — per-source license check **before** any new subset is surfaced; CREDITS.md update in the same PR.
+- `attribution.md` — per-source license check **before** any new subset is surfaced; CREDITS.md update in the same PR. **✅ SHIPPED (2026-06-10) as a standing CI + pre-commit guardrail** — `sources/registry.json` (machine-readable source registry) + `scripts/check_sources.py` (lint) + `src/backend/guardrail/` (typed logic) + `CREDITS.md` (machine-checkable credit join). Full rule: [`docs/source-guardrail.md`](source-guardrail.md).
 - `synthesis-contract.md` — L1 never edited after creation; L2 evolves, never overwrites; every claim sourced.
 
-Enforcement = the F2 CI lint (deny-list + diff guard + link check). A rule without a lint line is a TODO, not a rule.
+Enforcement = the F2 CI lint (deny-list + diff guard + link check). A rule without a lint line is a TODO, not a rule. The **per-source license + content guardrail** (attribution rule above) is the first of these lint lines to ship — it blocks the build if any surfaced WorldMonitor subset is unlicensed, uncredited, or carries an editorial-exclusion content class (investment / safety / political).
 
 ## License (resolves audit finding 3 — pending Michael, IQ #371)
 

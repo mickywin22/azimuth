@@ -24,3 +24,12 @@ repos:
         args: [--maxkb=500]
       - id: detect-private-key
       - id: check-merge-conflict
+
+  - repo: local
+    hooks:
+      - id: source-guardrail
+        name: Per-source license + content guardrail
+        entry: python scripts/check_sources.py
+        language: system
+        pass_filenames: false
+        files: ^(sources/registry\.json|CREDITS\.md|scripts/check_sources\.py|src/backend/guardrail/)
