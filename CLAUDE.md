@@ -54,21 +54,18 @@ docs/
 ## Development Commands
 
 ```bash
-# === Backend ===
+# === Install (pure-stdlib runtime; FastAPI backend + Next.js frontend stripped Phase 1) ===
 uv pip install -e ".[dev]"
-uvicorn src.backend.main:app --reload --port 8000
 
-# === Frontend ===
-cd src/frontend && npm install
-cd src/frontend && npm run dev       # Dev server on :3000
-cd src/frontend && npm run build     # Production build (must pass clean)
+# === Run the L1 ingest ===
+python scripts/run_ingest.py
 
-# === Quality (Backend) ===
-ruff check src/ tests/ --fix
-ruff format src/ tests/
-mypy src/
+# === Quality ===
+ruff check guardrail/ ingest/ tests/ --fix
+ruff format guardrail/ ingest/ tests/
+mypy guardrail/ ingest/
 pytest tests/unit/ -v
-pytest tests/ --cov=src
+pytest tests/ --cov=guardrail --cov=ingest
 
 # === Pre-commit ===
 pre-commit install

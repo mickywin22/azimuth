@@ -18,11 +18,11 @@
 ### Phase 1 — F1 L1 ingest (1–2 fleet slots, ~40k tok)
 **Target:** vault self-populates daily with zero LLM involvement.
 
-- [ ] Strip template: delete `src/backend/`, `src/frontend/`, coolify/multi-tenancy/openapi docs
+- [ ] Strip template: delete `src/frontend/`, coolify/multi-tenancy/openapi docs (NB: `src/backend/guardrail/` must MOVE, not delete — ingest depends on it; see `docs/l1-ingest.md`)
 - [ ] Scaffold `vault/` tree (00 Rules / 01 Sources / 02 Briefs) + L3 rule files
-- [ ] `ingest/pull.py`: session-mint → endpoint set from `ingest/endpoints.json` → markdown transform → dated L1 notes (frontmatter: source, endpoint, retrieved, license)
-- [ ] Smoke the 3 🔶 endpoints (nat-gas-storage, crude-inventories, fuel-prices); freeze v0 set
-- [ ] Unit tests: transform fidelity, frontmatter schema, degraded-mode (API down → skip + log)
+- [x] `ingest/pull.py`: registry-driven core — endpoint set + `license`/`attribution` frontmatter read straight from `sources/registry.json` (NO separate `endpoints.json` — ingest and the guardrail share one source of truth) → markdown transform → dated L1 notes (frontmatter: source, source_key, endpoint, retrieved, license, attribution). `ingest/http.py` = live session-mint fetcher; `scripts/run_ingest.py` = CLI. Done 2026-06-10.
+- [x] Unit tests: transform fidelity, frontmatter schema, degraded-mode (fetch fails → skip + log), live-registry license-match contract — 23 tests, all green. Done 2026-06-10.
+- [ ] Smoke the 3 🔶 endpoints (nat-gas-storage, crude-inventories, fuel-prices) against live API; freeze v0 set
 - [ ] `.github/workflows/ingest.yml`: daily cron + commit; `lint.yml`: L1 schema lint
 - [ ] Error path: 3 consecutive failed pulls → GH issue auto-opened (visible even pre-Slack wiring)
 

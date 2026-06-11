@@ -1,7 +1,7 @@
 # azimuth — Specification v2
 
-> **Status:** Spec-locked (pending Michael sign-off on 3 decisions, IQ #371)
-> **Last updated:** 2026-06-09
+> **Status:** Spec-locked + **CONFIRMED** — all 3 decisions accepted (IQ #371 (A), Michael 2026-06-10). Build week unblocked, dispatchable W25+.
+> **Last updated:** 2026-06-11
 > **Track:** Coding-Factory (HemySphere vault: `05 Projects/azimuth.md`)
 > **Supersedes:** spec v1 (2026-06-09 research scaffold). v2 = audit findings resolved + live API verification.
 
@@ -134,11 +134,11 @@ Trade-off accepted: L2 pauses if the box is down ≥1 week. Stale-data guard (Ph
 
 Enforcement = the F2 CI lint (deny-list + diff guard + link check). A rule without a lint line is a TODO, not a rule. The **per-source license + content guardrail** (attribution rule above) is the first of these lint lines to ship — it blocks the build if any surfaced WorldMonitor subset is unlicensed, uncredited, or carries an editorial-exclusion content class (investment / safety / political).
 
-## License (resolves audit finding 3 — pending Michael, IQ #371)
+## License (resolves audit finding 3 — CONFIRMED IQ #371 (A), 2026-06-10)
 
 The v1 drift (CC-BY vs CC-BY-SA vs CC-BY-NC-SA across three docs) is resolved by **splitting code from content** — they are different artifacts:
 
-| Artifact | Recommended license | Rationale |
+| Artifact | License (CONFIRMED) | Rationale |
 |----------|--------------------|-----------|
 | Code (`ingest/`, `synthesis/`, workflows) | **MIT** | Max reuse of the *pattern* — that is the point of a demonstrator |
 | Vault content (`vault/` L1+L2+L3 notes) | **CC BY 4.0** | Attribution preserved, max shareability/credibility. NC variant rejected: azimuth content has no commercial moat to protect — the founding-company option value lives in the private Emi pattern, not here |
@@ -159,8 +159,10 @@ The v1 drift (CC-BY vs CC-BY-SA vs CC-BY-NC-SA across three docs) is resolved by
 - Any web app / backend / search / API of our own
 - Monetization (Path C) — post-validation only
 
-## Open decisions (Michael — IQ #371, presented in the PRD)
+## Decisions — CONFIRMED (Michael, IQ #371 (A), 2026-06-10)
 
-1. **v0 theme = Energy Supply** (5–8 verified endpoints above) — recommended. Alt: different theme.
-2. **Cadence split: L1 daily (Actions) + L2 weekly (fleet)** — recommended. Alt: all-weekly.
-3. **License split: code MIT + content CC BY 4.0** — recommended. Alt: CC BY-NC-SA content.
+All three accepted as recommended; build week unblocked, dispatchable W25+.
+
+1. **v0 theme = Energy Supply** (5–8 verified endpoints above) — ✅ CONFIRMED.
+2. **Cadence split: L1 daily (Actions) + L2 weekly (fleet)** — ✅ CONFIRMED.
+3. **License split: code MIT + content CC BY 4.0** — ✅ CONFIRMED. (LICENSE files finalised at the F3 public-flip milestone, per IQ #429.)

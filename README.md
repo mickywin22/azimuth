@@ -15,15 +15,11 @@ A public, read-only knowledge vault that applies the HemySphere **L1 sources →
 git clone https://github.com/mickywin22/azimuth.git
 cd azimuth
 
-# Backend
+# Install dev tooling (pure-stdlib runtime — no server, no third-party deps)
 uv pip install -e ".[dev]"
-cp .env.example .env  # Fill in values
-uvicorn src.backend.main:app --reload
 
-# Frontend
-cd src/frontend
-npm install
-npm run dev
+# Run the L1 ingest (pulls WorldMonitor subsets -> dated L1 notes)
+python scripts/run_ingest.py
 ```
 
 ## Development
@@ -33,11 +29,11 @@ npm run dev
 pytest tests/ -v
 
 # Lint + format
-ruff check src/ tests/ --fix
-ruff format src/ tests/
+ruff check guardrail/ ingest/ tests/ --fix
+ruff format guardrail/ ingest/ tests/
 
 # Type check
-mypy src/
+mypy guardrail/ ingest/
 
 # Pre-commit hooks
 pre-commit install
