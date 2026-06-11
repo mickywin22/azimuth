@@ -80,6 +80,8 @@ daily run. The live fetcher (`ingest/http.py`) mints an anonymous WorldMonitor s
 
 - `.github/workflows/ingest.yml` daily cron + commit, and an L1-schema lint CI job.
 - 3-consecutive-failure → auto-opened GitHub issue (spec gate).
-- Template strip (`src/backend` FastAPI, `src/frontend`) once no server runtime is needed —
+- ~~Template strip (`src/backend` FastAPI, `src/frontend`) once no server runtime is needed —
   note the guardrail currently lives under `src/backend/guardrail/`, so the strip must move
-  it (e.g. to `guardrail/`) rather than delete it.
+  it (e.g. to `guardrail/`) rather than delete it.~~ ✅ **Done 2026-06-11:** `src/backend` +
+  `src/frontend` deleted, guardrail moved to top-level `guardrail/`, imports + CI/pre-commit
+  paths fixed, runtime deps trimmed to pure-stdlib. See `docs/changelog.md`.

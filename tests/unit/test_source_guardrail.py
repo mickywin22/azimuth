@@ -7,7 +7,7 @@ from pathlib import Path
 
 import pytest
 
-from src.backend.guardrail import (
+from guardrail import (
     GuardrailResult,
     SourceEntry,
     Violation,
@@ -15,7 +15,7 @@ from src.backend.guardrail import (
     check_source,
     load_registry,
 )
-from src.backend.guardrail.source_guardrail import parse_credited_keys
+from guardrail.source_guardrail import parse_credited_keys
 
 pytestmark = pytest.mark.unit
 

@@ -7,7 +7,7 @@ sources credited) BEFORE the subset may be surfaced as L1 source data.
 See docs/source-guardrail.md for the human-readable rule.
 """
 
-from src.backend.guardrail.source_guardrail import (
+from guardrail.source_guardrail import (
     DENIED_CONTENT_CLASSES,
     GuardrailResult,
     Registry,

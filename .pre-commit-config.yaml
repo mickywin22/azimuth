@@ -32,4 +32,4 @@ repos:
         entry: python scripts/check_sources.py
         language: system
         pass_filenames: false
-        files: ^(sources/registry\.json|CREDITS\.md|scripts/check_sources\.py|src/backend/guardrail/)
+        files: ^(sources/registry\.json|CREDITS\.md|scripts/check_sources\.py|guardrail/)

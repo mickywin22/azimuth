@@ -13,8 +13,8 @@ from pathlib import Path
 
 import pytest
 
+from guardrail import SourceEntry, load_registry, parse_credited_keys
 from ingest import eligible_sources, frontmatter_for, pull, render_note
-from src.backend.guardrail import SourceEntry, load_registry, parse_credited_keys
 
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
 REGISTRY_PATH = REPO_ROOT / "sources" / "registry.json"
@@ -112,7 +112,7 @@ def test_pipe_in_value_is_escaped() -> None:
 
 
 def test_eligible_excludes_unsurfaced() -> None:
-    from src.backend.guardrail import Registry
+    from guardrail import Registry
 
     reg = Registry(
         allowed_content_classes=frozenset({"physical-infrastructure"}),
@@ -123,7 +123,7 @@ def test_eligible_excludes_unsurfaced() -> None:
 
 
 def test_eligible_excludes_surfaced_but_unlicensed() -> None:
-    from src.backend.guardrail import Registry
+    from guardrail import Registry
 
     reg = Registry(
         allowed_content_classes=frozenset({"physical-infrastructure"}),
@@ -134,7 +134,7 @@ def test_eligible_excludes_surfaced_but_unlicensed() -> None:
 
 
 def test_eligible_includes_compliant_surfaced() -> None:
-    from src.backend.guardrail import Registry
+    from guardrail import Registry
 
     reg = Registry(
         allowed_content_classes=frozenset({"physical-infrastructure"}),

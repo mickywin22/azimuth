@@ -3,13 +3,10 @@ name = "azimuth"
 version = "0.1.0"
 description = "Public demonstrator of the HemySphere L1/L2/L3 vault doctrine, fed by Worldmonitor open-intelligence data"
 requires-python = ">=3.12"
-dependencies = [
-    "fastapi>=0.115.0",
-    "uvicorn[standard]>=0.34.0",
-    "pydantic>=2.10.0",
-    "pydantic-settings>=2.7.0",
-    "httpx>=0.28.0",
-]
+# Pure-stdlib runtime after the Phase-1 template strip (FastAPI backend + Next.js
+# frontend deleted; ingest uses urllib, guardrail uses json/dataclasses). No
+# third-party runtime dependency. See docs/spec.md "Template strip".
+dependencies = []
 
 [project.optional-dependencies]
 dev = [
@@ -43,7 +40,7 @@ select = [
 ignore = ["E501"]  # line too long — handled by formatter
 
 [tool.ruff.lint.isort]
-known-first-party = ["src"]
+known-first-party = ["guardrail", "ingest", "scripts"]
 
 [tool.mypy]
 python_version = "3.12"
@@ -64,7 +61,7 @@ markers = [
 ]
 
 [tool.coverage.run]
-source = ["src"]
+source = ["guardrail", "ingest"]
 omit = ["tests/*"]
 
 [tool.coverage.report]

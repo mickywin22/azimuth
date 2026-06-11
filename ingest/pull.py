@@ -26,10 +26,10 @@ from datetime import UTC, datetime
 from pathlib import Path
 from typing import TYPE_CHECKING, Protocol, runtime_checkable
 
-from src.backend.guardrail import check_source, load_registry, parse_credited_keys
+from guardrail import check_source, load_registry, parse_credited_keys
 
 if TYPE_CHECKING:
-    from src.backend.guardrail import Registry, SourceEntry
+    from guardrail import Registry, SourceEntry
 
 logger = logging.getLogger("azimuth.ingest")
 
@@ -125,8 +125,7 @@ def _render_payload(payload: object) -> str:
         header = "| " + " | ".join(columns) + " |"
         divider = "| " + " | ".join("---" for _ in columns) + " |"
         body = [
-            "| " + " | ".join(_cell(row.get(col, "")) for col in columns) + " |"
-            for row in rows
+            "| " + " | ".join(_cell(row.get(col, "")) for col in columns) + " |" for row in rows
         ]
         return "\n".join([header, divider, *body])
 
@@ -136,7 +135,9 @@ def _render_payload(payload: object) -> str:
         body = [f"| {key} | {_cell(value)} |" for key, value in payload.items()]
         return "\n".join([header, divider, *body])
 
-    return "```json\n" + json.dumps(payload, indent=2, ensure_ascii=False, sort_keys=True) + "\n```"
+    return (
+        "```json\n" + json.dumps(payload, indent=2, ensure_ascii=False, sort_keys=True) + "\n```"
+    )
 
 
 def _cell(value: object) -> str:
@@ -160,7 +161,9 @@ def render_note(entry: SourceEntry, payload: object, retrieved: datetime) -> str
         f"> L1 source pull — `{entry.key}` from `{entry.endpoint}` "
         f"at {fm['retrieved']}. Verbatim transform; never edit by hand."
     )
-    return "\n".join([_render_frontmatter(fm), "", title, "", caption, "", _render_payload(payload), ""])
+    return "\n".join(
+        [_render_frontmatter(fm), "", title, "", caption, "", _render_payload(payload), ""]
+    )
 
 
 def eligible_sources(registry: Registry, credited_keys: frozenset[str]) -> list[SourceEntry]:
