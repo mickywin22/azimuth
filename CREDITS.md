@@ -33,5 +33,7 @@ current editorial line.
 
 ## License
 
-- **azimuth code:** MIT (see `LICENSE`, pending IQ #371 confirmation).
-- **azimuth vault content (derived L1/L2/L3 notes):** CC BY 4.0 (pending IQ #371 confirmation).
+Split license — confirmed IQ #371 (A), 2026-06-10:
+
+- **azimuth code:** MIT — see [`LICENSE`](LICENSE).
+- **azimuth vault content (derived L1/L2/L3 notes under `vault/`):** CC BY 4.0 — see [`LICENSE-CONTENT.md`](LICENSE-CONTENT.md).

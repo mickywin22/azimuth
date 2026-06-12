@@ -114,7 +114,7 @@ Trade-off accepted: L2 pauses if the box is down ≥1 week. Stale-data guard (Ph
 - **Acceptance criteria:**
   - [ ] gitleaks scan green before flip (no secrets in history)
   - [ ] `CREDITS.md` lists Worldmonitor (primary aggregator) + every surfaced upstream source (EIA, GIE/AGSI, Polymarket, …)
-  - [ ] License files in place per the split decision (below)
+  - [x] License files in place per the split decision (below) — `LICENSE` (MIT, code) + `LICENSE-CONTENT.md` (CC BY 4.0, vault content), landed 2026-06-12 ahead of the flip
   - [ ] README explains the L1/L2/L3 doctrine + links HemySphere doctrine bundle
   - [ ] First LinkedIn post published (linkedin-post skill draft, Michael publishes)
 

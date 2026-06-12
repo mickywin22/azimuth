@@ -45,4 +45,9 @@ See [docs/architecture.md](docs/architecture.md) for design decisions.
 
 ## License
 
-TBD before first public publish — likely MIT or CC-BY-SA for the synthesised vault output. Worldmonitor source data is consumed via its public API (Path A, no fork → AGPL not triggered); attribution ships in `CREDITS.md` per the feasibility analysis. See `07 Resources/AI Agents & Agentic Systems/Worldmonitor App – Research.md` § azimuth Feasibility.
+Split license — confirmed IQ #371 (A), 2026-06-10:
+
+- **Code** (`ingest/`, `guardrail/`, `scripts/`, `.github/`, future `synthesis/`): **MIT** — see [`LICENSE`](LICENSE).
+- **Vault content** (derived L1/L2/L3 notes under `vault/`): **CC BY 4.0** — see [`LICENSE-CONTENT.md`](LICENSE-CONTENT.md).
+
+Worldmonitor source data is consumed via its public API (Path A, no fork → AGPL not triggered); per-source attribution ships in [`CREDITS.md`](CREDITS.md) and is enforced by the per-source guardrail (`scripts/check_sources.py`).
