@@ -28,10 +28,10 @@ jobs:
         run: uv pip install --system -e ".[dev]"
 
       - name: Ruff lint
-        run: ruff check guardrail/ ingest/ tests/
+        run: ruff check guardrail/ ingest/ tests/ synthesis/ scripts/check_synthesis.py
 
       - name: Ruff format check
-        run: ruff format --check guardrail/ ingest/ tests/
+        run: ruff format --check guardrail/ ingest/ tests/ synthesis/ scripts/check_synthesis.py
 
   source-guardrail:
     name: Source Guardrail
@@ -49,6 +49,24 @@ jobs:
       # carries an editorial-exclusion content class (investment / safety / political).
       - name: Per-source license + content guardrail
         run: python scripts/check_sources.py
+
+  synthesis-lint:
+    name: Synthesis Lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # Pure-stdlib check -- no dependency install needed. Blocks the build if any L2
+      # brief carries an unsourced claim, a dangling L1 link, an editorial-deny-list
+      # phrasing, a bad/duplicated frontmatter, or a missing changelog. The diff guard
+      # (curator must not edit L1) runs on PRs via the base ref.
+      - name: L2 synthesis lint
+        run: python scripts/check_synthesis.py
 
   type-check:
     name: Type Check
@@ -68,7 +86,7 @@ jobs:
         run: uv pip install --system -e ".[dev]"
 
       - name: mypy
-        run: mypy guardrail/ ingest/
+        run: mypy guardrail/ ingest/ synthesis/ scripts/check_synthesis.py
 
   test:
     name: Test
@@ -94,4 +112,4 @@ jobs:
         run: pytest tests/integration/ -v --tb=short
 
       - name: Coverage report
-        run: pytest tests/ --cov=guardrail --cov=ingest --cov-report=term-missing --cov-fail-under=80
+        run: pytest tests/ --cov=guardrail --cov=ingest --cov=synthesis --cov-report=term-missing --cov-fail-under=80

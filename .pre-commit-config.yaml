@@ -33,3 +33,9 @@ repos:
         language: system
         pass_filenames: false
         files: ^(sources/registry\.json|CREDITS\.md|scripts/check_sources\.py|guardrail/)
+      - id: synthesis-lint
+        name: L2 synthesis lint (claim-sourcing, editorial, evolve, diff-guard)
+        entry: python scripts/check_synthesis.py
+        language: system
+        pass_filenames: false
+        files: ^(vault/02 Briefs/|vault/00 Rules/|synthesis/|scripts/check_synthesis\.py)

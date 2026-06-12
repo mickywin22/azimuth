@@ -40,7 +40,7 @@ select = [
 ignore = ["E501"]  # line too long — handled by formatter
 
 [tool.ruff.lint.isort]
-known-first-party = ["guardrail", "ingest", "scripts"]
+known-first-party = ["guardrail", "ingest", "scripts", "synthesis"]
 
 [tool.mypy]
 python_version = "3.12"
