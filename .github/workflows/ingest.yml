@@ -1,0 +1,56 @@
+name: L1 Ingest
+
+# Daily autonomous L1 ingest: pull every surfaced (guardrail-passing) WorldMonitor
+# subset, write dated L1 notes under vault/01 Sources/YYYY-MM-DD/, and commit them.
+# Runs on GitHub infra so it survives Michael's box being powered off (same posture as
+# the Apex Supabase keep-alive cron). WorldMonitor uses an anonymous session-mint, so no
+# API key / secret is required.
+
+on:
+  schedule:
+    # 06:12 UTC daily — off the top-of-hour rush, after most upstream feeds refresh.
+    - cron: "12 6 * * *"
+  workflow_dispatch: {}
+
+# The job commits new L1 notes back to the repo, so it needs write access.
+permissions:
+  contents: write
+
+# Never let two ingest runs race on the same branch's working tree.
+concurrency:
+  group: l1-ingest
+  cancel-in-progress: false
+
+jobs:
+  ingest:
+    name: Daily L1 ingest
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+
+      - name: Install runtime dependencies
+        run: uv pip install --system -e .
+
+      - name: Run live L1 ingest against WorldMonitor
+        run: python scripts/run_ingest.py --base-url https://api.worldmonitor.app
+
+      - name: Commit new L1 notes
+        run: |
+          git config user.name  "azimuth-ingest[bot]"
+          git config user.email "azimuth-ingest@users.noreply.github.com"
+          git add "vault/01 Sources/"
+          if git diff --cached --quiet; then
+            echo "No new or changed L1 notes — nothing to commit."
+          else
+            DAY="$(date -u +%F)"
+            git commit -m "chore(ingest): daily L1 pull ${DAY} (WorldMonitor)"
+            git push
+          fi
