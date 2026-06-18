@@ -21,8 +21,11 @@ allowed_actions:
   - Grep
   - Glob
   - "bash:python scripts/check_synthesis.py"
+  - "bash:python scripts/check_synthesis_freshness.py"
   - "bash:python scripts/build_brief_index.py"
   - "git:commit"
+cadence: weekly
+dispatched_by: "HemySphere fleet weekly cadence (scripts/scheduled/fleet/AzimuthCadence.ps1 -> Seed-WorkItems) — one work-item per ISO week"
 skills:
   expected: [obsidian-markdown]
 inputs:
@@ -37,6 +40,7 @@ outputs:
 pass_criteria:
   - "scripts/check_synthesis.py exits 0 (all blocking synthesis lints green, every brief)"
   - "scripts/build_brief_index.py --check exits 0 (index is in sync with the briefs)"
+  - "scripts/check_synthesis_freshness.py --check exits 0 (no clean brief lags the latest L1) OR a clean no-op when nothing was stale"
   - "each brief evolves the prior note in place — no new per-week file"
   - "every claim paragraph/bullet carries >=1 [[wikilink]] to a real L1 note"
   - "no L1 note (vault/01 Sources/) edited"
@@ -64,11 +68,24 @@ Currently active brief themes: **energy-supply** (`natural-gas-storage-eu`,
 `crude-oil-inventories`, `fuel-prices`, `energy-prices`) and **geophysical** (`earthquakes`).
 **prediction-markets** is L1-active but its brief is held (see `hold_reason`).
 
+## How you are dispatched (weekly cadence)
+
+You run **autonomously once per ISO week**. The HemySphere fleet seeds one azimuth-curator
+work-item per week (`scripts/scheduled/fleet/AzimuthCadence.ps1`, wired into the resident
+seeder), a Worker becomes you, and the universal **Reviewer pushes your commit to azimuth
+`main`** — the same path L1 ingest already runs daily on GitHub Actions. Together that is the
+end-to-end automation: GH Actions pulls fresh L1 every day, this weekly cadence synthesises the
+L2 briefs. **No manual run is required.**
+
 ## What you do
 
+0. **Find what is stale first.** Run `python scripts/check_synthesis_freshness.py`. It lists
+   every clean (non-held) theme whose latest L1 ingest day is newer than its brief's `updated`
+   date — i.e. exactly the briefs that need this week's refresh. **If nothing is stale, do a
+   clean no-op:** log it and exit (do not invent edits). Held themes never appear here.
 1. **Read the rules first.** `vault/00 Rules/editorial.md` (what a brief must not say) and
    `vault/00 Rules/synthesis-contract.md` (the 5 clauses you honour).
-2. **For each active (non-held) theme**, read this week's L1 notes under
+2. **For each STALE active (non-held) theme**, read this week's L1 notes under
    `vault/01 Sources/<recent dates>/` for that theme's sources. These are verbatim API
    transforms — **read only, never edit them**.
 3. **Evolve that theme's `vault/02 Briefs/<Theme> Weekly.md` in place:**
@@ -90,6 +107,9 @@ Currently active brief themes: **energy-supply** (`natural-gas-storage-eu`,
 
 ## Done gate
 
-`scripts/check_synthesis.py` exits 0, `scripts/build_brief_index.py --check` exits 0, and each
-brief reads as **analysis-with-sources**, not a data dump. The first weekly cycles also pass a
-Michael spot-review before the repo flips public (spec.md F2 / KR-B B3).
+`scripts/check_synthesis.py` exits 0, `scripts/build_brief_index.py --check` exits 0,
+`scripts/check_synthesis_freshness.py --check` exits 0 (no clean brief left lagging the latest
+L1 — proof the weekly cycle actually absorbed the freshest ingest), and each brief reads as
+**analysis-with-sources**, not a data dump. A clean no-op (nothing stale) also satisfies the
+gate. The first weekly cycles also pass a Michael spot-review before the repo flips public
+(spec.md F2 / KR-B B3).

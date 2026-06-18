@@ -7,6 +7,16 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 ## [Unreleased]
 
 ### Added
+- **W26 weekly-synthesis automation (2026-06-18, KR-B B3):** the L2 weekly cycle is now wired
+  end-to-end — no manual curator run. New `scripts/check_synthesis_freshness.py` is the
+  deterministic freshness gate: per editorially-clean (non-held) theme it compares the latest
+  L1 ingest day against the brief's `updated` date and reports STALE / fresh (`--check` exits
+  non-zero if any clean brief lags the latest L1, `--json` for machine use). The `azimuth-curator`
+  role now opens each weekly run by finding stale briefs (clean no-op when none) and closes its
+  done-gate on `freshness --check`. The HemySphere fleet seeds one azimuth-curator work-item per
+  ISO week (`scripts/scheduled/fleet/AzimuthCadence.ps1` -> `Seed-WorkItems.ps1`); the universal
+  Reviewer pushes to azimuth `main`. Combined with the daily GH-Actions L1 ingest, the full
+  L1-daily / L2-weekly automation is live. New `tests/unit/test_synthesis_freshness.py` (6 cases).
 - **W26 multi-theme expansion (2026-06-18):** azimuth now runs more than the single Energy
   brief. The registry gained a data-driven `themes` map + a per-source `theme`; the daily L1
   ingest already pulls every surfaced clean channel, now including `earthquakes` and

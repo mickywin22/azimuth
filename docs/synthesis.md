@@ -51,24 +51,39 @@ the source-guardrail (editorial deny-list + unknown licence) and each carries a 
 ```bash
 python scripts/check_synthesis.py                    # lint every brief
 python scripts/check_synthesis.py --diff-base origin/main   # + diff guard on a PR
+python scripts/check_synthesis_freshness.py          # which clean briefs lag the latest L1
+python scripts/check_synthesis_freshness.py --check  # exit 1 if any clean brief is stale
 python scripts/build_brief_index.py                  # regenerate the brief index
 python scripts/build_brief_index.py --check          # CI guard: index in sync
-pytest tests/unit/                                   # synthesis lint + registry-theme cases
+pytest tests/unit/                                   # synthesis lint + registry-theme + freshness
 ```
 
-## Weekly cycle (target — KR-B B3, needs the scheduled-task wiring + a Michael spot-review)
+## Weekly cycle (WIRED — fleet cadence + GH Actions)
+
+The cycle is **automated end-to-end across two runtimes** — there is no manual step:
 
 ```
-Mon ── azimuth-curator (fleet) ── read vault/01 Sources/<week> ──▶ evolve EACH clean theme's brief
-                                          │
-                                          └─ self-check: python scripts/check_synthesis.py (exit 0)
-                                          └─ regenerate: python scripts/build_brief_index.py
-                                          └─ commit vault/02 Briefs/ only ──▶ (first cycles) Michael spot-review
+DAILY  ── GH Actions ingest.yml (06:12 UTC) ── pull EVERY surfaced clean channel ──▶ vault/01 Sources/<day>/ (commit+push)
+WEEKLY ── HemySphere fleet cadence (AzimuthCadence.ps1 -> Seed-WorkItems) ── seed 1 azimuth-curator work-item/ISO-week
+              │
+              └─ Worker becomes azimuth-curator:
+                   ├─ check_synthesis_freshness.py  ── find STALE clean briefs (clean no-op if none)
+                   ├─ read vault/01 Sources/<week> ──▶ evolve EACH stale theme's brief in place
+                   ├─ self-check: check_synthesis.py + build_brief_index.py + freshness --check (all exit 0)
+                   └─ commit vault/02 Briefs/ only
+                          │
+                          └─ universal Reviewer ──▶ push to azimuth main  (first cycles: Michael spot-review, KR-B B3)
 ```
 
-> **Status (W26):** engine + lint + role + brief index landed and the curator is now
-> **multi-theme** (energy-supply + geophysical active; prediction-markets L1-active, L2 held).
-> The daily L1 ingest (GH Actions `ingest.yml`) already pulls every surfaced clean channel.
-> The remaining B3 slice is the *scheduled* weekly curator task (`scripts/scheduled/` on the
-> HemySphere box / fleet cadence) + Michael spot-review; this dispatch ran the curator by hand
-> end-to-end and both active briefs are lint-green off the live 2026-06-18 ingest.
+- **L1 (data)** is deterministic and runs on GitHub infra (survives Michael's box being off).
+- **L2 (narrative)** needs an LLM, so it runs on the HemySphere fleet cadence — one
+  azimuth-curator dispatch per ISO week, gated by a weekly flag so it never double-seeds. The
+  freshness checker is both the trigger (which briefs to refresh) and the verifier (`--check`
+  proves the weekly synthesis absorbed the freshest ingest).
+
+> **Status (W26 rev1):** engine + lint + role + brief index + **freshness gate** landed; the
+> curator is **multi-theme** (energy-supply + geophysical active; prediction-markets L1-active,
+> L2 held). The weekly cadence is now **wired into the resident seeder** (no longer a manual
+> run): `scripts/scheduled/fleet/AzimuthCadence.ps1`. Both active briefs are lint-green off the
+> live 2026-06-18 ingest and `check_synthesis_freshness.py --check` is clean (0 of 2 stale).
+> First autonomous weekly cycles still pass a Michael spot-review before the public flip.
