@@ -15,13 +15,22 @@ join stays machine-checkable.
   [`koala73/worldmonitor`](https://github.com/koala73/worldmonitor) is AGPL-3.0 + commercial
   dual-licensed; pure API-consumer use does not trigger AGPL (no fork, no modified service).
 
-## Surfaced upstream sources (v0 — Energy Supply theme)
+## Surfaced upstream sources (multi-theme)
+
+**Energy Supply theme**
 
 - `natural-gas-storage-eu` — GIE AGSI+ (Gas Infrastructure Europe) — CC-BY-4.0
 - `crude-oil-inventories` — U.S. EIA (Energy Information Administration) — US-Gov public domain
 - `fuel-prices` — WorldMonitor aggregated fuel-price feed — API-ToS-derived
 - `energy-prices` — WorldMonitor aggregated energy spot/forward feed — API-ToS-derived
+
+**Geophysical theme**
+
 - `earthquakes` — USGS Earthquake Hazards Program — US-Gov public domain
+
+**Prediction Markets theme**
+
+- `prediction-markets` — Polymarket public odds via WorldMonitor — API-ToS-derived (raw odds surfaced as L1 data only; L2 carries a no-investment-framing + odds-are-not-forecasts caution)
 
 ## Staged sources (registered, NOT yet surfaced — pending per-source license review)
 

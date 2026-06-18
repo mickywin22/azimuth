@@ -7,7 +7,22 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 ## [Unreleased]
 
 ### Added
+- **W26 multi-theme expansion (2026-06-18):** azimuth now runs more than the single Energy
+  brief. The registry gained a data-driven `themes` map + a per-source `theme`; the daily L1
+  ingest already pulls every surfaced clean channel, now including `earthquakes` and
+  `prediction-markets`. New L2 brief **Geophysical Weekly** (USGS earthquakes, lint-green off
+  the live 2026-06-18 ingest). New `scripts/build_brief_index.py` auto-generates the
+  `vault/02 Briefs/README.md` index (all briefs + last-updated + held themes), wired into CI +
+  pre-commit with a `--check` sync guard. `azimuth-curator` role generalised to evolve one
+  brief per clean theme. New `tests/unit/test_registry_themes.py` integrity tests.
 - Initial project scaffold from coding factory template
+
+### Changed
+- **prediction-markets surfaced as L1** (passes the source-guardrail: API-ToS licence,
+  prediction-market class). Its **L2 brief is held** — the live feed currently surfaces a
+  single politically-charged market that can't be synthesised neutrally; `hold_reason` logged
+  in `sources/registry.json`. The three editorial-excluded channels (conflict / maritime /
+  air-traffic) stay `surfaced:false`, each now carrying a logged `surfaced_reason`.
 
 ### Removed
 - **Phase-1 template strip (2026-06-11):** deleted the unused `project-template`

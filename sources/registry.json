@@ -1,6 +1,6 @@
 {
   "$schema": "./registry.schema.md",
-  "description": "Canonical registry of every WorldMonitor-derived data subset azimuth may surface. The per-source license guardrail (scripts/check_sources.py) validates every entry before any subset is surfaced as L1. A subset that is not in this registry, or whose entry fails the guardrail, MUST NOT be surfaced. See docs/source-guardrail.md.",
+  "description": "Canonical registry of every WorldMonitor-derived data subset azimuth may surface. The per-source license guardrail (scripts/check_sources.py) validates every entry before any subset is surfaced as L1. A subset that is not in this registry, or whose entry fails the guardrail, MUST NOT be surfaced. See docs/source-guardrail.md. Each surfaced source carries a `theme` that maps it to one L2 brief (see `themes` below); excluded sources carry a `surfaced_reason` explaining why they stay surfaced:false.",
   "content_class_policy": {
     "allowed": [
       "market-data",
@@ -23,6 +23,22 @@
     "US-Gov-public-domain",
     "API-ToS-derived"
   ],
+  "themes": {
+    "energy-supply": {
+      "title": "Energy Supply Weekly",
+      "brief": "Energy Supply Weekly.md"
+    },
+    "geophysical": {
+      "title": "Geophysical Weekly",
+      "brief": "Geophysical Weekly.md"
+    },
+    "prediction-markets": {
+      "title": "Prediction Markets Weekly",
+      "brief": "Prediction Markets Weekly.md",
+      "brief_held": true,
+      "hold_reason": "L1 ingest is ACTIVE (channel passes the guardrail). The L2 brief is held one cycle: the live WorldMonitor prediction feed currently surfaces a single, politically-charged market, which cannot be synthesised into a neutral public brief without centering a political figure. Brief lands once the feed carries a broader, non-single-political market set. Michael decision: confirm whether prediction-markets should be briefed at all under the editorial line."
+    }
+  },
   "sources": [
     {
       "key": "natural-gas-storage-eu",
@@ -31,6 +47,7 @@
       "license": "CC-BY-4.0",
       "attribution": "Data: GIE AGSI+ via WorldMonitor (api.worldmonitor.app)",
       "content_class": "physical-infrastructure",
+      "theme": "energy-supply",
       "risk_flags": [],
       "synthesis_cautions": [],
       "surfaced": true
@@ -42,6 +59,7 @@
       "license": "US-Gov-public-domain",
       "attribution": "Data: U.S. EIA via WorldMonitor (api.worldmonitor.app)",
       "content_class": "physical-infrastructure",
+      "theme": "energy-supply",
       "risk_flags": [],
       "synthesis_cautions": [],
       "surfaced": true
@@ -53,6 +71,7 @@
       "license": "API-ToS-derived",
       "attribution": "Data: WorldMonitor fuel-price feed (api.worldmonitor.app)",
       "content_class": "market-data",
+      "theme": "energy-supply",
       "risk_flags": [],
       "synthesis_cautions": ["no-investment-framing"],
       "surfaced": true
@@ -64,6 +83,7 @@
       "license": "API-ToS-derived",
       "attribution": "Data: WorldMonitor energy-price feed (api.worldmonitor.app)",
       "content_class": "market-data",
+      "theme": "energy-supply",
       "risk_flags": [],
       "synthesis_cautions": ["no-investment-framing"],
       "surfaced": true
@@ -75,6 +95,7 @@
       "license": "US-Gov-public-domain",
       "attribution": "Data: USGS via WorldMonitor (api.worldmonitor.app)",
       "content_class": "natural-hazard",
+      "theme": "geophysical",
       "risk_flags": [],
       "synthesis_cautions": ["report-observed-not-predicted"],
       "surfaced": true
@@ -86,9 +107,10 @@
       "license": "API-ToS-derived",
       "attribution": "Data: Polymarket via WorldMonitor (api.worldmonitor.app)",
       "content_class": "prediction-market",
+      "theme": "prediction-markets",
       "risk_flags": [],
       "synthesis_cautions": ["no-investment-framing", "odds-are-not-forecasts"],
-      "surfaced": false
+      "surfaced": true
     },
     {
       "key": "conflict-events-acled",
@@ -99,7 +121,8 @@
       "content_class": "political-opinion",
       "risk_flags": ["political-opinion", "safety-prediction"],
       "synthesis_cautions": [],
-      "surfaced": false
+      "surfaced": false,
+      "surfaced_reason": "EXCLUDED: content_class political-opinion + risk_flags political-opinion/safety-prediction are on the editorial deny-list, and the upstream license is unknown (not in the allowlist). Fails the source-guardrail on two independent grounds; may never be surfaceable under the current editorial line."
     },
     {
       "key": "vessel-tracking-ais",
@@ -110,7 +133,8 @@
       "content_class": "safety-prediction",
       "risk_flags": ["safety-prediction"],
       "synthesis_cautions": [],
-      "surfaced": false
+      "surfaced": false,
+      "surfaced_reason": "EXCLUDED: content_class safety-prediction is on the editorial deny-list and the upstream license is unknown. Maritime/AIS would be the 'Maritime' theme but cannot pass the guardrail without a clean license AND a non-safety re-classification."
     },
     {
       "key": "military-flights-adsb",
@@ -121,7 +145,8 @@
       "content_class": "safety-prediction",
       "risk_flags": ["safety-prediction", "political-opinion"],
       "synthesis_cautions": [],
-      "surfaced": false
+      "surfaced": false,
+      "surfaced_reason": "EXCLUDED: content_class safety-prediction + risk_flags safety-prediction/political-opinion on the editorial deny-list, license unknown. Air-traffic/ADS-B would be the 'Air-traffic' theme but is doubly editorial-excluded; not surfaceable under the current editorial line."
     }
   ]
 }

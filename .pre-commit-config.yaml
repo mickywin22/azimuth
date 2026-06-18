@@ -39,3 +39,9 @@ repos:
         language: system
         pass_filenames: false
         files: ^(vault/02 Briefs/|vault/00 Rules/|synthesis/|scripts/check_synthesis\.py)
+      - id: brief-index-sync
+        name: L2 brief index in sync with briefs
+        entry: python scripts/build_brief_index.py --check
+        language: system
+        pass_filenames: false
+        files: ^(vault/02 Briefs/|sources/registry\.json|scripts/build_brief_index\.py)

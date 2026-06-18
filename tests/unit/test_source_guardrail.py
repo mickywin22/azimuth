@@ -58,7 +58,8 @@ def _check(entry: SourceEntry, credited: frozenset[str] = frozenset({"demo"})) -
 def test_live_registry_passes() -> None:
     result = check_registry(REGISTRY_PATH, CREDITS_PATH)
     assert result.ok, [str(v) for v in result.violations]
-    assert result.surfaced == 5
+    # 6 surfaced after the W26 multi-theme expansion: 4 energy + earthquakes + prediction-markets.
+    assert result.surfaced == 6
     assert result.checked == 9
 
 
