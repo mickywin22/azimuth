@@ -1,0 +1,59 @@
+#!/usr/bin/env python3
+"""Build + (optionally) serve the azimuth public static site.
+
+Renders the ``vault/`` tree into a browsable read-only HTML site (see
+``synthesis/site_build.py`` for the engine + the held-theme exclusion rule).
+This is the F3 public-flip build artifact and a local preview Michael can open.
+
+Usage:
+    python scripts/build_site.py                 # build into ./site
+    python scripts/build_site.py --out _site      # custom output dir
+    python scripts/build_site.py --serve          # build, then serve on :8099
+    python scripts/build_site.py --serve --port 9000
+"""
+
+from __future__ import annotations
+
+import argparse
+import functools
+import http.server
+import socketserver
+import sys
+from pathlib import Path
+
+_REPO_ROOT = Path(__file__).resolve().parent.parent
+if str(_REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(_REPO_ROOT))
+
+from synthesis.site_build import build_site  # noqa: E402
+
+
+def main(argv: list[str] | None = None) -> int:
+    parser = argparse.ArgumentParser(description="Build the azimuth public static site.")
+    parser.add_argument("--out", default="site", help="output directory (default: site)")
+    parser.add_argument("--serve", action="store_true", help="serve after building")
+    parser.add_argument("--port", type=int, default=8099, help="serve port (default: 8099)")
+    args = parser.parse_args(argv)
+
+    out_dir = (_REPO_ROOT / args.out).resolve()
+    model = build_site(out_dir)
+    n_pages = len(model.briefs) + len(model.sources) + len(model.rules) + 1
+    print(
+        f"Built {n_pages} pages into {out_dir}: "
+        f"{len(model.briefs)} briefs, {len(model.sources)} source notes, "
+        f"{len(model.rules)} rule page(s). Held themes excluded."
+    )
+
+    if args.serve:
+        handler = functools.partial(http.server.SimpleHTTPRequestHandler, directory=str(out_dir))
+        with socketserver.TCPServer(("127.0.0.1", args.port), handler) as httpd:
+            print(f"Serving at http://127.0.0.1:{args.port}/  (Ctrl+C to stop)")
+            try:
+                httpd.serve_forever()
+            except KeyboardInterrupt:
+                print("\nStopped.")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
