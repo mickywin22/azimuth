@@ -2,8 +2,8 @@
 title: Energy Supply Weekly
 type: L2-brief
 theme: energy-supply
-week: 2026-W25
-updated: 2026-06-20T08:10:00Z
+week: 2026-W26
+updated: 2026-06-23T04:00:00Z
 sources: [natural-gas-storage-eu, crude-oil-inventories, fuel-prices, energy-prices]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -14,7 +14,9 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 > Synthesised from the week's L1 source notes under `../01 Sources/`. The `azimuth-curator`
 > fleet role evolves this single note in place each week — it deepens this brief and appends
 > a dated `## Changelog` line rather than forking a new file. Every claim links to the L1
-> note it rests on. (This cycle reads the live `2026-06-20` daily ingest.)
+> note it rests on. (This cycle reads the live `2026-06-23` daily ingest; the upstream
+> WorldMonitor energy feeds carried no new reporting week, so the figures are held from the
+> 2026-06-12 reporting week and the brief records a flat week.)
 
 ## This week at a glance
 
@@ -78,3 +80,10 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
   four weeks, down from +108 Bcf). Crude inventories, WTI/Brent and pump prices were unchanged
   from the prior reporting week. Added the decelerating-refill read to the storage and
   reading-the-week sections.
+- 2026-06-23 — daily-ingest flowback (2026-W26): the live 2026-06-23 WorldMonitor pull carried
+  no new reporting week — gas storage (2,759 Bcf, week ending 2026-06-12), crude inventories
+  (758.5 Mb), WTI/Brent ($92.16/$93.76) and the EU/German pump panel were byte-identical to the
+  2026-06-20 ingest (only the retrieval timestamp moved). Honest flat-week cycle: figures held,
+  no fabricated movement; the brief's `updated` was advanced so the freshness gate records that
+  the latest L1 day was absorbed ([[natural-gas-storage-eu]], [[crude-oil-inventories]],
+  [[energy-prices]], [[fuel-prices]]).
