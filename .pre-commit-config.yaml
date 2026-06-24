@@ -45,3 +45,9 @@ repos:
         language: system
         pass_filenames: false
         files: ^(vault/02 Briefs/|sources/registry\.json|scripts/build_brief_index\.py)
+      - id: bundle-log-sync
+        name: OKF bundle log (vault/log.md) in sync with ingest + changelogs
+        entry: python scripts/build_log.py --check
+        language: system
+        pass_filenames: false
+        files: ^(vault/01 Sources/|vault/02 Briefs/|sources/registry\.json|scripts/build_log\.py)

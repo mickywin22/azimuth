@@ -38,7 +38,7 @@ published example bundles, e.g. GA4 / Stack Overflow / Bitcoin):
 | Concept ID = file path minus `.md` | path-addressable notes | ✅ conformant |
 | git-distributable bundle | public GitHub repo | ✅ conformant |
 | Reserved `index.md` (directory listing) | per-folder index | ✅ conformant (Tier-1) |
-| Reserved `log.md` (chronological history) | bundle update log | ✅ conformant (Tier-1) |
+| Reserved `log.md` (chronological history) | [`log.md`](log.md) — auto-generated from ingest days + brief changelogs | ✅ conformant (Tier-1) |
 | Relationships as standard markdown links | currently Obsidian `[[wikilinks]]` | ⚠️ **honest caveat — Tier-2, deferred** |
 
 **The one honest caveat:** azimuth still expresses cross-note relationships as
