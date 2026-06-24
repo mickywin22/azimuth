@@ -37,11 +37,12 @@ def main(argv: list[str] | None = None) -> int:
 
     out_dir = (_REPO_ROOT / args.out).resolve()
     model = build_site(out_dir)
-    n_pages = len(model.briefs) + len(model.sources) + len(model.rules) + 1
+    extra = 2 + (1 if model.okf is not None else 0)  # index + graph (+ okf)
+    n_pages = len(model.briefs) + len(model.sources) + len(model.rules) + extra
     print(
         f"Built {n_pages} pages into {out_dir}: "
         f"{len(model.briefs)} briefs, {len(model.sources)} source notes, "
-        f"{len(model.rules)} rule page(s). Held themes excluded."
+        f"{len(model.rules)} rule page(s), OKF profile, graph view. Held themes excluded."
     )
 
     if args.serve:

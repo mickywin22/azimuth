@@ -52,8 +52,9 @@ class Page:
     out_path: str  # site-relative posix path, e.g. "sources/2026-06-20/fuel-prices.html"
     title: str
     body_md: str
-    kind: str  # "brief" | "source" | "rule"
+    kind: str  # "brief" | "source" | "rule" | "okf"
     day: str = ""  # only for source pages
+    theme: str = ""  # theme key (briefs + sources), for graph grouping
 
 
 @dataclass
@@ -63,6 +64,7 @@ class SiteModel:
     briefs: list[Page] = field(default_factory=list)
     sources: list[Page] = field(default_factory=list)
     rules: list[Page] = field(default_factory=list)
+    okf: Page | None = None  # the OKF-conformance profile page (vault/OKF.md)
     # wikilink target (e.g. "fuel-prices") -> site-relative posix URL
     link_map: dict[str, str] = field(default_factory=dict)
 
@@ -97,6 +99,7 @@ def discover(vault_dir: Path, registry: dict[str, Any]) -> SiteModel:
     """Walk the vault tree and build the (held-excluded) site model + link map."""
     skip_keys = held_source_keys(registry)
     skip_briefs = held_brief_files(registry)
+    src_theme = {s["key"]: s.get("theme") for s in registry.get("sources", [])}
     model = SiteModel()
 
     # --- L2 briefs (landing surface) -------------------------------------
@@ -107,8 +110,9 @@ def discover(vault_dir: Path, registry: dict[str, Any]) -> SiteModel:
                 continue
             fm, body = split_frontmatter(path.read_text(encoding="utf-8"))
             title = (fm or {}).get("title", path.stem)
+            theme = (fm or {}).get("theme", "")
             out = f"briefs/{_slug(title)}.html"
-            model.briefs.append(Page(out, title, body, "brief"))
+            model.briefs.append(Page(out, title, body, "brief", theme=theme))
             # let wikilinks reach a brief by title or by file stem
             model.link_map[title] = out
             model.link_map[path.stem] = out
@@ -128,7 +132,9 @@ def discover(vault_dir: Path, registry: dict[str, Any]) -> SiteModel:
                 fm, body = split_frontmatter(path.read_text(encoding="utf-8"))
                 title = (fm or {}).get("source", key)
                 out = f"sources/{day}/{key}.html"
-                model.sources.append(Page(out, f"{title} — {day}", body, "source", day))
+                model.sources.append(
+                    Page(out, f"{title} — {day}", body, "source", day, theme=src_theme.get(key, ""))
+                )
                 # first (newest) write wins → latest day for this key
                 model.link_map.setdefault(key, out)
 
@@ -142,6 +148,15 @@ def discover(vault_dir: Path, registry: dict[str, Any]) -> SiteModel:
             out = "editorial.html"
             model.rules.append(Page(out, title, body, "rule"))
             model.link_map["editorial"] = out
+
+    # --- OKF conformance profile (the USP page) --------------------------
+    okf_path = vault_dir / "OKF.md"
+    if okf_path.is_file():
+        fm, body = split_frontmatter(okf_path.read_text(encoding="utf-8"))
+        title = (fm or {}).get("title", "OKF Conformance")
+        model.okf = Page("okf.html", title, body, "okf")
+        model.link_map["OKF"] = "okf.html"
+        model.link_map[title] = "okf.html"
 
     return model
 
@@ -188,7 +203,9 @@ _PAGE_TEMPLATE = """<!DOCTYPE html>
   <nav>
     <a href="{root}index.html">Briefs</a>
     <a href="{root}index.html#sources">Sources</a>
-    <a href="{root}editorial.html">Editorial line</a>
+    <a href="{root}graph.html">Graph</a>
+    <a href="{root}editorial.html">Editorial</a>
+    <a href="{root}okf.html">OKF</a>
   </nav>
 </header>
 <main class="content">
@@ -203,7 +220,7 @@ _PAGE_TEMPLATE = """<!DOCTYPE html>
 </body></html>
 """
 
-_KIND_LABEL = {"brief": "L2 Brief", "source": "L1 Source", "rule": "L3 Rule"}
+_KIND_LABEL = {"brief": "L2 Brief", "source": "L1 Source", "rule": "L3 Rule", "okf": "OKF Profile"}
 
 
 def _render_page(page: Page, link_map: dict[str, str]) -> str:
@@ -246,10 +263,16 @@ def _render_index(model: SiteModel) -> str:
     body = f"""
 <div class="hero">
   <h1>azimuth</h1>
-  <p>A read-only, browsable view of the open-intelligence vault: weekly
+  <p class="usp"><strong>An <a href="okf.html">Open Knowledge Format (OKF&nbsp;v0.1)</a>
+  knowledge bundle</strong> — a vendor-neutral, git-distributable corpus of markdown + YAML
+  that any OKF-aware agent can traverse with no bespoke parser. azimuth runs the L1/L2/L3 wiki
+  doctrine as an instance of a standard Google independently published, proven on live
+  open-intelligence data.</p>
+  <p>A read-only, browsable view of the vault: weekly
   <strong>L2 briefs</strong> synthesised from dated <strong>L1 source notes</strong>,
   under one published <a href="editorial.html">editorial line</a>.
-  Every claim in a brief links to the data it rests on.</p>
+  Every claim in a brief links to the data it rests on — and the
+  <a href="graph.html">graph view</a> makes those cross-source relationships visual.</p>
 </div>
 <section><h2>Briefs</h2><div class="cards">{brief_html}</div></section>
 <section id="sources"><h2>L1 Sources</h2>{sources_html}</section>
@@ -260,6 +283,182 @@ def _render_index(model: SiteModel) -> str:
         kind_block="",
         html_body=body,
     )
+
+
+def build_graph(model: SiteModel) -> dict[str, Any]:
+    """Derive the relationship graph from the discovered (held-excluded) site model.
+
+    Nodes = L2 briefs + L1 source notes (latest day per key). Edges = the actual
+    ``[[wikilink]]`` relationships inside each brief, resolved through the same
+    ``link_map`` the rendered pages use — so the graph can never disagree with the
+    links a reader clicks. Held themes are already absent from the model, so they are
+    absent from the graph for free.
+    """
+    nodes: list[dict[str, Any]] = []
+    edges: list[dict[str, str]] = []
+
+    # one source node per KEY, the latest-day page (the one the link_map points at) —
+    # older dated copies of the same source are not separate graph nodes.
+    src_node_by_path: dict[str, str] = {}
+    for s in model.sources:
+        key = Path(s.out_path).stem
+        if model.link_map.get(key) != s.out_path:
+            continue  # not the latest-day page for this key
+        nid = f"source:{key}"
+        src_node_by_path[s.out_path] = nid
+        nodes.append(
+            {
+                "id": nid,
+                "label": s.title.split(" — ")[0],
+                "kind": "source",
+                "theme": s.theme or "other",
+                "url": s.out_path,
+            }
+        )
+
+    for b in model.briefs:
+        bid = f"brief:{_slug(b.title)}"
+        nodes.append(
+            {
+                "id": bid,
+                "label": b.title,
+                "kind": "brief",
+                "theme": b.theme or "other",
+                "url": b.out_path,
+            }
+        )
+        seen: set[str] = set()
+        for m in _WIKILINK_RE.finditer(b.body_md):
+            target = m.group(1).split("|", 1)[0].split("#", 1)[0].strip()
+            dest = model.link_map.get(target)
+            tnid = src_node_by_path.get(dest or "")
+            if tnid and tnid not in seen:
+                seen.add(tnid)
+                edges.append({"source": bid, "target": tnid})
+
+    return {"nodes": nodes, "edges": edges}
+
+
+_GRAPH_TEMPLATE = """<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Graph · azimuth</title>
+<link rel="stylesheet" href="assets/style.css">
+</head><body>
+<header class="nav">
+  <a class="brand" href="index.html">azimuth</a>
+  <nav>
+    <a href="index.html">Briefs</a>
+    <a href="index.html#sources">Sources</a>
+    <a href="graph.html">Graph</a>
+    <a href="editorial.html">Editorial</a>
+    <a href="okf.html">OKF</a>
+  </nav>
+</header>
+<main class="content">
+<div class="kind kind-brief">Knowledge graph</div>
+<h1>Relationship graph</h1>
+<p class="hero-sub">Every <strong>L2 brief</strong> (large node) links to the dated
+<strong>L1 source notes</strong> (small nodes) its claims rest on, coloured by theme.
+This is the lightweight link-graph view of the OKF bundle — drag a node, click it to open
+the page. Held themes never appear. A richer entity/hypergraph layer is the planned next
+step (see <a href="okf.html">OKF</a>).</p>
+<div id="legend" class="legend"></div>
+<canvas id="g" width="820" height="520"></canvas>
+<noscript><p>Enable JavaScript to view the interactive graph, or browse the
+<a href="index.html">briefs and sources</a> directly.</p></noscript>
+<div id="glist"></div>
+</main>
+<footer class="foot">
+  azimuth — public demonstrator of the HemySphere L1/L2/L3 vault doctrine.
+  Content CC-BY-4.0. Read-only static preview.
+</footer>
+<script>
+const GRAPH = {graph_json};
+const THEME_COLORS = {"energy-supply":"#4cc2ff","geophysical":"#ff9d4c",
+"prediction-markets":"#b07cff","other":"#8a97a8"};
+const cv = document.getElementById("g"), cx = cv.getContext("2d");
+const themes = [...new Set(GRAPH.nodes.map(n => n.theme))];
+document.getElementById("legend").innerHTML = themes.map(t =>
+  `<span class="lg"><i style="background:${THEME_COLORS[t]||THEME_COLORS.other}"></i>${t}</span>`
+).join("");
+// text fallback / accessibility list
+document.getElementById("glist").innerHTML =
+  "<details><summary>Graph as a list</summary><ul>" +
+  GRAPH.nodes.filter(n => n.kind === "brief").map(b => {
+    const kids = GRAPH.edges.filter(e => e.source === b.id)
+      .map(e => GRAPH.nodes.find(n => n.id === e.target))
+      .filter(Boolean)
+      .map(n => `<a href="${n.url}">${n.label}</a>`).join(", ");
+    return `<li><a href="${b.url}"><strong>${b.label}</strong></a> &rarr; ${kids||"&mdash;"}</li>`;
+  }).join("") + "</ul></details>";
+// simple force layout
+const W = cv.width, H = cv.height;
+const N = GRAPH.nodes.map((n, i) => ({
+  ...n, x: W/2 + Math.cos(i)*180 + (i%5)*7, y: H/2 + Math.sin(i*1.7)*150 + (i%3)*5,
+  vx: 0, vy: 0, r: n.kind === "brief" ? 13 : 7
+}));
+const idx = Object.fromEntries(N.map(n => [n.id, n]));
+const E = GRAPH.edges.map(e => ({s: idx[e.source], t: idx[e.target]})).filter(e => e.s && e.t);
+function step() {
+  for (const a of N) {
+    for (const b of N) {
+      if (a === b) continue;
+      let dx = a.x-b.x, dy = a.y-b.y, d = Math.hypot(dx,dy)||1;
+      const f = 2600/(d*d);
+      a.vx += (dx/d)*f; a.vy += (dy/d)*f;
+    }
+    a.vx += (W/2-a.x)*0.0025; a.vy += (H/2-a.y)*0.0025;
+  }
+  for (const e of E) {
+    let dx = e.t.x-e.s.x, dy = e.t.y-e.s.y, d = Math.hypot(dx,dy)||1;
+    const f = (d-120)*0.012;
+    e.s.vx += (dx/d)*f; e.s.vy += (dy/d)*f;
+    e.t.vx -= (dx/d)*f; e.t.vy -= (dy/d)*f;
+  }
+  for (const a of N) {
+    a.x += a.vx*0.5; a.y += a.vy*0.5; a.vx *= 0.82; a.vy *= 0.82;
+    a.x = Math.max(a.r, Math.min(W-a.r, a.x)); a.y = Math.max(a.r, Math.min(H-a.r, a.y));
+  }
+}
+function draw() {
+  cx.clearRect(0,0,W,H);
+  cx.strokeStyle = "#2a3a4d"; cx.lineWidth = 1;
+  for (const e of E) { cx.beginPath(); cx.moveTo(e.s.x,e.s.y); cx.lineTo(e.t.x,e.t.y); cx.stroke(); }
+  for (const n of N) {
+    cx.beginPath(); cx.arc(n.x,n.y,n.r,0,7); cx.fillStyle = THEME_COLORS[n.theme]||THEME_COLORS.other;
+    cx.globalAlpha = n.kind === "brief" ? 1 : 0.85; cx.fill(); cx.globalAlpha = 1;
+    if (n.kind === "brief") {
+      cx.fillStyle = "#e7edf5"; cx.font = "12px Inter,sans-serif"; cx.textAlign = "center";
+      cx.fillText(n.label, n.x, n.y-n.r-5);
+    }
+  }
+}
+let drag = null;
+cv.addEventListener("mousedown", ev => {
+  const r = cv.getBoundingClientRect(), mx = ev.clientX-r.left, my = ev.clientY-r.top;
+  drag = N.find(n => Math.hypot(n.x-mx, n.y-my) < n.r+4) || null;
+});
+cv.addEventListener("mousemove", ev => {
+  if (!drag) return;
+  const r = cv.getBoundingClientRect(); drag.x = ev.clientX-r.left; drag.y = ev.clientY-r.top;
+});
+window.addEventListener("mouseup", () => drag = null);
+cv.addEventListener("click", ev => {
+  const r = cv.getBoundingClientRect(), mx = ev.clientX-r.left, my = ev.clientY-r.top;
+  const hit = N.find(n => Math.hypot(n.x-mx, n.y-my) < n.r+4);
+  if (hit && hit.url) location.href = hit.url;
+});
+(function loop() { for (let k=0;k<2;k++) step(); draw(); requestAnimationFrame(loop); })();
+</script>
+</body></html>
+"""
+
+
+def _render_graph(graph: dict[str, Any]) -> str:
+    import json
+
+    return _GRAPH_TEMPLATE.replace("{graph_json}", json.dumps(graph))
 
 
 _CSS = """:root{--bg:#0c0f14;--panel:#141a23;--ink:#e7edf5;--muted:#8a97a8;
@@ -299,6 +498,17 @@ color:var(--muted);background:var(--panel);border-radius:0 8px 8px 0}
 code{background:var(--panel);padding:.1rem .35rem;border-radius:5px;
 font-family:JetBrains Mono,ui-monospace,monospace;font-size:.88em}
 .foot{color:var(--muted);font-size:.8rem;border-top:1px solid var(--line);margin-top:2rem}
+.usp{color:var(--ink);background:var(--panel);border:1px solid var(--line);
+border-left:3px solid var(--accent);border-radius:0 10px 10px 0;padding:.8rem 1rem;max-width:68ch}
+.usp a{font-weight:700}
+.hero-sub{color:var(--muted);max-width:68ch}
+.kind-okf{color:#b07cff;border-color:#b07cff}
+#g{width:100%;max-width:820px;height:auto;background:var(--panel);border:1px solid var(--line);
+border-radius:12px;margin:1rem 0;touch-action:none;cursor:grab}
+.legend{display:flex;gap:1rem;flex-wrap:wrap;font-size:.82rem;color:var(--muted);margin:.5rem 0}
+.legend .lg{display:inline-flex;align-items:center;gap:.4rem}
+.legend i{width:.7rem;height:.7rem;border-radius:50%;display:inline-block}
+#glist details{margin-top:1rem}#glist summary{cursor:pointer;color:var(--muted)}
 """
 
 
@@ -318,10 +528,17 @@ def build_site(
     (out_dir / "assets").mkdir(parents=True, exist_ok=True)
     (out_dir / "assets" / "style.css").write_text(_CSS, encoding="utf-8")
 
-    for page in [*model.briefs, *model.sources, *model.rules]:
+    pages = [*model.briefs, *model.sources, *model.rules]
+    if model.okf is not None:
+        pages.append(model.okf)
+    for page in pages:
         target = out_dir / page.out_path
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_text(_render_page(page, model.link_map), encoding="utf-8")
 
     (out_dir / "index.html").write_text(_render_index(model), encoding="utf-8")
+
+    graph = build_graph(model)
+    (out_dir / "graph.html").write_text(_render_graph(graph), encoding="utf-8")
+    (out_dir / "graph.json").write_text(json.dumps(graph, indent=2), encoding="utf-8")
     return model

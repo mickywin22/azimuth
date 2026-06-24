@@ -12,6 +12,7 @@ import json
 from pathlib import Path
 
 from synthesis.site_build import (
+    build_graph,
     build_site,
     discover,
     held_source_keys,
@@ -52,6 +53,12 @@ def _make_vault(tmp_path: Path) -> Path:
     # held brief file present on disk — must still be skipped
     (vault / "02 Briefs" / "Prediction Markets Weekly.md").write_text(
         "---\ntitle: Prediction Markets Weekly\n---\n# held\n", encoding="utf-8"
+    )
+    # OKF conformance profile at the bundle root
+    (vault / "OKF.md").write_text(
+        "---\ntitle: OKF Conformance\ntype: L3-rule\n---\n"
+        "# azimuth is an Open Knowledge Format bundle\nSee the [graph](graph.html).\n",
+        encoding="utf-8",
     )
     for day in ("2026-06-18", "2026-06-20"):
         d = vault / "01 Sources" / day
@@ -112,3 +119,47 @@ def test_build_site_writes_files_and_omits_held(tmp_path: Path) -> None:
     assert not list(out.glob("briefs/prediction*.html"))
     index_text = (out / "index.html").read_text(encoding="utf-8")
     assert "Prediction Markets" not in index_text
+    # OKF profile USP is stated on the home page
+    assert "Open Knowledge Format" in index_text
+
+
+def test_site_has_okf_and_graph_pages_and_full_nav(tmp_path: Path) -> None:
+    vault = _make_vault(tmp_path)
+    out = tmp_path / "site"
+    (tmp_path / "registry.json").write_text(json.dumps(_REGISTRY), encoding="utf-8")
+    build_site(out, vault_dir=vault, registry_path=tmp_path / "registry.json")
+
+    # the two new pages exist
+    assert (out / "okf.html").is_file()
+    assert (out / "graph.html").is_file()
+    assert (out / "graph.json").is_file()
+
+    # nav on a content page covers Briefs / Sources / Graph / Editorial / OKF
+    page = (out / "briefs" / "energy-supply-weekly.html").read_text(encoding="utf-8")
+    for link in ("index.html", "graph.html", "editorial.html", "okf.html"):
+        assert f'href="../{link}"' in page or 'href="../index.html#sources"' in page
+    assert ">Graph<" in page and ">OKF<" in page and ">Sources<" in page
+
+    okf_text = (out / "okf.html").read_text(encoding="utf-8")
+    assert "Open Knowledge Format" in okf_text
+
+
+def test_build_graph_edges_and_held_exclusion(tmp_path: Path) -> None:
+    vault = _make_vault(tmp_path)
+    model = discover(vault, _REGISTRY)
+    graph = build_graph(model)
+
+    node_ids = {n["id"] for n in graph["nodes"]}
+    # the surfaced brief + its latest-day source are nodes; held PM source is not
+    assert "brief:energy-supply-weekly" in node_ids
+    assert "source:fuel-prices" in node_ids
+    assert not any("prediction" in nid for nid in node_ids)
+
+    # exactly one source node per key (latest day only — no dated duplicates)
+    src_ids = [n["id"] for n in graph["nodes"] if n["kind"] == "source"]
+    assert src_ids == ["source:fuel-prices"]
+
+    # the brief's wikilink to fuel-prices is an edge; the held one is dropped
+    edges = {(e["source"], e["target"]) for e in graph["edges"]}
+    assert ("brief:energy-supply-weekly", "source:fuel-prices") in edges
+    assert len(edges) == 1
