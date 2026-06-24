@@ -9,6 +9,12 @@ requires-python = ">=3.12"
 dependencies = []
 
 [project.optional-dependencies]
+# Static-site build (scripts/build_site.py -> synthesis/site_build.py). Runtime stays
+# pure-stdlib except for the Markdown renderer; the Pages workflow installs this extra.
+# Kept separate from `dev` so the site build need not pull the full test stack.
+site = [
+    "markdown>=3.7",
+]
 dev = [
     "pytest>=8.3.0",
     "pytest-cov>=6.0.0",

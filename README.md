@@ -39,6 +39,20 @@ mypy guardrail/ ingest/
 pre-commit install
 ```
 
+## Public site & deploy
+
+The browsable read-only site (weekly L2 briefs → L1 sources → L3 editorial line, plus the
+cross-channel knowledge graph) builds with `python scripts/build_site.py` and is published
+to **GitHub Pages** by [`.github/workflows/pages.yml`](.github/workflows/pages.yml) on every
+push to `main`.
+
+> **Pages URL (once enabled): https://mickywin22.github.io/azimuth/**
+
+The repo is **private** and the site is **not live** until GitHub Pages is explicitly
+enabled in the repo settings — that flip is a deliberate manual step. Full build steps,
+the ready-to-flip gate, and the local validation command are in
+[docs/deploy.md](docs/deploy.md).
+
 ## Architecture
 
 See [docs/architecture.md](docs/architecture.md) for design decisions.

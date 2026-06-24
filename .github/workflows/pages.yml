@@ -1,0 +1,64 @@
+name: Deploy site to GitHub Pages
+
+# Builds the public static site (scripts/build_site.py -> ./_site) and publishes it
+# to GitHub Pages on every push to main, plus a manual trigger.
+#
+# READY-TO-FLIP GATE: this workflow only DEPLOYS once GitHub Pages is enabled in the
+# repo settings (Settings -> Pages -> Source: "GitHub Actions"). Until Michael enables
+# that, the `deploy` job fails by design and nothing is published — the site stays
+# private. Enabling Pages is Michael's manual, explicitly-confirmed step. See
+# docs/deploy.md.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Least-privilege token scopes required by actions/deploy-pages.
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow one concurrent deployment; don't cancel an in-progress publish.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Build static site
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install site build deps
+        run: uv pip install --system -e ".[site]"
+
+      - name: Build site
+        run: python scripts/build_site.py --out _site
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    name: Deploy to GitHub Pages
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
