@@ -26,6 +26,7 @@ if str(_REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(_REPO_ROOT))
 
 from scripts.build_graph import build as build_graph  # noqa: E402
+from scripts.build_index import main as build_index  # noqa: E402
 from synthesis.site_build import build_site  # noqa: E402
 
 
@@ -35,6 +36,10 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--serve", action="store_true", help="serve after building")
     parser.add_argument("--port", type=int, default=8099, help="serve port (default: 8099)")
     args = parser.parse_args(argv)
+
+    # Refresh the OKF reserved per-folder index.md files before rendering, so the bundle
+    # the site is built from is always OKF-conformant and the indexes never drift.
+    build_index([])
 
     out_dir = (_REPO_ROOT / args.out).resolve()
     model = build_site(out_dir)

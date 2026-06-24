@@ -38,7 +38,7 @@ _INDEX = _BRIEFS_DIR / "README.md"
 def _briefs() -> list[dict[str, str]]:
     out: list[dict[str, str]] = []
     for path in sorted(_BRIEFS_DIR.glob("*.md")):
-        if path.name.lower() == "readme.md":
+        if path.name.lower() in ("readme.md", "index.md"):
             continue
         fm, _ = split_frontmatter(path.read_text(encoding="utf-8"))
         fm = fm or {}

@@ -32,10 +32,18 @@ _REGISTRY = {
         },
     },
     "sources": [
-        {"key": "fuel-prices", "theme": "energy-supply", "surfaced": True,
-         "upstream_source": "WorldMonitor fuel-price feed"},
-        {"key": "earthquakes", "theme": "geophysical", "surfaced": True,
-         "upstream_source": "USGS"},
+        {
+            "key": "fuel-prices",
+            "theme": "energy-supply",
+            "surfaced": True,
+            "upstream_source": "WorldMonitor fuel-price feed",
+        },
+        {
+            "key": "earthquakes",
+            "theme": "geophysical",
+            "surfaced": True,
+            "upstream_source": "USGS",
+        },
         {"key": "prediction-markets", "theme": "prediction-markets", "surfaced": True},
     ],
 }

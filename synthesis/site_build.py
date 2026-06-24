@@ -103,7 +103,7 @@ def discover(vault_dir: Path, registry: dict[str, Any]) -> SiteModel:
     briefs_dir = vault_dir / "02 Briefs"
     if briefs_dir.is_dir():
         for path in sorted(briefs_dir.glob("*.md")):
-            if path.name == "README.md" or path.name in skip_briefs:
+            if path.name in ("README.md", "index.md") or path.name in skip_briefs:
                 continue
             fm, body = split_frontmatter(path.read_text(encoding="utf-8"))
             title = (fm or {}).get("title", path.stem)
@@ -120,7 +120,7 @@ def discover(vault_dir: Path, registry: dict[str, Any]) -> SiteModel:
         for day_dir in sorted((d for d in sources_dir.iterdir() if d.is_dir()), reverse=True):
             day = day_dir.name
             for path in sorted(day_dir.glob("*.md")):
-                if path.name == "README.md":
+                if path.name in ("README.md", "index.md"):
                     continue
                 key = path.stem
                 if key in skip_keys:
