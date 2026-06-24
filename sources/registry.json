@@ -2,18 +2,33 @@
   "$schema": "./registry.schema.md",
   "description": "Canonical registry of every WorldMonitor-derived data subset azimuth may surface. The per-source license guardrail (scripts/check_sources.py) validates every entry before any subset is surfaced as L1. A subset that is not in this registry, or whose entry fails the guardrail, MUST NOT be surfaced. See docs/source-guardrail.md. Each surfaced source carries a `theme` that maps it to one L2 brief (see `themes` below); excluded sources carry a `surfaced_reason` explaining why they stay surfaced:false.",
   "content_class_policy": {
+    "line": "fact-vs-propaganda (Michael 2026-06-24). A channel is surfaceable iff it (1) monitors FACTS — observed events, measurements, positions, records — AND (2) is free-to-use (license-clean). Sensitivity is NEVER a deny reason; only LICENSE or non-factual (opinion/propaganda) content is. A factual record is allowed even on a sensitive topic — a conflict EVENT, a ship POSITION, a flight TRACK, a power outage are observed facts; an OPINION about them is propaganda.",
     "allowed": [
       "market-data",
       "physical-infrastructure",
       "natural-hazard",
-      "prediction-market"
+      "prediction-market",
+      "conflict-event-record",
+      "vessel-position",
+      "flight-track",
+      "cyber-event",
+      "civil-unrest-event",
+      "news-factual"
     ],
     "denied": [
-      "investment-advice",
-      "safety-prediction",
-      "political-opinion"
+      "political-propaganda",
+      "opinion-advocacy",
+      "editorial-communication",
+      "political-position",
+      "safety-position",
+      "investment-advice"
     ],
-    "note": "denied classes are the azimuth editorial exclusions (spec.md L3 rule set). prediction-market raw odds are allowed as L1 DATA but carry a synthesis caution forbidding investment framing in L2."
+    "benchmark_foil_classes": [
+      "forecast",
+      "intelligence-assessment",
+      "scenario"
+    ],
+    "note": "DENIED classes are non-factual content: political propaganda, opinion/advocacy, editorial/communication, political-or-safety POSITION-taking, investment advice. The gate is `factual AND free-to-use license` — a restricted/commercial feed stays out on LICENSE grounds (not editorial). NEWS is allowed as a factual channel (news-factual) — the per-source filter keeps only fact-reporting wire/agency sources and strips op-ed/editorial/advocacy outlets. ALL sensitive-topic factual EVENT classes (conflict-event-record, vessel-position, flight-track, cyber-event, civil-unrest-event) are allowed once the feed license is free. `benchmark_foil_classes` (forecast / intelligence-assessment / scenario) are NOT surfaced as azimuth channels — they are predictions/assessments/hypotheticals, not observed facts; azimuth uses them as BENCHMARK foils (observed+sourced facts vs predicted/assessed opinion) per work-item azi-benchmark-vs-forecast-intelligence-W26. prediction-market raw odds stay allowed (the quoted price is an observed fact) but carry a synthesis caution forbidding investment framing in L2."
   },
   "license_allowlist": [
     "CC-BY-4.0",
@@ -36,7 +51,7 @@
       "title": "Prediction Markets Weekly",
       "brief": "Prediction Markets Weekly.md",
       "brief_held": true,
-      "hold_reason": "L1 ingest is ACTIVE (channel passes the guardrail). The L2 brief is held one cycle: the live WorldMonitor prediction feed currently surfaces a single, politically-charged market, which cannot be synthesised into a neutral public brief without centering a political figure. Brief lands once the feed carries a broader, non-single-political market set. Michael decision: confirm whether prediction-markets should be briefed at all under the editorial line."
+      "hold_reason": "L1 ingest is ACTIVE (channel passes the guardrail). The quoted prediction-market PRICE is an observed fact (allowed under the 2026-06-24 fact-vs-propaganda line). The L2 brief is held for a synthesis-breadth reason only — NOT an editorial deny: the live feed currently surfaces a single market, too narrow to evolve into a balanced weekly brief without that one market dominating. Brief lands once the feed carries a broader market set. Reporting the price is fine; the hold is about brief breadth, not topic sensitivity."
     }
   },
   "sources": [
@@ -118,11 +133,11 @@
       "upstream_source": "ACLED / UCDP",
       "license": "unknown",
       "attribution": "",
-      "content_class": "political-opinion",
-      "risk_flags": ["political-opinion", "safety-prediction"],
-      "synthesis_cautions": [],
+      "content_class": "conflict-event-record",
+      "risk_flags": ["sensitive-topic"],
+      "synthesis_cautions": ["report-observed-not-predicted", "no-political-position"],
       "surfaced": false,
-      "surfaced_reason": "EXCLUDED: content_class political-opinion + risk_flags political-opinion/safety-prediction are on the editorial deny-list, and the upstream license is unknown (not in the allowlist). Fails the source-guardrail on two independent grounds; may never be surfaceable under the current editorial line."
+      "surfaced_reason": "HELD ON LICENSE GROUNDS ONLY: a conflict EVENT record is an observed fact (allowed under the 2026-06-24 fact-vs-propaganda line — sensitivity is never a deny reason). It stays surfaced:false purely because the upstream license is unknown (not in the free-to-use allowlist). Surfaceable the moment a clean license is confirmed; no editorial barrier remains."
     },
     {
       "key": "vessel-tracking-ais",
@@ -130,11 +145,11 @@
       "upstream_source": "AIS aggregators",
       "license": "unknown",
       "attribution": "",
-      "content_class": "safety-prediction",
-      "risk_flags": ["safety-prediction"],
-      "synthesis_cautions": [],
+      "content_class": "vessel-position",
+      "risk_flags": ["sensitive-topic"],
+      "synthesis_cautions": ["report-observed-not-predicted", "no-safety-position"],
       "surfaced": false,
-      "surfaced_reason": "EXCLUDED: content_class safety-prediction is on the editorial deny-list and the upstream license is unknown. Maritime/AIS would be the 'Maritime' theme but cannot pass the guardrail without a clean license AND a non-safety re-classification."
+      "surfaced_reason": "HELD ON LICENSE GROUNDS ONLY: a vessel POSITION is an observed fact (allowed under the 2026-06-24 fact-vs-propaganda line — sensitivity is never a deny reason). Maritime/AIS would be the 'Maritime' theme; it stays surfaced:false purely because the AIS-aggregator license is unknown (not in the free-to-use allowlist). Surfaceable once a clean license is confirmed; no editorial barrier remains."
     },
     {
       "key": "military-flights-adsb",
@@ -142,11 +157,11 @@
       "upstream_source": "ADS-B Exchange",
       "license": "unknown",
       "attribution": "",
-      "content_class": "safety-prediction",
-      "risk_flags": ["safety-prediction", "political-opinion"],
-      "synthesis_cautions": [],
+      "content_class": "flight-track",
+      "risk_flags": ["sensitive-topic"],
+      "synthesis_cautions": ["report-observed-not-predicted", "no-political-position"],
       "surfaced": false,
-      "surfaced_reason": "EXCLUDED: content_class safety-prediction + risk_flags safety-prediction/political-opinion on the editorial deny-list, license unknown. Air-traffic/ADS-B would be the 'Air-traffic' theme but is doubly editorial-excluded; not surfaceable under the current editorial line."
+      "surfaced_reason": "HELD ON LICENSE GROUNDS ONLY: a flight TRACK is an observed fact (allowed under the 2026-06-24 fact-vs-propaganda line — sensitivity is never a deny reason). Air-traffic/ADS-B would be the 'Air-traffic' theme; it stays surfaced:false purely because the ADS-B Exchange license is unknown (not in the free-to-use allowlist). Surfaceable once a clean license is confirmed; no editorial barrier remains."
     }
   ]
 }

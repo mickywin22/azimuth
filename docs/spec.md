@@ -103,7 +103,7 @@ Trade-off accepted: L2 pauses if the box is down ≥1 week. Stale-data guard (Ph
 - **Quality gate (NEW in v2 — resolves audit finding 5).** CI synthesis lint, all blocking:
   - every L2 claim paragraph carries ≥1 wikilink to an existing L1 note
   - git diff guard: synthesis commit touches `vault/02 Briefs/` only — any `01 Sources/` mutation fails the run
-  - editorial deny-list regex (investment-advice, safety-prediction, political-opinion phrasings) + curator self-check against `vault/00 Rules/editorial.md`
+  - editorial deny-list regex — NON-FACTUAL synthesis only (investment-advice, safety/forecast position-taking, political propaganda, opinion/advocacy phrasings); sensitive TOPICS are allowed, only opinions about them are flagged + curator self-check against `vault/00 Rules/editorial.md`
   - frontmatter schema valid; brief **evolves** the prior week's note (edit-in-place + changelog line), never duplicates
 - **Acceptance criteria:**
   - [ ] 2 consecutive weekly briefs pass the full lint
@@ -128,11 +128,11 @@ Trade-off accepted: L2 pauses if the box is down ≥1 week. Stale-data guard (Ph
 ## L3 rule set (editorial guardrails — enforced, not aspirational)
 
 `vault/00 Rules/` ships as content (part of the demonstrator — evaluators see the L3 layer):
-- `editorial.md` — no individual-country political opinions; no investment advice; no security/safety predictions that could harm readers; uncertainty stated, never dramatised.
+- `editorial.md` — **fact-vs-propaganda line (Michael 2026-06-24): facts in, opinions out.** Surface ANY free-to-use channel that monitors FACTS (observed events, measurements, positions, records) on ANY topic — sensitivity is never a deny reason. Deny only NON-FACTUAL content: political propaganda, opinion/advocacy, editorial/communication, political-or-safety POSITION-taking, investment advice. NEWS is allowed (fact-reporting outlets; op-ed/advocacy stripped). FORECAST / intelligence-assessment / scenario are not channels (benchmark foils). The gate = factual AND free-to-use license.
 - `attribution.md` — per-source license check **before** any new subset is surfaced; CREDITS.md update in the same PR. **✅ SHIPPED (2026-06-10) as a standing CI + pre-commit guardrail** — `sources/registry.json` (machine-readable source registry) + `scripts/check_sources.py` (lint) + `src/backend/guardrail/` (typed logic) + `CREDITS.md` (machine-checkable credit join). Full rule: [`docs/source-guardrail.md`](source-guardrail.md).
 - `synthesis-contract.md` — L1 never edited after creation; L2 evolves, never overwrites; every claim sourced.
 
-Enforcement = the F2 CI lint (deny-list + diff guard + link check). A rule without a lint line is a TODO, not a rule. The **per-source license + content guardrail** (attribution rule above) is the first of these lint lines to ship — it blocks the build if any surfaced WorldMonitor subset is unlicensed, uncredited, or carries an editorial-exclusion content class (investment / safety / political).
+Enforcement = the F2 CI lint (deny-list + diff guard + link check). A rule without a lint line is a TODO, not a rule. The **per-source license + content guardrail** (attribution rule above) is the first of these lint lines to ship — it blocks the build if any surfaced WorldMonitor subset is unlicensed (`license` category), uncredited, or carries a non-factual content class (propaganda / opinion / position-taking — `editorial` category). The guardrail tags each block `license` vs `editorial` so a sensitive-but-factual channel held only for its license is never mistaken for an editorial exclusion.
 
 ## License (resolves audit finding 3 — CONFIRMED IQ #371 (A), 2026-06-10)
 

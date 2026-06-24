@@ -191,6 +191,22 @@ def test_neutral_reporting_passes() -> None:
     )
 
 
+def test_opinion_advocacy_fails() -> None:
+    # Telling the reader what ought to happen is advocacy, not reporting.
+    assert check_editorial_denylist("The world must act to stop this ([[conflict-events]]).")
+
+
+def test_sensitive_topic_factual_report_passes() -> None:
+    # The fact-vs-propaganda line: a factual EVENT record on a sensitive topic is fine —
+    # only an opinion/position about it is denied.
+    assert (
+        check_editorial_denylist(
+            "A conflict event was recorded near the border on 2026-06-20 ([[conflict-events]])."
+        )
+        == []
+    )
+
+
 # --- 6. diff guard -------------------------------------------------------------------
 def test_diff_guard_blocks_l1_edit() -> None:
     paths = ["vault/01 Sources/2026-06-15/crude-oil-inventories.md"]

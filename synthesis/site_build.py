@@ -197,8 +197,9 @@ _PAGE_TEMPLATE = """<!DOCTYPE html>
 </main>
 <footer class="foot">
   azimuth — public demonstrator of the HemySphere L1/L2/L3 vault doctrine.
-  Content CC-BY-4.0. Held themes (e.g. prediction-markets) are excluded per the
-  <a href="{root}editorial.html">editorial line</a>. Read-only static preview.
+  Content CC-BY-4.0. Channels are surfaced on the facts-in / opinions-out
+  <a href="{root}editorial.html">editorial line</a>; a held theme is paused on license
+  or synthesis-breadth grounds, not topic sensitivity. Read-only static preview.
 </footer>
 </body></html>
 """

@@ -23,7 +23,16 @@ REPO_ROOT = Path(__file__).resolve().parents[2]
 REGISTRY_PATH = REPO_ROOT / "sources" / "registry.json"
 CREDITS_PATH = REPO_ROOT / "CREDITS.md"
 
-ALLOWED = frozenset({"market-data", "physical-infrastructure", "natural-hazard"})
+ALLOWED = frozenset(
+    {
+        "market-data",
+        "physical-infrastructure",
+        "natural-hazard",
+        "conflict-event-record",
+        "vessel-position",
+        "flight-track",
+    }
+)
 LICENSES = frozenset({"CC-BY-4.0", "US-Gov-public-domain"})
 
 
@@ -101,30 +110,75 @@ def test_uncredited_surfaced_source_blocks() -> None:
 
 
 def test_denied_content_class_blocks() -> None:
-    rules = {v.rule for v in _check(_entry(content_class="investment-advice"))}
+    violations = _check(_entry(content_class="political-propaganda"))
+    rules = {v.rule for v in violations}
     assert "denied-content-class" in rules
+    # the deny is tagged EDITORIAL (non-factual content), never license.
+    assert any(v.rule == "denied-content-class" and v.category == "editorial" for v in violations)
 
 
 def test_denied_risk_flag_blocks() -> None:
-    rules = {v.rule for v in _check(_entry(risk_flags=("political-opinion",)))}
+    rules = {v.rule for v in _check(_entry(risk_flags=("opinion-advocacy",)))}
     assert "denied-risk-flag" in rules
 
 
 def test_unlisted_content_class_blocks() -> None:
-    rules = {v.rule for v in _check(_entry(content_class="weather-forecast"))}
+    # forecast is a benchmark foil, not an allowed observed-fact channel.
+    violations = _check(_entry(content_class="forecast"))
+    rules = {v.rule for v in violations}
     assert "unlisted-content-class" in rules
+    assert any(v.rule == "unlisted-content-class" and v.category == "policy" for v in violations)
+
+
+# --- fact-vs-propaganda line (Michael 2026-06-24) ---------------------------------------
+
+
+def test_sensitive_but_factual_clean_license_passes() -> None:
+    # A conflict EVENT record on a sensitive topic, with a clean license, must PASS — under
+    # the fact-vs-propaganda line, sensitivity is never a deny reason.
+    entry = _entry(
+        key="conflict",
+        content_class="conflict-event-record",
+        risk_flags=("sensitive-topic",),
+        license="CC-BY-4.0",
+    )
+    assert _check(entry, credited=frozenset({"conflict"})) == []
+
+
+def test_factual_channel_restricted_license_blocks_on_license_only() -> None:
+    # Same factual channel, but an unrecognised license -> held on LICENSE grounds, NOT
+    # editorial. No denied-content-class fires; the only block is categorised license.
+    entry = _entry(
+        key="conflict",
+        content_class="conflict-event-record",
+        risk_flags=("sensitive-topic",),
+        license="proprietary-feed",
+    )
+    violations = _check(entry, credited=frozenset({"conflict"}))
+    rules = {v.rule for v in violations}
+    assert "unrecognised-license" in rules
+    assert "denied-content-class" not in rules  # sensitivity is not editorial
+    assert all(v.category != "editorial" for v in violations)
+    assert any(v.rule == "unrecognised-license" and v.category == "license" for v in violations)
+
+
+def test_propaganda_blocks_on_editorial() -> None:
+    # A clean-licensed channel that is non-factual (opinion/advocacy) IS an editorial deny.
+    entry = _entry(key="oped", content_class="opinion-advocacy", license="CC-BY-4.0")
+    violations = _check(entry, credited=frozenset({"oped"}))
+    assert any(v.rule == "denied-content-class" and v.category == "editorial" for v in violations)
 
 
 # --- staged (unsurfaced) sources are exempt from hard rules -----------------------------
 
 
 def test_unsurfaced_denied_source_is_allowed() -> None:
-    # A registered-but-not-surfaced conflict feed (denied class, unknown license) must NOT
+    # A registered-but-not-surfaced propaganda feed (denied class, unknown license) must NOT
     # block the build — it is honestly staged, awaiting review.
     staged = _entry(
-        key="conflict",
-        content_class="political-opinion",
-        risk_flags=("political-opinion", "safety-prediction"),
+        key="oped",
+        content_class="political-propaganda",
+        risk_flags=("political-propaganda", "safety-position"),
         license="unknown",
         attribution="",
         surfaced=False,
@@ -135,9 +189,9 @@ def test_unsurfaced_denied_source_is_allowed() -> None:
 def test_surfacing_a_denied_source_would_block() -> None:
     # Flip the same staged source to surfaced -> the guardrail catches it.
     surfaced = _entry(
-        key="conflict",
-        content_class="political-opinion",
-        risk_flags=("political-opinion",),
+        key="oped",
+        content_class="political-propaganda",
+        risk_flags=("political-propaganda",),
         license="unknown",
         attribution="",
         surfaced=True,
@@ -175,7 +229,8 @@ def test_from_dict_coerces_lists_to_tuples() -> None:
 
 def test_violation_str_is_readable() -> None:
     assert (
-        str(Violation("k", "missing-license", "no license")) == "[k] missing-license: no license"
+        str(Violation("k", "missing-license", "no license", category="license"))
+        == "[k] missing-license (license): no license"
     )
 
 

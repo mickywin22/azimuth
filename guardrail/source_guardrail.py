@@ -17,11 +17,25 @@ from typing import TYPE_CHECKING, Any
 if TYPE_CHECKING:
     from pathlib import Path
 
-# The azimuth editorial exclusions (spec.md "L3 rule set"). A surfaced source whose
-# content_class is one of these — or that carries one of these as a risk flag — is a
-# hard guardrail violation.
+# The azimuth editorial exclusions (spec.md "L3 rule set"), rewritten to the
+# fact-vs-propaganda line (Michael 2026-06-24). The deny-list is NON-FACTUAL content
+# only: political propaganda, opinion/advocacy, editorial/communication, political-or-
+# safety POSITION-taking, and investment advice. A surfaced source whose content_class
+# is one of these — or that carries one as a risk flag — is a hard EDITORIAL violation.
+#
+# Sensitivity is NEVER a deny reason. A factual record on a sensitive topic (a conflict
+# EVENT, a vessel POSITION, a flight TRACK, a cyber INCIDENT) is allowed; only a
+# non-factual OPINION about it is denied. A restricted/commercial feed is held on
+# LICENSE grounds, a separate (license) category — not an editorial deny.
 DENIED_CONTENT_CLASSES: frozenset[str] = frozenset(
-    {"investment-advice", "safety-prediction", "political-opinion"}
+    {
+        "political-propaganda",
+        "opinion-advocacy",
+        "editorial-communication",
+        "political-position",
+        "safety-position",
+        "investment-advice",
+    }
 )
 
 
@@ -63,14 +77,24 @@ class SourceEntry:
 
 @dataclass(frozen=True)
 class Violation:
-    """A single guardrail breach for one source."""
+    """A single guardrail breach for one source.
+
+    ``category`` tags WHY the breach fires so a held channel's reason is machine-readable
+    (Michael 2026-06-24 fact-vs-propaganda line): ``"license"`` (restricted/unrecognised
+    feed — a license barrier, not editorial), ``"editorial"`` (non-factual propaganda /
+    opinion / position-taking content), ``"policy"`` (a factual class not yet in the
+    allowed policy list), ``"attribution"``, or ``"credit"``. The two headline categories
+    are ``license`` vs ``editorial`` — a sensitive-but-factual feed never trips
+    ``editorial``; it can only be held on ``license`` grounds.
+    """
 
     source_key: str
     rule: str
     detail: str
+    category: str = "schema"
 
     def __str__(self) -> str:
-        return f"[{self.source_key}] {self.rule}: {self.detail}"
+        return f"[{self.source_key}] {self.rule} ({self.category}): {self.detail}"
 
 
 @dataclass
@@ -140,8 +164,9 @@ def check_source(
             Violation(
                 entry.key,
                 "denied-content-class",
-                f"content_class '{entry.content_class}' is an editorial exclusion; "
-                "must not be surfaced",
+                f"content_class '{entry.content_class}' is non-factual "
+                "(propaganda / opinion / position-taking); must not be surfaced",
+                category="editorial",
             )
         )
     if denied_flags:
@@ -149,7 +174,9 @@ def check_source(
             Violation(
                 entry.key,
                 "denied-risk-flag",
-                f"risk_flags {denied_flags} are editorial exclusions; must not be surfaced",
+                f"risk_flags {denied_flags} are non-factual editorial exclusions; "
+                "must not be surfaced",
+                category="editorial",
             )
         )
     if entry.content_class not in allowed_content_classes:
@@ -157,23 +184,33 @@ def check_source(
             Violation(
                 entry.key,
                 "unlisted-content-class",
-                f"content_class '{entry.content_class}' is not in the allowed policy list",
+                f"content_class '{entry.content_class}' is not an allowed observed-fact "
+                "class (forecast / assessment / scenario are benchmark foils, not channels)",
+                category="policy",
             )
         )
     if not entry.license:
-        violations.append(Violation(entry.key, "missing-license", "no license recorded"))
+        violations.append(
+            Violation(entry.key, "missing-license", "no license recorded", category="license")
+        )
     elif entry.license not in license_allowlist:
         violations.append(
             Violation(
                 entry.key,
                 "unrecognised-license",
-                f"license '{entry.license}' is not in the allowlist "
+                f"license '{entry.license}' is not in the free-to-use allowlist "
                 "(per-source license review required before surfacing)",
+                category="license",
             )
         )
     if not entry.attribution:
         violations.append(
-            Violation(entry.key, "missing-attribution", "no attribution string recorded")
+            Violation(
+                entry.key,
+                "missing-attribution",
+                "no attribution string recorded",
+                category="attribution",
+            )
         )
     if entry.key not in credited_keys:
         violations.append(
@@ -181,6 +218,7 @@ def check_source(
                 entry.key,
                 "missing-credit",
                 "surfaced source is not credited in CREDITS.md",
+                category="credit",
             )
         )
 

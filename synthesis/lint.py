@@ -13,8 +13,11 @@ pre-commit. The checks (all from ``docs/spec.md`` F2 + ``vault/00 Rules/``):
   4. evolve-not-duplicate— the brief carries a ``## Changelog`` with >=1 dated line, the
                            edit-in-place signal (L2 evolves the prior week, never forks a
                            shallow new note).
-  5. editorial-denylist  — investment-advice / safety-prediction / political-opinion
-                           phrasings (``vault/00 Rules/editorial.md``) are rejected.
+  5. editorial-denylist  — NON-FACTUAL synthesis is rejected: investment-advice,
+                           safety/forecast POSITION-taking, political propaganda, and
+                           opinion/advocacy framing (``vault/00 Rules/editorial.md``,
+                           2026-06-24 fact-vs-propaganda line). Sensitive TOPICS are fine;
+                           only opinions/positions about them are flagged.
   6. diff-guard          — a synthesis commit may touch ``vault/02 Briefs/`` only; any
                            ``vault/01 Sources/`` mutation fails (the curator must never
                            edit L1). Operates on a list of changed paths (wired by the CLI).
@@ -49,8 +52,12 @@ _WIKILINK_RE = re.compile(r"\[\[([^\]]+?)\]\]")
 _CHANGELOG_LINE_RE = re.compile(r"\d{4}-\d{2}-\d{2}")
 
 # --- Editorial deny-list (vault/00 Rules/editorial.md enforcement) -------------------
-# Phrase-level, word-boundaried patterns chosen to catch advice/prediction/opinion
-# framings while staying clear of neutral reporting ("crude inventories rose 2%").
+# Rewritten to the fact-vs-propaganda line (Michael 2026-06-24): the lint flags
+# NON-FACTUAL synthesis — advocacy, opinion, blame, and political-or-safety POSITION-
+# taking — NOT sensitive topics. Reporting an observed fact on ANY topic is fine ("a
+# conflict event was logged ([[conflict-events]])"); editorialising about it is not
+# ("the regime is to blame"). Phrase-level, word-boundaried patterns stay clear of
+# neutral reporting ("crude inventories rose 2%", "USGS logged a M5.8 event").
 _EDITORIAL_PATTERNS: tuple[tuple[str, re.Pattern[str]], ...] = (
     (
         "investment-advice",
@@ -63,7 +70,8 @@ _EDITORIAL_PATTERNS: tuple[tuple[str, re.Pattern[str]], ...] = (
         ),
     ),
     (
-        "safety-prediction",
+        # A safety/forecast POSITION (a prediction of harm) — not the observed event.
+        "safety-position",
         re.compile(
             r"\bimminent\s+(danger|disaster|collapse|catastrophe)\b"
             r"|\b(earthquake|quake|tsunami|eruption)\s+will\s+(strike|hit|kill)\b"
@@ -73,11 +81,25 @@ _EDITORIAL_PATTERNS: tuple[tuple[str, re.Pattern[str]], ...] = (
         ),
     ),
     (
-        "political-opinion",
+        # Political propaganda / partisan POSITION-taking about a topic.
+        "political-propaganda",
         re.compile(
             r"\b(corrupt|illegitimate|criminal|brutal)\s+(regime|government|administration)\b"
             r"|\bshould be\s+(sanctioned|overthrown|removed from power)\b"
-            r"|\bis to blame for\b|\b(puppet|propaganda)\s+(regime|state)\b",
+            r"|\bis to blame for\b|\b(puppet|propaganda)\s+(regime|state)\b"
+            r"|\bwar crimes?\b|\b(aggressor|oppressor)\b",
+            re.IGNORECASE,
+        ),
+    ),
+    (
+        # Advocacy / opinion framing — telling the reader what ought to happen or how to
+        # feel, rather than what the data shows.
+        "opinion-advocacy",
+        re.compile(
+            r"\b(the (world|international community|we))\s+must\b"
+            r"|\b(we|the world)\s+(should|need to)\s+(act|stop|condemn|intervene)\b"
+            r"|\b(outrageous|unacceptable|shameful|heroic|courageous)\b"
+            r"|\b(condemn|denounce)s?\b|\bin my (view|opinion)\b|\bit is clear that\b",
             re.IGNORECASE,
         ),
     ),

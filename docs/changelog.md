@@ -28,6 +28,25 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Initial project scaffold from coding factory template
 
 ### Changed
+- **Editorial line rewritten to fact-vs-propaganda (2026-06-24, Michael):** azimuth now
+  surfaces ANY free-to-use channel that monitors **facts** (observed events, measurements,
+  positions, records) on ANY topic, and denies only **non-factual** content (political
+  propaganda, opinion/advocacy, editorial/communication, political-or-safety position-taking,
+  investment advice). **Sensitivity is never a deny reason — only LICENSE is.** Implemented
+  across the L3 stack: `sources/registry.json` `content_class_policy` (10 observed-fact
+  ALLOWED classes incl. `conflict-event-record` / `vessel-position` / `flight-track` /
+  `cyber-event` / `civil-unrest-event` / `news-factual`; 6 non-factual DENIED classes;
+  new `benchmark_foil_classes` for forecast/assessment/scenario). The three sensitive feeds
+  (`conflict-events-acled`, `vessel-tracking-ais`, `military-flights-adsb`) reclassified from
+  editorial-excluded to factual channels **held on LICENSE grounds only** (license still
+  unknown). `guardrail/source_guardrail.py` gains a `Violation.category` tag (`license` vs
+  `editorial`) so a sensitive-but-factual hold is never mistaken for an editorial exclusion.
+  `synthesis/lint.py` deny-list relabelled + broadened to flag advocacy/opinion/position
+  framing (NOT topics) — a factual report on a sensitive topic passes. `vault/00 Rules/editorial.md`,
+  `docs/spec.md`, `docs/source-guardrail.md`, and the published `editorial.html` rewritten to
+  state the "facts in, opinions out" line plainly. NEWS allowed as a factual channel
+  (fact-reporting sources kept, op-ed/advocacy stripped). 101 tests green, guardrail PASS,
+  6 surfaced channels stay green.
 - **prediction-markets surfaced as L1** (passes the source-guardrail: API-ToS licence,
   prediction-market class). Its **L2 brief is held** — the live feed currently surfaces a
   single politically-charged market that can't be synthesised neutrally; `hold_reason` logged

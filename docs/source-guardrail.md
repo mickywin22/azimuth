@@ -9,17 +9,30 @@
 Every entry in [`sources/registry.json`](../sources/registry.json) marked `surfaced: true`
 must satisfy **all** of:
 
-| Check | Rule id | Why |
-|-------|---------|-----|
-| License recorded and in the allowlist | `missing-license` / `unrecognised-license` | Path A is API-consumer; each upstream source needs a known, compatible license before redistribution |
-| Attribution string present | `missing-attribution` | CC-BY / ToS attribution obligation |
-| Credited in `CREDITS.md` (by registry `key`) | `missing-credit` | the credit ↔ registry join must be machine-checkable, not fuzzy |
-| Content class in the allowed policy list | `unlisted-content-class` | no surfacing an unclassified subset |
-| Content class is not an editorial exclusion | `denied-content-class` | no investment-advice / safety-prediction / political-opinion content |
-| No risk flag is an editorial exclusion | `denied-risk-flag` | a subset tagged with an excluded risk may not be surfaced |
+The guardrail enforces the **fact-vs-propaganda line** (Michael 2026-06-24): a channel is
+surfaceable iff it is **factual** AND **free-to-use** (license-clean). Every breach is
+tagged with a `category` so a held channel's reason is machine-readable — the two headline
+categories are **`license`** vs **`editorial`**.
 
-**Editorial exclusions** (hard deny): `investment-advice`, `safety-prediction`,
-`political-opinion`. These mirror `vault/00 Rules/editorial.md` (spec L3).
+| Check | Rule id | Category | Why |
+|-------|---------|----------|-----|
+| License recorded and in the free-to-use allowlist | `missing-license` / `unrecognised-license` | `license` | Path A is API-consumer; each upstream source needs a known, compatible license before redistribution |
+| Attribution string present | `missing-attribution` | `attribution` | CC-BY / ToS attribution obligation |
+| Credited in `CREDITS.md` (by registry `key`) | `missing-credit` | `credit` | the credit ↔ registry join must be machine-checkable, not fuzzy |
+| Content class is an allowed observed-fact class | `unlisted-content-class` | `policy` | forecast / assessment / scenario are benchmark foils, not channels |
+| Content class is not a non-factual class | `denied-content-class` | `editorial` | no propaganda / opinion / position-taking content |
+| No risk flag is a non-factual class | `denied-risk-flag` | `editorial` | a subset tagged with a non-factual class may not be surfaced |
+
+**Editorial exclusions** (hard deny, `editorial` category): `political-propaganda`,
+`opinion-advocacy`, `editorial-communication`, `political-position`, `safety-position`,
+`investment-advice`. These mirror `vault/00 Rules/editorial.md` (spec L3).
+
+**Sensitivity is never a deny reason.** A factual record on a sensitive topic (a conflict
+EVENT — `conflict-event-record`, a vessel POSITION — `vessel-position`, a flight TRACK —
+`flight-track`, a cyber incident, a news fact-report) is **allowed** — it can only be held
+on **`license`** grounds, never `editorial`. Only an OPINION/POSITION about the topic is an
+editorial deny. A restricted/commercial feed stays out on `license` grounds, distinct from
+the editorial line.
 
 **Staged sources** (`surfaced: false`) are schema-checked only — they may legitimately
 carry an `unknown` license or a denied class while awaiting a per-source license review.
@@ -34,7 +47,7 @@ move (surfacing an unreviewed/excluded feed) is what gets blocked.
   `sources/registry.json`, `CREDITS.md`, or the guardrail code changes.
 - **Local:** `python scripts/check_sources.py` from the repo root.
 
-Logic lives in [`src/backend/guardrail/source_guardrail.py`](../src/backend/guardrail/source_guardrail.py)
+Logic lives in [`guardrail/source_guardrail.py`](../guardrail/source_guardrail.py)
 (pure stdlib, mypy-strict typed); unit tests in `tests/unit/test_source_guardrail.py`.
 
 ## Adding a new subset (the workflow this guards)
@@ -47,6 +60,8 @@ Logic lives in [`src/backend/guardrail/source_guardrail.py`](../src/backend/guar
 5. The guardrail (pre-commit + CI) confirms the subset is licensed, attributed, credited,
    and editorially allowed — or blocks the merge.
 
-A subset that cannot pass (e.g. `conflict-events-acled`, `vessel-tracking-ais`,
-`military-flights-adsb` — political-opinion / safety-prediction risk) stays `surfaced: false`
-indefinitely under the current editorial line.
+`conflict-events-acled`, `vessel-tracking-ais`, and `military-flights-adsb` are **factual
+EVENT/POSITION/TRACK channels** (allowed under the fact-vs-propaganda line — sensitivity is
+no barrier). They stay `surfaced: false` **on `license` grounds only** — their upstream
+license is unknown (not in the free-to-use allowlist). Each is surfaceable the moment a
+clean license is confirmed; no editorial barrier remains.
