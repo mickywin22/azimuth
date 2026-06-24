@@ -43,6 +43,13 @@ pre-commit install
 
 See [docs/architecture.md](docs/architecture.md) for design decisions.
 
+## OKF conformance
+
+The `vault/` bundle is a **Knowledge Bundle conformant with the Open Knowledge Format (OKF) v0.1**
+(Google Cloud's vendor-neutral markdown-corpus standard), at the spec-minimal bar. The conformance
+claim, citation mapping, and the honest caveat that relationship links are still Tier-2 (deferred
+`[[wikilink]]` → markdown-link migration) are documented in the bundle profile: [`OKF.md`](OKF.md).
+
 ## License
 
 Split license — confirmed IQ #371 (A), 2026-06-10:
