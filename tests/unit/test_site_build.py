@@ -112,3 +112,32 @@ def test_build_site_writes_files_and_omits_held(tmp_path: Path) -> None:
     assert not list(out.glob("briefs/prediction*.html"))
     index_text = (out / "index.html").read_text(encoding="utf-8")
     assert "Prediction Markets" not in index_text
+
+
+def test_home_leads_with_emi_living_doctrine(tmp_path: Path) -> None:
+    """The home page must sell Emi's LIVING doctrine, not lead with 'OKF-conformant'.
+
+    Locks the W26-Azimuth-USP reframe: visitor sees azimuth is a demonstrator of Emi's
+    living loop; OKF is a credibility/interop detail, never the headline.
+    """
+    vault = _make_vault(tmp_path)
+    out = tmp_path / "site"
+    (tmp_path / "registry.json").write_text(json.dumps(_REGISTRY), encoding="utf-8")
+    build_site(out, vault_dir=vault, registry_path=tmp_path / "registry.json")
+    index_text = (out / "index.html").read_text(encoding="utf-8")
+
+    # Emi living-doctrine value prop leads, with the skeleton/organism thesis
+    assert "demonstrator of <strong>Emi" in index_text
+    assert "OKF is the skeleton; Emi is the organism" in index_text
+
+    # the living loop (ingest -> synthesise -> connect -> govern -> update) is shown
+    for step in ("Ingest", "Synthesise", "Connect", "Govern", "Update"):
+        assert f"<strong>{step}</strong>" in index_text
+
+    # OKF appears only as a credibility/interop detail ("speaks OKF"), never the headline
+    assert "speaks OKF" in index_text
+    h1 = index_text.split("<h1>", 1)[1].split("</h1>", 1)[0]
+    assert "OKF" not in h1
+
+    # nav exposes the Graph view
+    assert 'graph.html">Graph</a>' in index_text

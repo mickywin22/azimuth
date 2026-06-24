@@ -186,8 +186,10 @@ _PAGE_TEMPLATE = """<!DOCTYPE html>
 <header class="nav">
   <a class="brand" href="{root}index.html">azimuth</a>
   <nav>
+    <a href="{root}index.html#how">How it works</a>
     <a href="{root}index.html">Briefs</a>
     <a href="{root}index.html#sources">Sources</a>
+    <a href="{root}graph.html">Graph</a>
     <a href="{root}editorial.html">Editorial line</a>
   </nav>
 </header>
@@ -246,11 +248,34 @@ def _render_index(model: SiteModel) -> str:
     body = f"""
 <div class="hero">
   <h1>azimuth</h1>
-  <p>A read-only, browsable view of the open-intelligence vault: weekly
-  <strong>L2 briefs</strong> synthesised from dated <strong>L1 source notes</strong>,
-  under one published <a href="editorial.html">editorial line</a>.
-  Every claim in a brief links to the data it rests on.</p>
+  <p class="lede">A public demonstrator of <strong>Emi</strong> — a <strong>living</strong>
+  knowledge system. Not a static archive: a system that <strong>creates, connects,
+  governs and updates</strong> open-intelligence knowledge on a weekly cadence. Every
+  week it ingests fresh data, synthesises it into briefs, links it across sources, and
+  publishes under one editorial line — then does it again.</p>
+  <p class="thesis">OKF is the skeleton; Emi is the organism.</p>
 </div>
+
+<section id="how">
+  <h2>How this works — why it&#39;s more than a format</h2>
+  <p class="how-intro">A static format standardises how knowledge is <em>stored</em>.
+  Emi is the living loop that <em>produces</em> it — autonomous L1 ingest, AI L2
+  synthesis, cross-source connections and an editorial L3 line, refreshed every week.
+  Watch one cycle:</p>
+  <ol class="loop">
+    <li><span class="loop-n">1</span><strong>Ingest</strong><em>L1 — daily open data pulled into dated source notes</em></li>
+    <li><span class="loop-n">2</span><strong>Synthesise</strong><em>L2 — AI distils the week&#39;s sources into briefs</em></li>
+    <li><span class="loop-n">3</span><strong>Connect</strong><em>cross-source links + a shared-entity graph</em></li>
+    <li><span class="loop-n">4</span><strong>Govern</strong><em>L3 — one editorial line; held themes excluded</em></li>
+    <li><span class="loop-n">5</span><strong>Update</strong><em>weekly cadence — the loop runs again, alive</em></li>
+  </ol>
+  <p class="okf-note">azimuth also <strong>speaks OKF</strong> — Google&#39;s
+  <a href="https://github.com/google/open-knowledge-format">Open Knowledge Format</a>,
+  the vendor-neutral standard for how a knowledge bundle is stored — so any OKF-aware
+  tool can read it. That&#39;s a credibility and interop detail: OKF defines the
+  skeleton; the loop above is the organism that fills it.</p>
+</section>
+
 <section><h2>Briefs</h2><div class="cards">{brief_html}</div></section>
 <section id="sources"><h2>L1 Sources</h2>{sources_html}</section>
 """
@@ -299,6 +324,25 @@ color:var(--muted);background:var(--panel);border-radius:0 8px 8px 0}
 code{background:var(--panel);padding:.1rem .35rem;border-radius:5px;
 font-family:JetBrains Mono,ui-monospace,monospace;font-size:.88em}
 .foot{color:var(--muted);font-size:.8rem;border-top:1px solid var(--line);margin-top:2rem}
+.lede{font-size:1.12rem;color:var(--ink);max-width:66ch}
+.thesis{font-family:Rajdhani,Inter,sans-serif;font-size:1.35rem;letter-spacing:.01em;
+color:var(--accent);margin:.6rem 0 0;font-weight:600}
+.how-intro,.okf-note{color:var(--muted);max-width:68ch}
+.okf-note{font-size:.92rem;border-top:1px solid var(--line);padding-top:1rem;margin-top:1.4rem}
+.loop{list-style:none;padding:0;margin:1.2rem 0;display:grid;
+grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.7rem;counter-reset:loop}
+.loop li{position:relative;background:var(--panel);border:1px solid var(--line);
+border-radius:12px;padding:1rem .9rem .9rem;display:flex;flex-direction:column;gap:.3rem}
+.loop li::after{content:"\\2192";position:absolute;right:-.62rem;top:50%;
+transform:translateY(-50%);color:var(--accent);font-size:1.1rem;z-index:1}
+.loop li:last-child::after{content:""}
+@media(max-width:560px){.loop li::after{content:"\\2193";right:50%;top:auto;
+bottom:-.95rem;transform:translateX(50%)}}
+.loop-n{display:inline-flex;align-items:center;justify-content:center;width:1.6rem;
+height:1.6rem;border-radius:999px;background:var(--accent);color:#04121b;font-weight:700;
+font-size:.85rem;font-family:Rajdhani,Inter,sans-serif}
+.loop strong{font-family:Rajdhani,Inter,sans-serif;font-size:1.05rem;letter-spacing:.02em}
+.loop em{color:var(--muted);font-size:.82rem;font-style:normal;line-height:1.4}
 """
 
 
