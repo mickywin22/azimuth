@@ -58,11 +58,14 @@ def _make_vault(tmp_path: Path) -> Path:
     d.mkdir(parents=True)
     # "Greece" appears under BOTH themes -> a genuine cross-theme bridge.
     (d / "fuel-prices.md").write_text(
-        "---\nsource: Fuel prices\n---\n# Fuel\nPump panel: Germany, France, Greece, Mexico.\n",
+        "---\nsource: Fuel prices\n---\n# Fuel\nPump panel: Germany, France, Greece, "
+        "Mexico. Brent and WTI benchmarks softened.\n",
         encoding="utf-8",
     )
     (d / "earthquakes.md").write_text(
-        "---\nsource: USGS\n---\n# Quakes\nEvents recorded off Indonesia, Japan and Greece.\n",
+        "---\nsource: USGS\n---\n# Quakes\nEvents recorded off Indonesia, Japan and Greece.\n\n"
+        '| earthquakes | [{"id": "q1", "magnitude": 6.5, "place": "5 km S of Athens, Greece"}, '
+        '{"id": "q2", "magnitude": 5.2, "place": "Off Japan"}] |\n',
         encoding="utf-8",
     )
     (d / "prediction-markets.md").write_text(
@@ -96,6 +99,54 @@ def test_cross_theme_edge_exists(tmp_path: Path) -> None:
     for e in cross:
         assert e["source"] in entities
         assert e["target"] in brief_ids
+
+
+def test_concept_nodes_present(tmp_path: Path) -> None:
+    """RICHER: a concept (channel) node per surfaced theme feeds its brief (spine top)."""
+    graph = _build(tmp_path)
+    concepts = {n["id"]: n for n in graph["nodes"] if n["kind"] == "concept"}
+    assert "concept:energy-supply" in concepts
+    assert "concept:geophysical" in concepts
+    # held theme never gets a concept node
+    assert "prediction-markets" not in {n["theme"] for n in concepts.values()}
+    briefs = {n["id"] for n in graph["nodes"] if n["kind"] == "brief"}
+    for cid in concepts:
+        assert any(
+            e["source"] == cid and e["target"] in briefs and e["cross_theme"] is False
+            for e in graph["edges"]
+        ), f"concept {cid} is not wired to a brief"
+
+
+def test_commodity_entity_single_theme(tmp_path: Path) -> None:
+    """RICHER: commodities surface even when confined to one theme (per-channel texture)."""
+    graph = _build(tmp_path)
+    comms = [n for n in graph["nodes"] if n.get("entity_kind") == "commodity"]
+    assert comms, "expected commodity entity nodes"
+    brent = next((n for n in comms if n["label"].lower() == "brent"), None)
+    assert brent is not None, "Brent should surface as a commodity entity"
+    assert brent["theme"] == "energy-supply"
+    # a single-theme commodity edge is within-theme, never a cross-theme bridge
+    edge = next(e for e in graph["edges"] if e["source"] == brent["id"])
+    assert edge["cross_theme"] is False
+
+
+def test_event_nodes_from_quakes(tmp_path: Path) -> None:
+    """RICHER: the largest live earthquakes become event entity nodes (events layer)."""
+    graph = _build(tmp_path)
+    events = [n for n in graph["nodes"] if n.get("entity_kind") == "event"]
+    assert events, "expected earthquake event entity nodes"
+    top = events[0]  # nodes are appended largest-magnitude first
+    assert top["kind"] == "entity"
+    assert top["label"].startswith("M6.5")
+    geo_brief = "brief:" + build_graph_mod._slug("Geophysical Weekly")
+    assert any(
+        e["source"] == top["id"] and e["target"] == geo_brief for e in graph["edges"]
+    ), "event is not wired to the geophysical brief"
+    # the Athens quake links to the surfaced Greece region entity (event -> region)
+    greece = "entity:" + build_graph_mod._slug("Greece")
+    assert any(
+        e["source"] == top["id"] and e["target"] == greece for e in graph["edges"]
+    ), "event did not link to the region it occurred in"
 
 
 def test_held_theme_excluded_from_graph(tmp_path: Path) -> None:
