@@ -58,3 +58,6 @@ logs/
 *.bak
 *.tmp
 .cache/
+
+# fleet: downloaded scan tooling (gitleaks etc.) — never commit
+.tmp-tools/
