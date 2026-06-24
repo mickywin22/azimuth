@@ -14,7 +14,14 @@
       "cyber-event",
       "civil-unrest-event",
       "news-factual",
-      "climate-observation"
+      "climate-observation",
+      "sanctions-record",
+      "health-event",
+      "maritime-safety-notice",
+      "orbital-position",
+      "trade-record",
+      "economic-indicator",
+      "displacement-record"
     ],
     "denied": [
       "political-propaganda",
@@ -29,7 +36,7 @@
       "intelligence-assessment",
       "scenario"
     ],
-    "note": "DENIED classes are non-factual content: political propaganda, opinion/advocacy, editorial/communication, political-or-safety POSITION-taking, investment advice. The gate is `factual AND free-to-use license` — a restricted/commercial feed stays out on LICENSE grounds (not editorial). NEWS is allowed as a factual channel (news-factual) — the per-source filter keeps only fact-reporting wire/agency sources and strips op-ed/editorial/advocacy outlets. ALL sensitive-topic factual EVENT classes (conflict-event-record, vessel-position, flight-track, cyber-event, civil-unrest-event) are allowed once the feed license is free. `benchmark_foil_classes` (forecast / intelligence-assessment / scenario) are NOT surfaced as azimuth channels — they are predictions/assessments/hypotheticals, not observed facts; azimuth uses them as BENCHMARK foils (observed+sourced facts vs predicted/assessed opinion) per work-item azi-benchmark-vs-forecast-intelligence-W26. prediction-market raw odds stay allowed (the quoted price is an observed fact) but carry a synthesis caution forbidding investment framing in L2. `climate-observation` (added W26) is an observed measurement of the climate system — atmospheric CO2 concentration, sea-ice extent — sourced from public-domain US-gov / NSIDC instrument records; it is a recorded MEASUREMENT (a fact), never a climate FORECAST, and carries the report-observed-not-predicted caution."
+    "note": "DENIED classes are non-factual content: political propaganda, opinion/advocacy, editorial/communication, political-or-safety POSITION-taking, investment advice. The gate is `factual AND free-to-use license` — a restricted/commercial feed stays out on LICENSE grounds (not editorial). NEWS is allowed as a factual channel (news-factual) — the per-source filter keeps only fact-reporting wire/agency sources and strips op-ed/editorial/advocacy outlets. ALL sensitive-topic factual EVENT classes (conflict-event-record, vessel-position, flight-track, cyber-event, civil-unrest-event) are allowed once the feed license is free. `benchmark_foil_classes` (forecast / intelligence-assessment / scenario) are NOT surfaced as azimuth channels — they are predictions/assessments/hypotheticals, not observed facts; azimuth uses them as BENCHMARK foils (observed+sourced facts vs predicted/assessed opinion) per work-item azi-benchmark-vs-forecast-intelligence-W26. prediction-market raw odds stay allowed (the quoted price is an observed fact) but carry a synthesis caution forbidding investment framing in L2. `climate-observation` (added W26) is an observed measurement of the climate system — atmospheric CO2 concentration, sea-ice extent — sourced from public-domain US-gov / NSIDC instrument records; it is a recorded MEASUREMENT (a fact), never a climate FORECAST, and carries the report-observed-not-predicted caution. W26 full-universe audit (Michael 2026-06-24, docs/sources/worldmonitor-channel-audit.md): six observed-fact classes were added when the audit enumerated the full ~34-family WorldMonitor universe and surfaced every free-licensed factual channel — `sanctions-record` (an official government designation is a recorded fact, OFAC public-domain), `health-event` (a disease-outbreak record, WHO/CDC public-domain), `maritime-safety-notice` (an NGA navigational warning is an issued fact, US-Gov public-domain), `orbital-position` (a satellite TLE position, CelesTrak/US-Gov public-domain), `trade-record` (an applied tariff / trade-restriction record, WTO CC-BY), and `economic-indicator` (a published macro statistic, World Bank CC-BY). All are observed/recorded facts, never forecasts/assessments — those stay benchmark foils."
   },
   "license_allowlist": [
     "CC-BY-4.0",
@@ -57,6 +64,66 @@
       "brief": "Prediction Markets Weekly.md",
       "brief_held": true,
       "hold_reason": "L1 ingest is ACTIVE (channel passes the guardrail). The quoted prediction-market PRICE is an observed fact (allowed under the 2026-06-24 fact-vs-propaganda line). The L2 brief is held for a synthesis-breadth reason only — NOT an editorial deny: the live feed currently surfaces a single market, too narrow to evolve into a balanced weekly brief without that one market dominating. Brief lands once the feed carries a broader market set. Reporting the price is fine; the hold is about brief breadth, not topic sensitivity."
+    },
+    "environmental-hazards": {
+      "title": "Environmental Hazards Weekly",
+      "brief": "Environmental Hazards Weekly.md",
+      "brief_held": true,
+      "hold_reason": "INGEST-PENDING (not editorial): the four channels (wildfire-detections, thermal-escalations, natural-events, radiation-observations) are license-cleared (NASA FIRMS / NASA EONET+GDACS / US-EPA RadNet+Safecast — all public-domain), credited, and pass the guardrail. The L2 weekly brief lands once the curator's first scheduled pull writes the L1 notes this brief synthesises. Same surfaced:true-with-held-brief pattern as prediction-markets."
+    },
+    "conflict-watch": {
+      "title": "Conflict Watch Weekly",
+      "brief": "Conflict Watch Weekly.md",
+      "brief_held": true,
+      "hold_reason": "INGEST-PENDING (not editorial): conflict-events-ucdp is surfaced via UCDP (Uppsala Conflict Data Program), which publishes its event data under CC-BY-4.0 — a free, attribution-only license that the azimuth CREDITS.md satisfies. A conflict EVENT record is an observed fact (allowed under the fact-vs-propaganda line; sensitivity is never a deny reason). The ACLED feed for the same topic stays held-on-license (its ToU restricts redistribution). Brief lands after first ingest."
+    },
+    "maritime-safety": {
+      "title": "Maritime Safety Weekly",
+      "brief": "Maritime Safety Weekly.md",
+      "brief_held": true,
+      "hold_reason": "INGEST-PENDING (not editorial): maritime-navwarnings is surfaced via NGA (US National Geospatial-Intelligence Agency) Broadcast/Navigational Warnings — a US-Gov public-domain feed. A navigational warning is an issued, observed maritime-safety fact. (The separate vessel-AIS-position feed stays held-on-license: the AIS aggregator license is commercial/unknown.) Brief lands after first ingest."
+    },
+    "cyber-watch": {
+      "title": "Cyber Watch Weekly",
+      "brief": "Cyber Watch Weekly.md",
+      "brief_held": true,
+      "hold_reason": "INGEST-PENDING (not editorial): cyber-threats is surfaced via abuse.ch (URLhaus + Feodo Tracker), whose IOC feeds are released under CC0-1.0 (public-domain dedication). A cyber-incident IOC (C2 host, malware URL) is an observed fact. Brief lands after first ingest."
+    },
+    "sanctions-watch": {
+      "title": "Sanctions Watch Weekly",
+      "brief": "Sanctions Watch Weekly.md",
+      "brief_held": true,
+      "hold_reason": "INGEST-PENDING (not editorial): sanctions-designations is surfaced via the US Treasury OFAC SDN + Consolidated lists (sanctionslistservice.ofac.treas.gov) — US-Gov public-domain. A sanctions designation is an official, recorded government act (a fact), not a political opinion about it. Brief lands after first ingest."
+    },
+    "public-health": {
+      "title": "Public Health Weekly",
+      "brief": "Public Health Weekly.md",
+      "brief_held": true,
+      "hold_reason": "INGEST-PENDING (not editorial): disease-outbreaks is surfaced via WHO Disease Outbreak News + US CDC Health Alert Network — both public-domain / open-data. A reported disease-outbreak event is an observed public-health fact. Brief lands after first ingest."
+    },
+    "macro-markets": {
+      "title": "Macro & Markets Weekly",
+      "brief": "Macro & Markets Weekly.md",
+      "brief_held": true,
+      "hold_reason": "INGEST-PENDING (not editorial): the three channels (crypto-quotes via CoinGecko API-ToS, world-bank-indicators via World Bank Open Data CC-BY-4.0, tariff-trends via WTO CC-BY-4.0) are license-cleared and credited. A quoted price / published indicator value / applied-tariff record is an observed fact (carries no-investment-framing caution). Brief lands after first ingest."
+    },
+    "orbital-watch": {
+      "title": "Orbital Watch Weekly",
+      "brief": "Orbital Watch Weekly.md",
+      "brief_held": true,
+      "hold_reason": "INGEST-PENDING (not editorial): orbital-satellites is surfaced via CelesTrak TLE element sets, which derive from US Space Command public-domain orbital data. A satellite's TLE-propagated position is an observed/recorded fact. Brief lands after first ingest."
+    },
+    "humanitarian": {
+      "title": "Humanitarian Watch Weekly",
+      "brief": "Humanitarian Watch Weekly.md",
+      "brief_held": true,
+      "hold_reason": "INGEST-PENDING (not editorial): displacement-flows is surfaced via UNHCR Refugee Data + UN OCHA HAPI — both free-to-use/open-with-attribution (OCHA HAPI is CC-BY-4.0). A refugee/IDP population count is an observed humanitarian fact. Brief lands after first ingest."
+    },
+    "infrastructure-watch": {
+      "title": "Infrastructure Watch Weekly",
+      "brief": "Infrastructure Watch Weekly.md",
+      "brief_held": true,
+      "hold_reason": "INGEST-PENDING (not editorial): internet-outages (Cloudflare Radar, API-ToS) and chokepoint-status (IMF PortWatch, free/open) are license-cleared and credited. An internet-outage event and a chokepoint-transit count are observed infrastructure facts. Brief lands after first ingest."
     }
   },
   "sources": [
@@ -169,6 +236,210 @@
       "surfaced": true
     },
     {
+      "key": "wildfire-detections",
+      "endpoint": "/api/wildfire/v1/list-fire-detections",
+      "upstream_source": "NASA FIRMS (VIIRS active-fire / thermal-anomaly detections)",
+      "license": "US-Gov-public-domain",
+      "attribution": "Data: NASA FIRMS via WorldMonitor (api.worldmonitor.app)",
+      "content_class": "natural-hazard",
+      "theme": "environmental-hazards",
+      "risk_flags": [],
+      "synthesis_cautions": ["report-observed-not-predicted"],
+      "surfaced": true
+    },
+    {
+      "key": "thermal-escalations",
+      "endpoint": "/api/thermal/v1/list-thermal-escalations",
+      "upstream_source": "NASA FIRMS (VIIRS thermal anomalies, clustered into escalation signals)",
+      "license": "US-Gov-public-domain",
+      "attribution": "Data: NASA FIRMS via WorldMonitor (api.worldmonitor.app)",
+      "content_class": "natural-hazard",
+      "theme": "environmental-hazards",
+      "risk_flags": [],
+      "synthesis_cautions": ["report-observed-not-predicted"],
+      "surfaced": true
+    },
+    {
+      "key": "natural-events",
+      "endpoint": "/api/natural/v1/list-natural-events",
+      "upstream_source": "NASA EONET + GDACS (UN-coordinated disaster alerts)",
+      "license": "US-Gov-public-domain",
+      "attribution": "Data: NASA EONET + GDACS via WorldMonitor (api.worldmonitor.app)",
+      "content_class": "natural-hazard",
+      "theme": "environmental-hazards",
+      "risk_flags": [],
+      "synthesis_cautions": ["report-observed-not-predicted"],
+      "surfaced": true
+    },
+    {
+      "key": "radiation-observations",
+      "endpoint": "/api/radiation/v1/list-radiation-observations",
+      "upstream_source": "US EPA RadNet + Safecast (ambient radiation measurements)",
+      "license": "US-Gov-public-domain",
+      "attribution": "Data: US EPA RadNet (public domain) + Safecast (CC0) via WorldMonitor (api.worldmonitor.app)",
+      "content_class": "natural-hazard",
+      "theme": "environmental-hazards",
+      "risk_flags": [],
+      "synthesis_cautions": ["report-observed-not-predicted"],
+      "surfaced": true
+    },
+    {
+      "key": "conflict-events-ucdp",
+      "endpoint": "/api/conflict/v1/list-ucdp-events",
+      "upstream_source": "UCDP (Uppsala Conflict Data Program — Georeferenced Event Dataset)",
+      "license": "CC-BY-4.0",
+      "attribution": "Data: UCDP (Uppsala Conflict Data Program) via WorldMonitor (api.worldmonitor.app)",
+      "content_class": "conflict-event-record",
+      "theme": "conflict-watch",
+      "risk_flags": ["sensitive-topic"],
+      "synthesis_cautions": ["report-observed-not-predicted", "no-political-position"],
+      "surfaced": true
+    },
+    {
+      "key": "maritime-navwarnings",
+      "endpoint": "/api/maritime/v1/list-navigational-warnings",
+      "upstream_source": "NGA (US National Geospatial-Intelligence Agency) Broadcast/Navigational Warnings",
+      "license": "US-Gov-public-domain",
+      "attribution": "Data: NGA Maritime Safety navigational warnings via WorldMonitor (api.worldmonitor.app)",
+      "content_class": "maritime-safety-notice",
+      "theme": "maritime-safety",
+      "risk_flags": [],
+      "synthesis_cautions": ["report-observed-not-predicted"],
+      "surfaced": true
+    },
+    {
+      "key": "cyber-threats",
+      "endpoint": "/api/cyber/v1/list-cyber-threats",
+      "upstream_source": "abuse.ch (URLhaus malware URLs + Feodo Tracker C2 indicators)",
+      "license": "CC0-1.0",
+      "attribution": "Data: abuse.ch (URLhaus + Feodo Tracker, CC0) via WorldMonitor (api.worldmonitor.app)",
+      "content_class": "cyber-event",
+      "theme": "cyber-watch",
+      "risk_flags": ["sensitive-topic"],
+      "synthesis_cautions": ["report-observed-not-predicted"],
+      "surfaced": true
+    },
+    {
+      "key": "sanctions-designations",
+      "endpoint": "/api/sanctions/v1/list-sanctions-pressure",
+      "upstream_source": "US Treasury OFAC SDN + Consolidated sanctions lists",
+      "license": "US-Gov-public-domain",
+      "attribution": "Data: US Treasury OFAC (sanctionslistservice.ofac.treas.gov) via WorldMonitor (api.worldmonitor.app)",
+      "content_class": "sanctions-record",
+      "theme": "sanctions-watch",
+      "risk_flags": ["sensitive-topic"],
+      "synthesis_cautions": ["report-observed-not-predicted", "no-political-position"],
+      "surfaced": true
+    },
+    {
+      "key": "disease-outbreaks",
+      "endpoint": "/api/health/v1/list-disease-outbreaks",
+      "upstream_source": "WHO Disease Outbreak News + US CDC Health Alert Network",
+      "license": "US-Gov-public-domain",
+      "attribution": "Data: WHO Disease Outbreak News + US CDC HAN via WorldMonitor (api.worldmonitor.app)",
+      "content_class": "health-event",
+      "theme": "public-health",
+      "risk_flags": ["sensitive-topic"],
+      "synthesis_cautions": ["report-observed-not-predicted"],
+      "surfaced": true
+    },
+    {
+      "key": "crypto-quotes",
+      "endpoint": "/api/market/v1/list-crypto-quotes",
+      "upstream_source": "CoinGecko (cryptocurrency spot prices & market data)",
+      "license": "API-ToS-derived",
+      "attribution": "Data: CoinGecko via WorldMonitor (api.worldmonitor.app)",
+      "content_class": "market-data",
+      "theme": "macro-markets",
+      "risk_flags": [],
+      "synthesis_cautions": ["no-investment-framing"],
+      "surfaced": true
+    },
+    {
+      "key": "world-bank-indicators",
+      "endpoint": "/api/economic/v1/list-world-bank-indicators",
+      "upstream_source": "World Bank Open Data (development indicators)",
+      "license": "CC-BY-4.0",
+      "attribution": "Data: World Bank Open Data via WorldMonitor (api.worldmonitor.app)",
+      "content_class": "economic-indicator",
+      "theme": "macro-markets",
+      "risk_flags": [],
+      "synthesis_cautions": ["report-observed-not-predicted"],
+      "surfaced": true
+    },
+    {
+      "key": "tariff-trends",
+      "endpoint": "/api/trade/v1/get-tariff-trends",
+      "upstream_source": "WTO (World Trade Organization — applied tariffs & trade restrictions)",
+      "license": "CC-BY-4.0",
+      "attribution": "Data: WTO via WorldMonitor (api.worldmonitor.app)",
+      "content_class": "trade-record",
+      "theme": "macro-markets",
+      "risk_flags": [],
+      "synthesis_cautions": ["report-observed-not-predicted"],
+      "surfaced": true
+    },
+    {
+      "key": "orbital-satellites",
+      "endpoint": "/api/intelligence/v1/list-satellites",
+      "upstream_source": "CelesTrak TLE element sets (derived from US Space Command public catalog)",
+      "license": "US-Gov-public-domain",
+      "attribution": "Data: CelesTrak TLE (US Space Command public catalog) via WorldMonitor (api.worldmonitor.app)",
+      "content_class": "orbital-position",
+      "theme": "orbital-watch",
+      "risk_flags": [],
+      "synthesis_cautions": ["report-observed-not-predicted"],
+      "surfaced": true
+    },
+    {
+      "key": "consumer-prices",
+      "endpoint": "/api/consumer_prices/v1/get-consumer-price-overview",
+      "upstream_source": "Eurostat HICP / national statistical offices (consumer price overview)",
+      "license": "CC-BY-4.0",
+      "attribution": "Data: Eurostat via WorldMonitor (api.worldmonitor.app)",
+      "content_class": "economic-indicator",
+      "theme": "macro-markets",
+      "risk_flags": [],
+      "synthesis_cautions": ["report-observed-not-predicted"],
+      "surfaced": true
+    },
+    {
+      "key": "displacement-flows",
+      "endpoint": "/api/displacement/v1/get-displacement-summary",
+      "upstream_source": "UNHCR Refugee Data + UN OCHA HAPI (refugee / asylum / IDP counts)",
+      "license": "CC-BY-4.0",
+      "attribution": "Data: UNHCR + UN OCHA HAPI via WorldMonitor (api.worldmonitor.app)",
+      "content_class": "displacement-record",
+      "theme": "humanitarian",
+      "risk_flags": ["sensitive-topic"],
+      "synthesis_cautions": ["report-observed-not-predicted", "no-political-position"],
+      "surfaced": true
+    },
+    {
+      "key": "internet-outages",
+      "endpoint": "/api/infrastructure/v1/list-internet-outages",
+      "upstream_source": "Cloudflare Radar (internet outages & traffic anomalies)",
+      "license": "API-ToS-derived",
+      "attribution": "Data: Cloudflare Radar via WorldMonitor (api.worldmonitor.app)",
+      "content_class": "physical-infrastructure",
+      "theme": "infrastructure-watch",
+      "risk_flags": [],
+      "synthesis_cautions": ["report-observed-not-predicted"],
+      "surfaced": true
+    },
+    {
+      "key": "chokepoint-status",
+      "endpoint": "/api/supply_chain/v1/get-chokepoint-status",
+      "upstream_source": "IMF PortWatch (maritime chokepoint transit intelligence)",
+      "license": "API-ToS-derived",
+      "attribution": "Data: IMF PortWatch (portwatch.imf.org) via WorldMonitor (api.worldmonitor.app)",
+      "content_class": "physical-infrastructure",
+      "theme": "infrastructure-watch",
+      "risk_flags": [],
+      "synthesis_cautions": ["report-observed-not-predicted"],
+      "surfaced": true
+    },
+    {
       "key": "conflict-events-acled",
       "endpoint": "/api/conflict/v1/list-events",
       "upstream_source": "ACLED / UCDP",
@@ -178,7 +449,7 @@
       "risk_flags": ["sensitive-topic"],
       "synthesis_cautions": ["report-observed-not-predicted", "no-political-position"],
       "surfaced": false,
-      "surfaced_reason": "HELD ON LICENSE GROUNDS ONLY: a conflict EVENT record is an observed fact (allowed under the 2026-06-24 fact-vs-propaganda line — sensitivity is never a deny reason). It stays surfaced:false purely because the upstream license is unknown (not in the free-to-use allowlist). Surfaceable the moment a clean license is confirmed; no editorial barrier remains."
+      "surfaced_reason": "HELD ON LICENSE GROUNDS ONLY (re-evaluated W26 2026-06-24): a conflict EVENT record is an observed fact (allowed — sensitivity is never a deny reason). ACLED stays surfaced:false because the ACLED Terms of Use restrict redistribution of event data and require a use agreement / forbid re-serving the dataset — that exceeds azimuth's free-to-use-with-attribution bar even as a non-commercial demonstrator with CREDITS.md. The SAME conflict topic IS now surfaced via UCDP (conflict-events-ucdp), which publishes under a clean CC-BY-4.0 license. ACLED becomes surfaceable if/when a clean ACLED license path is confirmed; the hold is purely license, never editorial."
     },
     {
       "key": "vessel-tracking-ais",
@@ -190,7 +461,7 @@
       "risk_flags": ["sensitive-topic"],
       "synthesis_cautions": ["report-observed-not-predicted", "no-safety-position"],
       "surfaced": false,
-      "surfaced_reason": "HELD ON LICENSE GROUNDS ONLY: a vessel POSITION is an observed fact (allowed under the 2026-06-24 fact-vs-propaganda line — sensitivity is never a deny reason). Maritime/AIS would be the 'Maritime' theme; it stays surfaced:false purely because the AIS-aggregator license is unknown (not in the free-to-use allowlist). Surfaceable once a clean license is confirmed; no editorial barrier remains."
+      "surfaced_reason": "HELD ON LICENSE GROUNDS ONLY (re-evaluated W26 2026-06-24): a vessel POSITION is an observed fact (allowed — sensitivity is never a deny reason). The vessel-AIS feed stays surfaced:false purely because the AIS-aggregator license is commercial/unknown (not in the free-to-use allowlist). The Maritime theme is NOT empty, though: maritime-navwarnings (NGA navigational warnings, US-Gov public-domain) IS now surfaced under the 'maritime-safety' theme. Vessel-AIS becomes surfaceable once a free-to-use AIS feed is confirmed; the hold is purely license, never editorial."
     },
     {
       "key": "military-flights-adsb",
@@ -202,7 +473,115 @@
       "risk_flags": ["sensitive-topic"],
       "synthesis_cautions": ["report-observed-not-predicted", "no-political-position"],
       "surfaced": false,
-      "surfaced_reason": "HELD ON LICENSE GROUNDS ONLY: a flight TRACK is an observed fact (allowed under the 2026-06-24 fact-vs-propaganda line — sensitivity is never a deny reason). Air-traffic/ADS-B would be the 'Air-traffic' theme; it stays surfaced:false purely because the ADS-B Exchange license is unknown (not in the free-to-use allowlist). Surfaceable once a clean license is confirmed; no editorial barrier remains."
+      "surfaced_reason": "HELD ON LICENSE GROUNDS ONLY: a flight TRACK is an observed fact (allowed under the 2026-06-24 fact-vs-propaganda line — sensitivity is never a deny reason). Air-traffic/ADS-B would be the 'Air-traffic' theme; it stays surfaced:false purely because the ADS-B Exchange license is restrictive (commercial; not in the free-to-use allowlist). OpenSky Network is a partial free-for-research alternative but its ToS still restricts redistribution of raw positions. Surfaceable once a clean license is confirmed; no editorial barrier remains."
+    },
+    {
+      "key": "gps-interference",
+      "endpoint": "/api/intelligence/v1/list-gps-interference",
+      "upstream_source": "gpsjam.org (H3-gridded GPS/GNSS jamming, derived from ADS-B Exchange)",
+      "license": "unknown",
+      "attribution": "",
+      "content_class": "flight-track",
+      "risk_flags": ["sensitive-topic"],
+      "synthesis_cautions": ["report-observed-not-predicted", "no-political-position"],
+      "surfaced": false,
+      "surfaced_reason": "HELD ON LICENSE GROUNDS ONLY: a GPS-interference observation is an observed fact (factual, allowed). Held because gpsjam.org derives from ADS-B Exchange, whose license is restrictive (same upstream-license bar as military-flights-adsb). No editorial barrier — surfaceable once the upstream ADS-B license is free-to-use."
+    },
+    {
+      "key": "market-equities",
+      "endpoint": "/api/market/v1/list-market-quotes",
+      "upstream_source": "Yahoo Finance (equity / index / commodity quotes)",
+      "license": "Proprietary-with-fair-use",
+      "attribution": "",
+      "content_class": "market-data",
+      "risk_flags": [],
+      "synthesis_cautions": ["no-investment-framing"],
+      "surfaced": false,
+      "surfaced_reason": "HELD ON LICENSE GROUNDS ONLY: a quoted price is an observed fact (factual, allowed). Held because the Yahoo Finance feed is proprietary-with-fair-use, not in the free-to-use allowlist — fair-use display is not the same as a redistribution license for a derived public vault. Crypto quotes (CoinGecko, API-ToS) ARE surfaced; equities wait on a clean license."
+    },
+    {
+      "key": "bigmac-index",
+      "endpoint": "/api/economic/v1/list-bigmac-prices",
+      "upstream_source": "The Economist Big Mac Index",
+      "license": "Proprietary-with-fair-use",
+      "attribution": "",
+      "content_class": "economic-indicator",
+      "risk_flags": [],
+      "synthesis_cautions": ["report-observed-not-predicted"],
+      "surfaced": false,
+      "surfaced_reason": "HELD ON LICENSE GROUNDS ONLY: a published index value is an observed fact (factual, allowed). Held because The Economist's Big Mac Index is proprietary (CC-BY-NC-SA-style restrictions on the published dataset), not in the free-to-use allowlist. No editorial barrier."
+    },
+    {
+      "key": "comtrade-flows",
+      "endpoint": "/api/trade/v1/list-comtrade-flows",
+      "upstream_source": "UN Comtrade (international merchandise trade flows)",
+      "license": "unknown",
+      "attribution": "",
+      "content_class": "trade-record",
+      "risk_flags": [],
+      "synthesis_cautions": ["report-observed-not-predicted"],
+      "surfaced": false,
+      "surfaced_reason": "HELD ON LICENSE GROUNDS: a recorded trade flow is an observed fact (factual, allowed). UN Comtrade is widely cited as CC BY-SA 3.0 IGO but its dissemination terms restrict bulk redistribution and the free tier is rate/volume-limited; pending an explicit confirmation it stays held. tariff-trends (WTO, CC-BY-4.0) IS surfaced as the clean trade channel. No editorial barrier."
+    },
+    {
+      "key": "webcam-streams",
+      "endpoint": "/api/webcam/v1/list-webcams",
+      "upstream_source": "YouTube live streams (third-party hotspot webcams)",
+      "license": "unknown",
+      "attribution": "",
+      "content_class": "physical-infrastructure",
+      "risk_flags": [],
+      "synthesis_cautions": [],
+      "surfaced": false,
+      "surfaced_reason": "HELD ON LICENSE GROUNDS: a live webcam frame is an observed fact, but each stream is a third-party YouTube broadcast under its own uploader's terms — no blanket free-to-use license for re-surfacing. Low priority. No editorial barrier; held purely on per-stream licensing."
+    },
+    {
+      "key": "satellite-imagery",
+      "endpoint": "/api/imagery/v1/search-imagery",
+      "upstream_source": "Satellite imagery providers (mixed; Sentinel/Landsat free, commercial tiers not)",
+      "license": "unknown",
+      "attribution": "",
+      "content_class": "physical-infrastructure",
+      "risk_flags": [],
+      "synthesis_cautions": ["report-observed-not-predicted"],
+      "surfaced": false,
+      "surfaced_reason": "HELD ON LICENSE GROUNDS: imagery is observed fact, but the imagery search spans mixed providers — Copernicus Sentinel + USGS Landsat are free/public-domain, but commercial tiers are not. Surfaceable once the feed is restricted to the public-domain providers only. Low priority. No editorial barrier."
+    },
+    {
+      "key": "positive-events",
+      "endpoint": "/api/positive_events/v1/list-positive-geo-events",
+      "upstream_source": "Good-news RSS outlets (Good News Network, Positive.News, Optimist Daily, etc.), GDELT-geotagged",
+      "license": "API-ToS-derived",
+      "attribution": "",
+      "content_class": "news-factual",
+      "risk_flags": [],
+      "synthesis_cautions": [],
+      "surfaced": false,
+      "surfaced_reason": "HELD ON NEWS-FILTER GROUNDS (the news per-source filter, not topic sensitivity): the positive-events feed draws from good-news / optimism outlets (Optimist Daily, Reasons to be Cheerful, etc.) which are advocacy/editorial sources, not wire/agency fact-reporting. The same per-source filter that strips op-ed/advocacy from the general NEWS channel strips these. Surfaceable only if narrowed to wire/agency fact-reporting of positive events."
+    },
+    {
+      "key": "giving-index",
+      "endpoint": "/api/giving/v1/get-giving-summary",
+      "upstream_source": "Composite charitable-giving index (annual-report baselines + on-chain donation tracking)",
+      "license": "Mixed",
+      "attribution": "",
+      "content_class": "economic-indicator",
+      "risk_flags": [],
+      "synthesis_cautions": ["report-observed-not-predicted"],
+      "surfaced": false,
+      "surfaced_reason": "HELD AS DERIVED-COMPOSITE: the giving summary is a WorldMonitor-constructed composite INDEX (modelled from annual-report baselines + on-chain tracking), not a single raw observed feed — closer to an analytic product than a channel. Held pending a decomposition into its underlying free-licensed component facts. No editorial barrier."
+    },
+    {
+      "key": "research-feeds",
+      "endpoint": "/api/research/v1/list-arxiv-papers",
+      "upstream_source": "arXiv + Hacker News + GitHub trending",
+      "license": "Mixed",
+      "attribution": "",
+      "content_class": "news-factual",
+      "risk_flags": [],
+      "synthesis_cautions": [],
+      "surfaced": false,
+      "surfaced_reason": "HELD ON LICENSE GROUNDS (low priority): arXiv metadata is CC0 but per-paper full-text licensing is mixed, and the Hacker News / GitHub-trending sub-feeds are aggregator content. Surfaceable once narrowed to CC0/CC-BY metadata only. No editorial barrier."
     }
   ]
 }

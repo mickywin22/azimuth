@@ -67,10 +67,16 @@ def _check(entry: SourceEntry, credited: frozenset[str] = frozenset({"demo"})) -
 def test_live_registry_passes() -> None:
     result = check_registry(REGISTRY_PATH, CREDITS_PATH)
     assert result.ok, [str(v) for v in result.violations]
-    # 9 surfaced after the W26 channel-breadth expansion: 4 energy + earthquakes +
-    # prediction-markets + 3 climate-signals (climate-anomalies, co2-monitoring, sea-ice-extent).
-    assert result.surfaced == 9
-    assert result.checked == 12
+    # 26 surfaced after the W26 full-universe audit (docs/sources/worldmonitor-channel-audit.md):
+    # the original 9 (4 energy + earthquakes + prediction-markets + 3 climate-signals) plus 17
+    # free-licensed factual channels surfaced from the full ~34-family WorldMonitor universe —
+    # wildfire / thermal / natural-events / radiation, conflict-events-ucdp, maritime-navwarnings,
+    # cyber-threats, sanctions-designations, disease-outbreaks, crypto-quotes,
+    # world-bank-indicators, tariff-trends, orbital-satellites, consumer-prices, displacement-flows,
+    # internet-outages, chokepoint-status. 12 stay held (license / news-filter / derived-composite),
+    # each with a surfaced_reason.
+    assert result.surfaced == 26
+    assert result.checked == 38
 
 
 def test_live_registry_loads_with_policy() -> None:
@@ -78,7 +84,11 @@ def test_live_registry_loads_with_policy() -> None:
     assert "market-data" in registry.allowed_content_classes
     assert "CC-BY-4.0" in registry.license_allowlist
     assert "climate-observation" in registry.allowed_content_classes
-    assert len(registry.sources) == 12
+    # W26 full-universe audit added six observed-fact classes for the newly-surfaced channels.
+    assert "sanctions-record" in registry.allowed_content_classes
+    assert "health-event" in registry.allowed_content_classes
+    assert "orbital-position" in registry.allowed_content_classes
+    assert len(registry.sources) == 38
 
 
 # --- a clean surfaced source passes -----------------------------------------------------

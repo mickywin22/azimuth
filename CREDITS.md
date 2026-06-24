@@ -38,14 +38,73 @@ join stays machine-checkable.
 
 - `prediction-markets` — Polymarket public odds via WorldMonitor — API-ToS-derived (raw odds surfaced as L1 data only; L2 carries a no-investment-framing + odds-are-not-forecasts caution)
 
+**Environmental Hazards theme** (W26 full-universe audit)
+
+- `wildfire-detections` — NASA FIRMS (VIIRS active-fire detections) — US-Gov public domain
+- `thermal-escalations` — NASA FIRMS (VIIRS thermal anomalies, clustered) — US-Gov public domain
+- `natural-events` — NASA EONET + GDACS (UN-coordinated disaster alerts) — US-Gov public domain (EONET) + open-with-attribution (GDACS)
+- `radiation-observations` — US EPA RadNet (public domain) + Safecast (CC0) — free-to-use
+
+**Conflict Watch theme** (W26)
+
+- `conflict-events-ucdp` — UCDP (Uppsala Conflict Data Program) — CC-BY-4.0 (observed conflict-event records; L2 carries report-observed + no-political-position cautions)
+
+**Maritime Safety theme** (W26)
+
+- `maritime-navwarnings` — NGA (US National Geospatial-Intelligence Agency) Broadcast/Navigational Warnings — US-Gov public domain
+
+**Cyber Watch theme** (W26)
+
+- `cyber-threats` — abuse.ch (URLhaus + Feodo Tracker) — CC0-1.0 (observed IOC records)
+
+**Sanctions Watch theme** (W26)
+
+- `sanctions-designations` — US Treasury OFAC (SDN + Consolidated lists) — US-Gov public domain (official designation records; L2 carries report-observed + no-political-position cautions)
+
+**Public Health theme** (W26)
+
+- `disease-outbreaks` — WHO Disease Outbreak News + US CDC Health Alert Network — WHO open-data + US-Gov public domain
+
+**Macro & Markets theme** (W26)
+
+- `crypto-quotes` — CoinGecko (crypto spot prices) — API-ToS-derived (L2 carries no-investment-framing caution)
+- `world-bank-indicators` — World Bank Open Data (development indicators) — CC-BY-4.0
+- `tariff-trends` — WTO (applied tariffs & trade restrictions) — CC-BY-4.0
+- `consumer-prices` — Eurostat HICP / national statistical offices — CC-BY-4.0
+
+**Orbital Watch theme** (W26)
+
+- `orbital-satellites` — CelesTrak TLE element sets (US Space Command public catalog) — US-Gov public domain
+
+**Humanitarian theme** (W26)
+
+- `displacement-flows` — UNHCR Refugee Data + UN OCHA HAPI — CC-BY-4.0 / open-with-attribution (observed refugee/IDP counts)
+
+**Infrastructure Watch theme** (W26)
+
+- `internet-outages` — Cloudflare Radar (internet outages & traffic anomalies) — API-ToS-derived
+- `chokepoint-status` — IMF PortWatch (maritime chokepoint transit) — API-ToS-derived (free/open)
+
 ## Staged sources (registered, NOT yet surfaced — pending per-source license review)
 
-These are present in the registry with `surfaced: false`. Under the fact-vs-propaganda
-editorial line (Michael 2026-06-24), `conflict-events-acled`, `vessel-tracking-ais`, and
-`military-flights-adsb` are **factual** EVENT/POSITION/TRACK channels — allowed on editorial
-grounds (sensitivity is never a deny reason). They stay staged **on LICENSE grounds only**:
-their upstream license is unknown (not in the free-to-use allowlist). Each is surfaceable the
-moment a clean license is confirmed and a `CREDITS.md` line is added in the same PR.
+These are present in the registry with `surfaced: false`, each carrying a `surfaced_reason`.
+Under the fact-vs-propaganda editorial line (Michael 2026-06-24) they are **factual** channels
+— so none is held on editorial grounds. The hold is **license** (or, for `positive-events`,
+the news per-source fact-filter; for `giving-index`, derived-composite). Each becomes
+surfaceable the moment a clean free-to-use license / clean source path is confirmed and a
+`CREDITS.md` line is added in the same PR:
+
+- `conflict-events-acled` — ACLED — held: ACLED ToU restricts redistribution (UCDP is the surfaced clean-licensed alternative).
+- `vessel-tracking-ais` — AIS aggregators — held: AIS-aggregator license commercial/unknown (NGA navigational warnings are the surfaced clean maritime channel).
+- `military-flights-adsb` / `gps-interference` — ADS-B Exchange — held: restrictive/commercial upstream license.
+- `market-equities` — Yahoo Finance — held: proprietary-with-fair-use (crypto via CoinGecko is the surfaced clean market channel).
+- `bigmac-index` — The Economist — held: proprietary index dataset.
+- `comtrade-flows` — UN Comtrade — held: redistribution-restricted (WTO tariff-trends is the surfaced clean trade channel).
+- `webcam-streams` — YouTube live streams — held: per-stream third-party licensing.
+- `satellite-imagery` — mixed imagery providers — held: surfaceable once narrowed to Sentinel/Landsat public-domain only.
+- `positive-events` — good-news RSS outlets — held: news per-source fact-filter (advocacy outlets, not wire/agency fact-reporting).
+- `giving-index` — composite charitable-giving index — held: WorldMonitor-derived analytic composite, not a single raw observed feed.
+- `research-feeds` — arXiv + HN + GitHub trending — held: mixed per-item licensing (low priority).
 
 ## License
 
