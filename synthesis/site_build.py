@@ -35,11 +35,17 @@ _REPO_ROOT = Path(__file__).resolve().parent.parent
 if str(_REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(_REPO_ROOT))
 
+from synthesis.answers import AnswerSet, build_answer_set  # noqa: E402
 from synthesis.lint import split_frontmatter  # noqa: E402
 
 # A repo-local registry / vault path pair, overridable for tests.
 DEFAULT_VAULT = _REPO_ROOT / "vault"
 DEFAULT_REGISTRY = _REPO_ROOT / "sources" / "registry.json"
+
+README = "README.md"
+# The TOP5 demonstrator brief: lint-gated markdown, but surfaced as the dedicated
+# answers.html (rendered live from synthesis/answers.py), never as a generic brief card.
+DEMONSTRATOR_BRIEF = "Top5 Answers.md"
 
 _WIKILINK_RE = re.compile(r"\[\[([^\]]+)\]\]")
 _MD_EXTENSIONS = ["tables", "fenced_code", "sane_lists", "nl2br"]
@@ -103,7 +109,10 @@ def discover(vault_dir: Path, registry: dict[str, Any]) -> SiteModel:
     briefs_dir = vault_dir / "02 Briefs"
     if briefs_dir.is_dir():
         for path in sorted(briefs_dir.glob("*.md")):
-            if path.name == "README.md" or path.name in skip_briefs:
+            # README + held briefs skipped; the TOP5 demonstrator brief is the lint-gated
+            # source-of-truth markdown, but its public surface is the dedicated answers.html
+            # (rendered live from the answer engine), so it is not also a generic brief card.
+            if path.name in (README, DEMONSTRATOR_BRIEF) or path.name in skip_briefs:
                 continue
             fm, body = split_frontmatter(path.read_text(encoding="utf-8"))
             title = (fm or {}).get("title", path.stem)
@@ -186,6 +195,7 @@ _PAGE_TEMPLATE = """<!DOCTYPE html>
 <header class="nav">
   <a class="brand" href="{root}index.html">azimuth</a>
   <nav>
+    <a href="{root}answers.html">Ask the data</a>
     <a href="{root}index.html">Briefs</a>
     <a href="{root}index.html#sources">Sources</a>
     <a href="{root}editorial.html">Editorial line</a>
@@ -222,7 +232,7 @@ def _render_page(page: Page, link_map: dict[str, str]) -> str:
     )
 
 
-def _render_index(model: SiteModel) -> str:
+def _render_index(model: SiteModel, aset: AnswerSet | None = None) -> str:
     cards = []
     for b in model.briefs:
         cards.append(
@@ -244,6 +254,7 @@ def _render_index(model: SiteModel) -> str:
         src_blocks.append(f"<h3>{html.escape(day)}</h3><ul class='src-list'>{items}</ul>")
     sources_html = "\n".join(src_blocks) or "<p>No source notes.</p>"
 
+    n_answers = len(aset.answers) if aset else 0
     body = f"""
 <div class="hero">
   <h1>azimuth</h1>
@@ -252,11 +263,71 @@ def _render_index(model: SiteModel) -> str:
   under one published <a href="editorial.html">editorial line</a>.
   Every claim in a brief links to the data it rests on.</p>
 </div>
+<a class="demo-cta" href="answers.html">
+  <span class="demo-kind">The demonstrator</span>
+  <h2>Ask the World Data &rarr;</h2>
+  <p>The {n_answers} cross-source questions azimuth answers from live data &mdash; energy,
+  geophysics and climate read <em>together</em>. Every claim links to its L1 source.
+  A static feed stores each channel; only a living system connects them.</p>
+</a>
 <section><h2>Briefs</h2><div class="cards">{brief_html}</div></section>
 <section id="sources"><h2>L1 Sources</h2>{sources_html}</section>
 """
     return _PAGE_TEMPLATE.format(
         title="azimuth — open-intelligence vault",
+        root="",
+        kind_block="",
+        html_body=body,
+    )
+
+
+def _render_answers(aset: AnswerSet, link_map: dict[str, str]) -> str:
+    """Render the demonstrator page: the TOP5 cross-channel answers, every claim sourced.
+
+    Claim bullets keep their ``[[stem]]`` citations; ``resolve_wikilinks`` turns each into a
+    link to that L1 source page (the "every claim links to the data" promise made literal).
+    """
+    page = "answers.html"
+    blocks: list[str] = []
+    for a in aset.answers:
+        chips = "".join(f'<span class="chip">{html.escape(c)}</span>' for c in a.channels)
+        bullets: list[str] = []
+        for claim in a.claims:
+            linked = resolve_wikilinks(claim.md, page, link_map)
+            bullets.append(f"<li>{md.markdown(linked, extensions=_MD_EXTENSIONS)}</li>")
+        blocks.append(
+            f'<article class="qa">'
+            f'<div class="qa-head"><span class="qa-id">{html.escape(a.qid)}</span>'
+            f"<h2>{html.escape(a.question)}</h2></div>"
+            f'<div class="chips">{chips}</div>'
+            f'<p class="persona"><strong>Serves:</strong> {html.escape(a.persona)}</p>'
+            f"<ul class='claims'>{''.join(bullets)}</ul>"
+            f"</article>"
+        )
+    answers_html = "\n".join(blocks)
+    week = html.escape(aset.week or "this week")
+    body = f"""
+<div class="kind kind-brief">Demonstrator</div>
+<div class="hero">
+  <h1>Ask the World Data</h1>
+  <p>These are the cross-source questions azimuth answers &mdash; the ones a single feed,
+  or a static OKF bundle, cannot. Each answer connects <strong>two or more channels</strong>
+  (energy, geophysics, climate), links <strong>every factual claim to its L1 source note</strong>,
+  and names the <strong>use-case</strong> it serves. Generated live from the {week} bundle and
+  regenerated every weekly cycle &mdash; the <em>living</em> answer is the point.</p>
+</div>
+{answers_html}
+<section class="howmade">
+  <h2>How these answers are made</h2>
+  <blockquote>Generated deterministically by <code>synthesis/answers.py</code> from the live
+  L1 bundle (the latest dated note per editorially-clean source key; held themes excluded).
+  Numbers are read straight from the source notes &mdash; nothing is invented. An honest,
+  sourced &ldquo;no significant overlap&rdquo; is itself a valid answer when that is what the
+  week&rsquo;s data shows. Re-run after any ingest and the answers refresh in place.</blockquote>
+</section>
+"""
+    return _PAGE_TEMPLATE.format(
+        title="Ask the World Data — azimuth demonstrator",
         root="",
         kind_block="",
         html_body=body,
@@ -289,6 +360,26 @@ padding:1rem 1.1rem;transition:border-color .15s,transform .15s}
 .card:hover{border-color:var(--accent);transform:translateY(-2px);text-decoration:none}
 .card-kind{font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
 .card h3{margin:.4rem 0 0}
+.demo-cta{display:block;background:linear-gradient(135deg,#15212e,#101722);
+border:1px solid var(--accent);border-radius:14px;padding:1.3rem 1.4rem;margin:1.4rem 0 .5rem;
+transition:transform .15s,box-shadow .15s}
+.demo-cta:hover{transform:translateY(-2px);text-decoration:none;
+box-shadow:0 6px 26px rgba(76,194,255,.18)}
+.demo-cta h2{margin:.2rem 0;border:0;padding:0;color:var(--accent)}
+.demo-cta p{color:var(--ink);margin:.3rem 0 0;max-width:70ch}
+.demo-kind{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.qa{background:var(--panel);border:1px solid var(--line);border-radius:12px;
+padding:1.1rem 1.3rem;margin:1.1rem 0}
+.qa-head{display:flex;gap:.7rem;align-items:baseline}
+.qa-id{font-family:JetBrains Mono,monospace;color:var(--accent);font-weight:700}
+.qa h2{margin:.1rem 0;border:0;padding:0;font-size:1.25rem}
+.chips{display:flex;flex-wrap:wrap;gap:.4rem;margin:.6rem 0}
+.chip{font-size:.72rem;letter-spacing:.04em;color:var(--accent);border:1px solid var(--accent);
+border-radius:999px;padding:.12rem .6rem}
+.persona{color:var(--muted);font-size:.9rem;margin:.2rem 0 .6rem}
+.claims{padding-left:1.1rem;margin:.2rem 0}.claims li{margin:.45rem 0}
+.claims li p{margin:0}
+.howmade{margin-top:2rem}
 .src-list{columns:2;gap:1.4rem;list-style:none;padding-left:0}
 @media(max-width:560px){.src-list{columns:1}}
 table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.92rem;display:block;
@@ -324,5 +415,10 @@ def build_site(
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_text(_render_page(page, model.link_map), encoding="utf-8")
 
-    (out_dir / "index.html").write_text(_render_index(model), encoding="utf-8")
+    # The demonstrator centerpiece: TOP5 cross-channel answers, rendered live from the
+    # answer engine (every claim wikilink resolves through the same link map as the briefs).
+    aset = build_answer_set(vault_dir, registry)
+    (out_dir / "answers.html").write_text(_render_answers(aset, model.link_map), encoding="utf-8")
+
+    (out_dir / "index.html").write_text(_render_index(model, aset), encoding="utf-8")
     return model

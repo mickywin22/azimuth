@@ -24,6 +24,7 @@ allowed_actions:
   - "bash:python scripts/check_synthesis_freshness.py"
   - "bash:python scripts/build_brief_index.py"
   - "bash:python scripts/build_cross_theme.py"
+  - "bash:python scripts/build_answers.py"
   - "git:commit"
 cadence: weekly
 dispatched_by: "HemySphere fleet weekly cadence (scripts/scheduled/fleet/AzimuthCadence.ps1 -> Seed-WorkItems) — one work-item per ISO week"
@@ -38,10 +39,12 @@ inputs:
 outputs:
   - "vault/02 Briefs/<Theme> Weekly.md — one per clean theme, evolved in place + dated changelog"
   - "vault/02 Briefs/World Watch Weekly.md — the CROSS-theme meta-brief (connections BETWEEN channels), regenerated deterministically (scripts/build_cross_theme.py)"
+  - "vault/02 Briefs/Top5 Answers.md — the DEMONSTRATOR: the TOP5 multi-channel questions answered from the live bundle, regenerated deterministically (scripts/build_answers.py); surfaced on the site as answers.html"
   - "vault/02 Briefs/README.md — regenerated brief index (scripts/build_brief_index.py)"
 pass_criteria:
-  - "scripts/check_synthesis.py exits 0 (all blocking synthesis lints green, every brief incl. World Watch Weekly)"
+  - "scripts/check_synthesis.py exits 0 (all blocking synthesis lints green, every brief incl. World Watch Weekly + Top5 Answers)"
   - "scripts/build_cross_theme.py --check exits 0 (cross-theme meta-brief absorbed the latest L1)"
+  - "scripts/build_answers.py --check exits 0 (the TOP5 demonstrator absorbed the latest L1 bundle)"
   - "scripts/build_brief_index.py --check exits 0 (index is in sync with the briefs)"
   - "scripts/check_synthesis_freshness.py --check exits 0 (no clean brief lags the latest L1) OR a clean no-op when nothing was stale"
   - "each brief evolves the prior note in place — no new per-week file"
@@ -111,16 +114,25 @@ L2 briefs. **No manual run is required.**
    lands on the physical core: US crude inventories / EU gas storage). It is deterministic and
    re-runnable; it preserves the dated `## Changelog`. This is the layer a static OKF bundle
    cannot produce — it is azimuth's strongest Emi-vs-OKF demonstration.
-7. **Self-check before exit:** run `python scripts/check_synthesis.py` (every brief, incl.
-   World Watch Weekly, must be green), `python scripts/build_cross_theme.py --check` (the
-   meta-brief absorbed the latest L1) and `python scripts/build_brief_index.py` (regenerate
-   the index). If the lint is non-zero, fix the brief until it is green. A weekly synthesis
-   commit touches only `vault/02 Briefs/` paths (the diff guard fails any other path when run
-   with `--diff-base`).
+7. **Regenerate the DEMONSTRATOR (the TOP5 answers).** Run `python scripts/build_answers.py`.
+   It reads the live L1 bundle (latest dated note per editorially-clean source key; held themes
+   excluded) and rewrites `vault/02 Briefs/Top5 Answers.md` — azimuth's five fixed multi-channel
+   questions answered from current data, every claim linked to its L1 note, each connecting
+   >=2 channels and naming its use-case. Deterministic and re-runnable; it preserves the dated
+   `## Changelog`. The site build renders it as the centerpiece page `answers.html` (linked
+   from the home hero + nav). This is the demonstrator of azimuth's USP — "explain the world's
+   open data to anyone, for any use case" — the *living* answer a static format can't match.
+8. **Self-check before exit:** run `python scripts/check_synthesis.py` (every brief, incl.
+   World Watch Weekly + Top5 Answers, must be green), `python scripts/build_cross_theme.py
+   --check`, `python scripts/build_answers.py --check` (both meta-briefs absorbed the latest L1)
+   and `python scripts/build_brief_index.py` (regenerate the index). If the lint is non-zero,
+   fix the brief until it is green. A weekly synthesis commit touches only `vault/02 Briefs/`
+   paths (the diff guard fails any other path when run with `--diff-base`).
 
 ## Done gate
 
-`scripts/check_synthesis.py` exits 0, `scripts/build_brief_index.py --check` exits 0,
+`scripts/check_synthesis.py` exits 0, `scripts/build_cross_theme.py --check` exits 0,
+`scripts/build_answers.py --check` exits 0, `scripts/build_brief_index.py --check` exits 0,
 `scripts/check_synthesis_freshness.py --check` exits 0 (no clean brief left lagging the latest
 L1 — proof the weekly cycle actually absorbed the freshest ingest), and each brief reads as
 **analysis-with-sources**, not a data dump. A clean no-op (nothing stale) also satisfies the
