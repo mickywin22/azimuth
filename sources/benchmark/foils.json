@@ -1,0 +1,63 @@
+{
+  "$note": "Captured snapshot of the COMPARED forecast/intelligence product for the azimuth benchmark (synthesis/benchmark.py). Quoted by product + capture date; NOT surfaced as an azimuth channel and NOT an L1 source. Refresh with pull_benchmark_foils.py.",
+  "endpoint": "/api/forecast/v1/get-forecasts",
+  "attribution": "WorldMonitor (api.worldmonitor.app) — model-generated forecast/assessment product",
+  "feed_generated_at": 1782327702657,
+  "feed_degraded": false,
+  "captured_at": "2026-06-24T19:11:44Z",
+  "n_forecasts_seen": 14,
+  "topics": {
+    "energy-supply": {
+      "foil": {
+        "id": "fc-market-3b03eb86",
+        "domain": "market",
+        "region": "Middle East",
+        "title": "Oil price impact from Strait of Hormuz disruption",
+        "probability": 0.4,
+        "prior_probability": 0.4,
+        "confidence": 0.583,
+        "time_horizon": "30d",
+        "trend": "stable",
+        "projections": {
+          "d30": 0.4,
+          "d7": 0.552,
+          "h24": 0.95
+        },
+        "scenario_short": "Strait of Hormuz risk: critical. For now, the base case stays near 44% over the 30d. Actors absorb the current evidence mix without a decisive break toward either shock or relief.",
+        "perspective_strategic": "Strait of Hormuz risk: critical is setting the strategic baseline, and the current 40% probability implies a live but not settled risk path.",
+        "perspective_contrarian": "The current 58% confidence level still leaves room for reversal. If that restraint persists, the forecast can move below the current 40% baseline. Actors prioritize containment and the system drifts toward stabilization unless new hard signals emerge.",
+        "actor_lens": "Commodity traders: Price whether stress in Middle East becomes durable over the 30d. Rebalance positions if the probability path moves away from 40%.",
+        "top_signal": "Strait of Hormuz risk: critical"
+      },
+      "absence_reason": null
+    },
+    "supply-chain-inflation": {
+      "foil": {
+        "id": "fc-market-d14d22ac",
+        "domain": "market",
+        "region": "Black Sea",
+        "title": "Inflation and rates pressure from Black Sea maritime disruption state",
+        "probability": 0.606,
+        "prior_probability": 0.606,
+        "confidence": 0.75,
+        "time_horizon": "30d",
+        "trend": "stable",
+        "projections": {
+          "d30": 0.606,
+          "d7": 0.837,
+          "h24": 0.95
+        },
+        "scenario_short": "Inflation and rates pressure from the Black Sea maritime disruption state has a 61% probability over the next 30 days, driven by a 50% shipping cost shock pressure and 74% state confirmation.",
+        "perspective_strategic": "The 61% probability of inflation and rates pressure, driven by a 50% shipping cost shock from the Black Sea, indicates a significant and ongoing economic vulnerability stemming from regional instability.",
+        "perspective_contrarian": "The 75% confidence level suggests there's still room for a reversal, and a lack of more directly matched reporting on the Black Sea could prevent the forecast from escalating further, keeping it below the 61% baseline.",
+        "actor_lens": "Commodity traders: Price whether stress in Black Sea becomes durable over the 30d. Rebalance positions if the probability path moves away from 61%.",
+        "top_signal": "Black Sea maritime disruption state is feeding inflation and rates pressure through shipping cost shock, with 50% pressure and 74% state confirmation"
+      },
+      "absence_reason": null
+    },
+    "seismic-infrastructure": {
+      "foil": null,
+      "absence_reason": "No product publishes a seismic forecast — earthquakes are not predictable, so there is no forecast/intel alternative to azimuth's observed USGS record. This is the honest inverse: for an observed natural-hazard fact, the sourced record IS the only trustworthy source."
+    }
+  }
+}

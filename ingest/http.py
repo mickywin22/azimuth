@@ -49,7 +49,8 @@ class HttpFetcher:
         req.add_header("Accept", "application/json")
         try:
             with self._opener.open(req, timeout=self._timeout) as resp:
-                return resp.read()
+                data: bytes = resp.read()
+                return data
         except (urllib.error.URLError, urllib.error.HTTPError, TimeoutError) as exc:
             raise FetchError(f"{method} {url} failed: {exc}") from exc
 

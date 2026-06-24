@@ -42,15 +42,25 @@ jobs:
       - name: Run live L1 ingest against WorldMonitor
         run: python scripts/run_ingest.py --base-url https://api.worldmonitor.app
 
-      - name: Commit new L1 notes
+      # Refresh the benchmark FOIL corpus (the compared forecast/intelligence product) and
+      # regenerate the Benchmark brief from the fresh bundle, so the facts-vs-forecast head-
+      # to-head stays current alongside the TOP5 demonstrator. Fail-soft: a failed live foil
+      # pull leaves the committed snapshot untouched and never breaks the daily ingest.
+      - name: Refresh benchmark foil snapshot (compared product)
+        continue-on-error: true
+        run: |
+          python scripts/pull_benchmark_foils.py || echo "foil pull failed — keeping prior snapshot"
+          python scripts/build_benchmark.py || echo "benchmark brief rebuild skipped"
+
+      - name: Commit new L1 notes + refreshed benchmark
         run: |
           git config user.name  "azimuth-ingest[bot]"
           git config user.email "azimuth-ingest@users.noreply.github.com"
-          git add "vault/01 Sources/"
+          git add "vault/01 Sources/" "sources/benchmark/foils.json" "vault/02 Briefs/Benchmark.md"
           if git diff --cached --quiet; then
-            echo "No new or changed L1 notes — nothing to commit."
+            echo "No new or changed L1 notes / benchmark — nothing to commit."
           else
             DAY="$(date -u +%F)"
-            git commit -m "chore(ingest): daily L1 pull ${DAY} (WorldMonitor)"
+            git commit -m "chore(ingest): daily L1 pull + benchmark refresh ${DAY} (WorldMonitor)"
             git push
           fi

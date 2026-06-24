@@ -36,6 +36,7 @@ if str(_REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(_REPO_ROOT))
 
 from synthesis.answers import AnswerSet, build_answer_set  # noqa: E402
+from synthesis.benchmark import Benchmark, build_benchmark  # noqa: E402
 from synthesis.lint import split_frontmatter  # noqa: E402
 
 # A repo-local registry / vault path pair, overridable for tests.
@@ -46,6 +47,9 @@ README = "README.md"
 # The TOP5 demonstrator brief: lint-gated markdown, but surfaced as the dedicated
 # answers.html (rendered live from synthesis/answers.py), never as a generic brief card.
 DEMONSTRATOR_BRIEF = "Top5 Answers.md"
+# The benchmark brief: lint-gated markdown, surfaced as the dedicated benchmark.html
+# (rendered live from synthesis/benchmark.py), never as a generic brief card.
+BENCHMARK_BRIEF = "Benchmark.md"
 
 _WIKILINK_RE = re.compile(r"\[\[([^\]]+)\]\]")
 _MD_EXTENSIONS = ["tables", "fenced_code", "sane_lists", "nl2br"]
@@ -112,7 +116,10 @@ def discover(vault_dir: Path, registry: dict[str, Any]) -> SiteModel:
             # README + held briefs skipped; the TOP5 demonstrator brief is the lint-gated
             # source-of-truth markdown, but its public surface is the dedicated answers.html
             # (rendered live from the answer engine), so it is not also a generic brief card.
-            if path.name in (README, DEMONSTRATOR_BRIEF) or path.name in skip_briefs:
+            if (
+                path.name in (README, DEMONSTRATOR_BRIEF, BENCHMARK_BRIEF)
+                or path.name in skip_briefs
+            ):
                 continue
             fm, body = split_frontmatter(path.read_text(encoding="utf-8"))
             title = (fm or {}).get("title", path.stem)
@@ -196,6 +203,7 @@ _PAGE_TEMPLATE = """<!DOCTYPE html>
   <a class="brand" href="{root}index.html">azimuth</a>
   <nav>
     <a href="{root}answers.html">Ask the data</a>
+    <a href="{root}benchmark.html">Benchmark</a>
     <a href="{root}index.html">Briefs</a>
     <a href="{root}index.html#sources">Sources</a>
     <a href="{root}editorial.html">Editorial line</a>
@@ -270,6 +278,14 @@ def _render_index(model: SiteModel, aset: AnswerSet | None = None) -> str:
   geophysics and climate read <em>together</em>. Every claim links to its L1 source.
   A static feed stores each channel; only a living system connects them.</p>
 </a>
+<a class="demo-cta benchmark-cta" href="benchmark.html">
+  <span class="demo-kind">The benchmark</span>
+  <h2>Facts vs Forecast vs Intelligence &rarr;</h2>
+  <p><em>Why not just read a forecast or an intel feed?</em> The same world-topic, three
+  columns: azimuth&rsquo;s observed + sourced facts vs a forecast&rsquo;s probability vs an
+  analyst&rsquo;s assessment. A fair head-to-head &mdash; azimuth wins on provenance,
+  neutrality and reproducibility; a forecast legitimately wins on looking ahead. We say so.</p>
+</a>
 <section><h2>Briefs</h2><div class="cards">{brief_html}</div></section>
 <section id="sources"><h2>L1 Sources</h2>{sources_html}</section>
 """
@@ -334,6 +350,112 @@ def _render_answers(aset: AnswerSet, link_map: dict[str, str]) -> str:
     )
 
 
+def _render_benchmark(bench: Benchmark, link_map: dict[str, str]) -> str:
+    """Render the benchmark page: same topic, three columns, scorecard, verdict.
+
+    azimuth's claim bullets keep their ``[[stem]]`` citations and resolve through the same
+    link map as the briefs (every fact clickable to its L1 note — the literal proof of the
+    USP). The forecast / intelligence columns are the quoted compared product, attributed by
+    product + capture date, deliberately NOT clickable L1 links.
+    """
+    page = "benchmark.html"
+    blocks: list[str] = []
+    for t in bench.topics:
+        az_bullets = "".join(
+            f"<li>{md.markdown(resolve_wikilinks(c.md, page, link_map), extensions=_MD_EXTENSIONS)}</li>"
+            for c in t.azimuth_claims
+        )
+        # forecast column
+        if t.forecast.present:
+            fc_extra = (
+                f'<p class="proj">{html.escape(t.forecast.projection_note)}</p>'
+                if t.forecast.projection_note
+                else ""
+            )
+            fc_body = (
+                f"{md.markdown(html.escape(t.forecast.headline), extensions=_MD_EXTENSIONS)}"
+                f"{fc_extra}"
+                f'<p class="attr">{html.escape(t.forecast.attribution)}</p>'
+            )
+        else:
+            fc_body = f'<p class="absent">{html.escape(t.forecast.headline)}</p>'
+        # intelligence column
+        if t.intelligence.present:
+            lens = (
+                f'<p class="lens"><strong>Actor lens:</strong> {html.escape(t.intelligence.actor_lens)}</p>'
+                if t.intelligence.actor_lens
+                else ""
+            )
+            intel_body = (
+                f"<p>{html.escape(t.intelligence.headline)}</p>{lens}"
+                f'<p class="attr">{html.escape(t.intelligence.attribution)}</p>'
+            )
+        else:
+            intel_body = f'<p class="absent">{html.escape(t.intelligence.headline)}</p>'
+
+        rows = "".join(
+            f"<tr class='{'win' if r.azimuth_wins else 'concede'}'>"
+            f"<td class='dim'>{html.escape(r.dimension)}</td>"
+            f"<td class='cell-az'>{html.escape(r.azimuth)}</td>"
+            f"<td>{html.escape(r.forecast)}</td>"
+            f"<td>{html.escape(r.intelligence)}</td></tr>"
+            for r in t.scorecard
+        )
+        verdict_html = md.markdown(
+            resolve_wikilinks(t.verdict.md, page, link_map), extensions=_MD_EXTENSIONS
+        )
+        chips = "".join(f'<span class="chip">{html.escape(c)}</span>' for c in t.azimuth_channels)
+        blocks.append(
+            f'<article class="bench">'
+            f"<h2>{html.escape(t.title)}</h2>"
+            f'<p class="bench-q"><strong>Head-to-head:</strong> {html.escape(t.question)}</p>'
+            f'<div class="cols">'
+            f'<div class="col col-az"><div class="col-kind">azimuth — observed facts</div>'
+            f'<div class="chips">{chips}</div><ul class="claims">{az_bullets}</ul></div>'
+            f'<div class="col col-fc"><div class="col-kind">Forecast product — projection</div>{fc_body}</div>'
+            f'<div class="col col-int"><div class="col-kind">Intelligence product — assessment</div>{intel_body}</div>'
+            f"</div>"
+            f'<table class="score"><thead><tr><th>Dimension</th><th>azimuth</th>'
+            f"<th>Forecast</th><th>Intelligence</th></tr></thead><tbody>{rows}</tbody></table>"
+            f'<div class="verdict">{verdict_html}</div>'
+            f"</article>"
+        )
+    body_blocks = "\n".join(blocks)
+    week = html.escape(bench.week or "this week")
+    captured = html.escape(bench.foil_captured_at or "this cycle")
+    body = f"""
+<div class="kind kind-brief">Benchmark</div>
+<div class="hero">
+  <h1>Facts vs Forecast vs Intelligence</h1>
+  <p><em>Why not just read a forecast or an intelligence feed?</em> Here is the same
+  world-topic through three columns &mdash; <strong>azimuth</strong> (observed facts from the
+  live {week} bundle, every claim clickable to its L1 source), a <strong>forecast</strong>
+  product (a model probability), and an <strong>intelligence</strong> product (an analyst
+  assessment). A fair contrast, not a strawman: azimuth wins on provenance, neutrality and
+  reproducibility; a forecast / intel feed legitimately wins on <strong>forward-looking
+  coverage</strong>. The forecast / intelligence columns quote WorldMonitor as the
+  <em>compared product</em> (captured {captured}), deliberately not a clickable L1 link &mdash;
+  because that is exactly the difference.</p>
+</div>
+{body_blocks}
+<section class="howmade">
+  <h2>How this benchmark is made</h2>
+  <blockquote>azimuth&rsquo;s columns are generated deterministically by
+  <code>synthesis/benchmark.py</code> from the live L1 bundle &mdash; every figure read straight
+  from a source note, every claim carrying its inline L1-source citation, nothing invented and
+  nothing predicted. The forecast and intelligence columns are a dated snapshot of the compared
+  product, captured by <code>scripts/pull_benchmark_foils.py</code> on the weekly cadence and
+  quoted by product + date. azimuth&rsquo;s own columns never editorialise or predict.</blockquote>
+</section>
+"""
+    return _PAGE_TEMPLATE.format(
+        title="Benchmark — facts vs forecast vs intelligence — azimuth",
+        root="",
+        kind_block="",
+        html_body=body,
+    )
+
+
 _CSS = """:root{--bg:#0c0f14;--panel:#141a23;--ink:#e7edf5;--muted:#8a97a8;
 --accent:#4cc2ff;--line:#222c39;--held:#3a4250}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);
@@ -391,6 +513,35 @@ color:var(--muted);background:var(--panel);border-radius:0 8px 8px 0}
 code{background:var(--panel);padding:.1rem .35rem;border-radius:5px;
 font-family:JetBrains Mono,ui-monospace,monospace;font-size:.88em}
 .foot{color:var(--muted);font-size:.8rem;border-top:1px solid var(--line);margin-top:2rem}
+.benchmark-cta{background:linear-gradient(135deg,#1d1726,#14101c);border-color:#a98bff}
+.benchmark-cta h2{color:#c9b3ff}
+.benchmark-cta:hover{box-shadow:0 6px 26px rgba(169,139,255,.18)}
+.bench{background:var(--panel);border:1px solid var(--line);border-radius:12px;
+padding:1.1rem 1.3rem;margin:1.4rem 0}
+.bench h2{margin:.1rem 0 .4rem;border:0;padding:0;font-size:1.3rem}
+.bench-q{color:var(--muted);font-size:.95rem;margin:.2rem 0 .9rem}
+.cols{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;margin:.5rem 0 1rem}
+@media(max-width:680px){.cols{grid-template-columns:1fr}}
+.col{border:1px solid var(--line);border-radius:10px;padding:.7rem .85rem;background:#0f141b}
+.col-az{border-color:var(--accent)}
+.col-fc{border-color:#caa86a}.col-int{border-color:#a98bff}
+.col-kind{font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);
+margin-bottom:.5rem;font-weight:600}
+.col-az .col-kind{color:var(--accent)}.col-fc .col-kind{color:#caa86a}
+.col-int .col-kind{color:#a98bff}
+.col p{margin:.4rem 0;font-size:.9rem}
+.col .claims{padding-left:1rem;margin:.2rem 0}.col .claims li{margin:.4rem 0;font-size:.9rem}
+.col .attr{color:var(--muted);font-size:.74rem;font-style:italic;margin-top:.6rem}
+.col .proj{font-family:JetBrains Mono,monospace;font-size:.8rem;color:var(--ink)}
+.col .lens{font-size:.84rem;color:var(--muted)}
+.col .absent{color:var(--muted);font-style:italic}
+table.score{font-size:.84rem}
+table.score td.dim{font-weight:600;color:var(--ink)}
+table.score td.cell-az{color:#dff3ff}
+table.score tr.win td.cell-az{background:rgba(76,194,255,.08)}
+table.score tr.concede td.cell-az{color:var(--muted)}
+.verdict{border-left:3px solid var(--accent);background:#0f141b;border-radius:0 8px 8px 0;
+padding:.5rem .9rem;margin-top:.4rem}.verdict p{margin:.3rem 0;font-size:.92rem}
 """
 
 
@@ -419,6 +570,16 @@ def build_site(
     # answer engine (every claim wikilink resolves through the same link map as the briefs).
     aset = build_answer_set(vault_dir, registry)
     (out_dir / "answers.html").write_text(_render_answers(aset, model.link_map), encoding="utf-8")
+
+    # The benchmark page: same world-topic, observed+sourced facts vs a forecast vs an
+    # intelligence product (the USP proof by contrast). azimuth's columns render live from the
+    # bundle; the foil columns come from the committed snapshot (absent file => empty foils).
+    foils_path = registry_path.parent / "benchmark" / "foils.json"
+    foils = json.loads(foils_path.read_text(encoding="utf-8")) if foils_path.exists() else {}
+    bench = build_benchmark(vault_dir, registry, foils)
+    (out_dir / "benchmark.html").write_text(
+        _render_benchmark(bench, model.link_map), encoding="utf-8"
+    )
 
     (out_dir / "index.html").write_text(_render_index(model, aset), encoding="utf-8")
     return model
