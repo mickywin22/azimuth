@@ -6,6 +6,8 @@ endpoint: "/api/economic/v1/get-nat-gas-storage"
 retrieved: "2026-06-18T12:26:35Z"
 license: "CC-BY-4.0"
 attribution: "Data: GIE AGSI+ via WorldMonitor (api.worldmonitor.app)"
+resource: true
+tags: [natural-gas-storage-eu, energy]
 ---
 
 # GIE AGSI+ (Gas Infrastructure Europe)

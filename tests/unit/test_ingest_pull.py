@@ -232,5 +232,19 @@ def test_note_frontmatter_is_parseable_block() -> None:
     note = render_note(_entry(), [{"v": 1}], FIXED)
     match = re.match(r"^---\n(.*?)\n---\n", note, re.DOTALL)
     assert match is not None
-    keys = {line.split(":", 1)[0] for line in match.group(1).splitlines()}
-    assert keys == {"type", "source", "source_key", "endpoint", "retrieved", "license", "attribution"}
+    fm_lines = match.group(1).splitlines()
+    keys = {line.split(":", 1)[0] for line in fm_lines}
+    assert keys == {
+        "type",
+        "source",
+        "source_key",
+        "endpoint",
+        "retrieved",
+        "license",
+        "attribution",
+        "resource",
+        "tags",
+    }
+    # OKF reference-impl keys (G6) are emitted RAW (unquoted bool + inline list).
+    assert "resource: true" in fm_lines
+    assert "tags: [natural-gas-storage-eu, energy]" in fm_lines

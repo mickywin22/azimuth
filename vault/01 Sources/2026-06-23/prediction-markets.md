@@ -6,6 +6,8 @@ endpoint: "/api/prediction/v1/list-prediction-markets"
 retrieved: "2026-06-23T03:21:48Z"
 license: "API-ToS-derived"
 attribution: "Data: Polymarket via WorldMonitor (api.worldmonitor.app)"
+resource: true
+tags: [prediction-markets, markets]
 ---
 
 # Polymarket public odds

@@ -6,6 +6,8 @@ endpoint: "/api/economic/v1/list-fuel-prices"
 retrieved: "2026-06-16T14:11:41Z"
 license: "API-ToS-derived"
 attribution: "Data: WorldMonitor fuel-price feed (api.worldmonitor.app)"
+resource: true
+tags: [fuel-prices, energy]
 ---
 
 # WorldMonitor aggregated fuel-price feed

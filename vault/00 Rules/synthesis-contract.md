@@ -3,6 +3,8 @@ title: Synthesis Contract
 type: L3-rule
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator)
+resource: false
+tags: [doctrine]
 ---
 
 # Synthesis Contract (L3)

@@ -3,6 +3,8 @@ title: OKF Conformance
 type: L3-rule
 license: CC-BY-4.0
 updated: 2026-06-24
+resource: false
+tags: [okf, doctrine]
 ---
 
 # azimuth is an Open Knowledge Format bundle
@@ -39,6 +41,7 @@ published example bundles, e.g. GA4 / Stack Overflow / Bitcoin):
 | git-distributable bundle | public GitHub repo | ✅ conformant |
 | Reserved `index.md` (directory listing) | per-folder index | ✅ conformant (Tier-1) |
 | Reserved `log.md` (chronological history) | [`log.md`](log.md) — auto-generated from ingest days + brief changelogs | ✅ conformant (Tier-1) |
+| Reference-agent keys `resource` + `tags` | on every note; enforced by `synthesis/lint.py` `check_frontmatter_schema`, emitted by `ingest/pull.py` | ✅ conformant (Tier-1, G6) |
 | Relationships as standard markdown links | currently Obsidian `[[wikilinks]]` | ⚠️ **honest caveat — Tier-2, deferred** |
 
 **The one honest caveat:** azimuth still expresses cross-note relationships as

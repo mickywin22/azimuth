@@ -54,7 +54,7 @@ Bundle audited: `vault/` = **21 L1 source notes · 2 L2 briefs · 3 L3 rules · 
 | G3 | Reserved `log.md` (chronological history) | per-brief `## Changelog` + dated source folders; **0 top-level `log.md`** | ❌ gap | **Low** — generate `log.md` from the existing changelog lines + ingest dates |
 | G4 | Relationships as **standard markdown links** | **25 `[[wikilinks]]`** in briefs (Obsidian-flavoured) | ❌ gap | **HIGH** — the synthesis lint (`check_claim_sourcing`, `check_l1_links_exist`) and the `azimuth-curator` role both assume `[[wikilink]]`; migrating to `[x](/path.md)` is a lint + role rewrite, not a find-replace |
 | G5 | Citations under `# Citations` heading | per-note `attribution`/`source`/`endpoint` frontmatter + top-level `CREDITS.md` | ⚠️ partial | **Low-med** — add a generated `# Citations` section, or document the frontmatter-citation mapping as an OKF profile |
-| G6 | `resource` + `tags` (reference-impl convention) | absent on all notes | ⚠️ optional | **Low** — additive frontmatter keys |
+| G6 | `resource` + `tags` (reference-impl convention) | ✅ **shipped W26** — on every note; `synthesis/lint.py` `check_frontmatter_schema` enforces both, `ingest/pull.py` emits them on new L1 notes, `scripts/backfill_okf_frontmatter.py` backfilled all 32 existing notes | ✅ pass | done |
 | G7 | Markdown + frontmatter, git-distributable | ✅ already a public GitHub repo of markdown + YAML | ✅ pass | — |
 | G8 | Concept ID = path minus `.md` | ✅ automatic (path-addressable notes) | ✅ pass | — |
 

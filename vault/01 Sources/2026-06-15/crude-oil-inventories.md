@@ -6,6 +6,8 @@ endpoint: "/api/economic/v1/get-crude-inventories"
 retrieved: "2026-06-15T06:00:00Z"
 license: "US-Gov-public-domain"
 attribution: "Data: U.S. EIA via WorldMonitor (api.worldmonitor.app)"
+resource: true
+tags: [crude-oil-inventories, energy]
 ---
 
 # U.S. EIA (Energy Information Administration)

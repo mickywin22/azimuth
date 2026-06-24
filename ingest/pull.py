@@ -44,7 +44,37 @@ FRONTMATTER_KEYS: tuple[str, ...] = (
     "retrieved",
     "license",
     "attribution",
+    # OKF reference-impl-aligned keys (G6): every concept carries `resource` (does it
+    # wrap an external data resource — true for L1 source pulls) + `tags` (topical
+    # inline list). Enforced by synthesis/lint.py check_frontmatter_schema.
+    "resource",
+    "tags",
 )
+
+# Keys whose value is a YAML scalar boolean / inline list, emitted RAW (unquoted) so the
+# frontmatter parser reads `resource: true` and `tags: [a, b]`, not quoted strings.
+RAW_FRONTMATTER_KEYS: frozenset[str] = frozenset({"resource", "tags"})
+
+# Coarse topical tag per source key, so backfilled L1 notes read like Google's OKF
+# example bundles rather than carrying an empty list. Unknown keys fall back to [].
+_TAG_CATEGORY: dict[str, str] = {
+    "crude-oil-inventories": "energy",
+    "natural-gas-storage-eu": "energy",
+    "fuel-prices": "energy",
+    "energy-prices": "energy",
+    "earthquakes": "geophysical",
+    "prediction-markets": "markets",
+}
+
+
+def _infer_tags(source_key: str) -> str:
+    """Inline-list tag string for an L1 source: `[<source_key>, <category>]`."""
+    tags = [source_key]
+    category = _TAG_CATEGORY.get(source_key)
+    if category and category != source_key:
+        tags.append(category)
+    return "[" + ", ".join(tags) + "]"
+
 
 # OKF v0.1 layer tag — every L1 source note declares its layer in frontmatter so any
 # OKF-aware agent can classify it without inspecting the path. (L2 briefs -> "L2-brief",
@@ -105,12 +135,18 @@ def frontmatter_for(entry: SourceEntry, retrieved: datetime) -> dict[str, str]:
         "retrieved": retrieved.astimezone(UTC).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "license": entry.license,
         "attribution": entry.attribution,
+        # An L1 source note IS the external data resource (it wraps a live API endpoint).
+        "resource": "true",
+        "tags": _infer_tags(entry.key),
     }
 
 
 def _render_frontmatter(fields: dict[str, str]) -> str:
     lines = ["---"]
-    lines.extend(f"{key}: {_yaml_quote(fields[key])}" for key in FRONTMATTER_KEYS)
+    for key in FRONTMATTER_KEYS:
+        value = fields[key]
+        rendered = value if key in RAW_FRONTMATTER_KEYS else _yaml_quote(value)
+        lines.append(f"{key}: {rendered}")
     lines.append("---")
     return "\n".join(lines)
 

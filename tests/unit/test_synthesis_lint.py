@@ -32,6 +32,8 @@ updated: 2026-06-15T06:00:00Z
 sources: [natural-gas-storage-eu, crude-oil-inventories]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator)
+resource: false
+tags: [energy, supply]
 ---
 
 # Energy Supply Weekly
@@ -151,6 +153,32 @@ def test_bad_week_format_fails() -> None:
 
 def test_no_frontmatter_fails() -> None:
     assert check_frontmatter_schema(None)
+
+
+# --- 3b. OKF reference-impl keys: resource + tags (G6) --------------------------------
+def test_missing_resource_key_fails() -> None:
+    fm, _ = split_frontmatter(CLEAN_BRIEF.replace("resource: false\n", ""))
+    assert any("resource" in v for v in check_frontmatter_schema(fm))
+
+
+def test_missing_tags_key_fails() -> None:
+    fm, _ = split_frontmatter(CLEAN_BRIEF.replace("tags: [energy, supply]\n", ""))
+    assert any("tags" in v for v in check_frontmatter_schema(fm))
+
+
+def test_non_boolean_resource_fails() -> None:
+    fm, _ = split_frontmatter(CLEAN_BRIEF.replace("resource: false", "resource: maybe"))
+    assert any("resource must be a boolean" in v for v in check_frontmatter_schema(fm))
+
+
+def test_non_list_tags_fails() -> None:
+    fm, _ = split_frontmatter(CLEAN_BRIEF.replace("tags: [energy, supply]", "tags: energy"))
+    assert any("tags must be an inline list" in v for v in check_frontmatter_schema(fm))
+
+
+def test_empty_tags_list_passes() -> None:
+    fm, _ = split_frontmatter(CLEAN_BRIEF.replace("tags: [energy, supply]", "tags: []"))
+    assert not [v for v in check_frontmatter_schema(fm) if "tags" in v]
 
 
 # --- 4. evolve, not duplicate --------------------------------------------------------

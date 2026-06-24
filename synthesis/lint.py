@@ -39,6 +39,12 @@ REQUIRED_KEYS: tuple[str, ...] = (
     "sources",
     "license",
     "attribution",
+    # OKF reference-impl-aligned keys (G6). The OKF *spec* mandates only `type`; the
+    # Google reference *agent* (GA4 / Stack Overflow / Bitcoin example bundles) also
+    # carries `resource` + `tags` on every concept. azimuth targets that richer bar so
+    # the bundle reads like Google's own. See docs/strategy/okf-and-knowledge-graph.md.
+    "resource",
+    "tags",
 )
 LOCKED_TYPE = "L2-brief"
 LOCKED_LICENSE = "CC-BY-4.0"  # IQ #371 (A): content = CC BY 4.0
@@ -47,6 +53,10 @@ _WEEK_RE = re.compile(r"^\d{4}-W\d{2}$")
 _UPDATED_RE = re.compile(r"^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$")
 _WIKILINK_RE = re.compile(r"\[\[([^\]]+?)\]\]")
 _CHANGELOG_LINE_RE = re.compile(r"\d{4}-\d{2}-\d{2}")
+# `resource` is a boolean flag (OKF: does this concept wrap an external data resource);
+# `tags` is an inline YAML list (`[a, b]` or empty `[]`), matching the existing `sources`.
+_RESOURCE_RE = re.compile(r"^(true|false)$", re.IGNORECASE)
+_TAGS_LIST_RE = re.compile(r"^\[.*\]$")
 
 # --- Editorial deny-list (vault/00 Rules/editorial.md enforcement) -------------------
 # Phrase-level, word-boundaried patterns chosen to catch advice/prediction/opinion
@@ -207,6 +217,14 @@ def check_frontmatter_schema(fm: dict[str, str] | None) -> list[str]:
     if fm.get("updated", "").strip() and not _UPDATED_RE.match(fm["updated"].strip()):
         violations.append(
             f"frontmatter updated must be UTC ISO-8601 ...Z, got '{fm['updated'].strip()}'"
+        )
+    if fm.get("resource", "").strip() and not _RESOURCE_RE.match(fm["resource"].strip()):
+        violations.append(
+            f"frontmatter resource must be a boolean (true/false), got '{fm['resource'].strip()}'"
+        )
+    if fm.get("tags", "").strip() and not _TAGS_LIST_RE.match(fm["tags"].strip()):
+        violations.append(
+            f"frontmatter tags must be an inline list ([a, b] or []), got '{fm['tags'].strip()}'"
         )
     return violations
 

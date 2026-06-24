@@ -6,6 +6,8 @@ endpoint: "/api/economic/v1/get-energy-prices"
 retrieved: "2026-06-15T06:00:00Z"
 license: "API-ToS-derived"
 attribution: "Data: WorldMonitor energy-price feed (api.worldmonitor.app)"
+resource: true
+tags: [energy-prices, energy]
 ---
 
 # WorldMonitor aggregated energy spot/forward feed

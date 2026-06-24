@@ -7,6 +7,8 @@ updated: 2026-06-23T04:00:00Z
 sources: [natural-gas-storage-eu, crude-oil-inventories, fuel-prices, energy-prices]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
+resource: false
+tags: [energy, supply]
 ---
 
 # Energy Supply Weekly

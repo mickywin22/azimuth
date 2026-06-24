@@ -6,6 +6,8 @@ endpoint: "/api/seismology/v1/list-earthquakes"
 retrieved: "2026-06-23T03:21:48Z"
 license: "US-Gov-public-domain"
 attribution: "Data: USGS via WorldMonitor (api.worldmonitor.app)"
+resource: true
+tags: [earthquakes, geophysical]
 ---
 
 # USGS Earthquake Hazards Program
