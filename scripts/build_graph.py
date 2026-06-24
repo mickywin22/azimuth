@@ -5,21 +5,40 @@ This is the CROSS-CHANNEL layer of the public demonstrator. A static OKF bundle 
 store briefs and source notes; what it cannot do is *connect* them. Emi can — so this
 graph makes that connection visible.
 
-Two kinds of link are drawn:
+The graph has FOUR visually-typed node kinds:
 
-* **within-theme** — every L2 brief links to the L1 source notes its claims rest on
-  (the structural link-graph that already existed); and
-* **cross-theme** — a shared ENTITY (a region or a commodity/benchmark) that the live
-  data mentions under *different* themes becomes its own node, and is wired to the brief
-  of every theme it appears in. When an entity bridges >=2 themes those edges are flagged
-  ``cross_theme: true`` and rendered distinctly. Example from the live feed: *Greece* and
-  *Mexico* are recorded both as USGS earthquake locations (``geophysical``) and in the
-  WorldMonitor fuel-price panel (``energy-supply``), so the graph shows the two themes
-  joined through them.
+* **concept** — one per surfaced channel/theme (the persistent topic an L2 brief is an
+  instance of). The top layer: ``concept -> brief -> source``.
+* **brief** — the weekly L2 synthesis (one per surfaced theme).
+* **source** — the dated L1 source notes a brief's claims rest on.
+* **entity** — named things scanned out of the live text, in three sub-kinds:
+  ``region`` (countries/areas), ``commodity`` (oil/gas benchmarks) and ``event``
+  (individual earthquakes pulled from the USGS feed). The entity layer is what makes
+  cross-source relationships legible instead of locked in prose.
 
-Entities are not invented — they are scanned out of the actual L1 source notes and L2
-briefs with a fixed gazetteer (countries/regions + energy commodities & benchmarks), so a
-cross-theme edge only ever exists because the same name genuinely appears under two themes.
+Three kinds of link are drawn:
+
+* **concept -> brief** and **brief -> source** — the structural spine (within-theme).
+* **commodity/event -> brief** — the per-channel entity texture (within-theme): which
+  benchmarks and which actual events each channel is built on.
+* **cross-theme** — a shared ENTITY (a region the live data mentions under *different*
+  themes) becomes its own node wired to the brief of every theme it appears in. Those
+  edges are flagged ``cross_theme: true`` and rendered in gold. Example from the live
+  feed: *Greece* and *Mexico* are recorded both as USGS earthquake locations
+  (``geophysical``) and in the WorldMonitor fuel-price panel (``energy-supply``), so the
+  graph shows the two channels joined through them.
+
+Entities are not invented — regions/commodities are scanned out of the actual L1 source
+notes and L2 briefs with a fixed gazetteer, and events are read straight from the USGS
+earthquake JSON. So every node and every cross-theme edge is data-backed, never inferred.
+
+Surfacing rules (kept readable, not flooded):
+
+* **regions** surface only when they BRIDGE >=2 themes — that is their cross-channel
+  value; a country confined to one theme stays implicit in that theme's cluster.
+* **commodities** surface even single-theme — the per-channel economic texture.
+* **events** (top earthquakes by magnitude) always surface under ``geophysical``, and
+  link to any surfaced region named in their location.
 
 Held themes (``brief_held: true`` in ``sources/registry.json``) are excluded entirely, the
 same editorial guarantee the static-site build enforces.
@@ -76,6 +95,9 @@ _ENTITY_TERMS: list[tuple[str, str]] = sorted(
     key=lambda p: -len(p[0]),
 )
 
+# how many earthquake events (largest by magnitude) to surface as event nodes
+_EVENT_TOP_N = 6
+
 _THEME_COLORS = {
     "energy-supply": "#4cc2ff",
     "geophysical": "#ff9d4c",
@@ -111,6 +133,117 @@ def _latest_source_text(vault_dir: Path, skip_keys: set[str]) -> dict[str, str]:
     return out
 
 
+def _concept_label(theme: str, title: str) -> str:
+    """The persistent-channel label — the brief's recurring topic, not this week's note.
+
+    ``Energy Supply Weekly`` (brief) -> ``Energy Supply`` (concept/channel).
+    """
+    label = re.sub(r"\s+weekly$", "", title, flags=re.IGNORECASE).strip()
+    return label or theme
+
+
+def _extract_quakes(raw: str) -> list[dict[str, Any]]:
+    """Best-effort: pull the earthquake JSON array out of a raw USGS L1 source note.
+
+    The L1 note stores the feed as a single markdown table cell holding a JSON array
+    of ``{"magnitude", "place", "id", ...}`` objects. We bracket-match the array that
+    contains ``"magnitude"`` and parse it. Any failure returns ``[]`` — events only
+    ever ENRICH the graph, they never break the build.
+    """
+    i = raw.find('"magnitude"')
+    if i == -1:
+        return []
+    start = raw.rfind("[", 0, i)
+    if start == -1:
+        return []
+    depth = 0
+    end = -1
+    for j in range(start, len(raw)):
+        c = raw[j]
+        if c == "[":
+            depth += 1
+        elif c == "]":
+            depth -= 1
+            if depth == 0:
+                end = j
+                break
+    if end == -1:
+        return []
+    try:
+        arr = json.loads(raw[start : end + 1])
+    except (ValueError, json.JSONDecodeError):
+        return []
+    if not isinstance(arr, list):
+        return []
+    return [q for q in arr if isinstance(q, dict) and q.get("magnitude") is not None]
+
+
+def _seismic_events(
+    vault_dir: Path,
+    skip_keys: set[str],
+    geo_brief_id: str | None,
+    region_entities: dict[str, str],
+    latest_day: str,
+    top_n: int = _EVENT_TOP_N,
+) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+    """Surface the largest individual earthquakes as ``event`` entity nodes.
+
+    Reads the newest ``earthquakes`` L1 note, takes the ``top_n`` events by magnitude,
+    and wires each to the geophysical brief plus any surfaced region named in its place.
+    Returns ``([], [])`` whenever the data is missing or unparseable.
+    """
+    nodes: list[dict[str, Any]] = []
+    edges: list[dict[str, Any]] = []
+    if not geo_brief_id:
+        return nodes, edges
+    sources_dir = vault_dir / "01 Sources"
+    if not sources_dir.is_dir():
+        return nodes, edges
+    raw: str | None = None
+    for day_dir in sorted((d for d in sources_dir.iterdir() if d.is_dir()), reverse=True):
+        path = day_dir / "earthquakes.md"
+        if path.is_file() and "earthquakes" not in skip_keys:
+            raw = path.read_text(encoding="utf-8")
+            break
+    if not raw:
+        return nodes, edges
+    quakes = sorted(
+        _extract_quakes(raw), key=lambda q: q.get("magnitude") or 0, reverse=True
+    )
+    seen: set[str] = set()
+    url = f"sources/{latest_day}/earthquakes.html" if latest_day else ""
+    for q in quakes:
+        if len(seen) >= top_n:
+            break
+        qid = str(q.get("id") or "")
+        if not qid or qid in seen:
+            continue
+        seen.add(qid)
+        mag = q.get("magnitude")
+        place = str(q.get("place") or "").strip()
+        short = place.split(" of ")[-1] if " of " in place else place
+        label = f"M{mag} · {short}" if short else f"M{mag}"
+        eid = f"event:{_slug(qid)}"
+        nodes.append(
+            {
+                "id": eid,
+                "label": label,
+                "kind": "entity",
+                "entity_kind": "event",
+                "theme": "geophysical",
+                "themes": ["geophysical"],
+                "magnitude": mag,
+                "url": url,
+            }
+        )
+        edges.append({"source": eid, "target": geo_brief_id, "cross_theme": False})
+        place_norm = _norm(place)
+        for term_lower, reid in region_entities.items():
+            if _mentions(place_norm, term_lower):
+                edges.append({"source": eid, "target": reid, "cross_theme": False})
+    return nodes, edges
+
+
 def build_graph(
     vault_dir: Path = DEFAULT_VAULT,
     registry_path: Path = DEFAULT_REGISTRY,
@@ -139,6 +272,19 @@ def build_graph(
 
     nodes: list[dict[str, Any]] = []
     edges: list[dict[str, Any]] = []
+
+    # --- concept nodes (one per surfaced channel) + concept->brief spine ----
+    for theme, bid in brief_id.items():
+        cid = f"concept:{theme}"
+        nodes.append(
+            {
+                "id": cid,
+                "label": _concept_label(theme, brief_label[theme]),
+                "kind": "concept",
+                "theme": theme,
+            }
+        )
+        edges.append({"source": cid, "target": bid, "cross_theme": False})
 
     # --- brief nodes (one per surfaced theme) ---------------------------
     for theme, bid in brief_id.items():
@@ -207,28 +353,45 @@ def build_graph(
             entity_hits[term] = per_theme
             entity_kind[term] = kind
 
-    # --- entity nodes + edges; cross-theme entities bridge >=2 themes ---
-    # Only surface entities that BRIDGE themes (the cross-channel value). A term
-    # confined to one theme stays implicit in that theme's brief/source cluster.
+    # --- entity nodes + edges -------------------------------------------
+    # Surfacing rule: a region only earns a node when it BRIDGES >=2 themes (its
+    # cross-channel value); a commodity surfaces even single-theme (the per-channel
+    # economic texture). Multi-theme entities are "shared" (gold); single-theme ones
+    # carry their one theme's colour. Region nodes are tracked so seismic events can
+    # link to the region they occurred in.
+    region_entities: dict[str, str] = {}  # lowercased region term -> entity id
     for term, per_theme in entity_hits.items():
-        if len(per_theme) < 2:
+        kind = entity_kind[term]
+        multi = len(per_theme) >= 2
+        if not multi and kind != "commodity":
             continue
         eid = f"entity:{_slug(term)}"
-        nodes.append(
-            {
-                "id": eid,
-                "label": term,
-                "kind": "entity",
-                "entity_kind": entity_kind[term],
-                "theme": "shared",
-                "themes": sorted(per_theme.keys()),
-            }
-        )
+        node: dict[str, Any] = {
+            "id": eid,
+            "label": term,
+            "kind": "entity",
+            "entity_kind": kind,
+        }
+        if multi:
+            node["theme"] = "shared"
+            node["themes"] = sorted(per_theme.keys())
+        else:
+            only = next(iter(per_theme))
+            node["theme"] = only
+            node["themes"] = [only]
+        nodes.append(node)
+        if kind == "region":
+            region_entities[term.lower()] = eid
         for theme in sorted(per_theme.keys()):
             if theme in brief_id:
-                edges.append(
-                    {"source": eid, "target": brief_id[theme], "cross_theme": True}
-                )
+                edges.append({"source": eid, "target": brief_id[theme], "cross_theme": multi})
+
+    # --- event entities: the largest live earthquakes -------------------
+    ev_nodes, ev_edges = _seismic_events(
+        vault_dir, skip_keys, brief_id.get("geophysical"), region_entities, latest_day
+    )
+    nodes.extend(ev_nodes)
+    edges.extend(ev_edges)
 
     return {"nodes": nodes, "edges": edges}
 
@@ -253,15 +416,17 @@ _HTML_TEMPLATE = """<!DOCTYPE html>
 <main class="content">
 <div class="kind kind-brief">Knowledge graph</div>
 <h1>Cross-channel relationship graph</h1>
-<p class="hero-sub">Each <strong>L2 brief</strong> (large node) links to the dated
-<strong>L1 source notes</strong> (small nodes) its claims rest on, coloured by theme.
-The <strong>gold diamonds</strong> are <strong>shared entities</strong> &mdash; a region or
-commodity the live data mentions under <em>more than one</em> theme &mdash; and the
-<strong>gold edges</strong> are the cross-theme links they create. That is the part a static
-format cannot produce: Emi connects channels through the entities they have in common.
-Drag a node; click it to open its page. Held themes never appear.</p>
+<p class="hero-sub">Four node kinds, drawn straight from the live bundle. A
+<strong>channel</strong> (hexagon) holds its <strong>L2 brief</strong> (large circle),
+which rests on the dated <strong>L1 source notes</strong> (small dots) its claims come
+from. Around them sits the <strong>entity layer</strong> scanned out of the real text:
+<strong>commodities</strong> (squares) and individual <strong>earthquake events</strong>
+(triangles) give each channel its texture, and <strong>shared regions</strong> (gold
+diamonds) bridge channels &mdash; a place the live data records under <em>more than one</em>
+theme, joined by <strong>gold edges</strong>. That cross-channel link is the part a static
+format cannot produce. Drag a node; click it to open its page. Held themes never appear.</p>
 <div id="legend" class="legend"></div>
-<canvas id="g" width="820" height="560"></canvas>
+<canvas id="g" width="820" height="600"></canvas>
 <noscript><p>Enable JavaScript to view the interactive graph, or browse the
 <a href="index.html">briefs and sources</a> directly.</p></noscript>
 <div id="glist"></div>
@@ -275,34 +440,54 @@ const GRAPH = __GRAPH_JSON__;
 const THEME_COLORS = __THEME_COLORS__;
 const CROSS = "__CROSS_COLOR__";
 const cv = document.getElementById("g"), cx = cv.getContext("2d");
-const colorOf = n => n.kind === "entity" ? CROSS : (THEME_COLORS[n.theme] || THEME_COLORS.other);
-// legend: each surfaced theme + the shared-entity class
-const themes = [...new Set(GRAPH.nodes.filter(n => n.kind !== "entity").map(n => n.theme))];
+const colorOf = n => n.theme === "shared" ? CROSS : (THEME_COLORS[n.theme] || THEME_COLORS.other);
+const isEntity = n => n.kind === "entity";
+// --- legend: themes + node-kind glyph guide -------------------------------
+const themes = [...new Set(GRAPH.nodes.filter(n => !isEntity(n)).map(n => n.theme))];
 let legend = themes.map(t =>
   `<span class="lg"><i style="background:${THEME_COLORS[t]||THEME_COLORS.other}"></i>${t}</span>`
 ).join("");
-if (GRAPH.nodes.some(n => n.kind === "entity"))
-  legend += `<span class="lg"><i style="background:${CROSS}"></i>shared entity (cross-theme)</span>`;
+const has = (k, ek) => GRAPH.nodes.some(n => n.kind === k && (!ek || n.entity_kind === ek));
+legend += `<span class="lg">&#x2B22; channel</span>`;
+legend += `<span class="lg">&#x25CF; brief</span>`;
+legend += `<span class="lg">&#xB7; source</span>`;
+if (has("entity", "commodity")) legend += `<span class="lg">&#x25A0; commodity</span>`;
+if (has("entity", "event")) legend += `<span class="lg" style="color:${THEME_COLORS.geophysical}">&#x25B2; earthquake</span>`;
+if (has("entity", "region")) legend += `<span class="lg" style="color:${CROSS}">&#x25C6; shared region (cross-theme)</span>`;
 document.getElementById("legend").innerHTML = legend;
-// text fallback / accessibility list
+// --- text fallback / accessibility list -----------------------------------
+const nodeById = Object.fromEntries(GRAPH.nodes.map(n => [n.id, n]));
+const childrenOf = (id, pred) => GRAPH.edges
+  .filter(e => e.source === id).map(e => nodeById[e.target])
+  .filter(n => n && pred(n));
 const briefList = GRAPH.nodes.filter(n => n.kind === "brief").map(b => {
-  const kids = GRAPH.edges.filter(e => e.source === b.id && !e.cross_theme)
-    .map(e => GRAPH.nodes.find(n => n.id === e.target))
-    .filter(Boolean).map(n => `<a href="${n.url}">${n.label}</a>`).join(", ");
-  return `<li><a href="${b.url}"><strong>${b.label}</strong></a> &rarr; ${kids||"&mdash;"}</li>`;
+  const srcs = childrenOf(b.id, n => n.kind === "source")
+    .map(n => `<a href="${n.url}">${n.label}</a>`).join(", ");
+  const comms = GRAPH.edges.filter(e => e.target === b.id)
+    .map(e => nodeById[e.source]).filter(n => n && n.entity_kind === "commodity")
+    .map(n => n.label);
+  const commTxt = comms.length ? ` <em>(commodities: ${[...new Set(comms)].join(", ")})</em>` : "";
+  return `<li><a href="${b.url}"><strong>${b.label}</strong></a> &rarr; ${srcs||"&mdash;"}${commTxt}</li>`;
 }).join("");
-const bridges = GRAPH.nodes.filter(n => n.kind === "entity").map(en =>
-  `<li><strong>${en.label}</strong> bridges ${(en.themes||[]).join(" &harr; ")}</li>`
-).join("");
+const events = GRAPH.nodes.filter(n => n.entity_kind === "event")
+  .map(n => `<li>${n.label}</li>`).join("");
+const bridges = GRAPH.nodes.filter(n => n.entity_kind === "region")
+  .map(en => `<li><strong>${en.label}</strong> bridges ${(en.themes||[]).join(" &harr; ")}</li>`).join("");
 document.getElementById("glist").innerHTML =
-  "<details><summary>Graph as a list</summary><ul>" + briefList +
-  (bridges ? "</ul><p><strong>Cross-theme bridges</strong></p><ul>" + bridges : "") +
-  "</ul></details>";
-// simple force layout
+  "<details><summary>Graph as a list</summary><ul>" + briefList + "</ul>" +
+  (events ? "<p><strong>Largest live earthquakes</strong></p><ul>" + events + "</ul>" : "") +
+  (bridges ? "<p><strong>Cross-theme bridges</strong></p><ul>" + bridges + "</ul>" : "") +
+  "</details>";
+// --- force layout ---------------------------------------------------------
 const W = cv.width, H = cv.height;
+const radiusOf = n =>
+  n.kind === "concept" ? 16 :
+  n.kind === "brief"   ? 13 :
+  n.kind === "entity"  ? (n.entity_kind === "event"
+                           ? Math.min(12, 6 + ((n.magnitude || 5) - 4) * 1.6) : 9) : 7;
 const N = GRAPH.nodes.map((n, i) => ({
-  ...n, x: W/2 + Math.cos(i)*200 + (i%5)*7, y: H/2 + Math.sin(i*1.7)*160 + (i%3)*5,
-  vx: 0, vy: 0, r: n.kind === "brief" ? 13 : (n.kind === "entity" ? 9 : 7)
+  ...n, x: W/2 + Math.cos(i)*220 + (i%5)*7, y: H/2 + Math.sin(i*1.7)*170 + (i%3)*5,
+  vx: 0, vy: 0, r: radiusOf(n)
 }));
 const idx = Object.fromEntries(N.map(n => [n.id, n]));
 const E = GRAPH.edges.map(e => ({s: idx[e.source], t: idx[e.target], cross: !!e.cross_theme}))
@@ -312,14 +497,14 @@ function step() {
     for (const b of N) {
       if (a === b) continue;
       let dx = a.x-b.x, dy = a.y-b.y, d = Math.hypot(dx,dy)||1;
-      const f = 2800/(d*d);
+      const f = 3000/(d*d);
       a.vx += (dx/d)*f; a.vy += (dy/d)*f;
     }
-    a.vx += (W/2-a.x)*0.0025; a.vy += (H/2-a.y)*0.0025;
+    a.vx += (W/2-a.x)*0.0024; a.vy += (H/2-a.y)*0.0024;
   }
   for (const e of E) {
     let dx = e.t.x-e.s.x, dy = e.t.y-e.s.y, d = Math.hypot(dx,dy)||1;
-    const rest = e.cross ? 170 : 120;
+    const rest = e.cross ? 175 : 110;
     const f = (d-rest)*0.012;
     e.s.vx += (dx/d)*f; e.s.vy += (dy/d)*f;
     e.t.vx -= (dx/d)*f; e.t.vy -= (dy/d)*f;
@@ -329,9 +514,23 @@ function step() {
     a.x = Math.max(a.r, Math.min(W-a.r, a.x)); a.y = Math.max(a.r, Math.min(H-a.r, a.y));
   }
 }
+// --- shape primitives -----------------------------------------------------
 function diamond(x, y, r) {
   cx.beginPath(); cx.moveTo(x, y-r); cx.lineTo(x+r, y); cx.lineTo(x, y+r);
   cx.lineTo(x-r, y); cx.closePath();
+}
+function square(x, y, r) { cx.beginPath(); cx.rect(x-r, y-r, 2*r, 2*r); }
+function triangle(x, y, r) {
+  cx.beginPath(); cx.moveTo(x, y-r); cx.lineTo(x+r*0.92, y+r*0.72);
+  cx.lineTo(x-r*0.92, y+r*0.72); cx.closePath();
+}
+function hexagon(x, y, r) {
+  cx.beginPath();
+  for (let k=0;k<6;k++) {
+    const a = Math.PI/6 + k*Math.PI/3, px = x+r*Math.cos(a), py = y+r*Math.sin(a);
+    k ? cx.lineTo(px, py) : cx.moveTo(px, py);
+  }
+  cx.closePath();
 }
 function draw() {
   cx.clearRect(0,0,W,H);
@@ -349,14 +548,21 @@ function draw() {
   }
   for (const n of N) {
     cx.fillStyle = colorOf(n);
-    if (n.kind === "entity") {
-      diamond(n.x, n.y, n.r); cx.fill();
-      cx.strokeStyle = "#7a6a10"; cx.lineWidth = 1; cx.stroke();
+    if (n.kind === "concept") {
+      hexagon(n.x, n.y, n.r); cx.fill();
+      cx.strokeStyle = "#cdd7e3"; cx.lineWidth = 2; cx.stroke();
+    } else if (n.kind === "entity") {
+      if (n.entity_kind === "commodity") square(n.x, n.y, n.r);
+      else if (n.entity_kind === "event") triangle(n.x, n.y, n.r);
+      else diamond(n.x, n.y, n.r);
+      cx.fill();
+      cx.strokeStyle = n.theme === "shared" ? "#7a6a10" : "#1c2733";
+      cx.lineWidth = 1; cx.stroke();
     } else {
       cx.beginPath(); cx.arc(n.x,n.y,n.r,0,7);
       cx.globalAlpha = n.kind === "brief" ? 1 : 0.85; cx.fill(); cx.globalAlpha = 1;
     }
-    if (n.kind === "brief" || n.kind === "entity") {
+    if (n.kind !== "source") {
       cx.fillStyle = "#e7edf5"; cx.font = "12px Inter,sans-serif"; cx.textAlign = "center";
       cx.fillText(n.label, n.x, n.y-n.r-5);
     }
@@ -411,11 +617,14 @@ def main(argv: list[str] | None = None) -> int:
     out_dir = (_REPO_ROOT / args.out).resolve()
     graph = build(out_dir)
     n_cross = sum(1 for e in graph["edges"] if e.get("cross_theme"))
+    n_concept = sum(1 for n in graph["nodes"] if n["kind"] == "concept")
     n_entity = sum(1 for n in graph["nodes"] if n["kind"] == "entity")
+    n_event = sum(1 for n in graph["nodes"] if n.get("entity_kind") == "event")
+    n_comm = sum(1 for n in graph["nodes"] if n.get("entity_kind") == "commodity")
     print(
         f"Built graph into {out_dir}: {len(graph['nodes'])} nodes, "
-        f"{len(graph['edges'])} edges ({n_entity} shared entities, "
-        f"{n_cross} cross-theme edges)."
+        f"{len(graph['edges'])} edges ({n_concept} concepts, {n_entity} entities "
+        f"[{n_comm} commodities, {n_event} events], {n_cross} cross-theme edges)."
     )
     return 0
 
