@@ -8,6 +8,7 @@ weekly (see its `## Changelog`). All content is CC-BY-4.0; see `../../CREDITS.md
 | --- | --- | --- | --- | --- |
 | [Energy Supply Weekly](<Energy Supply Weekly.md>) | energy-supply | 2026-W26 | 2026-06-23T04:00:00Z | [natural-gas-storage-eu, crude-oil-inventories, fuel-prices, energy-prices] |
 | [Geophysical Weekly](<Geophysical Weekly.md>) | geophysical | 2026-W26 | 2026-06-23T04:00:00Z | [earthquakes] |
+| [World Watch Weekly](<World Watch Weekly.md>) | cross-theme | 2026-W26 | 2026-06-23T04:00:00Z | [crude-oil-inventories, earthquakes, energy-prices, fuel-prices, natural-gas-storage-eu] |
 
 ## Surfaced themes with a held brief
 

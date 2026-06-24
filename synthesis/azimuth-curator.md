@@ -23,6 +23,7 @@ allowed_actions:
   - "bash:python scripts/check_synthesis.py"
   - "bash:python scripts/check_synthesis_freshness.py"
   - "bash:python scripts/build_brief_index.py"
+  - "bash:python scripts/build_cross_theme.py"
   - "git:commit"
 cadence: weekly
 dispatched_by: "HemySphere fleet weekly cadence (scripts/scheduled/fleet/AzimuthCadence.ps1 -> Seed-WorkItems) — one work-item per ISO week"
@@ -36,9 +37,11 @@ inputs:
   - "vault/02 Briefs/<Theme> Weekly.md (one prior brief per theme, to evolve)"
 outputs:
   - "vault/02 Briefs/<Theme> Weekly.md — one per clean theme, evolved in place + dated changelog"
+  - "vault/02 Briefs/World Watch Weekly.md — the CROSS-theme meta-brief (connections BETWEEN channels), regenerated deterministically (scripts/build_cross_theme.py)"
   - "vault/02 Briefs/README.md — regenerated brief index (scripts/build_brief_index.py)"
 pass_criteria:
-  - "scripts/check_synthesis.py exits 0 (all blocking synthesis lints green, every brief)"
+  - "scripts/check_synthesis.py exits 0 (all blocking synthesis lints green, every brief incl. World Watch Weekly)"
+  - "scripts/build_cross_theme.py --check exits 0 (cross-theme meta-brief absorbed the latest L1)"
   - "scripts/build_brief_index.py --check exits 0 (index is in sync with the briefs)"
   - "scripts/check_synthesis_freshness.py --check exits 0 (no clean brief lags the latest L1) OR a clean no-op when nothing was stale"
   - "each brief evolves the prior note in place — no new per-week file"
@@ -100,10 +103,20 @@ L2 briefs. **No manual run is required.**
    `odds-are-not-forecasts` (prices, prediction markets) forbid buy/sell or forecast framing.
 5. **Report the signal, not advice.** Say what the data shows and link the source. Never
    say buy/sell, never predict harm, never take a political side (see the deny-list).
-6. **Self-check before exit:** run `python scripts/check_synthesis.py` (every brief must be
-   green) and `python scripts/build_brief_index.py` (regenerate the index). If the lint is
-   non-zero, fix the brief until it is green. Commit only `vault/02 Briefs/` paths (the diff
-   guard fails any other path when run with `--diff-base`).
+6. **Regenerate the CROSS-theme meta-brief.** After the per-theme briefs are fresh, run
+   `python scripts/build_cross_theme.py`. It scans the latest L1 day for regions that appear
+   under **>=2 clean themes** (the same gazetteer the knowledge-graph uses) and rewrites
+   `vault/02 Briefs/World Watch Weekly.md` — the connections BETWEEN channels, each sourced
+   to its L1 notes, with an honest reach verdict (a region only "reaches" energy supply if it
+   lands on the physical core: US crude inventories / EU gas storage). It is deterministic and
+   re-runnable; it preserves the dated `## Changelog`. This is the layer a static OKF bundle
+   cannot produce — it is azimuth's strongest Emi-vs-OKF demonstration.
+7. **Self-check before exit:** run `python scripts/check_synthesis.py` (every brief, incl.
+   World Watch Weekly, must be green), `python scripts/build_cross_theme.py --check` (the
+   meta-brief absorbed the latest L1) and `python scripts/build_brief_index.py` (regenerate
+   the index). If the lint is non-zero, fix the brief until it is green. A weekly synthesis
+   commit touches only `vault/02 Briefs/` paths (the diff guard fails any other path when run
+   with `--diff-base`).
 
 ## Done gate
 
