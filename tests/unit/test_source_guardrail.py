@@ -67,16 +67,18 @@ def _check(entry: SourceEntry, credited: frozenset[str] = frozenset({"demo"})) -
 def test_live_registry_passes() -> None:
     result = check_registry(REGISTRY_PATH, CREDITS_PATH)
     assert result.ok, [str(v) for v in result.violations]
-    # 6 surfaced after the W26 multi-theme expansion: 4 energy + earthquakes + prediction-markets.
-    assert result.surfaced == 6
-    assert result.checked == 9
+    # 9 surfaced after the W26 channel-breadth expansion: 4 energy + earthquakes +
+    # prediction-markets + 3 climate-signals (climate-anomalies, co2-monitoring, sea-ice-extent).
+    assert result.surfaced == 9
+    assert result.checked == 12
 
 
 def test_live_registry_loads_with_policy() -> None:
     registry = load_registry(REGISTRY_PATH)
     assert "market-data" in registry.allowed_content_classes
     assert "CC-BY-4.0" in registry.license_allowlist
-    assert len(registry.sources) == 9
+    assert "climate-observation" in registry.allowed_content_classes
+    assert len(registry.sources) == 12
 
 
 # --- a clean surfaced source passes -----------------------------------------------------

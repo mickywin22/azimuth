@@ -28,6 +28,12 @@ join stays machine-checkable.
 
 - `earthquakes` — USGS Earthquake Hazards Program — US-Gov public domain
 
+**Climate Signals theme**
+
+- `climate-anomalies` — NOAA/NASA reanalysis regional temperature & precipitation anomalies — US-Gov public domain (observed measurement; L2 reports recorded values, never a forecast)
+- `co2-monitoring` — NOAA Global Monitoring Laboratory (atmospheric CO2 record) — US-Gov public domain (observed measurement; L2 reports recorded values, never a forecast)
+- `sea-ice-extent` — NSIDC / NOAA@NSIDC Sea Ice Index (passive-microwave sea-ice extent) — US-Gov public domain (observed measurement; L2 reports recorded values, never a forecast)
+
 **Prediction Markets theme**
 
 - `prediction-markets` — Polymarket public odds via WorldMonitor — API-ToS-derived (raw odds surfaced as L1 data only; L2 carries a no-investment-framing + odds-are-not-forecasts caution)

@@ -13,7 +13,8 @@
       "flight-track",
       "cyber-event",
       "civil-unrest-event",
-      "news-factual"
+      "news-factual",
+      "climate-observation"
     ],
     "denied": [
       "political-propaganda",
@@ -28,7 +29,7 @@
       "intelligence-assessment",
       "scenario"
     ],
-    "note": "DENIED classes are non-factual content: political propaganda, opinion/advocacy, editorial/communication, political-or-safety POSITION-taking, investment advice. The gate is `factual AND free-to-use license` — a restricted/commercial feed stays out on LICENSE grounds (not editorial). NEWS is allowed as a factual channel (news-factual) — the per-source filter keeps only fact-reporting wire/agency sources and strips op-ed/editorial/advocacy outlets. ALL sensitive-topic factual EVENT classes (conflict-event-record, vessel-position, flight-track, cyber-event, civil-unrest-event) are allowed once the feed license is free. `benchmark_foil_classes` (forecast / intelligence-assessment / scenario) are NOT surfaced as azimuth channels — they are predictions/assessments/hypotheticals, not observed facts; azimuth uses them as BENCHMARK foils (observed+sourced facts vs predicted/assessed opinion) per work-item azi-benchmark-vs-forecast-intelligence-W26. prediction-market raw odds stay allowed (the quoted price is an observed fact) but carry a synthesis caution forbidding investment framing in L2."
+    "note": "DENIED classes are non-factual content: political propaganda, opinion/advocacy, editorial/communication, political-or-safety POSITION-taking, investment advice. The gate is `factual AND free-to-use license` — a restricted/commercial feed stays out on LICENSE grounds (not editorial). NEWS is allowed as a factual channel (news-factual) — the per-source filter keeps only fact-reporting wire/agency sources and strips op-ed/editorial/advocacy outlets. ALL sensitive-topic factual EVENT classes (conflict-event-record, vessel-position, flight-track, cyber-event, civil-unrest-event) are allowed once the feed license is free. `benchmark_foil_classes` (forecast / intelligence-assessment / scenario) are NOT surfaced as azimuth channels — they are predictions/assessments/hypotheticals, not observed facts; azimuth uses them as BENCHMARK foils (observed+sourced facts vs predicted/assessed opinion) per work-item azi-benchmark-vs-forecast-intelligence-W26. prediction-market raw odds stay allowed (the quoted price is an observed fact) but carry a synthesis caution forbidding investment framing in L2. `climate-observation` (added W26) is an observed measurement of the climate system — atmospheric CO2 concentration, sea-ice extent — sourced from public-domain US-gov / NSIDC instrument records; it is a recorded MEASUREMENT (a fact), never a climate FORECAST, and carries the report-observed-not-predicted caution."
   },
   "license_allowlist": [
     "CC-BY-4.0",
@@ -46,6 +47,10 @@
     "geophysical": {
       "title": "Geophysical Weekly",
       "brief": "Geophysical Weekly.md"
+    },
+    "climate-signals": {
+      "title": "Climate Signals Weekly",
+      "brief": "Climate Signals Weekly.md"
     },
     "prediction-markets": {
       "title": "Prediction Markets Weekly",
@@ -111,6 +116,42 @@
       "attribution": "Data: USGS via WorldMonitor (api.worldmonitor.app)",
       "content_class": "natural-hazard",
       "theme": "geophysical",
+      "risk_flags": [],
+      "synthesis_cautions": ["report-observed-not-predicted"],
+      "surfaced": true
+    },
+    {
+      "key": "climate-anomalies",
+      "endpoint": "/api/climate/v1/list-climate-anomalies",
+      "upstream_source": "NOAA / NASA reanalysis regional temperature & precipitation anomalies",
+      "license": "US-Gov-public-domain",
+      "attribution": "Data: NOAA/NASA reanalysis via WorldMonitor (api.worldmonitor.app)",
+      "content_class": "climate-observation",
+      "theme": "climate-signals",
+      "risk_flags": [],
+      "synthesis_cautions": ["report-observed-not-predicted"],
+      "surfaced": true
+    },
+    {
+      "key": "co2-monitoring",
+      "endpoint": "/api/climate/v1/get-co2-monitoring",
+      "upstream_source": "NOAA Global Monitoring Laboratory (atmospheric CO2 record)",
+      "license": "US-Gov-public-domain",
+      "attribution": "Data: NOAA Global Monitoring Laboratory via WorldMonitor (api.worldmonitor.app)",
+      "content_class": "climate-observation",
+      "theme": "climate-signals",
+      "risk_flags": [],
+      "synthesis_cautions": ["report-observed-not-predicted"],
+      "surfaced": true
+    },
+    {
+      "key": "sea-ice-extent",
+      "endpoint": "/api/climate/v1/get-ocean-ice-data",
+      "upstream_source": "NSIDC / NOAA@NSIDC Sea Ice Index (satellite-passive-microwave sea-ice extent)",
+      "license": "US-Gov-public-domain",
+      "attribution": "Data: NSIDC Sea Ice Index via WorldMonitor (api.worldmonitor.app)",
+      "content_class": "climate-observation",
+      "theme": "climate-signals",
       "risk_flags": [],
       "synthesis_cautions": ["report-observed-not-predicted"],
       "surfaced": true

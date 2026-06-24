@@ -3,8 +3,8 @@ title: World Watch Weekly
 type: L2-brief
 theme: cross-theme
 week: 2026-W26
-updated: 2026-06-23T04:00:00Z
-sources: [crude-oil-inventories, earthquakes, energy-prices, fuel-prices, natural-gas-storage-eu]
+updated: 2026-06-24T04:00:00Z
+sources: [climate-anomalies, co2-monitoring, sea-ice-extent]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
 ---
@@ -15,19 +15,17 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 ## This week at a glance
 
-- The 2026-06-23 ingest connects **2 clean channels** (Energy Supply, Geophysical) through **3 shared region(s)**: Greece, Mexico, New Zealand ([[crude-oil-inventories]], [[earthquakes]], [[energy-prices]], [[fuel-prices]], [[natural-gas-storage-eu]]).
-- None of the shared regions fall on the physical energy-supply core (US crude inventories, EU gas storage), so the week's recorded seismicity shows **no observed reach** into the tracked energy balances ([[crude-oil-inventories]], [[earthquakes]], [[energy-prices]], [[fuel-prices]], [[natural-gas-storage-eu]]).
+- No region was recorded under more than one channel in the 2026-06-24 ingest — the clean channels (Climate Signals, Energy Supply, Geophysical) ran without a shared-region bridge this week ([[climate-anomalies]], [[co2-monitoring]], [[sea-ice-extent]]).
+- None of the shared regions fall on the physical energy-supply core (US crude inventories, EU gas storage), so the week's recorded seismicity shows **no observed reach** into the tracked energy balances ([[climate-anomalies]], [[co2-monitoring]], [[sea-ice-extent]]).
 
 ## Shared entities across channels
 
-- **Greece** is recorded under 2 channels this week (Energy Supply + Geophysical) — Energy Supply: diesel $2.021/L, +0.79% w/w; gasoline $2.330/L, -2.03% w/w ([[fuel-prices]]) | Geophysical: M5.2 10 km S of Kastrí, Greece; M4.9 20 km SE of Kastrí, Greece ([[earthquakes]]). The shared name is a co-occurrence in two open feeds, not a causal link unless the physical data shows reach.
-- **Mexico** is recorded under 2 channels this week (Energy Supply + Geophysical) — Energy Supply: diesel $1.577/L, +1.37% w/w; gasoline $1.376/L, +1.63% w/w ([[fuel-prices]]) | Geophysical: M4.6 Off the coast of Baja California Sur, Mexico ([[earthquakes]]). The shared name is a co-occurrence in two open feeds, not a causal link unless the physical data shows reach.
-- **New Zealand** is recorded under 2 channels this week (Energy Supply + Geophysical) — Energy Supply: fuel feed reported no price this week (listed under failedSources) ([[fuel-prices]]) | Geophysical: M5.1 Kermadec Islands, New Zealand; M4.5 32 km W of Titahi Bay, New Zealand ([[earthquakes]]). The shared name is a co-occurrence in two open feeds, not a causal link unless the physical data shows reach.
+- The week's L1 notes carry no region under two channels at once ([[climate-anomalies]], [[co2-monitoring]], [[sea-ice-extent]]). The cross-theme layer reports the honest absence rather than manufacturing a link — that restraint is itself the editorial line.
 
 ## Does the connection reach?
 
-- The bridges above are **geographic co-occurrences** — the same place named in two open feeds. azimuth reports observed signal, not predicted harm, so a quake recorded near a fuel-reporting country is not read as a supply event unless the physical energy data itself moves ([[crude-oil-inventories]], [[earthquakes]], [[energy-prices]], [[fuel-prices]], [[natural-gas-storage-eu]]).
-- This week the strong seismic clusters sit away from where the energy balances are measured, so the cross-theme verdict is a sourced **non-finding**: the channels share names but the data shows no reach between them ([[crude-oil-inventories]], [[earthquakes]], [[energy-prices]], [[fuel-prices]], [[natural-gas-storage-eu]]).
+- The bridges above are **geographic co-occurrences** — the same place named in two open feeds. azimuth reports observed signal, not predicted harm, so a quake recorded near a fuel-reporting country is not read as a supply event unless the physical energy data itself moves ([[climate-anomalies]], [[co2-monitoring]], [[sea-ice-extent]]).
+- This week the strong seismic clusters sit away from where the energy balances are measured, so the cross-theme verdict is a sourced **non-finding**: the channels share names but the data shows no reach between them ([[climate-anomalies]], [[co2-monitoring]], [[sea-ice-extent]]).
 
 ## How this brief is made
 
@@ -36,3 +34,4 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 ## Changelog
 
 - 2026-06-23 — regenerated from the 2026-06-23 L1 ingest (2026-W26): 3 cross-channel bridge(s) across 2 clean channels (Greece, Mexico, New Zealand); energy-core reach: none observed.
+- 2026-06-24 — regenerated from the 2026-06-24 L1 ingest (2026-W26): 0 cross-channel bridge(s) across 3 clean channels; energy-core reach: none observed.
