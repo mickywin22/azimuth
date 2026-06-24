@@ -1,4 +1,5 @@
 ---
+type: "L1-source"
 source: "GIE AGSI+ (Gas Infrastructure Europe)"
 source_key: "natural-gas-storage-eu"
 endpoint: "/api/economic/v1/get-nat-gas-storage"

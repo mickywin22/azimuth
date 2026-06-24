@@ -66,6 +66,17 @@ def test_frontmatter_retrieved_is_utc_iso() -> None:
     assert fm["retrieved"] == "2026-06-10T09:30:00Z"
 
 
+def test_frontmatter_declares_l1_source_type() -> None:
+    """Every L1 note carries the OKF layer tag ``type: L1-source`` (OKF v0.1 contract)."""
+    fm = frontmatter_for(_entry(), FIXED)
+    assert fm["type"] == "L1-source"
+
+
+def test_note_renders_type_l1_source_in_frontmatter() -> None:
+    note = render_note(_entry(), [{"a": 1}], FIXED)
+    assert 'type: "L1-source"' in note
+
+
 def test_note_carries_registry_license_verbatim() -> None:
     entry = _entry(license="US-Gov-public-domain")
     note = render_note(entry, [{"a": 1}], FIXED)
@@ -222,4 +233,4 @@ def test_note_frontmatter_is_parseable_block() -> None:
     match = re.match(r"^---\n(.*?)\n---\n", note, re.DOTALL)
     assert match is not None
     keys = {line.split(":", 1)[0] for line in match.group(1).splitlines()}
-    assert keys == {"source", "source_key", "endpoint", "retrieved", "license", "attribution"}
+    assert keys == {"type", "source", "source_key", "endpoint", "retrieved", "license", "attribution"}

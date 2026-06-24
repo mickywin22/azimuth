@@ -37,6 +37,7 @@ logger = logging.getLogger("azimuth.ingest")
 # license). ``source_key`` + ``attribution`` are added so the note ↔ registry join stays
 # machine-checkable and the CC-BY / ToS attribution obligation travels with the data.
 FRONTMATTER_KEYS: tuple[str, ...] = (
+    "type",
     "source",
     "source_key",
     "endpoint",
@@ -44,6 +45,11 @@ FRONTMATTER_KEYS: tuple[str, ...] = (
     "license",
     "attribution",
 )
+
+# OKF v0.1 layer tag — every L1 source note declares its layer in frontmatter so any
+# OKF-aware agent can classify it without inspecting the path. (L2 briefs -> "L2-brief",
+# the editorial rule -> "L3-rule".) This is the L1 half of that contract.
+L1_SOURCE_TYPE = "L1-source"
 
 
 @runtime_checkable
@@ -92,6 +98,7 @@ def frontmatter_for(entry: SourceEntry, retrieved: datetime) -> dict[str, str]:
     the wire that makes ingest and the guardrail share one source of truth.
     """
     return {
+        "type": L1_SOURCE_TYPE,
         "source": entry.upstream_source or entry.key,
         "source_key": entry.key,
         "endpoint": entry.endpoint,
