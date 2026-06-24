@@ -34,11 +34,12 @@ join stays machine-checkable.
 
 ## Staged sources (registered, NOT yet surfaced — pending per-source license review)
 
-These are present in the registry with `surfaced: false`. They must pass a per-source license
-review and a content-class re-classification before they can ever be surfaced. Several
-(`conflict-events-acled`, `vessel-tracking-ais`, `military-flights-adsb`) carry editorial-exclusion
-risk flags (political-opinion / safety-prediction) and may never be surfaceable under the
-current editorial line.
+These are present in the registry with `surfaced: false`. Under the fact-vs-propaganda
+editorial line (Michael 2026-06-24), `conflict-events-acled`, `vessel-tracking-ais`, and
+`military-flights-adsb` are **factual** EVENT/POSITION/TRACK channels — allowed on editorial
+grounds (sensitivity is never a deny reason). They stay staged **on LICENSE grounds only**:
+their upstream license is unknown (not in the free-to-use allowlist). Each is surfaceable the
+moment a clean license is confirmed and a `CREDITS.md` line is added in the same PR.
 
 ## License
 

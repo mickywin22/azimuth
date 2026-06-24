@@ -41,8 +41,10 @@ the source-guardrail (editorial deny-list + unknown licence) and each carries a 
 3. **frontmatter-schema** — required keys present; `type: L2-brief`, `license: CC-BY-4.0`,
    `week: YYYY-Www`, ISO-Z `updated`.
 4. **evolve-not-duplicate** — a `## Changelog` with ≥1 dated line proves edit-in-place.
-5. **editorial-denylist** — investment-advice / safety-prediction / political-opinion
-   phrasings are rejected.
+5. **editorial-denylist** — NON-FACTUAL synthesis is rejected: investment-advice,
+   safety/forecast position-taking, political propaganda, opinion/advocacy phrasings
+   (fact-vs-propaganda line, 2026-06-24). Sensitive TOPICS pass; only opinions about
+   them are flagged.
 6. **diff-guard** — a synthesis commit may touch `vault/02 Briefs/` only; editing an L1
    note (or anything else) fails. Runs in CI/pre-commit from the changed-path set.
 
