@@ -25,6 +25,7 @@ _REPO_ROOT = Path(__file__).resolve().parent.parent
 if str(_REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(_REPO_ROOT))
 
+from scripts.build_graph import build as build_graph  # noqa: E402
 from synthesis.site_build import build_site  # noqa: E402
 
 
@@ -42,6 +43,17 @@ def main(argv: list[str] | None = None) -> int:
         f"Built {n_pages} pages into {out_dir}: "
         f"{len(model.briefs)} briefs, {len(model.sources)} source notes, "
         f"{len(model.rules)} rule page(s). Held themes excluded."
+    )
+
+    # The cross-channel knowledge graph (graph.json + graph.html). build_site clears
+    # the output dir first, so the graph is (re)generated here, after the pages exist.
+    graph = build_graph(out_dir)
+    n_cross = sum(1 for e in graph["edges"] if e.get("cross_theme"))
+    n_entity = sum(1 for n in graph["nodes"] if n["kind"] == "entity")
+    print(
+        f"Built cross-channel graph: {len(graph['nodes'])} nodes, "
+        f"{len(graph['edges'])} edges ({n_entity} shared entities, "
+        f"{n_cross} cross-theme edges)."
     )
 
     if args.serve:
