@@ -1,3 +1,13 @@
+# Pin the build backend explicitly. Without this, `pip/uv ... -e .` falls back to
+# setuptools auto-discovery, which on this flat layout (guardrail/ ingest/ synthesis/
+# src/ site/ sources/ vault/ docs/ scripts/ tests/ all top-level) ABORTS with
+# "Multiple top-level packages discovered in a flat-layout" -- exit 1. That broke the
+# daily L1 ingest workflow at the install step every run (red 06-21..06-25, found via
+# the external ingest watchdog). See [tool.setuptools.packages.find] below.
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
 [project]
 name = "azimuth"
 version = "0.1.0"
@@ -25,6 +35,14 @@ dev = [
     "mypy>=1.14.0",
     "pre-commit>=4.0.0",
 ]
+
+# Only the three real runtime packages are installable. scripts/ runs directly (adds the
+# repo root to sys.path, no __init__), src/ is empty post-strip, and site/ sources/ vault/
+# docs/ _site/ _smoke/ tests/ are data or test trees -- none should be auto-discovered as a
+# distribution package. Explicit discovery disables the flat-layout auto-scan that aborted
+# `-e .` and silently kept the daily ingest workflow red.
+[tool.setuptools.packages.find]
+include = ["guardrail*", "ingest*", "synthesis*"]
 
 [tool.ruff]
 target-version = "py312"
