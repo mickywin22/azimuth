@@ -64,6 +64,22 @@ enabled in the repo settings — that flip is a deliberate manual step. Full bui
 the ready-to-flip gate, and the local validation command are in
 [docs/deploy.md](docs/deploy.md).
 
+## Operations — ingest liveness
+
+The daily L1 ingest ([`.github/workflows/ingest.yml`](.github/workflows/ingest.yml)) is the
+engine every brief rests on, so its health is observable, not assumed:
+
+- **In-workflow gate** — after each pull the run asserts the newest committed L1 day is
+  within tolerance (`scripts/check_ingest_liveness.py --check`); a stale result fails the job.
+- **Failure alarm** — a failed daily run opens (or appends to) a single `ingest-alarm`
+  tracking issue, so the engine can never die silently.
+- **Anywhere** — check liveness by hand:
+
+```bash
+python scripts/check_ingest_liveness.py            # alive / STALE, with the latest L1 day + age
+python scripts/check_ingest_liveness.py --check    # exit 1 if the latest L1 day is stale
+```
+
 ## Architecture
 
 See [docs/architecture.md](docs/architecture.md) for design decisions.

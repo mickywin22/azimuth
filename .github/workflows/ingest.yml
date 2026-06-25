@@ -13,8 +13,10 @@ on:
   workflow_dispatch: {}
 
 # The job commits new L1 notes back to the repo, so it needs write access.
+# Commit the new L1 notes (contents) and raise a tracking issue if the engine dies (issues).
 permissions:
   contents: write
+  issues: write
 
 # Never let two ingest runs race on the same branch's working tree.
 concurrency:
@@ -64,3 +66,42 @@ jobs:
             git commit -m "chore(ingest): daily L1 pull + benchmark refresh ${DAY} (WorldMonitor)"
             git push
           fi
+
+      # Liveness gate: after a fresh pull the newest committed L1 day must be within
+      # tolerance. If it is not (feed dead, clock skew, an ingest that ran but wrote
+      # nothing), fail the job so the alarm below fires — a stale engine must be loud.
+      - name: Verify the ingest is alive
+        run: python scripts/check_ingest_liveness.py --check
+
+      # A failing daily ingest is the single most important thing to surface for KR-C
+      # ("keep L1 ingest operating"): the engine every brief rests on is down. Open (or
+      # update) one tracking issue so it cannot fail silently. Dedup by the ingest-alarm
+      # label so repeated failures append instead of spamming new issues.
+      - name: Alarm on ingest failure
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const day = new Date().toISOString().slice(0, 10);
+            const title = "azimuth L1 ingest failing";
+            const body = [
+              `The daily L1 ingest workflow failed on ${day} (run ${context.runId}).`,
+              "",
+              "The L1-ingest engine that feeds every L2 brief is down. Check the run:",
+              `https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`,
+            ].join("\n");
+            const open = await github.rest.issues.listForRepo({
+              owner: context.repo.owner, repo: context.repo.repo,
+              state: "open", labels: "ingest-alarm",
+            });
+            if (open.data.length) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner, repo: context.repo.repo,
+                issue_number: open.data[0].number, body,
+              });
+            } else {
+              await github.rest.issues.create({
+                owner: context.repo.owner, repo: context.repo.repo,
+                title, body, labels: ["ingest-alarm"],
+              });
+            }
