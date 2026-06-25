@@ -35,7 +35,7 @@ _REPO_ROOT = Path(__file__).resolve().parent.parent
 if str(_REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(_REPO_ROOT))
 
-from synthesis.answers import AnswerSet, build_answer_set  # noqa: E402
+from synthesis.answers import Answer, AnswerSet, build_answer_set  # noqa: E402
 from synthesis.benchmark import Benchmark, build_benchmark  # noqa: E402
 from synthesis.lint import split_frontmatter  # noqa: E402
 
@@ -297,6 +297,80 @@ def _render_index(model: SiteModel, aset: AnswerSet | None = None) -> str:
     )
 
 
+_WHATIF_SCRIPT = """<script>
+// Pure presentational toggle: no verdict logic runs in the browser. Both the real and the
+// counterfactual verdict are baked at build time by synthesis/answers.py; this only swaps
+// which precomputed block is visible. Flip the input -> the baked recompute shows. That IS
+// the proof: the answer is computed from the bundle, not canned.
+document.querySelectorAll('.whatif').forEach(function (panel) {
+  panel.querySelectorAll('.wf-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var mode = btn.getAttribute('data-mode'); // 'real' | 'cf'
+      panel.querySelectorAll('.wf-btn').forEach(function (b) {
+        b.classList.toggle('is-on', b === btn);
+        b.setAttribute('aria-pressed', String(b === btn));
+      });
+      panel.querySelectorAll('.wf-show-real').forEach(function (el) {
+        el.hidden = (mode !== 'real');
+      });
+      panel.querySelectorAll('.wf-show-cf').forEach(function (el) {
+        el.hidden = (mode !== 'cf');
+      });
+      panel.classList.toggle('is-cf', mode === 'cf');
+    });
+  });
+});
+</script>"""
+
+
+def _render_whatif(a: Answer, page: str, link_map: dict[str, str]) -> str:
+    """Render the "show your work / what-if" panel for an answer that carries a counterfactual.
+
+    Both verdicts are precomputed in ``synthesis/answers.py``; this renders them side by side
+    (only one visible at a time) plus the flipped input number, its L1 link, and which
+    truth-table branch fired. The toggle (``_WHATIF_SCRIPT``) is pure presentation.
+    """
+    wf = a.whatif
+    if wf is None or not a.claims:
+        return ""
+    real_verdict = md.markdown(
+        resolve_wikilinks(a.claims[0].md, page, link_map), extensions=_MD_EXTENSIONS
+    )
+    cf_verdict = md.markdown(
+        resolve_wikilinks(wf.flipped_verdict, page, link_map), extensions=_MD_EXTENSIONS
+    )
+    cite = resolve_wikilinks(" · ".join(f"[[{s}]]" for s in wf.sources), page, link_map)
+    cite_html = md.markdown(cite, extensions=_MD_EXTENSIONS)
+    return (
+        f'<div class="whatif" data-qid="{html.escape(a.qid)}">'
+        f'<div class="whatif-head">'
+        f'<span class="whatif-kind">Show your work — what if the data were different?</span>'
+        f'<div class="whatif-toggle" role="group" aria-label="Toggle real vs counterfactual data">'
+        f'<button type="button" class="wf-btn is-on" data-mode="real" aria-pressed="true">'
+        f"Real data</button>"
+        f'<button type="button" class="wf-btn" data-mode="cf" aria-pressed="false">'
+        f"Flip the input</button>"
+        f"</div></div>"
+        f'<p class="whatif-input"><strong>Input fed to the verdict:</strong> '
+        f"{html.escape(wf.input_label)} — "
+        f'<span class="wf-show-real"><code>{html.escape(wf.real_value)}</code></span>'
+        f'<span class="wf-show-cf" hidden><code>{html.escape(wf.flipped_value)}</code> '
+        f"<em>(sign flipped)</em></span></p>"
+        f'<div class="whatif-src">From L1: {cite_html}</div>'
+        f'<p class="whatif-branch"><strong>Truth-table branch fired:</strong> '
+        f'<span class="wf-show-real"><code>{html.escape(wf.real_branch)}</code></span>'
+        f'<span class="wf-show-cf" hidden><code>{html.escape(wf.flipped_branch)}</code></span></p>'
+        f'<div class="whatif-verdict">'
+        f'<div class="wf-show-real">{real_verdict}</div>'
+        f'<div class="wf-show-cf" hidden>{cf_verdict}</div>'
+        f"</div>"
+        f'<p class="whatif-note">The verdict you see is recomputed from the input above by '
+        f"<code>synthesis/answers.py</code> at build time — flip the sign and the branch, and "
+        f"the verdict, change. Nothing is canned.</p>"
+        f"</div>"
+    )
+
+
 def _render_answers(aset: AnswerSet, link_map: dict[str, str]) -> str:
     """Render the demonstrator page: the TOP5 cross-channel answers, every claim sourced.
 
@@ -311,6 +385,7 @@ def _render_answers(aset: AnswerSet, link_map: dict[str, str]) -> str:
         for claim in a.claims:
             linked = resolve_wikilinks(claim.md, page, link_map)
             bullets.append(f"<li>{md.markdown(linked, extensions=_MD_EXTENSIONS)}</li>")
+        whatif_html = _render_whatif(a, page, link_map)
         blocks.append(
             f'<article class="qa">'
             f'<div class="qa-head"><span class="qa-id">{html.escape(a.qid)}</span>'
@@ -318,6 +393,7 @@ def _render_answers(aset: AnswerSet, link_map: dict[str, str]) -> str:
             f'<div class="chips">{chips}</div>'
             f'<p class="persona"><strong>Serves:</strong> {html.escape(a.persona)}</p>'
             f"<ul class='claims'>{''.join(bullets)}</ul>"
+            f"{whatif_html}"
             f"</article>"
         )
     answers_html = "\n".join(blocks)
@@ -341,6 +417,7 @@ def _render_answers(aset: AnswerSet, link_map: dict[str, str]) -> str:
   sourced &ldquo;no significant overlap&rdquo; is itself a valid answer when that is what the
   week&rsquo;s data shows. Re-run after any ingest and the answers refresh in place.</blockquote>
 </section>
+{_WHATIF_SCRIPT}
 """
     return _PAGE_TEMPLATE.format(
         title="Ask the World Data — azimuth demonstrator",
@@ -542,6 +619,30 @@ table.score tr.win td.cell-az{background:rgba(76,194,255,.08)}
 table.score tr.concede td.cell-az{color:var(--muted)}
 .verdict{border-left:3px solid var(--accent);background:#0f141b;border-radius:0 8px 8px 0;
 padding:.5rem .9rem;margin-top:.4rem}.verdict p{margin:.3rem 0;font-size:.92rem}
+.whatif{margin-top:1rem;border:1px dashed var(--line);border-radius:10px;
+padding:.85rem 1rem;background:#0f141b;transition:border-color .15s}
+.whatif.is-cf{border-color:#caa86a;border-style:solid}
+.whatif-head{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;
+justify-content:space-between;margin-bottom:.6rem}
+.whatif-kind{font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;
+color:var(--muted);font-weight:600}
+.whatif-toggle{display:inline-flex;border:1px solid var(--line);border-radius:999px;
+overflow:hidden}
+.wf-btn{appearance:none;background:transparent;border:0;color:var(--muted);
+font:inherit;font-size:.8rem;padding:.28rem .8rem;cursor:pointer;transition:all .12s}
+.wf-btn:hover{color:var(--ink)}
+.wf-btn.is-on{background:var(--accent);color:#08121b;font-weight:600}
+.whatif.is-cf .wf-btn.is-on{background:#caa86a;color:#1a1407}
+.whatif-input,.whatif-branch{margin:.35rem 0;font-size:.88rem;color:var(--ink)}
+.whatif-src{margin:.2rem 0;font-size:.82rem;color:var(--muted)}
+.whatif-src p{margin:0;display:inline}
+.whatif code{background:#1a2230;padding:.08rem .35rem;border-radius:5px;
+font-family:JetBrains Mono,ui-monospace,monospace;font-size:.84em}
+.whatif-verdict{margin:.5rem 0;border-left:3px solid var(--accent);background:var(--panel);
+border-radius:0 8px 8px 0;padding:.4rem .85rem}
+.whatif.is-cf .whatif-verdict{border-left-color:#caa86a}
+.whatif-verdict p{margin:.2rem 0;font-size:.92rem}
+.whatif-note{margin:.5rem 0 0;font-size:.78rem;color:var(--muted);font-style:italic}
 """
 
 

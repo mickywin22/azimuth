@@ -79,6 +79,27 @@ class Claim:
 
 
 @dataclass
+class WhatIf:
+    """A precomputed counterfactual: flip ONE input's sign, recompute the verdict.
+
+    The whole point of the demonstrator is that a verdict is *computed* from the live
+    inputs, not canned. ``WhatIf`` proves it: the verdict is a pure function of the
+    bundle, so we feed that same function the sign-flipped input at build time and store
+    the recomputed verdict next to the real one. The site renders both and a pure
+    client-side toggle swaps which is shown — flip the input, the truth-table branch
+    changes, the verdict changes with it. No JS logic is ported; both answers are baked.
+    """
+
+    input_label: str  # human label of the flipped input (e.g. "WTI weekly price change")
+    real_value: str  # the real input reading, e.g. "-4.9 (fell)"
+    flipped_value: str  # the sign-flipped reading, e.g. "+4.9 (rose)"
+    real_branch: str  # truth-table branch that fired for the real data
+    flipped_branch: str  # branch that fires under the flip
+    flipped_verdict: str  # the recomputed counterfactual verdict md (carries its [[L1]] cite)
+    sources: list[str] = field(default_factory=list)  # L1 keys backing the flipped input
+
+
+@dataclass
 class Answer:
     """One demonstrator answer: a cross-channel question answered from live data."""
 
@@ -87,6 +108,7 @@ class Answer:
     persona: str  # the use-case / reader it serves
     channels: list[str]  # >=2 channel display names this answer connects
     claims: list[Claim]  # each carries >=1 L1 wikilink
+    whatif: WhatIf | None = None  # optional precomputed sign-flip counterfactual
 
     @property
     def source_notes(self) -> list[str]:
@@ -248,6 +270,28 @@ def _weeks_latest(raw: str | None, value_key: str, change_key: str) -> dict[str,
     return {"period": latest.get("period"), "value": val, "change": chg, "streak": streak}
 
 
+def _q1_verdict(gas_building: bool) -> tuple[str, str]:
+    """Q1 verdict — a pure function of the gas-storage direction (the load-bearing sign).
+
+    Returns ``(verdict_md_body, truth_table_branch)``. Storage *filling* is the physical
+    buffer growing → leans well-supplied; storage *drawing down* is that buffer shrinking
+    → leans fragile. Flip the gas sign and the verdict flips with it.
+    """
+    if gas_building:
+        return (
+            "**Verdict — the data leans well-supplied, not fragile.** Storage is filling "
+            "and spot crude eased, while the multi-week US crude draw is the single signal "
+            "to watch; azimuth states what the feeds show, not a safety call",
+            "gas storage building",
+        )
+    return (
+        "**Verdict — the data leans fragile, not well-supplied.** Storage is drawing down — "
+        "the physical buffer Europe leans on is shrinking, not filling; that is the fragile "
+        "side of the read; azimuth states what the feeds show, not a safety call",
+        "gas storage drawing down",
+    )
+
+
 def _answer_q1(bundle: dict[str, tuple[str, str]]) -> Answer:
     """Q1 — Europe's energy supply: safer or more fragile? (gas + crude + prices)."""
     gas_raw = bundle.get("natural-gas-storage-eu", (None, None))[1]
@@ -262,6 +306,7 @@ def _answer_q1(bundle: dict[str, tuple[str, str]]) -> Answer:
 
     claims: list[Claim] = []
     channels: list[str] = []
+    whatif: WhatIf | None = None
     if gas:
         channels.append("EU gas storage")
         claims.append(
@@ -307,18 +352,25 @@ def _answer_q1(bundle: dict[str, tuple[str, str]]) -> Answer:
                 "energy-prices",
             )
         )
-    # the sourced verdict — facts in, position out
+    # the sourced verdict — facts in, position out (a pure function of the gas sign)
     if gas and crude:
-        claims.insert(
-            0,
-            _claim(
-                "**Verdict — the data leans well-supplied, not fragile.** Storage is filling "
-                "and spot crude eased, while the multi-week US crude draw is the single signal "
-                "to watch; azimuth states what the feeds show, not a safety call",
-                "natural-gas-storage-eu",
-                "crude-oil-inventories",
-                "energy-prices",
+        gas_building = (gas["change"] or 0) >= 0
+        verdict_md, branch = _q1_verdict(gas_building)
+        cite = ("natural-gas-storage-eu", "crude-oil-inventories", "energy-prices")
+        claims.insert(0, _claim(verdict_md, *cite))
+        # counterfactual: flip the gas-storage sign -> the verdict recomputes off the same fn
+        flipped_md, flipped_branch = _q1_verdict(not gas_building)
+        whatif = WhatIf(
+            input_label="EU gas storage weekly change",
+            real_value=f"{_signed(gas['change'])} Bcf ({'building' if gas_building else 'drawing down'})",
+            flipped_value=(
+                f"{_signed(-(gas['change'] or 0))} Bcf "
+                f"({'drawing down' if gas_building else 'building'})"
             ),
+            real_branch=branch,
+            flipped_branch=flipped_branch,
+            flipped_verdict=_claim(flipped_md, *cite).md,
+            sources=["natural-gas-storage-eu"],
         )
     return Answer(
         qid="Q1",
@@ -326,6 +378,41 @@ def _answer_q1(bundle: dict[str, tuple[str, str]]) -> Answer:
         persona="Energy / policy desk — a one-glance supply-health read across the physical balances and the price tape.",
         channels=channels or [_ENERGY],
         claims=claims,
+        whatif=whatif,
+    )
+
+
+def _q2_verdict(inv_dir: str, px_dir: str) -> tuple[str, str]:
+    """Q2 verdict — a pure function of the two input signs (inventory dir x price dir).
+
+    Returns ``(verdict_md_body, truth_table_branch)``. This is the load-bearing 2x2:
+    a draw + a price fall (a bullish supply signal overridden by a bearish tape) reads
+    as a *demand* week; a draw + a price rise reads as a coherent *supply* week. Flip
+    the price sign and the branch — and the verdict — flips.
+    """
+    if inv_dir == "tightened" and px_dir == "fell":
+        return (
+            "**Verdict — demand, not supply, set the tape.** Inventories tightened yet "
+            "prices fell: the bearish price move overrode a bullish supply signal, so the "
+            "week's driver was softer demand expectations, read straight off the two feeds",
+            "inventory draw + price fall",
+        )
+    if inv_dir == "tightened" and px_dir == "rose":
+        return (
+            "**Verdict — supply drove the tape.** A drawdown and a higher price line up: "
+            "a coherent supply-tightening week",
+            "inventory draw + price rise",
+        )
+    if inv_dir == "loosened" and px_dir == "fell":
+        return (
+            "**Verdict — supply drove the tape.** A build and a lower price line up: a "
+            "coherent supply-loosening week",
+            "inventory build + price fall",
+        )
+    return (
+        "**Verdict — demand, not supply, set the tape.** Inventories loosened yet "
+        "prices rose: demand strength overrode the bearish supply signal",
+        "inventory build + price rise",
     )
 
 
@@ -339,6 +426,7 @@ def _answer_q2(bundle: dict[str, tuple[str, str]]) -> Answer:
     wti = _first(prices, "commodity", "wti")
 
     claims: list[Claim] = []
+    whatif: WhatIf | None = None
     inv_dir = px_dir = None
     if crude:
         inv_dir = "tightened" if (crude["change"] or 0) < 0 else "loosened"
@@ -361,34 +449,28 @@ def _answer_q2(bundle: dict[str, tuple[str, str]]) -> Answer:
         )
     # the cross-channel inference — purely from the two signs
     if inv_dir and px_dir:
-        if inv_dir == "tightened" and px_dir == "fell":
-            verdict = (
-                "**Verdict — demand, not supply, set the tape.** Inventories tightened yet "
-                "prices fell: the bearish price move overrode a bullish supply signal, so the "
-                "week's driver was softer demand expectations, read straight off the two feeds"
-            )
-        elif inv_dir == "tightened" and px_dir == "rose":
-            verdict = (
-                "**Verdict — supply drove the tape.** A drawdown and a higher price line up: "
-                "a coherent supply-tightening week"
-            )
-        elif inv_dir == "loosened" and px_dir == "fell":
-            verdict = (
-                "**Verdict — supply drove the tape.** A build and a lower price line up: a "
-                "coherent supply-loosening week"
-            )
-        else:
-            verdict = (
-                "**Verdict — demand, not supply, set the tape.** Inventories loosened yet "
-                "prices rose: demand strength overrode the bearish supply signal"
-            )
-        claims.insert(0, _claim(verdict, "crude-oil-inventories", "energy-prices"))
+        verdict_md, branch = _q2_verdict(inv_dir, px_dir)
+        claims.insert(0, _claim(verdict_md, "crude-oil-inventories", "energy-prices"))
+        # counterfactual: flip the PRICE sign -> px_dir flips -> recompute off the same fn
+        flipped_px = "rose" if px_dir == "fell" else "fell"
+        cf_md, cf_branch = _q2_verdict(inv_dir, flipped_px)
+        chg = _to_num(wti.get("change")) if wti is not None else None
+        whatif = WhatIf(
+            input_label="WTI weekly price change",
+            real_value=f"{_num(wti.get('change') if wti else None)} ({px_dir})",
+            flipped_value=f"{_signed(-(chg or 0), 1)} ({flipped_px})",
+            real_branch=branch,
+            flipped_branch=cf_branch,
+            flipped_verdict=_claim(cf_md, "crude-oil-inventories", "energy-prices").md,
+            sources=["energy-prices"],
+        )
     return Answer(
         qid="Q2",
         question="Did supply or demand move energy prices this week?",
         persona="Economist / market analyst — separating a supply story from a demand story without a paywalled terminal.",
         channels=["US crude inventories", "Energy prices"],
         claims=claims,
+        whatif=whatif,
     )
 
 

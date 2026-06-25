@@ -164,6 +164,38 @@ def test_rendered_brief_passes_synthesis_lint(tmp_path: Path) -> None:
     assert violations == [], f"rendered demonstrator brief must be lint-green: {violations}"
 
 
+def test_counterfactual_flips_the_verdict_for_at_least_two_questions(tmp_path: Path) -> None:
+    """The 'what-if' proof: feeding the sign-flipped input recomputes a DIFFERENT verdict.
+
+    This is the load-bearing demonstrator guarantee — the verdict is a pure function of the
+    bundle, so a flipped input must produce a different branch + a different verdict. >=2 Qs
+    must carry a working counterfactual (the KR-B acceptance gate).
+    """
+    aset = build_answer_set(_make_vault(tmp_path), _REGISTRY)
+    with_whatif = [a for a in aset.answers if a.whatif is not None]
+    assert len(with_whatif) >= 2, "at least two questions must carry a what-if counterfactual"
+    for a in with_whatif:
+        wf = a.whatif
+        assert wf is not None
+        real_verdict = a.claims[0].md
+        assert wf.flipped_verdict != real_verdict, f"{a.qid}: flip must change the verdict text"
+        assert wf.real_branch != wf.flipped_branch, f"{a.qid}: flip must change the branch"
+        assert wf.real_value != wf.flipped_value, f"{a.qid}: flipped input must differ"
+        # counterfactual verdict stays sourced (still carries its inline [[L1]] citation)
+        assert "[[" in wf.flipped_verdict and "]]" in wf.flipped_verdict
+
+
+def test_q2_counterfactual_is_the_supply_vs_demand_flip(tmp_path: Path) -> None:
+    """Q2 real data (draw + price fall) reads 'demand'; flip the price sign -> 'supply'."""
+    aset = build_answer_set(_make_vault(tmp_path), _REGISTRY)
+    q2 = next(a for a in aset.answers if a.qid == "Q2")
+    assert q2.whatif is not None
+    assert "demand, not supply" in q2.claims[0].md, "real Q2 verdict is the demand read"
+    assert "supply drove the tape" in q2.whatif.flipped_verdict, "flipped Q2 verdict is supply"
+    assert q2.whatif.real_branch == "inventory draw + price fall"
+    assert q2.whatif.flipped_branch == "inventory draw + price rise"
+
+
 def test_brief_evolves_in_place(tmp_path: Path) -> None:
     aset = build_answer_set(_make_vault(tmp_path), _REGISTRY)
     prior = ["- 2026-06-17 — prior cycle line."]
