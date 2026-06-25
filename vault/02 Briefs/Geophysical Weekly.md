@@ -3,7 +3,7 @@ title: Geophysical Weekly
 type: L2-brief
 theme: geophysical
 week: 2026-W26
-updated: 2026-06-23T04:00:00Z
+updated: 2026-06-25T12:00:00Z
 sources: [earthquakes]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -14,59 +14,62 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 > Synthesised from the week's L1 source notes under `../01 Sources/`. The `azimuth-curator`
 > fleet role evolves this single note in place each week. azimuth reports **observed**
 > seismicity from the USGS feed — what was recorded, never what will happen. Every claim
-> links to the L1 note it rests on. (This cycle reads the live `2026-06-23` ingest, covering
-> the seven days to 2026-06-23.)
+> links to the L1 note it rests on. (This cycle reads the live `2026-06-25` ingest, covering
+> the seven days to 2026-06-25.)
 
 ## This week at a glance
 
-- The USGS feed recorded 121 magnitude-4.5-or-greater earthquakes worldwide over the seven
-  days to 2026-06-23, of which 37 were M5+ and 5 reached M6+ — a higher overall count than the
-  prior week (110) but slightly fewer strong events (was 40 M5+, 6 M6+) ([[earthquakes]]).
-- The largest single event in the window was an M6.7, 43 km ESE of Palu, Indonesia (recorded
-  2026-06-16) — the same Palu shock that topped last week, now sitting at the trailing edge of
-  the rolling seven-day window ([[earthquakes]]).
-- Activity stayed concentrated along the western Pacific subduction arcs — Indonesia (19
-  events), the Philippines (13), Kamchatka/Russia (11), China (10) and Japan (8) led the count
-  — with the Kamchatka sequence east-southeast of Petropavlovsk-Kamchatsky now the dominant new
-  cluster and a fresh Tonga–Kermadec string on the southwest-Pacific margin ([[earthquakes]]).
+- The USGS feed recorded 101 magnitude-4.5-or-greater earthquakes worldwide over the seven
+  days to 2026-06-25, of which 32 were M5+ and 5 reached M6+ — a lower overall count than the
+  prior week (121) but, for the first time in weeks, **two events of M7 or greater**
+  ([[earthquakes]]).
+- The headline of the window is a shallow doublet off **Yumare, Venezuela** — an M7.5 and an
+  M7.2 struck within a minute of each other on 2026-06-24 (~23–28 km SE of Yumare, depths 10
+  and 20 km) — the strongest events azimuth has recorded since the brief began, and notably
+  **off** the usual western-Pacific arcs, on the South-American/Caribbean plate margin
+  ([[earthquakes]]).
+- A separate M6.9 struck 30 km ENE of Kuji, Japan the same day (2026-06-24, 51 km deep), while
+  the western-Pacific subduction arcs again led the count — the Philippines (12), Indonesia
+  (11) and Kamchatka/Kuril Russia (11) on top, with Tonga (7), Papua New Guinea (5) and Japan
+  (5) behind ([[earthquakes]]).
 
 ## Largest events
 
-- Five M6+ events fell in the seven-day window: M6.7 near Palu, Indonesia (2026-06-16); twin
-  M6.6 events — one ~133 km ESE of Petropavlovsk-Kamchatsky, Russia (2026-06-19) and one on the
-  central Mid-Atlantic Ridge (2026-06-17); an M6.3 ~260 km SSE of Dunhuang, China (2026-06-16);
-  and an M6.0 ~156 km ESE of Petropavlovsk-Kamchatsky (2026-06-19). No shock reached M7
-  ([[earthquakes]]).
-- The Kamchatka offshore sequence is the clearest feature of the week: the M6.6 and M6.0 struck
-  within a minute of each other, trailed by M5.8 aftershocks into 2026-06-20 — a tight
-  multi-day swarm ~130–170 km ESE of Petropavlovsk-Kamchatsky that was only emerging last week
+- Five M6+ events fell in the seven-day window, two of them above M7: the M7.5 and M7.2 Yumare,
+  Venezuela doublet (both 2026-06-24, shallow); an M6.9 ENE of Kuji, Japan (2026-06-24, 51 km);
+  and the trailing-edge Kamchatka pair — an M6.6 ~133 km ESE and an M6.0 ~156 km ESE of
+  Petropavlovsk-Kamchatsky, Russia (both 2026-06-19) ([[earthquakes]]).
+- The Venezuela doublet is the clearest feature of the week: two great-to-major shallow shocks
+  seconds apart on a continental near-coast margin — a different tectonic setting from the
+  oceanic subduction zones that dominate most weeks, and the only M7+ activity in the window
   ([[earthquakes]]).
 
 ## Where the activity clustered
 
-- Kamchatka (offshore Petropavlovsk-Kamchatsky, Russia) produced the densest strong sequence of
-  the week — eleven events including the M6.6/M6.0 pair and a run of M5.7–M5.8 aftershocks — the
-  single biggest change from the prior week ([[earthquakes]]).
-- Indonesia (around Palu/Sulawesi) and the southern Philippines remained the standing high-count
-  arcs; a China cluster south of Dunhuang held (peaking at the M6.3); and a new Tonga–Kermadec
-  string appeared on the southwest-Pacific margin (multiple M4.7–M5.7 events SSW of ‘Ohonua and
-  through the Kermadec Islands region) ([[earthquakes]]).
+- The standing high-count arcs held: the Philippines (a Catuday/Luzon cluster of repeated
+  M4.5–M5.0 events plus the Mindanao margin), Indonesia (Tobelo/Halmahera and Sulawesi) and
+  the Kamchatka/Kuril margin off eastern Russia each logged 11–12 events ([[earthquakes]]).
+- The Kamchatka offshore sequence that dominated last week (the M6.6/M6.0 pair plus M5.7–M5.8
+  aftershocks) is now at the trailing edge of the rolling window; the new strong activity moved
+  to the Venezuela doublet and the Kuji, Japan M6.9, while a Tonga–Kermadec string and a
+  Greece (Kastrí/Crete) cluster of M4.9–M5.2 events also registered ([[earthquakes]]).
 
 ## Depth profile
 
-- Most events were shallow (≈10 km), but the feed again recorded deep-focus earthquakes, the
-  deepest an M4.8 at 606 km in the Fiji region — the deep Tonga–Fiji slab continues to register
-  activity well below the crust, alongside intermediate-depth events (~100–140 km) under the
-  Kermadec–Tonga arc ([[earthquakes]]).
+- Most events were shallow (≈10 km), including the Venezuela doublet, but the feed again
+  recorded deep-focus earthquakes, the deepest an M4.8 at 606 km in the Fiji region — the deep
+  Tonga–Fiji slab continues to register activity well below the crust, alongside
+  intermediate-depth events (~200–520 km) under the Fiji–Kermadec arc ([[earthquakes]]).
 
 ## Reading the week
 
-- The week's pattern remains typical for the western Pacific "Ring of Fire": high counts on the
-  Indonesian and Philippine subduction arcs and no recorded shock above M7. What shifted is
-  *where* the strong events sat — the Kamchatka offshore swarm became the dominant M6 cluster
-  while the Philippine count eased, and a new Tonga–Kermadec string opened on the southwest
-  margin. Overall the data describes elevated but ordinary background seismicity along the
-  world's most active plate boundaries ([[earthquakes]]).
+- The week's count was typical for the world's active plate boundaries — Philippine, Indonesian
+  and Kamchatka arcs leading — but the strong-event picture shifted twice over: the dominant
+  cluster moved off the western Pacific to a continental margin, and the window carried two M7+
+  shocks where the prior week had none. The Yumare, Venezuela doublet and the Kuji, Japan M6.9,
+  all on 2026-06-24, account for the step up in released energy even as the overall M4.5+ tally
+  fell. azimuth records what the instruments measured — magnitude, location, depth, time — and
+  stops there ([[earthquakes]]).
 
 ## Changelog
 
@@ -86,3 +89,11 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
   southwest-Pacific margin; rewrote the at-a-glance, largest-events, clustering and reading
   sections accordingly. Deepest event held at the 606 km Fiji-region focus. Observed-only
   framing held.
+- 2026-06-25 — daily-ingest flowback (2026-W26): refreshed from the live 2026-06-25 USGS day,
+  the seven days to 2026-06-25 (101 M4.5+, 32 M5+, 5 M6+ — and two M7+ for the first time in
+  weeks). The new headline is a shallow M7.5/M7.2 doublet SE of Yumare, Venezuela (2026-06-24),
+  the strongest recorded since the brief began and off the usual western-Pacific arcs, plus an
+  M6.9 ENE of Kuji, Japan the same day; the Kamchatka swarm receded to the trailing edge.
+  Rewrote the at-a-glance, largest-events, clustering and reading sections around the
+  continental-margin doublet and the overall count falling even as released energy rose.
+  Deepest event held at the 606 km Fiji-region focus. Observed-only framing held ([[earthquakes]]).
