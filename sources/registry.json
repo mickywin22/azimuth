@@ -329,7 +329,8 @@
       "theme": "sanctions-watch",
       "risk_flags": ["sensitive-topic"],
       "synthesis_cautions": ["report-observed-not-predicted", "no-political-position"],
-      "surfaced": true
+      "surfaced": false,
+      "surfaced_reason": "LIVE-REACHABILITY HOLD (not editorial/license): the endpoint /api/sanctions/v1/list-sanctions-pressure returned HTTP 401 Unauthorized on the live 2026-06-25 ingest \u2014 it now requires auth beyond azimuth's free anonymous session, so it fails the Path-A free-tier bar. Re-surface when a clean free-tier endpoint is confirmed; the OFAC source is otherwise license-clean (US-Gov public domain)."
     },
     {
       "key": "disease-outbreaks",
@@ -377,7 +378,8 @@
       "theme": "macro-markets",
       "risk_flags": [],
       "synthesis_cautions": ["report-observed-not-predicted"],
-      "surfaced": true
+      "surfaced": false,
+      "surfaced_reason": "LIVE-REACHABILITY HOLD (not editorial/license): the endpoint /api/trade/v1/get-tariff-trends returned HTTP 401 Unauthorized on the live 2026-06-25 ingest \u2014 now auth-gated beyond the free anonymous session, failing the free-tier bar. Re-surface when a clean free-tier endpoint is confirmed; the WTO source is otherwise CC-BY-4.0."
     },
     {
       "key": "orbital-satellites",
@@ -401,7 +403,8 @@
       "theme": "macro-markets",
       "risk_flags": [],
       "synthesis_cautions": ["report-observed-not-predicted"],
-      "surfaced": true
+      "surfaced": false,
+      "surfaced_reason": "LIVE-REACHABILITY HOLD (not editorial/license): the endpoint /api/consumer_prices/v1/get-consumer-price-overview returned HTTP 404 Not Found on the live 2026-06-25 ingest \u2014 the path is not live on api.worldmonitor.app. Re-surface when a working endpoint is confirmed; the Eurostat source is otherwise CC-BY-4.0."
     },
     {
       "key": "displacement-flows",
@@ -437,7 +440,8 @@
       "theme": "infrastructure-watch",
       "risk_flags": [],
       "synthesis_cautions": ["report-observed-not-predicted"],
-      "surfaced": true
+      "surfaced": false,
+      "surfaced_reason": "LIVE-REACHABILITY HOLD (not editorial/license): the endpoint /api/supply_chain/v1/get-chokepoint-status returned HTTP 404 Not Found on the live 2026-06-25 ingest \u2014 the path is not live on api.worldmonitor.app. Re-surface when a working endpoint is confirmed; the IMF PortWatch source is otherwise API-ToS-derived."
     },
     {
       "key": "conflict-events-acled",
