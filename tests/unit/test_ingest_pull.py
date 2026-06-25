@@ -14,7 +14,7 @@ from pathlib import Path
 import pytest
 
 from guardrail import SourceEntry, load_registry, parse_credited_keys
-from ingest import eligible_sources, frontmatter_for, pull, render_note
+from ingest import cap_payload, eligible_sources, frontmatter_for, pull, render_note
 
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
 REGISTRY_PATH = REPO_ROOT / "sources" / "registry.json"
@@ -106,6 +106,68 @@ def test_scalar_payload_renders_json_block() -> None:
 def test_pipe_in_value_is_escaped() -> None:
     note = render_note(_entry(), [{"note": "a|b"}], FIXED)
     assert r"a\|b" in note
+
+
+# --- payload size cap (server-agnostic, honest caption) ---------------------------
+
+
+def test_cap_payload_noop_when_no_max_rows() -> None:
+    payload = [{"frp": i} for i in range(50)]
+    capped, info = cap_payload(payload, None, "frp")
+    assert capped == payload
+    assert not info.capped
+
+
+def test_cap_payload_noop_when_under_cap() -> None:
+    payload = [{"frp": 1}, {"frp": 2}]
+    capped, info = cap_payload(payload, 250, "frp")
+    assert capped == payload
+    assert not info.capped
+
+
+def test_cap_payload_keeps_top_n_by_field() -> None:
+    payload = [{"frp": float(i)} for i in range(100)]  # 0..99
+    capped, info = cap_payload(payload, 3, "frp")
+    assert info.capped and info.total == 100 and info.shown == 3 and info.by == "frp"
+    assert [row["frp"] for row in capped] == [99.0, 98.0, 97.0]  # top-3 by FRP, descending
+
+
+def test_cap_payload_first_n_when_no_truncate_by() -> None:
+    payload = [{"x": i} for i in range(10)]
+    capped, info = cap_payload(payload, 4, None)
+    assert info.capped and [row["x"] for row in capped] == [0, 1, 2, 3]  # first-N order preserved
+
+
+def test_cap_payload_unwraps_single_list_dict() -> None:
+    # The live NASA FIRMS shape: {"fireDetections": [...]} — cap the inner list, keep the wrapper.
+    payload = {"fireDetections": [{"frp": float(i)} for i in range(20)], "meta": "x"}
+    capped, info = cap_payload(payload, 5, "frp")
+    assert isinstance(capped, dict)
+    assert capped["meta"] == "x"  # wrapper keys preserved
+    assert info.capped and info.total == 20 and info.shown == 5
+    assert [row["frp"] for row in capped["fireDetections"]] == [19.0, 18.0, 17.0, 16.0, 15.0]
+
+
+def test_cap_payload_missing_field_sorts_last() -> None:
+    payload = [{"frp": 5.0}, {"other": 1}, {"frp": 9.0}]
+    capped, info = cap_payload(payload, 2, "frp")
+    assert info.capped and [row.get("frp") for row in capped] == [9.0, 5.0]  # missing-frp row dropped
+
+
+def test_render_note_records_cap_in_caption() -> None:
+    entry = _entry(key="wildfire-detections", max_rows=2, truncate_by="frp")
+    payload = {"fireDetections": [{"frp": float(i)} for i in range(15700)]}
+    note = render_note(entry, payload, FIXED)
+    assert "Payload cap (azimuth-side, recorded for honesty)" in note
+    assert "top 2 by `frp`" in note
+    assert "of 15700 rows" in note
+    # Only the capped rows are rendered -> the note is tiny, not multi-MB.
+    assert len(note.encode("utf-8")) < 2000
+
+
+def test_render_note_uncapped_has_no_cap_caption() -> None:
+    note = render_note(_entry(), [{"frp": 1}, {"frp": 2}], FIXED)
+    assert "Payload cap" not in note
 
 
 # --- eligibility = surfaced AND passes guardrail ----------------------------------

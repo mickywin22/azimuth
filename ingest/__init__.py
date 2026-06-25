@@ -9,8 +9,10 @@ See docs/l1-ingest.md.
 """
 
 from ingest.pull import (
+    CapInfo,
     IngestOutcome,
     L1Note,
+    cap_payload,
     eligible_sources,
     frontmatter_for,
     pull,
@@ -18,8 +20,10 @@ from ingest.pull import (
 )
 
 __all__ = [
+    "CapInfo",
     "IngestOutcome",
     "L1Note",
+    "cap_payload",
     "eligible_sources",
     "frontmatter_for",
     "pull",

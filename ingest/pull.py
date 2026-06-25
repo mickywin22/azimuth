@@ -153,14 +153,95 @@ def _cell(value: object) -> str:
     return rendered.replace("|", "\\|").replace("\n", " ")
 
 
+@dataclass(frozen=True)
+class CapInfo:
+    """How a payload cap was applied (for the honest caption). ``capped`` False = verbatim."""
+
+    capped: bool = False
+    total: int = 0
+    shown: int = 0
+    by: str | None = None
+
+
+def _list_path(payload: object) -> tuple[str | None, list[dict[str, object]]] | None:
+    """Locate the row list to cap: the payload itself, or the single list-of-objects value
+    of a one-list wrapper dict (e.g. ``{"fireDetections": [...]}``). Returns (key, rows) with
+    key=None when the payload IS the list, or None when there is no single cappable list."""
+    if isinstance(payload, list) and payload and all(isinstance(r, dict) for r in payload):
+        return None, [r for r in payload if isinstance(r, dict)]
+    if isinstance(payload, dict):
+        list_keys = [
+            k
+            for k, v in payload.items()
+            if isinstance(v, list) and v and all(isinstance(r, dict) for r in v)
+        ]
+        if len(list_keys) == 1:
+            key = list_keys[0]
+            return key, [r for r in payload[key] if isinstance(r, dict)]
+    return None
+
+
+def _frp_sort_key(row: dict[str, object], field_name: str) -> float:
+    """Numeric sort key for top-N truncation; non-numeric / missing sorts last (-inf)."""
+    value = row.get(field_name)
+    if isinstance(value, bool):  # bools are ints in Python; never a magnitude here
+        return float("-inf")
+    if isinstance(value, (int, float)):
+        return float(value)
+    try:
+        return float(str(value))
+    except (TypeError, ValueError):
+        return float("-inf")
+
+
+def cap_payload(payload: object, max_rows: int | None, truncate_by: str | None) -> tuple[object, CapInfo]:
+    """Cap a row payload to ``max_rows`` rows (server-agnostic), keeping the top-N by
+    ``truncate_by`` when given, else the first N. Returns the (possibly rewrapped) payload and
+    a ``CapInfo``. No cap / no list / under the cap -> the payload is returned unchanged.
+
+    Pure: the caption records exactly what this did, so the truncation is never silent.
+    """
+    if not max_rows or max_rows <= 0:
+        return payload, CapInfo()
+    located = _list_path(payload)
+    if located is None:
+        return payload, CapInfo()
+    key, rows = located
+    total = len(rows)
+    if total <= max_rows:
+        return payload, CapInfo()
+    if truncate_by:
+        rows = sorted(rows, key=lambda r: _frp_sort_key(r, truncate_by), reverse=True)
+    capped_rows = rows[:max_rows]
+    info = CapInfo(capped=True, total=total, shown=len(capped_rows), by=truncate_by)
+    if key is None:
+        return capped_rows, info
+    rewrapped = dict(payload) if isinstance(payload, dict) else {}
+    rewrapped[key] = capped_rows
+    return rewrapped, info
+
+
 def render_note(entry: SourceEntry, payload: object, retrieved: datetime) -> str:
-    """Render the full L1 markdown note for one source."""
+    """Render the full L1 markdown note for one source.
+
+    When the entry declares a ``max_rows`` cap and the live payload exceeds it, the note
+    renders only the capped rows and the caption states — honestly — how many of how many
+    rows are shown and the field they were ranked by. The full set stays at the endpoint.
+    """
     fm = frontmatter_for(entry, retrieved)
+    payload, cap = cap_payload(payload, entry.max_rows, entry.truncate_by)
     title = f"# {entry.upstream_source or entry.key}"
     caption = (
         f"> L1 source pull — `{entry.key}` from `{entry.endpoint}` "
         f"at {fm['retrieved']}. Verbatim transform; never edit by hand."
     )
+    if cap.capped:
+        ranked = f"top {cap.shown} by `{cap.by}`" if cap.by else f"first {cap.shown}"
+        caption += (
+            f"\n> **Payload cap (azimuth-side, recorded for honesty):** showing {ranked} of "
+            f"{cap.total} rows. The endpoint ignores limit params and returns the full set; "
+            f"azimuth caps the L1 note to keep the repo lean. Full set lives at the endpoint."
+        )
     return "\n".join(
         [_render_frontmatter(fm), "", title, "", caption, "", _render_payload(payload), ""]
     )

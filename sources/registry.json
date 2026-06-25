@@ -245,7 +245,10 @@
       "theme": "environmental-hazards",
       "risk_flags": [],
       "synthesis_cautions": ["report-observed-not-predicted"],
-      "surfaced": true
+      "max_rows": 250,
+      "truncate_by": "frp",
+      "surfaced": true,
+      "cap_reason": "The live endpoint returns the FULL active-fire set (~10k+ detections / ~3MB) and ignores limit/pageSize/minFrp query params, so a verbatim daily L1 note would bloat the repo ~3MB/day. azimuth caps the L1 note to the top 250 detections by FRP (fire radiative power = the strongest, most newsworthy fires); the cap is stated in the note caption and the full set always remains at the endpoint. This is the payload-size fix that unblocked re-adding the NASA FIRMS wildfire channel (Azimuth W26-USP)."
     },
     {
       "key": "thermal-escalations",

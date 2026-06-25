@@ -52,6 +52,14 @@ class SourceEntry:
     surfaced: bool
     risk_flags: tuple[str, ...] = ()
     synthesis_cautions: tuple[str, ...] = ()
+    # Payload size cap (server-agnostic). Some endpoints ignore ``limit``/``pageSize`` and
+    # return the full set (NASA FIRMS wildfire: ~10k detections / ~3 MB), which would bloat
+    # the repo by megabytes/day if rendered verbatim. ``max_rows`` caps how many rows the L1
+    # note renders; ``truncate_by`` (a numeric field name, e.g. "frp") keeps the TOP-N by that
+    # field instead of the first N. The cap is recorded honestly in the L1 note caption — the
+    # full set always remains at the live endpoint. None/0 = no cap (verbatim, the default).
+    max_rows: int | None = None
+    truncate_by: str | None = None
 
     @staticmethod
     def from_dict(raw: dict[str, Any]) -> SourceEntry:
@@ -62,6 +70,8 @@ class SourceEntry:
         ]
         if missing:
             raise ValueError(f"source entry missing required field(s): {', '.join(missing)}")
+        max_rows_raw = raw.get("max_rows")
+        truncate_by_raw = raw.get("truncate_by")
         return SourceEntry(
             key=str(raw["key"]),
             endpoint=str(raw["endpoint"]),
@@ -72,6 +82,8 @@ class SourceEntry:
             surfaced=bool(raw.get("surfaced", False)),
             risk_flags=tuple(str(flag) for flag in raw.get("risk_flags", [])),
             synthesis_cautions=tuple(str(c) for c in raw.get("synthesis_cautions", [])),
+            max_rows=int(max_rows_raw) if max_rows_raw else None,
+            truncate_by=str(truncate_by_raw) if truncate_by_raw else None,
         )
 
 
