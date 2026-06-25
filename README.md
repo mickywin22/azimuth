@@ -46,6 +46,17 @@ cross-channel knowledge graph) builds with `python scripts/build_site.py` and is
 to **GitHub Pages** by [`.github/workflows/pages.yml`](.github/workflows/pages.yml) on every
 push to `main`.
 
+The knowledge graph is both **visual** (`site/graph.html` — pick any two channels and
+**Trace** how they connect) and **queryable from the command line** via
+[`scripts/query_graph.py`](scripts/query_graph.py) over the same `site/graph.json`:
+
+```bash
+python scripts/query_graph.py connect energy geophysical   # the cross-channel answer
+python scripts/query_graph.py path "Greece" "Energy Supply"
+python scripts/query_graph.py bridges                       # all cross-channel bridges
+python scripts/query_graph.py hubs --top 8 --json
+```
+
 > **Pages URL (once enabled): https://mickywin22.github.io/azimuth/**
 
 The repo is **private** and the site is **not live** until GitHub Pages is explicitly

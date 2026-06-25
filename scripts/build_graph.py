@@ -436,6 +436,16 @@ _HTML_TEMPLATE = """<!DOCTYPE html>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Graph · azimuth</title>
 <link rel="stylesheet" href="assets/style.css">
+<style>
+.gquery{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem;margin:.6rem 0 .2rem}
+.gquery .qlabel{font-size:.85rem;color:#8a97a8;font-weight:600}
+.gquery select{background:#141a23;color:#e7edf5;border:1px solid #2a3a4d;border-radius:6px;
+padding:.25rem .5rem;font:inherit;font-size:.85rem}
+.gquery button{appearance:none;background:#4cc2ff;color:#08121b;border:0;border-radius:6px;
+padding:.3rem .8rem;font:inherit;font-size:.82rem;font-weight:600;cursor:pointer}
+.gquery button#qclear{background:transparent;color:#8a97a8;border:1px solid #2a3a4d}
+.gquery .qout{flex-basis:100%;margin:.35rem 0 0;font-size:.88rem;color:#e7edf5;min-height:1.2em}
+</style>
 </head><body>
 <header class="nav">
   <a class="brand" href="index.html">azimuth</a>
@@ -458,8 +468,17 @@ from. Around them sits the <strong>entity layer</strong> scanned out of the real
 (triangles) give each channel its texture, and <strong>shared regions</strong> (gold
 diamonds) bridge channels &mdash; a place the live data records under <em>more than one</em>
 theme, joined by <strong>gold edges</strong>. That cross-channel link is the part a static
-format cannot produce. Drag a node; click it to open its page. Held themes never appear.</p>
+format cannot produce. Drag a node; click it to open its page. Held themes never appear.
+<strong>Pick two channels below and Trace</strong> to ask the graph how they connect &mdash;
+the queryable half a static bundle cannot answer.</p>
 <div id="legend" class="legend"></div>
+<div id="query" class="gquery">
+  <span class="qlabel">Trace connection:</span>
+  <select id="qa"></select> &harr; <select id="qb"></select>
+  <button id="qgo" type="button">Trace</button>
+  <button id="qclear" type="button">Clear</button>
+  <p id="qout" class="qout"></p>
+</div>
 <canvas id="g" width="820" height="600"></canvas>
 <noscript><p>Enable JavaScript to view the interactive graph, or browse the
 <a href="index.html">briefs and sources</a> directly.</p></noscript>
@@ -566,22 +585,97 @@ function hexagon(x, y, r) {
   }
   cx.closePath();
 }
+// --- queryable layer: trace how two channels connect ----------------------
+// The graph is also *answerable*, not just drawable: pick two channels and the page
+// runs a BFS over the same node/edge data the CLI uses (scripts/query_graph.py),
+// highlighting the shared bridge entities + the shortest path that join them.
+const ADJ = {};
+for (const n of GRAPH.nodes) ADJ[n.id] = new Set();
+for (const e of GRAPH.edges) {
+  if (ADJ[e.source] && ADJ[e.target]) { ADJ[e.source].add(e.target); ADJ[e.target].add(e.source); }
+}
+const briefNodes = GRAPH.nodes.filter(n => n.kind === "brief");
+const channelName = lbl => lbl.replace(/ Weekly$/, "");
+const qa = document.getElementById("qa"), qb = document.getElementById("qb");
+let HILITE = null;
+if (qa && qb && briefNodes.length) {
+  const opts = briefNodes
+    .map(b => `<option value="${b.theme}">${channelName(b.label)}</option>`).join("");
+  qa.innerHTML = opts; qb.innerHTML = opts;
+  if (briefNodes.length > 1) qb.selectedIndex = 1;
+}
+const briefIdOf = theme => { const b = briefNodes.find(n => n.theme === theme); return b ? b.id : null; };
+function bfsPath(src, dst) {
+  if (!ADJ[src] || !ADJ[dst]) return null;
+  if (src === dst) return [src];
+  const prev = {[src]: src}, q = [src];
+  while (q.length) {
+    const cur = q.shift();
+    for (const nx of [...ADJ[cur]].sort()) {
+      if (nx in prev) continue;
+      prev[nx] = cur;
+      if (nx === dst) {
+        const p = [dst];
+        while (p[p.length-1] !== src) p.push(prev[p[p.length-1]]);
+        return p.reverse();
+      }
+      q.push(nx);
+    }
+  }
+  return null;
+}
+function trace() {
+  const out = document.getElementById("qout"), ta = qa.value, tb = qb.value;
+  if (ta === tb) { out.textContent = "Pick two different channels."; HILITE = null; return; }
+  const ba = briefIdOf(ta), bb = briefIdOf(tb);
+  const shared = [...ADJ[ba]].filter(x => ADJ[bb].has(x) && nodeById[x] && nodeById[x].kind === "entity");
+  const path = bfsPath(ba, bb);
+  const nodes = new Set(path || []); nodes.add(ba); nodes.add(bb); shared.forEach(x => nodes.add(x));
+  const edges = new Set();
+  const link = (a, b) => { edges.add(a+"|"+b); edges.add(b+"|"+a); };
+  if (path) for (let i=0;i<path.length-1;i++) link(path[i], path[i+1]);
+  shared.forEach(x => { link(x, ba); link(x, bb); });
+  HILITE = { nodes, edges };
+  const aL = channelName(nodeById[ba].label), bL = channelName(nodeById[bb].label);
+  if (!shared.length && !path) { out.textContent = `No connection found between ${aL} and ${bL}.`; return; }
+  const names = shared.map(x => nodeById[x].label).join(", ") || "no direct shared entity";
+  let txt = `${aL} ↔ ${bL}: ${shared.length} shared bridge(s) — ${names}.`;
+  if (path) txt += "  Path: " + path.map(id => nodeById[id].label).join(" → ") + ".";
+  out.textContent = txt;
+}
+if (qa && qb) {
+  document.getElementById("qgo").addEventListener("click", trace);
+  document.getElementById("qclear").addEventListener("click", () => {
+    HILITE = null; document.getElementById("qout").textContent = "";
+  });
+}
+const onNode = n => !HILITE || HILITE.nodes.has(n.id);
+const onEdge = e => !HILITE || HILITE.edges.has(e.s.id+"|"+e.t.id);
 function draw() {
   cx.clearRect(0,0,W,H);
-  // within-theme edges first (thin, muted), cross-theme on top (gold, thick)
+  // within-theme edges first (thin, muted), cross-theme on top (gold, thick).
+  // When a trace is active, off-path elements dim so the answer stands out.
   for (const e of E) {
     if (e.cross) continue;
-    cx.strokeStyle = "#2a3a4d"; cx.lineWidth = 1;
+    cx.strokeStyle = "#2a3a4d"; cx.lineWidth = 1; cx.globalAlpha = onEdge(e) ? 1 : 0.1;
     cx.beginPath(); cx.moveTo(e.s.x,e.s.y); cx.lineTo(e.t.x,e.t.y); cx.stroke();
   }
   for (const e of E) {
     if (!e.cross) continue;
-    cx.strokeStyle = CROSS; cx.lineWidth = 2.6; cx.globalAlpha = 0.9;
+    cx.strokeStyle = CROSS; cx.lineWidth = 2.6; cx.globalAlpha = onEdge(e) ? 0.9 : 0.1;
     cx.beginPath(); cx.moveTo(e.s.x,e.s.y); cx.lineTo(e.t.x,e.t.y); cx.stroke();
-    cx.globalAlpha = 1;
+  }
+  cx.globalAlpha = 1;
+  if (HILITE) {  // the traced path, drawn bright white on top
+    for (const e of E) {
+      if (!onEdge(e)) continue;
+      cx.strokeStyle = "#ffffff"; cx.lineWidth = 3;
+      cx.beginPath(); cx.moveTo(e.s.x,e.s.y); cx.lineTo(e.t.x,e.t.y); cx.stroke();
+    }
   }
   for (const n of N) {
-    cx.fillStyle = colorOf(n);
+    const baseA = onNode(n) ? 1 : 0.14;
+    cx.globalAlpha = baseA; cx.fillStyle = colorOf(n);
     if (n.kind === "concept") {
       hexagon(n.x, n.y, n.r); cx.fill();
       cx.strokeStyle = "#cdd7e3"; cx.lineWidth = 2; cx.stroke();
@@ -594,12 +688,14 @@ function draw() {
       cx.lineWidth = 1; cx.stroke();
     } else {
       cx.beginPath(); cx.arc(n.x,n.y,n.r,0,7);
-      cx.globalAlpha = n.kind === "brief" ? 1 : 0.85; cx.fill(); cx.globalAlpha = 1;
+      cx.globalAlpha = (n.kind === "brief" ? 1 : 0.85) * baseA; cx.fill();
     }
+    cx.globalAlpha = baseA;
     if (n.kind !== "source") {
       cx.fillStyle = "#e7edf5"; cx.font = "12px Inter,sans-serif"; cx.textAlign = "center";
       cx.fillText(n.label, n.x, n.y-n.r-5);
     }
+    cx.globalAlpha = 1;
   }
 }
 let drag = null;
