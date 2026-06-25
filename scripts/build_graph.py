@@ -46,6 +46,7 @@ same editorial guarantee the static-site build enforces.
 Usage:
     python scripts/build_graph.py                 # build into ./site
     python scripts/build_graph.py --out _site     # custom output dir
+    python scripts/build_graph.py --check         # exit 1 if committed graph is stale (CI guard)
 """
 
 from __future__ import annotations
@@ -76,17 +77,52 @@ from synthesis.site_build import (  # noqa: E402
 # edge is data-backed, never inferred.
 _REGIONS = [
     # energy / EU fuel panel + general
-    "United States", "Germany", "France", "Italy", "Spain", "Greece", "Austria",
-    "Belgium", "Netherlands", "Poland", "Norway", "Portugal", "Ireland", "Mexico",
-    "United Kingdom", "Europe", "European Union",
+    "United States",
+    "Germany",
+    "France",
+    "Italy",
+    "Spain",
+    "Greece",
+    "Austria",
+    "Belgium",
+    "Netherlands",
+    "Poland",
+    "Norway",
+    "Portugal",
+    "Ireland",
+    "Mexico",
+    "United Kingdom",
+    "Europe",
+    "European Union",
     # geophysical / Ring-of-Fire arcs
-    "Indonesia", "Philippines", "Japan", "China", "Russia", "Chile", "Turkey",
-    "Iran", "India", "Taiwan", "New Zealand", "Tonga", "Fiji", "Kamchatka",
-    "Mid-Atlantic Ridge", "Kermadec",
+    "Indonesia",
+    "Philippines",
+    "Japan",
+    "China",
+    "Russia",
+    "Chile",
+    "Turkey",
+    "Iran",
+    "India",
+    "Taiwan",
+    "New Zealand",
+    "Tonga",
+    "Fiji",
+    "Kamchatka",
+    "Mid-Atlantic Ridge",
+    "Kermadec",
 ]
 _COMMODITIES = [
-    "WTI", "Brent", "LNG", "natural gas", "crude oil", "crude", "diesel",
-    "petrol", "gasoline", "Bcf",
+    "WTI",
+    "Brent",
+    "LNG",
+    "natural gas",
+    "crude oil",
+    "crude",
+    "diesel",
+    "petrol",
+    "gasoline",
+    "Bcf",
 ]
 
 # longest-first so "European Union" wins over "Europe", "crude oil" over "crude"
@@ -207,9 +243,7 @@ def _seismic_events(
             break
     if not raw:
         return nodes, edges
-    quakes = sorted(
-        _extract_quakes(raw), key=lambda q: q.get("magnitude") or 0, reverse=True
-    )
+    quakes = sorted(_extract_quakes(raw), key=lambda q: q.get("magnitude") or 0, reverse=True)
     seen: set[str] = set()
     url = f"sources/{latest_day}/earthquakes.html" if latest_day else ""
     for q in quakes:
@@ -598,23 +632,70 @@ def render_html(graph: dict[str, Any]) -> str:
     )
 
 
-def build(out_dir: Path, vault_dir: Path = DEFAULT_VAULT,
-          registry_path: Path = DEFAULT_REGISTRY) -> dict[str, Any]:
+def _serialize(graph: dict[str, Any]) -> tuple[str, str]:
+    """Return the exact ``(graph.json, graph.html)`` text a build would write.
+
+    Single source of truth shared by the write path (:func:`build`) and the
+    ``--check`` sync guard, so the two can never disagree about what "in sync" means.
+    """
+    return json.dumps(graph, indent=2) + "\n", render_html(graph)
+
+
+def build(
+    out_dir: Path, vault_dir: Path = DEFAULT_VAULT, registry_path: Path = DEFAULT_REGISTRY
+) -> dict[str, Any]:
     """Build the graph and write ``graph.json`` + ``graph.html`` into ``out_dir``."""
     graph = build_graph(vault_dir, registry_path)
+    json_text, html_text = _serialize(graph)
     out_dir.mkdir(parents=True, exist_ok=True)
-    (out_dir / "graph.json").write_text(
-        json.dumps(graph, indent=2) + "\n", encoding="utf-8"
-    )
-    (out_dir / "graph.html").write_text(render_html(graph), encoding="utf-8")
+    (out_dir / "graph.json").write_text(json_text, encoding="utf-8")
+    (out_dir / "graph.html").write_text(html_text, encoding="utf-8")
     return graph
 
 
+def check(
+    out_dir: Path, vault_dir: Path = DEFAULT_VAULT, registry_path: Path = DEFAULT_REGISTRY
+) -> list[str]:
+    """Return the names of any committed graph artifact that is stale vs the live vault.
+
+    Rebuilds the graph in memory from ``vault_dir`` and compares to the on-disk
+    ``out_dir/graph.json`` and ``out_dir/graph.html``. An empty list means in sync.
+    This is the CI / pre-commit guard: whoever updates the vault or a brief must also
+    regenerate and commit the graph, exactly like the brief-index sync guard.
+    """
+    graph = build_graph(vault_dir, registry_path)
+    json_text, html_text = _serialize(graph)
+    stale: list[str] = []
+    for name, new_text in (("graph.json", json_text), ("graph.html", html_text)):
+        path = out_dir / name
+        current = path.read_text(encoding="utf-8") if path.exists() else ""
+        if current != new_text:
+            stale.append(name)
+    return stale
+
+
 def main(argv: list[str] | None = None) -> int:
-    parser = argparse.ArgumentParser(description="Build the azimuth cross-channel knowledge graph.")
+    parser = argparse.ArgumentParser(
+        description="Build the azimuth cross-channel knowledge graph."
+    )
     parser.add_argument("--out", default="site", help="output directory (default: site)")
+    parser.add_argument(
+        "--check",
+        action="store_true",
+        help="exit 1 if committed graph.json/graph.html are stale vs the live vault (CI guard)",
+    )
     args = parser.parse_args(argv)
     out_dir = (_REPO_ROOT / args.out).resolve()
+    if args.check:
+        stale = check(out_dir)
+        if stale:
+            print(
+                f"graph: STALE ({', '.join(stale)}) — run "
+                "`python scripts/build_graph.py` and commit."
+            )
+            return 1
+        print("graph: up to date.")
+        return 0
     graph = build(out_dir)
     n_cross = sum(1 for e in graph["edges"] if e.get("cross_theme"))
     n_concept = sum(1 for n in graph["nodes"] if n["kind"] == "concept")

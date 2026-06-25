@@ -32,10 +32,18 @@ _REGISTRY = {
         },
     },
     "sources": [
-        {"key": "fuel-prices", "theme": "energy-supply", "surfaced": True,
-         "upstream_source": "WorldMonitor fuel-price feed"},
-        {"key": "earthquakes", "theme": "geophysical", "surfaced": True,
-         "upstream_source": "USGS"},
+        {
+            "key": "fuel-prices",
+            "theme": "energy-supply",
+            "surfaced": True,
+            "upstream_source": "WorldMonitor fuel-price feed",
+        },
+        {
+            "key": "earthquakes",
+            "theme": "geophysical",
+            "surfaced": True,
+            "upstream_source": "USGS",
+        },
         {"key": "prediction-markets", "theme": "prediction-markets", "surfaced": True},
     ],
 }
@@ -139,14 +147,14 @@ def test_event_nodes_from_quakes(tmp_path: Path) -> None:
     assert top["kind"] == "entity"
     assert top["label"].startswith("M6.5")
     geo_brief = "brief:" + build_graph_mod._slug("Geophysical Weekly")
-    assert any(
-        e["source"] == top["id"] and e["target"] == geo_brief for e in graph["edges"]
-    ), "event is not wired to the geophysical brief"
+    assert any(e["source"] == top["id"] and e["target"] == geo_brief for e in graph["edges"]), (
+        "event is not wired to the geophysical brief"
+    )
     # the Athens quake links to the surfaced Greece region entity (event -> region)
     greece = "entity:" + build_graph_mod._slug("Greece")
-    assert any(
-        e["source"] == top["id"] and e["target"] == greece for e in graph["edges"]
-    ), "event did not link to the region it occurred in"
+    assert any(e["source"] == top["id"] and e["target"] == greece for e in graph["edges"]), (
+        "event did not link to the region it occurred in"
+    )
 
 
 def test_held_theme_excluded_from_graph(tmp_path: Path) -> None:
@@ -167,3 +175,43 @@ def test_within_theme_edges_not_flagged_cross(tmp_path: Path) -> None:
     within = [e for e in graph["edges"] if e["target"] in src_ids]
     assert within, "expected within-theme brief->source edges"
     assert all(e["cross_theme"] is False for e in within)
+
+
+def test_check_passes_when_committed_artifacts_fresh(tmp_path: Path) -> None:
+    """GUARD: --check returns [] when site/graph.{json,html} match a fresh build.
+
+    Mirrors the brief-index sync guard: a freshly written graph dir is, by definition,
+    in sync with the same vault, so check() reports nothing stale.
+    """
+    vault = _make_vault(tmp_path)
+    reg = tmp_path / "registry.json"
+    reg.write_text(json.dumps(_REGISTRY), encoding="utf-8")
+    out = tmp_path / "site"
+    build_graph_mod.build(out, vault_dir=vault, registry_path=reg)
+    stale = build_graph_mod.check(out, vault_dir=vault, registry_path=reg)
+    assert stale == [], f"freshly built graph reported stale: {stale}"
+
+
+def test_check_detects_stale_json(tmp_path: Path) -> None:
+    """GUARD: an out-of-date committed graph.json is flagged by --check."""
+    vault = _make_vault(tmp_path)
+    reg = tmp_path / "registry.json"
+    reg.write_text(json.dumps(_REGISTRY), encoding="utf-8")
+    out = tmp_path / "site"
+    build_graph_mod.build(out, vault_dir=vault, registry_path=reg)
+    # Simulate a vault/brief edit that was committed WITHOUT regenerating the graph.
+    (out / "graph.json").write_text('{"nodes": [], "edges": []}\n', encoding="utf-8")
+    stale = build_graph_mod.check(out, vault_dir=vault, registry_path=reg)
+    assert "graph.json" in stale
+
+
+def test_check_detects_missing_artifact(tmp_path: Path) -> None:
+    """GUARD: a never-built (missing) graph.html is reported stale, not crashed on."""
+    vault = _make_vault(tmp_path)
+    reg = tmp_path / "registry.json"
+    reg.write_text(json.dumps(_REGISTRY), encoding="utf-8")
+    out = tmp_path / "site"
+    build_graph_mod.build(out, vault_dir=vault, registry_path=reg)
+    (out / "graph.html").unlink()
+    stale = build_graph_mod.check(out, vault_dir=vault, registry_path=reg)
+    assert "graph.html" in stale

@@ -28,10 +28,10 @@ jobs:
         run: uv pip install --system -e ".[dev]"
 
       - name: Ruff lint
-        run: ruff check guardrail/ ingest/ tests/ synthesis/ scripts/check_synthesis.py scripts/build_brief_index.py scripts/check_synthesis_freshness.py
+        run: ruff check guardrail/ ingest/ tests/ synthesis/ scripts/check_synthesis.py scripts/build_brief_index.py scripts/check_synthesis_freshness.py scripts/build_graph.py
 
       - name: Ruff format check
-        run: ruff format --check guardrail/ ingest/ tests/ synthesis/ scripts/check_synthesis.py scripts/build_brief_index.py scripts/check_synthesis_freshness.py
+        run: ruff format --check guardrail/ ingest/ tests/ synthesis/ scripts/check_synthesis.py scripts/build_brief_index.py scripts/check_synthesis_freshness.py scripts/build_graph.py
 
   source-guardrail:
     name: Source Guardrail
@@ -71,6 +71,9 @@ jobs:
       - name: Brief index in sync
         run: python scripts/build_brief_index.py --check
 
+      - name: Knowledge graph in sync
+        run: python scripts/build_graph.py --check
+
   type-check:
     name: Type Check
     runs-on: ubuntu-latest
@@ -89,7 +92,7 @@ jobs:
         run: uv pip install --system -e ".[dev]"
 
       - name: mypy
-        run: mypy guardrail/ ingest/ synthesis/ scripts/check_synthesis.py scripts/build_brief_index.py scripts/check_synthesis_freshness.py
+        run: mypy guardrail/ ingest/ synthesis/ scripts/check_synthesis.py scripts/build_brief_index.py scripts/check_synthesis_freshness.py scripts/build_graph.py
 
   test:
     name: Test
