@@ -28,6 +28,9 @@ concurrency:
 jobs:
   build:
     name: Build static site
+    # Gate: the repo is private (public flip is Michael's gated decision), so GitHub Pages cannot
+    # publish -> the deploy fails every push. Skip (not fail) while private; auto-runs once flipped public.
+    if: ${{ !github.event.repository.private }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
