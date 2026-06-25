@@ -4,7 +4,7 @@ type: L2-brief
 theme: cross-theme
 week: 2026-W26
 updated: 2026-06-25T04:00:00Z
-sources: [co2-monitoring, crude-oil-inventories, earthquakes, energy-prices, fuel-prices, natural-gas-storage-eu]
+sources: [co2-monitoring, crude-oil-inventories, earthquakes, energy-prices, fuel-prices, natural-events, natural-gas-storage-eu, radiation-observations, thermal-escalations, wildfire-detections]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
 ---
@@ -51,6 +51,7 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 > **Channels:** Energy supply + Geophysical + Climate signals · **Serves:** Researcher / analyst — the cross-channel graph for one subject, every edge clickable to its L1 note.
 
 - **Commodity spine — crude oil ties three feeds together:** the physical balance (-15,148 EIA stocks, 2026-06-19); the spot price (WTI $81.36/bbl); the pump (downstream fuel-price panel). One commodity, traced from the ground to the pump across separate L1 feeds ([[crude-oil-inventories]], [[energy-prices]], [[fuel-prices]])
+- **United States** surfaces under 2 channels this week (Energy supply + environmental-hazards) — a co-occurrence in the open data, reported as a link, not a cause ([[crude-oil-inventories]], [[energy-prices]], [[fuel-prices]], [[natural-events]], [[natural-gas-storage-eu]], [[radiation-observations]], [[thermal-escalations]], [[wildfire-detections]])
 - **New Zealand** surfaces under 2 channels this week (Energy supply + Geophysical) — a co-occurrence in the open data, reported as a link, not a cause ([[crude-oil-inventories]], [[earthquakes]], [[energy-prices]], [[fuel-prices]], [[natural-gas-storage-eu]])
 - **Greece** surfaces under 2 channels this week (Energy supply + Geophysical) — a co-occurrence in the open data, reported as a link, not a cause ([[crude-oil-inventories]], [[earthquakes]], [[energy-prices]], [[fuel-prices]], [[natural-gas-storage-eu]])
 - **Mexico** surfaces under 2 channels this week (Energy supply + Geophysical) — a co-occurrence in the open data, reported as a link, not a cause ([[crude-oil-inventories]], [[earthquakes]], [[energy-prices]], [[fuel-prices]], [[natural-gas-storage-eu]])

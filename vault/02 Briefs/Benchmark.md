@@ -3,7 +3,7 @@ title: Benchmark — Facts vs Forecast vs Intelligence
 type: L2-brief
 theme: cross-theme
 week: 2026-W26
-updated: 2026-06-24T04:00:00Z
+updated: 2026-06-25T04:00:00Z
 sources: [crude-oil-inventories, earthquakes, energy-prices, natural-gas-storage-eu]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources; the forecast/intelligence columns quote WorldMonitor as the COMPARED product, not an azimuth channel
@@ -20,8 +20,8 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 ### azimuth — observed facts (EU gas storage + US crude inventories + Energy prices)
 
 - EU gas storage stands at 2,759 Bcf (+73 Bcf w/w) as of 2026-06-12 — an observed reading ([[natural-gas-storage-eu]])
-- US crude inventories drew down -17,204 to 758,473 Mb (EIA week of 2026-06-12) — an observed reading ([[crude-oil-inventories]])
-- Spot crude as reported: WTI $92.16/bbl (-4.9 w/w), Brent $93.76/bbl (-5.2 w/w) — the observed price tape ([[energy-prices]])
+- US crude inventories drew down -15,148 to 743,325 Mb (EIA week of 2026-06-19) — an observed reading ([[crude-oil-inventories]])
+- Spot crude as reported: WTI $81.36/bbl (-11.7 w/w), Brent $81/bbl (-13.6 w/w) — the observed price tape ([[energy-prices]])
 
 ### FORECAST product — model projection (compared)
 
@@ -60,8 +60,8 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 ### azimuth — observed facts (Energy prices + US crude inventories)
 
-- WTI crude as reported: $92.16/bbl (-4.9 w/w) — the observed energy-cost input to inflation, not a forecast of it ([[energy-prices]])
-- US crude stocks -17,204 (week of 2026-06-12) — the observed physical balance behind the cost line, every figure clickable ([[crude-oil-inventories]])
+- WTI crude as reported: $81.36/bbl (-11.7 w/w) — the observed energy-cost input to inflation, not a forecast of it ([[energy-prices]])
+- US crude stocks -15,148 (week of 2026-06-19) — the observed physical balance behind the cost line, every figure clickable ([[crude-oil-inventories]])
 
 ### FORECAST product — model projection (compared)
 
@@ -100,7 +100,7 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 ### azimuth — observed facts (Geophysical)
 
-- Largest recorded event this week: M6.7 43 km ESE of Palu, Indonesia — one of 37 events at or above M5 USGS logged, an observed record ([[earthquakes]])
+- Largest recorded event this week: M7.5 28 km SE of Yumare, Venezuela — one of 32 events at or above M5 USGS logged, an observed record ([[earthquakes]])
 - azimuth reports what USGS RECORDED, never what may happen next — a sourced, neutral record of seismicity, regenerable from the open USGS feed ([[earthquakes]])
 
 ### FORECAST product — model projection (compared)
@@ -133,3 +133,4 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 ## Changelog
 
 - 2026-06-24 — regenerated the facts-vs-forecast-vs-intelligence benchmark from the 2026-06-24 live bundle (2026-W26); 3 head-to-head topics, every azimuth claim L1-sourced, foil snapshot quoted as the compared product.
+- 2026-06-25 — regenerated the facts-vs-forecast-vs-intelligence benchmark from the 2026-06-25 live bundle (2026-W26); 3 head-to-head topics, every azimuth claim L1-sourced, foil snapshot quoted as the compared product.
