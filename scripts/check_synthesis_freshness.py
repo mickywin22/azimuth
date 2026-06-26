@@ -33,6 +33,7 @@ from __future__ import annotations
 import argparse
 import json
 import sys
+from datetime import date
 from pathlib import Path
 from typing import Any
 
@@ -48,6 +49,14 @@ _REGISTRY = _REPO_ROOT / "sources" / "registry.json"
 
 # A day directory under vault/01 Sources/ is exactly YYYY-MM-DD.
 _DAY_LEN = len("YYYY-MM-DD")
+
+# The L2 curator runs on a *weekly* cadence while the L1 ingest runs *daily*, so on any
+# given day a clean brief legitimately lags the latest L1 by up to a full cycle. A brief is
+# "stale" the moment a newer L1 day exists (the weekly curator's trigger), but only
+# "overdue" once it lags by MORE than one cadence — i.e. the weekly synthesis genuinely
+# failed to run. CI/consistency checks gate on *overdue*, not *stale*, so the designed
+# daily-L1 / weekly-L2 gap does not redden main ~6 days out of 7. 7d cadence + 1d slack.
+CADENCE_GRACE_DAYS = 8
 
 
 def _is_day_dir(name: str) -> bool:
@@ -99,6 +108,16 @@ def _brief_updated_day(theme_slug: str, brief_file: str) -> str | None:
     return updated[:_DAY_LEN] if len(updated) >= _DAY_LEN else None
 
 
+def _days_behind(latest_l1: str | None, brief_day: str | None) -> int:
+    """Whole days the brief lags the latest L1 day (0 if either date is absent/unparseable)."""
+    if not latest_l1 or not brief_day:
+        return 0
+    try:
+        return max(0, (date.fromisoformat(latest_l1) - date.fromisoformat(brief_day)).days)
+    except ValueError:
+        return 0
+
+
 def assess() -> list[dict[str, object]]:
     """One row per editorially-clean, non-held theme: its L1-vs-brief freshness verdict."""
     data = json.loads(_REGISTRY.read_text(encoding="utf-8"))
@@ -115,9 +134,16 @@ def assess() -> list[dict[str, object]]:
         brief_day = _brief_updated_day(slug, brief_file)
         brief_exists = (_BRIEFS_DIR / brief_file).exists()
         # Stale when an L1 day exists that the brief has not yet absorbed (or no brief at all
-        # while L1 data is present).
+        # while L1 data is present). This is the weekly curator's *trigger*.
         stale = latest_l1 is not None and (
             not brief_exists or brief_day is None or latest_l1 > brief_day
+        )
+        days_behind = _days_behind(latest_l1, brief_day) if stale else 0
+        # Overdue = the lag exceeds one weekly cadence (or there is no brief at all while L1
+        # data exists) — the weekly synthesis genuinely failed. This is what CI gates on, so
+        # the *designed* daily-L1 / weekly-L2 gap never reddens main.
+        overdue = stale and (
+            not brief_exists or brief_day is None or days_behind > CADENCE_GRACE_DAYS
         )
         rows.append(
             {
@@ -127,6 +153,8 @@ def assess() -> list[dict[str, object]]:
                 "latest_l1": latest_l1 or "-",
                 "brief_updated": brief_day or ("(missing)" if not brief_exists else "-"),
                 "stale": stale,
+                "days_behind": days_behind,
+                "overdue": overdue,
             }
         )
     return rows
@@ -136,23 +164,42 @@ def _render_table(rows: list[dict[str, object]]) -> str:
     lines = [
         "azimuth synthesis freshness — clean themes (held briefs excluded)",
         "",
-        f"{'theme':<20} {'latest L1':<12} {'brief updated':<14} {'verdict'}",
-        f"{'-' * 20} {'-' * 12} {'-' * 14} {'-' * 7}",
+        f"{'theme':<20} {'latest L1':<12} {'brief updated':<14} {'behind':<7} {'verdict'}",
+        f"{'-' * 20} {'-' * 12} {'-' * 14} {'-' * 7} {'-' * 9}",
     ]
     for r in rows:
-        verdict = "STALE" if r["stale"] else "fresh"
+        verdict = "OVERDUE" if r["overdue"] else ("stale" if r["stale"] else "fresh")
+        behind = f"{r['days_behind']}d" if r["stale"] else "-"
         lines.append(
-            f"{r['theme']!s:<20} {r['latest_l1']!s:<12} {r['brief_updated']!s:<14} {verdict}"
+            f"{r['theme']!s:<20} {r['latest_l1']!s:<12} {r['brief_updated']!s:<14} "
+            f"{behind:<7} {verdict}"
         )
     stale_n = sum(1 for r in rows if r["stale"])
-    lines += ["", f"{stale_n} of {len(rows)} clean brief(s) stale."]
+    overdue_n = sum(1 for r in rows if r["overdue"])
+    lines += [
+        "",
+        f"{stale_n} of {len(rows)} clean brief(s) stale "
+        f"(awaiting the weekly curator); {overdue_n} overdue "
+        f"(lagging > {CADENCE_GRACE_DAYS}d — synthesis genuinely failed).",
+    ]
     return "\n".join(lines)
 
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="azimuth L2 synthesis freshness gate")
     parser.add_argument(
-        "--check", action="store_true", help="exit 1 if any clean brief lags the latest L1"
+        "--check",
+        action="store_true",
+        help="exit 1 if any clean brief lags the latest L1 (the weekly curator's trigger)",
+    )
+    parser.add_argument(
+        "--overdue",
+        action="store_true",
+        help=(
+            f"exit 1 only if a clean brief lags by > {CADENCE_GRACE_DAYS}d "
+            "(one weekly cadence) — i.e. the weekly synthesis genuinely failed. "
+            "Use this in CI/alarms so the designed daily-L1 / weekly-L2 gap is tolerated."
+        ),
     )
     parser.add_argument("--json", action="store_true", help="emit the report as JSON")
     args = parser.parse_args()
@@ -163,6 +210,8 @@ def main() -> int:
     else:
         print(_render_table(rows))
 
+    if args.overdue:
+        return 1 if any(r["overdue"] for r in rows) else 0
     if args.check:
         return 1 if any(r["stale"] for r in rows) else 0
     return 0

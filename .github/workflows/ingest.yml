@@ -54,16 +54,31 @@ jobs:
           python scripts/pull_benchmark_foils.py || echo "foil pull failed — keeping prior snapshot"
           python scripts/build_benchmark.py || echo "benchmark brief rebuild skipped"
 
-      - name: Commit new L1 notes + refreshed benchmark
+      # Re-derive the DETERMINISTIC artifacts that rest on the freshly-pulled L1 day, so they
+      # never lag the data underneath them. The knowledge graph embeds the latest L1 day's
+      # entity provenance (build_graph reads the newest source notes) and the brief index
+      # records each brief's last-updated date (Benchmark.md just changed above) — both are
+      # mechanical, so they regenerate here every day rather than waiting for the weekly L2
+      # curator. This keeps `build_graph.py --check` and `build_brief_index.py --check` green
+      # on main daily instead of reddening for ~6 days out of every 7. (L2 brief *narrative*
+      # stays weekly — that is the curator's job, gated by the synthesis-freshness --overdue
+      # tolerance, not regenerated here.)
+      - name: Regenerate deterministic artifacts (knowledge graph + brief index)
+        run: |
+          python scripts/build_graph.py
+          python scripts/build_brief_index.py
+
+      - name: Commit new L1 notes + refreshed benchmark + re-derived artifacts
         run: |
           git config user.name  "azimuth-ingest[bot]"
           git config user.email "azimuth-ingest@users.noreply.github.com"
-          git add "vault/01 Sources/" "sources/benchmark/foils.json" "vault/02 Briefs/Benchmark.md"
+          git add "vault/01 Sources/" "sources/benchmark/foils.json" "vault/02 Briefs/Benchmark.md" \
+                  "vault/02 Briefs/README.md" "site/graph.json" "site/graph.html"
           if git diff --cached --quiet; then
-            echo "No new or changed L1 notes / benchmark — nothing to commit."
+            echo "No new or changed L1 notes / benchmark / derived artifacts — nothing to commit."
           else
             DAY="$(date -u +%F)"
-            git commit -m "chore(ingest): daily L1 pull + benchmark refresh ${DAY} (WorldMonitor)"
+            git commit -m "chore(ingest): daily L1 pull + benchmark + graph/index refresh ${DAY} (WorldMonitor)"
             git push
           fi
 
