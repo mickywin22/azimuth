@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Graph · azimuth</title>
+<link rel="stylesheet" href="assets/style.css">
+<style>
+.gquery{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem;margin:.6rem 0 .2rem}
+.gquery .qlabel{font-size:.85rem;color:#8a97a8;font-weight:600}
+.gquery select{background:#141a23;color:#e7edf5;border:1px solid #2a3a4d;border-radius:6px;
+padding:.25rem .5rem;font:inherit;font-size:.85rem}
+.gquery button{appearance:none;background:#4cc2ff;color:#08121b;border:0;border-radius:6px;
+padding:.3rem .8rem;font:inherit;font-size:.82rem;font-weight:600;cursor:pointer}
+.gquery button#qclear{background:transparent;color:#8a97a8;border:1px solid #2a3a4d}
+.gquery .qout{flex-basis:100%;margin:.35rem 0 0;font-size:.88rem;color:#e7edf5;min-height:1.2em}
+</style>
+</head><body>
+<header class="nav">
+  <a class="brand" href="index.html">azimuth</a>
+  <nav>
+    <a href="index.html">Briefs</a>
+    <a href="index.html#sources">Sources</a>
+    <a href="graph.html">Graph</a>
+    <a href="editorial.html">Editorial</a>
+    <a href="okf.html">OKF</a>
+  </nav>
+</header>
+<main class="content">
+<div class="kind kind-brief">Knowledge graph</div>
+<h1>Cross-channel relationship graph</h1>
+<p class="hero-sub">Four node kinds, drawn straight from the live bundle. A
+<strong>channel</strong> (hexagon) holds its <strong>L2 brief</strong> (large circle),
+which rests on the dated <strong>L1 source notes</strong> (small dots) its claims come
+from. Around them sits the <strong>entity layer</strong> scanned out of the real text:
+<strong>commodities</strong> (squares) and individual <strong>earthquake events</strong>
+(triangles) give each channel its texture, and <strong>shared regions</strong> (gold
+diamonds) bridge channels &mdash; a place the live data records under <em>more than one</em>
+theme, joined by <strong>gold edges</strong>. That cross-channel link is the part a static
+format cannot produce. Drag a node; click it to open its page. Held themes never appear.
+<strong>Pick two channels below and Trace</strong> to ask the graph how they connect &mdash;
+the queryable half a static bundle cannot answer.</p>
+<div id="legend" class="legend"></div>
+<div id="query" class="gquery">
+  <span class="qlabel">Trace connection:</span>
+  <select id="qa"></select> &harr; <select id="qb"></select>
+  <button id="qgo" type="button">Trace</button>
+  <button id="qclear" type="button">Clear</button>
+  <p id="qout" class="qout"></p>
+</div>
+<canvas id="g" width="820" height="600"></canvas>
+<noscript><p>Enable JavaScript to view the interactive graph, or browse the
+<a href="index.html">briefs and sources</a> directly.</p></noscript>
+<div id="glist"></div>
+</main>
+<footer class="foot">
+  azimuth — public demonstrator of the HemySphere L1/L2/L3 vault doctrine.
+  Content CC-BY-4.0. Read-only static preview.
+</footer>
+<script>
+const GRAPH = {"nodes": [{"id": "concept:energy-supply", "label": "Energy Supply", "kind": "concept", "theme": "energy-supply"}, {"id": "concept:geophysical", "label": "Geophysical", "kind": "concept", "theme": "geophysical"}, {"id": "concept:climate-signals", "label": "Climate Signals", "kind": "concept", "theme": "climate-signals"}, {"id": "concept:environmental-hazards", "label": "Environmental Hazards", "kind": "concept", "theme": "environmental-hazards"}, {"id": "brief:energy-supply-weekly", "label": "Energy Supply Weekly", "kind": "brief", "theme": "energy-supply", "url": "briefs/energy-supply-weekly.html"}, {"id": "brief:geophysical-weekly", "label": "Geophysical Weekly", "kind": "brief", "theme": "geophysical", "url": "briefs/geophysical-weekly.html"}, {"id": "brief:climate-signals-weekly", "label": "Climate Signals Weekly", "kind": "brief", "theme": "climate-signals", "url": "briefs/climate-signals-weekly.html"}, {"id": "brief:environmental-hazards-weekly", "label": "Environmental Hazards Weekly", "kind": "brief", "theme": "environmental-hazards", "url": "briefs/environmental-hazards-weekly.html"}, {"id": "source:natural-gas-storage-eu", "label": "GIE AGSI+ (Gas Infrastructure Europe)", "kind": "source", "theme": "energy-supply", "url": "sources/2026-06-25/natural-gas-storage-eu.html"}, {"id": "source:crude-oil-inventories", "label": "U.S. EIA (Energy Information Administration)", "kind": "source", "theme": "energy-supply", "url": "sources/2026-06-25/crude-oil-inventories.html"}, {"id": "source:fuel-prices", "label": "WorldMonitor aggregated fuel-price feed", "kind": "source", "theme": "energy-supply", "url": "sources/2026-06-25/fuel-prices.html"}, {"id": "source:energy-prices", "label": "WorldMonitor aggregated energy spot/forward feed", "kind": "source", "theme": "energy-supply", "url": "sources/2026-06-25/energy-prices.html"}, {"id": "source:earthquakes", "label": "USGS Earthquake Hazards Program", "kind": "source", "theme": "geophysical", "url": "sources/2026-06-25/earthquakes.html"}, {"id": "source:climate-anomalies", "label": "NOAA / NASA reanalysis regional temperature & precipitation anomalies", "kind": "source", "theme": "climate-signals", "url": "sources/2026-06-25/climate-anomalies.html"}, {"id": "source:co2-monitoring", "label": "NOAA Global Monitoring Laboratory (atmospheric CO2 record)", "kind": "source", "theme": "climate-signals", "url": "sources/2026-06-25/co2-monitoring.html"}, {"id": "source:sea-ice-extent", "label": "NSIDC / NOAA@NSIDC Sea Ice Index (satellite-passive-microwave sea-ice extent)", "kind": "source", "theme": "climate-signals", "url": "sources/2026-06-25/sea-ice-extent.html"}, {"id": "source:wildfire-detections", "label": "NASA FIRMS (VIIRS active-fire / thermal-anomaly detections)", "kind": "source", "theme": "environmental-hazards", "url": "sources/2026-06-25/wildfire-detections.html"}, {"id": "source:thermal-escalations", "label": "NASA FIRMS (VIIRS thermal anomalies, clustered into escalation signals)", "kind": "source", "theme": "environmental-hazards", "url": "sources/2026-06-25/thermal-escalations.html"}, {"id": "source:natural-events", "label": "NASA EONET + GDACS (UN-coordinated disaster alerts)", "kind": "source", "theme": "environmental-hazards", "url": "sources/2026-06-25/natural-events.html"}, {"id": "source:radiation-observations", "label": "US EPA RadNet + Safecast (ambient radiation measurements)", "kind": "source", "theme": "environmental-hazards", "url": "sources/2026-06-25/radiation-observations.html"}, {"id": "entity:united-states", "label": "United States", "kind": "entity", "entity_kind": "region", "theme": "shared", "themes": ["energy-supply", "environmental-hazards"]}, {"id": "entity:new-zealand", "label": "New Zealand", "kind": "entity", "entity_kind": "region", "theme": "shared", "themes": ["energy-supply", "geophysical"]}, {"id": "entity:crude-oil", "label": "crude oil", "kind": "entity", "entity_kind": "commodity", "theme": "energy-supply", "themes": ["energy-supply"]}, {"id": "entity:gasoline", "label": "gasoline", "kind": "entity", "entity_kind": "commodity", "theme": "energy-supply", "themes": ["energy-supply"]}, {"id": "entity:greece", "label": "Greece", "kind": "entity", "entity_kind": "region", "theme": "shared", "themes": ["energy-supply", "geophysical"]}, {"id": "entity:mexico", "label": "Mexico", "kind": "entity", "entity_kind": "region", "theme": "shared", "themes": ["energy-supply", "geophysical"]}, {"id": "entity:russia", "label": "Russia", "kind": "entity", "entity_kind": "region", "theme": "shared", "themes": ["environmental-hazards", "geophysical"]}, {"id": "entity:diesel", "label": "diesel", "kind": "entity", "entity_kind": "commodity", "theme": "energy-supply", "themes": ["energy-supply"]}, {"id": "entity:petrol", "label": "petrol", "kind": "entity", "entity_kind": "commodity", "theme": "energy-supply", "themes": ["energy-supply"]}, {"id": "entity:japan", "label": "Japan", "kind": "entity", "entity_kind": "region", "theme": "shared", "themes": ["environmental-hazards", "geophysical"]}, {"id": "entity:brent", "label": "Brent", "kind": "entity", "entity_kind": "commodity", "theme": "energy-supply", "themes": ["energy-supply"]}, {"id": "entity:crude", "label": "crude", "kind": "entity", "entity_kind": "commodity", "theme": "energy-supply", "themes": ["energy-supply"]}, {"id": "entity:wti", "label": "WTI", "kind": "entity", "entity_kind": "commodity", "theme": "energy-supply", "themes": ["energy-supply"]}, {"id": "entity:bcf", "label": "Bcf", "kind": "entity", "entity_kind": "commodity", "theme": "energy-supply", "themes": ["energy-supply"]}, {"id": "event:us6000t7zp", "label": "M7.5 \u00b7 Yumare, Venezuela", "kind": "entity", "entity_kind": "event", "theme": "geophysical", "themes": ["geophysical"], "magnitude": 7.5, "url": "sources/2026-06-25/earthquakes.html"}, {"id": "event:us6000t7zc", "label": "M7.2 \u00b7 Yumare, Venezuela", "kind": "entity", "entity_kind": "event", "theme": "geophysical", "themes": ["geophysical"], "magnitude": 7.2, "url": "sources/2026-06-25/earthquakes.html"}, {"id": "event:us6000t7zq", "label": "M6.9 \u00b7 Kuji, Japan", "kind": "entity", "entity_kind": "event", "theme": "geophysical", "themes": ["geophysical"], "magnitude": 6.9, "url": "sources/2026-06-25/earthquakes.html"}, {"id": "event:us7000sui3", "label": "M6.6 \u00b7 Petropavlovsk-Kamchatsky, Russia", "kind": "entity", "entity_kind": "event", "theme": "geophysical", "themes": ["geophysical"], "magnitude": 6.6, "url": "sources/2026-06-25/earthquakes.html"}, {"id": "event:us7000sui2", "label": "M6 \u00b7 Petropavlovsk-Kamchatsky, Russia", "kind": "entity", "entity_kind": "event", "theme": "geophysical", "themes": ["geophysical"], "magnitude": 6, "url": "sources/2026-06-25/earthquakes.html"}, {"id": "event:us7000susb", "label": "M5.8 \u00b7 Petropavlovsk-Kamchatsky, Russia", "kind": "entity", "entity_kind": "event", "theme": "geophysical", "themes": ["geophysical"], "magnitude": 5.8, "url": "sources/2026-06-25/earthquakes.html"}], "edges": [{"source": "concept:energy-supply", "target": "brief:energy-supply-weekly", "cross_theme": false, "rel": "has-brief"}, {"source": "concept:geophysical", "target": "brief:geophysical-weekly", "cross_theme": false, "rel": "has-brief"}, {"source": "concept:climate-signals", "target": "brief:climate-signals-weekly", "cross_theme": false, "rel": "has-brief"}, {"source": "concept:environmental-hazards", "target": "brief:environmental-hazards-weekly", "cross_theme": false, "rel": "has-brief"}, {"source": "brief:energy-supply-weekly", "target": "source:natural-gas-storage-eu", "cross_theme": false, "rel": "rests-on"}, {"source": "brief:energy-supply-weekly", "target": "source:crude-oil-inventories", "cross_theme": false, "rel": "rests-on"}, {"source": "brief:energy-supply-weekly", "target": "source:fuel-prices", "cross_theme": false, "rel": "rests-on"}, {"source": "brief:energy-supply-weekly", "target": "source:energy-prices", "cross_theme": false, "rel": "rests-on"}, {"source": "brief:geophysical-weekly", "target": "source:earthquakes", "cross_theme": false, "rel": "rests-on"}, {"source": "brief:climate-signals-weekly", "target": "source:climate-anomalies", "cross_theme": false, "rel": "rests-on"}, {"source": "brief:climate-signals-weekly", "target": "source:co2-monitoring", "cross_theme": false, "rel": "rests-on"}, {"source": "brief:climate-signals-weekly", "target": "source:sea-ice-extent", "cross_theme": false, "rel": "rests-on"}, {"source": "brief:environmental-hazards-weekly", "target": "source:wildfire-detections", "cross_theme": false, "rel": "rests-on"}, {"source": "brief:environmental-hazards-weekly", "target": "source:thermal-escalations", "cross_theme": false, "rel": "rests-on"}, {"source": "brief:environmental-hazards-weekly", "target": "source:natural-events", "cross_theme": false, "rel": "rests-on"}, {"source": "brief:environmental-hazards-weekly", "target": "source:radiation-observations", "cross_theme": false, "rel": "rests-on"}, {"source": "entity:united-states", "target": "brief:energy-supply-weekly", "cross_theme": true, "rel": "mentioned-in", "weight": 1}, {"source": "entity:united-states", "target": "brief:environmental-hazards-weekly", "cross_theme": true, "rel": "mentioned-in", "weight": 1}, {"source": "entity:new-zealand", "target": "brief:energy-supply-weekly", "cross_theme": true, "rel": "mentioned-in", "weight": 1}, {"source": "entity:new-zealand", "target": "brief:geophysical-weekly", "cross_theme": true, "rel": "mentioned-in", "weight": 1}, {"source": "entity:crude-oil", "target": "brief:energy-supply-weekly", "cross_theme": false, "rel": "mentioned-in", "weight": 1}, {"source": "entity:gasoline", "target": "brief:energy-supply-weekly", "cross_theme": false, "rel": "mentioned-in", "weight": 1}, {"source": "entity:greece", "target": "brief:energy-supply-weekly", "cross_theme": true, "rel": "mentioned-in", "weight": 1}, {"source": "entity:greece", "target": "brief:geophysical-weekly", "cross_theme": true, "rel": "mentioned-in", "weight": 1}, {"source": "entity:mexico", "target": "brief:energy-supply-weekly", "cross_theme": true, "rel": "mentioned-in", "weight": 1}, {"source": "entity:mexico", "target": "brief:geophysical-weekly", "cross_theme": true, "rel": "mentioned-in", "weight": 1}, {"source": "entity:russia", "target": "brief:environmental-hazards-weekly", "cross_theme": true, "rel": "mentioned-in", "weight": 2}, {"source": "entity:russia", "target": "brief:geophysical-weekly", "cross_theme": true, "rel": "mentioned-in", "weight": 1}, {"source": "entity:diesel", "target": "brief:energy-supply-weekly", "cross_theme": false, "rel": "mentioned-in", "weight": 1}, {"source": "entity:petrol", "target": "brief:energy-supply-weekly", "cross_theme": false, "rel": "mentioned-in", "weight": 0}, {"source": "entity:japan", "target": "brief:environmental-hazards-weekly", "cross_theme": true, "rel": "mentioned-in", "weight": 1}, {"source": "entity:japan", "target": "brief:geophysical-weekly", "cross_theme": true, "rel": "mentioned-in", "weight": 1}, {"source": "entity:brent", "target": "brief:energy-supply-weekly", "cross_theme": false, "rel": "mentioned-in", "weight": 1}, {"source": "entity:crude", "target": "brief:energy-supply-weekly", "cross_theme": false, "rel": "mentioned-in", "weight": 2}, {"source": "entity:wti", "target": "brief:energy-supply-weekly", "cross_theme": false, "rel": "mentioned-in", "weight": 1}, {"source": "entity:bcf", "target": "brief:energy-supply-weekly", "cross_theme": false, "rel": "mentioned-in", "weight": 0}, {"source": "event:us6000t7zp", "target": "brief:geophysical-weekly", "cross_theme": false, "rel": "reported-in"}, {"source": "event:us6000t7zc", "target": "brief:geophysical-weekly", "cross_theme": false, "rel": "reported-in"}, {"source": "event:us6000t7zq", "target": "brief:geophysical-weekly", "cross_theme": false, "rel": "reported-in"}, {"source": "event:us6000t7zq", "target": "entity:japan", "cross_theme": false, "rel": "located-in"}, {"source": "event:us7000sui3", "target": "brief:geophysical-weekly", "cross_theme": false, "rel": "reported-in"}, {"source": "event:us7000sui3", "target": "entity:russia", "cross_theme": false, "rel": "located-in"}, {"source": "event:us7000sui2", "target": "brief:geophysical-weekly", "cross_theme": false, "rel": "reported-in"}, {"source": "event:us7000sui2", "target": "entity:russia", "cross_theme": false, "rel": "located-in"}, {"source": "event:us7000susb", "target": "brief:geophysical-weekly", "cross_theme": false, "rel": "reported-in"}, {"source": "event:us7000susb", "target": "entity:russia", "cross_theme": false, "rel": "located-in"}]};
+const THEME_COLORS = {"energy-supply": "#4cc2ff", "geophysical": "#ff9d4c", "prediction-markets": "#b07cff", "other": "#8a97a8"};
+const CROSS = "#ffe14c";
+const cv = document.getElementById("g"), cx = cv.getContext("2d");
+const colorOf = n => n.theme === "shared" ? CROSS : (THEME_COLORS[n.theme] || THEME_COLORS.other);
+const isEntity = n => n.kind === "entity";
+// --- legend: themes + node-kind glyph guide -------------------------------
+const themes = [...new Set(GRAPH.nodes.filter(n => !isEntity(n)).map(n => n.theme))];
+let legend = themes.map(t =>
+  `<span class="lg"><i style="background:${THEME_COLORS[t]||THEME_COLORS.other}"></i>${t}</span>`
+).join("");
+const has = (k, ek) => GRAPH.nodes.some(n => n.kind === k && (!ek || n.entity_kind === ek));
+legend += `<span class="lg">&#x2B22; channel</span>`;
+legend += `<span class="lg">&#x25CF; brief</span>`;
+legend += `<span class="lg">&#xB7; source</span>`;
+if (has("entity", "commodity")) legend += `<span class="lg">&#x25A0; commodity</span>`;
+if (has("entity", "event")) legend += `<span class="lg" style="color:${THEME_COLORS.geophysical}">&#x25B2; earthquake</span>`;
+if (has("entity", "region")) legend += `<span class="lg" style="color:${CROSS}">&#x25C6; shared region (cross-theme)</span>`;
+document.getElementById("legend").innerHTML = legend;
+// --- text fallback / accessibility list -----------------------------------
+const nodeById = Object.fromEntries(GRAPH.nodes.map(n => [n.id, n]));
+const childrenOf = (id, pred) => GRAPH.edges
+  .filter(e => e.source === id).map(e => nodeById[e.target])
+  .filter(n => n && pred(n));
+const briefList = GRAPH.nodes.filter(n => n.kind === "brief").map(b => {
+  const srcs = childrenOf(b.id, n => n.kind === "source")
+    .map(n => `<a href="${n.url}">${n.label}</a>`).join(", ");
+  const comms = GRAPH.edges.filter(e => e.target === b.id)
+    .map(e => nodeById[e.source]).filter(n => n && n.entity_kind === "commodity")
+    .map(n => n.label);
+  const commTxt = comms.length ? ` <em>(commodities: ${[...new Set(comms)].join(", ")})</em>` : "";
+  return `<li><a href="${b.url}"><strong>${b.label}</strong></a> &rarr; ${srcs||"&mdash;"}${commTxt}</li>`;
+}).join("");
+const events = GRAPH.nodes.filter(n => n.entity_kind === "event")
+  .map(n => `<li>${n.label}</li>`).join("");
+const bridges = GRAPH.nodes.filter(n => n.entity_kind === "region")
+  .map(en => `<li><strong>${en.label}</strong> bridges ${(en.themes||[]).join(" &harr; ")}</li>`).join("");
+document.getElementById("glist").innerHTML =
+  "<details><summary>Graph as a list</summary><ul>" + briefList + "</ul>" +
+  (events ? "<p><strong>Largest live earthquakes</strong></p><ul>" + events + "</ul>" : "") +
+  (bridges ? "<p><strong>Cross-theme bridges</strong></p><ul>" + bridges + "</ul>" : "") +
+  "</details>";
+// --- force layout ---------------------------------------------------------
+const W = cv.width, H = cv.height;
+const radiusOf = n =>
+  n.kind === "concept" ? 16 :
+  n.kind === "brief"   ? 13 :
+  n.kind === "entity"  ? (n.entity_kind === "event"
+                           ? Math.min(12, 6 + ((n.magnitude || 5) - 4) * 1.6) : 9) : 7;
+const N = GRAPH.nodes.map((n, i) => ({
+  ...n, x: W/2 + Math.cos(i)*220 + (i%5)*7, y: H/2 + Math.sin(i*1.7)*170 + (i%3)*5,
+  vx: 0, vy: 0, r: radiusOf(n)
+}));
+const idx = Object.fromEntries(N.map(n => [n.id, n]));
+const E = GRAPH.edges.map(e => ({s: idx[e.source], t: idx[e.target], cross: !!e.cross_theme}))
+  .filter(e => e.s && e.t);
+function step() {
+  for (const a of N) {
+    for (const b of N) {
+      if (a === b) continue;
+      let dx = a.x-b.x, dy = a.y-b.y, d = Math.hypot(dx,dy)||1;
+      const f = 3000/(d*d);
+      a.vx += (dx/d)*f; a.vy += (dy/d)*f;
+    }
+    a.vx += (W/2-a.x)*0.0024; a.vy += (H/2-a.y)*0.0024;
+  }
+  for (const e of E) {
+    let dx = e.t.x-e.s.x, dy = e.t.y-e.s.y, d = Math.hypot(dx,dy)||1;
+    const rest = e.cross ? 175 : 110;
+    const f = (d-rest)*0.012;
+    e.s.vx += (dx/d)*f; e.s.vy += (dy/d)*f;
+    e.t.vx -= (dx/d)*f; e.t.vy -= (dy/d)*f;
+  }
+  for (const a of N) {
+    a.x += a.vx*0.5; a.y += a.vy*0.5; a.vx *= 0.82; a.vy *= 0.82;
+    a.x = Math.max(a.r, Math.min(W-a.r, a.x)); a.y = Math.max(a.r, Math.min(H-a.r, a.y));
+  }
+}
+// --- shape primitives -----------------------------------------------------
+function diamond(x, y, r) {
+  cx.beginPath(); cx.moveTo(x, y-r); cx.lineTo(x+r, y); cx.lineTo(x, y+r);
+  cx.lineTo(x-r, y); cx.closePath();
+}
+function square(x, y, r) { cx.beginPath(); cx.rect(x-r, y-r, 2*r, 2*r); }
+function triangle(x, y, r) {
+  cx.beginPath(); cx.moveTo(x, y-r); cx.lineTo(x+r*0.92, y+r*0.72);
+  cx.lineTo(x-r*0.92, y+r*0.72); cx.closePath();
+}
+function hexagon(x, y, r) {
+  cx.beginPath();
+  for (let k=0;k<6;k++) {
+    const a = Math.PI/6 + k*Math.PI/3, px = x+r*Math.cos(a), py = y+r*Math.sin(a);
+    k ? cx.lineTo(px, py) : cx.moveTo(px, py);
+  }
+  cx.closePath();
+}
+// --- queryable layer: trace how two channels connect ----------------------
+// The graph is also *answerable*, not just drawable: pick two channels and the page
+// runs a BFS over the same node/edge data the CLI uses (scripts/query_graph.py),
+// highlighting the shared bridge entities + the shortest path that join them.
+const ADJ = {};
+for (const n of GRAPH.nodes) ADJ[n.id] = new Set();
+for (const e of GRAPH.edges) {
+  if (ADJ[e.source] && ADJ[e.target]) { ADJ[e.source].add(e.target); ADJ[e.target].add(e.source); }
+}
+const briefNodes = GRAPH.nodes.filter(n => n.kind === "brief");
+const channelName = lbl => lbl.replace(/ Weekly$/, "");
+const qa = document.getElementById("qa"), qb = document.getElementById("qb");
+let HILITE = null;
+if (qa && qb && briefNodes.length) {
+  const opts = briefNodes
+    .map(b => `<option value="${b.theme}">${channelName(b.label)}</option>`).join("");
+  qa.innerHTML = opts; qb.innerHTML = opts;
+  if (briefNodes.length > 1) qb.selectedIndex = 1;
+}
+const briefIdOf = theme => { const b = briefNodes.find(n => n.theme === theme); return b ? b.id : null; };
+function bfsPath(src, dst) {
+  if (!ADJ[src] || !ADJ[dst]) return null;
+  if (src === dst) return [src];
+  const prev = {[src]: src}, q = [src];
+  while (q.length) {
+    const cur = q.shift();
+    for (const nx of [...ADJ[cur]].sort()) {
+      if (nx in prev) continue;
+      prev[nx] = cur;
+      if (nx === dst) {
+        const p = [dst];
+        while (p[p.length-1] !== src) p.push(prev[p[p.length-1]]);
+        return p.reverse();
+      }
+      q.push(nx);
+    }
+  }
+  return null;
+}
+function trace() {
+  const out = document.getElementById("qout"), ta = qa.value, tb = qb.value;
+  if (ta === tb) { out.textContent = "Pick two different channels."; HILITE = null; return; }
+  const ba = briefIdOf(ta), bb = briefIdOf(tb);
+  const shared = [...ADJ[ba]].filter(x => ADJ[bb].has(x) && nodeById[x] && nodeById[x].kind === "entity");
+  const path = bfsPath(ba, bb);
+  const nodes = new Set(path || []); nodes.add(ba); nodes.add(bb); shared.forEach(x => nodes.add(x));
+  const edges = new Set();
+  const link = (a, b) => { edges.add(a+"|"+b); edges.add(b+"|"+a); };
+  if (path) for (let i=0;i<path.length-1;i++) link(path[i], path[i+1]);
+  shared.forEach(x => { link(x, ba); link(x, bb); });
+  HILITE = { nodes, edges };
+  const aL = channelName(nodeById[ba].label), bL = channelName(nodeById[bb].label);
+  if (!shared.length && !path) { out.textContent = `No connection found between ${aL} and ${bL}.`; return; }
+  const names = shared.map(x => nodeById[x].label).join(", ") || "no direct shared entity";
+  let txt = `${aL} ↔ ${bL}: ${shared.length} shared bridge(s) — ${names}.`;
+  if (path) txt += "  Path: " + path.map(id => nodeById[id].label).join(" → ") + ".";
+  out.textContent = txt;
+}
+if (qa && qb) {
+  document.getElementById("qgo").addEventListener("click", trace);
+  document.getElementById("qclear").addEventListener("click", () => {
+    HILITE = null; document.getElementById("qout").textContent = "";
+  });
+}
+const onNode = n => !HILITE || HILITE.nodes.has(n.id);
+const onEdge = e => !HILITE || HILITE.edges.has(e.s.id+"|"+e.t.id);
+function draw() {
+  cx.clearRect(0,0,W,H);
+  // within-theme edges first (thin, muted), cross-theme on top (gold, thick).
+  // When a trace is active, off-path elements dim so the answer stands out.
+  for (const e of E) {
+    if (e.cross) continue;
+    cx.strokeStyle = "#2a3a4d"; cx.lineWidth = 1; cx.globalAlpha = onEdge(e) ? 1 : 0.1;
+    cx.beginPath(); cx.moveTo(e.s.x,e.s.y); cx.lineTo(e.t.x,e.t.y); cx.stroke();
+  }
+  for (const e of E) {
+    if (!e.cross) continue;
+    cx.strokeStyle = CROSS; cx.lineWidth = 2.6; cx.globalAlpha = onEdge(e) ? 0.9 : 0.1;
+    cx.beginPath(); cx.moveTo(e.s.x,e.s.y); cx.lineTo(e.t.x,e.t.y); cx.stroke();
+  }
+  cx.globalAlpha = 1;
+  if (HILITE) {  // the traced path, drawn bright white on top
+    for (const e of E) {
+      if (!onEdge(e)) continue;
+      cx.strokeStyle = "#ffffff"; cx.lineWidth = 3;
+      cx.beginPath(); cx.moveTo(e.s.x,e.s.y); cx.lineTo(e.t.x,e.t.y); cx.stroke();
+    }
+  }
+  for (const n of N) {
+    const baseA = onNode(n) ? 1 : 0.14;
+    cx.globalAlpha = baseA; cx.fillStyle = colorOf(n);
+    if (n.kind === "concept") {
+      hexagon(n.x, n.y, n.r); cx.fill();
+      cx.strokeStyle = "#cdd7e3"; cx.lineWidth = 2; cx.stroke();
+    } else if (n.kind === "entity") {
+      if (n.entity_kind === "commodity") square(n.x, n.y, n.r);
+      else if (n.entity_kind === "event") triangle(n.x, n.y, n.r);
+      else diamond(n.x, n.y, n.r);
+      cx.fill();
+      cx.strokeStyle = n.theme === "shared" ? "#7a6a10" : "#1c2733";
+      cx.lineWidth = 1; cx.stroke();
+    } else {
+      cx.beginPath(); cx.arc(n.x,n.y,n.r,0,7);
+      cx.globalAlpha = (n.kind === "brief" ? 1 : 0.85) * baseA; cx.fill();
+    }
+    cx.globalAlpha = baseA;
+    if (n.kind !== "source") {
+      cx.fillStyle = "#e7edf5"; cx.font = "12px Inter,sans-serif"; cx.textAlign = "center";
+      cx.fillText(n.label, n.x, n.y-n.r-5);
+    }
+    cx.globalAlpha = 1;
+  }
+}
+let drag = null;
+cv.addEventListener("mousedown", ev => {
+  const r = cv.getBoundingClientRect(), mx = ev.clientX-r.left, my = ev.clientY-r.top;
+  drag = N.find(n => Math.hypot(n.x-mx, n.y-my) < n.r+4) || null;
+});
+cv.addEventListener("mousemove", ev => {
+  if (!drag) return;
+  const r = cv.getBoundingClientRect(); drag.x = ev.clientX-r.left; drag.y = ev.clientY-r.top;
+});
+window.addEventListener("mouseup", () => drag = null);
+cv.addEventListener("click", ev => {
+  const r = cv.getBoundingClientRect(), mx = ev.clientX-r.left, my = ev.clientY-r.top;
+  const hit = N.find(n => Math.hypot(n.x-mx, n.y-my) < n.r+4);
+  if (hit && hit.url) location.href = hit.url;
+});
+(function loop() { for (let k=0;k<2;k++) step(); draw(); requestAnimationFrame(loop); })();
+</script>
+</body></html>

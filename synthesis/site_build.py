@@ -26,10 +26,27 @@ import re
 import shutil
 import sys
 from dataclasses import dataclass, field
+from functools import cache
 from pathlib import Path
 from typing import Any
 
-import markdown as md  # type: ignore[import-untyped]
+
+@cache
+def _md() -> Any:
+    """Import the ``markdown`` package lazily — only the HTML render path needs it.
+
+    ``markdown`` lives in the ``site`` optional-dependency group (pyproject), not in base
+    deps or ``dev``. Importing this module for its constants/helpers must therefore NOT
+    require it: ``scripts/build_graph.py`` pulls ``DEFAULT_VAULT``/``_slug``/``held_*`` from
+    here and runs in the stdlib-only Synthesis-Lint CI job and the ``.[dev]`` test job,
+    neither of which installs ``site``. A top-level ``import markdown`` made the graph
+    ``--check`` guard and ``test_build_graph`` collection fail on every CI run. Deferring
+    the import to call time keeps the non-rendering paths pure-stdlib.
+    """
+    import markdown  # type: ignore[import-untyped]
+
+    return markdown
+
 
 _REPO_ROOT = Path(__file__).resolve().parent.parent
 if str(_REPO_ROOT) not in sys.path:
@@ -229,7 +246,7 @@ def _render_page(page: Page, link_map: dict[str, str]) -> str:
     depth = page.out_path.count("/")
     root = "../" * depth
     linked = resolve_wikilinks(page.body_md, page.out_path, link_map)
-    html_body = md.markdown(linked, extensions=_MD_EXTENSIONS)
+    html_body = _md().markdown(linked, extensions=_MD_EXTENSIONS)
     label = _KIND_LABEL.get(page.kind, "")
     kind_block = f'<div class="kind kind-{page.kind}">{label}</div>' if label else ""
     return _PAGE_TEMPLATE.format(
@@ -333,14 +350,14 @@ def _render_whatif(a: Answer, page: str, link_map: dict[str, str]) -> str:
     wf = a.whatif
     if wf is None or not a.claims:
         return ""
-    real_verdict = md.markdown(
+    real_verdict = _md().markdown(
         resolve_wikilinks(a.claims[0].md, page, link_map), extensions=_MD_EXTENSIONS
     )
-    cf_verdict = md.markdown(
+    cf_verdict = _md().markdown(
         resolve_wikilinks(wf.flipped_verdict, page, link_map), extensions=_MD_EXTENSIONS
     )
     cite = resolve_wikilinks(" · ".join(f"[[{s}]]" for s in wf.sources), page, link_map)
-    cite_html = md.markdown(cite, extensions=_MD_EXTENSIONS)
+    cite_html = _md().markdown(cite, extensions=_MD_EXTENSIONS)
     return (
         f'<div class="whatif" data-qid="{html.escape(a.qid)}">'
         f'<div class="whatif-head">'
@@ -384,7 +401,7 @@ def _render_answers(aset: AnswerSet, link_map: dict[str, str]) -> str:
         bullets: list[str] = []
         for claim in a.claims:
             linked = resolve_wikilinks(claim.md, page, link_map)
-            bullets.append(f"<li>{md.markdown(linked, extensions=_MD_EXTENSIONS)}</li>")
+            bullets.append(f"<li>{_md().markdown(linked, extensions=_MD_EXTENSIONS)}</li>")
         whatif_html = _render_whatif(a, page, link_map)
         blocks.append(
             f'<article class="qa">'
@@ -439,7 +456,7 @@ def _render_benchmark(bench: Benchmark, link_map: dict[str, str]) -> str:
     blocks: list[str] = []
     for t in bench.topics:
         az_bullets = "".join(
-            f"<li>{md.markdown(resolve_wikilinks(c.md, page, link_map), extensions=_MD_EXTENSIONS)}</li>"
+            f"<li>{_md().markdown(resolve_wikilinks(c.md, page, link_map), extensions=_MD_EXTENSIONS)}</li>"
             for c in t.azimuth_claims
         )
         # forecast column
@@ -450,7 +467,7 @@ def _render_benchmark(bench: Benchmark, link_map: dict[str, str]) -> str:
                 else ""
             )
             fc_body = (
-                f"{md.markdown(html.escape(t.forecast.headline), extensions=_MD_EXTENSIONS)}"
+                f"{_md().markdown(html.escape(t.forecast.headline), extensions=_MD_EXTENSIONS)}"
                 f"{fc_extra}"
                 f'<p class="attr">{html.escape(t.forecast.attribution)}</p>'
             )
@@ -478,7 +495,7 @@ def _render_benchmark(bench: Benchmark, link_map: dict[str, str]) -> str:
             f"<td>{html.escape(r.intelligence)}</td></tr>"
             for r in t.scorecard
         )
-        verdict_html = md.markdown(
+        verdict_html = _md().markdown(
             resolve_wikilinks(t.verdict.md, page, link_map), extensions=_MD_EXTENSIONS
         )
         chips = "".join(f'<span class="chip">{html.escape(c)}</span>' for c in t.azimuth_channels)
