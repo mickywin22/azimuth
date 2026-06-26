@@ -57,84 +57,84 @@
       "label": "GIE AGSI+ (Gas Infrastructure Europe)",
       "kind": "source",
       "theme": "energy-supply",
-      "url": "sources/2026-06-25/natural-gas-storage-eu.html"
+      "url": "sources/2026-06-26/natural-gas-storage-eu.html"
     },
     {
       "id": "source:crude-oil-inventories",
       "label": "U.S. EIA (Energy Information Administration)",
       "kind": "source",
       "theme": "energy-supply",
-      "url": "sources/2026-06-25/crude-oil-inventories.html"
+      "url": "sources/2026-06-26/crude-oil-inventories.html"
     },
     {
       "id": "source:fuel-prices",
       "label": "WorldMonitor aggregated fuel-price feed",
       "kind": "source",
       "theme": "energy-supply",
-      "url": "sources/2026-06-25/fuel-prices.html"
+      "url": "sources/2026-06-26/fuel-prices.html"
     },
     {
       "id": "source:energy-prices",
       "label": "WorldMonitor aggregated energy spot/forward feed",
       "kind": "source",
       "theme": "energy-supply",
-      "url": "sources/2026-06-25/energy-prices.html"
+      "url": "sources/2026-06-26/energy-prices.html"
     },
     {
       "id": "source:earthquakes",
       "label": "USGS Earthquake Hazards Program",
       "kind": "source",
       "theme": "geophysical",
-      "url": "sources/2026-06-25/earthquakes.html"
+      "url": "sources/2026-06-26/earthquakes.html"
     },
     {
       "id": "source:climate-anomalies",
       "label": "NOAA / NASA reanalysis regional temperature & precipitation anomalies",
       "kind": "source",
       "theme": "climate-signals",
-      "url": "sources/2026-06-25/climate-anomalies.html"
+      "url": "sources/2026-06-26/climate-anomalies.html"
     },
     {
       "id": "source:co2-monitoring",
       "label": "NOAA Global Monitoring Laboratory (atmospheric CO2 record)",
       "kind": "source",
       "theme": "climate-signals",
-      "url": "sources/2026-06-25/co2-monitoring.html"
+      "url": "sources/2026-06-26/co2-monitoring.html"
     },
     {
       "id": "source:sea-ice-extent",
       "label": "NSIDC / NOAA@NSIDC Sea Ice Index (satellite-passive-microwave sea-ice extent)",
       "kind": "source",
       "theme": "climate-signals",
-      "url": "sources/2026-06-25/sea-ice-extent.html"
+      "url": "sources/2026-06-26/sea-ice-extent.html"
     },
     {
       "id": "source:wildfire-detections",
       "label": "NASA FIRMS (VIIRS active-fire / thermal-anomaly detections)",
       "kind": "source",
       "theme": "environmental-hazards",
-      "url": "sources/2026-06-25/wildfire-detections.html"
+      "url": "sources/2026-06-26/wildfire-detections.html"
     },
     {
       "id": "source:thermal-escalations",
       "label": "NASA FIRMS (VIIRS thermal anomalies, clustered into escalation signals)",
       "kind": "source",
       "theme": "environmental-hazards",
-      "url": "sources/2026-06-25/thermal-escalations.html"
+      "url": "sources/2026-06-26/thermal-escalations.html"
     },
     {
       "id": "source:natural-events",
       "label": "NASA EONET + GDACS (UN-coordinated disaster alerts)",
       "kind": "source",
       "theme": "environmental-hazards",
-      "url": "sources/2026-06-25/natural-events.html"
+      "url": "sources/2026-06-26/natural-events.html"
     },
     {
       "id": "source:radiation-observations",
       "label": "US EPA RadNet + Safecast (ambient radiation measurements)",
       "kind": "source",
       "theme": "environmental-hazards",
-      "url": "sources/2026-06-25/radiation-observations.html"
+      "url": "sources/2026-06-26/radiation-observations.html"
     },
     {
       "id": "entity:united-states",
@@ -243,6 +243,17 @@
       ]
     },
     {
+      "id": "entity:chile",
+      "label": "Chile",
+      "kind": "entity",
+      "entity_kind": "region",
+      "theme": "shared",
+      "themes": [
+        "environmental-hazards",
+        "geophysical"
+      ]
+    },
+    {
       "id": "entity:brent",
       "label": "Brent",
       "kind": "entity",
@@ -292,7 +303,7 @@
         "geophysical"
       ],
       "magnitude": 7.5,
-      "url": "sources/2026-06-25/earthquakes.html"
+      "url": "sources/2026-06-26/earthquakes.html"
     },
     {
       "id": "event:us6000t7zc",
@@ -304,7 +315,7 @@
         "geophysical"
       ],
       "magnitude": 7.2,
-      "url": "sources/2026-06-25/earthquakes.html"
+      "url": "sources/2026-06-26/earthquakes.html"
     },
     {
       "id": "event:us6000t7zq",
@@ -316,31 +327,19 @@
         "geophysical"
       ],
       "magnitude": 6.9,
-      "url": "sources/2026-06-25/earthquakes.html"
+      "url": "sources/2026-06-26/earthquakes.html"
     },
     {
-      "id": "event:us7000sui3",
-      "label": "M6.6 \u00b7 Petropavlovsk-Kamchatsky, Russia",
+      "id": "event:us6000t8cy",
+      "label": "M5.8 \u00b7 Yokoshiba, Japan",
       "kind": "entity",
       "entity_kind": "event",
       "theme": "geophysical",
       "themes": [
         "geophysical"
       ],
-      "magnitude": 6.6,
-      "url": "sources/2026-06-25/earthquakes.html"
-    },
-    {
-      "id": "event:us7000sui2",
-      "label": "M6 \u00b7 Petropavlovsk-Kamchatsky, Russia",
-      "kind": "entity",
-      "entity_kind": "event",
-      "theme": "geophysical",
-      "themes": [
-        "geophysical"
-      ],
-      "magnitude": 6,
-      "url": "sources/2026-06-25/earthquakes.html"
+      "magnitude": 5.8,
+      "url": "sources/2026-06-26/earthquakes.html"
     },
     {
       "id": "event:us7000susb",
@@ -352,7 +351,19 @@
         "geophysical"
       ],
       "magnitude": 5.8,
-      "url": "sources/2026-06-25/earthquakes.html"
+      "url": "sources/2026-06-26/earthquakes.html"
+    },
+    {
+      "id": "event:us7000suii",
+      "label": "M5.8 \u00b7 Petropavlovsk-Kamchatsky, Russia",
+      "kind": "entity",
+      "entity_kind": "event",
+      "theme": "geophysical",
+      "themes": [
+        "geophysical"
+      ],
+      "magnitude": 5.8,
+      "url": "sources/2026-06-26/earthquakes.html"
     }
   ],
   "edges": [
@@ -587,7 +598,7 @@
       "target": "brief:environmental-hazards-weekly",
       "cross_theme": true,
       "rel": "mentioned-in",
-      "weight": 2
+      "weight": 3
     },
     {
       "source": "entity:russia",
@@ -598,6 +609,12 @@
     {
       "source": "entity:russia",
       "target": "source:thermal-escalations",
+      "cross_theme": false,
+      "rel": "named-in"
+    },
+    {
+      "source": "entity:russia",
+      "target": "source:wildfire-detections",
       "cross_theme": false,
       "rel": "named-in"
     },
@@ -656,6 +673,32 @@
     },
     {
       "source": "entity:japan",
+      "target": "source:earthquakes",
+      "cross_theme": false,
+      "rel": "named-in"
+    },
+    {
+      "source": "entity:chile",
+      "target": "brief:environmental-hazards-weekly",
+      "cross_theme": true,
+      "rel": "mentioned-in",
+      "weight": 1
+    },
+    {
+      "source": "entity:chile",
+      "target": "source:natural-events",
+      "cross_theme": false,
+      "rel": "named-in"
+    },
+    {
+      "source": "entity:chile",
+      "target": "brief:geophysical-weekly",
+      "cross_theme": true,
+      "rel": "mentioned-in",
+      "weight": 1
+    },
+    {
+      "source": "entity:chile",
       "target": "source:earthquakes",
       "cross_theme": false,
       "rel": "named-in"
@@ -737,26 +780,14 @@
       "rel": "located-in"
     },
     {
-      "source": "event:us7000sui3",
+      "source": "event:us6000t8cy",
       "target": "brief:geophysical-weekly",
       "cross_theme": false,
       "rel": "reported-in"
     },
     {
-      "source": "event:us7000sui3",
-      "target": "entity:russia",
-      "cross_theme": false,
-      "rel": "located-in"
-    },
-    {
-      "source": "event:us7000sui2",
-      "target": "brief:geophysical-weekly",
-      "cross_theme": false,
-      "rel": "reported-in"
-    },
-    {
-      "source": "event:us7000sui2",
-      "target": "entity:russia",
+      "source": "event:us6000t8cy",
+      "target": "entity:japan",
       "cross_theme": false,
       "rel": "located-in"
     },
@@ -768,6 +799,18 @@
     },
     {
       "source": "event:us7000susb",
+      "target": "entity:russia",
+      "cross_theme": false,
+      "rel": "located-in"
+    },
+    {
+      "source": "event:us7000suii",
+      "target": "brief:geophysical-weekly",
+      "cross_theme": false,
+      "rel": "reported-in"
+    },
+    {
+      "source": "event:us7000suii",
       "target": "entity:russia",
       "cross_theme": false,
       "rel": "located-in"

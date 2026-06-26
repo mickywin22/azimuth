@@ -3,7 +3,7 @@ title: Top5 Answers
 type: L2-brief
 theme: cross-theme
 week: 2026-W26
-updated: 2026-06-25T04:00:00Z
+updated: 2026-06-26T04:00:00Z
 sources: [co2-monitoring, crude-oil-inventories, earthquakes, energy-prices, fuel-prices, natural-events, natural-gas-storage-eu, radiation-observations, thermal-escalations, wildfire-detections]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -18,7 +18,7 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 > **Channels:** EU gas storage + US crude inventories + Energy prices · **Serves:** Energy / policy desk — a one-glance supply-health read across the physical balances and the price tape.
 
 - **Verdict — the data leans well-supplied, not fragile.** Storage is filling and spot crude eased, while the multi-week US crude draw is the single signal to watch; azimuth states what the feeds show, not a safety call ([[natural-gas-storage-eu]], [[crude-oil-inventories]], [[energy-prices]])
-- **EU gas storage is building** — 2,759 Bcf as of 2026-06-12, +73 Bcf week-on-week, extending the injection run to 8 straight weeks ([[natural-gas-storage-eu]])
+- **EU gas storage is building** — 2,835 Bcf as of 2026-06-19, +76 Bcf week-on-week, extending the injection run to 8 straight weeks ([[natural-gas-storage-eu]])
 - **US crude inventories drew down** -15,148 (EIA week of 2026-06-19) to 743,325 — the 8th straight weekly draw, the one tightening signal in the picture ([[crude-oil-inventories]])
 - **Spot crude eased** this week — WTI $81.36/bbl (-11.7), Brent $81/bbl (-13.6) on the reported week-on-week change, so the price tape is not signalling scarcity ([[energy-prices]])
 
@@ -34,7 +34,7 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 > **Channels:** Geophysical + Energy supply · **Serves:** Risk & humanitarian desk — a fast, non-alarmist read of whether a seismic week actually touched the energy map.
 
-- **Largest recorded event:** M7.5 28 km SE of Yumare, Venezuela — one of 32 events at or above M5 USGS logged this week ([[earthquakes]])
+- **Largest recorded event:** M7.5 28 km SE of Yumare, Venezuela — one of 30 events at or above M5 USGS logged this week ([[earthquakes]])
 - **No observed reach into energy infrastructure.** The week's quakes cluster away from the physical energy-supply core (US crude inventories, EU gas storage) and from the fuel-reporting countries — the data shows seismicity and the energy balances did not intersect this week ([[earthquakes]], [[crude-oil-inventories]])
 - azimuth reports what USGS RECORDED, never what may happen next — a sourced 'no significant overlap' is the honest, efficient answer when that is what the week's data shows ([[earthquakes]])
 
@@ -64,3 +64,4 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 - 2026-06-24 — regenerated TOP5 demonstrator answers from the 2026-06-24 live bundle (2026-W26); 5 cross-channel answers, every claim L1-sourced.
 - 2026-06-25 — regenerated TOP5 demonstrator answers from the 2026-06-25 live bundle (2026-W26); 5 cross-channel answers, every claim L1-sourced.
+- 2026-06-26 — regenerated TOP5 demonstrator answers from the 2026-06-26 live bundle (2026-W26); 5 cross-channel answers, every claim L1-sourced.

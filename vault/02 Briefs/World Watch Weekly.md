@@ -3,7 +3,7 @@ title: World Watch Weekly
 type: L2-brief
 theme: cross-theme
 week: 2026-W26
-updated: 2026-06-25T04:00:00Z
+updated: 2026-06-26T04:00:00Z
 sources: [climate-anomalies, co2-monitoring, crude-oil-inventories, earthquakes, energy-prices, fuel-prices, natural-events, natural-gas-storage-eu, radiation-observations, sea-ice-extent, thermal-escalations, wildfire-detections]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -15,16 +15,17 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 ## This week at a glance
 
-- The 2026-06-25 ingest connects **4 clean channels** (Climate Signals, Energy Supply, Environmental Hazards, Geophysical) through **6 shared region(s)**: Greece, Japan, Mexico, New Zealand, Russia, United States ([[climate-anomalies]], [[co2-monitoring]], [[crude-oil-inventories]], [[earthquakes]], [[energy-prices]], [[fuel-prices]], [[natural-events]], [[natural-gas-storage-eu]], [[radiation-observations]], [[sea-ice-extent]], [[thermal-escalations]], [[wildfire-detections]]).
+- The 2026-06-26 ingest connects **4 clean channels** (Climate Signals, Energy Supply, Environmental Hazards, Geophysical) through **7 shared region(s)**: Chile, Greece, Japan, Mexico, New Zealand, Russia, United States ([[climate-anomalies]], [[co2-monitoring]], [[crude-oil-inventories]], [[earthquakes]], [[energy-prices]], [[fuel-prices]], [[natural-events]], [[natural-gas-storage-eu]], [[radiation-observations]], [[sea-ice-extent]], [[thermal-escalations]], [[wildfire-detections]]).
 - United States sits on the physical energy-supply core, so this week's seismicity has an observed point of reach into the energy balances ([[climate-anomalies]], [[co2-monitoring]], [[crude-oil-inventories]], [[earthquakes]], [[energy-prices]], [[fuel-prices]], [[natural-events]], [[natural-gas-storage-eu]], [[radiation-observations]], [[sea-ice-extent]], [[thermal-escalations]], [[wildfire-detections]]).
 
 ## Shared entities across channels
 
+- **Chile** is recorded under 2 channels this week (Environmental Hazards + Geophysical) — Environmental Hazards ([[natural-events]]) | Geophysical: M4.7 76 km W of Ollagüe, Chile; M4.5 8 km NNE of La Serena, Chile ([[earthquakes]]). The shared name is a co-occurrence in two open feeds, not a causal link unless the physical data shows reach.
 - **Greece** is recorded under 2 channels this week (Energy Supply + Geophysical) — Energy Supply: diesel $2.021/L, +0.79% w/w; gasoline $2.330/L, -2.03% w/w ([[fuel-prices]]) | Geophysical: M5.2 10 km S of Kastrí, Greece; M4.9 28 km SE of Fry, Greece ([[earthquakes]]). The shared name is a co-occurrence in two open feeds, not a causal link unless the physical data shows reach.
-- **Japan** is recorded under 2 channels this week (Environmental Hazards + Geophysical) — Environmental Hazards ([[radiation-observations]]) | Geophysical: M6.9 30 km ENE of Kuji, Japan; M5.3 Izu Islands, Japan region ([[earthquakes]]). The shared name is a co-occurrence in two open feeds, not a causal link unless the physical data shows reach.
+- **Japan** is recorded under 2 channels this week (Environmental Hazards + Geophysical) — Environmental Hazards ([[radiation-observations]]) | Geophysical: M6.9 30 km ENE of Kuji, Japan; M5.8 3 km SE of Yokoshiba, Japan ([[earthquakes]]). The shared name is a co-occurrence in two open feeds, not a causal link unless the physical data shows reach.
 - **Mexico** is recorded under 2 channels this week (Energy Supply + Geophysical) — Energy Supply: diesel $1.577/L, +1.37% w/w; gasoline $1.376/L, +1.63% w/w ([[fuel-prices]]) | Geophysical: M4.9 1 km E of El Palmarcito, Mexico; M4.6 Off the coast of Baja California Sur, Mexico ([[earthquakes]]). The shared name is a co-occurrence in two open feeds, not a causal link unless the physical data shows reach.
 - **New Zealand** is recorded under 2 channels this week (Energy Supply + Geophysical) — Energy Supply: fuel feed reported no price this week (listed under failedSources) ([[fuel-prices]]) | Geophysical: M5.1 Kermadec Islands, New Zealand ([[earthquakes]]). The shared name is a co-occurrence in two open feeds, not a causal link unless the physical data shows reach.
-- **Russia** is recorded under 2 channels this week (Environmental Hazards + Geophysical) — Environmental Hazards ([[natural-events]], [[thermal-escalations]]) | Geophysical: M6.6 133 km ESE of Petropavlovsk-Kamchatsky, Russia; M6 156 km ESE of Petropavlovsk-Kamchatsky, Russia ([[earthquakes]]). The shared name is a co-occurrence in two open feeds, not a causal link unless the physical data shows reach.
+- **Russia** is recorded under 2 channels this week (Environmental Hazards + Geophysical) — Environmental Hazards ([[natural-events]], [[thermal-escalations]], [[wildfire-detections]]) | Geophysical: M5.8 140 km ESE of Petropavlovsk-Kamchatsky, Russia; M5.8 171 km ESE of Petropavlovsk-Kamchatsky, Russia ([[earthquakes]]). The shared name is a co-occurrence in two open feeds, not a causal link unless the physical data shows reach.
 - **United States** is recorded under 2 channels this week (Energy Supply + Environmental Hazards) — Energy Supply: diesel $1.376/L, -2.62% w/w; gasoline $1.095/L, -3.69% w/w ([[fuel-prices]]) | Environmental Hazards ([[radiation-observations]]). The shared name is a co-occurrence in two open feeds, not a causal link unless the physical data shows reach.
 
 ## Does the connection reach?
@@ -41,3 +42,4 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 - 2026-06-23 — regenerated from the 2026-06-23 L1 ingest (2026-W26): 3 cross-channel bridge(s) across 2 clean channels (Greece, Mexico, New Zealand); energy-core reach: none observed.
 - 2026-06-24 — regenerated from the 2026-06-24 L1 ingest (2026-W26): 0 cross-channel bridge(s) across 3 clean channels; energy-core reach: none observed.
 - 2026-06-25 — regenerated from the 2026-06-25 L1 ingest (2026-W26): 6 cross-channel bridge(s) across 4 clean channels (Greece, Japan, Mexico, New Zealand, Russia, United States); energy-core reach: yes — United States.
+- 2026-06-26 — regenerated from the 2026-06-26 L1 ingest (2026-W26): 7 cross-channel bridge(s) across 4 clean channels (Chile, Greece, Japan, Mexico, New Zealand, Russia, United States); energy-core reach: yes — United States.
