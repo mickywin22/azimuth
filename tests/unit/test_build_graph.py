@@ -157,6 +157,52 @@ def test_event_nodes_from_quakes(tmp_path: Path) -> None:
     )
 
 
+def test_every_edge_is_typed_with_a_known_relation(tmp_path: Path) -> None:
+    """RICHER: every edge carries a ``rel`` from the fixed vocabulary (no untyped edges)."""
+    graph = _build(tmp_path)
+    known = {"has-brief", "rests-on", "mentioned-in", "reported-in", "located-in"}
+    assert graph["edges"], "expected edges"
+    for e in graph["edges"]:
+        assert e.get("rel") in known, f"edge missing/unknown rel: {e}"
+    # the spine relations are present
+    rels = {e["rel"] for e in graph["edges"]}
+    assert {"has-brief", "rests-on", "mentioned-in"} <= rels
+
+
+def test_mentioned_in_edges_carry_a_source_weight(tmp_path: Path) -> None:
+    """RICHER: entity->brief edges carry weight = count of backing L1 source notes."""
+    graph = _build(tmp_path)
+    # Greece is named in the fuel-prices L1 note under energy-supply -> weight >= 1.
+    greece = "entity:" + build_graph_mod._slug("Greece")
+    energy = "brief:" + build_graph_mod._slug("Energy Supply Weekly")
+    edge = next(e for e in graph["edges"] if e["source"] == greece and e["target"] == energy)
+    assert edge["rel"] == "mentioned-in"
+    assert edge["weight"] >= 1
+    # every mentioned-in edge has an integer weight; spine/event edges never do
+    for e in graph["edges"]:
+        if e["rel"] == "mentioned-in":
+            assert isinstance(e.get("weight"), int)
+        else:
+            assert "weight" not in e
+
+
+def test_event_edges_use_reported_and_located_relations(tmp_path: Path) -> None:
+    """RICHER: an earthquake is ``reported-in`` the geo brief and ``located-in`` a region."""
+    graph = _build(tmp_path)
+    geo = "brief:" + build_graph_mod._slug("Geophysical Weekly")
+    greece = "entity:" + build_graph_mod._slug("Greece")
+    events = [n["id"] for n in graph["nodes"] if n.get("entity_kind") == "event"]
+    assert events
+    assert any(
+        e["source"] in events and e["target"] == geo and e["rel"] == "reported-in"
+        for e in graph["edges"]
+    )
+    assert any(
+        e["source"] in events and e["target"] == greece and e["rel"] == "located-in"
+        for e in graph["edges"]
+    )
+
+
 def test_held_theme_excluded_from_graph(tmp_path: Path) -> None:
     """A held theme contributes no brief, source, or entity edge — even if it shares a name."""
     graph = _build(tmp_path)

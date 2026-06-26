@@ -13,11 +13,18 @@ adds the cross-channel primitive azimuth is built to demonstrate: ``connect`` �
 channels, return every shared entity that bridges them plus the shortest path joining
 their briefs.
 
+Every edge carries a **typed relation** (``rel``: ``has-brief`` / ``rests-on`` /
+``mentioned-in`` / ``reported-in`` / ``located-in``) and ``mentioned-in`` edges carry a
+``weight`` (how many L1 source notes back the mention). The queries surface those: a path
+reads as a sentence of relations, neighbours show how they connect, and ``relations``
+summarises the graph's semantic composition — what a static, relation-less bundle cannot.
+
 Edges are treated as **undirected** for traversal: the graph is a relationship map, and
 "is energy connected to geophysical?" does not depend on which way an edge was written.
 
 Usage:
     python scripts/query_graph.py stats
+    python scripts/query_graph.py relations                     # edge counts by relation type
     python scripts/query_graph.py connect energy geophysical   # the flagship query
     python scripts/query_graph.py path "Greece" "Energy Supply"
     python scripts/query_graph.py neighbors geophysical
@@ -32,6 +39,7 @@ import argparse
 import json
 import sys
 from collections import deque
+from itertools import pairwise
 from pathlib import Path
 from typing import Any
 
@@ -67,6 +75,43 @@ def adjacency(graph: Graph) -> dict[str, set[str]]:
             adj[s].add(t)
             adj[t].add(s)
     return adj
+
+
+def edge_lookup(graph: Graph) -> dict[frozenset[str], dict[str, Any]]:
+    """Map an unordered ``{source, target}`` pair -> its edge dict (rel + weight).
+
+    Traversal is undirected, so a path hop ``a -> b`` must find the edge regardless of the
+    direction it was stored in. Keys are 2-element frozensets of node ids.
+    """
+    out: dict[frozenset[str], dict[str, Any]] = {}
+    for e in graph["edges"]:
+        out[frozenset((e["source"], e["target"]))] = e
+    return out
+
+
+def edge_between(graph: Graph, a: str, b: str) -> dict[str, Any] | None:
+    """The edge joining two node ids in either direction, or ``None``."""
+    return edge_lookup(graph).get(frozenset((a, b)))
+
+
+def _rel_tag(edge: dict[str, Any] | None) -> str:
+    """Compact ``[rel]`` / ``[rel xN]`` tag for an edge, or ``""`` when unknown."""
+    if not edge:
+        return ""
+    rel = edge.get("rel")
+    if not rel:
+        return ""
+    weight = edge.get("weight")
+    return f"[{rel} x{weight}]" if weight else f"[{rel}]"
+
+
+def relation_counts(graph: Graph) -> dict[str, int]:
+    """Edge count per relation type, richest first — the graph's semantic composition."""
+    counts: dict[str, int] = {}
+    for e in graph["edges"]:
+        rel = str(e.get("rel") or "untyped")
+        counts[rel] = counts.get(rel, 0) + 1
+    return dict(sorted(counts.items(), key=lambda kv: (-kv[1], kv[0])))
 
 
 # --- resolution: turn a user string into a node / theme ---------------------
@@ -223,19 +268,35 @@ def _label(idx: dict[str, dict[str, Any]], node_id: str) -> str:
 
 def _print_human(cmd: str, payload: Any, graph: Graph) -> None:
     idx = node_index(graph)
+
+    def _path_str(path: list[str]) -> str:
+        """Render a node-id path as a relation sentence: ``A -[rel]- B -[rel]- C``."""
+        parts = [_label(idx, path[0])]
+        for prev, nid in pairwise(path):
+            tag = _rel_tag(edge_between(graph, prev, nid))
+            parts.append(f"-{tag}-> {_label(idx, nid)}" if tag else f"-> {_label(idx, nid)}")
+        return " ".join(parts)
+
     if cmd == "stats":
         for k, v in payload.items():
             print(f"  {k:>18}: {v}")
+    elif cmd == "relations":
+        total = sum(payload.values())
+        print(f"{total} edges across {len(payload)} relation type(s):")
+        for rel, n in payload.items():
+            print(f"  {n:>3}  {rel}")
     elif cmd == "neighbors":
         node_id, nbrs = payload
         print(f"{_label(idx, node_id)} ({node_id}) — {len(nbrs)} neighbour(s):")
         for nid in nbrs:
-            print(f"  · {_label(idx, nid)}  [{nid}]")
+            tag = _rel_tag(edge_between(graph, node_id, nid))
+            suffix = f"  {tag}" if tag else ""
+            print(f"  · {_label(idx, nid)}  [{nid}]{suffix}")
     elif cmd == "path":
         if not payload:
             print("No path found.")
             return
-        print(" -> ".join(_label(idx, nid) for nid in payload))
+        print(_path_str(payload))
     elif cmd == "connect":
         a, b = payload["theme_a"], payload["theme_b"]
         bridges = payload["bridges"]
@@ -245,7 +306,7 @@ def _print_human(cmd: str, payload: Any, graph: Graph) -> None:
         names = ", ".join(str(n.get("label", n["id"])) for n in bridges) or "none"
         print(f"{a} <-> {b}: {len(bridges)} shared bridge(s) — {names}")
         if payload["path"]:
-            print("  path: " + " -> ".join(_label(idx, nid) for nid in payload["path"]))
+            print("  path: " + _path_str(payload["path"]))
     elif cmd == "bridges":
         print(f"{len(payload)} cross-channel bridge(s):")
         for n in payload:
@@ -261,6 +322,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--json", action="store_true", help="emit machine-readable JSON")
     sub = parser.add_subparsers(dest="cmd", required=True)
     sub.add_parser("stats", help="headline node/edge counts")
+    sub.add_parser("relations", help="edge counts by relation type")
     p_nb = sub.add_parser("neighbors", help="direct neighbours of a node")
     p_nb.add_argument("term")
     p_pa = sub.add_parser("path", help="shortest path between two nodes")
@@ -278,6 +340,8 @@ def main(argv: list[str] | None = None) -> int:
     payload: Any
     if args.cmd == "stats":
         payload = stats(graph)
+    elif args.cmd == "relations":
+        payload = relation_counts(graph)
     elif args.cmd == "neighbors":
         node_id = resolve_node(graph, args.term)
         if not node_id:

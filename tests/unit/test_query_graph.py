@@ -90,29 +90,47 @@ def _graph() -> dict[str, list[dict[str, Any]]]:
                 "source": "concept:energy-supply",
                 "target": "brief:energy-supply-weekly",
                 "cross_theme": False,
+                "rel": "has-brief",
             },
             {
                 "source": "concept:geophysical",
                 "target": "brief:geophysical-weekly",
                 "cross_theme": False,
+                "rel": "has-brief",
             },
             {
                 "source": "brief:energy-supply-weekly",
                 "target": "source:fuel-prices",
                 "cross_theme": False,
+                "rel": "rests-on",
             },
             {
                 "source": "brief:geophysical-weekly",
                 "target": "source:earthquakes",
                 "cross_theme": False,
+                "rel": "rests-on",
             },
             {
                 "source": "entity:greece",
                 "target": "brief:energy-supply-weekly",
                 "cross_theme": True,
+                "rel": "mentioned-in",
+                "weight": 1,
             },
-            {"source": "entity:greece", "target": "brief:geophysical-weekly", "cross_theme": True},
-            {"source": "entity:wti", "target": "brief:energy-supply-weekly", "cross_theme": False},
+            {
+                "source": "entity:greece",
+                "target": "brief:geophysical-weekly",
+                "cross_theme": True,
+                "rel": "mentioned-in",
+                "weight": 2,
+            },
+            {
+                "source": "entity:wti",
+                "target": "brief:energy-supply-weekly",
+                "cross_theme": False,
+                "rel": "mentioned-in",
+                "weight": 1,
+            },
         ],
     }
 
@@ -202,3 +220,36 @@ def test_load_graph_reads_committed_json(tmp_path: Path) -> None:
     p.write_text(json.dumps(_graph()), encoding="utf-8")
     g = qg.load_graph(p)
     assert len(g["nodes"]) == 8
+
+
+# --- typed + weighted edges (richer-graph layer) ----------------------------
+def test_edge_between_is_undirected_and_carries_rel() -> None:
+    g = _graph()
+    # stored source->target ...
+    e = qg.edge_between(g, "entity:greece", "brief:geophysical-weekly")
+    assert e is not None and e["rel"] == "mentioned-in" and e["weight"] == 2
+    # ... and the reverse lookup finds the same edge
+    rev = qg.edge_between(g, "brief:geophysical-weekly", "entity:greece")
+    assert rev is e
+    assert qg.edge_between(g, "entity:greece", "entity:wti") is None
+
+
+def test_rel_tag_formats_weight_only_when_present() -> None:
+    assert qg._rel_tag({"rel": "has-brief"}) == "[has-brief]"
+    assert qg._rel_tag({"rel": "mentioned-in", "weight": 2}) == "[mentioned-in x2]"
+    # weight 0 (brief-text-only mention) is not shown as a multiplier
+    assert qg._rel_tag({"rel": "mentioned-in", "weight": 0}) == "[mentioned-in]"
+    assert qg._rel_tag(None) == ""
+    assert qg._rel_tag({}) == ""
+
+
+def test_relation_counts_richest_first() -> None:
+    counts = qg.relation_counts(_graph())
+    assert counts == {"mentioned-in": 3, "has-brief": 2, "rests-on": 2}
+    # dict order is richest-first (then alpha) so the CLI prints the dominant relation top
+    assert next(iter(counts)) == "mentioned-in"
+
+
+def test_relation_counts_labels_untyped_edges() -> None:
+    g = {"nodes": [{"id": "a"}, {"id": "b"}], "edges": [{"source": "a", "target": "b"}]}
+    assert qg.relation_counts(g) == {"untyped": 1}

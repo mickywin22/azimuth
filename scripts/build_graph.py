@@ -28,6 +28,19 @@ Three kinds of link are drawn:
   (``geophysical``) and in the WorldMonitor fuel-price panel (``energy-supply``), so the
   graph shows the two channels joined through them.
 
+Every edge carries a **typed relation** (``rel``) so the graph is semantic, not just a
+shape — a static bundle has no relations at all. The relation vocabulary is fixed and
+data-backed:
+
+* ``has-brief`` — channel -> its current weekly L2 brief.
+* ``rests-on`` — brief -> the dated L1 source note its claims rest on.
+* ``mentioned-in`` — a commodity / region entity -> a brief whose text (or backing L1
+  notes) names it. These edges also carry a ``weight``: how many distinct L1 source notes
+  in that theme mention the entity (0 = brief-text-only, no raw-source backing). Weight is
+  the strength of the entity's tie to the channel, used to rank hubs and bridges.
+* ``reported-in`` — an individual earthquake event -> the geophysical brief.
+* ``located-in`` — an earthquake event -> the region it occurred in.
+
 Entities are not invented — regions/commodities are scanned out of the actual L1 source
 notes and L2 briefs with a fixed gazetteer, and events are read straight from the USGS
 earthquake JSON. So every node and every cross-theme edge is data-backed, never inferred.
@@ -133,6 +146,13 @@ _ENTITY_TERMS: list[tuple[str, str]] = sorted(
 
 # how many earthquake events (largest by magnitude) to surface as event nodes
 _EVENT_TOP_N = 6
+
+# Typed relation vocabulary on edges (see module docstring). Fixed + data-backed.
+_REL_HAS_BRIEF = "has-brief"  # concept (channel) -> its weekly L2 brief
+_REL_RESTS_ON = "rests-on"  # brief -> the L1 source its claims rest on
+_REL_MENTIONED_IN = "mentioned-in"  # commodity / region entity -> brief that names it
+_REL_REPORTED_IN = "reported-in"  # earthquake event -> the geophysical brief
+_REL_LOCATED_IN = "located-in"  # earthquake event -> the region it occurred in
 
 _THEME_COLORS = {
     "energy-supply": "#4cc2ff",
@@ -270,11 +290,15 @@ def _seismic_events(
                 "url": url,
             }
         )
-        edges.append({"source": eid, "target": geo_brief_id, "cross_theme": False})
+        edges.append(
+            {"source": eid, "target": geo_brief_id, "cross_theme": False, "rel": _REL_REPORTED_IN}
+        )
         place_norm = _norm(place)
         for term_lower, reid in region_entities.items():
             if _mentions(place_norm, term_lower):
-                edges.append({"source": eid, "target": reid, "cross_theme": False})
+                edges.append(
+                    {"source": eid, "target": reid, "cross_theme": False, "rel": _REL_LOCATED_IN}
+                )
     return nodes, edges
 
 
@@ -318,7 +342,7 @@ def build_graph(
                 "theme": theme,
             }
         )
-        edges.append({"source": cid, "target": bid, "cross_theme": False})
+        edges.append({"source": cid, "target": bid, "cross_theme": False, "rel": _REL_HAS_BRIEF})
 
     # --- brief nodes (one per surfaced theme) ---------------------------
     for theme, bid in brief_id.items():
@@ -356,7 +380,14 @@ def build_graph(
             }
         )
         if theme in brief_id:
-            edges.append({"source": brief_id[theme], "target": sid, "cross_theme": False})
+            edges.append(
+                {
+                    "source": brief_id[theme],
+                    "target": sid,
+                    "cross_theme": False,
+                    "rel": _REL_RESTS_ON,
+                }
+            )
 
     # --- brief text per theme (for entity scan) -------------------------
     brief_text: dict[str, str] = {}
@@ -418,7 +449,17 @@ def build_graph(
             region_entities[term.lower()] = eid
         for theme in sorted(per_theme.keys()):
             if theme in brief_id:
-                edges.append({"source": eid, "target": brief_id[theme], "cross_theme": multi})
+                # weight = how many distinct L1 source notes in this theme name the entity
+                # (0 = the brief text mentions it but no raw source backs it).
+                edges.append(
+                    {
+                        "source": eid,
+                        "target": brief_id[theme],
+                        "cross_theme": multi,
+                        "rel": _REL_MENTIONED_IN,
+                        "weight": len(per_theme[theme]),
+                    }
+                )
 
     # --- event entities: the largest live earthquakes -------------------
     ev_nodes, ev_edges = _seismic_events(
