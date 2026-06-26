@@ -52,6 +52,19 @@ opinion (see work-item `azi-benchmark-vs-forecast-intelligence-W26`). prediction
 prices are the exception: the **quoted price is an observed fact**, so it stays allowed
 (with a synthesis caution forbidding investment framing).
 
+**Prediction markets are briefed (Michael IQ #915/#901, 2026-06-26 — reverses #862).** The
+earlier call (#862, 2026-06-24) kept prediction-markets **L1-only** — ingested but not
+briefed — on a synthesis-breadth concern (the live feed surfaced a single market). Michael
+reversed that in the 2026-06-26 interactive review: prediction-markets are now **in scope for
+this fact-vs-propaganda lens** and the `Prediction Markets Weekly` L2 brief lands. The
+editorial discipline is unchanged — it *is* the change's safeguard: azimuth reports the
+**venue-quoted price as an observed fact** (the implied probability and traded volume), with
+the `no-investment-framing` / `odds-are-not-forecasts` caution, and takes **no position on the
+underlying question** the market asks. The price is the market's number, never azimuth's
+forecast. The single-market breadth that justified the old hold is now handled by an explicit
+honest-scope note inside the brief, not by withholding it. (`sources/registry.json` →
+`themes.prediction-markets.brief_landed`.)
+
 ## Positive contract (L2 synthesis)
 
 - Every claim paragraph or bullet carries **>=1 `[[wikilink]]`** to the L1 note it rests on

@@ -62,8 +62,7 @@
     "prediction-markets": {
       "title": "Prediction Markets Weekly",
       "brief": "Prediction Markets Weekly.md",
-      "brief_held": true,
-      "hold_reason": "L1 ingest is ACTIVE (channel passes the guardrail). The quoted prediction-market PRICE is an observed fact (allowed under the 2026-06-24 fact-vs-propaganda line). The L2 brief is held for a synthesis-breadth reason only — NOT an editorial deny: the live feed currently surfaces a single market, too narrow to evolve into a balanced weekly brief without that one market dominating. Brief lands once the feed carries a broader market set. Reporting the price is fine; the hold is about brief breadth, not topic sensitivity."
+      "brief_landed": "2026-06-26 — UN-HELD by Michael IQ #915/#901 (2026-06-26 interactive review), which REVERSED the earlier #862 hold (2026-06-24 APPROVED: pred-markets L1-only, brief held on synthesis-breadth grounds). The decision: prediction-markets ARE now in scope for the fact-vs-propaganda editorial lens. The quoted prediction-market PRICE is an observed fact (a venue-quoted number), so the L2 brief reports it the same way it reports a gas-storage figure — with the no-investment-framing / odds-are-not-forecasts caution and no position on the underlying question. The prior breadth concern (the live feed surfaces a single market) is now handled by an explicit honest-scope note in the brief rather than a hold: the brief reports the one quoted market week-on-week and widens as the feed carries more. First cycle written from the live 2026-06-26 ingest."
     },
     "environmental-hazards": {
       "title": "Environmental Hazards Weekly",

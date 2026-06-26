@@ -71,8 +71,11 @@ The brief-per-theme mapping is **data-driven** — read `sources/registry.json`:
   the stated `hold_reason` — do NOT write its brief until that condition clears.
 
 Currently active brief themes: **energy-supply** (`natural-gas-storage-eu`,
-`crude-oil-inventories`, `fuel-prices`, `energy-prices`) and **geophysical** (`earthquakes`).
-**prediction-markets** is L1-active but its brief is held (see `hold_reason`).
+`crude-oil-inventories`, `fuel-prices`, `energy-prices`), **geophysical** (`earthquakes`) and
+**prediction-markets** (`prediction-markets`). The latter was un-held by Michael IQ #915/#901
+(2026-06-26, reversing #862): its brief now lands under the fact-vs-propaganda lens, reporting
+the **venue-quoted price as an observed fact** with the `no-investment-framing` /
+`odds-are-not-forecasts` caution and no position on the underlying question.
 
 ## How you are dispatched (weekly cadence)
 

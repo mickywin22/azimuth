@@ -19,6 +19,12 @@
       "theme": "climate-signals"
     },
     {
+      "id": "concept:prediction-markets",
+      "label": "Prediction Markets",
+      "kind": "concept",
+      "theme": "prediction-markets"
+    },
+    {
       "id": "concept:environmental-hazards",
       "label": "Environmental Hazards",
       "kind": "concept",
@@ -44,6 +50,13 @@
       "kind": "brief",
       "theme": "climate-signals",
       "url": "briefs/climate-signals-weekly.html"
+    },
+    {
+      "id": "brief:prediction-markets-weekly",
+      "label": "Prediction Markets Weekly",
+      "kind": "brief",
+      "theme": "prediction-markets",
+      "url": "briefs/prediction-markets-weekly.html"
     },
     {
       "id": "brief:environmental-hazards-weekly",
@@ -107,6 +120,13 @@
       "kind": "source",
       "theme": "climate-signals",
       "url": "sources/2026-06-26/sea-ice-extent.html"
+    },
+    {
+      "id": "source:prediction-markets",
+      "label": "Polymarket public odds",
+      "kind": "source",
+      "theme": "prediction-markets",
+      "url": "sources/2026-06-26/prediction-markets.html"
     },
     {
       "id": "source:wildfire-detections",
@@ -386,6 +406,12 @@
       "rel": "has-brief"
     },
     {
+      "source": "concept:prediction-markets",
+      "target": "brief:prediction-markets-weekly",
+      "cross_theme": false,
+      "rel": "has-brief"
+    },
+    {
       "source": "concept:environmental-hazards",
       "target": "brief:environmental-hazards-weekly",
       "cross_theme": false,
@@ -436,6 +462,12 @@
     {
       "source": "brief:climate-signals-weekly",
       "target": "source:sea-ice-extent",
+      "cross_theme": false,
+      "rel": "rests-on"
+    },
+    {
+      "source": "brief:prediction-markets-weekly",
+      "target": "source:prediction-markets",
       "cross_theme": false,
       "rel": "rests-on"
     },

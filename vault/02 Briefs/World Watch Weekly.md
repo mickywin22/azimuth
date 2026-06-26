@@ -4,7 +4,7 @@ type: L2-brief
 theme: cross-theme
 week: 2026-W26
 updated: 2026-06-26T04:00:00Z
-sources: [climate-anomalies, co2-monitoring, crude-oil-inventories, earthquakes, energy-prices, fuel-prices, natural-events, natural-gas-storage-eu, radiation-observations, sea-ice-extent, thermal-escalations, wildfire-detections]
+sources: [climate-anomalies, co2-monitoring, crude-oil-inventories, earthquakes, energy-prices, fuel-prices, natural-events, natural-gas-storage-eu, prediction-markets, radiation-observations, sea-ice-extent, thermal-escalations, wildfire-detections]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
 ---
@@ -15,8 +15,8 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 ## This week at a glance
 
-- The 2026-06-26 ingest connects **4 clean channels** (Climate Signals, Energy Supply, Environmental Hazards, Geophysical) through **7 shared region(s)**: Chile, Greece, Japan, Mexico, New Zealand, Russia, United States ([[climate-anomalies]], [[co2-monitoring]], [[crude-oil-inventories]], [[earthquakes]], [[energy-prices]], [[fuel-prices]], [[natural-events]], [[natural-gas-storage-eu]], [[radiation-observations]], [[sea-ice-extent]], [[thermal-escalations]], [[wildfire-detections]]).
-- United States sits on the physical energy-supply core, so this week's seismicity has an observed point of reach into the energy balances ([[climate-anomalies]], [[co2-monitoring]], [[crude-oil-inventories]], [[earthquakes]], [[energy-prices]], [[fuel-prices]], [[natural-events]], [[natural-gas-storage-eu]], [[radiation-observations]], [[sea-ice-extent]], [[thermal-escalations]], [[wildfire-detections]]).
+- The 2026-06-26 ingest connects **5 clean channels** (Climate Signals, Energy Supply, Environmental Hazards, Geophysical, Prediction Markets) through **7 shared region(s)**: Chile, Greece, Japan, Mexico, New Zealand, Russia, United States ([[climate-anomalies]], [[co2-monitoring]], [[crude-oil-inventories]], [[earthquakes]], [[energy-prices]], [[fuel-prices]], [[natural-events]], [[natural-gas-storage-eu]], [[prediction-markets]], [[radiation-observations]], [[sea-ice-extent]], [[thermal-escalations]], [[wildfire-detections]]).
+- United States sits on the physical energy-supply core, so this week's seismicity has an observed point of reach into the energy balances ([[climate-anomalies]], [[co2-monitoring]], [[crude-oil-inventories]], [[earthquakes]], [[energy-prices]], [[fuel-prices]], [[natural-events]], [[natural-gas-storage-eu]], [[prediction-markets]], [[radiation-observations]], [[sea-ice-extent]], [[thermal-escalations]], [[wildfire-detections]]).
 
 ## Shared entities across channels
 
@@ -30,8 +30,8 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 ## Does the connection reach?
 
-- The bridges above are **geographic co-occurrences** — the same place named in two open feeds. azimuth reports observed signal, not predicted harm, so a quake recorded near a fuel-reporting country is not read as a supply event unless the physical energy data itself moves ([[climate-anomalies]], [[co2-monitoring]], [[crude-oil-inventories]], [[earthquakes]], [[energy-prices]], [[fuel-prices]], [[natural-events]], [[natural-gas-storage-eu]], [[radiation-observations]], [[sea-ice-extent]], [[thermal-escalations]], [[wildfire-detections]]).
-- This week one bridge (United States) touches the energy-supply core; the brief flags the overlap and leaves the magnitude to the per-theme briefs ([[climate-anomalies]], [[co2-monitoring]], [[crude-oil-inventories]], [[earthquakes]], [[energy-prices]], [[fuel-prices]], [[natural-events]], [[natural-gas-storage-eu]], [[radiation-observations]], [[sea-ice-extent]], [[thermal-escalations]], [[wildfire-detections]]).
+- The bridges above are **geographic co-occurrences** — the same place named in two open feeds. azimuth reports observed signal, not predicted harm, so a quake recorded near a fuel-reporting country is not read as a supply event unless the physical energy data itself moves ([[climate-anomalies]], [[co2-monitoring]], [[crude-oil-inventories]], [[earthquakes]], [[energy-prices]], [[fuel-prices]], [[natural-events]], [[natural-gas-storage-eu]], [[prediction-markets]], [[radiation-observations]], [[sea-ice-extent]], [[thermal-escalations]], [[wildfire-detections]]).
+- This week one bridge (United States) touches the energy-supply core; the brief flags the overlap and leaves the magnitude to the per-theme briefs ([[climate-anomalies]], [[co2-monitoring]], [[crude-oil-inventories]], [[earthquakes]], [[energy-prices]], [[fuel-prices]], [[natural-events]], [[natural-gas-storage-eu]], [[prediction-markets]], [[radiation-observations]], [[sea-ice-extent]], [[thermal-escalations]], [[wildfire-detections]]).
 
 ## How this brief is made
 
@@ -42,4 +42,4 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 - 2026-06-23 — regenerated from the 2026-06-23 L1 ingest (2026-W26): 3 cross-channel bridge(s) across 2 clean channels (Greece, Mexico, New Zealand); energy-core reach: none observed.
 - 2026-06-24 — regenerated from the 2026-06-24 L1 ingest (2026-W26): 0 cross-channel bridge(s) across 3 clean channels; energy-core reach: none observed.
 - 2026-06-25 — regenerated from the 2026-06-25 L1 ingest (2026-W26): 6 cross-channel bridge(s) across 4 clean channels (Greece, Japan, Mexico, New Zealand, Russia, United States); energy-core reach: yes — United States.
-- 2026-06-26 — regenerated from the 2026-06-26 L1 ingest (2026-W26): 7 cross-channel bridge(s) across 4 clean channels (Chile, Greece, Japan, Mexico, New Zealand, Russia, United States); energy-core reach: yes — United States.
+- 2026-06-26 — regenerated from the 2026-06-26 L1 ingest (2026-W26): 7 cross-channel bridge(s) across 5 clean channels (Chile, Greece, Japan, Mexico, New Zealand, Russia, United States); energy-core reach: yes — United States.
