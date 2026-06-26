@@ -26,6 +26,7 @@ Usage:
     python scripts/query_graph.py stats
     python scripts/query_graph.py relations                     # edge counts by relation type
     python scripts/query_graph.py connect energy geophysical   # the flagship query
+    python scripts/query_graph.py provenance "Greece"          # the L1 notes backing an entity
     python scripts/query_graph.py path "Greece" "Energy Supply"
     python scripts/query_graph.py neighbors geophysical
     python scripts/query_graph.py bridges
@@ -203,6 +204,38 @@ def bridge_entities(graph: Graph) -> list[dict[str, Any]]:
     return sorted(out, key=lambda n: (-len(n.get("themes", [])), str(n.get("label", ""))))
 
 
+def provenance(graph: Graph, entity_id: str) -> dict[str, Any]:
+    """The L1 source notes that name an entity, grouped by theme (the ``named-in`` edges).
+
+    ``mentioned-in`` collapses an entity's tie to a channel into a ``weight`` count;
+    ``provenance`` re-expands it — *which* dated L1 source notes actually name the entity,
+    channel by channel. This is the source-level evidence a static, relation-less bundle
+    cannot show: the graph reaches the L1 sources, not just the briefs.
+    """
+    idx = node_index(graph)
+    by_theme: dict[str, list[dict[str, Any]]] = {}
+    weights: dict[str, int] = {}
+    for e in graph["edges"]:
+        if e["source"] != entity_id:
+            continue
+        if e.get("rel") == "named-in":
+            snode = idx.get(e["target"])
+            if snode:
+                by_theme.setdefault(str(snode.get("theme", "")), []).append(snode)
+        elif e.get("rel") == "mentioned-in":
+            bnode = idx.get(e["target"])
+            if bnode:
+                weights[str(bnode.get("theme", ""))] = int(e.get("weight") or 0)
+    for theme, snodes in by_theme.items():
+        by_theme[theme] = sorted(snodes, key=lambda n: str(n.get("label", n["id"])))
+    return {
+        "entity": entity_id,
+        "label": str(idx.get(entity_id, {}).get("label", entity_id)),
+        "weights": dict(sorted(weights.items())),
+        "by_theme": dict(sorted(by_theme.items())),
+    }
+
+
 def hubs(graph: Graph, top: int = 10) -> list[tuple[str, int]]:
     """The ``top`` most-connected node ids with their undirected degree."""
     adj = adjacency(graph)
@@ -307,6 +340,19 @@ def _print_human(cmd: str, payload: Any, graph: Graph) -> None:
         print(f"{a} <-> {b}: {len(bridges)} shared bridge(s) — {names}")
         if payload["path"]:
             print("  path: " + _path_str(payload["path"]))
+    elif cmd == "provenance":
+        if not payload["weights"] and not payload["by_theme"]:
+            print(f"{payload['label']}: no channel mentions on record.")
+            return
+        print(f"{payload['label']} — source-level provenance:")
+        for theme in sorted(set(payload["weights"]) | set(payload["by_theme"])):
+            srcs = payload["by_theme"].get(theme, [])
+            weight = payload["weights"].get(theme, len(srcs))
+            print(f"  {theme}: mentioned-in weight {weight}, {len(srcs)} backing L1 note(s)")
+            for s in srcs:
+                print(f"    - {s.get('label', s['id'])}  [{s['id']}]")
+            if weight and not srcs:
+                print("    (brief text only — no raw L1 source backs this mention)")
     elif cmd == "bridges":
         print(f"{len(payload)} cross-channel bridge(s):")
         for n in payload:
@@ -331,6 +377,8 @@ def main(argv: list[str] | None = None) -> int:
     p_co = sub.add_parser("connect", help="how two channels are connected (flagship)")
     p_co.add_argument("a")
     p_co.add_argument("b")
+    p_pr = sub.add_parser("provenance", help="the L1 source notes that name an entity")
+    p_pr.add_argument("term")
     sub.add_parser("bridges", help="all cross-channel bridge entities")
     p_hu = sub.add_parser("hubs", help="most-connected nodes")
     p_hu.add_argument("--top", type=int, default=10)
@@ -360,6 +408,12 @@ def main(argv: list[str] | None = None) -> int:
             print(f"Unknown channel: {args.a!r} or {args.b!r}", file=sys.stderr)
             return 2
         payload = connect_themes(graph, ta, tb)
+    elif args.cmd == "provenance":
+        node_id = resolve_node(graph, args.term)
+        if not node_id:
+            print(f"Unknown node: {args.term!r}", file=sys.stderr)
+            return 2
+        payload = provenance(graph, node_id)
     elif args.cmd == "bridges":
         payload = bridge_entities(graph)
     elif args.cmd == "hubs":

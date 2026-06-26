@@ -160,7 +160,7 @@ def test_event_nodes_from_quakes(tmp_path: Path) -> None:
 def test_every_edge_is_typed_with_a_known_relation(tmp_path: Path) -> None:
     """RICHER: every edge carries a ``rel`` from the fixed vocabulary (no untyped edges)."""
     graph = _build(tmp_path)
-    known = {"has-brief", "rests-on", "mentioned-in", "reported-in", "located-in"}
+    known = {"has-brief", "rests-on", "mentioned-in", "named-in", "reported-in", "located-in"}
     assert graph["edges"], "expected edges"
     for e in graph["edges"]:
         assert e.get("rel") in known, f"edge missing/unknown rel: {e}"
@@ -201,6 +201,60 @@ def test_event_edges_use_reported_and_located_relations(tmp_path: Path) -> None:
         e["source"] in events and e["target"] == greece and e["rel"] == "located-in"
         for e in graph["edges"]
     )
+
+
+def test_named_in_edges_link_entity_to_the_l1_source(tmp_path: Path) -> None:
+    """RICHER: an entity gets a ``named-in`` edge to each L1 source note that names it.
+
+    The graph must reach the L1 sources, not just the briefs: Greece is named in the
+    fuel-prices L1 note, so a Greece -> source:fuel-prices edge exists.
+    """
+    graph = _build(tmp_path)
+    greece = "entity:" + build_graph_mod._slug("Greece")
+    fuel_src = "source:fuel-prices"
+    named = [
+        e
+        for e in graph["edges"]
+        if e["source"] == greece and e["rel"] == "named-in" and e["target"] == fuel_src
+    ]
+    assert named, "Greece should be named-in the fuel-prices L1 source note"
+    e = named[0]
+    assert e["cross_theme"] is False
+    assert "weight" not in e  # the per-source unit; weight lives on mentioned-in only
+
+
+def test_named_in_edge_count_matches_mentioned_in_weight(tmp_path: Path) -> None:
+    """RICHER: a mentioned-in weight N is backed by exactly N named-in edges in that theme.
+
+    The weight is a count; ``named-in`` is the provenance it counts — they must agree.
+    """
+    graph = _build(tmp_path)
+    src_theme = {n["id"]: n.get("theme") for n in graph["nodes"] if n["kind"] == "source"}
+    for me in graph["edges"]:
+        if me["rel"] != "mentioned-in":
+            continue
+        entity, brief = me["source"], me["target"]
+        theme = next(n["theme"] for n in graph["nodes"] if n["id"] == brief)
+        named_in_theme = [
+            e
+            for e in graph["edges"]
+            if e["source"] == entity
+            and e["rel"] == "named-in"
+            and src_theme.get(e["target"]) == theme
+        ]
+        assert len(named_in_theme) == me["weight"], (
+            f"{entity} -> {theme}: weight {me['weight']} but {len(named_in_theme)} named-in edges"
+        )
+
+
+def test_named_in_edges_only_target_real_source_nodes(tmp_path: Path) -> None:
+    """RICHER: every named-in edge points at a source node that actually exists."""
+    graph = _build(tmp_path)
+    source_ids = {n["id"] for n in graph["nodes"] if n["kind"] == "source"}
+    named = [e for e in graph["edges"] if e["rel"] == "named-in"]
+    assert named, "expected named-in provenance edges"
+    for e in named:
+        assert e["target"] in source_ids, f"named-in edge points at a non-source: {e}"
 
 
 def test_held_theme_excluded_from_graph(tmp_path: Path) -> None:

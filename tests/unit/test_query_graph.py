@@ -253,3 +253,63 @@ def test_relation_counts_richest_first() -> None:
 def test_relation_counts_labels_untyped_edges() -> None:
     g = {"nodes": [{"id": "a"}, {"id": "b"}], "edges": [{"source": "a", "target": "b"}]}
     assert qg.relation_counts(g) == {"untyped": 1}
+
+
+# --- source-level provenance (named-in edges) -------------------------------
+def _prov_graph() -> dict[str, list[dict[str, Any]]]:
+    """A graph where Greece is named-in two L1 sources (one per theme)."""
+    g = _graph()
+    g["nodes"].append(
+        {
+            "id": "source:eu-storage",
+            "label": "EU storage",
+            "kind": "source",
+            "theme": "energy-supply",
+        }
+    )
+    g["edges"].extend(
+        [
+            {
+                "source": "entity:greece",
+                "target": "source:fuel-prices",
+                "cross_theme": False,
+                "rel": "named-in",
+            },
+            {
+                "source": "entity:greece",
+                "target": "source:earthquakes",
+                "cross_theme": False,
+                "rel": "named-in",
+            },
+        ]
+    )
+    # bump Greece's energy-supply weight to 1 already; the geophysical weight is 2 in
+    # the base fixture but only one geophysical source exists, so leave it as-is.
+    return g
+
+
+def test_provenance_groups_backing_sources_by_theme() -> None:
+    res = qg.provenance(_prov_graph(), "entity:greece")
+    assert res["label"] == "Greece"
+    assert "source:fuel-prices" in [s["id"] for s in res["by_theme"]["energy-supply"]]
+    assert "source:earthquakes" in [s["id"] for s in res["by_theme"]["geophysical"]]
+    # the mentioned-in weights are carried through alongside the provenance
+    assert res["weights"]["energy-supply"] == 1
+    assert res["weights"]["geophysical"] == 2
+
+
+def test_provenance_empty_for_entity_with_no_named_in() -> None:
+    # WTI has a mentioned-in edge but no named-in edges in the base fixture
+    res = qg.provenance(_graph(), "entity:wti")
+    assert res["by_theme"] == {}
+    assert res["weights"] == {"energy-supply": 1}
+
+
+def test_provenance_cli_resolves_a_label(tmp_path: Path, capsys: Any) -> None:
+    gp = tmp_path / "graph.json"
+    gp.write_text(json.dumps(_prov_graph()), encoding="utf-8")
+    rc = qg.main(["--graph", str(gp), "provenance", "Greece"])
+    out = capsys.readouterr().out
+    assert rc == 0
+    assert "Greece" in out
+    assert "backing L1 note" in out

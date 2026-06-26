@@ -52,10 +52,17 @@ The knowledge graph is both **visual** (`site/graph.html` — pick any two chann
 
 ```bash
 python scripts/query_graph.py connect energy geophysical   # the cross-channel answer
+python scripts/query_graph.py provenance "Greece"          # the L1 notes backing an entity
 python scripts/query_graph.py path "Greece" "Energy Supply"
 python scripts/query_graph.py bridges                       # all cross-channel bridges
 python scripts/query_graph.py hubs --top 8 --json
 ```
+
+Every edge is typed (`has-brief`, `rests-on`, `mentioned-in`, `named-in`, `reported-in`,
+`located-in`). The graph reaches the **L1 sources, not just the briefs**: a `mentioned-in`
+edge carries a `weight` (how many L1 notes name the entity) and that count is backed by one
+`named-in` edge per actual source note — `provenance` re-expands it into the exact dated L1
+notes, channel by channel.
 
 > **Pages URL (once enabled): https://mickywin22.github.io/azimuth/**
 

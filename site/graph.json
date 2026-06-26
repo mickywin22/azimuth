@@ -461,10 +461,22 @@
     },
     {
       "source": "entity:united-states",
+      "target": "source:fuel-prices",
+      "cross_theme": false,
+      "rel": "named-in"
+    },
+    {
+      "source": "entity:united-states",
       "target": "brief:environmental-hazards-weekly",
       "cross_theme": true,
       "rel": "mentioned-in",
       "weight": 1
+    },
+    {
+      "source": "entity:united-states",
+      "target": "source:radiation-observations",
+      "cross_theme": false,
+      "rel": "named-in"
     },
     {
       "source": "entity:new-zealand",
@@ -475,10 +487,22 @@
     },
     {
       "source": "entity:new-zealand",
+      "target": "source:fuel-prices",
+      "cross_theme": false,
+      "rel": "named-in"
+    },
+    {
+      "source": "entity:new-zealand",
       "target": "brief:geophysical-weekly",
       "cross_theme": true,
       "rel": "mentioned-in",
       "weight": 1
+    },
+    {
+      "source": "entity:new-zealand",
+      "target": "source:earthquakes",
+      "cross_theme": false,
+      "rel": "named-in"
     },
     {
       "source": "entity:crude-oil",
@@ -488,6 +512,12 @@
       "weight": 1
     },
     {
+      "source": "entity:crude-oil",
+      "target": "source:energy-prices",
+      "cross_theme": false,
+      "rel": "named-in"
+    },
+    {
       "source": "entity:gasoline",
       "target": "brief:energy-supply-weekly",
       "cross_theme": false,
@@ -495,6 +525,12 @@
       "weight": 1
     },
     {
+      "source": "entity:gasoline",
+      "target": "source:fuel-prices",
+      "cross_theme": false,
+      "rel": "named-in"
+    },
+    {
       "source": "entity:greece",
       "target": "brief:energy-supply-weekly",
       "cross_theme": true,
@@ -503,10 +539,22 @@
     },
     {
       "source": "entity:greece",
+      "target": "source:fuel-prices",
+      "cross_theme": false,
+      "rel": "named-in"
+    },
+    {
+      "source": "entity:greece",
       "target": "brief:geophysical-weekly",
       "cross_theme": true,
       "rel": "mentioned-in",
       "weight": 1
+    },
+    {
+      "source": "entity:greece",
+      "target": "source:earthquakes",
+      "cross_theme": false,
+      "rel": "named-in"
     },
     {
       "source": "entity:mexico",
@@ -517,10 +565,22 @@
     },
     {
       "source": "entity:mexico",
+      "target": "source:fuel-prices",
+      "cross_theme": false,
+      "rel": "named-in"
+    },
+    {
+      "source": "entity:mexico",
       "target": "brief:geophysical-weekly",
       "cross_theme": true,
       "rel": "mentioned-in",
       "weight": 1
+    },
+    {
+      "source": "entity:mexico",
+      "target": "source:earthquakes",
+      "cross_theme": false,
+      "rel": "named-in"
     },
     {
       "source": "entity:russia",
@@ -531,10 +591,28 @@
     },
     {
       "source": "entity:russia",
+      "target": "source:natural-events",
+      "cross_theme": false,
+      "rel": "named-in"
+    },
+    {
+      "source": "entity:russia",
+      "target": "source:thermal-escalations",
+      "cross_theme": false,
+      "rel": "named-in"
+    },
+    {
+      "source": "entity:russia",
       "target": "brief:geophysical-weekly",
       "cross_theme": true,
       "rel": "mentioned-in",
       "weight": 1
+    },
+    {
+      "source": "entity:russia",
+      "target": "source:earthquakes",
+      "cross_theme": false,
+      "rel": "named-in"
     },
     {
       "source": "entity:diesel",
@@ -542,6 +620,12 @@
       "cross_theme": false,
       "rel": "mentioned-in",
       "weight": 1
+    },
+    {
+      "source": "entity:diesel",
+      "target": "source:fuel-prices",
+      "cross_theme": false,
+      "rel": "named-in"
     },
     {
       "source": "entity:petrol",
@@ -559,10 +643,22 @@
     },
     {
       "source": "entity:japan",
+      "target": "source:radiation-observations",
+      "cross_theme": false,
+      "rel": "named-in"
+    },
+    {
+      "source": "entity:japan",
       "target": "brief:geophysical-weekly",
       "cross_theme": true,
       "rel": "mentioned-in",
       "weight": 1
+    },
+    {
+      "source": "entity:japan",
+      "target": "source:earthquakes",
+      "cross_theme": false,
+      "rel": "named-in"
     },
     {
       "source": "entity:brent",
@@ -572,6 +668,12 @@
       "weight": 1
     },
     {
+      "source": "entity:brent",
+      "target": "source:energy-prices",
+      "cross_theme": false,
+      "rel": "named-in"
+    },
+    {
       "source": "entity:crude",
       "target": "brief:energy-supply-weekly",
       "cross_theme": false,
@@ -579,11 +681,29 @@
       "weight": 2
     },
     {
+      "source": "entity:crude",
+      "target": "source:crude-oil-inventories",
+      "cross_theme": false,
+      "rel": "named-in"
+    },
+    {
+      "source": "entity:crude",
+      "target": "source:energy-prices",
+      "cross_theme": false,
+      "rel": "named-in"
+    },
+    {
       "source": "entity:wti",
       "target": "brief:energy-supply-weekly",
       "cross_theme": false,
       "rel": "mentioned-in",
       "weight": 1
+    },
+    {
+      "source": "entity:wti",
+      "target": "source:energy-prices",
+      "cross_theme": false,
+      "rel": "named-in"
     },
     {
       "source": "entity:bcf",

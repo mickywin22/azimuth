@@ -38,6 +38,11 @@ data-backed:
   notes) names it. These edges also carry a ``weight``: how many distinct L1 source notes
   in that theme mention the entity (0 = brief-text-only, no raw-source backing). Weight is
   the strength of the entity's tie to the channel, used to rank hubs and bridges.
+* ``named-in`` — a commodity / region entity -> the *specific dated L1 source note* whose
+  raw text names it. Where ``mentioned-in`` collapses provenance into a ``weight`` count,
+  ``named-in`` keeps it: it is the source-level evidence behind that count, so the graph
+  spans briefs *and* L1 sources (not just briefs). A ``mentioned-in`` edge with ``weight``
+  N is backed by exactly N ``named-in`` edges to the L1 notes that earned it.
 * ``reported-in`` — an individual earthquake event -> the geophysical brief.
 * ``located-in`` — an earthquake event -> the region it occurred in.
 
@@ -151,6 +156,7 @@ _EVENT_TOP_N = 6
 _REL_HAS_BRIEF = "has-brief"  # concept (channel) -> its weekly L2 brief
 _REL_RESTS_ON = "rests-on"  # brief -> the L1 source its claims rest on
 _REL_MENTIONED_IN = "mentioned-in"  # commodity / region entity -> brief that names it
+_REL_NAMED_IN = "named-in"  # commodity / region entity -> the L1 source note that names it
 _REL_REPORTED_IN = "reported-in"  # earthquake event -> the geophysical brief
 _REL_LOCATED_IN = "located-in"  # earthquake event -> the region it occurred in
 
@@ -365,11 +371,13 @@ def build_graph(
         latest_day = day_dirs[0] if day_dirs else ""
 
     src_theme: dict[str, str] = {}
+    source_node_ids: set[str] = set()
     for s in sources:
         key = s["key"]
         theme = s["theme"]
         src_theme[key] = theme
         sid = f"source:{key}"
+        source_node_ids.add(sid)
         nodes.append(
             {
                 "id": sid,
@@ -460,6 +468,21 @@ def build_graph(
                         "weight": len(per_theme[theme]),
                     }
                 )
+                # named-in: keep the provenance the weight counts — one edge per L1 source
+                # note that actually names the entity, so the graph reaches L1 sources,
+                # not just briefs. These are always within-theme (a source belongs to one
+                # theme), so never a cross-theme bridge.
+                for key in sorted(per_theme[theme]):
+                    sid = f"source:{key}"
+                    if sid in source_node_ids:
+                        edges.append(
+                            {
+                                "source": eid,
+                                "target": sid,
+                                "cross_theme": False,
+                                "rel": _REL_NAMED_IN,
+                            }
+                        )
 
     # --- event entities: the largest live earthquakes -------------------
     ev_nodes, ev_edges = _seismic_events(
