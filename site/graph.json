@@ -157,6 +157,17 @@
       "url": "sources/2026-06-26/radiation-observations.html"
     },
     {
+      "id": "entity:papua-new-guinea",
+      "label": "Papua New Guinea",
+      "kind": "entity",
+      "entity_kind": "region",
+      "theme": "shared",
+      "themes": [
+        "environmental-hazards",
+        "geophysical"
+      ]
+    },
+    {
       "id": "entity:united-states",
       "label": "United States",
       "kind": "entity",
@@ -179,6 +190,28 @@
       ]
     },
     {
+      "id": "entity:california",
+      "label": "California",
+      "kind": "entity",
+      "entity_kind": "region",
+      "theme": "shared",
+      "themes": [
+        "climate-signals",
+        "geophysical"
+      ]
+    },
+    {
+      "id": "entity:venezuela",
+      "label": "Venezuela",
+      "kind": "entity",
+      "entity_kind": "region",
+      "theme": "shared",
+      "themes": [
+        "environmental-hazards",
+        "geophysical"
+      ]
+    },
+    {
       "id": "entity:crude-oil",
       "label": "crude oil",
       "kind": "entity",
@@ -196,6 +229,17 @@
       "theme": "energy-supply",
       "themes": [
         "energy-supply"
+      ]
+    },
+    {
+      "id": "entity:ukraine",
+      "label": "Ukraine",
+      "kind": "entity",
+      "entity_kind": "region",
+      "theme": "shared",
+      "themes": [
+        "climate-signals",
+        "environmental-hazards"
       ]
     },
     {
@@ -496,6 +540,32 @@
       "rel": "rests-on"
     },
     {
+      "source": "entity:papua-new-guinea",
+      "target": "brief:environmental-hazards-weekly",
+      "cross_theme": true,
+      "rel": "mentioned-in",
+      "weight": 1
+    },
+    {
+      "source": "entity:papua-new-guinea",
+      "target": "source:natural-events",
+      "cross_theme": false,
+      "rel": "named-in"
+    },
+    {
+      "source": "entity:papua-new-guinea",
+      "target": "brief:geophysical-weekly",
+      "cross_theme": true,
+      "rel": "mentioned-in",
+      "weight": 1
+    },
+    {
+      "source": "entity:papua-new-guinea",
+      "target": "source:earthquakes",
+      "cross_theme": false,
+      "rel": "named-in"
+    },
+    {
       "source": "entity:united-states",
       "target": "brief:energy-supply-weekly",
       "cross_theme": true,
@@ -548,6 +618,58 @@
       "rel": "named-in"
     },
     {
+      "source": "entity:california",
+      "target": "brief:climate-signals-weekly",
+      "cross_theme": true,
+      "rel": "mentioned-in",
+      "weight": 1
+    },
+    {
+      "source": "entity:california",
+      "target": "source:climate-anomalies",
+      "cross_theme": false,
+      "rel": "named-in"
+    },
+    {
+      "source": "entity:california",
+      "target": "brief:geophysical-weekly",
+      "cross_theme": true,
+      "rel": "mentioned-in",
+      "weight": 1
+    },
+    {
+      "source": "entity:california",
+      "target": "source:earthquakes",
+      "cross_theme": false,
+      "rel": "named-in"
+    },
+    {
+      "source": "entity:venezuela",
+      "target": "brief:environmental-hazards-weekly",
+      "cross_theme": true,
+      "rel": "mentioned-in",
+      "weight": 1
+    },
+    {
+      "source": "entity:venezuela",
+      "target": "source:natural-events",
+      "cross_theme": false,
+      "rel": "named-in"
+    },
+    {
+      "source": "entity:venezuela",
+      "target": "brief:geophysical-weekly",
+      "cross_theme": true,
+      "rel": "mentioned-in",
+      "weight": 1
+    },
+    {
+      "source": "entity:venezuela",
+      "target": "source:earthquakes",
+      "cross_theme": false,
+      "rel": "named-in"
+    },
+    {
       "source": "entity:crude-oil",
       "target": "brief:energy-supply-weekly",
       "cross_theme": false,
@@ -570,6 +692,38 @@
     {
       "source": "entity:gasoline",
       "target": "source:fuel-prices",
+      "cross_theme": false,
+      "rel": "named-in"
+    },
+    {
+      "source": "entity:ukraine",
+      "target": "brief:climate-signals-weekly",
+      "cross_theme": true,
+      "rel": "mentioned-in",
+      "weight": 1
+    },
+    {
+      "source": "entity:ukraine",
+      "target": "source:climate-anomalies",
+      "cross_theme": false,
+      "rel": "named-in"
+    },
+    {
+      "source": "entity:ukraine",
+      "target": "brief:environmental-hazards-weekly",
+      "cross_theme": true,
+      "rel": "mentioned-in",
+      "weight": 2
+    },
+    {
+      "source": "entity:ukraine",
+      "target": "source:thermal-escalations",
+      "cross_theme": false,
+      "rel": "named-in"
+    },
+    {
+      "source": "entity:ukraine",
+      "target": "source:wildfire-detections",
       "cross_theme": false,
       "rel": "named-in"
     },
@@ -794,10 +948,22 @@
       "rel": "reported-in"
     },
     {
+      "source": "event:us6000t7zp",
+      "target": "entity:venezuela",
+      "cross_theme": false,
+      "rel": "located-in"
+    },
+    {
       "source": "event:us6000t7zc",
       "target": "brief:geophysical-weekly",
       "cross_theme": false,
       "rel": "reported-in"
+    },
+    {
+      "source": "event:us6000t7zc",
+      "target": "entity:venezuela",
+      "cross_theme": false,
+      "rel": "located-in"
     },
     {
       "source": "event:us6000t7zq",

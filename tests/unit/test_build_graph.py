@@ -315,3 +315,64 @@ def test_check_detects_missing_artifact(tmp_path: Path) -> None:
     (out / "graph.html").unlink()
     stale = build_graph_mod.check(out, vault_dir=vault, registry_path=reg)
     assert "graph.html" in stale
+
+
+def test_gazetteer_includes_live_backed_bridge_regions() -> None:
+    """GUARD (2026-06-27 coverage audit): the regions proven present in the live
+    clean-theme corpus that BRIDGE >=2 themes must stay in the gazetteer.
+
+    Each of these was whole-word present in the latest live L1/L2 text under two
+    distinct clean themes, but was missing from the curated gazetteer, so its
+    cross-theme bridge was being silently dropped. They are pinned here so a future
+    gazetteer trim cannot drop a real bridge without a test going red.
+    """
+    for region in ("Venezuela", "California", "Ukraine", "Papua New Guinea"):
+        assert region in build_graph_mod._REGIONS, f"{region} dropped from gazetteer"
+
+
+def test_newly_added_region_bridges_two_themes(tmp_path: Path) -> None:
+    """ACCEPTANCE: a region added in the coverage audit (Venezuela) becomes a
+    cross-theme bridge node when the live data names it under two clean themes.
+
+    Before the gazetteer addition the scanner could not see Venezuela at all, so
+    no bridge could form however often the feeds named it. This proves the new
+    entry is wired end-to-end, not just listed.
+    """
+    vault = tmp_path / "vault"
+    (vault / "02 Briefs").mkdir(parents=True)
+    (vault / "02 Briefs" / "Energy Supply Weekly.md").write_text(
+        "---\ntitle: Energy Supply Weekly\ntheme: energy-supply\n---\n"
+        "# Energy Supply Weekly\nCrude exports from Venezuela ([[fuel-prices]]).\n",
+        encoding="utf-8",
+    )
+    (vault / "02 Briefs" / "Geophysical Weekly.md").write_text(
+        "---\ntitle: Geophysical Weekly\ntheme: geophysical\n---\n"
+        "# Geophysical Weekly\nA shallow quake near Yumare, Venezuela ([[earthquakes]]).\n",
+        encoding="utf-8",
+    )
+    d = vault / "01 Sources" / "2026-06-27"
+    d.mkdir(parents=True)
+    (d / "fuel-prices.md").write_text(
+        "---\nsource: Fuel prices\n---\n# Fuel\nVenezuela crude grade and the EU panel.\n",
+        encoding="utf-8",
+    )
+    (d / "earthquakes.md").write_text(
+        "---\nsource: USGS\n---\n# Quakes\nEvents recorded near Venezuela.\n\n"
+        '| earthquakes | [{"id": "q1", "magnitude": 7.5, "place": "10 km N of Yumare, '
+        'Venezuela"}] |\n',
+        encoding="utf-8",
+    )
+    reg = tmp_path / "registry.json"
+    reg.write_text(json.dumps(_REGISTRY), encoding="utf-8")
+    graph = build_graph_mod.build_graph(vault_dir=vault, registry_path=reg)
+
+    bridges = [
+        n
+        for n in graph["nodes"]
+        if n["kind"] == "entity"
+        and "venezuela" in n["id"].lower()
+        and len(n.get("themes", [])) >= 2
+    ]
+    assert bridges, "Venezuela did not form a cross-theme bridge node"
+    themes = bridges[0]["themes"]
+    assert "energy-supply" in themes and "geophysical" in themes

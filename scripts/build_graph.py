@@ -129,6 +129,36 @@ _REGIONS = [
     "Kamchatka",
     "Mid-Atlantic Ridge",
     "Kermadec",
+    # added 2026-06-27 (KR-B gazetteer coverage audit): every name below is
+    # whole-word present in the live clean-theme L1/L2 text of the latest ingest
+    # day, so each is data-backed, not inferred. Four of them BRIDGE >=2 clean
+    # themes today (so they surface immediately): Venezuela (geophysical +
+    # environmental-hazards), California (climate-signals + geophysical), Ukraine
+    # (climate-signals + environmental-hazards), Papua New Guinea (geophysical +
+    # environmental-hazards). The rest currently sit in a single clean theme —
+    # they stay implicit until they bridge (the >=2-theme surfacing rule still
+    # gates them) but are listed so a future cross-theme appearance is caught
+    # instead of silently dropped. Held-theme-only names are deliberately NOT
+    # added (those themes are excluded from the graph).
+    "Venezuela",
+    "California",
+    "Ukraine",
+    "Papua New Guinea",
+    "Argentina",
+    "Brazil",
+    "Peru",
+    "Vanuatu",
+    "Alaska",
+    "Hawaii",
+    "Australia",
+    "Myanmar",
+    "Romania",
+    "Croatia",
+    "Hungary",
+    "Slovakia",
+    "Denmark",
+    "Sweden",
+    "Finland",
 ]
 _COMMODITIES = [
     "WTI",
