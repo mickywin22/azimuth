@@ -14,6 +14,14 @@ channels, return every shared entity that bridges them, **ranked by source evide
 (``mentioned-in`` weight per side), plus the shortest path joining their briefs routed
 through the strongest bridge.
 
+The deepest "over the L1 sources" proof is ``evidence``: ``provenance`` names *which* dated
+L1 notes back an entity, but ``evidence`` goes one step further and returns the **literal
+text** from those notes — the exact bounded snippet where the entity is named, read live
+from ``vault/01 Sources/<day>/<key>.md``. So a reviewer can verify a cross-channel bridge
+is real by reading the source line itself, not just trusting a count. A static OKF bundle
+can publish the notes; it cannot answer *"show me the line that proves Greece bridges energy
+and earthquakes"* on demand.
+
 Every edge carries a **typed relation** (``rel``: ``has-brief`` / ``rests-on`` /
 ``mentioned-in`` / ``reported-in`` / ``located-in``) and ``mentioned-in`` edges carry a
 ``weight`` (how many L1 source notes back the mention). The queries surface those: a path
@@ -28,6 +36,7 @@ Usage:
     python scripts/query_graph.py relations                     # edge counts by relation type
     python scripts/query_graph.py connect energy geophysical   # the flagship query
     python scripts/query_graph.py provenance "Greece"          # the L1 notes backing an entity
+    python scripts/query_graph.py evidence "Greece"            # the literal source lines that name it
     python scripts/query_graph.py path "Greece" "Energy Supply"
     python scripts/query_graph.py neighbors geophysical
     python scripts/query_graph.py bridges
@@ -39,6 +48,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import sys
 from collections import deque
 from itertools import pairwise
@@ -47,6 +57,7 @@ from typing import Any
 
 _REPO_ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_GRAPH = _REPO_ROOT / "site" / "graph.json"
+DEFAULT_VAULT = _REPO_ROOT / "vault"
 
 Graph = dict[str, list[dict[str, Any]]]
 
@@ -237,6 +248,114 @@ def provenance(graph: Graph, entity_id: str) -> dict[str, Any]:
     }
 
 
+# --- source-text evidence: the literal line that names an entity -------------
+def _source_key(source_id: str) -> str:
+    """``source:fuel-prices`` -> ``fuel-prices`` (the L1 note stem)."""
+    return source_id.split(":", 1)[1] if ":" in source_id else source_id
+
+
+def _source_day(node: dict[str, Any]) -> str:
+    """The dated-day folder a source node points at, parsed from its ``sources/<day>/`` url."""
+    m = re.search(r"sources/(\d{4}-\d{2}-\d{2})/", str(node.get("url", "")))
+    return m.group(1) if m else ""
+
+
+def _whole_word_spans(text: str, term: str) -> list[tuple[int, int]]:
+    """Case-insensitive, whole-word ``(start, end)`` match spans of ``term`` in ``text``.
+
+    Mirrors the builder's whole-word rule (``build_graph._mentions``) so a term that earned
+    a graph edge is exactly the term this finds in the same source text — no drift between
+    "the graph says Greece is named here" and "here is where".
+    """
+    pat = re.compile(r"(?<![A-Za-z0-9])" + re.escape(term) + r"(?![A-Za-z0-9])", re.IGNORECASE)
+    return [(m.start(), m.end()) for m in pat.finditer(text)]
+
+
+def _snippet(text: str, start: int, end: int, window: int = 90) -> str:
+    """A whitespace-collapsed window around ``[start:end]`` with the match wrapped in ``[[ ]]``.
+
+    L1 notes store feeds as one long JSON line, so "the line" is useless — a bounded window
+    around the hit is the readable evidence. ASCII markers (``[[match]]`` + ``...`` ellipses)
+    keep it printable on a Windows console.
+    """
+    lo, hi = max(0, start - window), min(len(text), end + window)
+    pre, mid, post = text[lo:start], text[start:end], text[end:hi]
+    frag = (
+        ("... " if lo > 0 else "")
+        + pre
+        + "[["
+        + mid
+        + "]]"
+        + post
+        + (" ..." if hi < len(text) else "")
+    )
+    return re.sub(r"\s+", " ", frag).strip()
+
+
+def evidence(
+    graph: Graph,
+    entity_id: str,
+    vault_dir: Path = DEFAULT_VAULT,
+    channel: str | None = None,
+    window: int = 90,
+    max_snippets: int = 2,
+) -> dict[str, Any]:
+    """The literal L1 source text that names an entity — the source-line proof of a bridge.
+
+    Where :func:`provenance` returns *which* dated L1 notes back an entity, ``evidence`` opens
+    those notes and returns the **actual text** where the entity appears: up to ``max_snippets``
+    bounded windows per source, read live from ``vault/01 Sources/<day>/<key>.md``. Optionally
+    filtered to one ``channel`` (theme). Each source carries its on-disk ``path`` and an
+    ``exists`` flag, so a missing note is reported, never silently dropped (fail-soft: the L1
+    files only ever enrich the answer). This is the on-demand, data-backed answer a static
+    bundle cannot give: the graph reaches into the raw L1 sources, not just the briefs.
+    """
+    idx = node_index(graph)
+    label = str(idx.get(entity_id, {}).get("label", entity_id))
+    sources: list[dict[str, Any]] = []
+    for e in graph["edges"]:
+        if e["source"] != entity_id or e.get("rel") != "named-in":
+            continue
+        snode = idx.get(e["target"])
+        if not snode:
+            continue
+        theme = str(snode.get("theme", ""))
+        if channel and theme != channel:
+            continue
+        key, day = _source_key(str(snode["id"])), _source_day(snode)
+        path = (
+            vault_dir / "01 Sources" / day / f"{key}.md"
+            if day
+            else vault_dir / "01 Sources" / f"{key}.md"
+        )
+        snippets: list[str] = []
+        exists = path.is_file()
+        if exists:
+            raw = path.read_text(encoding="utf-8")
+            last_hi = -1
+            for s, en in _whole_word_spans(raw, label):
+                if len(snippets) >= max_snippets:
+                    break
+                if s < last_hi:  # window already covers this hit — skip the duplicate
+                    continue
+                snippets.append(_snippet(raw, s, en, window))
+                last_hi = en + window
+        sources.append(
+            {
+                "theme": theme,
+                "source_id": str(snode["id"]),
+                "source_label": str(snode.get("label", key)),
+                "key": key,
+                "day": day,
+                "path": str(path),
+                "exists": exists,
+                "snippets": snippets,
+            }
+        )
+    sources.sort(key=lambda s: (s["theme"], s["source_label"]))
+    return {"entity": entity_id, "label": label, "channel": channel, "sources": sources}
+
+
 def hubs(graph: Graph, top: int = 10) -> list[tuple[str, int]]:
     """The ``top`` most-connected node ids with their undirected degree."""
     adj = adjacency(graph)
@@ -410,6 +529,23 @@ def _print_human(cmd: str, payload: Any, graph: Graph) -> None:
                 print(f"    - {s.get('label', s['id'])}  [{s['id']}]")
             if weight and not srcs:
                 print("    (brief text only — no raw L1 source backs this mention)")
+    elif cmd == "evidence":
+        scope = f" in {payload['channel']}" if payload["channel"] else ""
+        if not payload["sources"]:
+            print(f"{payload['label']}: no L1 source notes name it{scope}.")
+            return
+        print(f"{payload['label']} — source-line evidence{scope}:")
+        for s in payload["sources"]:
+            head = f"  {s['theme']} · {s['source_label']}"
+            head += f"  ({s['day']}/{s['key']}.md)" if s["day"] else f"  ({s['key']}.md)"
+            print(head)
+            if not s["exists"]:
+                print("    (L1 note not found on disk — nothing to quote)")
+                continue
+            if not s["snippets"]:
+                print("    (named in the graph, but no whole-word match in the current note)")
+            for snip in s["snippets"]:
+                print(f'    "{snip}"')
     elif cmd == "bridges":
         print(f"{len(payload)} cross-channel bridge(s):")
         for n in payload:
@@ -450,6 +586,14 @@ def main(argv: list[str] | None = None) -> int:
         "provenance", help="the L1 source notes that name an entity", parents=[common]
     )
     p_pr.add_argument("term")
+    p_ev = sub.add_parser(
+        "evidence",
+        help="the literal L1 source lines that name an entity",
+        parents=[common],
+    )
+    p_ev.add_argument("term")
+    p_ev.add_argument("--channel", help="restrict to one theme (e.g. energy-supply)")
+    p_ev.add_argument("--window", type=int, default=90, help="chars of context around each match")
     sub.add_parser("bridges", help="all cross-channel bridge entities", parents=[common])
     p_hu = sub.add_parser("hubs", help="most-connected nodes", parents=[common])
     p_hu.add_argument("--top", type=int, default=10)
@@ -485,6 +629,14 @@ def main(argv: list[str] | None = None) -> int:
             print(f"Unknown node: {args.term!r}", file=sys.stderr)
             return 2
         payload = provenance(graph, node_id)
+    elif args.cmd == "evidence":
+        node_id = resolve_node(graph, args.term)
+        if not node_id:
+            print(f"Unknown node: {args.term!r}", file=sys.stderr)
+            return 2
+        payload = evidence(
+            graph, node_id, vault_dir=DEFAULT_VAULT, channel=args.channel, window=args.window
+        )
     elif args.cmd == "bridges":
         payload = bridge_entities(graph)
     elif args.cmd == "hubs":
