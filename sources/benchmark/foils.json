@@ -2,10 +2,10 @@
   "$note": "Captured snapshot of the COMPARED forecast/intelligence product for the azimuth benchmark (synthesis/benchmark.py). Quoted by product + capture date; NOT surfaced as an azimuth channel and NOT an L1 source. Refresh with pull_benchmark_foils.py.",
   "endpoint": "/api/forecast/v1/get-forecasts",
   "attribution": "WorldMonitor (api.worldmonitor.app) — model-generated forecast/assessment product",
-  "feed_generated_at": 1782457568011,
+  "feed_generated_at": 1782543792534,
   "feed_degraded": false,
-  "captured_at": "2026-06-26T07:35:11Z",
-  "n_forecasts_seen": 15,
+  "captured_at": "2026-06-27T07:21:00Z",
+  "n_forecasts_seen": 14,
   "topics": {
     "energy-supply": {
       "foil": {
@@ -13,45 +13,45 @@
         "domain": "market",
         "region": "Venezuela",
         "title": "Inflation and rates pressure from Venezuela infrastructure fragility state",
-        "probability": 0.492,
-        "prior_probability": 0.54,
+        "probability": 0.545,
+        "prior_probability": 0.569,
         "confidence": 0.75,
         "time_horizon": "30d",
         "trend": "stable",
         "projections": {
-          "d30": 0.492,
-          "d7": 0.679,
+          "d30": 0.545,
+          "d7": 0.753,
           "h24": 0.95
         },
-        "scenario_short": "Venezuela infrastructure fragility state is feeding inflation and rates pressure through energy supply shock, with 42% pressure and 50% state confirmation. For now, the base case stays near 52% over the 30d. Actors...",
-        "perspective_strategic": "Venezuela infrastructure fragility state is feeding inflation and rates pressure through energy supply shock, with 42% pressure and 50% state confirmation is setting the strategic baseline, and the current 49% probability implies a live but not settled risk path.",
-        "perspective_contrarian": "The current 75% confidence level still leaves room for reversal. If that restraint persists, the forecast can move below the current 49% baseline. Actors prioritize containment and the system drifts toward stabilization unless new hard signals emerge.",
-        "actor_lens": "Commodity traders: Price whether stress in Venezuela becomes durable over the 30d. Rebalance positions if the probability path moves away from 49%.",
-        "top_signal": "Venezuela infrastructure fragility state is feeding inflation and rates pressure through energy supply shock, with 42% pressure and 50% state confirmation"
+        "scenario_short": "Venezuela infrastructure fragility state is feeding inflation and rates pressure through energy supply shock, with 50% pressure and 59% state confirmation. For now, the base case stays near 57% over the 30d. Actors...",
+        "perspective_strategic": "Venezuela infrastructure fragility state is feeding inflation and rates pressure through energy supply shock, with 50% pressure and 59% state confirmation is setting the strategic baseline, and the current 55% probability implies a live but not settled risk path.",
+        "perspective_contrarian": "No directly matched headlines are currently attached to Venezuela. If that restraint persists, the forecast can move below the current 55% baseline. Actors prioritize containment and the system drifts toward stabilization unless new hard signals emerge.",
+        "actor_lens": "Commodity traders: Price whether stress in Venezuela becomes durable over the 30d. Rebalance positions if the probability path moves away from 55%.",
+        "top_signal": "Venezuela infrastructure fragility state is feeding inflation and rates pressure through energy supply shock, with 50% pressure and 59% state confirmation"
       },
       "absence_reason": null
     },
     "supply-chain-inflation": {
       "foil": {
-        "id": "fc-market-ab783437",
+        "id": "fc-market-d14d22ac",
         "domain": "market",
         "region": "Black Sea",
-        "title": "Sovereign risk repricing from Black Sea maritime disruption state",
-        "probability": 0.626,
-        "prior_probability": 0.632,
+        "title": "Inflation and rates pressure from Black Sea maritime disruption state",
+        "probability": 0.602,
+        "prior_probability": 0.647,
         "confidence": 0.75,
         "time_horizon": "30d",
         "trend": "stable",
         "projections": {
-          "d30": 0.626,
-          "d7": 0.864,
+          "d30": 0.602,
+          "d7": 0.831,
           "h24": 0.95
         },
-        "scenario_short": "Sovereign risk repricing in the Black Sea has a 63% probability over 30 days, driven by the Black Sea maritime disruption state keeping sovereign risk elevated through 67% pressure and 69% state confirmation,...",
-        "perspective_strategic": "The 63% probability of sovereign risk repricing, driven by 67% pressure and 69% state confirmation from maritime disruption, signals a significant likelihood of increased financial risk in the Black Sea region.",
-        "perspective_contrarian": "The current 75% confidence level, combined with the need for 'More directly matched reporting on Black Sea' to improve confidence, suggests that a lack of new, direct evidence could prevent the sovereign risk repricing from escalating further.",
-        "actor_lens": "Commodity traders: Price whether stress in Black Sea becomes durable over the 30d. Rebalance positions if the probability path moves away from 63%.",
-        "top_signal": "Black Sea maritime disruption state is keeping sovereign risk elevated through sovereign stress, with 67% pressure and 69% state confirmation"
+        "scenario_short": "Inflation and rates pressure in the Black Sea region is probable at 60%, driven by shipping cost shock with 50% pressure and 72% state confirmation, and reinforced by 7 urgent critical signals.",
+        "perspective_strategic": "The 60% probability of inflation and rates pressure, driven by shipping cost shock (50% pressure, 72% state confirmation), indicates a significant but not overwhelming risk to global markets from the Black Sea region.",
+        "perspective_contrarian": "Despite 7 urgent critical signals reinforcing pressure, the current 75% confidence level suggests that actors are not yet fully convinced of an escalating scenario, leaving room for a reversal if containment efforts prove effective.",
+        "actor_lens": "Commodity traders: Price whether stress in Black Sea becomes durable over the 30d. Rebalance positions if the probability path moves away from 60%.",
+        "top_signal": "Black Sea maritime disruption state is feeding inflation and rates pressure through shipping cost shock, with 50% pressure and 72% state confirmation"
       },
       "absence_reason": null
     },
