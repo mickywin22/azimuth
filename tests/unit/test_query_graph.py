@@ -375,3 +375,93 @@ def test_provenance_cli_resolves_a_label(tmp_path: Path, capsys: Any) -> None:
     assert rc == 0
     assert "Greece" in out
     assert "backing L1 note" in out
+
+
+# --- source-line evidence (reads the real L1 note text) ---------------------
+def _evidence_graph() -> dict[str, list[dict[str, Any]]]:
+    """Greece named-in two dated L1 sources whose urls carry the day folder."""
+    g = _prov_graph()
+    idx = {n["id"]: n for n in g["nodes"]}
+    idx["source:fuel-prices"]["url"] = "sources/2026-06-26/fuel-prices.html"
+    idx["source:earthquakes"]["url"] = "sources/2026-06-26/earthquakes.html"
+    return g
+
+
+def _seed_vault(root: Path) -> Path:
+    """Write a tiny ``vault/01 Sources/2026-06-26`` tree with two L1 notes naming Greece."""
+    day = root / "01 Sources" / "2026-06-26"
+    day.mkdir(parents=True)
+    (day / "fuel-prices.md").write_text(
+        '| countries | [{"name": "Greece", "diesel": 1.74}, {"name": "Greecely"}] |\n',
+        encoding="utf-8",
+    )
+    (day / "earthquakes.md").write_text(
+        '| quakes | [{"magnitude": 5.2, "place": "10 km S of Kastro, Greece"}] |\n',
+        encoding="utf-8",
+    )
+    return root
+
+
+def test_snippet_wraps_match_and_collapses_whitespace() -> None:
+    snip = qg._snippet("alpha   beta GREECE gamma   delta", 13, 19, window=6)
+    assert "[[GREECE]]" in snip
+    assert "  " not in snip  # whitespace collapsed
+    assert snip.startswith("...") and snip.endswith("...")  # bounded on both sides
+
+
+def test_whole_word_spans_is_case_insensitive_and_whole_word() -> None:
+    spans = qg._whole_word_spans('"name": "Greece", "x": "Greecely"', "Greece")
+    # matches "Greece" (any case) but not the substring inside "Greecely"
+    assert len(spans) == 1
+
+
+def test_evidence_returns_source_line_per_theme(tmp_path: Path) -> None:
+    _seed_vault(tmp_path)
+    res = qg.evidence(_evidence_graph(), "entity:greece", vault_dir=tmp_path)
+    by_theme = {s["theme"]: s for s in res["sources"]}
+    assert set(by_theme) == {"energy-supply", "geophysical"}
+    # the literal source text is quoted, the entity wrapped, the dated note path resolved
+    assert "[[Greece]]" in by_theme["energy-supply"]["snippets"][0]
+    assert by_theme["geophysical"]["day"] == "2026-06-26"
+    assert by_theme["geophysical"]["exists"] is True
+    # whole-word: "Greecely" in the fuel note must NOT add a second snippet
+    assert len(by_theme["energy-supply"]["snippets"]) == 1
+
+
+def test_evidence_channel_filter(tmp_path: Path) -> None:
+    _seed_vault(tmp_path)
+    res = qg.evidence(
+        _evidence_graph(), "entity:greece", vault_dir=tmp_path, channel="geophysical"
+    )
+    assert [s["theme"] for s in res["sources"]] == ["geophysical"]
+
+
+def test_evidence_reports_missing_note(tmp_path: Path) -> None:
+    # vault dir exists but no notes written -> source listed, exists False, no snippets
+    res = qg.evidence(_evidence_graph(), "entity:greece", vault_dir=tmp_path)
+    assert res["sources"]  # the named-in sources are still listed
+    assert all(s["exists"] is False for s in res["sources"])
+    assert all(s["snippets"] == [] for s in res["sources"])
+
+
+def test_evidence_empty_for_entity_with_no_named_in(tmp_path: Path) -> None:
+    res = qg.evidence(_graph(), "entity:wti", vault_dir=tmp_path)
+    assert res["sources"] == []
+
+
+def test_evidence_cli_quotes_the_source_line(tmp_path: Path, capsys: Any) -> None:
+    _seed_vault(tmp_path)
+    # point the query at a graph.json beside the seeded vault, vault auto-resolves via default?
+    gp = tmp_path / "graph.json"
+    gp.write_text(json.dumps(_evidence_graph()), encoding="utf-8")
+    # evidence() defaults to the repo vault; pass an explicit vault by monkeypatching default
+    orig = qg.DEFAULT_VAULT
+    qg.DEFAULT_VAULT = tmp_path
+    try:
+        rc = qg.main(["--graph", str(gp), "evidence", "Greece", "--channel", "geophysical"])
+    finally:
+        qg.DEFAULT_VAULT = orig
+    out = capsys.readouterr().out
+    assert rc == 0
+    assert "[[Greece]]" in out
+    assert "geophysical" in out
