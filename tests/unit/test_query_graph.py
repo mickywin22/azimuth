@@ -174,6 +174,68 @@ def test_connect_themes_returns_bridge_and_path() -> None:
     ]
 
 
+def test_connect_themes_attaches_evidence_block() -> None:
+    # Greece is named in 1 energy L1 note and 2 geophysical L1 notes (fixture weights).
+    res = qg.connect_themes(_graph(), "energy-supply", "geophysical")
+    ev = res["bridges"][0]["evidence"]
+    assert ev["by_theme"] == {"energy-supply": 1, "geophysical": 2}
+    assert ev["min"] == 1
+    assert ev["total"] == 3
+
+
+def _two_bridge_graph() -> dict[str, list[dict[str, Any]]]:
+    """Energy + Geophysical bridged by TWO regions of unequal source evidence.
+
+    Greece is weakly evidenced (1+1); Turkey is strongly evidenced (3+2). The ranked
+    ``connect`` must lead with Turkey and route the headline path through it.
+    """
+    g = _graph()
+    g["nodes"].append(
+        {
+            "id": "entity:turkey",
+            "label": "Turkey",
+            "kind": "entity",
+            "entity_kind": "region",
+            "theme": "shared",
+            "themes": ["energy-supply", "geophysical"],
+        }
+    )
+    g["edges"] += [
+        {
+            "source": "entity:turkey",
+            "target": "brief:energy-supply-weekly",
+            "cross_theme": True,
+            "rel": "mentioned-in",
+            "weight": 3,
+        },
+        {
+            "source": "entity:turkey",
+            "target": "brief:geophysical-weekly",
+            "cross_theme": True,
+            "rel": "mentioned-in",
+            "weight": 2,
+        },
+    ]
+    return g
+
+
+def test_connect_themes_ranks_strongest_bridge_first() -> None:
+    res = qg.connect_themes(_two_bridge_graph(), "energy-supply", "geophysical")
+    labels = [n["label"] for n in res["bridges"]]
+    assert labels == ["Turkey", "Greece"]  # min(3,2)=2 beats min(1,1)=1
+    assert res["bridges"][0]["evidence"]["min"] == 2
+
+
+def test_connect_themes_routes_path_through_strongest_bridge() -> None:
+    res = qg.connect_themes(_two_bridge_graph(), "energy-supply", "geophysical")
+    # The headline path leads with the best-evidenced link (Turkey), not alphabetical Greece.
+    assert res["path"] == [
+        "brief:energy-supply-weekly",
+        "entity:turkey",
+        "brief:geophysical-weekly",
+    ]
+
+
 def test_connect_themes_unknown_theme_is_empty() -> None:
     res = qg.connect_themes(_graph(), "energy-supply", "does-not-exist")
     assert res["bridges"] == []
