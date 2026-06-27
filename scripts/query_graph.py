@@ -10,8 +10,9 @@ graph the site renders — no LLM, no inference.
 
 It mirrors the HemySphere ``vault-graph`` skill (neighbours, shortest path, hubs) but
 adds the cross-channel primitive azimuth is built to demonstrate: ``connect`` — given two
-channels, return every shared entity that bridges them plus the shortest path joining
-their briefs.
+channels, return every shared entity that bridges them, **ranked by source evidence**
+(``mentioned-in`` weight per side), plus the shortest path joining their briefs routed
+through the strongest bridge.
 
 Every edge carries a **typed relation** (``rel``: ``has-brief`` / ``rests-on`` /
 ``mentioned-in`` / ``reported-in`` / ``located-in``) and ``mentioned-in`` edges carry a
@@ -243,12 +244,33 @@ def hubs(graph: Graph, top: int = 10) -> list[tuple[str, int]]:
     return [(nid, len(nbrs)) for nid, nbrs in ranked[:top]]
 
 
+def _mention_weight(graph: Graph, entity_id: str, brief_id: str) -> int:
+    """How many L1 source notes back an entity's mention in a brief (``mentioned-in`` weight).
+
+    Returns 0 when the entity is not mentioned in that brief, or when the mention carries no
+    backing source (brief-text-only). This is the per-side evidence count that makes a
+    cross-channel bridge *quantified* rather than merely present.
+    """
+    e = edge_between(graph, entity_id, brief_id)
+    if e and e.get("rel") == "mentioned-in":
+        return int(e.get("weight") or 0)
+    return 0
+
+
 def connect_themes(graph: Graph, theme_a: str, theme_b: str) -> dict[str, Any]:
     """The flagship cross-channel query: how are two channels connected?
 
     Returns the shared **bridge entities** that touch both channels' briefs and the
     shortest path joining the two briefs. This is the legible, data-backed answer to
     *"what connects energy supply to geophysical activity?"*.
+
+    Each bridge carries an ``evidence`` block — the ``mentioned-in`` weight on each side
+    (how many dated L1 source notes name it per channel), plus ``min`` (the weaker leg —
+    a bridge is only as strong as its less-supported side) and ``total``. Bridges are
+    ranked strongest-first by ``(min, total)``, and the headline ``path`` is routed through
+    the strongest bridge rather than an arbitrary alphabetical one: the most evidence-backed
+    link leads. A static OKF bundle can list shared regions; it cannot rank them by source
+    evidence.
     """
     brief_a = theme_brief_id(graph, theme_a)
     brief_b = theme_brief_id(graph, theme_b)
@@ -266,11 +288,32 @@ def connect_themes(graph: Graph, theme_a: str, theme_b: str) -> dict[str, Any]:
     idx = node_index(graph)
     a_nbrs, b_nbrs = adj.get(brief_a, set()), adj.get(brief_b, set())
     shared = a_nbrs & b_nbrs  # nodes adjacent to BOTH briefs
-    bridges = [idx[nid] for nid in shared if idx.get(nid, {}).get("kind") == "entity"]
-    result["bridges"] = sorted(
-        bridges, key=lambda n: (n.get("entity_kind", ""), str(n.get("label", "")))
+    enriched: list[dict[str, Any]] = []
+    for nid in shared:
+        node = idx.get(nid, {})
+        if node.get("kind") != "entity":
+            continue
+        wa = _mention_weight(graph, nid, brief_a)
+        wb = _mention_weight(graph, nid, brief_b)
+        bridge = dict(node)
+        bridge["evidence"] = {
+            "by_theme": {theme_a: wa, theme_b: wb},
+            "min": min(wa, wb),
+            "total": wa + wb,
+        }
+        enriched.append(bridge)
+    # Strongest first: the better-supported weaker-leg wins, then total evidence, then label
+    # (a stable, deterministic tie-break so the chosen path never flips between runs).
+    enriched.sort(
+        key=lambda n: (-n["evidence"]["min"], -n["evidence"]["total"], str(n.get("label", "")))
     )
-    result["path"] = shortest_path(graph, brief_a, brief_b)
+    result["bridges"] = enriched
+    if enriched:
+        # Route the headline path through the strongest bridge (a valid shortest 2-hop path),
+        # so the answer leads with the most source-backed link, not the alphabetically-first.
+        result["path"] = [brief_a, enriched[0]["id"], brief_b]
+    else:
+        result["path"] = shortest_path(graph, brief_a, brief_b)
     return result
 
 
@@ -336,8 +379,22 @@ def _print_human(cmd: str, payload: Any, graph: Graph) -> None:
         if not bridges and not payload["path"]:
             print(f"No connection found between '{a}' and '{b}'.")
             return
-        names = ", ".join(str(n.get("label", n["id"])) for n in bridges) or "none"
-        print(f"{a} <-> {b}: {len(bridges)} shared bridge(s) — {names}")
+        if bridges:
+            top = bridges[0]
+            ev = top.get("evidence", {})
+            bt = ev.get("by_theme", {})
+            strength = f" ({bt.get(a, 0)}+{bt.get(b, 0)} src)" if ev else ""
+            print(
+                f"{a} <-> {b}: {len(bridges)} shared bridge(s), "
+                f"strongest {top.get('label', top['id'])}{strength}"
+            )
+            for n in bridges:
+                ev = n.get("evidence", {})
+                bt = ev.get("by_theme", {})
+                tag = f"  [{bt.get(a, 0)}+{bt.get(b, 0)} src]" if ev else ""
+                print(f"  · {n.get('label', n['id'])}{tag}")
+        else:
+            print(f"{a} <-> {b}: 0 shared bridge(s)")
         if payload["path"]:
             print("  path: " + _path_str(payload["path"]))
     elif cmd == "provenance":
