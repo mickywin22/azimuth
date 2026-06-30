@@ -42,7 +42,7 @@ def _make_vault(tmp_path: Path) -> Path:
     # Greece bridges BOTH themes (fuel row + quake). Japan is geophysical-only (no bridge).
     # Greece also appears in the held prediction-markets note -> must NOT count.
     (d / "fuel-prices.md").write_text(
-        '---\nsource: Fuel\n---\n# Fuel\n| field | value |\n| --- | --- |\n'
+        "---\nsource: Fuel\n---\n# Fuel\n| field | value |\n| --- | --- |\n"
         '| countries | [{"name": "Greece", "diesel": {"usdPrice": 2.02, "wowPct": 0.79}, '
         '"gasoline": {"usdPrice": 2.33, "wowPct": -2.03}}, '
         '{"name": "Germany", "diesel": {"usdPrice": 2.16, "wowPct": 1.05}, "gasoline": null}] |\n'

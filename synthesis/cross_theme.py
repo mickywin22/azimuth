@@ -37,13 +37,40 @@ if TYPE_CHECKING:
 # claim is data-backed.
 REGIONS: tuple[str, ...] = (
     # energy / EU fuel panel + general
-    "United States", "Germany", "France", "Italy", "Spain", "Greece", "Austria",
-    "Belgium", "Netherlands", "Poland", "Norway", "Portugal", "Ireland", "Mexico",
-    "United Kingdom", "Europe", "European Union",
+    "United States",
+    "Germany",
+    "France",
+    "Italy",
+    "Spain",
+    "Greece",
+    "Austria",
+    "Belgium",
+    "Netherlands",
+    "Poland",
+    "Norway",
+    "Portugal",
+    "Ireland",
+    "Mexico",
+    "United Kingdom",
+    "Europe",
+    "European Union",
     # geophysical / Ring-of-Fire arcs
-    "Indonesia", "Philippines", "Japan", "China", "Russia", "Chile", "Turkey",
-    "Iran", "India", "Taiwan", "New Zealand", "Tonga", "Fiji", "Kamchatka",
-    "Mid-Atlantic Ridge", "Kermadec",
+    "Indonesia",
+    "Philippines",
+    "Japan",
+    "China",
+    "Russia",
+    "Chile",
+    "Turkey",
+    "Iran",
+    "India",
+    "Taiwan",
+    "New Zealand",
+    "Tonga",
+    "Fiji",
+    "Kamchatka",
+    "Mid-Atlantic Ridge",
+    "Kermadec",
 )
 
 # The regions where the energy-supply theme measures a PHYSICAL balance: US crude
@@ -182,9 +209,7 @@ _EVIDENCE_EXTRACTORS = {
 
 def held_themes(registry: dict[str, Any]) -> set[str]:
     """Theme slugs whose brief is editorially held (excluded from the cross-theme scan)."""
-    return {
-        slug for slug, meta in registry.get("themes", {}).items() if meta.get("brief_held")
-    }
+    return {slug for slug, meta in registry.get("themes", {}).items() if meta.get("brief_held")}
 
 
 def clean_theme_sources(registry: dict[str, Any]) -> dict[str, list[str]]:

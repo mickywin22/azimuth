@@ -8,6 +8,7 @@ Output: graphify-out/graph.json + graphify-out/GRAPH_REPORT.md
 Usage:
   python Build-Graphify-AST-Only.py <apex-path>
 """
+
 import json
 import sys
 from pathlib import Path
@@ -30,15 +31,19 @@ out.mkdir(exist_ok=True)
 
 # Step 2 — detect
 from graphify.detect import detect
+
 print(f"Detecting files under {apex}...")
 detection = detect(apex)
 (out / ".graphify_detect.json").write_text(json.dumps(detection))
 totals = detection.get("total_files", 0)
 by_type = {k: len(v) for k, v in detection.get("files", {}).items() if v}
-print(f"  total_files={totals}  by_type={by_type}  total_words={detection.get('total_words', 0):,}")
+print(
+    f"  total_files={totals}  by_type={by_type}  total_words={detection.get('total_words', 0):,}"
+)
 
 # Step 3 Part A — AST structural extraction
 from graphify.extract import collect_files, extract
+
 code_files = []
 for f in detection.get("files", {}).get("code", []):
     p = Path(f)
@@ -52,7 +57,13 @@ else:
 print(f"  AST: {len(ast['nodes'])} nodes, {len(ast['edges'])} edges")
 
 # Step 3 Part B — SKIPPED (empty semantic, zero LLM)
-empty_semantic = {"nodes": [], "edges": [], "hyperedges": [], "input_tokens": 0, "output_tokens": 0}
+empty_semantic = {
+    "nodes": [],
+    "edges": [],
+    "hyperedges": [],
+    "input_tokens": 0,
+    "output_tokens": 0,
+}
 (out / ".graphify_semantic.json").write_text(json.dumps(empty_semantic, indent=2))
 print("  Semantic: SKIPPED (AST-only build, zero LLM cost)")
 
@@ -79,7 +90,9 @@ from graphify.export import to_json
 
 G = build_from_json(merged_extract)
 if G.number_of_nodes() == 0:
-    print("ERROR: graph empty — AST extraction produced zero nodes. Check Apex code-file detection.")
+    print(
+        "ERROR: graph empty — AST extraction produced zero nodes. Check Apex code-file detection."
+    )
     sys.exit(2)
 print(f"Built graph: {G.number_of_nodes()} nodes, {G.number_of_edges()} edges")
 
@@ -92,8 +105,15 @@ labels = {cid: f"Community {cid}" for cid in communities}
 questions = suggest_questions(G, communities, labels)
 
 report = generate(
-    G, communities, cohesion, labels, gods, surprises,
-    detection, tokens, str(apex),
+    G,
+    communities,
+    cohesion,
+    labels,
+    gods,
+    surprises,
+    detection,
+    tokens,
+    str(apex),
     suggested_questions=questions,
 )
 (out / "GRAPH_REPORT.md").write_text(report, encoding="utf-8")
@@ -111,5 +131,7 @@ analysis = {
 print()
 print(f"DONE — graph.json @ {out / 'graph.json'}")
 print(f"       GRAPH_REPORT.md @ {out / 'GRAPH_REPORT.md'}")
-print(f"       {G.number_of_nodes()} nodes · {G.number_of_edges()} edges · {len(communities)} communities")
+print(
+    f"       {G.number_of_nodes()} nodes · {G.number_of_edges()} edges · {len(communities)} communities"
+)
 print(f"       AST-only build — zero LLM tokens spent")

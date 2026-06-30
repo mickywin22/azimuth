@@ -151,7 +151,10 @@ def test_cap_payload_unwraps_single_list_dict() -> None:
 def test_cap_payload_missing_field_sorts_last() -> None:
     payload = [{"frp": 5.0}, {"other": 1}, {"frp": 9.0}]
     capped, info = cap_payload(payload, 2, "frp")
-    assert info.capped and [row.get("frp") for row in capped] == [9.0, 5.0]  # missing-frp row dropped
+    assert info.capped and [row.get("frp") for row in capped] == [
+        9.0,
+        5.0,
+    ]  # missing-frp row dropped
 
 
 def test_render_note_records_cap_in_caption() -> None:

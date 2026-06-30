@@ -31,8 +31,12 @@ dev = [
     "pytest-asyncio>=0.25.0",
     "pytest-benchmark>=5.0.0",
     "httpx>=0.28.0",
-    "ruff>=0.9.0",
-    "mypy>=1.14.0",
+    # Bounded, NOT floating: an unpinned `ruff>=0.9.0` let CI float to a newer formatter
+    # than the pre-commit hook used, so locally-clean files reddened CI on every minor bump
+    # (the recurring "ruff-format drift" that kept re-opening as KR-C). Keep this <0.16 in
+    # lock-step with the `.pre-commit-config.yaml` ruff rev so local + CI format identically.
+    "ruff>=0.15,<0.16",
+    "mypy>=1.14,<2",
     "pre-commit>=4.0.0",
 ]
 

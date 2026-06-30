@@ -194,7 +194,9 @@ def _frp_sort_key(row: dict[str, object], field_name: str) -> float:
         return float("-inf")
 
 
-def cap_payload(payload: object, max_rows: int | None, truncate_by: str | None) -> tuple[object, CapInfo]:
+def cap_payload(
+    payload: object, max_rows: int | None, truncate_by: str | None
+) -> tuple[object, CapInfo]:
     """Cap a row payload to ``max_rows`` rows (server-agnostic), keeping the top-N by
     ``truncate_by`` when given, else the first N. Returns the (possibly rewrapped) payload and
     a ``CapInfo``. No cap / no list / under the cap -> the payload is returned unchanged.

@@ -1,6 +1,6 @@
 repos:
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.9.6
+    rev: v0.15.20  # keep in lock-step with the pyproject `ruff>=0.15,<0.16` bound + CI
     hooks:
       - id: ruff
         args: [--fix]
