@@ -2,7 +2,13 @@
 
 Public demonstrator of the HemySphere L1/L2/L3 vault doctrine, fed by Worldmonitor open-intelligence data.
 
-> **Stage: `research` (2026-W24).** This is a Coding-Factory scaffold, not a running app yet. The product concept, data-source feasibility, and build plan live in the HemySphere vault (`05 Projects/azimuth.md` + `07 Resources/AI Agents & Agentic Systems/Worldmonitor App – Research.md`) and in [docs/spec.md](docs/spec.md). The FastAPI/Next.js stack below is the factory default and will be reshaped once the data-pipeline design lands.
+> **Status — engine live, awaiting public flip.** The pipeline runs end-to-end: a daily
+> GitHub Actions job pulls the WorldMonitor subsets into dated **L1 source notes**, a weekly
+> synthesis cycle evolves the per-theme **L2 briefs**, and a small **L3 rule set** (editorial
+> line, attribution, source guardrail) governs both — all enforced by CI. The runtime is
+> **pure standard-library Python** (no web server, no third-party runtime deps). The concept,
+> data-source feasibility, and build plan are written up in [docs/spec.md](docs/spec.md),
+> [docs/plan.md](docs/plan.md), and [docs/architecture.md](docs/architecture.md).
 
 ## What it is
 
@@ -87,13 +93,35 @@ python scripts/check_ingest_liveness.py            # alive / STALE, with the lat
 python scripts/check_ingest_liveness.py --check    # exit 1 if the latest L1 day is stale
 ```
 
+## Repository layout
+
+| Path | What it holds |
+|------|---------------|
+| `ingest/` | L1 pull — registry-driven WorldMonitor fetch → dated source notes (stdlib) |
+| `guardrail/` | L3 per-source license / attribution / editorial guardrail |
+| `synthesis/` | L2 curator logic, synthesis lint, cross-theme join |
+| `scripts/` | CLIs — ingest, site + graph + index builders, query engine, liveness + secret scans |
+| `vault/` | The published vault — `00 Rules` (L3) · `01 Sources` (L1) · `02 Briefs` (L2) |
+| `site/` | Built read-only site + `graph.json` / `graph.html` knowledge graph |
+| `sources/registry.json` | Single source of truth — every WorldMonitor subset + its license/theme |
+| `docs/` | Spec, plan, architecture, deploy, security, and per-feature docs |
+| `.github/workflows/` | CI · daily ingest · Pages deploy · secret + privacy scans |
+
 ## Architecture
 
 See [docs/architecture.md](docs/architecture.md) for design decisions.
 
+## Contributing & security
+
+- **Contributing:** read [CONTRIBUTING.md](CONTRIBUTING.md) first — it explains the
+  L1/L2/L3 layer ownership (the `vault/` content is machine-generated, so PRs there are
+  not accepted), the gates every change must pass, and the editorial line.
+- **Code of conduct:** [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md).
+- **Security / responsible disclosure:** [SECURITY.md](SECURITY.md).
+
 ## License
 
-Split license — confirmed IQ #371 (A), 2026-06-10:
+Split license:
 
 - **Code** (`ingest/`, `guardrail/`, `scripts/`, `.github/`, future `synthesis/`): **MIT** — see [`LICENSE`](LICENSE).
 - **Vault content** (derived L1/L2/L3 notes under `vault/`): **CC BY 4.0** — see [`LICENSE-CONTENT.md`](LICENSE-CONTENT.md).

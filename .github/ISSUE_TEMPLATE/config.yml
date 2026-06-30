@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security / responsible disclosure
+    url: https://github.com/mickywin22/azimuth/security/advisories/new
+    about: Report a vulnerability privately — please do NOT open a public issue (see SECURITY.md).
