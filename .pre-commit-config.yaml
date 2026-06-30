@@ -51,3 +51,9 @@ repos:
         language: system
         pass_filenames: false
         files: ^(vault/01 Sources/|vault/02 Briefs/|sources/registry\.json|scripts/build_graph\.py)
+      - id: secret-scan
+        name: Secret scan (working tree) -- public-flip gate C1
+        entry: python scripts/scan_secrets.py --worktree
+        language: system
+        pass_filenames: false
+        always_run: true

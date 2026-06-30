@@ -1,0 +1,51 @@
+# gitleaks config — Azimuth public-flip secret-scan gate (C1)
+#
+# Extends gitleaks' built-in ruleset and adds an allowlist for the *placeholders*
+# that legitimately live in this repo (the .env template, architecture docs that
+# name credential env-vars by example). Without this, gitleaks 8.x flags the
+# canonical AWS docs key and the "sk-ant-..." illustration as leaks and the gate
+# would fail on non-secrets. Keep this allowlist tight: only literal, well-known
+# placeholder strings — never broaden it to silence a real finding.
+#
+# Run locally (matches CI):  gitleaks git . --redact -c .gitleaks.toml
+# CI enforcement:            .github/workflows/secret-scan.yml
+
+title = "azimuth-public-flip-gate"
+
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Known-safe placeholders / example values in templates and docs"
+
+# Files that are templates or pure documentation of credential *names*.
+paths = [
+  '''\.env\.example$''',
+  '''docs/security/.*\.md$''',
+  '''scripts/scan_secrets\.py$''',  # the stdlib gate's own rule strings
+  '''\.gitleaks\.toml$''',
+]
+
+# Literal placeholder strings. A real leak never contains these.
+regexes = [
+  '''sk-ant-\.\.\.''',
+  '''your-anon-key''',
+  '''your-project\.supabase\.co''',
+  '''postgresql://user:password@host''',
+  '''AKIAIOSFODNN7EXAMPLE''',
+  '''user:password@''',
+  '''postgres:postgres@''',
+  '''changeme''',
+  '''<your[_-].*?>''',
+]
+
+# Stopwords reinforce the placeholder intent for the generic high-entropy rules.
+stopwords = [
+  "example",
+  "placeholder",
+  "dummy",
+  "sample",
+  "changeme",
+  "your-",
+  "your_",
+]
