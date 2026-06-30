@@ -21,7 +21,7 @@ detected in the Azimuth working tree or in any blob reachable from any ref
 | Gate | C1 — public-flip secret scan (Azimuth KR-A) |
 | Tool | `scripts/scan_secrets.py` (pure-stdlib, this repo) + gitleaks GitHub Action (CI) |
 | Scan date | 2026-06-30 |
-| Repo | `C:\Users\Michael\Projects\azimuth` |
+| Repo | `~/Projects/azimuth` (mickywin22/azimuth) |
 | Scope | full history (`git rev-list --all --objects`) + working tree (`git ls-files --cached --others --exclude-standard`) |
 | Redaction | enabled — any match is redacted, never printed in clear |
 

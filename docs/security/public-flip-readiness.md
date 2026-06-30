@@ -13,6 +13,8 @@ _Last updated: 2026-06-30 (fleet, Azimuth KR-A)._
 | # | Gate | Owner | Status |
 |---|------|-------|--------|
 | C1 | **Secret scan** — no key in working tree or git history | fleet | ✅ **GREEN** — [scan 2026-06-30](./secret-scan-2026-06-30.md), 543 blobs + 232 files, 0 findings; CI-enforced |
+| C1b | **Private-leakage scan (working tree)** — no owner-private context (home paths, personal email, local hook commands) | fleet | ✅ **GREEN** — `scripts/scan_private_leakage.py --worktree`, **0 HARD findings**; CI-enforced. Removed `.claude/settings.local.json` (local hook paths) + `.claude/dependency-cooldown-policy.md` (HemySphere-internal scaffold doctrine) from the publishable tree + gitignored both |
+| C1c | **Private-leakage scan (git history)** — same, over every reachable blob | **Michael** | ⚠️ **6 HARD findings in history** — the now-removed `.claude/settings.local.json` blobs (this box's absolute hook paths, e.g. `C:\Users\Michael\...lean-ctx.exe`) survive in old commits. **Low severity** (machine paths + a username already public via the LICENSE, *not* credentials), but a public-flip judgement: **(a) accept** as-is, or **(b) scrub** the blobs from history (`git filter-repo`/BFG + force-push) before the flip — a destructive history rewrite, so **Michael/reviewer only**, never autonomous |
 | C2 | **License files present** — code MIT + content CC-BY-4.0 | fleet | ✅ GREEN — `LICENSE` + `LICENSE-CONTENT.md` on `main` |
 | C3 | **Source guardrail green** — every surfaced source licensed + credited | fleet | ✅ GREEN — `scripts/check_sources.py` in CI |
 | C4 | **Daily ingest healthy** — GH-Actions L1 pull exits 0 | fleet | ✅ GREEN — 22 written / 0 errored after the 06-25 de-surface fix |
@@ -21,9 +23,29 @@ _Last updated: 2026-06-30 (fleet, Azimuth KR-A)._
 | C7 | **prediction-markets editorial line** — confirm it stays HELD (or define how it's briefed) | **Michael** | ⏳ PENDING — IQ #915 (does not block flip; held source is `surfaced:false` for L2) |
 | 🚩 | **THE FLIP** — make the repo public | **Michael** | ⛔ **HELD** until C5 + C6 green — IQ #898 |
 
-**Bottom line:** the fleet-owned gates (C1–C4) are all GREEN. The flip now waits
-only on Michael's two ~15-min spot-reviews (C5 #888, C6 #937). Nothing technical
-blocks it.
+**Bottom line:** the fleet-owned gates (C1–C4, C1b) are all GREEN — the
+**publishable working tree is clean** of both credentials and owner-private
+context. The flip now waits on Michael's two ~15-min spot-reviews (C5 #888,
+C6 #937) plus one one-line call on C1c (accept vs scrub the history home-paths).
+Nothing fleet-actionable blocks it.
+
+### Advisory (does NOT block the flip — a Michael judgement call)
+
+The private-leakage scan also surfaces **23 advisory findings** — internal
+HemySphere **IQ ticket numbers** (`IQ #371`, `#429`, `#915`, …) and a couple of
+internal process markers (`Strategic Architect`, `HemySphere Sprint`) cited as
+provenance across the public-facing docs (`README.md`, `docs/spec.md`,
+`docs/plan.md`, `LICENSE`, `CREDITS.md`, `sources/registry.json`,
+`synthesis/azimuth-curator.md`). These are **not owner-private data** — they
+expose nothing sensitive, only that a private ticketing system exists — so they
+do not HARD-block. The flip decision can choose either way:
+- **Keep** — they read as an honest build-provenance trail (the "build-in-public"
+  posture azimuth is partly for); or
+- **Scrub** — run `python scripts/scan_private_leakage.py --worktree` to list
+  them, then replace each `IQ #NNN` with a neutral phrase before the flip.
+
+Run `python scripts/scan_private_leakage.py --strict` to treat the advisory set
+as blocking (i.e. enforce a full scrub) if that is the chosen posture.
 
 ## The flip, when Michael says go
 
@@ -47,10 +69,12 @@ Then the queued **Career-Promo launch post** (IQ #890) can ride the flip.
 
 ## After the flip — the gate stays live
 
-`.github/workflows/secret-scan.yml` runs on every push / PR to `main` (gitleaks
-over full history + the stdlib scanner). A secret committed after the flip — even
-one reverted in the next commit — trips the gate and fails the build, so the
-"clean history" guarantee does not decay once the repo is public.
+`.github/workflows/secret-scan.yml` runs on every push / PR to `main` — gitleaks
+over full history + the stdlib secret scanner (C1) **and** the private-leakage
+scanner (C1b). A secret OR an owner-private path/email/hook command committed
+after the flip — even one reverted in the next commit — trips the gate and fails
+the build, so the "clean surface" guarantee does not decay once the repo is
+public.
 
 ---
 *Owned by the Azimuth public-flip gate (KR-A). C1 detail:
