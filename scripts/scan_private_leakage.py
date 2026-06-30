@@ -123,6 +123,7 @@ ALL_RULES: list[Rule] = HARD_RULES + ADVISORY_RULES
 ALLOW_PATH_SUFFIXES: tuple[str, ...] = (
     "scan_private_leakage.py",
     "tests/unit/test_scan_private_leakage.py",
+    "tests/integration/test_history_dangling_blob.py",
     "docs/security/public-flip-readiness.md",
     "scripts/scrub-history.sh",
 )
@@ -185,41 +186,73 @@ def _git(args: list[str]) -> str:
     return res.stdout
 
 
-def _git_bytes(args: list[str]) -> bytes:
-    res = subprocess.run(["git", *args], capture_output=True)
-    if res.returncode != 0:
-        raise RuntimeError(f"git {' '.join(args)} failed")
-    return res.stdout
+def _blob_path_labels() -> dict[str, str]:
+    """Best-effort sha -> a representative path, for nicer finding labels.
+
+    Cosmetic only: a dangling blob has no path here and is still scanned. If
+    rev-list fails we proceed with empty labels rather than abort the gate.
+    """
+    labels: dict[str, str] = {}
+    try:
+        out = _git(["rev-list", "--all", "--objects"])
+    except RuntimeError:
+        return labels
+    for ln in out.splitlines():
+        parts = ln.split(" ", 1)
+        if len(parts) == 2:
+            labels.setdefault(parts[0], parts[1])
+    return labels
 
 
 def scan_history() -> tuple[list[Finding], int]:
-    """Scan every unique blob reachable from any ref. Returns (findings, blobs)."""
-    out = _git(["rev-list", "--all", "--objects"])
-    blob_paths: dict[str, str] = {}
-    for ln in out.splitlines():
-        parts = ln.split(" ", 1)
-        if len(parts) != 2:
-            continue
-        sha, path = parts
-        blob_paths.setdefault(sha, path)
+    """Scan every blob in the object database — reachable or not — for owner-private data.
+
+    Mirrors the C1 secret gate's single streamed ``cat-file --batch-all-objects``
+    pass: ONE git child instead of ~2 spawns per blob. The old ``rev-list`` +
+    per-blob ``cat-file`` form spawned ~2N git processes (≈1200 here) and was slow
+    enough on Windows that running the C1c history check inline (e.g. from the flip
+    aggregator) was impractical. ``--batch-all-objects`` also reaches UNREACHABLE
+    blobs, so owner-private content hidden in a dangling/orphaned object can no
+    longer slip the privacy gate — closing the exact coverage gap the secret gate
+    (``scan_secrets.py``) already covers. Returns (findings, blobs_scanned).
+    """
+    blob_paths = _blob_path_labels()
+    res = subprocess.run(
+        ["git", "cat-file", "--batch-all-objects", "--batch", "--buffer"],
+        capture_output=True,
+    )
+    if res.returncode != 0:
+        raise RuntimeError(
+            f"git cat-file --batch failed: {res.stderr.decode('utf-8', 'replace').strip()}"
+        )
+    data = res.stdout
     findings: list[Finding] = []
     scanned = 0
-    for sha, path in blob_paths.items():
-        try:
-            otype = _git(["cat-file", "-t", sha]).strip()
-        except RuntimeError:
+    i, n = 0, len(data)
+    while i < n:
+        nl = data.find(b"\n", i)
+        if nl == -1:
+            break
+        header = data[i:nl].decode("utf-8", "replace")
+        i = nl + 1
+        parts = header.split(" ")
+        # header is "<oid> <type> <size>"; a missing object is "<oid> missing".
+        if len(parts) < 3:
             continue
+        oid, otype = parts[0], parts[1]
+        try:
+            size = int(parts[2])
+        except ValueError:
+            continue
+        body = data[i : i + size]
+        i += size + 1  # advance past the body and its trailing LF
         if otype != "blob":
             continue
-        try:
-            raw = _git_bytes(["cat-file", "blob", sha])
-        except RuntimeError:
+        if b"\x00" in body[:8192]:  # binary blob, skip
             continue
-        if b"\x00" in raw[:8192]:
-            continue
-        text = raw.decode("utf-8", errors="replace")
+        text = body.decode("utf-8", errors="replace")
         scanned += 1
-        findings.extend(_scan_text(text, f"history@{sha[:10]}", path))
+        findings.extend(_scan_text(text, f"history@{oid[:10]}", blob_paths.get(oid, "")))
     return findings, scanned
 
 
