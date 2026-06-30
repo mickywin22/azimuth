@@ -6,15 +6,15 @@
 > repo public. This page tracks every condition that must be GREEN first, so the
 > flip is a one-glance decision, not a re-investigation.
 
-_Last updated: 2026-06-30 (fleet, Azimuth KR-A)._
+_Last updated: 2026-06-30 (fleet, Azimuth KR-A) — re-ran the full secret + private-leakage gate over history. Fixed a worktree-HARD regression: the `scripts/scrub-history.sh` helper tripped the privacy scanner on the very `/HemySphere/` path it exists to remove. Now allowlisted as tooling-docs (like the scanner + this readiness page), with a unit test pinning it. Working tree is GREEN again._
 
 ## Verdict at a glance
 
 | # | Gate | Owner | Status |
 |---|------|-------|--------|
-| C1 | **Secret scan** — no key in working tree or git history | fleet | ✅ **GREEN** — [scan 2026-06-30](./secret-scan-2026-06-30.md), 543 blobs + 232 files, 0 findings; CI-enforced |
-| C1b | **Private-leakage scan (working tree)** — no owner-private context (home paths, personal email, local hook commands) | fleet | ✅ **GREEN** — `scripts/scan_private_leakage.py --worktree`, **0 HARD findings**; CI-enforced. Removed `.claude/settings.local.json` (local hook paths) + `.claude/dependency-cooldown-policy.md` (HemySphere-internal scaffold doctrine) from the publishable tree + gitignored both |
-| C1c | **Private-leakage scan (git history)** — same, over every reachable blob | **Michael** | ⚠️ **6 HARD findings in history** — the now-removed `.claude/settings.local.json` blobs (this box's absolute hook paths, e.g. `C:\Users\Michael\...lean-ctx.exe`) survive in old commits. **Low severity** (machine paths + a username already public via the LICENSE, *not* credentials), but a public-flip judgement: **(a) accept** as-is, or **(b) scrub** the blobs from history (`git filter-repo`/BFG + force-push) before the flip — a destructive history rewrite, so **Michael/reviewer only**, never autonomous |
+| C1 | **Secret scan** — no key in working tree or git history | fleet | ✅ **GREEN** — `scripts/scan_secrets.py` over full history + working tree: **576 blobs + 242 files scanned, 0 findings, exit 0** (re-run 2026-06-30); gitleaks + stdlib both CI-enforced via `.github/workflows/secret-scan.yml`. Evidence inlined under [C1 detail](#c1-detail--secret-scan-evidence) below |
+| C1b | **Private-leakage scan (working tree)** — no owner-private context (home paths, personal email, local hook commands) | fleet | ✅ **GREEN** — `scripts/scan_private_leakage.py --worktree`, **0 HARD findings** (241 files, re-verified 2026-06-30); CI-enforced. Removed `.claude/settings.local.json` (local hook paths) + `.claude/dependency-cooldown-policy.md` (HemySphere-internal scaffold doctrine) from the publishable tree + gitignored both. The `scrub-history.sh` helper is allowlisted (it documents the paths it removes — naming them is its job, not a leak) |
+| C1c | **Private-leakage scan (git history)** — same, over every reachable blob | **Michael** | ⚠️ **6 HARD findings in history**, all owner-private *paths* (machine layout + vault path — **not** credentials, and the username is already public via the LICENSE). Spread across **four** now-removed-from-HEAD paths, not one: (1) `.claude/settings.local.json` (×3 — local hook paths) · (2) `docs/security/secret-scan-2026-06-30.md` (old blob, `C:\Users\…` — current HEAD copy is clean) · (3) `docs/security/gitleaks-2026-06-24.md` (`C:\Users\…`) · (4) `docs/coolify-deploy.md` (`/HemySphere/`). Public-flip judgement: **(a) accept** as-is, or **(b) scrub** — `bash scripts/scrub-history.sh execute` then force-push. The scrub now purges **all four** paths (verify-proven 0 HARD on a clone) — destructive history rewrite + force-push, so **Michael/reviewer only**, never autonomous |
 | C2 | **License files present** — code MIT + content CC-BY-4.0 | fleet | ✅ GREEN — `LICENSE` + `LICENSE-CONTENT.md` on `main` |
 | C3 | **Source guardrail green** — every surfaced source licensed + credited | fleet | ✅ GREEN — `scripts/check_sources.py` in CI |
 | C4 | **Daily ingest healthy** — GH-Actions L1 pull exits 0 | fleet | ✅ GREEN — 22 written / 0 errored after the 06-25 de-surface fix |
@@ -76,6 +76,43 @@ after the flip — even one reverted in the next commit — trips the gate and f
 the build, so the "clean surface" guarantee does not decay once the repo is
 public.
 
+## C1 detail — secret-scan evidence
+
+> **HARD GATE.** The repo must contain **no** secret — in the working tree **or
+> anywhere in reachable git history** — before it goes public. A key committed
+> once and later removed still lives in history and still leaks. Any finding
+> **BLOCKS** the flip.
+
+**Verdict: ✅ CLEAN — gate PASSED.** No API keys, tokens, private keys, webhooks,
+or credentialed DB URLs in the working tree or any blob reachable from any ref.
+
+| Pass | Scope | Scanned | Findings | Exit |
+|------|-------|---------|----------|------|
+| Full git history | every reachable blob, all refs | **576 blobs** | **0** | 0 |
+| Working tree | tracked + untracked-not-ignored | **242 files** | **0** | 0 |
+
+`python scripts/scan_secrets.py --report` → `0 findings`, exit `0` (re-run
+2026-06-30). Tool: `scripts/scan_secrets.py` (pure-stdlib) + gitleaks GitHub
+Action, both enforced on every push/PR by `.github/workflows/secret-scan.yml`.
+
+**What the gate looks for.** Anthropic / OpenAI keys · AWS access keys · GitHub
+PATs (classic + fine-grained) · Google API keys · PEM / OpenSSH private-key
+blocks · Slack webhooks + tokens · JWTs (incl. Supabase `service_role`) ·
+database URLs with embedded `user:password@` · high-entropy values assigned to
+secret-named variables. Known placeholders (`sk-ant-...`, `your-anon-key`, the
+canonical AWS docs key) are allowlisted so the gate fails only on a **real**
+secret. Detection + allowlist are regression-tested in
+`tests/unit/test_scan_secrets.py`.
+
+**Reproduce.**
+```bash
+python scripts/scan_secrets.py            # history + working tree
+python scripts/scan_secrets.py --report   # markdown verdict
+gitleaks git . --redact -c .gitleaks.toml # matches CI (if binary on PATH)
+```
+
 ---
-*Owned by the Azimuth public-flip gate (KR-A). C1 detail:
-[`secret-scan-2026-06-30.md`](./secret-scan-2026-06-30.md).*
+*Owned by the Azimuth public-flip gate (KR-A). C1 secret-scan + C1b/C1c
+private-leakage evidence is consolidated on this page (the previously separate
+dated reports were folded in here so the history-scrub can purge their old blobs
+cleanly). History scrub: `scripts/scrub-history.sh`.*

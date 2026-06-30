@@ -113,6 +113,14 @@ def test_scanner_own_file_is_allowlisted() -> None:
     assert scan._is_allowed("docs/security/public-flip-readiness.md")
 
 
+def test_history_scrub_helper_is_allowlisted() -> None:
+    # scrub-history.sh documents the owner-private paths it *removes* — naming
+    # them is its job, not a leak. Flagging the de-leaking tool would keep C1b
+    # red forever. It must be allowlisted like the scanner + readiness doc.
+    assert scan._is_allowed("scripts/scrub-history.sh")
+    assert scan._scan_text("/HemySphere/ and C:\\Users\\x", "worktree", "scripts/scrub-history.sh") == []
+
+
 # --- main() exit-code contract ----------------------------------------------
 
 
