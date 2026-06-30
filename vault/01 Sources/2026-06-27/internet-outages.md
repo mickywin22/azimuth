@@ -1,4 +1,6 @@
 ---
+type: "L1-Source"
+resource: "https://api.worldmonitor.app/api/infrastructure/v1/list-internet-outages"
 source: "Cloudflare Radar (internet outages & traffic anomalies)"
 source_key: "internet-outages"
 endpoint: "/api/infrastructure/v1/list-internet-outages"

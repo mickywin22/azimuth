@@ -1,4 +1,6 @@
 ---
+type: "L1-Source"
+resource: "https://api.worldmonitor.app/api/climate/v1/get-co2-monitoring"
 source: "NOAA Global Monitoring Laboratory (atmospheric CO2 record)"
 source_key: "co2-monitoring"
 endpoint: "/api/climate/v1/get-co2-monitoring"

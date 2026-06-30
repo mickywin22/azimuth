@@ -1,4 +1,6 @@
 ---
+type: "L1-Source"
+resource: "https://api.worldmonitor.app/api/intelligence/v1/list-satellites"
 source: "CelesTrak TLE element sets (derived from US Space Command public catalog)"
 source_key: "orbital-satellites"
 endpoint: "/api/intelligence/v1/list-satellites"

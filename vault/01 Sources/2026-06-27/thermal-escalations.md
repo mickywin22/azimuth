@@ -1,4 +1,6 @@
 ---
+type: "L1-Source"
+resource: "https://api.worldmonitor.app/api/thermal/v1/list-thermal-escalations"
 source: "NASA FIRMS (VIIRS thermal anomalies, clustered into escalation signals)"
 source_key: "thermal-escalations"
 endpoint: "/api/thermal/v1/list-thermal-escalations"

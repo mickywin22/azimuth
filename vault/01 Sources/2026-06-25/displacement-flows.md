@@ -1,4 +1,6 @@
 ---
+type: "L1-Source"
+resource: "https://api.worldmonitor.app/api/displacement/v1/get-displacement-summary"
 source: "UNHCR Refugee Data + UN OCHA HAPI (refugee / asylum / IDP counts)"
 source_key: "displacement-flows"
 endpoint: "/api/displacement/v1/get-displacement-summary"

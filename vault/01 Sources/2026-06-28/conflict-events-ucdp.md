@@ -1,4 +1,6 @@
 ---
+type: "L1-Source"
+resource: "https://api.worldmonitor.app/api/conflict/v1/list-ucdp-events"
 source: "UCDP (Uppsala Conflict Data Program — Georeferenced Event Dataset)"
 source_key: "conflict-events-ucdp"
 endpoint: "/api/conflict/v1/list-ucdp-events"

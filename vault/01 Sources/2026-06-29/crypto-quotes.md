@@ -1,4 +1,6 @@
 ---
+type: "L1-Source"
+resource: "https://api.worldmonitor.app/api/market/v1/list-crypto-quotes"
 source: "CoinGecko (cryptocurrency spot prices & market data)"
 source_key: "crypto-quotes"
 endpoint: "/api/market/v1/list-crypto-quotes"

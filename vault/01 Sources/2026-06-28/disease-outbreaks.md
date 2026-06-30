@@ -1,4 +1,6 @@
 ---
+type: "L1-Source"
+resource: "https://api.worldmonitor.app/api/health/v1/list-disease-outbreaks"
 source: "WHO Disease Outbreak News + US CDC Health Alert Network"
 source_key: "disease-outbreaks"
 endpoint: "/api/health/v1/list-disease-outbreaks"

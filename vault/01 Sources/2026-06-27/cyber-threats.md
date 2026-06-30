@@ -1,4 +1,6 @@
 ---
+type: "L1-Source"
+resource: "https://api.worldmonitor.app/api/cyber/v1/list-cyber-threats"
 source: "abuse.ch (URLhaus malware URLs + Feodo Tracker C2 indicators)"
 source_key: "cyber-threats"
 endpoint: "/api/cyber/v1/list-cyber-threats"

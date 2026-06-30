@@ -1,4 +1,6 @@
 ---
+type: "L1-Source"
+resource: "https://api.worldmonitor.app/api/maritime/v1/list-navigational-warnings"
 source: "NGA (US National Geospatial-Intelligence Agency) Broadcast/Navigational Warnings"
 source_key: "maritime-navwarnings"
 endpoint: "/api/maritime/v1/list-navigational-warnings"

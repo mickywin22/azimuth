@@ -1,4 +1,6 @@
 ---
+type: "L1-Source"
+resource: "https://api.worldmonitor.app/api/prediction/v1/list-prediction-markets"
 source: "Polymarket public odds"
 source_key: "prediction-markets"
 endpoint: "/api/prediction/v1/list-prediction-markets"

@@ -1,4 +1,6 @@
 ---
+type: "L1-Source"
+resource: "https://api.worldmonitor.app/api/climate/v1/list-climate-anomalies"
 source: "NOAA / NASA reanalysis regional temperature & precipitation anomalies"
 source_key: "climate-anomalies"
 endpoint: "/api/climate/v1/list-climate-anomalies"

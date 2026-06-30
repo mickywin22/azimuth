@@ -1,4 +1,6 @@
 ---
+type: "L1-Source"
+resource: "https://api.worldmonitor.app/api/climate/v1/get-ocean-ice-data"
 source: "NSIDC / NOAA@NSIDC Sea Ice Index (satellite-passive-microwave sea-ice extent)"
 source_key: "sea-ice-extent"
 endpoint: "/api/climate/v1/get-ocean-ice-data"

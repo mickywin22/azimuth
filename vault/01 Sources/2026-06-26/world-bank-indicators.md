@@ -1,4 +1,6 @@
 ---
+type: "L1-Source"
+resource: "https://api.worldmonitor.app/api/economic/v1/list-world-bank-indicators"
 source: "World Bank Open Data (development indicators)"
 source_key: "world-bank-indicators"
 endpoint: "/api/economic/v1/list-world-bank-indicators"

@@ -1,4 +1,6 @@
 ---
+type: "L1-Source"
+resource: "https://api.worldmonitor.app/api/economic/v1/get-crude-inventories"
 source: "U.S. EIA (Energy Information Administration)"
 source_key: "crude-oil-inventories"
 endpoint: "/api/economic/v1/get-crude-inventories"

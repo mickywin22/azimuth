@@ -1,4 +1,6 @@
 ---
+type: "L1-Source"
+resource: "https://api.worldmonitor.app/api/natural/v1/list-natural-events"
 source: "NASA EONET + GDACS (UN-coordinated disaster alerts)"
 source_key: "natural-events"
 endpoint: "/api/natural/v1/list-natural-events"

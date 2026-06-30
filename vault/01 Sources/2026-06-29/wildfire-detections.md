@@ -1,4 +1,6 @@
 ---
+type: "L1-Source"
+resource: "https://api.worldmonitor.app/api/wildfire/v1/list-fire-detections"
 source: "NASA FIRMS (VIIRS active-fire / thermal-anomaly detections)"
 source_key: "wildfire-detections"
 endpoint: "/api/wildfire/v1/list-fire-detections"

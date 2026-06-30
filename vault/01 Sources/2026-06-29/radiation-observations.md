@@ -1,4 +1,6 @@
 ---
+type: "L1-Source"
+resource: "https://api.worldmonitor.app/api/radiation/v1/list-radiation-observations"
 source: "US EPA RadNet + Safecast (ambient radiation measurements)"
 source_key: "radiation-observations"
 endpoint: "/api/radiation/v1/list-radiation-observations"

@@ -1,4 +1,6 @@
 ---
+type: "L1-Source"
+resource: "https://api.worldmonitor.app/api/seismology/v1/list-earthquakes"
 source: "USGS Earthquake Hazards Program"
 source_key: "earthquakes"
 endpoint: "/api/seismology/v1/list-earthquakes"

@@ -1,4 +1,6 @@
 ---
+type: "L1-Source"
+resource: "https://api.worldmonitor.app/api/economic/v1/list-fuel-prices"
 source: "WorldMonitor aggregated fuel-price feed"
 source_key: "fuel-prices"
 endpoint: "/api/economic/v1/list-fuel-prices"
