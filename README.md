@@ -1,5 +1,10 @@
 # azimuth
 
+[![CI](https://github.com/mickywin22/azimuth/actions/workflows/ci.yml/badge.svg)](https://github.com/mickywin22/azimuth/actions/workflows/ci.yml)
+[![Daily ingest](https://github.com/mickywin22/azimuth/actions/workflows/ingest.yml/badge.svg)](https://github.com/mickywin22/azimuth/actions/workflows/ingest.yml)
+[![Code: MIT](https://img.shields.io/badge/code-MIT-blue.svg)](LICENSE)
+[![Content: CC BY 4.0](https://img.shields.io/badge/content-CC%20BY%204.0-lightgrey.svg)](LICENSE-CONTENT.md)
+
 Public demonstrator of the HemySphere L1/L2/L3 vault doctrine, fed by Worldmonitor open-intelligence data.
 
 > **Status — engine live, awaiting public flip.** The pipeline runs end-to-end: a daily
