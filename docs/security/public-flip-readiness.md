@@ -5,8 +5,16 @@
 > public**. The flip itself is a **Michael go-gate** — no automation makes the
 > repo public. This page tracks every condition that must be GREEN first, so the
 > flip is a one-glance decision, not a re-investigation.
+>
+> **One command re-confirms every fleet gate:**
+> `python scripts/check_flip_readiness.py` runs C1 + C1b + C2 + C3 + C4 in one
+> pass, prints the go-table, and **exits 0 only if every fleet-owned gate is
+> GREEN** (add `--history` to also see the C1c history finding, `--json` for a
+> machine verdict). It is wired into CI (`secret-scan.yml` → `flip-readiness`
+> job) so the table below cannot silently rot, and it is step 1 of the flip
+> runbook — run it on the exact commit being published.
 
-_Last updated: 2026-06-30 (fleet, Azimuth KR-A) — **hardened + re-ran the secret-scan HARD gate**. The history scan spawned two `git cat-file` per blob (~1240 processes) and **timed out before it could ever return CLEAN** on Windows / a fleet box; rewrote it to a single `git cat-file --batch-all-objects` pass (~30s, finishes). That pass also now covers **UNREACHABLE / dangling blobs** the old reachable-only `rev-list` walk skipped, so a secret hidden in a removed-but-not-scrubbed blob can no longer slip the gate. Re-run over the wider object set: **612 blobs + 241 files, 0 findings, exit 0** — a strictly stronger CLEAN than the prior 576-blob run. Two regression tests added (dangling-blob catch + clean-repo pass). Earlier same-day: fixed a worktree-HARD privacy regression where `scripts/scrub-history.sh` tripped the privacy scanner on the very `/HemySphere/` path it removes; now allowlisted as tooling-docs with a pinning test. Working tree GREEN._
+_Last updated: 2026-06-30 (fleet, Azimuth KR-A) — **shipped the one-command go/no-go aggregator** `scripts/check_flip_readiness.py`: runs all five fleet gates (C1 secret · C1b private-worktree · C2 license · C3 source-guardrail · C4 ingest-liveness) in one pass, prints the go-table, exits 0 only if every fleet gate is GREEN; `--history` adds the C1c history finding, `--json` emits a machine verdict. Wired into CI as the `flip-readiness` job in `secret-scan.yml` and made step 1 of the flip runbook. Live run today: **all 5 fleet gates GREEN, exit 0** — flip waits only on Michael (C5 #888, C6 #937, the C1c call). 7 regression tests (238 unit suite green), ruff/mypy strict clean. Earlier same-day: **hardened + re-ran the secret-scan HARD gate**. The history scan spawned two `git cat-file` per blob (~1240 processes) and **timed out before it could ever return CLEAN** on Windows / a fleet box; rewrote it to a single `git cat-file --batch-all-objects` pass (~30s, finishes). That pass also now covers **UNREACHABLE / dangling blobs** the old reachable-only `rev-list` walk skipped, so a secret hidden in a removed-but-not-scrubbed blob can no longer slip the gate. Re-run over the wider object set: **612 blobs + 241 files, 0 findings, exit 0** — a strictly stronger CLEAN than the prior 576-blob run. Two regression tests added (dangling-blob catch + clean-repo pass). Earlier same-day: fixed a worktree-HARD privacy regression where `scripts/scrub-history.sh` tripped the privacy scanner on the very `/HemySphere/` path it removes; now allowlisted as tooling-docs with a pinning test. Working tree GREEN._
 
 ## Verdict at a glance
 
@@ -54,9 +62,9 @@ cheap Tier-1 OKF conformance; wikilink migration deferred; Hyper-Extract NO-GO).
 Once C5 + C6 are signed off:
 
 ```bash
-# 1. (re-confirm the gate is still clean on the exact commit being published)
+# 1. (re-confirm EVERY fleet gate is still green on the exact commit being published)
 cd ~/Projects/azimuth && git checkout main && git pull
-python scripts/scan_secrets.py            # expect: CLEAN, exit 0
+python scripts/check_flip_readiness.py    # expect: all fleet gates GREEN, exit 0
 
 # 2. flip visibility
 gh repo edit mickywin22/azimuth --visibility public --accept-visibility-change-consequences
