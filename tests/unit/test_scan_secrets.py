@@ -12,6 +12,7 @@ regression test.
 from __future__ import annotations
 
 import importlib.util
+import subprocess
 import sys
 from pathlib import Path
 
@@ -103,3 +104,56 @@ def test_strong_rules_still_fire_in_docs() -> None:
     # a REAL key prefix in a doc is still a leak — only the generic rule is muted.
     key = "sk-ant-api03-" + "AbCdEf0123456789" * 2 + "ZZ"
     assert "anthropic-api-key" in _rules(key, path="docs/leak.md")
+
+
+# --- history scan (the batched gate must still see UNREACHABLE blobs) --------
+# The flip gate scans `git cat-file --batch-all-objects`, not just the current
+# tree, precisely so a secret that was committed and then "removed" in a later
+# commit (leaving a dangling/unreachable blob) cannot slip the gate. These build
+# a throwaway repo so the guarantee is regression-locked, not just asserted.
+
+
+def _run_git(cwd: Path, *args: str) -> None:
+    subprocess.run(["git", *args], cwd=cwd, check=True, capture_output=True)
+
+
+def _make_repo(tmp_path: Path) -> Path:
+    repo = tmp_path / "repo"
+    repo.mkdir()
+    _run_git(repo, "init", "-q")
+    _run_git(repo, "config", "user.email", "t@t.test")
+    _run_git(repo, "config", "user.name", "t")
+    return repo
+
+
+def test_history_scan_catches_secret_removed_in_later_commit(tmp_path, monkeypatch) -> None:
+    repo = _make_repo(tmp_path)
+    leak = "sk-ant-api03-" + "AbCdEf0123456789" * 2 + "ZZ"
+    secret_file = repo / "leaked.py"
+    secret_file.write_text(f'KEY = "{leak}"\n')
+    _run_git(repo, "add", "leaked.py")
+    _run_git(repo, "commit", "-q", "-m", "oops add secret")
+    # "fix" it by deleting the file in a later commit — blob is now unreachable
+    # from the tree but still lives in the object database.
+    secret_file.unlink()
+    _run_git(repo, "add", "-A")
+    _run_git(repo, "commit", "-q", "-m", "remove secret")
+
+    monkeypatch.chdir(repo)
+    findings, scanned = scan.scan_history()
+    assert scanned >= 1
+    assert any(f.rule == "anthropic-api-key" for f in findings), (
+        "history scan must catch a secret left in a dangling blob"
+    )
+
+
+def test_history_scan_clean_repo_is_clean(tmp_path, monkeypatch) -> None:
+    repo = _make_repo(tmp_path)
+    (repo / "ok.py").write_text("VALUE = 'no secret here'\n")
+    _run_git(repo, "add", "-A")
+    _run_git(repo, "commit", "-q", "-m", "clean")
+
+    monkeypatch.chdir(repo)
+    findings, scanned = scan.scan_history()
+    assert scanned >= 1
+    assert findings == []

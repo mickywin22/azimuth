@@ -220,43 +220,70 @@ def _git(args: list[str]) -> str:
     return res.stdout
 
 
-def _git_bytes(args: list[str]) -> bytes:
-    res = subprocess.run(["git", *args], capture_output=True)
-    if res.returncode != 0:
-        raise RuntimeError(f"git {' '.join(args)} failed")
-    return res.stdout
+def _blob_path_labels() -> dict[str, str]:
+    """Best-effort sha -> a representative path, for nicer finding labels.
+
+    Cosmetic only: a dangling blob has no path here and is still scanned. If
+    rev-list fails we proceed with empty labels rather than abort the gate.
+    """
+    labels: dict[str, str] = {}
+    try:
+        out = _git(["rev-list", "--all", "--objects"])
+    except RuntimeError:
+        return labels
+    for ln in out.splitlines():
+        parts = ln.split(" ", 1)
+        if len(parts) == 2:
+            labels.setdefault(parts[0], parts[1])
+    return labels
 
 
 def scan_history() -> tuple[list[Finding], int]:
-    """Scan every unique blob reachable from any ref. Returns (findings, blobs)."""
-    out = _git(["rev-list", "--all", "--objects"])
-    # lines: "<sha> [path]" — only blobs have a path; commits/trees we skip.
-    blob_paths: dict[str, str] = {}
-    for ln in out.splitlines():
-        parts = ln.split(" ", 1)
-        if len(parts) != 2:
-            continue
-        sha, path = parts
-        blob_paths.setdefault(sha, path)
+    """Scan every blob in the object database — reachable or not — for secrets.
+
+    Uses a SINGLE `git cat-file --batch-all-objects --batch` pass instead of two
+    `cat-file` spawns per blob. The old per-blob form spawned ~2N git processes
+    (1240 for this repo) and timed out the gate on Windows before it could ever
+    return CLEAN. One streamed pass keeps the HARD public-flip gate fast enough
+    to actually finish in CI and on a fleet box. `--batch-all-objects` also
+    covers UNREACHABLE blobs, so a secret hidden in a dangling/orphaned object
+    can't slip the gate. Returns (findings, blobs_scanned).
+    """
+    blob_paths = _blob_path_labels()
+    res = subprocess.run(
+        ["git", "cat-file", "--batch-all-objects", "--batch", "--buffer"],
+        capture_output=True,
+    )
+    if res.returncode != 0:
+        raise RuntimeError(f"git cat-file --batch failed: {res.stderr.decode('utf-8', 'replace').strip()}")
+    data = res.stdout
     findings: list[Finding] = []
     scanned = 0
-    for sha, path in blob_paths.items():
-        # type-check: only scan blobs, skip trees
-        try:
-            otype = _git(["cat-file", "-t", sha]).strip()
-        except RuntimeError:
+    i, n = 0, len(data)
+    while i < n:
+        nl = data.find(b"\n", i)
+        if nl == -1:
+            break
+        header = data[i:nl].decode("utf-8", "replace")
+        i = nl + 1
+        parts = header.split(" ")
+        # header is "<oid> <type> <size>"; a missing object is "<oid> missing".
+        if len(parts) < 3:
             continue
+        oid, otype = parts[0], parts[1]
+        try:
+            size = int(parts[2])
+        except ValueError:
+            continue
+        body = data[i : i + size]
+        i += size + 1  # advance past the body and its trailing LF
         if otype != "blob":
             continue
-        try:
-            raw = _git_bytes(["cat-file", "blob", sha])
-        except RuntimeError:
+        if b"\x00" in body[:8192]:  # binary blob, skip
             continue
-        if b"\x00" in raw[:8192]:  # binary blob, skip
-            continue
-        text = raw.decode("utf-8", errors="replace")
+        text = body.decode("utf-8", errors="replace")
         scanned += 1
-        findings.extend(_scan_text(text, f"history@{sha[:10]}", path))
+        findings.extend(_scan_text(text, f"history@{oid[:10]}", blob_paths.get(oid, "")))
     return findings, scanned
 
 

@@ -6,13 +6,13 @@
 > repo public. This page tracks every condition that must be GREEN first, so the
 > flip is a one-glance decision, not a re-investigation.
 
-_Last updated: 2026-06-30 (fleet, Azimuth KR-A) — re-ran the full secret + private-leakage gate over history. Fixed a worktree-HARD regression: the `scripts/scrub-history.sh` helper tripped the privacy scanner on the very `/HemySphere/` path it exists to remove. Now allowlisted as tooling-docs (like the scanner + this readiness page), with a unit test pinning it. Working tree is GREEN again._
+_Last updated: 2026-06-30 (fleet, Azimuth KR-A) — **hardened + re-ran the secret-scan HARD gate**. The history scan spawned two `git cat-file` per blob (~1240 processes) and **timed out before it could ever return CLEAN** on Windows / a fleet box; rewrote it to a single `git cat-file --batch-all-objects` pass (~30s, finishes). That pass also now covers **UNREACHABLE / dangling blobs** the old reachable-only `rev-list` walk skipped, so a secret hidden in a removed-but-not-scrubbed blob can no longer slip the gate. Re-run over the wider object set: **612 blobs + 241 files, 0 findings, exit 0** — a strictly stronger CLEAN than the prior 576-blob run. Two regression tests added (dangling-blob catch + clean-repo pass). Earlier same-day: fixed a worktree-HARD privacy regression where `scripts/scrub-history.sh` tripped the privacy scanner on the very `/HemySphere/` path it removes; now allowlisted as tooling-docs with a pinning test. Working tree GREEN._
 
 ## Verdict at a glance
 
 | # | Gate | Owner | Status |
 |---|------|-------|--------|
-| C1 | **Secret scan** — no key in working tree or git history | fleet | ✅ **GREEN** — `scripts/scan_secrets.py` over full history + working tree: **576 blobs + 242 files scanned, 0 findings, exit 0** (re-run 2026-06-30); gitleaks + stdlib both CI-enforced via `.github/workflows/secret-scan.yml`. Evidence inlined under [C1 detail](#c1-detail--secret-scan-evidence) below |
+| C1 | **Secret scan** — no key in working tree or git history | fleet | ✅ **GREEN** — `scripts/scan_secrets.py` over full history + working tree: **612 blobs + 241 files scanned, 0 findings, exit 0** (re-run 2026-06-30, now covering unreachable/dangling blobs too); gitleaks + stdlib both CI-enforced via `.github/workflows/secret-scan.yml`. Evidence inlined under [C1 detail](#c1-detail--secret-scan-evidence) below |
 | C1b | **Private-leakage scan (working tree)** — no owner-private context (home paths, personal email, local hook commands) | fleet | ✅ **GREEN** — `scripts/scan_private_leakage.py --worktree`, **0 HARD findings** (241 files, re-verified 2026-06-30); CI-enforced. Removed `.claude/settings.local.json` (local hook paths) + `.claude/dependency-cooldown-policy.md` (HemySphere-internal scaffold doctrine) from the publishable tree + gitignored both. The `scrub-history.sh` helper is allowlisted (it documents the paths it removes — naming them is its job, not a leak) |
 | C1c | **Private-leakage scan (git history)** — same, over every reachable blob | **Michael** | ⚠️ **6 HARD findings in history**, all owner-private *paths* (machine layout + vault path — **not** credentials, and the username is already public via the LICENSE). Spread across **four** now-removed-from-HEAD paths, not one: (1) `.claude/settings.local.json` (×3 — local hook paths) · (2) `docs/security/secret-scan-2026-06-30.md` (old blob, `C:\Users\…` — current HEAD copy is clean) · (3) `docs/security/gitleaks-2026-06-24.md` (`C:\Users\…`) · (4) `docs/coolify-deploy.md` (`/HemySphere/`). Public-flip judgement: **(a) accept** as-is, or **(b) scrub** — `bash scripts/scrub-history.sh execute` then force-push. The scrub now purges **all four** paths (verify-proven 0 HARD on a clone) — destructive history rewrite + force-push, so **Michael/reviewer only**, never autonomous |
 | C2 | **License files present** — code MIT + content CC-BY-4.0 | fleet | ✅ GREEN — `LICENSE` + `LICENSE-CONTENT.md` on `main` |
@@ -88,12 +88,22 @@ or credentialed DB URLs in the working tree or any blob reachable from any ref.
 
 | Pass | Scope | Scanned | Findings | Exit |
 |------|-------|---------|----------|------|
-| Full git history | every reachable blob, all refs | **576 blobs** | **0** | 0 |
-| Working tree | tracked + untracked-not-ignored | **242 files** | **0** | 0 |
+| Full git history | **every blob in the object DB — reachable AND dangling**, via `git cat-file --batch-all-objects` | **612 blobs** | **0** | 0 |
+| Working tree | tracked + untracked-not-ignored | **241 files** | **0** | 0 |
 
 `python scripts/scan_secrets.py --report` → `0 findings`, exit `0` (re-run
 2026-06-30). Tool: `scripts/scan_secrets.py` (pure-stdlib) + gitleaks GitHub
 Action, both enforced on every push/PR by `.github/workflows/secret-scan.yml`.
+
+> **Why 612 now, not 576.** The history scan was rewritten from a per-blob
+> `git cat-file` loop (two subprocess spawns × every blob → ~1240 processes,
+> which **timed out** the gate on Windows / a fleet worker before it could
+> return) to a single streamed `git cat-file --batch-all-objects` pass. The new
+> object set includes **unreachable / dangling blobs** (the +36) — exactly the
+> objects a "removed in a later commit" secret would hide in — so the strongest
+> reading of CLEAN now holds: no credential exists anywhere in the object
+> database, not just along reachable history. Regression-locked by
+> `test_history_scan_catches_secret_removed_in_later_commit`.
 
 **What the gate looks for.** Anthropic / OpenAI keys · AWS access keys · GitHub
 PATs (classic + fine-grained) · Google API keys · PEM / OpenSSH private-key
