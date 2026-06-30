@@ -12,6 +12,19 @@ padding:.25rem .5rem;font:inherit;font-size:.85rem}
 padding:.3rem .8rem;font:inherit;font-size:.82rem;font-weight:600;cursor:pointer}
 .gquery button#qclear{background:transparent;color:#8a97a8;border:1px solid #2a3a4d}
 .gquery .qout{flex-basis:100%;margin:.35rem 0 0;font-size:.88rem;color:#e7edf5;min-height:1.2em}
+#gwrap{position:relative;margin:.4rem 0}
+#g{width:100%;height:min(68vh,600px);display:block;background:#0c1118;
+border:1px solid #1c2733;border-radius:10px;cursor:grab;touch-action:none}
+#g:active{cursor:grabbing}
+#gtip{position:absolute;display:none;pointer-events:none;z-index:5;max-width:240px;
+background:rgba(12,19,32,.94);border:1px solid #2a3a4d;border-radius:8px;padding:.4rem .55rem;
+font-size:.8rem;line-height:1.35;color:#e7edf5;box-shadow:0 4px 14px rgba(0,0,0,.5)}
+#gtip strong{color:#8fd0ff}
+.gctrls{position:absolute;right:10px;top:10px;display:flex;flex-direction:column;gap:.3rem;z-index:5}
+.gctrls button{width:30px;height:30px;border:1px solid #2a3a4d;background:rgba(20,26,35,.8);
+color:#e7edf5;border-radius:7px;font:inherit;font-size:1rem;line-height:1;cursor:pointer}
+.gctrls button:hover{background:#1d2735}
+.ghint{font-size:.78rem;color:#8a97a8;margin:.3rem 0 0}
 </style>
 </head><body>
 <header class="nav">
@@ -35,7 +48,8 @@ from. Around them sits the <strong>entity layer</strong> scanned out of the real
 (triangles) give each channel its texture, and <strong>shared regions</strong> (gold
 diamonds) bridge channels &mdash; a place the live data records under <em>more than one</em>
 theme, joined by <strong>gold edges</strong>. That cross-channel link is the part a static
-format cannot produce. Drag a node; click it to open its page. Held themes never appear.
+format cannot produce. Hover a node to spotlight its links, scroll to zoom and drag to pan;
+click a node to open its page. Held themes never appear.
 <strong>Pick two channels below and Trace</strong> to ask the graph how they connect &mdash;
 the queryable half a static bundle cannot answer.</p>
 <div id="legend" class="legend"></div>
@@ -46,7 +60,17 @@ the queryable half a static bundle cannot answer.</p>
   <button id="qclear" type="button">Clear</button>
   <p id="qout" class="qout"></p>
 </div>
-<canvas id="g" width="820" height="600"></canvas>
+<div id="gwrap">
+  <canvas id="g"></canvas>
+  <div class="gctrls">
+    <button id="zin" type="button" title="Zoom in" aria-label="Zoom in">+</button>
+    <button id="zout" type="button" title="Zoom out" aria-label="Zoom out">&minus;</button>
+    <button id="zreset" type="button" title="Reset view" aria-label="Reset view">&#x2316;</button>
+  </div>
+  <div id="gtip"></div>
+</div>
+<p class="ghint">Scroll to zoom &middot; drag the background to pan &middot; hover a node to
+spotlight its links &middot; drag a node to reposition &middot; click to open its page.</p>
 <noscript><p>Enable JavaScript to view the interactive graph, or browse the
 <a href="index.html">briefs and sources</a> directly.</p></noscript>
 <div id="glist"></div>
@@ -98,15 +122,35 @@ document.getElementById("glist").innerHTML =
   (events ? "<p><strong>Largest live earthquakes</strong></p><ul>" + events + "</ul>" : "") +
   (bridges ? "<p><strong>Cross-theme bridges</strong></p><ul>" + bridges + "</ul>" : "") +
   "</details>";
-// --- force layout ---------------------------------------------------------
-const W = cv.width, H = cv.height;
+// --- force layout (stable logical world) + responsive hi-DPI view ----------
+// Physics run in a fixed logical world (LW x LH) so the layout stays deterministic;
+// a separate view transform (scale + pan) maps world -> screen, redrawn crisply at the
+// device pixel ratio. That split is what upgrades the old fixed 820x600 bitmap into a
+// zoomable / pannable / retina-sharp / responsive graph.
+const LW = 820, LH = 600;
+let DPR = 1, CSSW = LW, CSSH = LH;
+const view = { s: 1, tx: 0, ty: 0 };   // screen_px = world*s + t  (CSS px)
+let userView = false;                   // true once the user zooms/pans -> stop auto-fit
+function fitView() {
+  const pad = 26;
+  const s = Math.min((CSSW - 2*pad)/LW, (CSSH - 2*pad)/LH) || 1;
+  view.s = s; view.tx = (CSSW - LW*s)/2; view.ty = (CSSH - LH*s)/2;
+}
+function resize() {
+  DPR = Math.max(1, Math.min(window.devicePixelRatio || 1, 2.5));
+  const rect = cv.getBoundingClientRect();
+  CSSW = Math.max(1, rect.width); CSSH = Math.max(1, rect.height);
+  cv.width = Math.round(CSSW*DPR); cv.height = Math.round(CSSH*DPR);
+  if (!userView) fitView();
+}
+const toWorld = (mx, my) => [ (mx - view.tx)/view.s, (my - view.ty)/view.s ];
 const radiusOf = n =>
   n.kind === "concept" ? 16 :
   n.kind === "brief"   ? 13 :
   n.kind === "entity"  ? (n.entity_kind === "event"
                            ? Math.min(12, 6 + ((n.magnitude || 5) - 4) * 1.6) : 9) : 7;
 const N = GRAPH.nodes.map((n, i) => ({
-  ...n, x: W/2 + Math.cos(i)*220 + (i%5)*7, y: H/2 + Math.sin(i*1.7)*170 + (i%3)*5,
+  ...n, x: LW/2 + Math.cos(i)*220 + (i%5)*7, y: LH/2 + Math.sin(i*1.7)*170 + (i%3)*5,
   vx: 0, vy: 0, r: radiusOf(n)
 }));
 const idx = Object.fromEntries(N.map(n => [n.id, n]));
@@ -120,7 +164,7 @@ function step() {
       const f = 3000/(d*d);
       a.vx += (dx/d)*f; a.vy += (dy/d)*f;
     }
-    a.vx += (W/2-a.x)*0.0024; a.vy += (H/2-a.y)*0.0024;
+    a.vx += (LW/2-a.x)*0.0024; a.vy += (LH/2-a.y)*0.0024;
   }
   for (const e of E) {
     let dx = e.t.x-e.s.x, dy = e.t.y-e.s.y, d = Math.hypot(dx,dy)||1;
@@ -131,7 +175,7 @@ function step() {
   }
   for (const a of N) {
     a.x += a.vx*0.5; a.y += a.vy*0.5; a.vx *= 0.82; a.vy *= 0.82;
-    a.x = Math.max(a.r, Math.min(W-a.r, a.x)); a.y = Math.max(a.r, Math.min(H-a.r, a.y));
+    a.x = Math.max(a.r, Math.min(LW-a.r, a.x)); a.y = Math.max(a.r, Math.min(LH-a.r, a.y));
   }
 }
 // --- shape primitives -----------------------------------------------------
@@ -216,70 +260,148 @@ if (qa && qb) {
     HILITE = null; document.getElementById("qout").textContent = "";
   });
 }
-const onNode = n => !HILITE || HILITE.nodes.has(n.id);
-const onEdge = e => !HILITE || HILITE.edges.has(e.s.id+"|"+e.t.id);
+// Highlight = an active Trace (HILITE) OR, absent that, the hovered node's neighbourhood.
+// Hovering spotlights a node + its direct links and dims the rest, so a reader can read
+// one entity's reach without running a full trace.
+let hoverId = null;
+function hoverHL() {
+  if (!hoverId || !ADJ[hoverId]) return null;
+  const nodes = new Set([hoverId]), edges = new Set();
+  for (const nb of ADJ[hoverId]) {
+    nodes.add(nb); edges.add(hoverId+"|"+nb); edges.add(nb+"|"+hoverId);
+  }
+  return { nodes, edges };
+}
+const activeHL = () => HILITE || hoverHL();
+const onNode = n => { const h = activeHL(); return !h || h.nodes.has(n.id); };
+const onEdge = e => { const h = activeHL(); return !h || h.edges.has(e.s.id+"|"+e.t.id); };
 function draw() {
-  cx.clearRect(0,0,W,H);
+  // Reset to device space to clear, then apply the world->screen view transform so
+  // every shape is drawn in stable world coordinates; stroke widths are divided by the
+  // zoom so they stay a constant screen thickness regardless of scale.
+  cx.setTransform(DPR,0,0,DPR,0,0);
+  cx.clearRect(0,0,CSSW,CSSH);
+  cx.setTransform(DPR*view.s,0,0,DPR*view.s, DPR*view.tx, DPR*view.ty);
+  const lw = w => w/view.s;
   // within-theme edges first (thin, muted), cross-theme on top (gold, thick).
-  // When a trace is active, off-path elements dim so the answer stands out.
+  // When a trace/hover is active, off-path elements dim so the answer stands out.
   for (const e of E) {
     if (e.cross) continue;
-    cx.strokeStyle = "#2a3a4d"; cx.lineWidth = 1; cx.globalAlpha = onEdge(e) ? 1 : 0.1;
+    cx.strokeStyle = "#2a3a4d"; cx.lineWidth = lw(1); cx.globalAlpha = onEdge(e) ? 1 : 0.08;
     cx.beginPath(); cx.moveTo(e.s.x,e.s.y); cx.lineTo(e.t.x,e.t.y); cx.stroke();
   }
   for (const e of E) {
     if (!e.cross) continue;
-    cx.strokeStyle = CROSS; cx.lineWidth = 2.6; cx.globalAlpha = onEdge(e) ? 0.9 : 0.1;
+    cx.strokeStyle = CROSS; cx.lineWidth = lw(2.6); cx.globalAlpha = onEdge(e) ? 0.9 : 0.08;
     cx.beginPath(); cx.moveTo(e.s.x,e.s.y); cx.lineTo(e.t.x,e.t.y); cx.stroke();
   }
   cx.globalAlpha = 1;
   if (HILITE) {  // the traced path, drawn bright white on top
     for (const e of E) {
       if (!onEdge(e)) continue;
-      cx.strokeStyle = "#ffffff"; cx.lineWidth = 3;
+      cx.strokeStyle = "#ffffff"; cx.lineWidth = lw(3);
       cx.beginPath(); cx.moveTo(e.s.x,e.s.y); cx.lineTo(e.t.x,e.t.y); cx.stroke();
     }
   }
   for (const n of N) {
-    const baseA = onNode(n) ? 1 : 0.14;
+    const baseA = onNode(n) ? 1 : 0.12;
     cx.globalAlpha = baseA; cx.fillStyle = colorOf(n);
     if (n.kind === "concept") {
       hexagon(n.x, n.y, n.r); cx.fill();
-      cx.strokeStyle = "#cdd7e3"; cx.lineWidth = 2; cx.stroke();
+      cx.strokeStyle = "#cdd7e3"; cx.lineWidth = lw(2); cx.stroke();
     } else if (n.kind === "entity") {
       if (n.entity_kind === "commodity") square(n.x, n.y, n.r);
       else if (n.entity_kind === "event") triangle(n.x, n.y, n.r);
       else diamond(n.x, n.y, n.r);
       cx.fill();
       cx.strokeStyle = n.theme === "shared" ? "#7a6a10" : "#1c2733";
-      cx.lineWidth = 1; cx.stroke();
+      cx.lineWidth = lw(1); cx.stroke();
     } else {
       cx.beginPath(); cx.arc(n.x,n.y,n.r,0,7);
       cx.globalAlpha = (n.kind === "brief" ? 1 : 0.85) * baseA; cx.fill();
     }
+    if (n.id === hoverId) {  // a white focus ring on the hovered node
+      cx.globalAlpha = 1; cx.strokeStyle = "#ffffff"; cx.lineWidth = lw(2);
+      cx.beginPath(); cx.arc(n.x, n.y, n.r + lw(3), 0, 7); cx.stroke();
+    }
     cx.globalAlpha = baseA;
     if (n.kind !== "source") {
-      cx.fillStyle = "#e7edf5"; cx.font = "12px Inter,sans-serif"; cx.textAlign = "center";
-      cx.fillText(n.label, n.x, n.y-n.r-5);
+      // font size in world units = constant 12px on screen at any zoom
+      cx.fillStyle = "#e7edf5"; cx.font = lw(12)+"px Inter,sans-serif"; cx.textAlign = "center";
+      cx.fillText(n.label, n.x, n.y-n.r-lw(5));
     }
     cx.globalAlpha = 1;
   }
 }
-let drag = null;
+// --- interaction: hover spotlight + tooltip, drag node, pan, wheel-zoom -----
+const tip = document.getElementById("gtip");
+const pick = (mx, my) => {                 // nearest node under the cursor, in world space
+  const [wx, wy] = toWorld(mx, my);
+  let best = null, bd = Infinity;
+  for (const n of N) {
+    const d = Math.hypot(n.x-wx, n.y-wy);
+    if (d < n.r + 6 && d < bd) { bd = d; best = n; }
+  }
+  return best;
+};
+const relText = n => {                      // one-line description for the tooltip
+  const deg = ADJ[n.id] ? ADJ[n.id].size : 0;
+  if (n.entity_kind === "region") return `shared region · bridges ${(n.themes||[]).join(" ↔ ")} · ${deg} links`;
+  if (n.entity_kind === "commodity") return `commodity (${n.theme}) · ${deg} links`;
+  if (n.entity_kind === "event") return `earthquake M${n.magnitude} · ${deg} links`;
+  if (n.kind === "concept") return `channel · ${deg} links`;
+  if (n.kind === "brief") return `L2 brief (${n.theme}) · ${deg} links`;
+  if (n.kind === "source") return `L1 source (${n.theme})`;
+  return `${n.kind} · ${deg} links`;
+};
+let drag = null, pan = null, moved = 0;
+const localXY = ev => { const r = cv.getBoundingClientRect(); return [ev.clientX-r.left, ev.clientY-r.top]; };
 cv.addEventListener("mousedown", ev => {
-  const r = cv.getBoundingClientRect(), mx = ev.clientX-r.left, my = ev.clientY-r.top;
-  drag = N.find(n => Math.hypot(n.x-mx, n.y-my) < n.r+4) || null;
+  const [mx, my] = localXY(ev); const hit = pick(mx, my); moved = 0;
+  if (hit) drag = hit; else pan = { mx, my, tx: view.tx, ty: view.ty };
 });
-cv.addEventListener("mousemove", ev => {
-  if (!drag) return;
-  const r = cv.getBoundingClientRect(); drag.x = ev.clientX-r.left; drag.y = ev.clientY-r.top;
+window.addEventListener("mousemove", ev => {   // drag-node / pan-background (capture anywhere)
+  if (!drag && !pan) return;
+  const [mx, my] = localXY(ev);
+  if (drag) { const [wx, wy] = toWorld(mx, my); drag.x = wx; drag.y = wy; moved++; }
+  else { view.tx = pan.tx + (mx - pan.mx); view.ty = pan.ty + (my - pan.my); userView = true; moved++; }
 });
-window.addEventListener("mouseup", () => drag = null);
+cv.addEventListener("mousemove", ev => {       // hover spotlight + tooltip
+  if (drag || pan) { tip.style.display = "none"; return; }
+  const [mx, my] = localXY(ev); const hit = pick(mx, my);
+  hoverId = hit ? hit.id : null;
+  if (hit) {
+    tip.innerHTML = `<strong>${hit.label}</strong><br>${relText(hit)}`;
+    tip.style.display = "block";
+    tip.style.left = (mx + 14) + "px"; tip.style.top = (my + 12) + "px";
+    cv.style.cursor = hit.url ? "pointer" : "grab";
+  } else { tip.style.display = "none"; cv.style.cursor = "grab"; }
+});
+cv.addEventListener("mouseleave", () => { hoverId = null; tip.style.display = "none"; });
+window.addEventListener("mouseup", () => { drag = null; pan = null; });
 cv.addEventListener("click", ev => {
-  const r = cv.getBoundingClientRect(), mx = ev.clientX-r.left, my = ev.clientY-r.top;
-  const hit = N.find(n => Math.hypot(n.x-mx, n.y-my) < n.r+4);
+  if (moved > 3) return;                       // a drag/pan, not a click
+  const [mx, my] = localXY(ev); const hit = pick(mx, my);
   if (hit && hit.url) location.href = hit.url;
 });
+cv.addEventListener("wheel", ev => {           // zoom toward the cursor
+  ev.preventDefault();
+  const [mx, my] = localXY(ev); const [wx, wy] = toWorld(mx, my);
+  view.s = Math.max(0.25, Math.min(6, view.s * Math.exp(-ev.deltaY * 0.0015)));
+  view.tx = mx - wx*view.s; view.ty = my - wy*view.s; userView = true;
+}, { passive: false });
+function zoomBy(k) {
+  const cx0 = CSSW/2, cy0 = CSSH/2, p = toWorld(cx0, cy0);
+  view.s = Math.max(0.25, Math.min(6, view.s * k));
+  view.tx = cx0 - p[0]*view.s; view.ty = cy0 - p[1]*view.s; userView = true;
+}
+const zin = document.getElementById("zin"), zout = document.getElementById("zout"),
+      zreset = document.getElementById("zreset");
+if (zin) zin.addEventListener("click", () => zoomBy(1.3));
+if (zout) zout.addEventListener("click", () => zoomBy(1/1.3));
+if (zreset) zreset.addEventListener("click", () => { userView = false; resize(); });
+window.addEventListener("resize", resize);
+resize();
 (function loop() { for (let k=0;k<2;k++) step(); draw(); requestAnimationFrame(loop); })();
 </script>
 </body></html>
