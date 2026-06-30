@@ -36,7 +36,11 @@ logger = logging.getLogger("azimuth.ingest")
 # Frontmatter keys every L1 note carries (spec.md F1: source, endpoint, retrieved,
 # license). ``source_key`` + ``attribution`` are added so the note ↔ registry join stays
 # machine-checkable and the CC-BY / ToS attribution obligation travels with the data.
+# ``type`` + ``resource`` are OKF Tier-1 required fields (Open Knowledge Format conformance).
+_WORLDMONITOR_BASE = "https://api.worldmonitor.app"
 FRONTMATTER_KEYS: tuple[str, ...] = (
+    "type",
+    "resource",
     "source",
     "source_key",
     "endpoint",
@@ -92,6 +96,8 @@ def frontmatter_for(entry: SourceEntry, retrieved: datetime) -> dict[str, str]:
     the wire that makes ingest and the guardrail share one source of truth.
     """
     return {
+        "type": "L1-Source",
+        "resource": f"{_WORLDMONITOR_BASE}{entry.endpoint}",
         "source": entry.upstream_source or entry.key,
         "source_key": entry.key,
         "endpoint": entry.endpoint,
