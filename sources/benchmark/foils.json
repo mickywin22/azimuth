@@ -2,9 +2,9 @@
   "$note": "Captured snapshot of the COMPARED forecast/intelligence product for the azimuth benchmark (synthesis/benchmark.py). Quoted by product + capture date; NOT surfaced as an azimuth channel and NOT an L1 source. Refresh with pull_benchmark_foils.py.",
   "endpoint": "/api/forecast/v1/get-forecasts",
   "attribution": "WorldMonitor (api.worldmonitor.app) — model-generated forecast/assessment product",
-  "feed_generated_at": 1782720197869,
+  "feed_generated_at": 1782803009412,
   "feed_degraded": false,
-  "captured_at": "2026-06-29T08:06:47Z",
+  "captured_at": "2026-06-30T07:35:34Z",
   "n_forecasts_seen": 14,
   "topics": {
     "energy-supply": {
@@ -13,21 +13,21 @@
         "domain": "market",
         "region": "Iraq",
         "title": "Inflation and rates pressure from Iraq infrastructure fragility state",
-        "probability": 0.543,
-        "prior_probability": 0.576,
+        "probability": 0.57,
+        "prior_probability": 0.556,
         "confidence": 0.75,
         "time_horizon": "30d",
         "trend": "stable",
         "projections": {
-          "h24": 0.95,
-          "d7": 0.75,
-          "d30": 0.543
+          "d30": 0.57,
+          "d7": 0.787,
+          "h24": 0.95
         },
-        "scenario_short": "Iraq infrastructure fragility state is feeding inflation and rates pressure through energy supply shock, with 47% pressure and 63% state confirmation. For now, the base case stays near 57% over the 30d. Actors absorb...",
-        "perspective_strategic": "Iraq infrastructure fragility state is feeding inflation and rates pressure through energy supply shock, with 47% pressure and 63% state confirmation is setting the strategic baseline, and the current 54% probability implies a live but not settled risk path.",
-        "perspective_contrarian": "The current 75% confidence level still leaves room for reversal. If that restraint persists, the forecast can move below the current 54% baseline. Actors prioritize containment and the system drifts toward stabilization unless new hard signals emerge.",
-        "actor_lens": "Commodity traders: Price whether stress in Iraq becomes durable over the 30d. Rebalance positions if the probability path moves away from 54%.",
-        "top_signal": "Iraq infrastructure fragility state is feeding inflation and rates pressure through energy supply shock, with 47% pressure and 63% state confirmation"
+        "scenario_short": "Iraq infrastructure fragility state is feeding inflation and rates pressure through energy supply shock, with 47% pressure and 57% state confirmation. For now, the base case stays near 60% over the 30d. Actors absorb...",
+        "perspective_strategic": "Iraq infrastructure fragility state is feeding inflation and rates pressure through energy supply shock, with 47% pressure and 57% state confirmation is setting the strategic baseline, and the current 57% probability implies a live but not settled risk path.",
+        "perspective_contrarian": "The current 75% confidence level still leaves room for reversal. If that restraint persists, the forecast can move below the current 57% baseline. Actors prioritize containment and the system drifts toward stabilization unless new hard signals emerge.",
+        "actor_lens": "Commodity traders: Price whether stress in Iraq becomes durable over the 30d. Rebalance positions if the probability path moves away from 57%.",
+        "top_signal": "Iraq infrastructure fragility state is feeding inflation and rates pressure through energy supply shock, with 47% pressure and 57% state confirmation"
       },
       "absence_reason": null
     },
@@ -37,21 +37,21 @@
         "domain": "market",
         "region": "Black Sea",
         "title": "Sovereign risk repricing from Black Sea maritime disruption state",
-        "probability": 0.595,
-        "prior_probability": 0.595,
+        "probability": 0.611,
+        "prior_probability": 0.565,
         "confidence": 0.75,
         "time_horizon": "30d",
         "trend": "stable",
         "projections": {
-          "h24": 0.95,
-          "d7": 0.822,
-          "d30": 0.595
+          "d30": 0.611,
+          "d7": 0.844,
+          "h24": 0.95
         },
-        "scenario_short": "Sovereign risk repricing in the Black Sea region has a 60% probability over the next 30 days, stemming from maritime disruption with 64% pressure and 69% state confirmation, and supported by 6 urgent critical signals.",
-        "perspective_strategic": "The Black Sea region faces a stable 60% probability of sovereign risk repricing, primarily driven by maritime disruption and sovereign stress, with 6 urgent critical signals indicating ongoing pressure.",
-        "perspective_contrarian": "The current 75% confidence level, coupled with the lack of 'more directly matched reporting on Black Sea', suggests that the sovereign risk could be contained or even decrease if no further direct evidence of escalation emerges, potentially falling below the 60% baseline.",
-        "actor_lens": "Commodity traders: Price whether stress in Black Sea becomes durable over the 30d. Rebalance positions if the probability path moves away from 60%.",
-        "top_signal": "Black Sea maritime disruption state is keeping sovereign risk elevated through sovereign stress, with 64% pressure and 69% state confirmation"
+        "scenario_short": "Sovereign risk repricing in the Black Sea region is probable (61%) over the next 30 days due to maritime disruption, with 67% pressure and 69% state confirmation on sovereign stress, and 6 urgent critical signals...",
+        "perspective_strategic": "The 61% probability of sovereign risk repricing, driven by 6 urgent critical signals and 67% pressure from maritime disruption, indicates a notable and persistent financial vulnerability in the Black Sea region.",
+        "perspective_contrarian": "The absence of 'more directly matched reporting on Black Sea' as a trigger suggests that the current assessment might be based on broader indicators, and a lack of specific negative news could prevent further escalation in sovereign risk.",
+        "actor_lens": "Commodity traders: Price whether stress in Black Sea becomes durable over the 30d. Rebalance positions if the probability path moves away from 61%.",
+        "top_signal": "Black Sea maritime disruption state is keeping sovereign risk elevated through sovereign stress, with 67% pressure and 69% state confirmation"
       },
       "absence_reason": null
     },

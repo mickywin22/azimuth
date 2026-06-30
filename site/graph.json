@@ -70,91 +70,91 @@
       "label": "GIE AGSI+ (Gas Infrastructure Europe)",
       "kind": "source",
       "theme": "energy-supply",
-      "url": "sources/2026-06-29/natural-gas-storage-eu.html"
+      "url": "sources/2026-06-30/natural-gas-storage-eu.html"
     },
     {
       "id": "source:crude-oil-inventories",
       "label": "U.S. EIA (Energy Information Administration)",
       "kind": "source",
       "theme": "energy-supply",
-      "url": "sources/2026-06-29/crude-oil-inventories.html"
+      "url": "sources/2026-06-30/crude-oil-inventories.html"
     },
     {
       "id": "source:fuel-prices",
       "label": "WorldMonitor aggregated fuel-price feed",
       "kind": "source",
       "theme": "energy-supply",
-      "url": "sources/2026-06-29/fuel-prices.html"
+      "url": "sources/2026-06-30/fuel-prices.html"
     },
     {
       "id": "source:energy-prices",
       "label": "WorldMonitor aggregated energy spot/forward feed",
       "kind": "source",
       "theme": "energy-supply",
-      "url": "sources/2026-06-29/energy-prices.html"
+      "url": "sources/2026-06-30/energy-prices.html"
     },
     {
       "id": "source:earthquakes",
       "label": "USGS Earthquake Hazards Program",
       "kind": "source",
       "theme": "geophysical",
-      "url": "sources/2026-06-29/earthquakes.html"
+      "url": "sources/2026-06-30/earthquakes.html"
     },
     {
       "id": "source:climate-anomalies",
       "label": "NOAA / NASA reanalysis regional temperature & precipitation anomalies",
       "kind": "source",
       "theme": "climate-signals",
-      "url": "sources/2026-06-29/climate-anomalies.html"
+      "url": "sources/2026-06-30/climate-anomalies.html"
     },
     {
       "id": "source:co2-monitoring",
       "label": "NOAA Global Monitoring Laboratory (atmospheric CO2 record)",
       "kind": "source",
       "theme": "climate-signals",
-      "url": "sources/2026-06-29/co2-monitoring.html"
+      "url": "sources/2026-06-30/co2-monitoring.html"
     },
     {
       "id": "source:sea-ice-extent",
       "label": "NSIDC / NOAA@NSIDC Sea Ice Index (satellite-passive-microwave sea-ice extent)",
       "kind": "source",
       "theme": "climate-signals",
-      "url": "sources/2026-06-29/sea-ice-extent.html"
+      "url": "sources/2026-06-30/sea-ice-extent.html"
     },
     {
       "id": "source:prediction-markets",
       "label": "Polymarket public odds",
       "kind": "source",
       "theme": "prediction-markets",
-      "url": "sources/2026-06-29/prediction-markets.html"
+      "url": "sources/2026-06-30/prediction-markets.html"
     },
     {
       "id": "source:wildfire-detections",
       "label": "NASA FIRMS (VIIRS active-fire / thermal-anomaly detections)",
       "kind": "source",
       "theme": "environmental-hazards",
-      "url": "sources/2026-06-29/wildfire-detections.html"
+      "url": "sources/2026-06-30/wildfire-detections.html"
     },
     {
       "id": "source:thermal-escalations",
       "label": "NASA FIRMS (VIIRS thermal anomalies, clustered into escalation signals)",
       "kind": "source",
       "theme": "environmental-hazards",
-      "url": "sources/2026-06-29/thermal-escalations.html"
+      "url": "sources/2026-06-30/thermal-escalations.html"
     },
     {
       "id": "source:natural-events",
       "label": "NASA EONET + GDACS (UN-coordinated disaster alerts)",
       "kind": "source",
       "theme": "environmental-hazards",
-      "url": "sources/2026-06-29/natural-events.html"
+      "url": "sources/2026-06-30/natural-events.html"
     },
     {
       "id": "source:radiation-observations",
       "label": "US EPA RadNet + Safecast (ambient radiation measurements)",
       "kind": "source",
       "theme": "environmental-hazards",
-      "url": "sources/2026-06-29/radiation-observations.html"
+      "url": "sources/2026-06-30/radiation-observations.html"
     },
     {
       "id": "entity:united-states",
@@ -378,7 +378,7 @@
         "geophysical"
       ],
       "magnitude": 7.5,
-      "url": "sources/2026-06-29/earthquakes.html"
+      "url": "sources/2026-06-30/earthquakes.html"
     },
     {
       "id": "event:us6000t7zc",
@@ -390,7 +390,7 @@
         "geophysical"
       ],
       "magnitude": 7.2,
-      "url": "sources/2026-06-29/earthquakes.html"
+      "url": "sources/2026-06-30/earthquakes.html"
     },
     {
       "id": "event:us6000t7zq",
@@ -402,7 +402,7 @@
         "geophysical"
       ],
       "magnitude": 6.9,
-      "url": "sources/2026-06-29/earthquakes.html"
+      "url": "sources/2026-06-30/earthquakes.html"
     },
     {
       "id": "event:us6000t8ec",
@@ -414,7 +414,7 @@
         "geophysical"
       ],
       "magnitude": 6.5,
-      "url": "sources/2026-06-29/earthquakes.html"
+      "url": "sources/2026-06-30/earthquakes.html"
     },
     {
       "id": "event:us6000t8pa",
@@ -426,7 +426,7 @@
         "geophysical"
       ],
       "magnitude": 6.1,
-      "url": "sources/2026-06-29/earthquakes.html"
+      "url": "sources/2026-06-30/earthquakes.html"
     },
     {
       "id": "event:us6000t8nf",
@@ -438,7 +438,7 @@
         "geophysical"
       ],
       "magnitude": 5.9,
-      "url": "sources/2026-06-29/earthquakes.html"
+      "url": "sources/2026-06-30/earthquakes.html"
     }
   ],
   "edges": [
