@@ -106,7 +106,11 @@ _MICHAEL_GATES: list[GateResult] = [
         "Private-leakage scan (git history)",
         "Michael",
         passed=False,
-        detail="accept-vs-scrub call on owner-private paths in history (run with --history to see)",
+        detail=(
+            "accept-vs-scrub call: 6 HARD owner-private PATHS + 95 advisory internal refs in "
+            "history (none are keys -- C1 key-gate is GREEN). Quantified brief + both buttons: "
+            "docs/security/c1c-history-decision.md (run --history for the live list)"
+        ),
         blocking=False,
         ran=False,
     ),

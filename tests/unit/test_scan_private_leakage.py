@@ -121,6 +121,18 @@ def test_history_scrub_helper_is_allowlisted() -> None:
     assert scan._scan_text("/HemySphere/ and C:\\Users\\x", "worktree", "scripts/scrub-history.sh") == []
 
 
+def test_c1c_decision_brief_is_allowlisted() -> None:
+    # The C1c decision brief quantifies + explains the exact history markers
+    # Michael must accept-or-scrub, so it MUST quote them (C:\Users\…, /HemySphere/,
+    # the IQ refs). Like the readiness doc + scrub helper, it is documentation of
+    # the gate, not a publishable leak — allowlisting it keeps C1b green.
+    assert scan._is_allowed("docs/security/c1c-history-decision.md")
+    assert (
+        scan._scan_text("/HemySphere/ and C:\\Users\\Michael", "worktree", "docs/security/c1c-history-decision.md")
+        == []
+    )
+
+
 # --- main() exit-code contract ----------------------------------------------
 
 

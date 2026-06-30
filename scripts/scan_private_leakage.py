@@ -113,18 +113,21 @@ ADVISORY_RULES: list[Rule] = [
 ALL_RULES: list[Rule] = HARD_RULES + ADVISORY_RULES
 
 # --- Allowlist --------------------------------------------------------------
-# This scanner's own rule strings + the readiness doc (which explains the gate
-# and necessarily quotes example markers) are documentation, not leaks. So is
+# This scanner's own rule strings + the readiness/decision docs (which explain the
+# gate and necessarily quote example markers) are documentation, not leaks. So is
 # the history-scrub helper, which by design *names* the owner-private paths it
 # removes (e.g. the `/HemySphere/` deploy path, `C:\Users\…` example) — flagging
-# the tool that purges leaks as a leak is a false positive. Keep this list tight:
-# only tooling/docs with no product content; never broaden it to silence a real
-# finding in a publishable file.
+# the tool that purges leaks as a leak is a false positive. The C1c decision brief
+# (c1c-history-decision.md) is the same class: it quantifies and explains the exact
+# history markers Michael must accept-or-scrub, so it must quote them. Keep this list
+# tight: only tooling/docs with no product content; never broaden it to silence a
+# real finding in a publishable file.
 ALLOW_PATH_SUFFIXES: tuple[str, ...] = (
     "scan_private_leakage.py",
     "tests/unit/test_scan_private_leakage.py",
     "tests/integration/test_history_dangling_blob.py",
     "docs/security/public-flip-readiness.md",
+    "docs/security/c1c-history-decision.md",
     "scripts/scrub-history.sh",
 )
 
