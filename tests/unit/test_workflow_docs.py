@@ -40,11 +40,7 @@ _NUMBER_WORDS = {
 
 
 def _workflow_files() -> list[Path]:
-    return sorted(
-        p
-        for p in _WORKFLOWS.glob("*.y*ml")
-        if p.suffix in {".yml", ".yaml"}
-    )
+    return sorted(p for p in _WORKFLOWS.glob("*.y*ml") if p.suffix in {".yml", ".yaml"})
 
 
 def test_workflow_surface_is_non_empty() -> None:

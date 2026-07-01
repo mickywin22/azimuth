@@ -407,7 +407,7 @@ def test_rendered_html_wires_the_sota_viz_features(tmp_path: Path) -> None:
 
 
 def test_rendered_html_defaults_hide_dense_layers_and_offers_reset(tmp_path: Path) -> None:
-    """First-paint UX (IQ #991): the commodity + earthquake(event) layers start hidden
+    """First-paint UX: the commodity + earthquake(event) layers start hidden
     for a cleaner public first impression, and a 'Reset filters' control returns to that
     default. Template-only behaviour, so it gets its own presence guard.
     """
