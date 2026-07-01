@@ -108,8 +108,12 @@ jobs:
         with:
           python-version: "3.12"
 
+      # The test job also installs the `site` extra: tests/unit/test_site_build.py
+      # exercises synthesis/site_build.py end-to-end, which lazily imports the Markdown
+      # renderer (kept out of the pure-stdlib runtime + the dev stack). Without it the
+      # site-build test + the coverage step both raise ModuleNotFoundError.
       - name: Install dependencies
-        run: uv pip install --system -e ".[dev]"
+        run: uv pip install --system -e ".[dev,site]"
 
       - name: Run unit tests
         run: pytest tests/unit/ -v --tb=short

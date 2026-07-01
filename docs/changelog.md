@@ -7,6 +7,15 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 ## [Unreleased]
 
 ### Fixed
+- **CI red on `main` — site-build test (2026-07-01, KR-C engine):** the KR-B interactive
+  knowledge-graph work made `synthesis/site_build.py` render Markdown, so
+  `tests/unit/test_site_build.py` (and the coverage step) began raising
+  `ModuleNotFoundError: No module named 'markdown'` — the renderer lives in the `site`
+  optional-dependency extra, but the CI **Test** job installed only `.[dev]`. Result: three
+  consecutive pushes reddened the CI badge on the public-grade README front door while the
+  daily ingest and every other job stayed green. Fixed by installing `.[dev,site]` in the
+  Test job (the runtime + `dev` stack stay pure-stdlib; only the job that exercises the site
+  build pulls the renderer). Locally: 239 unit tests green.
 - **README license classification (2026-07-01, KR-C):** the split-license section listed
   `synthesis/` as a *future* MIT-code path, but the L2 synthesis engine (`answers.py`,
   `cross_theme.py`, `lint.py`, `benchmark.py`, `site_build.py`) has shipped and is already
