@@ -33,6 +33,7 @@ and quick start; come here to go deep.
 |-----|----------------|
 | [site.md](site.md) | The public static site — build + structure. |
 | [deploy.md](deploy.md) | Deploy pipeline (GitHub Pages). |
+| [operations.md](operations.md) | On-call runbook — every scheduled job, the alarm it raises, and exactly what to do when a badge goes red. |
 | [changelog.md](changelog.md) | Notable changes, Keep-a-Changelog format. |
 | [LESSONS.md](LESSONS.md) | Running log of build lessons. |
 

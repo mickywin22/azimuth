@@ -7,6 +7,16 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 ## [Unreleased]
 
 ### Added
+- **Operations runbook — `docs/operations.md` (2026-07-01, KR-C):** the operate knowledge
+  ("keep the engine operating") was accurate but scattered — the two-lane model in the README,
+  the alarm mechanics inside each workflow's YAML, the manual health commands across README +
+  cli.md. A public repo that promises a self-running engine needs one on-call page. Added a
+  single runbook: the two lanes (L1 GitHub-cron vs L2 fleet-curator) and why only one survives
+  a power-off; an at-a-glance table of all five scheduled jobs/gates; and a per-alarm response
+  section (`ingest-alarm`, `synthesis-alarm`, the by-design-red `secret-scan`, and normal
+  ci/pages breaks) with the exact reproduce-and-close commands. Wired into the [docs index](README.md)
+  (Publish & operate) and the root README Operations section; the doc-link gate resolves all
+  new links (134 -> 147 across 207 files).
 - **First-time-visitor FAQ + engine-liveness badge — `docs/faq.md` (2026-07-01, KR-C):** the
   docs were complete but engine-facing (spec, plan, architecture, CLI) — a non-technical
   visitor landing on the repo had no single page answering the credibility questions ("is the

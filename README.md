@@ -90,7 +90,9 @@ the ready-to-flip gate, and the local validation command are in
 ## Operations — engine liveness
 
 The two-lane engine's health is observable, not assumed — each lane has its own scheduled
-GitHub Actions heartbeat that raises a dedup'd tracking issue if it dies:
+GitHub Actions heartbeat that raises a dedup'd tracking issue if it dies. The full on-call
+runbook — every scheduled job, the alarm it raises, and the exact response when a badge goes
+red — is in **[docs/operations.md](docs/operations.md)**.
 
 **L1 ingest** ([`.github/workflows/ingest.yml`](.github/workflows/ingest.yml), daily) — the
 engine every brief rests on:
