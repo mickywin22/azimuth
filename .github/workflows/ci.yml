@@ -28,10 +28,10 @@ jobs:
         run: uv pip install --system -e ".[dev]"
 
       - name: Ruff lint
-        run: ruff check guardrail/ ingest/ tests/ synthesis/ scripts/check_synthesis.py scripts/build_brief_index.py scripts/check_synthesis_freshness.py scripts/build_graph.py scripts/query_graph.py scripts/check_ingest_liveness.py scripts/scan_secrets.py scripts/check_doc_links.py
+        run: ruff check guardrail/ ingest/ tests/ synthesis/ scripts/check_synthesis.py scripts/build_brief_index.py scripts/check_synthesis_freshness.py scripts/build_graph.py scripts/query_graph.py scripts/check_ingest_liveness.py scripts/scan_secrets.py scripts/check_doc_links.py scripts/check_doc_orphans.py
 
       - name: Ruff format check
-        run: ruff format --check guardrail/ ingest/ tests/ synthesis/ scripts/check_synthesis.py scripts/build_brief_index.py scripts/check_synthesis_freshness.py scripts/build_graph.py scripts/query_graph.py scripts/check_ingest_liveness.py scripts/scan_secrets.py scripts/check_doc_links.py
+        run: ruff format --check guardrail/ ingest/ tests/ synthesis/ scripts/check_synthesis.py scripts/build_brief_index.py scripts/check_synthesis_freshness.py scripts/build_graph.py scripts/query_graph.py scripts/check_ingest_liveness.py scripts/scan_secrets.py scripts/check_doc_links.py scripts/check_doc_orphans.py
 
   source-guardrail:
     name: Source Guardrail
@@ -80,6 +80,12 @@ jobs:
       - name: Documentation links resolve
         run: python scripts/check_doc_links.py
 
+      # Companion to the link gate: proves every docs/ page is *reachable* from a
+      # repo front door (README + community files), so no authored doc is orphaned
+      # and undiscoverable on the public repo. Pure stdlib, no install.
+      - name: Documentation has no orphans
+        run: python scripts/check_doc_orphans.py
+
   type-check:
     name: Type Check
     runs-on: ubuntu-latest
@@ -98,7 +104,7 @@ jobs:
         run: uv pip install --system -e ".[dev]"
 
       - name: mypy
-        run: mypy guardrail/ ingest/ synthesis/ scripts/check_synthesis.py scripts/build_brief_index.py scripts/check_synthesis_freshness.py scripts/build_graph.py scripts/query_graph.py scripts/check_ingest_liveness.py scripts/scan_secrets.py scripts/check_doc_links.py
+        run: mypy guardrail/ ingest/ synthesis/ scripts/check_synthesis.py scripts/build_brief_index.py scripts/check_synthesis_freshness.py scripts/build_graph.py scripts/query_graph.py scripts/check_ingest_liveness.py scripts/scan_secrets.py scripts/check_doc_links.py scripts/check_doc_orphans.py
 
   test:
     name: Test

@@ -7,6 +7,18 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 ## [Unreleased]
 
 ### Added
+- **Orphan-doc gate — `scripts/check_doc_orphans.py` (2026-07-01, KR-C):** the dead-link gate
+  proves every link *points at something real*; its new companion proves the inverse for the
+  documentation set — every `docs/**/*.md` page is *reachable* from a repo front door (README +
+  the community files), so no authored doc can silently become an orphan that renders on GitHub
+  only if you already know its URL. Reachability reuses the exact link parser of the dead-link
+  gate (code spans stripped, external schemes / anchors skipped, `<spaces>` / `%20` handled) and
+  walks transitively from every repo-root `*.md`; it flags an *island* (docs that link only each
+  other) too. Wired into the `Synthesis Lint` CI job (`Documentation has no orphans`), the
+  `doc-orphans` pre-commit hook, and ruff/mypy; documented in
+  [doc-links.md](doc-links.md#the-companion-no-orphan-docs) and [cli.md](cli.md); backed by an
+  8-case teeth-and-no-false-positives suite (`tests/unit/test_check_doc_orphans.py`). The live
+  repo ships **0 orphans across all 20 docs**.
 - **Getting-help policy — `SUPPORT.md` (2026-07-01, KR-C):** a public-grade repo needs the
   GitHub-recognised "Get help" file, and azimuth had every community doc *except* that one —
   README, CONTRIBUTING, CODE_OF_CONDUCT, SECURITY, CITATION, CREDITS, issue/PR templates were

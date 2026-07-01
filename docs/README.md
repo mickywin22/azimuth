@@ -24,7 +24,7 @@ and quick start; come here to go deep.
 | [synthesis.md](synthesis.md) | L2 synthesis engine — how per-theme briefs evolve from the L1 notes. |
 | [source-guardrail.md](source-guardrail.md) | The L3 source guardrail — per-source license + content check enforced in CI. |
 | [cli.md](cli.md) | CLI reference — every command under `scripts/`, how to run it, and the layer/gate it serves. |
-| [doc-links.md](doc-links.md) | The documentation link gate — no dead relative Markdown link reaches the public front door. |
+| [doc-links.md](doc-links.md) | The documentation gates — no dead relative Markdown link *and* no orphaned (unreachable) doc reaches the public front door. |
 | [sources/worldmonitor-channel-audit.md](sources/worldmonitor-channel-audit.md) | Which WorldMonitor channels are surfaced, and why (full-universe audit). |
 
 ## Publish & operate
@@ -60,7 +60,7 @@ now visible at a glance.
 
 | Workflow | Runs | Blocks on | Status |
 |----------|------|-----------|--------|
-| `ci.yml` | every push / PR to `main` | lint · format · type-check · source-guardrail · synthesis-lint · brief-index + graph sync · **doc-link resolve** · **unit + integration tests + ≥80% coverage** | green |
+| `ci.yml` | every push / PR to `main` | lint · format · type-check · source-guardrail · synthesis-lint · brief-index + graph sync · **doc-link resolve + orphan check** · **unit + integration tests + ≥80% coverage** | green |
 | `ingest.yml` | daily cron + `workflow_dispatch` | a stale L1 day (in-workflow liveness assert) | green, running daily |
 | `synthesis-freshness.yml` | weekly (Monday) + `workflow_dispatch` | an **overdue** L2 brief — opens a single `synthesis-alarm` issue only when the weekly curator pass genuinely failed to run (merely *stale* stays quiet) | green, watching |
 | `pages.yml` | push to `main` | the static-site build | — |
