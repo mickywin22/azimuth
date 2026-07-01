@@ -1,0 +1,16 @@
+---
+source: "Cloudflare Radar (internet outages & traffic anomalies)"
+source_key: "internet-outages"
+endpoint: "/api/infrastructure/v1/list-internet-outages"
+retrieved: "2026-07-01T07:47:54Z"
+license: "API-ToS-derived"
+attribution: "Data: Cloudflare Radar via WorldMonitor (api.worldmonitor.app)"
+---
+
+# Cloudflare Radar (internet outages & traffic anomalies)
+
+> L1 source pull — `internet-outages` from `/api/infrastructure/v1/list-internet-outages` at 2026-07-01T07:47:54Z. Verbatim transform; never edit by hand.
+
+| field | value |
+| --- | --- |
+| outages | [{"categories": ["Cloudflare Radar", "GOVERNMENT DIRECTED", "REGIONAL", "KNET", "Newroz-Telecom-ASN"], "cause": "GOVERNMENT_DIRECTED", "country": "Iraq", "description": "Internet shutdown in Kurdistan region to prevent cheating on exams", "detectedAt": 1782616500000, "endedAt": 1782620100000, "id": "cf-1625", "link": "https://radar.cloudflare.com/outage-center", "location": {"latitude": 33.22, "longitude": 43.68}, "outageType": "REGIONAL", "region": "", "severity": "OUTAGE_SEVERITY_MAJOR", "title": "Internet disruption in Iraq"}, {"categories": ["Cloudflare Radar", "POWER OUTAGE", "NATIONWIDE", "TTCLDATA", "simbanet-tz"], "cause": "POWER_OUTAGE", "country": "Tanzania", "description": "Nationwide power grid failure caused Internet traffic drop across multiple ISPs", "detectedAt": 1782576000000, "endedAt": 1782595800000, "id": "cf-1626", "link": "https://dailynews.co.tz/tanesco-apologizes-to-customers-pledges-to-prevent-future-power-outages/", "location": {"latitude": -6.37, "longitude": 34.89}, "outageType": "NATIONWIDE", "region": "", "severity": "OUTAGE_SEVERITY_TOTAL", "title": "Internet disruption in Tanzania"}, {"categories": ["Cloudflare Radar", "NATURAL DISASTER", "NATIONWIDE", "CORPORACION VNET, C.A.", "FIBEX TELECOM"], "cause": "NATURAL_DISASTER", "country": "Venezuela", "description": "Magnitude 7.5 earthquake", "detectedAt": 1782338400000, "endedAt": 1782361800000, "id": "cf-1623", "link": "https://x.com/CloudflareRadar/status/2070138173452075056", "location": {"latitude": 6.42, "longitude": -66.59}, "outageType": "NATIONWIDE", "region": "", "severity": "OUTAGE_SEVERITY_TOTAL", "title": "Internet disruption in Venezuela"}, {"categories": ["Cloudflare Radar", "GOVERNMENT DIRECTED", "REGIONAL", "Earthlink-DMCC-IQ", "HulumTele"], "cause": "GOVERNMENT_DIRECTED", "country": "Iraq", "description": "Exam shutdown", "detectedAt": 1781146800000, "endedAt": 1781152200000, "id": "cf-1628", "link": "https://radar.cloudflare.com/outage-center", "location": {"latitude": 33.22, "longitude": 43.68}, "outageType": "REGIONAL", "region": "", "severity": "OUTAGE_SEVERITY_MAJOR", "title": "Internet disruption in Iraq"}] |

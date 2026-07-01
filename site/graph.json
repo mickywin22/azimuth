@@ -70,91 +70,91 @@
       "label": "GIE AGSI+ (Gas Infrastructure Europe)",
       "kind": "source",
       "theme": "energy-supply",
-      "url": "sources/2026-06-30/natural-gas-storage-eu.html"
+      "url": "sources/2026-07-01/natural-gas-storage-eu.html"
     },
     {
       "id": "source:crude-oil-inventories",
       "label": "U.S. EIA (Energy Information Administration)",
       "kind": "source",
       "theme": "energy-supply",
-      "url": "sources/2026-06-30/crude-oil-inventories.html"
+      "url": "sources/2026-07-01/crude-oil-inventories.html"
     },
     {
       "id": "source:fuel-prices",
       "label": "WorldMonitor aggregated fuel-price feed",
       "kind": "source",
       "theme": "energy-supply",
-      "url": "sources/2026-06-30/fuel-prices.html"
+      "url": "sources/2026-07-01/fuel-prices.html"
     },
     {
       "id": "source:energy-prices",
       "label": "WorldMonitor aggregated energy spot/forward feed",
       "kind": "source",
       "theme": "energy-supply",
-      "url": "sources/2026-06-30/energy-prices.html"
+      "url": "sources/2026-07-01/energy-prices.html"
     },
     {
       "id": "source:earthquakes",
       "label": "USGS Earthquake Hazards Program",
       "kind": "source",
       "theme": "geophysical",
-      "url": "sources/2026-06-30/earthquakes.html"
+      "url": "sources/2026-07-01/earthquakes.html"
     },
     {
       "id": "source:climate-anomalies",
       "label": "NOAA / NASA reanalysis regional temperature & precipitation anomalies",
       "kind": "source",
       "theme": "climate-signals",
-      "url": "sources/2026-06-30/climate-anomalies.html"
+      "url": "sources/2026-07-01/climate-anomalies.html"
     },
     {
       "id": "source:co2-monitoring",
       "label": "NOAA Global Monitoring Laboratory (atmospheric CO2 record)",
       "kind": "source",
       "theme": "climate-signals",
-      "url": "sources/2026-06-30/co2-monitoring.html"
+      "url": "sources/2026-07-01/co2-monitoring.html"
     },
     {
       "id": "source:sea-ice-extent",
       "label": "NSIDC / NOAA@NSIDC Sea Ice Index (satellite-passive-microwave sea-ice extent)",
       "kind": "source",
       "theme": "climate-signals",
-      "url": "sources/2026-06-30/sea-ice-extent.html"
+      "url": "sources/2026-07-01/sea-ice-extent.html"
     },
     {
       "id": "source:prediction-markets",
       "label": "Polymarket public odds",
       "kind": "source",
       "theme": "prediction-markets",
-      "url": "sources/2026-06-30/prediction-markets.html"
+      "url": "sources/2026-07-01/prediction-markets.html"
     },
     {
       "id": "source:wildfire-detections",
       "label": "NASA FIRMS (VIIRS active-fire / thermal-anomaly detections)",
       "kind": "source",
       "theme": "environmental-hazards",
-      "url": "sources/2026-06-30/wildfire-detections.html"
+      "url": "sources/2026-07-01/wildfire-detections.html"
     },
     {
       "id": "source:thermal-escalations",
       "label": "NASA FIRMS (VIIRS thermal anomalies, clustered into escalation signals)",
       "kind": "source",
       "theme": "environmental-hazards",
-      "url": "sources/2026-06-30/thermal-escalations.html"
+      "url": "sources/2026-07-01/thermal-escalations.html"
     },
     {
       "id": "source:natural-events",
       "label": "NASA EONET + GDACS (UN-coordinated disaster alerts)",
       "kind": "source",
       "theme": "environmental-hazards",
-      "url": "sources/2026-06-30/natural-events.html"
+      "url": "sources/2026-07-01/natural-events.html"
     },
     {
       "id": "source:radiation-observations",
       "label": "US EPA RadNet + Safecast (ambient radiation measurements)",
       "kind": "source",
       "theme": "environmental-hazards",
-      "url": "sources/2026-06-30/radiation-observations.html"
+      "url": "sources/2026-07-01/radiation-observations.html"
     },
     {
       "id": "entity:united-states",
@@ -165,17 +165,6 @@
       "themes": [
         "energy-supply",
         "environmental-hazards"
-      ]
-    },
-    {
-      "id": "entity:philippines",
-      "label": "Philippines",
-      "kind": "entity",
-      "entity_kind": "region",
-      "theme": "shared",
-      "themes": [
-        "environmental-hazards",
-        "geophysical"
       ]
     },
     {
@@ -378,7 +367,7 @@
         "geophysical"
       ],
       "magnitude": 7.5,
-      "url": "sources/2026-06-30/earthquakes.html"
+      "url": "sources/2026-07-01/earthquakes.html"
     },
     {
       "id": "event:us6000t7zc",
@@ -390,7 +379,7 @@
         "geophysical"
       ],
       "magnitude": 7.2,
-      "url": "sources/2026-06-30/earthquakes.html"
+      "url": "sources/2026-07-01/earthquakes.html"
     },
     {
       "id": "event:us6000t7zq",
@@ -402,7 +391,7 @@
         "geophysical"
       ],
       "magnitude": 6.9,
-      "url": "sources/2026-06-30/earthquakes.html"
+      "url": "sources/2026-07-01/earthquakes.html"
     },
     {
       "id": "event:us6000t8ec",
@@ -414,7 +403,7 @@
         "geophysical"
       ],
       "magnitude": 6.5,
-      "url": "sources/2026-06-30/earthquakes.html"
+      "url": "sources/2026-07-01/earthquakes.html"
     },
     {
       "id": "event:us6000t8pa",
@@ -426,19 +415,19 @@
         "geophysical"
       ],
       "magnitude": 6.1,
-      "url": "sources/2026-06-30/earthquakes.html"
+      "url": "sources/2026-07-01/earthquakes.html"
     },
     {
-      "id": "event:us6000t8nf",
-      "label": "M5.9 \u00b7 Metinaro, Timor Leste",
+      "id": "event:us6000t99j",
+      "label": "M6 \u00b7 El Progreso, Mexico",
       "kind": "entity",
       "entity_kind": "event",
       "theme": "geophysical",
       "themes": [
         "geophysical"
       ],
-      "magnitude": 5.9,
-      "url": "sources/2026-06-30/earthquakes.html"
+      "magnitude": 6,
+      "url": "sources/2026-07-01/earthquakes.html"
     }
   ],
   "edges": [
@@ -577,32 +566,6 @@
       "rel": "named-in"
     },
     {
-      "source": "entity:philippines",
-      "target": "brief:environmental-hazards-weekly",
-      "cross_theme": true,
-      "rel": "mentioned-in",
-      "weight": 1
-    },
-    {
-      "source": "entity:philippines",
-      "target": "source:natural-events",
-      "cross_theme": false,
-      "rel": "named-in"
-    },
-    {
-      "source": "entity:philippines",
-      "target": "brief:geophysical-weekly",
-      "cross_theme": true,
-      "rel": "mentioned-in",
-      "weight": 1
-    },
-    {
-      "source": "entity:philippines",
-      "target": "source:earthquakes",
-      "cross_theme": false,
-      "rel": "named-in"
-    },
-    {
       "source": "entity:new-zealand",
       "target": "brief:energy-supply-weekly",
       "cross_theme": true,
@@ -712,11 +675,17 @@
       "target": "brief:environmental-hazards-weekly",
       "cross_theme": true,
       "rel": "mentioned-in",
-      "weight": 1
+      "weight": 2
     },
     {
       "source": "entity:ukraine",
       "target": "source:thermal-escalations",
+      "cross_theme": false,
+      "rel": "named-in"
+    },
+    {
+      "source": "entity:ukraine",
+      "target": "source:wildfire-detections",
       "cross_theme": false,
       "rel": "named-in"
     },
@@ -997,22 +966,22 @@
       "rel": "reported-in"
     },
     {
-      "source": "event:us6000t8ec",
-      "target": "entity:philippines",
-      "cross_theme": false,
-      "rel": "located-in"
-    },
-    {
       "source": "event:us6000t8pa",
       "target": "brief:geophysical-weekly",
       "cross_theme": false,
       "rel": "reported-in"
     },
     {
-      "source": "event:us6000t8nf",
+      "source": "event:us6000t99j",
       "target": "brief:geophysical-weekly",
       "cross_theme": false,
       "rel": "reported-in"
+    },
+    {
+      "source": "event:us6000t99j",
+      "target": "entity:mexico",
+      "cross_theme": false,
+      "rel": "located-in"
     }
   ]
 }
