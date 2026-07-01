@@ -15,6 +15,8 @@ Public demonstrator of the HemySphere L1/L2/L3 vault doctrine, fed by Worldmonit
 > data-source feasibility, and build plan are written up in [docs/spec.md](docs/spec.md),
 > [docs/plan.md](docs/plan.md), and [docs/architecture.md](docs/architecture.md).
 
+![The azimuth read-only site — weekly L2 briefs synthesised from dated L1 source notes, with an "Ask the World Data" demonstrator and a facts-vs-forecast benchmark.](docs/assets/site-preview-home.png)
+
 ## What it is
 
 A public, read-only knowledge vault that applies the HemySphere **L1 sources → L2 synthesis → L3 rules** wiki pattern to open global-intelligence data sourced from the [Worldmonitor](https://worldmonitor.app) public API. It proves the doctrine bundle in a live, non-personal domain — showing the architecture without exposing any private Emi vault content.
@@ -56,6 +58,8 @@ The browsable read-only site (weekly L2 briefs → L1 sources → L3 editorial l
 cross-channel knowledge graph) builds with `python scripts/build_site.py` and is published
 to **GitHub Pages** by [`.github/workflows/pages.yml`](.github/workflows/pages.yml) on every
 push to `main`.
+
+![The cross-channel knowledge graph — hexagon channels holding L2 briefs, square commodities and triangle events, joined by gold "shared region" bridges; pick two channels and Trace how they connect, or Find any node by name.](docs/assets/graph-preview.png)
 
 The knowledge graph is both **visual** (`site/graph.html` — pick any two channels and
 **Trace** how they connect) and **queryable from the command line** via
