@@ -86,10 +86,13 @@ enabled in the repo settings — that flip is a deliberate manual step. Full bui
 the ready-to-flip gate, and the local validation command are in
 [docs/deploy.md](docs/deploy.md).
 
-## Operations — ingest liveness
+## Operations — engine liveness
 
-The daily L1 ingest ([`.github/workflows/ingest.yml`](.github/workflows/ingest.yml)) is the
-engine every brief rests on, so its health is observable, not assumed:
+The two-lane engine's health is observable, not assumed — each lane has its own scheduled
+GitHub Actions heartbeat that raises a dedup'd tracking issue if it dies:
+
+**L1 ingest** ([`.github/workflows/ingest.yml`](.github/workflows/ingest.yml), daily) — the
+engine every brief rests on:
 
 - **In-workflow gate** — after each pull the run asserts the newest committed L1 day is
   within tolerance (`scripts/check_ingest_liveness.py --check`); a stale result fails the job.
@@ -100,6 +103,19 @@ engine every brief rests on, so its health is observable, not assumed:
 ```bash
 python scripts/check_ingest_liveness.py            # alive / STALE, with the latest L1 day + age
 python scripts/check_ingest_liveness.py --check    # exit 1 if the latest L1 day is stale
+```
+
+**L2 synthesis** ([`.github/workflows/synthesis-freshness.yml`](.github/workflows/synthesis-freshness.yml),
+weekly) — unlike L1, the weekly brief is written by the fleet curator (an LLM job off
+GitHub infra), so a power-off can't be assumed to keep it running. This workflow gives the
+L2 lane the same visible heartbeat: every Monday it checks each clean-theme brief against
+the latest L1 day and, if any is genuinely **overdue** (lagging by more than one weekly
+cadence — the synthesis actually failed to run), opens a single `synthesis-alarm` issue.
+Merely *stale* (awaiting the next scheduled curator pass) stays quiet.
+
+```bash
+python scripts/check_synthesis_freshness.py            # per-theme table: fresh / stale / OVERDUE
+python scripts/check_synthesis_freshness.py --overdue  # exit 1 only if a brief genuinely failed to run
 ```
 
 ## Repository layout
@@ -114,7 +130,7 @@ python scripts/check_ingest_liveness.py --check    # exit 1 if the latest L1 day
 | `site/` | Built read-only site + `graph.json` / `graph.html` knowledge graph |
 | `sources/registry.json` | Single source of truth — every WorldMonitor subset + its license/theme |
 | `docs/` | Spec, plan, architecture, deploy, security, and per-feature docs |
-| `.github/workflows/` | CI · daily ingest · Pages deploy · secret + privacy scans |
+| `.github/workflows/` | CI · daily L1 ingest · weekly L2 freshness gate · Pages deploy · secret + privacy scans |
 
 ## Documentation
 

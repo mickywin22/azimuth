@@ -1,0 +1,97 @@
+name: L2 Synthesis Freshness
+
+# Weekly power-off-proof health check for the L2 layer.
+#
+# The daily L1 ingest (ingest.yml) is autonomous GitHub infra — but the *weekly L2 brief*
+# is written by the fleet curator role (synthesis/azimuth-curator.md), an LLM synthesis job
+# that runs on Michael's box, not on GitHub. That means the L1 engine survives a power-off
+# but the L2 engine does NOT: if the fleet stops dispatching the curator, the per-theme
+# briefs quietly drift stale and nothing surfaces it. ingest.yml already opens an
+# `ingest-alarm` issue when L1 dies; this workflow gives the L2 layer the same visible
+# heartbeat, so "keep the engine operating" (KR-C) is true for both lanes, not just L1.
+#
+# It does NOT synthesise anything (that needs the LLM curator) — it only *observes* and,
+# when a brief is genuinely OVERDUE (lagging the latest L1 by more than one weekly cadence,
+# i.e. the weekly synthesis actually failed to run), opens a single dedup'd tracking issue.
+# Merely "stale" (0–8d, awaiting the next scheduled curator pass) is expected and stays quiet.
+
+on:
+  schedule:
+    # 06:40 UTC every Monday — after the weekend's daily ingests have landed the latest L1
+    # day and after the fleet's Monday synthesis window, so a still-overdue brief on Monday
+    # morning is a real miss, not a race with the curator that is about to run.
+    - cron: "40 6 * * 1"
+  workflow_dispatch: {}
+
+# Read the vault + open/append the alarm issue. No content writes — this lane only observes.
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  freshness:
+    name: Weekly L2 synthesis freshness gate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # The freshness checker is pure stdlib (reads brief + L1 dates off disk), but install
+      # the package anyway so the script imports resolve exactly as they do in ingest.yml.
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+
+      - name: Install runtime dependencies
+        run: uv pip install --system -e .
+
+      # Print the full table into the run log regardless of verdict, so the weekly health of
+      # every theme is readable at a glance from the Actions tab.
+      - name: Report L2 synthesis freshness
+        run: python scripts/check_synthesis_freshness.py
+
+      # Gate on OVERDUE (> one weekly cadence behind), not merely stale. A non-zero exit here
+      # means the weekly curator genuinely failed to run — fail the job so the alarm fires.
+      - name: Fail if any brief is genuinely overdue
+        run: python scripts/check_synthesis_freshness.py --overdue
+
+      # Mirror the L1 ingest-alarm: on a genuine overdue miss, open (or append to) one
+      # `synthesis-alarm` tracking issue so the L2 engine can never die silently. Dedup by
+      # the label so a repeated weekly miss appends a comment instead of spamming issues.
+      - name: Alarm on overdue synthesis
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const day = new Date().toISOString().slice(0, 10);
+            const title = "azimuth L2 synthesis overdue";
+            const body = [
+              `The weekly L2 synthesis freshness gate failed on ${day} (run ${context.runId}).`,
+              "",
+              "At least one clean-theme brief is OVERDUE — lagging the latest L1 day by more",
+              "than one weekly cadence, so the fleet curator (synthesis/azimuth-curator.md)",
+              "did not evolve it on schedule. The briefs feed the public site, so a stale L2",
+              "layer is publicly visible. Re-run the weekly curator, then confirm green:",
+              "",
+              "    python scripts/check_synthesis_freshness.py --overdue",
+              "",
+              `Run log: https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`,
+            ].join("\n");
+            const open = await github.rest.issues.listForRepo({
+              owner: context.repo.owner, repo: context.repo.repo,
+              state: "open", labels: "synthesis-alarm",
+            });
+            if (open.data.length) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner, repo: context.repo.repo,
+                issue_number: open.data[0].number, body,
+              });
+            } else {
+              await github.rest.issues.create({
+                owner: context.repo.owner, repo: context.repo.repo,
+                title, body, labels: ["synthesis-alarm"],
+              });
+            }

@@ -82,6 +82,12 @@ WEEKLY ── HemySphere fleet cadence (AzimuthCadence.ps1 -> Seed-WorkItems) �
   azimuth-curator dispatch per ISO week, gated by a weekly flag so it never double-seeds. The
   freshness checker is both the trigger (which briefs to refresh) and the verifier (`--check`
   proves the weekly synthesis absorbed the freshest ingest).
+- **L2 heartbeat (observability):** because L2 runs off GitHub infra, a stopped fleet would
+  let the briefs drift silently. `.github/workflows/synthesis-freshness.yml` (weekly, Monday
+  06:40 UTC) closes that gap — it runs `check_synthesis_freshness.py --overdue` and, if any
+  clean brief is genuinely **overdue** (> one weekly cadence behind — the synthesis actually
+  failed to run, not merely stale), opens a dedup'd `synthesis-alarm` tracking issue. This is
+  the L2 mirror of the L1 `ingest-alarm`: neither lane can die silently.
 
 > **Status (W26 rev1):** engine + lint + role + brief index + **freshness gate** landed; the
 > curator is **multi-theme** (energy-supply + geophysical active; prediction-markets L1-active,
