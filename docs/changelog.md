@@ -31,6 +31,16 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
   MIT-code directory so the license front door reads accurately for a public visitor.
 
 ### Added
+- **Documentation link gate (2026-07-01, KR-C):** new `scripts/check_doc_links.py` — a
+  pure-stdlib CI + pre-commit gate that walks all ~200 Markdown files and fails the build
+  on any dead *relative* link (docs index, changelog, license split, generated brief index).
+  It strips fenced/inline code first (so example links like `` `[x](/path.md)` `` are never
+  flagged), unwraps `<spaces in path>`, decodes `%20`, resolves `/`-rooted targets against
+  the repo root, and skips external URLs + pure anchors. Wired into the `Synthesis Lint` CI
+  job and a local `doc-links` pre-commit hook; 15-case regression suite in
+  `tests/unit/test_check_doc_links.py`; rule doc at `docs/doc-links.md`. Closes the manual-catch
+  gap that let the dead `docs/README.md` link (fixed above) reach `main` in the first place.
+  At introduction: 75 local links across 204 files, all resolve.
 - **Documentation index (2026-07-01, KR-C):** new `docs/README.md` — a grouped one-map
   index of the whole `docs/` set (Concept/design · Engine · Publish/operate · Security ·
   Proof) linking every doc plus the root meta files, so the documentation is navigable at a

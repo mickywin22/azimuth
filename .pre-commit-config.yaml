@@ -51,6 +51,12 @@ repos:
         language: system
         pass_filenames: false
         files: ^(vault/01 Sources/|vault/02 Briefs/|sources/registry\.json|scripts/build_graph\.py)
+      - id: doc-links
+        name: Documentation links resolve (no dead relative Markdown links)
+        entry: python scripts/check_doc_links.py
+        language: system
+        pass_filenames: false
+        files: \.md$|^scripts/check_doc_links\.py$
       - id: secret-scan
         name: Secret scan (working tree) -- public-flip gate C1
         entry: python scripts/scan_secrets.py --worktree

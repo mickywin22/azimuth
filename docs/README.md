@@ -22,6 +22,7 @@ and quick start; come here to go deep.
 | [l1-ingest.md](l1-ingest.md) | L1 ingest — the registry-driven daily pull of WorldMonitor subsets into dated source notes. |
 | [synthesis.md](synthesis.md) | L2 synthesis engine — how per-theme briefs evolve from the L1 notes. |
 | [source-guardrail.md](source-guardrail.md) | The L3 source guardrail — per-source license + content check enforced in CI. |
+| [doc-links.md](doc-links.md) | The documentation link gate — no dead relative Markdown link reaches the public front door. |
 | [sources/worldmonitor-channel-audit.md](sources/worldmonitor-channel-audit.md) | Which WorldMonitor channels are surfaced, and why (full-universe audit). |
 
 ## Publish & operate
@@ -55,7 +56,7 @@ track the first two.
 
 | Workflow | Runs | Blocks on | Status |
 |----------|------|-----------|--------|
-| `ci.yml` | every push / PR to `main` | lint · format · type-check · source-guardrail · synthesis-lint · brief-index + graph sync · **unit + integration tests + ≥80% coverage** | green |
+| `ci.yml` | every push / PR to `main` | lint · format · type-check · source-guardrail · synthesis-lint · brief-index + graph sync · **doc-link resolve** · **unit + integration tests + ≥80% coverage** | green |
 | `ingest.yml` | daily cron + `workflow_dispatch` | a stale L1 day (in-workflow liveness assert) | green, running daily |
 | `pages.yml` | push to `main` | the static-site build | — |
 | `secret-scan.yml` | every push / PR to `main` | **C1 public-flip gate** — gitleaks + the stdlib secret scan + the private-leakage scan, each over **full history** | **red, by design (see below)** |
