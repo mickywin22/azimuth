@@ -7,6 +7,16 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 ## [Unreleased]
 
 ### Added
+- **Dependabot for the CI toolchain — `.github/dependabot.yml` (2026-07-01, KR-C):** the repo
+  brands itself on a per-source supply-chain guardrail for the *data* (`scripts/check_sources.py`),
+  but the *build* toolchain had the analogous gap — the six third-party GitHub Actions across the
+  five workflows (`actions/checkout`, `actions/setup-python`, `astral-sh/setup-uv`,
+  `gitleaks/gitleaks-action`, `actions/github-script`, `actions/upload-pages-artifact` /
+  `deploy-pages`) all floated on `@vN` tags with nothing keeping them current or patched. Added a
+  weekly `github-actions` Dependabot updater that opens a single grouped PR for minor/patch bumps
+  (a major version still opens on its own for a deliberate look), so the CI supply chain stays
+  current the same way the data supply chain does — a public-grade hygiene signal a reviewer
+  expects before a repo flips public.
 - **Operations runbook — `docs/operations.md` (2026-07-01, KR-C):** the operate knowledge
   ("keep the engine operating") was accurate but scattered — the two-lane model in the README,
   the alarm mechanics inside each workflow's YAML, the manual health commands across README +

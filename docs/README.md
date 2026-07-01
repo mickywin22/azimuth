@@ -66,6 +66,11 @@ now visible at a glance.
 | `pages.yml` | push to `main` | the static-site build | — |
 | `secret-scan.yml` | every push / PR to `main` | **C1 public-flip gate** — gitleaks + the stdlib secret scan + the private-leakage scan, each over **full history** | **red, by design (see below)** |
 
+Keeping those five workflows current is itself automated: [`.github/dependabot.yml`](../.github/dependabot.yml)
+runs a weekly `github-actions` updater that opens one grouped PR for minor/patch action bumps
+(a major version opens on its own) — the build-toolchain analog of the per-source data guardrail,
+so the CI supply chain stays patched the same way the data supply chain does.
+
 **Why `secret-scan.yml` is red before the flip.** The private-leakage job scans the whole
 git history for owner-private context (home paths, personal email). History still carries a
 handful of the owner's local machine paths (`C:\Users\…`) in since-deleted security-report

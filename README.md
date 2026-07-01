@@ -134,6 +134,7 @@ python scripts/check_synthesis_freshness.py --overdue  # exit 1 only if a brief 
 | `sources/registry.json` | Single source of truth — every WorldMonitor subset + its license/theme |
 | `docs/` | Spec, plan, architecture, deploy, security, and per-feature docs |
 | `.github/workflows/` | CI · daily L1 ingest · weekly L2 freshness gate · Pages deploy · secret + privacy scans |
+| `.github/dependabot.yml` | weekly `github-actions` supply-chain updater — keeps the CI toolchain patched |
 
 ## Documentation
 

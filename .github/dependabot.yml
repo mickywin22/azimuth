@@ -1,0 +1,26 @@
+# Dependabot — keep the CI toolchain's supply chain current.
+#
+# azimuth's *runtime* is pure standard-library Python (no third-party runtime
+# deps to track), so the supply-chain surface that actually matters here is the
+# GitHub Actions the CI + engine workflows pin. This is the toolchain analog of
+# the per-source guardrail we already run on the DATA (scripts/check_sources.py):
+# the same "no un-vetted third-party thing enters the pipeline" discipline,
+# applied to the build.
+version: 2
+updates:
+  # GitHub Actions used by ci / ingest / synthesis-freshness / pages / secret-scan.
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: weekly
+      day: monday
+    # One grouped PR for routine bumps instead of one-per-action noise; a major
+    # version still opens on its own so it gets a deliberate look.
+    groups:
+      actions:
+        update-types: [minor, patch]
+    commit-message:
+      prefix: "ci"
+    labels:
+      - dependencies
+    open-pull-requests-limit: 5
