@@ -13,7 +13,7 @@ type: software
 authors:
   - family-names: Rarivomanana
     given-names: Michael
-    email: m.rarivomanana@gmail.com
+    website: "https://github.com/mickywin22"
 version: "0.1.0"
 date-released: "2026-07-01"
 license: MIT
