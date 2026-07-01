@@ -445,3 +445,18 @@ def test_every_live_channel_has_a_dedicated_colour() -> None:
     # colours must be distinct so adjacent clusters read apart
     chosen = [palette[t] for t in live_channels]
     assert len(set(chosen)) == len(chosen), "two channels share a colour"
+
+
+def test_rendered_html_honours_reduced_motion(tmp_path: Path) -> None:
+    """Accessibility: the viz must respect prefers-reduced-motion — no auto-playing
+    layout animation for motion-sensitive visitors. The template detects the media query,
+    starts the layout cold, and pre-settles it synchronously at load. Template-only
+    behaviour, so it gets its own presence guard.
+    """
+    graph = _build(tmp_path)
+    html = build_graph_mod.render_html(graph)
+    assert "prefers-reduced-motion: reduce" in html
+    assert "REDUCED" in html
+    # cold start + synchronous pre-settle (no on-load spring animation)
+    assert "heat = REDUCED ? 0 : 1" in html
+    assert "if (REDUCED) { for (let k = 0; k < 600; k++) step(); heat = 0; dirty = true; }" in html

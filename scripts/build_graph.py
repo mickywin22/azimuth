@@ -711,8 +711,15 @@ let DPR = 1, CSSW = LW, CSSH = LH;
 const view = { s: 1, tx: 0, ty: 0 };   // screen_px = world*s + t  (CSS px)
 let userView = false;                   // true once the user zooms/pans -> stop auto-fit
 // Layout heat (decays -> physics idle) + repaint flag (draw only on a dirty frame).
-let heat = 1, dirty = true;
-const reheat = (v = 0.55) => { heat = Math.min(1, Math.max(heat, v)); dirty = true; };
+// Accessibility: prefers-reduced-motion visitors never get the auto-playing spring
+// animation — the layout is pre-settled synchronously at load (heat starts at 0) and
+// interactions repaint without re-animating, so nothing on the page moves on its own.
+const REDUCED = !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+let heat = REDUCED ? 0 : 1, dirty = true;
+const reheat = (v = 0.55) => {
+  if (REDUCED) { dirty = true; return; }
+  heat = Math.min(1, Math.max(heat, v)); dirty = true;
+};
 const mark = () => { dirty = true; };
 function fitView() {
   const pad = 26;
@@ -1138,6 +1145,9 @@ if (zout) zout.addEventListener("click", () => zoomBy(1/1.3));
 if (zreset) zreset.addEventListener("click", () => { userView = false; resize(); mark(); });
 window.addEventListener("resize", () => { resize(); dirty = true; });
 resize();
+// Reduced-motion: settle the force layout once, synchronously, so the graph opens in its
+// final shape with zero on-load animation (the O(N^2) step is cheap at this node count).
+if (REDUCED) { for (let k = 0; k < 600; k++) step(); heat = 0; dirty = true; }
 // --- cooled render loop -----------------------------------------------------
 // The old loop ran the O(N^2) force step twice every frame forever, pinning a CPU
 // core for as long as the public page stayed open. Instead the layout carries a
