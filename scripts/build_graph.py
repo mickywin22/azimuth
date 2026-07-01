@@ -191,12 +191,12 @@ _REL_REPORTED_IN = "reported-in"  # earthquake event -> the geophysical brief
 _REL_LOCATED_IN = "located-in"  # earthquake event -> the region it occurred in
 
 _THEME_COLORS = {
-    "energy-supply": "#4cc2ff",       # cyan
-    "geophysical": "#ff9d4c",         # orange
-    "climate-signals": "#37d6a0",     # emerald — ice/climate
+    "energy-supply": "#4cc2ff",  # cyan
+    "geophysical": "#ff9d4c",  # orange
+    "climate-signals": "#37d6a0",  # emerald — ice/climate
     "prediction-markets": "#b07cff",  # violet
     "environmental-hazards": "#ff5d73",  # rose-red — hazard/fire
-    "other": "#8a97a8",               # grey fallback (must stay unused by live channels)
+    "other": "#8a97a8",  # grey fallback (must stay unused by live channels)
 }
 _CROSS_THEME_COLOR = "#ffe14c"  # gold — the cross-channel highlight
 
