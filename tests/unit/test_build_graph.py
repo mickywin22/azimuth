@@ -396,6 +396,11 @@ def test_rendered_html_wires_the_sota_viz_features(tmp_path: Path) -> None:
     for token in ("applyHash", "writeHash", "hashchange", "qshare", "trace=", "node="):
         assert token in html, f"deep-link token missing from graph.html: {token}"
 
+    # 3) mobile touch — one-finger pan/drag + tap-to-open, two-finger pinch-zoom.
+    # The desktop handlers are mouse-only; without these the graph is frozen on a phone.
+    for token in ("touchstart", "touchmove", "touchend", "pinch", "changedTouches"):
+        assert token in html, f"mobile-touch token missing from graph.html: {token}"
+
     # the graph JSON must be injected, not left as the placeholder
     assert "__GRAPH_JSON__" not in html
     assert '"nodes"' in html and '"edges"' in html

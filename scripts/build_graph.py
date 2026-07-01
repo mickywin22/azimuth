@@ -1064,6 +1064,48 @@ cv.addEventListener("wheel", ev => {           // zoom toward the cursor
   view.s = Math.max(0.25, Math.min(6, view.s * Math.exp(-ev.deltaY * 0.0015)));
   view.tx = mx - wx*view.s; view.ty = my - wy*view.s; userView = true; mark();
 }, { passive: false });
+// --- touch: one-finger pan/drag + tap-to-open, two-finger pinch-zoom (mobile) ---
+// The desktop handlers above are mouse-only, so on a phone the graph is frozen.
+// canvas carries touch-action:none so the browser won't steal the gesture.
+let pinch = null;
+const touchXY = t => { const r = cv.getBoundingClientRect(); return [t.clientX-r.left, t.clientY-r.top]; };
+const touchMid = (a, b) => [(a[0]+b[0])/2, (a[1]+b[1])/2];
+cv.addEventListener("touchstart", ev => {
+  tip.style.display = "none";                  // no hover tooltip on touch
+  if (ev.touches.length === 1) {
+    const [mx, my] = touchXY(ev.touches[0]); const hit = pick(mx, my); moved = 0; pinch = null;
+    if (hit) drag = hit; else pan = { mx, my, tx: view.tx, ty: view.ty };
+  } else if (ev.touches.length === 2) {        // start a pinch: remember span + view
+    drag = null; pan = null;
+    const a = touchXY(ev.touches[0]), b = touchXY(ev.touches[1]);
+    pinch = { d: Math.hypot(a[0]-b[0], a[1]-b[1]) || 1, mid: touchMid(a, b),
+              s: view.s, tx: view.tx, ty: view.ty };
+  }
+}, { passive: false });
+cv.addEventListener("touchmove", ev => {
+  ev.preventDefault();                          // stop the page scrolling under the gesture
+  if (pinch && ev.touches.length === 2) {       // pinch-zoom toward the pinch midpoint (+ two-finger pan)
+    const a = touchXY(ev.touches[0]), b = touchXY(ev.touches[1]);
+    const nd = Math.hypot(a[0]-b[0], a[1]-b[1]) || 1; const mid = touchMid(a, b);
+    const s = Math.max(0.25, Math.min(6, pinch.s * (nd / pinch.d)));
+    const wx = (pinch.mid[0] - pinch.tx) / pinch.s, wy = (pinch.mid[1] - pinch.ty) / pinch.s;
+    view.s = s; view.tx = mid[0] - wx*s; view.ty = mid[1] - wy*s; userView = true; mark();
+  } else if (ev.touches.length === 1 && (drag || pan)) {
+    const [mx, my] = touchXY(ev.touches[0]);
+    if (drag) { const [wx, wy] = toWorld(mx, my); drag.x = wx; drag.y = wy; moved++; reheat(0.4); }
+    else { view.tx = pan.tx + (mx - pan.mx); view.ty = pan.ty + (my - pan.my); userView = true; moved++; mark(); }
+  }
+}, { passive: false });
+cv.addEventListener("touchend", ev => {
+  if (ev.touches.length < 2) pinch = null;
+  if (ev.touches.length === 0) {                // a clean tap (little movement) on a node opens it
+    if (moved <= 3 && ev.changedTouches.length) {
+      const [mx, my] = touchXY(ev.changedTouches[0]); const hit = pick(mx, my);
+      if (hit && hit.url) location.href = hit.url;
+    }
+    drag = null; pan = null;
+  }
+}, { passive: false });
 function zoomBy(k) {
   const cx0 = CSSW/2, cy0 = CSSH/2, p = toWorld(cx0, cy0);
   view.s = Math.max(0.25, Math.min(6, view.s * k));
