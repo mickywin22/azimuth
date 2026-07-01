@@ -24,6 +24,7 @@ Pulls the registry's WorldMonitor subsets into dated L1 source notes under
 python scripts/run_ingest.py                 # pull today's L1 notes
 python scripts/run_ingest.py --dry-run       # show what would be pulled, write nothing
 python scripts/run_ingest.py --base-url URL  # point at an alternate WorldMonitor endpoint
+python scripts/run_ingest.py --out-dir DIR   # write L1 notes under DIR (default: vault/01 Sources)
 ```
 **Layer:** L1 · runs daily in [`ingest.yml`](../.github/workflows/ingest.yml). See
 [l1-ingest.md](l1-ingest.md).
@@ -33,6 +34,7 @@ Regenerates `vault/02 Briefs/README.md` from each brief's frontmatter. Kept in s
 
 ```bash
 python scripts/build_brief_index.py
+python scripts/build_brief_index.py --check   # exit 1 if the committed index is stale (CI guard)
 ```
 **Layer:** L2 · See [synthesis.md](synthesis.md).
 
@@ -41,6 +43,8 @@ Builds the cross-theme meta-brief that joins the per-theme L2 briefs from the li
 
 ```bash
 python scripts/build_cross_theme.py
+python scripts/build_cross_theme.py --check   # exit 1 if the committed meta-brief is stale (CI guard)
+python scripts/build_cross_theme.py --json    # emit the bridge scan as JSON
 ```
 **Layer:** L2.
 
@@ -69,6 +73,7 @@ briefs.
 ```bash
 python scripts/build_graph.py                # write site/graph.json + graph.html
 python scripts/build_graph.py --out DIR      # write into DIR
+python scripts/build_graph.py --check        # exit 1 if committed graph is stale vs the live vault (CI guard)
 ```
 **Layer:** Site · CI asserts the committed graph is in sync. See
 [strategy/okf-and-knowledge-graph.md](strategy/okf-and-knowledge-graph.md).
@@ -107,6 +112,8 @@ Generates the demonstrator — the TOP5 cross-channel answers — from live data
 
 ```bash
 python scripts/build_answers.py
+python scripts/build_answers.py --check   # exit 1 if the committed answer set is stale (CI guard)
+python scripts/build_answers.py --json    # emit the answer set as JSON
 ```
 **Layer:** Site / proof · See [proof/README.md](proof/README.md).
 
@@ -115,6 +122,8 @@ Builds the benchmark comparing azimuth's output against forecast and intelligenc
 
 ```bash
 python scripts/build_benchmark.py
+python scripts/build_benchmark.py --check   # exit 1 if the committed benchmark is stale (CI guard)
+python scripts/build_benchmark.py --json    # emit the benchmark as JSON
 ```
 **Layer:** proof.
 
@@ -124,6 +133,8 @@ against.
 
 ```bash
 python scripts/pull_benchmark_foils.py
+python scripts/pull_benchmark_foils.py --from FEED.json   # offline: select from a saved feed JSON
+python scripts/pull_benchmark_foils.py --out PATH         # output path (default: sources/benchmark/foils.json)
 ```
 **Layer:** proof.
 
@@ -166,8 +177,12 @@ The synthesis lint (spec.md F2) — CI + pre-commit entry point for the L2 curat
 
 ```bash
 python scripts/check_synthesis.py
+python scripts/check_synthesis.py --brief "vault/02 Briefs/Energy Supply Weekly.md"   # lint one brief (repeatable)
+python scripts/check_synthesis.py --diff-base origin/main        # enforce the diff guard vs a ref
 ```
-**Layer:** Gate (`ci.yml`, L2) · See [synthesis.md](synthesis.md).
+Flags: `--brief PATH` (lint only that brief file, repeatable), `--diff-base REF` (git ref the
+changed-file diff guard runs against), `--briefs-root` / `--sources-root` (override the default
+`vault/` paths). **Layer:** Gate (`ci.yml`, L2) · See [synthesis.md](synthesis.md).
 
 ### `check_synthesis_freshness.py` — weekly-cadence gate
 Reports which L2 briefs are stale versus the latest L1 ingest.
@@ -175,8 +190,12 @@ Reports which L2 briefs are stale versus the latest L1 ingest.
 ```bash
 python scripts/check_synthesis_freshness.py          # human-readable
 python scripts/check_synthesis_freshness.py --json    # machine-readable
+python scripts/check_synthesis_freshness.py --check   # exit 1 if any clean brief lags the latest L1
+python scripts/check_synthesis_freshness.py --overdue # exit 1 only if a brief lags > one weekly cadence
 ```
-**Layer:** Gate (cadence).
+The `--overdue` form is the one to wire into CI/alarms: it tolerates the designed
+daily-L1 / weekly-L2 gap and fails only when the weekly synthesis genuinely missed its
+cadence. **Layer:** Gate (cadence).
 
 ### `check_ingest_liveness.py` — ingest heartbeat
 Reports whether the daily L1 ingest is still alive (latest L1 day within tolerance).
@@ -185,8 +204,9 @@ Reports whether the daily L1 ingest is still alive (latest L1 day within toleran
 python scripts/check_ingest_liveness.py              # alive / STALE + latest L1 day + age
 python scripts/check_ingest_liveness.py --check      # exit 1 if stale (the in-workflow gate)
 ```
-Flags: `--json`, `--today YYYY-MM-DD` (override "now" for testing). **Layer:** Gate
-(`ingest.yml`).
+Flags: `--json` (machine-readable), `--today YYYY-MM-DD` (override "now" for testing),
+`--max-age-days N` (staleness tolerance, default 2), `--sources PATH` (point at an alternate
+`vault/01 Sources/`). **Layer:** Gate (`ingest.yml`).
 
 ### `scan_secrets.py` — secret scan (public-flip HARD gate, C1)
 Pure-stdlib secret scanner over the working tree or full git history — the public-flip
@@ -195,9 +215,12 @@ hard gate.
 ```bash
 python scripts/scan_secrets.py --worktree           # scan the working tree
 python scripts/scan_secrets.py --history            # scan full git history
-python scripts/scan_secrets.py --history --json --report OUT   # machine output + report file
+python scripts/scan_secrets.py --history --json                 # findings as JSON
+python scripts/scan_secrets.py --history --report > verdict.md  # markdown verdict block (to stdout)
 ```
-**Layer:** Gate (`secret-scan.yml`, C1) · See
+Flags: `--worktree` / `--history` (scan scope), `--json` (findings as JSON), `--report`
+(emit a markdown verdict block on stdout — redirect to save it). **Layer:** Gate
+(`secret-scan.yml`, C1) · See
 [security/public-flip-readiness.md](security/public-flip-readiness.md).
 
 ### `scan_private_leakage.py` — privacy scan (public-flip gate, C1b)
@@ -208,7 +231,9 @@ tree or full history.
 python scripts/scan_private_leakage.py --worktree
 python scripts/scan_private_leakage.py --history --strict
 ```
-Flags: `--json`, `--report OUT`. **Layer:** Gate (`secret-scan.yml`, C1b).
+Flags: `--strict` (advisory findings also fail the gate), `--json` (findings as JSON),
+`--report` (emit a markdown verdict block on stdout — redirect to save it). **Layer:** Gate
+(`secret-scan.yml`, C1b).
 
 ---
 
