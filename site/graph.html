@@ -10,7 +10,7 @@
 padding:.25rem .5rem;font:inherit;font-size:.85rem}
 .gquery button{appearance:none;background:#4cc2ff;color:#08121b;border:0;border-radius:6px;
 padding:.3rem .8rem;font:inherit;font-size:.82rem;font-weight:600;cursor:pointer}
-.gquery button#qclear{background:transparent;color:#8a97a8;border:1px solid #2a3a4d}
+.gquery button#qclear,.gquery button#qshare{background:transparent;color:#8a97a8;border:1px solid #2a3a4d}
 .gquery input#gsearch{background:#141a23;color:#e7edf5;border:1px solid #2a3a4d;border-radius:6px;
 padding:.25rem .5rem;font:inherit;font-size:.85rem;min-width:11rem}
 .legend .lg[data-cls]{cursor:pointer;user-select:none}
@@ -65,6 +65,7 @@ the queryable half a static bundle cannot answer.</p>
   <select id="qa"></select> &harr; <select id="qb"></select>
   <button id="qgo" type="button">Trace</button>
   <button id="qclear" type="button">Clear</button>
+  <button id="qshare" type="button" title="Copy a link to this view">&#x1F517; Copy link</button>
   <span class="qlabel" style="margin-left:.6rem">Find:</span>
   <input id="gsearch" list="gsearchlist" type="search" placeholder="node name…"
     autocomplete="off" aria-label="Find a node by name">
@@ -292,10 +293,22 @@ function trace() {
   if (path) txt += "  Path: " + path.map(id => nodeById[id].label).join(" → ") + ".";
   out.textContent = txt;
 }
+// --- shareable deep links --------------------------------------------------
+// The view is a URL: a Trace or a Find writes a #hash, and on load that hash replays the
+// same query — so a specific answer ("how energy connects to geophysical") can be linked
+// straight from the build-in-public feed and opens already traced. replaceState keeps it
+// off the back button and out of the hashchange loop.
+let applyingHash = false;
+const writeHash = h => { applyingHash = true; try {
+  history.replaceState(null, "", h ? "#"+h : location.pathname + location.search);
+} finally { applyingHash = false; } };
 if (qa && qb) {
-  document.getElementById("qgo").addEventListener("click", trace);
+  document.getElementById("qgo").addEventListener("click", () => {
+    trace();
+    if (qa.value !== qb.value) writeHash("trace=" + encodeURIComponent(qa.value) + "," + encodeURIComponent(qb.value));
+  });
   document.getElementById("qclear").addEventListener("click", () => {
-    HILITE = null; document.getElementById("qout").textContent = ""; mark();
+    HILITE = null; document.getElementById("qout").textContent = ""; writeHash(""); mark();
   });
 }
 // --- search: jump to any node by name --------------------------------------
@@ -303,12 +316,13 @@ if (qa && qb) {
 // on the match, spotlights its neighbourhood, and parks a focus ring on it so a
 // reader can pull one entity out of a dense graph without hunting by eye.
 const search = document.getElementById("gsearch");
+let doFocus = null;   // exposed so a #node= hash can replay a Find on load
 if (search) {
   document.getElementById("gsearchlist").innerHTML =
     GRAPH.nodes.map(n => `<option value="${n.label.replace(/"/g, "&quot;")}"></option>`).join("");
-  const focusNode = () => {
+  doFocus = () => {
     const q = search.value.trim().toLowerCase();
-    if (!q) { pinnedId = null; mark(); return; }
+    if (!q) { pinnedId = null; writeHash(""); mark(); return; }
     const hit = GRAPH.nodes.find(n => n.label.toLowerCase() === q)
       || GRAPH.nodes.find(n => n.label.toLowerCase().includes(q));
     const nn = hit && idx[hit.id];
@@ -317,10 +331,32 @@ if (search) {
     view.s = Math.max(view.s, 1.2);
     view.tx = CSSW/2 - nn.x*view.s; view.ty = CSSH/2 - nn.y*view.s;
     userView = true; reheat(0.15);
+    writeHash("node=" + encodeURIComponent(nodeById[nn.id].label));
   };
-  search.addEventListener("change", focusNode);
-  search.addEventListener("keydown", e => { if (e.key === "Enter") focusNode(); });
+  search.addEventListener("change", doFocus);
+  search.addEventListener("keydown", e => { if (e.key === "Enter") doFocus(); });
   search.addEventListener("input", () => { if (!search.value) { pinnedId = null; mark(); } });
+}
+// Copy-link button: put the current view's URL on the clipboard (mobile-friendly share).
+const qshare = document.getElementById("qshare");
+if (qshare) qshare.addEventListener("click", async () => {
+  const out = document.getElementById("qout");
+  try { await navigator.clipboard.writeText(location.href); if (out) out.textContent = "Link copied to clipboard."; }
+  catch (_) { if (out) out.textContent = location.href; }
+});
+// Replay a deep link on load: #trace=<themeA>,<themeB> or #node=<label>.
+function applyHash() {
+  const raw = location.hash.replace(/^#/, "");
+  if (!raw) return;
+  const eq = raw.indexOf("=");
+  const k = raw.slice(0, eq), v = decodeURIComponent(raw.slice(eq + 1));
+  if (k === "trace" && qa && qb) {
+    const [ta, tb] = v.split(",");
+    const themes = new Set(briefNodes.map(b => b.theme));
+    if (themes.has(ta) && themes.has(tb)) { qa.value = ta; qb.value = tb; trace(); }
+  } else if (k === "node" && search && doFocus) {
+    search.value = v; doFocus();
+  }
 }
 // Highlight = an active Trace (HILITE) OR, absent that, the hovered node's neighbourhood.
 // Hovering spotlights a node + its direct links and dims the rest, so a reader can read
@@ -526,5 +562,7 @@ function loop() {
   requestAnimationFrame(loop);
 }
 loop();
+applyHash();   // replay a shared #trace / #node link on first paint
+window.addEventListener("hashchange", () => { if (!applyingHash) applyHash(); });
 </script>
 </body></html>
