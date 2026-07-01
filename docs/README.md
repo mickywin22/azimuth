@@ -10,6 +10,7 @@ and quick start; come here to go deep.
 
 | Doc | What it covers |
 |-----|----------------|
+| [faq.md](faq.md) | First-time-visitor FAQ — is the data real, how current, can I trust it, license, why private. |
 | [spec.md](spec.md) | The specification — what azimuth is, the doctrine it proves, and why. |
 | [plan.md](plan.md) | The implementation plan (phased build sequence). |
 | [architecture.md](architecture.md) | How the pieces fit: ingest → synthesis → guardrail → static site. |
@@ -52,8 +53,9 @@ and quick start; come here to go deep.
 ## Continuous integration & gates
 
 Five GitHub Actions workflows run the engine and guard the repo. All are visible under
-[`.github/workflows/`](../.github/workflows/); the two badges at the top of the root README
-track the first two.
+[`.github/workflows/`](../.github/workflows/); the three engine badges at the top of the root
+README track `ci.yml`, `ingest.yml`, and `synthesis-freshness.yml` — both liveness heartbeats
+now visible at a glance.
 
 | Workflow | Runs | Blocks on | Status |
 |----------|------|-----------|--------|

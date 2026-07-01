@@ -2,6 +2,7 @@
 
 [![CI](https://github.com/mickywin22/azimuth/actions/workflows/ci.yml/badge.svg)](https://github.com/mickywin22/azimuth/actions/workflows/ci.yml)
 [![Daily ingest](https://github.com/mickywin22/azimuth/actions/workflows/ingest.yml/badge.svg)](https://github.com/mickywin22/azimuth/actions/workflows/ingest.yml)
+[![L2 freshness](https://github.com/mickywin22/azimuth/actions/workflows/synthesis-freshness.yml/badge.svg)](https://github.com/mickywin22/azimuth/actions/workflows/synthesis-freshness.yml)
 [![Code: MIT](https://img.shields.io/badge/code-MIT-blue.svg)](LICENSE)
 [![Content: CC BY 4.0](https://img.shields.io/badge/content-CC%20BY%204.0-lightgrey.svg)](LICENSE-CONTENT.md)
 
@@ -137,7 +138,8 @@ python scripts/check_synthesis_freshness.py --overdue  # exit 1 only if a brief 
 Full map of everything under `docs/` — concept & design, the engine, publish/operate,
 security, and the demonstrator proof — is in **[docs/README.md](docs/README.md)**.
 Start there to go deep; [docs/architecture.md](docs/architecture.md) is the design-decisions
-entry point.
+entry point, and [docs/faq.md](docs/faq.md) answers the first-time-visitor questions (is the
+data real, how current, can I trust it, license, why private).
 
 ## Contributing & security
 

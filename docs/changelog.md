@@ -7,6 +7,16 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 ## [Unreleased]
 
 ### Added
+- **First-time-visitor FAQ + engine-liveness badge — `docs/faq.md` (2026-07-01, KR-C):** the
+  docs were complete but engine-facing (spec, plan, architecture, CLI) — a non-technical
+  visitor landing on the repo had no single page answering the credibility questions ("is the
+  data real?", "how current?", "can I trust the forecasts?", "why is it private?", "what
+  licence?"). Added a concise FAQ that answers each and cross-links to the deep doc, wired into
+  both the [docs index](README.md) (Concept & design) and the root README "Documentation"
+  section. Also surfaced the **L2 Synthesis Freshness** heartbeat as a third engine badge at the
+  top of the root README, so *both* liveness lanes (daily L1 ingest + weekly L2 synthesis) are
+  now visible at a glance rather than only the L1 one — closing the "keep the engine operating"
+  signal gap. The doc-link gate resolves all new links (110 → 134 across 206 files).
 - **Citation metadata — `CITATION.cff` (2026-07-01, KR-C):** the repo had every other
   public-grade front-door file (README, split license, CONTRIBUTING, CODE_OF_CONDUCT,
   SECURITY, issue/PR templates, CREDITS) but no machine-readable citation, so GitHub showed
