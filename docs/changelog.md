@@ -6,6 +6,13 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+### Fixed
+- **README license classification (2026-07-01, KR-C):** the split-license section listed
+  `synthesis/` as a *future* MIT-code path, but the L2 synthesis engine (`answers.py`,
+  `cross_theme.py`, `lint.py`, `benchmark.py`, `site_build.py`) has shipped and is already
+  covered by the repository-layout table above it. Reclassified `synthesis/` as a current
+  MIT-code directory so the license front door reads accurately for a public visitor.
+
 ### Added
 - **Documentation index (2026-07-01, KR-C):** new `docs/README.md` — a grouped one-map
   index of the whole `docs/` set (Concept/design · Engine · Publish/operate · Security ·

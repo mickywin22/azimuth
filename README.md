@@ -131,7 +131,7 @@ entry point.
 
 Split license:
 
-- **Code** (`ingest/`, `guardrail/`, `scripts/`, `.github/`, future `synthesis/`): **MIT** — see [`LICENSE`](LICENSE).
+- **Code** (`ingest/`, `guardrail/`, `synthesis/`, `scripts/`, `.github/`): **MIT** — see [`LICENSE`](LICENSE).
 - **Vault content** (derived L1/L2/L3 notes under `vault/`): **CC BY 4.0** — see [`LICENSE-CONTENT.md`](LICENSE-CONTENT.md).
 
 Worldmonitor source data is consumed via its public API (Path A, no fork → AGPL not triggered); per-source attribution ships in [`CREDITS.md`](CREDITS.md) and is enforced by the per-source guardrail (`scripts/check_sources.py`).
