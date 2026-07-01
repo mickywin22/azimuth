@@ -376,3 +376,26 @@ def test_newly_added_region_bridges_two_themes(tmp_path: Path) -> None:
     assert bridges, "Venezuela did not form a cross-theme bridge node"
     themes = bridges[0]["themes"]
     assert "energy-supply" in themes and "geophysical" in themes
+
+
+def test_rendered_html_wires_the_sota_viz_features(tmp_path: Path) -> None:
+    """The rendered graph.html must carry the state-of-the-art viz features (KR-B).
+
+    These are template-only behaviours (canvas + JS), invisible to the data-shape tests
+    above, so they get their own presence guard: dropping any of them silently would
+    regress the public visualization without failing another test.
+    """
+    graph = _build(tmp_path)
+    html = build_graph_mod.render_html(graph)
+
+    # 1) typed relation on hover + evidence-weighted edge thickness
+    for token in ("hoverEdge", "pickEdge", "edgeText", "REL_LABEL", "e.weight"):
+        assert token in html, f"edge-legibility token missing from graph.html: {token}"
+
+    # 2) shareable deep links (Trace/Find -> URL, replayed on load) + copy-link button
+    for token in ("applyHash", "writeHash", "hashchange", "qshare", "trace=", "node="):
+        assert token in html, f"deep-link token missing from graph.html: {token}"
+
+    # the graph JSON must be injected, not left as the placeholder
+    assert "__GRAPH_JSON__" not in html
+    assert '"nodes"' in html and '"edges"' in html
