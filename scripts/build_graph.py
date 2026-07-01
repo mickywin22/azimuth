@@ -543,6 +543,10 @@ padding:.25rem .5rem;font:inherit;font-size:.85rem;min-width:11rem}
 .legend .lg[data-cls]{cursor:pointer;user-select:none}
 .legend .lg[data-cls]:hover{color:#8fd0ff}
 .legend .lg.off{opacity:.4;text-decoration:line-through}
+.legend .lgreset{margin-left:.5rem;appearance:none;background:transparent;color:#8a97a8;
+border:1px solid #2a3a4d;border-radius:6px;padding:.15rem .55rem;font:inherit;font-size:.78rem;
+font-weight:600;cursor:pointer;vertical-align:middle}
+.legend .lgreset:hover{color:#8fd0ff;border-color:#3a4a5d}
 .gquery .qout{flex-basis:100%;margin:.35rem 0 0;font-size:.88rem;color:#e7edf5;min-height:1.2em}
 #gwrap{position:relative;margin:.4rem 0}
 #g{width:100%;height:min(68vh,600px);display:block;background:#0c1118;
@@ -611,8 +615,9 @@ the queryable half a static bundle cannot answer.</p>
 <p class="ghint">Scroll to zoom &middot; drag the background to pan &middot; hover a node to
 spotlight its links &middot; <strong>hover an edge</strong> to read its relation type + weight
 &middot; drag a node to reposition &middot; click to open its page
-&middot; <strong>click a legend chip</strong> to hide/show that node kind &middot;
-<strong>Find</strong> to jump to any node by name.</p>
+&middot; <strong>click a legend chip</strong> to hide/show that node kind
+(the commodity + earthquake layers start hidden &mdash; <strong>Reset filters</strong>
+returns to that default) &middot; <strong>Find</strong> to jump to any node by name.</p>
 <noscript><p>Enable JavaScript to view the interactive graph, or browse the
 <a href="index.html">briefs and sources</a> directly.</p></noscript>
 <div id="glist"></div>
@@ -640,9 +645,14 @@ legend += `<span class="lg" data-cls="source" title="click to hide/show">&#xB7; 
 if (has("entity", "commodity")) legend += `<span class="lg" data-cls="commodity" title="click to hide/show">&#x25A0; commodity</span>`;
 if (has("entity", "event")) legend += `<span class="lg" data-cls="event" title="click to hide/show" style="color:${THEME_COLORS.geophysical}">&#x25B2; earthquake</span>`;
 if (has("entity", "region")) legend += `<span class="lg" data-cls="region" title="click to hide/show" style="color:${CROSS}">&#x25C6; shared region (cross-theme)</span>`;
+legend += `<button id="freset" class="lgreset" type="button" title="Reset layers to the default view">&#x21BB; Reset filters</button>`;
 document.getElementById("legend").innerHTML = legend;
 // --- legend filter: click a node-kind chip to hide/show that kind ----------
-const HIDDEN = new Set();
+// First paint hides the dense commodity + earthquake entity layers for a cleaner
+// public first impression; visitors toggle them on via the legend chips, and the
+// "Reset filters" button returns to this default view.
+const DEFAULT_HIDDEN = ["commodity", "event"];
+const HIDDEN = new Set(DEFAULT_HIDDEN);
 const classOf = n => n.kind === "concept" ? "channel"
   : n.kind === "brief" ? "brief"
   : n.kind === "source" ? "source"
@@ -650,6 +660,8 @@ const classOf = n => n.kind === "concept" ? "channel"
   : n.entity_kind === "event" ? "event"
   : n.entity_kind === "region" ? "region" : "other";
 const visible = n => !HIDDEN.has(classOf(n));
+const syncChips = () => document.querySelectorAll("#legend .lg[data-cls]")
+  .forEach(el => el.classList.toggle("off", HIDDEN.has(el.dataset.cls)));
 document.querySelectorAll("#legend .lg[data-cls]").forEach(el => {
   el.addEventListener("click", () => {
     const c = el.dataset.cls;
@@ -658,6 +670,12 @@ document.querySelectorAll("#legend .lg[data-cls]").forEach(el => {
     mark();
   });
 });
+const freset = document.getElementById("freset");
+if (freset) freset.addEventListener("click", () => {
+  HIDDEN.clear(); DEFAULT_HIDDEN.forEach(c => HIDDEN.add(c));
+  syncChips(); mark();
+});
+syncChips();  // reflect the default-hidden layers on the legend chips at load
 // --- text fallback / accessibility list -----------------------------------
 const nodeById = Object.fromEntries(GRAPH.nodes.map(n => [n.id, n]));
 const childrenOf = (id, pred) => GRAPH.edges

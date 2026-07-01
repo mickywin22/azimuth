@@ -404,3 +404,22 @@ def test_rendered_html_wires_the_sota_viz_features(tmp_path: Path) -> None:
     # the graph JSON must be injected, not left as the placeholder
     assert "__GRAPH_JSON__" not in html
     assert '"nodes"' in html and '"edges"' in html
+
+
+def test_rendered_html_defaults_hide_dense_layers_and_offers_reset(tmp_path: Path) -> None:
+    """First-paint UX (IQ #991): the commodity + earthquake(event) layers start hidden
+    for a cleaner public first impression, and a 'Reset filters' control returns to that
+    default. Template-only behaviour, so it gets its own presence guard.
+    """
+    graph = _build(tmp_path)
+    html = build_graph_mod.render_html(graph)
+
+    # default-hidden layers seed the HIDDEN set at load
+    assert 'DEFAULT_HIDDEN = ["commodity", "event"]' in html
+    assert "new Set(DEFAULT_HIDDEN)" in html
+    assert "syncChips" in html  # chips reflect the default-hidden state on load
+
+    # reset-filters affordance: button in the legend + a handler that restores the default
+    assert 'id="freset"' in html
+    assert "Reset filters" in html
+    assert 'getElementById("freset")' in html
