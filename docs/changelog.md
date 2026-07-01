@@ -7,6 +7,22 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 ## [Unreleased]
 
 ### Added
+- **Documentation index (2026-07-01, KR-C):** new `docs/README.md` — a grouped one-map
+  index of the whole `docs/` set (Concept/design · Engine · Publish/operate · Security ·
+  Proof) linking every doc plus the root meta files, so the documentation is navigable at a
+  glance on GitHub.
+- **OKF Tier-1 conformance (late June, KR-A):** every L1 source note now carries `type` +
+  `resource` front-matter, and `vault/index.md` acts as the bundle root — bringing the
+  published vault into Open Knowledge Foundation Tier-1 shape. A one-shot backfill wrote the
+  two fields into the 140 pre-existing L1 notes; the ingest writes them going forward. Full
+  rationale + the knowledge-graph direction: `docs/strategy/okf-and-knowledge-graph.md`.
+- **Public-flip readiness gate (late June, KR-A):** a one-command go/no-go aggregator over
+  the privacy/secret invariants, hardened to actually finish and to cover *dangling* git
+  blobs (unreferenced objects a naive scan misses). The C1c owner-private-history
+  accept-vs-scrub call is written up decision-ready in
+  `docs/security/c1c-history-decision.md`; the full checklist lives in
+  `docs/security/public-flip-readiness.md`. The C1 secret gate is re-proven on the exact
+  published commit and reframed around the CI invariant rather than a one-off scan.
 - **W26 weekly-synthesis automation (2026-06-18, KR-B B3):** the L2 weekly cycle is now wired
   end-to-end — no manual curator run. New `scripts/check_synthesis_freshness.py` is the
   deterministic freshness gate: per editorially-clean (non-held) theme it compares the latest
