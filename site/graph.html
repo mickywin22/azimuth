@@ -11,6 +11,11 @@ padding:.25rem .5rem;font:inherit;font-size:.85rem}
 .gquery button{appearance:none;background:#4cc2ff;color:#08121b;border:0;border-radius:6px;
 padding:.3rem .8rem;font:inherit;font-size:.82rem;font-weight:600;cursor:pointer}
 .gquery button#qclear{background:transparent;color:#8a97a8;border:1px solid #2a3a4d}
+.gquery input#gsearch{background:#141a23;color:#e7edf5;border:1px solid #2a3a4d;border-radius:6px;
+padding:.25rem .5rem;font:inherit;font-size:.85rem;min-width:11rem}
+.legend .lg[data-cls]{cursor:pointer;user-select:none}
+.legend .lg[data-cls]:hover{color:#8fd0ff}
+.legend .lg.off{opacity:.4;text-decoration:line-through}
 .gquery .qout{flex-basis:100%;margin:.35rem 0 0;font-size:.88rem;color:#e7edf5;min-height:1.2em}
 #gwrap{position:relative;margin:.4rem 0}
 #g{width:100%;height:min(68vh,600px);display:block;background:#0c1118;
@@ -58,6 +63,10 @@ the queryable half a static bundle cannot answer.</p>
   <select id="qa"></select> &harr; <select id="qb"></select>
   <button id="qgo" type="button">Trace</button>
   <button id="qclear" type="button">Clear</button>
+  <span class="qlabel" style="margin-left:.6rem">Find:</span>
+  <input id="gsearch" list="gsearchlist" type="search" placeholder="node name…"
+    autocomplete="off" aria-label="Find a node by name">
+  <datalist id="gsearchlist"></datalist>
   <p id="qout" class="qout"></p>
 </div>
 <div id="gwrap">
@@ -70,7 +79,9 @@ the queryable half a static bundle cannot answer.</p>
   <div id="gtip"></div>
 </div>
 <p class="ghint">Scroll to zoom &middot; drag the background to pan &middot; hover a node to
-spotlight its links &middot; drag a node to reposition &middot; click to open its page.</p>
+spotlight its links &middot; drag a node to reposition &middot; click to open its page
+&middot; <strong>click a legend chip</strong> to hide/show that node kind &middot;
+<strong>Find</strong> to jump to any node by name.</p>
 <noscript><p>Enable JavaScript to view the interactive graph, or browse the
 <a href="index.html">briefs and sources</a> directly.</p></noscript>
 <div id="glist"></div>
@@ -92,13 +103,30 @@ let legend = themes.map(t =>
   `<span class="lg"><i style="background:${THEME_COLORS[t]||THEME_COLORS.other}"></i>${t}</span>`
 ).join("");
 const has = (k, ek) => GRAPH.nodes.some(n => n.kind === k && (!ek || n.entity_kind === ek));
-legend += `<span class="lg">&#x2B22; channel</span>`;
-legend += `<span class="lg">&#x25CF; brief</span>`;
-legend += `<span class="lg">&#xB7; source</span>`;
-if (has("entity", "commodity")) legend += `<span class="lg">&#x25A0; commodity</span>`;
-if (has("entity", "event")) legend += `<span class="lg" style="color:${THEME_COLORS.geophysical}">&#x25B2; earthquake</span>`;
-if (has("entity", "region")) legend += `<span class="lg" style="color:${CROSS}">&#x25C6; shared region (cross-theme)</span>`;
+legend += `<span class="lg" data-cls="channel" title="click to hide/show">&#x2B22; channel</span>`;
+legend += `<span class="lg" data-cls="brief" title="click to hide/show">&#x25CF; brief</span>`;
+legend += `<span class="lg" data-cls="source" title="click to hide/show">&#xB7; source</span>`;
+if (has("entity", "commodity")) legend += `<span class="lg" data-cls="commodity" title="click to hide/show">&#x25A0; commodity</span>`;
+if (has("entity", "event")) legend += `<span class="lg" data-cls="event" title="click to hide/show" style="color:${THEME_COLORS.geophysical}">&#x25B2; earthquake</span>`;
+if (has("entity", "region")) legend += `<span class="lg" data-cls="region" title="click to hide/show" style="color:${CROSS}">&#x25C6; shared region (cross-theme)</span>`;
 document.getElementById("legend").innerHTML = legend;
+// --- legend filter: click a node-kind chip to hide/show that kind ----------
+const HIDDEN = new Set();
+const classOf = n => n.kind === "concept" ? "channel"
+  : n.kind === "brief" ? "brief"
+  : n.kind === "source" ? "source"
+  : n.entity_kind === "commodity" ? "commodity"
+  : n.entity_kind === "event" ? "event"
+  : n.entity_kind === "region" ? "region" : "other";
+const visible = n => !HIDDEN.has(classOf(n));
+document.querySelectorAll("#legend .lg[data-cls]").forEach(el => {
+  el.addEventListener("click", () => {
+    const c = el.dataset.cls;
+    HIDDEN.has(c) ? HIDDEN.delete(c) : HIDDEN.add(c);
+    el.classList.toggle("off", HIDDEN.has(c));
+    mark();
+  });
+});
 // --- text fallback / accessibility list -----------------------------------
 const nodeById = Object.fromEntries(GRAPH.nodes.map(n => [n.id, n]));
 const childrenOf = (id, pred) => GRAPH.edges
@@ -265,19 +293,43 @@ if (qa && qb) {
     HILITE = null; document.getElementById("qout").textContent = ""; mark();
   });
 }
+// --- search: jump to any node by name --------------------------------------
+// Type a node name (autocompleted from every label); on select the view centres
+// on the match, spotlights its neighbourhood, and parks a focus ring on it so a
+// reader can pull one entity out of a dense graph without hunting by eye.
+const search = document.getElementById("gsearch");
+if (search) {
+  document.getElementById("gsearchlist").innerHTML =
+    GRAPH.nodes.map(n => `<option value="${n.label.replace(/"/g, "&quot;")}"></option>`).join("");
+  const focusNode = () => {
+    const q = search.value.trim().toLowerCase();
+    if (!q) { pinnedId = null; mark(); return; }
+    const hit = GRAPH.nodes.find(n => n.label.toLowerCase() === q)
+      || GRAPH.nodes.find(n => n.label.toLowerCase().includes(q));
+    const nn = hit && idx[hit.id];
+    if (!nn) { pinnedId = null; mark(); return; }
+    pinnedId = nn.id;
+    view.s = Math.max(view.s, 1.2);
+    view.tx = CSSW/2 - nn.x*view.s; view.ty = CSSH/2 - nn.y*view.s;
+    userView = true; reheat(0.15);
+  };
+  search.addEventListener("change", focusNode);
+  search.addEventListener("keydown", e => { if (e.key === "Enter") focusNode(); });
+  search.addEventListener("input", () => { if (!search.value) { pinnedId = null; mark(); } });
+}
 // Highlight = an active Trace (HILITE) OR, absent that, the hovered node's neighbourhood.
 // Hovering spotlights a node + its direct links and dims the rest, so a reader can read
 // one entity's reach without running a full trace.
-let hoverId = null;
-function hoverHL() {
-  if (!hoverId || !ADJ[hoverId]) return null;
-  const nodes = new Set([hoverId]), edges = new Set();
-  for (const nb of ADJ[hoverId]) {
-    nodes.add(nb); edges.add(hoverId+"|"+nb); edges.add(nb+"|"+hoverId);
+let hoverId = null, pinnedId = null;   // pinnedId = a node parked by the search box
+function neighHL(id) {
+  if (!id || !ADJ[id]) return null;
+  const nodes = new Set([id]), edges = new Set();
+  for (const nb of ADJ[id]) {
+    nodes.add(nb); edges.add(id+"|"+nb); edges.add(nb+"|"+id);
   }
   return { nodes, edges };
 }
-const activeHL = () => HILITE || hoverHL();
+const activeHL = () => HILITE || neighHL(hoverId) || neighHL(pinnedId);
 const onNode = n => { const h = activeHL(); return !h || h.nodes.has(n.id); };
 const onEdge = e => { const h = activeHL(); return !h || h.edges.has(e.s.id+"|"+e.t.id); };
 function draw() {
@@ -291,24 +343,25 @@ function draw() {
   // within-theme edges first (thin, muted), cross-theme on top (gold, thick).
   // When a trace/hover is active, off-path elements dim so the answer stands out.
   for (const e of E) {
-    if (e.cross) continue;
+    if (e.cross || !visible(e.s) || !visible(e.t)) continue;
     cx.strokeStyle = "#2a3a4d"; cx.lineWidth = lw(1); cx.globalAlpha = onEdge(e) ? 1 : 0.08;
     cx.beginPath(); cx.moveTo(e.s.x,e.s.y); cx.lineTo(e.t.x,e.t.y); cx.stroke();
   }
   for (const e of E) {
-    if (!e.cross) continue;
+    if (!e.cross || !visible(e.s) || !visible(e.t)) continue;
     cx.strokeStyle = CROSS; cx.lineWidth = lw(2.6); cx.globalAlpha = onEdge(e) ? 0.9 : 0.08;
     cx.beginPath(); cx.moveTo(e.s.x,e.s.y); cx.lineTo(e.t.x,e.t.y); cx.stroke();
   }
   cx.globalAlpha = 1;
   if (HILITE) {  // the traced path, drawn bright white on top
     for (const e of E) {
-      if (!onEdge(e)) continue;
+      if (!onEdge(e) || !visible(e.s) || !visible(e.t)) continue;
       cx.strokeStyle = "#ffffff"; cx.lineWidth = lw(3);
       cx.beginPath(); cx.moveTo(e.s.x,e.s.y); cx.lineTo(e.t.x,e.t.y); cx.stroke();
     }
   }
   for (const n of N) {
+    if (!visible(n)) continue;
     const baseA = onNode(n) ? 1 : 0.12;
     cx.globalAlpha = baseA; cx.fillStyle = colorOf(n);
     if (n.kind === "concept") {
@@ -325,7 +378,7 @@ function draw() {
       cx.beginPath(); cx.arc(n.x,n.y,n.r,0,7);
       cx.globalAlpha = (n.kind === "brief" ? 1 : 0.85) * baseA; cx.fill();
     }
-    if (n.id === hoverId) {  // a white focus ring on the hovered node
+    if (n.id === hoverId || n.id === pinnedId) {  // a white focus ring on the hovered/found node
       cx.globalAlpha = 1; cx.strokeStyle = "#ffffff"; cx.lineWidth = lw(2);
       cx.beginPath(); cx.arc(n.x, n.y, n.r + lw(3), 0, 7); cx.stroke();
     }
@@ -344,6 +397,7 @@ const pick = (mx, my) => {                 // nearest node under the cursor, in 
   const [wx, wy] = toWorld(mx, my);
   let best = null, bd = Infinity;
   for (const n of N) {
+    if (!visible(n)) continue;
     const d = Math.hypot(n.x-wx, n.y-wy);
     if (d < n.r + 6 && d < bd) { bd = d; best = n; }
   }
