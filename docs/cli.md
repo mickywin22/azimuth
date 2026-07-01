@@ -1,0 +1,217 @@
+# azimuth — CLI reference
+
+Every command under [`scripts/`](../scripts/) in one map. azimuth has **no web-server
+runtime** — the whole engine is a set of pure-stdlib Python CLIs you run by hand or that CI
+runs for you. This page is the reference: what each command does, how to run it, and which
+layer or gate it serves. For the design behind them, follow the per-feature docs linked in
+[docs/README.md](README.md).
+
+All commands run from the repo root. Install the dev tooling once with
+`uv pip install -e ".[dev]"` (the runtime itself needs no third-party deps).
+
+Legend — **Layer**: L1 = source ingest · L2 = synthesis · L3 = rules/guardrail ·
+Site = published static site · Gate = CI / pre-commit / public-flip check.
+
+---
+
+## Run the engine
+
+### `run_ingest.py` — L1 daily pull
+Pulls the registry's WorldMonitor subsets into dated L1 source notes under
+`vault/01 Sources/`. This is the engine every brief rests on.
+
+```bash
+python scripts/run_ingest.py                 # pull today's L1 notes
+python scripts/run_ingest.py --dry-run       # show what would be pulled, write nothing
+python scripts/run_ingest.py --base-url URL  # point at an alternate WorldMonitor endpoint
+```
+**Layer:** L1 · runs daily in [`ingest.yml`](../.github/workflows/ingest.yml). See
+[l1-ingest.md](l1-ingest.md).
+
+### `build_brief_index.py` — L2 brief index
+Regenerates `vault/02 Briefs/README.md` from each brief's frontmatter. Kept in sync by CI.
+
+```bash
+python scripts/build_brief_index.py
+```
+**Layer:** L2 · See [synthesis.md](synthesis.md).
+
+### `build_cross_theme.py` — *World Watch Weekly* meta-brief
+Builds the cross-theme meta-brief that joins the per-theme L2 briefs from the live L1 data.
+
+```bash
+python scripts/build_cross_theme.py
+```
+**Layer:** L2.
+
+---
+
+## Build the site & graph
+
+### `build_site.py` — the public static site
+Builds the read-only site (L2 briefs → L1 sources → L3 editorial line) into `_site/`
+(or `--out`). Optionally serves it locally.
+
+```bash
+python scripts/build_site.py                 # build into the default output dir
+python scripts/build_site.py --out DIR       # build into DIR
+python scripts/build_site.py --serve --port 8000   # build + serve locally
+```
+**Layer:** Site · published by [`pages.yml`](../.github/workflows/pages.yml). See
+[site.md](site.md).
+
+### `build_graph.py` — the knowledge graph
+Builds the cross-channel knowledge graph (`site/graph.json` + the visual
+`site/graph.html`). Every edge is typed (`has-brief`, `rests-on`, `mentioned-in`,
+`named-in`, `reported-in`, `located-in`) and reaches down to the L1 sources, not just the
+briefs.
+
+```bash
+python scripts/build_graph.py                # write site/graph.json + graph.html
+python scripts/build_graph.py --out DIR      # write into DIR
+```
+**Layer:** Site · CI asserts the committed graph is in sync. See
+[strategy/okf-and-knowledge-graph.md](strategy/okf-and-knowledge-graph.md).
+
+### `query_graph.py` — query the graph from the CLI
+Answers cross-channel questions over the same `site/graph.json` the visual graph uses.
+Subcommands:
+
+| Subcommand | Answers |
+|-----------|---------|
+| `stats` | headline node / edge counts |
+| `relations` | edge counts by relation type |
+| `neighbors <term>` | direct neighbours of a node |
+| `path <a> <b>` | shortest path between two nodes |
+| `connect <a> <b>` | how two channels are connected (flagship) |
+| `provenance <term>` | the exact dated L1 notes that name an entity |
+| `bridges` | all cross-channel bridge entities |
+| `hubs [--top N]` | most-connected nodes |
+
+```bash
+python scripts/query_graph.py connect energy geophysical
+python scripts/query_graph.py provenance "Greece"
+python scripts/query_graph.py path "Greece" "Energy Supply"
+python scripts/query_graph.py bridges
+python scripts/query_graph.py hubs --top 8 --json
+```
+Global flags: `--graph PATH` (point at an alternate `graph.json`), `--json` (machine-readable
+output). **Layer:** Site.
+
+---
+
+## The demonstrator (show-your-work proof)
+
+### `build_answers.py` — TOP5 multi-channel answers
+Generates the demonstrator — the TOP5 cross-channel answers — from live data.
+
+```bash
+python scripts/build_answers.py
+```
+**Layer:** Site / proof · See [proof/README.md](proof/README.md).
+
+### `build_benchmark.py` — facts vs forecast vs intelligence
+Builds the benchmark comparing azimuth's output against forecast and intelligence products.
+
+```bash
+python scripts/build_benchmark.py
+```
+**Layer:** proof.
+
+### `pull_benchmark_foils.py` — benchmark foil corpus
+Captures the compared forecast / intelligence products (the "foils") the benchmark grades
+against.
+
+```bash
+python scripts/pull_benchmark_foils.py
+```
+**Layer:** proof.
+
+### `smoke_whatif.py` — live what-if smoke
+A live Playwright smoke of the demonstrator's what-if panel — the KR-B acceptance gate.
+Needs the Playwright browser deps installed.
+
+```bash
+python scripts/smoke_whatif.py
+```
+**Layer:** Gate (acceptance).
+
+---
+
+## Gates — CI, pre-commit & public-flip
+
+These are the checks CI runs on every push. You can run any of them by hand before you
+commit.
+
+### `check_doc_links.py` — dead-link gate
+Fails if any relative Markdown link in the repo doesn't resolve. No dead link reaches the
+public front door.
+
+```bash
+python scripts/check_doc_links.py
+```
+**Layer:** Gate (`ci.yml`) · See [doc-links.md](doc-links.md).
+
+### `check_sources.py` — L3 source guardrail
+Enforces the per-source license / attribution / editorial guardrail from
+`sources/registry.json`.
+
+```bash
+python scripts/check_sources.py
+```
+**Layer:** Gate (`ci.yml`, L3) · See [source-guardrail.md](source-guardrail.md).
+
+### `check_synthesis.py` — synthesis lint
+The synthesis lint (spec.md F2) — CI + pre-commit entry point for the L2 curator rules.
+
+```bash
+python scripts/check_synthesis.py
+```
+**Layer:** Gate (`ci.yml`, L2) · See [synthesis.md](synthesis.md).
+
+### `check_synthesis_freshness.py` — weekly-cadence gate
+Reports which L2 briefs are stale versus the latest L1 ingest.
+
+```bash
+python scripts/check_synthesis_freshness.py          # human-readable
+python scripts/check_synthesis_freshness.py --json    # machine-readable
+```
+**Layer:** Gate (cadence).
+
+### `check_ingest_liveness.py` — ingest heartbeat
+Reports whether the daily L1 ingest is still alive (latest L1 day within tolerance).
+
+```bash
+python scripts/check_ingest_liveness.py              # alive / STALE + latest L1 day + age
+python scripts/check_ingest_liveness.py --check      # exit 1 if stale (the in-workflow gate)
+```
+Flags: `--json`, `--today YYYY-MM-DD` (override "now" for testing). **Layer:** Gate
+(`ingest.yml`).
+
+### `scan_secrets.py` — secret scan (public-flip HARD gate, C1)
+Pure-stdlib secret scanner over the working tree or full git history — the public-flip
+hard gate.
+
+```bash
+python scripts/scan_secrets.py --worktree           # scan the working tree
+python scripts/scan_secrets.py --history            # scan full git history
+python scripts/scan_secrets.py --history --json --report OUT   # machine output + report file
+```
+**Layer:** Gate (`secret-scan.yml`, C1) · See
+[security/public-flip-readiness.md](security/public-flip-readiness.md).
+
+### `scan_private_leakage.py` — privacy scan (public-flip gate, C1b)
+Pure-stdlib private-leakage scanner (owner home paths, personal email) over the working
+tree or full history.
+
+```bash
+python scripts/scan_private_leakage.py --worktree
+python scripts/scan_private_leakage.py --history --strict
+```
+Flags: `--json`, `--report OUT`. **Layer:** Gate (`secret-scan.yml`, C1b).
+
+---
+
+See also: [architecture.md](architecture.md) for how these commands chain into the
+ingest → synthesis → guardrail → site pipeline, and [docs/README.md](README.md) for the
+full documentation map.

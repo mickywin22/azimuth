@@ -6,6 +6,16 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+### Added
+- **CLI reference — `docs/cli.md` (2026-07-01, KR-C):** the whole engine is a set of 18
+  pure-stdlib Python CLIs under `scripts/`, but no single page mapped them — a new contributor
+  had to reverse-engineer the tool surface from the README fragments and each script's argparse.
+  Added a complete reference: every command grouped by role (run the engine · build site &
+  graph · demonstrator · gates), with usage, key flags, the layer/gate it serves, and a
+  cross-link to its per-feature doc. Wired into `docs/README.md` (engine section) and the root
+  README repo-layout table. Verified against the live `--help`/subcommand surface; the
+  doc-link gate resolves all 17 new links.
+
 ### Fixed
 - **Broken link + gate transparency in the docs index (2026-07-01, KR-C):** `docs/README.md`
   linked `security/c1c-history-decision.md`, which is staged on the public-flip branch and is

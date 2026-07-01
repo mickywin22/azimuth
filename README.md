@@ -105,7 +105,7 @@ python scripts/check_ingest_liveness.py --check    # exit 1 if the latest L1 day
 | `ingest/` | L1 pull — registry-driven WorldMonitor fetch → dated source notes (stdlib) |
 | `guardrail/` | L3 per-source license / attribution / editorial guardrail |
 | `synthesis/` | L2 curator logic, synthesis lint, cross-theme join |
-| `scripts/` | CLIs — ingest, site + graph + index builders, query engine, liveness + secret scans |
+| `scripts/` | CLIs — ingest, site + graph + index builders, query engine, liveness + secret scans (full reference: [docs/cli.md](docs/cli.md)) |
 | `vault/` | The published vault — `00 Rules` (L3) · `01 Sources` (L1) · `02 Briefs` (L2) |
 | `site/` | Built read-only site + `graph.json` / `graph.html` knowledge graph |
 | `sources/registry.json` | Single source of truth — every WorldMonitor subset + its license/theme |

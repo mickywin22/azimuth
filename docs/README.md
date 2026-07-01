@@ -22,6 +22,7 @@ and quick start; come here to go deep.
 | [l1-ingest.md](l1-ingest.md) | L1 ingest — the registry-driven daily pull of WorldMonitor subsets into dated source notes. |
 | [synthesis.md](synthesis.md) | L2 synthesis engine — how per-theme briefs evolve from the L1 notes. |
 | [source-guardrail.md](source-guardrail.md) | The L3 source guardrail — per-source license + content check enforced in CI. |
+| [cli.md](cli.md) | CLI reference — every command under `scripts/`, how to run it, and the layer/gate it serves. |
 | [doc-links.md](doc-links.md) | The documentation link gate — no dead relative Markdown link reaches the public front door. |
 | [sources/worldmonitor-channel-audit.md](sources/worldmonitor-channel-audit.md) | Which WorldMonitor channels are surfaced, and why (full-universe audit). |
 
