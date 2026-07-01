@@ -4,19 +4,56 @@
 # "Multiple top-level packages discovered in a flat-layout" -- exit 1. That broke the
 # daily L1 ingest workflow at the install step every run (red 06-21..06-25, found via
 # the external ingest watchdog). See [tool.setuptools.packages.find] below.
+# setuptools>=77 gives us PEP 639 SPDX `license`/`license-files` (below). It also
+# supplies the flat-layout package discovery the daily-ingest install depends on.
 [build-system]
-requires = ["setuptools>=61"]
+requires = ["setuptools>=77"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "azimuth"
 version = "0.1.0"
 description = "Public demonstrator of the HemySphere L1/L2/L3 vault doctrine, fed by Worldmonitor open-intelligence data"
+readme = "README.md"
 requires-python = ">=3.12"
+# Code is MIT (PEP 639 SPDX). Vault CONTENT is CC BY 4.0 — a separate, non-code
+# licence declared in LICENSE-CONTENT.md, not a packaging concern for this distribution.
+license = "MIT"
+license-files = ["LICENSE"]
+# Name only — no e-mail. The surname is the intentional public OSS attribution
+# (kept by the privacy gate); a contact address is a private-leak class, so absent.
+authors = [{ name = "Michael Rarivomanana" }]
+keywords = [
+    "open-intelligence",
+    "knowledge-graph",
+    "worldmonitor",
+    "open-knowledge-framework",
+    "okf",
+    "l1-l2-l3",
+    "vault",
+    "synthesis",
+    "hemysphere",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Information Analysis",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Operating System :: OS Independent",
+    "Typing :: Typed",
+]
 # Pure-stdlib runtime after the Phase-1 template strip (FastAPI backend + Next.js
 # frontend deleted; ingest uses urllib, guardrail uses json/dataclasses). No
 # third-party runtime dependency. See docs/spec.md "Template strip".
 dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/mickywin22/azimuth"
+Repository = "https://github.com/mickywin22/azimuth"
+Issues = "https://github.com/mickywin22/azimuth/issues"
+Documentation = "https://github.com/mickywin22/azimuth/tree/main/docs"
 
 [project.optional-dependencies]
 # Static-site build (scripts/build_site.py -> synthesis/site_build.py). Runtime stays
