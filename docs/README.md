@@ -38,7 +38,7 @@ and quick start; come here to go deep.
 | Doc | What it covers |
 |-----|----------------|
 | [security/public-flip-readiness.md](security/public-flip-readiness.md) | The go/no-go checklist for flipping the repo public. |
-| [security/c1c-history-decision.md](security/c1c-history-decision.md) | The C1c owner-private-history accept-vs-scrub decision (owner go-gate). |
+| _C1c owner-private-history decision_ | The accept-vs-scrub call on the owner-private home-paths in history is an owner go-gate; the decision doc + the one-command `scripts/check_flip_readiness.py` aggregator are staged on the public-flip branch and land with the flip, not before it. See the `Secret Scan` workflow (§ below) for the live gate status. |
 | [SECURITY.md](../SECURITY.md) | Vulnerability-reporting policy (repo root). |
 
 ## Proof
@@ -46,6 +46,30 @@ and quick start; come here to go deep.
 | Doc | What it covers |
 |-----|----------------|
 | [proof/README.md](proof/README.md) | The "what-if / show-your-work" living-system proof baked into the demonstrator. |
+
+## Continuous integration & gates
+
+Four GitHub Actions workflows run the engine and guard the repo. All are visible under
+[`.github/workflows/`](../.github/workflows/); the two badges at the top of the root README
+track the first two.
+
+| Workflow | Runs | Blocks on | Status |
+|----------|------|-----------|--------|
+| `ci.yml` | every push / PR to `main` | lint · format · type-check · source-guardrail · synthesis-lint · brief-index + graph sync · **unit + integration tests + ≥80% coverage** | green |
+| `ingest.yml` | daily cron + `workflow_dispatch` | a stale L1 day (in-workflow liveness assert) | green, running daily |
+| `pages.yml` | push to `main` | the static-site build | — |
+| `secret-scan.yml` | every push / PR to `main` | **C1 public-flip gate** — gitleaks + the stdlib secret scan + the private-leakage scan, each over **full history** | **red, by design (see below)** |
+
+**Why `secret-scan.yml` is red before the flip.** The private-leakage job scans the whole
+git history for owner-private context (home paths, personal email). History still carries a
+handful of the owner's local machine paths (`C:\Users\…`) in since-deleted security-report
+notes. These are the **C1c** findings: not credentials, but owner-private context. Resolving
+them is a deliberate **owner go-gate** — either *accept* them as harmless machine paths (record
+a scoped allowlist) or *scrub* history (a rewrite + force-push). The gate is intentionally kept
+**hard and red** until that call is made, so the repo cannot flip public with unresolved
+owner-private history. The one-command `scripts/check_flip_readiness.py` aggregator that fronts
+this gate, and the C1c decision write-up, are staged on the public-flip branch and land with the
+flip. Nothing here is silently dropped — the security gate is a dedicated, always-on workflow.
 
 ---
 

@@ -7,6 +7,14 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 ## [Unreleased]
 
 ### Fixed
+- **Broken link + gate transparency in the docs index (2026-07-01, KR-C):** `docs/README.md`
+  linked `security/c1c-history-decision.md`, which is staged on the public-flip branch and is
+  not on `main` — a dead link on the public-grade front door. Replaced it with a non-linking
+  note that the C1c decision doc + the `check_flip_readiness.py` aggregator land with the flip.
+  Added a **Continuous integration & gates** section documenting all four workflows and, in
+  particular, why `secret-scan.yml` is intentionally red before the flip (the C1c owner-private
+  history go-gate) — so the always-on security gate is visibly accounted for, not mistaken for
+  a dropped job.
 - **CI red on `main` — site-build test (2026-07-01, KR-C engine):** the KR-B interactive
   knowledge-graph work made `synthesis/site_build.py` render Markdown, so
   `tests/unit/test_site_build.py` (and the coverage step) began raising
