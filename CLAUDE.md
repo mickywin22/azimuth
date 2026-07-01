@@ -2,109 +2,88 @@
 
 ## Overview
 
-Public demonstrator of the HemySphere L1/L2/L3 vault doctrine, fed by Worldmonitor open-intelligence data
+Public demonstrator of the HemySphere **L1 sources → L2 synthesis → L3 rules** vault doctrine,
+fed by [Worldmonitor](https://worldmonitor.app) open-intelligence data and published as a static
+site. Architecture: [docs/architecture.md](docs/architecture.md). Spec: [docs/spec.md](docs/spec.md).
 
 ## Tech Stack
 
-- **Backend:** Python 3.12, FastAPI, Pydantic v2
-- **Frontend:** Next.js 16, Tailwind CSS v4, React Query, Framer Motion
-- **UI Components:** shadcn/ui (New York style, dark theme)
-- **Typography:** Rajdhani (display) + Inter (body) + JetBrains Mono (data)
-- **Database:** Supabase (PostgreSQL)
-- **Deployment:** Vercel (frontend) + Hetzner+Coolify (backend) — see `docs/coolify-deploy.md`
+- **Runtime:** pure Python standard library — **no web server, no database, no frontend
+  framework**. The project-template's FastAPI backend / Next.js frontend were stripped in Phase 1.
+- **Dev tooling** (`.[dev]`): ruff · mypy · pytest (+ cov, benchmark, asyncio) · pre-commit.
+- **Site extra** (`.[site]`): a Markdown renderer, used *only* by the static-site build.
+- **CI / automation:** GitHub Actions (5 workflows). **Publish:** GitHub Pages
+  (<https://mickywin22.github.io/azimuth/>).
 
 ## Project Structure
 
 ```
-src/
-  backend/              # FastAPI application
-    main.py             # App entry point
-    config.py           # Settings (pydantic-settings)
-    api/                # Route handlers
-    models/             # Pydantic models + DB schemas
-    services/           # Business logic
-  frontend/             # Next.js 16 application
-    src/
-      app/              # Next.js App Router pages
-        globals.css     # Design system (20+ HSL tokens)
-        layout.tsx      # Root layout (fonts + QueryProvider)
-        page.tsx        # Home page
-      components/
-        layout/         # AppLayout, Sidebar, etc.
-        ui/             # shadcn/ui components (button, card, badge, skeleton)
-        dashboard/      # Project-specific feature components
-      lib/
-        api.ts          # Typed fetch wrapper with cache
-        utils.ts        # cn() utility
-        query-provider.tsx  # React Query setup
-      hooks/
-        use-api.ts      # Generic React Query hooks
-tests/
-  unit/                 # Fast, isolated tests
-  integration/          # API + DB tests
-  e2e/                  # End-to-end tests
-docs/
-  spec.md               # Product specification
-  plan.md               # Implementation plan
-  architecture.md       # Architecture decisions
-  openapi-pattern.md    # OpenAPI-first codegen guide
-  changelog.md          # Change log
+ingest/         # L1 pull — registry-driven WorldMonitor fetch -> dated source notes (stdlib)
+guardrail/      # L3 per-source license / attribution / editorial guardrail (mypy-strict)
+synthesis/      # L2 curator logic, synthesis lint, cross-theme join, site build
+scripts/        # CLIs — ingest, site + graph + index builders, query engine, liveness + scans
+sources/        # registry.json — single source of truth: every subset + its license/theme
+vault/          # the published vault — 00 Rules (L3) · 01 Sources (L1) · 02 Briefs (L2)
+site/           # built read-only static site + graph.json / graph.html knowledge graph
+tests/          # unit/ + integration/ (pytest); >=80% coverage gate
+docs/           # spec, plan, architecture, cli, deploy, security, per-feature docs
+.github/workflows/  # ci · ingest (daily) · synthesis-freshness (weekly) · pages · secret-scan
 ```
 
 ## Development Commands
 
 ```bash
-# === Install (pure-stdlib runtime; FastAPI backend + Next.js frontend stripped Phase 1) ===
+# Install dev tooling (runtime itself is pure-stdlib — no third-party deps)
 uv pip install -e ".[dev]"
 
-# === Run the L1 ingest ===
+# Run the L1 ingest (pulls WorldMonitor subsets -> dated L1 notes)
 python scripts/run_ingest.py
 
-# === Quality ===
-ruff check guardrail/ ingest/ tests/ --fix
-ruff format guardrail/ ingest/ tests/
-mypy guardrail/ ingest/
-pytest tests/unit/ -v
-pytest tests/ --cov=guardrail --cov=ingest
+# Quality (the CI gate, locally)
+ruff check . --fix
+ruff format .
+mypy guardrail/ ingest/ synthesis/
+pytest -q                        # full suite
+pytest --cov=guardrail --cov=ingest --cov=synthesis   # with coverage
 
-# === Pre-commit ===
-pre-commit install
+# Engine liveness by hand
+python scripts/check_ingest_liveness.py            # L1: alive / STALE
+python scripts/check_synthesis_freshness.py        # L2: per-theme fresh / stale / OVERDUE
+
+# Gates (also run in CI + pre-commit)
+python scripts/check_doc_links.py                  # no dead relative Markdown link
+python scripts/check_sources.py                    # source-guardrail lint
 pre-commit run --all-files
 ```
 
+Full CLI reference: [docs/cli.md](docs/cli.md).
+
 ## Quality Rules
 
-1. **TDD enforced** — Write test first (RED), implement (GREEN), refactor. No code without tests.
-2. **Type hints everywhere** — mypy strict mode (backend), TypeScript strict (frontend).
-3. **Ruff clean** — Zero warnings. Auto-fix on save.
-4. **Coverage >= 80%** — CI fails below threshold.
-5. **`npm run build` must pass** — No TypeScript errors, no build warnings.
-6. **Pre-commit hooks** — Must pass before every commit.
-
-## Frontend Conventions
-
-- **Brand system-of-record** — seed a root `DESIGN.md` (9-section schema) before styling. Drives the Claude Design pipeline (the Replit replacement for visual shaping). Scaffold + lane doctrine: `templates/claude-design-pipeline/`.
-- **Design tokens** in `globals.css` — customize the `:root` HSL variables for your brand; they should trace to `DESIGN.md` §2/§3
-- **shadcn/ui** for all UI primitives — add more with `npx shadcn add <component>`
-- **React Query** for all API calls — use hooks from `use-api.ts`
-- **Framer Motion** for animations — wrap components with `motion.div`
-- **Mobile-first** — test on iPhone, collapsible sidebar included
+1. **Tests first, then code** — every CLI + guardrail path is covered; the suite is the contract.
+2. **Type hints everywhere** — mypy strict on `guardrail/` `ingest/` `synthesis/`.
+3. **Ruff clean** — zero warnings; `ruff` is pinned `>=0.15,<0.16` in lock-step with the
+   pre-commit rev so local + CI format identically (an unpinned ruff caused recurring CI-format drift).
+4. **Coverage ≥ 80%** — CI fails below threshold.
+5. **No dead docs** — `check_doc_links.py` fails the build on any broken relative link; a public
+   repo's dead link is a credibility bug.
+6. **Runtime stays pure-stdlib** — nothing may add a third-party *runtime* dependency; only `dev`
+   and `site` extras carry third-party packages, and neither is on the ingest/guardrail path.
 
 ## Git Workflow
 
-- `main` — production, always deployable
-- `develop` — integration branch
-- `feature/<name>` — feature branches off develop
-- Commit messages: imperative mood, concise ("Add session endpoint", "Fix telemetry parsing")
+- `main` — the public-grade branch; every workflow guards it.
+- `fleet/<name>` — autonomous fleet work branches. **A Worker commits but does not push; the
+  reviewer pushes the reviewed commit to `main`** (non-vault repo — reviewer-push policy).
+- Commit messages: imperative mood, tag the KR (e.g. `docs(cli): … (KR-C)`).
 
-## Environment Variables
+## Public-flip status
 
-Copy `.env.example` to `.env` and fill in values. Never commit `.env`.
-
-Frontend env (in `src/frontend/.env.local`):
-- `NEXT_PUBLIC_API_URL` — Backend URL (default: `http://localhost:8000`)
+The repo is private at the research stage and flips public at the F3 publish milestone. The
+`secret-scan.yml` workflow is **intentionally red** until the owner-private-history call (C1c) is
+made — see [docs/security/public-flip-readiness.md](docs/security/public-flip-readiness.md).
 
 ## Vault Link
 
-Project note: `05 Projects/azimuth.md` in HemySphere vault (Coding-Factory track, `status: research`).
+Project note: `05 Projects/azimuth.md` in the HemySphere vault (Coding-Factory track).
 Research + feasibility: `07 Resources/AI Agents & Agentic Systems/Worldmonitor App – Research.md`.
