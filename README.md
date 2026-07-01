@@ -155,3 +155,8 @@ Split license:
 - **Vault content** (derived L1/L2/L3 notes under `vault/`): **CC BY 4.0** — see [`LICENSE-CONTENT.md`](LICENSE-CONTENT.md).
 
 Worldmonitor source data is consumed via its public API (Path A, no fork → AGPL not triggered); per-source attribution ships in [`CREDITS.md`](CREDITS.md) and is enforced by the per-source guardrail (`scripts/check_sources.py`).
+
+## Citing azimuth
+
+Machine-readable citation metadata lives in [`CITATION.cff`](CITATION.cff) — GitHub renders a
+**"Cite this repository"** button from it. Prefer that over hand-copying a reference.

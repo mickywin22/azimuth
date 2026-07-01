@@ -7,6 +7,12 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 ## [Unreleased]
 
 ### Added
+- **Citation metadata — `CITATION.cff` (2026-07-01, KR-C):** the repo had every other
+  public-grade front-door file (README, split license, CONTRIBUTING, CODE_OF_CONDUCT,
+  SECURITY, issue/PR templates, CREDITS) but no machine-readable citation, so GitHub showed
+  no "Cite this repository" button. Added a CFF 1.2.0 file (software type, MIT, author +
+  repo URL + keywords, version 0.1.0) so the project is properly citable, and surfaced it
+  from both the root README ("Citing azimuth") and the docs index.
 - **Interactive SOTA knowledge-graph viz — `site/graph.html` (2026-07-01, KR-B):** the
   read-only site's knowledge graph went from a static picker to a genuinely explorable,
   phone-usable artifact — and the changelog front door had not logged any of it. Four

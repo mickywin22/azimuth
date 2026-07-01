@@ -81,3 +81,6 @@ flip. Nothing here is silently dropped — the security gate is a dedicated, alw
 See [CONTRIBUTING.md](../CONTRIBUTING.md), [CODE_OF_CONDUCT.md](../CODE_OF_CONDUCT.md),
 and [CREDITS.md](../CREDITS.md) at the repo root. Code is MIT; published content is
 CC BY 4.0 (see [LICENSE](../LICENSE) + [LICENSE-CONTENT.md](../LICENSE-CONTENT.md)).
+
+To cite the project, use [CITATION.cff](../CITATION.cff) — GitHub's "Cite this repository"
+button reads it.
