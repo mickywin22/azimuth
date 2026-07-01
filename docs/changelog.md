@@ -7,6 +7,26 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 ## [Unreleased]
 
 ### Added
+- **Interactive SOTA knowledge-graph viz — `site/graph.html` (2026-07-01, KR-B):** the
+  read-only site's knowledge graph went from a static picker to a genuinely explorable,
+  phone-usable artifact — and the changelog front door had not logged any of it. Four
+  shipped, browser-render-proven features: (1) **typed edges made legible** — the relation
+  (`has-brief`, `rests-on`, `mentioned-in`, …) shows on hover and each edge's thickness is
+  weighted by how many L1 source notes back it, so provenance strength is visible at a glance;
+  (2) **shareable deep links** — a Trace or Find writes to `location.hash`, so any graph state
+  is a URL you can send; (3) **mobile touch** — pan/drag/tap plus pinch-zoom (`touchstart`
+  handlers), so the graph works on a phone, not just a desktop with a mouse; (4) a banked
+  **browser-render proof** test that guards all of the above so they can't silently regress.
+- **L2 synthesis-freshness heartbeat — `.github/workflows/synthesis-freshness.yml` (2026-07-01,
+  KR-C):** "keep the engine operating" was only half-true — the daily L1 ingest is autonomous
+  GitHub infra with its own liveness alarm, but the *weekly L2 brief* is written by the fleet
+  curator (an LLM job on Michael's box, off GitHub), so a power-off silently drifts the briefs
+  stale with nothing to surface it. New weekly Monday workflow gives the L2 lane the same
+  visible heartbeat: it checks each clean-theme brief against the latest L1 day and opens a
+  single dedup'd `synthesis-alarm` issue only when a brief is genuinely **overdue** (the
+  synthesis actually failed to run) — merely *stale* (awaiting the next scheduled pass) stays
+  quiet. Backed by `scripts/check_synthesis_freshness.py` and documented in the root README
+  "Operations — engine liveness" section.
 - **CLI reference — `docs/cli.md` (2026-07-01, KR-C):** the whole engine is a set of 18
   pure-stdlib Python CLIs under `scripts/`, but no single page mapped them — a new contributor
   had to reverse-engineer the tool surface from the README fragments and each script's argparse.
