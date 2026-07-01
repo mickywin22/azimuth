@@ -53,8 +53,10 @@ from. Around them sits the <strong>entity layer</strong> scanned out of the real
 (triangles) give each channel its texture, and <strong>shared regions</strong> (gold
 diamonds) bridge channels &mdash; a place the live data records under <em>more than one</em>
 theme, joined by <strong>gold edges</strong>. That cross-channel link is the part a static
-format cannot produce. Hover a node to spotlight its links, scroll to zoom and drag to pan;
-click a node to open its page. Held themes never appear.
+format cannot produce. Every edge is <strong>typed</strong> (<em>mentioned-in</em>,
+<em>rests-on</em>, <em>located-in</em>…) and evidence-weighted — heavier links draw thicker;
+<strong>hover a line</strong> to read its relation. Hover a node to spotlight its links,
+scroll to zoom and drag to pan; click a node to open its page. Held themes never appear.
 <strong>Pick two channels below and Trace</strong> to ask the graph how they connect &mdash;
 the queryable half a static bundle cannot answer.</p>
 <div id="legend" class="legend"></div>
@@ -79,7 +81,8 @@ the queryable half a static bundle cannot answer.</p>
   <div id="gtip"></div>
 </div>
 <p class="ghint">Scroll to zoom &middot; drag the background to pan &middot; hover a node to
-spotlight its links &middot; drag a node to reposition &middot; click to open its page
+spotlight its links &middot; <strong>hover an edge</strong> to read its relation type + weight
+&middot; drag a node to reposition &middot; click to open its page
 &middot; <strong>click a legend chip</strong> to hide/show that node kind &middot;
 <strong>Find</strong> to jump to any node by name.</p>
 <noscript><p>Enable JavaScript to view the interactive graph, or browse the
@@ -186,8 +189,10 @@ const N = GRAPH.nodes.map((n, i) => ({
   vx: 0, vy: 0, r: radiusOf(n)
 }));
 const idx = Object.fromEntries(N.map(n => [n.id, n]));
-const E = GRAPH.edges.map(e => ({s: idx[e.source], t: idx[e.target], cross: !!e.cross_theme}))
-  .filter(e => e.s && e.t);
+const E = GRAPH.edges.map(e => ({
+  s: idx[e.source], t: idx[e.target], cross: !!e.cross_theme,
+  rel: e.rel || "link", weight: e.weight || 1
+})).filter(e => e.s && e.t);
 function step() {
   for (const a of N) {
     for (const b of N) {
@@ -321,6 +326,7 @@ if (search) {
 // Hovering spotlights a node + its direct links and dims the rest, so a reader can read
 // one entity's reach without running a full trace.
 let hoverId = null, pinnedId = null;   // pinnedId = a node parked by the search box
+let hoverEdge = null;                   // the edge object under the cursor (relation tooltip)
 function neighHL(id) {
   if (!id || !ADJ[id]) return null;
   const nodes = new Set([id]), edges = new Set();
@@ -329,7 +335,13 @@ function neighHL(id) {
   }
   return { nodes, edges };
 }
-const activeHL = () => HILITE || neighHL(hoverId) || neighHL(pinnedId);
+// Hovering an edge spotlights just its two endpoints, so a reader can isolate a single
+// typed link (and read its relation in the tooltip) without a full trace.
+const edgeHL = e => e ? {
+  nodes: new Set([e.s.id, e.t.id]),
+  edges: new Set([e.s.id+"|"+e.t.id, e.t.id+"|"+e.s.id])
+} : null;
+const activeHL = () => HILITE || neighHL(hoverId) || edgeHL(hoverEdge) || neighHL(pinnedId);
 const onNode = n => { const h = activeHL(); return !h || h.nodes.has(n.id); };
 const onEdge = e => { const h = activeHL(); return !h || h.edges.has(e.s.id+"|"+e.t.id); };
 function draw() {
@@ -342,14 +354,22 @@ function draw() {
   const lw = w => w/view.s;
   // within-theme edges first (thin, muted), cross-theme on top (gold, thick).
   // When a trace/hover is active, off-path elements dim so the answer stands out.
+  // Edge thickness carries evidence: heavier `weight` (how many L1 notes name the entity)
+  // draws a thicker line, so an evidence-ranked link reads as such. The hovered edge lights
+  // up cyan on top so its relation type (shown in the tooltip) has something to point at.
+  const wLine = e => 0.8 + 0.7 * Math.min(e.weight, 4);   // weight 1->1.5px .. 4->3.6px
   for (const e of E) {
     if (e.cross || !visible(e.s) || !visible(e.t)) continue;
-    cx.strokeStyle = "#2a3a4d"; cx.lineWidth = lw(1); cx.globalAlpha = onEdge(e) ? 1 : 0.08;
+    const hot = e === hoverEdge;
+    cx.strokeStyle = hot ? "#8fd0ff" : "#2a3a4d"; cx.lineWidth = lw(hot ? wLine(e) + 1.2 : wLine(e));
+    cx.globalAlpha = hot ? 1 : (onEdge(e) ? 1 : 0.08);
     cx.beginPath(); cx.moveTo(e.s.x,e.s.y); cx.lineTo(e.t.x,e.t.y); cx.stroke();
   }
   for (const e of E) {
     if (!e.cross || !visible(e.s) || !visible(e.t)) continue;
-    cx.strokeStyle = CROSS; cx.lineWidth = lw(2.6); cx.globalAlpha = onEdge(e) ? 0.9 : 0.08;
+    const hot = e === hoverEdge;
+    cx.strokeStyle = hot ? "#8fd0ff" : CROSS; cx.lineWidth = lw((hot ? 1.4 : 1) * (2.2 + 0.4 * Math.min(e.weight, 4)));
+    cx.globalAlpha = hot ? 1 : (onEdge(e) ? 0.9 : 0.08);
     cx.beginPath(); cx.moveTo(e.s.x,e.s.y); cx.lineTo(e.t.x,e.t.y); cx.stroke();
   }
   cx.globalAlpha = 1;
@@ -413,6 +433,30 @@ const relText = n => {                      // one-line description for the tool
   if (n.kind === "source") return `L1 source (${n.theme})`;
   return `${n.kind} · ${deg} links`;
 };
+// --- typed edges: hover a line to read its relation (+ evidence weight) ------
+const REL_LABEL = {"has-brief":"has brief","rests-on":"rests on","mentioned-in":"mentioned in",
+  "named-in":"named in","reported-in":"reported in","located-in":"located in","link":"link"};
+const edgeText = e => {
+  const w = e.weight > 1 ? ` · weight ${e.weight}` : "";
+  const kind = e.cross ? " · cross-theme bridge" : "";
+  return `<strong>${REL_LABEL[e.rel] || e.rel}</strong>${w}${kind}<br>${e.s.label} ↔ ${e.t.label}`;
+};
+function segDist(px, py, ax, ay, bx, by) {   // distance from a point to a segment
+  const dx = bx-ax, dy = by-ay, L2 = dx*dx + dy*dy || 1;
+  let t = ((px-ax)*dx + (py-ay)*dy) / L2; t = Math.max(0, Math.min(1, t));
+  return Math.hypot(px - (ax+t*dx), py - (ay+t*dy));
+}
+const pickEdge = (mx, my) => {               // nearest edge within a few screen px, in screen space
+  let best = null, bd = 7;
+  for (const e of E) {
+    if (!visible(e.s) || !visible(e.t)) continue;
+    const ax = e.s.x*view.s+view.tx, ay = e.s.y*view.s+view.ty;
+    const bx = e.t.x*view.s+view.tx, by = e.t.y*view.s+view.ty;
+    const d = segDist(mx, my, ax, ay, bx, by);
+    if (d < bd) { bd = d; best = e; }
+  }
+  return best;
+};
 let drag = null, pan = null, moved = 0;
 const localXY = ev => { const r = cv.getBoundingClientRect(); return [ev.clientX-r.left, ev.clientY-r.top]; };
 cv.addEventListener("mousedown", ev => {
@@ -425,20 +469,26 @@ window.addEventListener("mousemove", ev => {   // drag-node / pan-background (ca
   if (drag) { const [wx, wy] = toWorld(mx, my); drag.x = wx; drag.y = wy; moved++; reheat(0.4); }
   else { view.tx = pan.tx + (mx - pan.mx); view.ty = pan.ty + (my - pan.my); userView = true; moved++; mark(); }
 });
-cv.addEventListener("mousemove", ev => {       // hover spotlight + tooltip
+cv.addEventListener("mousemove", ev => {       // hover spotlight + tooltip (node first, then edge)
   if (drag || pan) { tip.style.display = "none"; return; }
   const [mx, my] = localXY(ev); const hit = pick(mx, my);
+  const he = hit ? null : pickEdge(mx, my);
   const newHover = hit ? hit.id : null;
-  if (newHover !== hoverId) mark();       // repaint the spotlight even when the layout is idle
-  hoverId = newHover;
+  if (newHover !== hoverId || he !== hoverEdge) mark();   // repaint even when the layout is idle
+  hoverId = newHover; hoverEdge = he;
   if (hit) {
     tip.innerHTML = `<strong>${hit.label}</strong><br>${relText(hit)}`;
     tip.style.display = "block";
     tip.style.left = (mx + 14) + "px"; tip.style.top = (my + 12) + "px";
     cv.style.cursor = hit.url ? "pointer" : "grab";
+  } else if (he) {
+    tip.innerHTML = edgeText(he);
+    tip.style.display = "block";
+    tip.style.left = (mx + 14) + "px"; tip.style.top = (my + 12) + "px";
+    cv.style.cursor = "grab";
   } else { tip.style.display = "none"; cv.style.cursor = "grab"; }
 });
-cv.addEventListener("mouseleave", () => { hoverId = null; tip.style.display = "none"; mark(); });
+cv.addEventListener("mouseleave", () => { hoverId = null; hoverEdge = null; tip.style.display = "none"; mark(); });
 window.addEventListener("mouseup", () => { drag = null; pan = null; });
 cv.addEventListener("click", ev => {
   if (moved > 3) return;                       // a drag/pan, not a click
