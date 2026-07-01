@@ -14,7 +14,7 @@ _Last updated: 2026-06-30 (fleet, Azimuth KR-A)._
 |---|------|-------|--------|
 | C1 | **Secret scan** — no key in working tree or git history | fleet | ✅ **GREEN** — [scan 2026-06-30](./secret-scan-2026-06-30.md), 543 blobs + 232 files, 0 findings; CI-enforced |
 | C1b | **Private-leakage scan (working tree)** — no owner-private context (home paths, personal email, local hook commands) | fleet | ✅ **GREEN** — `scripts/scan_private_leakage.py --worktree`, **0 HARD findings**; CI-enforced. Removed `.claude/settings.local.json` (local hook paths) + `.claude/dependency-cooldown-policy.md` (HemySphere-internal scaffold doctrine) from the publishable tree + gitignored both |
-| C1c | **Private-leakage scan (git history)** — same, over every reachable blob | **Michael** | ⚠️ **6 HARD findings in history** — the now-removed `.claude/settings.local.json` blobs (this box's absolute hook paths, e.g. `C:\Users\Michael\...lean-ctx.exe`) survive in old commits. **Low severity** (machine paths + a username already public via the LICENSE, *not* credentials), but a public-flip judgement: **(a) accept** as-is, or **(b) scrub** the blobs from history (`git filter-repo`/BFG + force-push) before the flip — a destructive history rewrite, so **Michael/reviewer only**, never autonomous |
+| C1c | **Private-leakage scan (git history)** — same, over every reachable blob | **Michael** | ⚠️ **11 HARD findings in history** (as of 2026-07-01) — the now-removed `.claude/settings.local.json` blobs (this box's absolute hook paths, e.g. `C:\Users\Michael\...lean-ctx.exe`) plus machine paths quoted inside old security-doc / scrub-script blobs (`docs/security/*.md`, `scripts/scrub-history.sh`, `docs/coolify-deploy.md`). **Low severity** (machine paths + a username already public via the LICENSE, *not* credentials), but a public-flip judgement: **(a) accept** as-is, or **(b) scrub** the blobs from history (`git filter-repo`/BFG + force-push) before the flip — a destructive history rewrite, so **Michael/reviewer only**, never autonomous. Surfaced **non-blocking** in the every-push `privacy-scan` job so it doesn't red-fail CI by design; the full-history scan is enforced at flip time |
 | C2 | **License files present** — code MIT + content CC-BY-4.0 | fleet | ✅ GREEN — `LICENSE` + `LICENSE-CONTENT.md` on `main` |
 | C3 | **Source guardrail green** — every surfaced source licensed + credited | fleet | ✅ GREEN — `scripts/check_sources.py` in CI |
 | C4 | **Daily ingest healthy** — GH-Actions L1 pull exits 0 | fleet | ✅ GREEN — 22 written / 0 errored after the 06-25 de-surface fix |
@@ -71,10 +71,22 @@ Then the queued **Career-Promo launch post** (IQ #890) can ride the flip.
 
 `.github/workflows/secret-scan.yml` runs on every push / PR to `main` — gitleaks
 over full history + the stdlib secret scanner (C1) **and** the private-leakage
-scanner (C1b). A secret OR an owner-private path/email/hook command committed
-after the flip — even one reverted in the next commit — trips the gate and fails
-the build, so the "clean surface" guarantee does not decay once the repo is
-public.
+scanner (C1b). The two gates are scoped differently on purpose:
+
+- **C1 (credentials)** hard-blocks over **full history** — a leaked key is
+  compromised forever, so even one committed and reverted in the next commit
+  trips the gate.
+- **C1b (owner-private context)** hard-blocks on the **working tree** — the fleet
+  can never commit a new home-path / hook command — while pre-existing owner-private
+  blobs in **history** are surfaced **non-blocking** (the C1c accept-vs-scrub call,
+  a Michael go-gate, never an autonomous rewrite). This keeps the every-push gate
+  from being red-by-design on the known C1c blobs while still blocking any *new*
+  owner-private leak. The full-history privacy scan runs at flip time (C1c below),
+  so the flip itself stays protected.
+
+So the "clean surface" guarantee does not decay once the repo is public: any *new*
+secret or owner-private path fails the build, and the C1c history call is made once,
+explicitly, at the flip.
 
 ---
 *Owned by the Azimuth public-flip gate (KR-A). C1 detail:
