@@ -366,21 +366,35 @@ def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Query the azimuth knowledge graph.")
     parser.add_argument("--graph", default=str(DEFAULT_GRAPH), help="path to graph.json")
     parser.add_argument("--json", action="store_true", help="emit machine-readable JSON")
+    # Accept --json AFTER the subcommand too (the form the docs/CLI ref show:
+    # `query_graph.py <cmd> --json`). SUPPRESS keeps the trailing default from
+    # clobbering a leading --json in the shared namespace.
+    common = argparse.ArgumentParser(add_help=False)
+    common.add_argument(
+        "--json",
+        action="store_true",
+        default=argparse.SUPPRESS,
+        help="emit machine-readable JSON",
+    )
     sub = parser.add_subparsers(dest="cmd", required=True)
-    sub.add_parser("stats", help="headline node/edge counts")
-    sub.add_parser("relations", help="edge counts by relation type")
-    p_nb = sub.add_parser("neighbors", help="direct neighbours of a node")
+    sub.add_parser("stats", help="headline node/edge counts", parents=[common])
+    sub.add_parser("relations", help="edge counts by relation type", parents=[common])
+    p_nb = sub.add_parser("neighbors", help="direct neighbours of a node", parents=[common])
     p_nb.add_argument("term")
-    p_pa = sub.add_parser("path", help="shortest path between two nodes")
+    p_pa = sub.add_parser("path", help="shortest path between two nodes", parents=[common])
     p_pa.add_argument("a")
     p_pa.add_argument("b")
-    p_co = sub.add_parser("connect", help="how two channels are connected (flagship)")
+    p_co = sub.add_parser(
+        "connect", help="how two channels are connected (flagship)", parents=[common]
+    )
     p_co.add_argument("a")
     p_co.add_argument("b")
-    p_pr = sub.add_parser("provenance", help="the L1 source notes that name an entity")
+    p_pr = sub.add_parser(
+        "provenance", help="the L1 source notes that name an entity", parents=[common]
+    )
     p_pr.add_argument("term")
-    sub.add_parser("bridges", help="all cross-channel bridge entities")
-    p_hu = sub.add_parser("hubs", help="most-connected nodes")
+    sub.add_parser("bridges", help="all cross-channel bridge entities", parents=[common])
+    p_hu = sub.add_parser("hubs", help="most-connected nodes", parents=[common])
     p_hu.add_argument("--top", type=int, default=10)
     args = parser.parse_args(argv)
 

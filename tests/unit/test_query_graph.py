@@ -313,3 +313,24 @@ def test_provenance_cli_resolves_a_label(tmp_path: Path, capsys: Any) -> None:
     assert rc == 0
     assert "Greece" in out
     assert "backing L1 note" in out
+
+
+def test_json_flag_after_subcommand_matches_docs(tmp_path: Path, capsys: Any) -> None:
+    """The docs / CLI reference show `query_graph.py <cmd> --json` (trailing).
+
+    That form MUST work — it is the shape README.md and docs/cli.md tell readers to
+    type. Regression guard: the flag is accepted both before and after the subcommand,
+    and both emit the same machine-readable JSON.
+    """
+    gp = tmp_path / "graph.json"
+    gp.write_text(json.dumps(_graph()), encoding="utf-8")
+
+    rc_trailing = qg.main(["--graph", str(gp), "hubs", "--top", "3", "--json"])
+    trailing_out = capsys.readouterr().out
+    assert rc_trailing == 0
+    trailing = json.loads(trailing_out)  # must be valid JSON, not the plain table
+
+    rc_leading = qg.main(["--graph", str(gp), "--json", "hubs", "--top", "3"])
+    leading_out = capsys.readouterr().out
+    assert rc_leading == 0
+    assert json.loads(leading_out) == trailing
