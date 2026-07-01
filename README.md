@@ -146,6 +146,8 @@ data real, how current, can I trust it, license, why private).
 
 ## Contributing & security
 
+- **Getting help:** [SUPPORT.md](SUPPORT.md) — where to look first, how to report a
+  broken build vs a known-transient alarm, and the honest no-SLA expectation.
 - **Contributing:** read [CONTRIBUTING.md](CONTRIBUTING.md) first — it explains the
   L1/L2/L3 layer ownership (the `vault/` content is machine-generated, so PRs there are
   not accepted), the gates every change must pass, and the editorial line.

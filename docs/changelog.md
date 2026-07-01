@@ -7,6 +7,19 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 ## [Unreleased]
 
 ### Added
+- **Getting-help policy — `SUPPORT.md` (2026-07-01, KR-C):** a public-grade repo needs the
+  GitHub-recognised "Get help" file, and azimuth had every community doc *except* that one —
+  README, CONTRIBUTING, CODE_OF_CONDUCT, SECURITY, CITATION, CREDITS, issue/PR templates were
+  all present, but a first-time visitor with a "how do I…?" or "is this broken?" question had no
+  single front door. Added `SUPPORT.md`: a router that sends questions to the right existing doc
+  (FAQ, architecture, CLI, docs index) and, crucially, distinguishes a *broken build* from a
+  *known-transient alarm* by pointing at the operations runbook (several red badges are red by
+  design). It states the honest no-SLA expectation for a solo-maintained demonstrator and the
+  scope boundary (upstream Worldmonitor questions belong with Worldmonitor). Surfaced from the
+  root README (Contributing & security) and the [docs index](README.md), and wired as a
+  `Questions & getting help` contact link in the issue-template chooser
+  (`.github/ISSUE_TEMPLATE/config.yml`) so GitHub shows it before someone opens a blank issue.
+  All new links resolve under the doc-link gate.
 - **Dependabot for the CI toolchain — `.github/dependabot.yml` (2026-07-01, KR-C):** the repo
   brands itself on a per-source supply-chain guardrail for the *data* (`scripts/check_sources.py`),
   but the *build* toolchain had the analogous gap — the six third-party GitHub Actions across the

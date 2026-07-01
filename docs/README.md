@@ -84,7 +84,11 @@ flip. Nothing here is silently dropped — the security gate is a dedicated, alw
 
 ---
 
-## Contributing
+## Getting help & contributing
+
+Lost? Start with [SUPPORT.md](../SUPPORT.md) — it routes any "how do I…?" or "is this
+broken?" question to the right doc (FAQ, runbook, issue template) and states the honest
+no-SLA expectation for a solo-maintained demonstrator.
 
 See [CONTRIBUTING.md](../CONTRIBUTING.md), [CODE_OF_CONDUCT.md](../CODE_OF_CONDUCT.md),
 and [CREDITS.md](../CREDITS.md) at the repo root. Code is MIT; published content is
