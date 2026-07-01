@@ -51,7 +51,7 @@ and quick start; come here to go deep.
 
 ## Continuous integration & gates
 
-Four GitHub Actions workflows run the engine and guard the repo. All are visible under
+Five GitHub Actions workflows run the engine and guard the repo. All are visible under
 [`.github/workflows/`](../.github/workflows/); the two badges at the top of the root README
 track the first two.
 
@@ -59,6 +59,7 @@ track the first two.
 |----------|------|-----------|--------|
 | `ci.yml` | every push / PR to `main` | lint · format · type-check · source-guardrail · synthesis-lint · brief-index + graph sync · **doc-link resolve** · **unit + integration tests + ≥80% coverage** | green |
 | `ingest.yml` | daily cron + `workflow_dispatch` | a stale L1 day (in-workflow liveness assert) | green, running daily |
+| `synthesis-freshness.yml` | weekly (Monday) + `workflow_dispatch` | an **overdue** L2 brief — opens a single `synthesis-alarm` issue only when the weekly curator pass genuinely failed to run (merely *stale* stays quiet) | green, watching |
 | `pages.yml` | push to `main` | the static-site build | — |
 | `secret-scan.yml` | every push / PR to `main` | **C1 public-flip gate** — gitleaks + the stdlib secret scan + the private-leakage scan, each over **full history** | **red, by design (see below)** |
 
