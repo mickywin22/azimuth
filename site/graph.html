@@ -131,6 +131,10 @@ const LW = 820, LH = 600;
 let DPR = 1, CSSW = LW, CSSH = LH;
 const view = { s: 1, tx: 0, ty: 0 };   // screen_px = world*s + t  (CSS px)
 let userView = false;                   // true once the user zooms/pans -> stop auto-fit
+// Layout heat (decays -> physics idle) + repaint flag (draw only on a dirty frame).
+let heat = 1, dirty = true;
+const reheat = (v = 0.55) => { heat = Math.min(1, Math.max(heat, v)); dirty = true; };
+const mark = () => { dirty = true; };
 function fitView() {
   const pad = 26;
   const s = Math.min((CSSW - 2*pad)/LW, (CSSH - 2*pad)/LH) || 1;
@@ -236,6 +240,7 @@ function bfsPath(src, dst) {
   return null;
 }
 function trace() {
+  mark();
   const out = document.getElementById("qout"), ta = qa.value, tb = qb.value;
   if (ta === tb) { out.textContent = "Pick two different channels."; HILITE = null; return; }
   const ba = briefIdOf(ta), bb = briefIdOf(tb);
@@ -246,7 +251,7 @@ function trace() {
   const link = (a, b) => { edges.add(a+"|"+b); edges.add(b+"|"+a); };
   if (path) for (let i=0;i<path.length-1;i++) link(path[i], path[i+1]);
   shared.forEach(x => { link(x, ba); link(x, bb); });
-  HILITE = { nodes, edges };
+  HILITE = { nodes, edges }; mark();
   const aL = channelName(nodeById[ba].label), bL = channelName(nodeById[bb].label);
   if (!shared.length && !path) { out.textContent = `No connection found between ${aL} and ${bL}.`; return; }
   const names = shared.map(x => nodeById[x].label).join(", ") || "no direct shared entity";
@@ -257,7 +262,7 @@ function trace() {
 if (qa && qb) {
   document.getElementById("qgo").addEventListener("click", trace);
   document.getElementById("qclear").addEventListener("click", () => {
-    HILITE = null; document.getElementById("qout").textContent = "";
+    HILITE = null; document.getElementById("qout").textContent = ""; mark();
   });
 }
 // Highlight = an active Trace (HILITE) OR, absent that, the hovered node's neighbourhood.
@@ -363,13 +368,15 @@ cv.addEventListener("mousedown", ev => {
 window.addEventListener("mousemove", ev => {   // drag-node / pan-background (capture anywhere)
   if (!drag && !pan) return;
   const [mx, my] = localXY(ev);
-  if (drag) { const [wx, wy] = toWorld(mx, my); drag.x = wx; drag.y = wy; moved++; }
-  else { view.tx = pan.tx + (mx - pan.mx); view.ty = pan.ty + (my - pan.my); userView = true; moved++; }
+  if (drag) { const [wx, wy] = toWorld(mx, my); drag.x = wx; drag.y = wy; moved++; reheat(0.4); }
+  else { view.tx = pan.tx + (mx - pan.mx); view.ty = pan.ty + (my - pan.my); userView = true; moved++; mark(); }
 });
 cv.addEventListener("mousemove", ev => {       // hover spotlight + tooltip
   if (drag || pan) { tip.style.display = "none"; return; }
   const [mx, my] = localXY(ev); const hit = pick(mx, my);
-  hoverId = hit ? hit.id : null;
+  const newHover = hit ? hit.id : null;
+  if (newHover !== hoverId) mark();       // repaint the spotlight even when the layout is idle
+  hoverId = newHover;
   if (hit) {
     tip.innerHTML = `<strong>${hit.label}</strong><br>${relText(hit)}`;
     tip.style.display = "block";
@@ -377,7 +384,7 @@ cv.addEventListener("mousemove", ev => {       // hover spotlight + tooltip
     cv.style.cursor = hit.url ? "pointer" : "grab";
   } else { tip.style.display = "none"; cv.style.cursor = "grab"; }
 });
-cv.addEventListener("mouseleave", () => { hoverId = null; tip.style.display = "none"; });
+cv.addEventListener("mouseleave", () => { hoverId = null; tip.style.display = "none"; mark(); });
 window.addEventListener("mouseup", () => { drag = null; pan = null; });
 cv.addEventListener("click", ev => {
   if (moved > 3) return;                       // a drag/pan, not a click
@@ -388,20 +395,32 @@ cv.addEventListener("wheel", ev => {           // zoom toward the cursor
   ev.preventDefault();
   const [mx, my] = localXY(ev); const [wx, wy] = toWorld(mx, my);
   view.s = Math.max(0.25, Math.min(6, view.s * Math.exp(-ev.deltaY * 0.0015)));
-  view.tx = mx - wx*view.s; view.ty = my - wy*view.s; userView = true;
+  view.tx = mx - wx*view.s; view.ty = my - wy*view.s; userView = true; mark();
 }, { passive: false });
 function zoomBy(k) {
   const cx0 = CSSW/2, cy0 = CSSH/2, p = toWorld(cx0, cy0);
   view.s = Math.max(0.25, Math.min(6, view.s * k));
-  view.tx = cx0 - p[0]*view.s; view.ty = cy0 - p[1]*view.s; userView = true;
+  view.tx = cx0 - p[0]*view.s; view.ty = cy0 - p[1]*view.s; userView = true; mark();
 }
 const zin = document.getElementById("zin"), zout = document.getElementById("zout"),
       zreset = document.getElementById("zreset");
 if (zin) zin.addEventListener("click", () => zoomBy(1.3));
 if (zout) zout.addEventListener("click", () => zoomBy(1/1.3));
-if (zreset) zreset.addEventListener("click", () => { userView = false; resize(); });
-window.addEventListener("resize", resize);
+if (zreset) zreset.addEventListener("click", () => { userView = false; resize(); mark(); });
+window.addEventListener("resize", () => { resize(); dirty = true; });
 resize();
-(function loop() { for (let k=0;k<2;k++) step(); draw(); requestAnimationFrame(loop); })();
+// --- cooled render loop -----------------------------------------------------
+// The old loop ran the O(N^2) force step twice every frame forever, pinning a CPU
+// core for as long as the public page stayed open. Instead the layout carries a
+// `heat` that decays to zero once it settles; physics only runs while it is warm,
+// and the canvas only repaints on a `dirty` frame. Any interaction (drag / pan /
+// zoom / hover / trace / resize) reheats or re-marks, so the graph stays live to
+// the touch but idles at ~0% CPU once still.
+function loop() {
+  if (heat > 0.02) { for (let k=0;k<2;k++) step(); heat *= 0.985; dirty = true; }
+  if (dirty) { draw(); dirty = false; }
+  requestAnimationFrame(loop);
+}
+loop();
 </script>
 </body></html>
