@@ -112,9 +112,12 @@ python scripts/check_ingest_liveness.py --check    # exit 1 if the latest L1 day
 | `docs/` | Spec, plan, architecture, deploy, security, and per-feature docs |
 | `.github/workflows/` | CI · daily ingest · Pages deploy · secret + privacy scans |
 
-## Architecture
+## Documentation
 
-See [docs/architecture.md](docs/architecture.md) for design decisions.
+Full map of everything under `docs/` — concept & design, the engine, publish/operate,
+security, and the demonstrator proof — is in **[docs/README.md](docs/README.md)**.
+Start there to go deep; [docs/architecture.md](docs/architecture.md) is the design-decisions
+entry point.
 
 ## Contributing & security
 
