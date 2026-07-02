@@ -497,3 +497,25 @@ def test_rendered_html_honours_reduced_motion(tmp_path: Path) -> None:
     # cold start + synchronous pre-settle (no on-load spring animation)
     assert "heat = REDUCED ? 0 : 1" in html
     assert "if (REDUCED) { for (let k = 0; k < 600; k++) step(); heat = 0; dirty = true; }" in html
+
+
+def test_rendered_html_nav_matches_site_nav_no_dead_okf_link(tmp_path: Path) -> None:
+    """AZ-KR2: graph.html must carry the same 5-link nav as every other page.
+
+    The old template linked a never-built okf.html — a dead link on the public
+    demonstrator. Guard both directions: the dead link stays gone, and the five
+    real destinations (Ask the data | Benchmark | Briefs | Sources | Editorial
+    line) are all present, so the graph page can never drift off the site nav.
+    """
+    graph = _build(tmp_path)
+    html = build_graph_mod.render_html(graph)
+
+    assert "okf.html" not in html, "dead okf.html nav link re-introduced into graph.html"
+    for href, label in (
+        ("answers.html", "Ask the data"),
+        ("benchmark.html", "Benchmark"),
+        ("index.html", "Briefs"),
+        ("index.html#sources", "Sources"),
+        ("editorial.html", "Editorial line"),
+    ):
+        assert f'<a href="{href}">{label}</a>' in html, f"nav link missing: {label} -> {href}"

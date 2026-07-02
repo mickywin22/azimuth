@@ -571,11 +571,11 @@ color:#e7edf5;border-radius:7px;font:inherit;font-size:1rem;line-height:1;cursor
 <header class="nav">
   <a class="brand" href="index.html">azimuth</a>
   <nav>
+    <a href="answers.html">Ask the data</a>
+    <a href="benchmark.html">Benchmark</a>
     <a href="index.html">Briefs</a>
     <a href="index.html#sources">Sources</a>
-    <a href="graph.html">Graph</a>
-    <a href="editorial.html">Editorial</a>
-    <a href="okf.html">OKF</a>
+    <a href="editorial.html">Editorial line</a>
   </nav>
 </header>
 <main class="content">
