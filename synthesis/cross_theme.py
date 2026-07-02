@@ -31,10 +31,11 @@ if TYPE_CHECKING:
     from pathlib import Path
 
 # --- entity gazetteer --------------------------------------------------------
-# Mirrors ``scripts/build_graph.py`` ``_REGIONS`` so the meta-brief's bridges and the
-# knowledge-graph's gold edges can never disagree. Curated, whole-word matched: a region
-# only joins a bridge if it literally appears in the live L1 text, so every cross-channel
-# claim is data-backed.
+# SINGLE SOURCE for the region gazetteer. ``scripts/build_graph.py`` imports this tuple
+# for its gold cross-theme edges, so the meta-brief's bridges and the knowledge graph can
+# never disagree (a mirrored copy drifted once — 19 regions, 2026-06-27..07-02). Curated,
+# whole-word matched: a region only joins a bridge if it literally appears in the live L1
+# text, so every cross-channel claim is data-backed.
 REGIONS: tuple[str, ...] = (
     # energy / EU fuel panel + general
     "United States",
@@ -71,6 +72,36 @@ REGIONS: tuple[str, ...] = (
     "Kamchatka",
     "Mid-Atlantic Ridge",
     "Kermadec",
+    # added 2026-06-27 (KR-B gazetteer coverage audit): every name below is
+    # whole-word present in the live clean-theme L1/L2 text of the latest ingest
+    # day, so each is data-backed, not inferred. Four of them BRIDGE >=2 clean
+    # themes today (so they surface immediately): Venezuela (geophysical +
+    # environmental-hazards), California (climate-signals + geophysical), Ukraine
+    # (climate-signals + environmental-hazards), Papua New Guinea (geophysical +
+    # environmental-hazards). The rest currently sit in a single clean theme —
+    # they stay implicit until they bridge (the >=2-theme surfacing rule still
+    # gates them) but are listed so a future cross-theme appearance is caught
+    # instead of silently dropped. Held-theme-only names are deliberately NOT
+    # added (those themes are excluded from the graph).
+    "Venezuela",
+    "California",
+    "Ukraine",
+    "Papua New Guinea",
+    "Argentina",
+    "Brazil",
+    "Peru",
+    "Vanuatu",
+    "Alaska",
+    "Hawaii",
+    "Australia",
+    "Myanmar",
+    "Romania",
+    "Croatia",
+    "Hungary",
+    "Slovakia",
+    "Denmark",
+    "Sweden",
+    "Finland",
 )
 
 # The regions where the energy-supply theme measures a PHYSICAL balance: US crude

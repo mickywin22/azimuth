@@ -80,6 +80,7 @@ _REPO_ROOT = Path(__file__).resolve().parent.parent
 if str(_REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(_REPO_ROOT))
 
+from synthesis.cross_theme import REGIONS as _REGIONS  # noqa: E402
 from synthesis.lint import split_frontmatter  # noqa: E402
 from synthesis.site_build import (  # noqa: E402
     DEFAULT_REGISTRY,
@@ -90,76 +91,12 @@ from synthesis.site_build import (  # noqa: E402
 )
 
 # --- entity gazetteer -------------------------------------------------------
-# Curated, whole-word matched. Kept deliberately conservative: a name only joins
-# the graph if it literally appears in the live L1/L2 text, so every cross-theme
-# edge is data-backed, never inferred.
-_REGIONS = [
-    # energy / EU fuel panel + general
-    "United States",
-    "Germany",
-    "France",
-    "Italy",
-    "Spain",
-    "Greece",
-    "Austria",
-    "Belgium",
-    "Netherlands",
-    "Poland",
-    "Norway",
-    "Portugal",
-    "Ireland",
-    "Mexico",
-    "United Kingdom",
-    "Europe",
-    "European Union",
-    # geophysical / Ring-of-Fire arcs
-    "Indonesia",
-    "Philippines",
-    "Japan",
-    "China",
-    "Russia",
-    "Chile",
-    "Turkey",
-    "Iran",
-    "India",
-    "Taiwan",
-    "New Zealand",
-    "Tonga",
-    "Fiji",
-    "Kamchatka",
-    "Mid-Atlantic Ridge",
-    "Kermadec",
-    # added 2026-06-27 (KR-B gazetteer coverage audit): every name below is
-    # whole-word present in the live clean-theme L1/L2 text of the latest ingest
-    # day, so each is data-backed, not inferred. Four of them BRIDGE >=2 clean
-    # themes today (so they surface immediately): Venezuela (geophysical +
-    # environmental-hazards), California (climate-signals + geophysical), Ukraine
-    # (climate-signals + environmental-hazards), Papua New Guinea (geophysical +
-    # environmental-hazards). The rest currently sit in a single clean theme —
-    # they stay implicit until they bridge (the >=2-theme surfacing rule still
-    # gates them) but are listed so a future cross-theme appearance is caught
-    # instead of silently dropped. Held-theme-only names are deliberately NOT
-    # added (those themes are excluded from the graph).
-    "Venezuela",
-    "California",
-    "Ukraine",
-    "Papua New Guinea",
-    "Argentina",
-    "Brazil",
-    "Peru",
-    "Vanuatu",
-    "Alaska",
-    "Hawaii",
-    "Australia",
-    "Myanmar",
-    "Romania",
-    "Croatia",
-    "Hungary",
-    "Slovakia",
-    "Denmark",
-    "Sweden",
-    "Finland",
-]
+# The region gazetteer is imported from ``synthesis.cross_theme`` (single source —
+# see the ``from synthesis.cross_theme import REGIONS as _REGIONS`` line above), so
+# the graph's gold cross-theme edges and the meta-brief's bridges can never disagree.
+# Commodities are graph-only (the bridge scanner tracks regions, not commodities).
+# Curated, whole-word matched: a name only joins the graph if it literally appears
+# in the live L1/L2 text, so every cross-theme edge is data-backed, never inferred.
 _COMMODITIES = [
     "WTI",
     "Brent",

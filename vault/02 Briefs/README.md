@@ -13,7 +13,7 @@ weekly (see its `## Changelog`). All content is CC-BY-4.0; see `../../CREDITS.md
 | [Geophysical Weekly](<Geophysical Weekly.md>) | geophysical | 2026-W27 | 2026-06-30T12:00:00Z | [earthquakes] |
 | [Prediction Markets Weekly](<Prediction Markets Weekly.md>) | prediction-markets | 2026-W27 | 2026-06-30T12:00:00Z | [prediction-markets] |
 | [Top5 Answers](<Top5 Answers.md>) | cross-theme | 2026-W27 | 2026-06-30T04:00:00Z | [co2-monitoring, crude-oil-inventories, earthquakes, energy-prices, fuel-prices, natural-events, natural-gas-storage-eu, radiation-observations, thermal-escalations, wildfire-detections] |
-| [World Watch Weekly](<World Watch Weekly.md>) | cross-theme | 2026-W27 | 2026-06-30T04:00:00Z | [climate-anomalies, co2-monitoring, crude-oil-inventories, earthquakes, energy-prices, fuel-prices, natural-events, natural-gas-storage-eu, prediction-markets, radiation-observations, sea-ice-extent, thermal-escalations, wildfire-detections] |
+| [World Watch Weekly](<World Watch Weekly.md>) | cross-theme | 2026-W27 | 2026-07-02T04:00:00Z | [climate-anomalies, co2-monitoring, crude-oil-inventories, earthquakes, energy-prices, fuel-prices, natural-events, natural-gas-storage-eu, prediction-markets, radiation-observations, sea-ice-extent, thermal-escalations, wildfire-detections] |
 
 ## Surfaced themes with a held brief
 

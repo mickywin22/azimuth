@@ -596,3 +596,42 @@ def test_rendered_html_nav_matches_site_nav_no_dead_okf_link(tmp_path: Path) -> 
         ("editorial.html", "Editorial line"),
     ):
         assert f'<a href="{href}">{label}</a>' in html, f"nav link missing: {label} -> {href}"
+
+
+def test_region_gazetteer_single_source_with_cross_theme() -> None:
+    """AZ-KR6: the graph builder and the bridge scanner share ONE region gazetteer.
+
+    The two lists drifted once (2026-06-27..07-02: 19 regions in the graph but not the
+    meta-brief), making the knowledge graph and the World Watch Weekly meta-brief
+    publicly contradict each other on the core cross-channel claim. build_graph now
+    imports REGIONS from synthesis.cross_theme; this pins the parity so a re-introduced
+    local copy (or a one-sided edit) fails CI immediately.
+    """
+    from synthesis.cross_theme import REGIONS
+
+    assert set(build_graph_mod._REGIONS) == set(REGIONS)
+    # not just equal — the SAME object, so drift is impossible by construction
+    assert build_graph_mod._REGIONS is REGIONS
+    # the 2026-06-27 coverage-audit additions must be visible to the bridge scanner
+    for region in (
+        "Venezuela",
+        "California",
+        "Ukraine",
+        "Papua New Guinea",
+        "Argentina",
+        "Brazil",
+        "Peru",
+        "Vanuatu",
+        "Alaska",
+        "Hawaii",
+        "Australia",
+        "Myanmar",
+        "Romania",
+        "Croatia",
+        "Hungary",
+        "Slovakia",
+        "Denmark",
+        "Sweden",
+        "Finland",
+    ):
+        assert region in REGIONS, f"2026-06-27 gazetteer addition missing: {region}"
