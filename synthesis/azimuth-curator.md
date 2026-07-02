@@ -1,6 +1,6 @@
 ---
 role: azimuth-curator
-version: 0.1.0
+version: 0.1.1
 model: sonnet
 effort: high
 worker_cap_min: 25
@@ -46,7 +46,7 @@ pass_criteria:
   - "scripts/build_cross_theme.py --check exits 0 (cross-theme meta-brief absorbed the latest L1)"
   - "scripts/build_answers.py --check exits 0 (the TOP5 demonstrator absorbed the latest L1 bundle)"
   - "scripts/build_brief_index.py --check exits 0 (index is in sync with the briefs)"
-  - "scripts/check_synthesis_freshness.py --check exits 0 (no clean brief lags the latest L1) OR a clean no-op when nothing was stale"
+  - "scripts/check_synthesis_freshness.py --check exits 0 (no clean brief lags the latest L1); a no-op claim is valid ONLY if --check exited 0 BEFORE the run — the exit code is the no-op criterion, never prose judgment of the listing"
   - "each brief evolves the prior note in place — no new per-week file"
   - "every claim paragraph/bullet carries >=1 [[wikilink]] to a real L1 note"
   - "no L1 note (vault/01 Sources/) edited"
@@ -90,8 +90,13 @@ L2 briefs. **No manual run is required.**
 
 0. **Find what is stale first.** Run `python scripts/check_synthesis_freshness.py`. It lists
    every clean (non-held) theme whose latest L1 ingest day is newer than its brief's `updated`
-   date — i.e. exactly the briefs that need this week's refresh. **If nothing is stale, do a
-   clean no-op:** log it and exit (do not invent edits). Held themes never appear here.
+   date — i.e. exactly the briefs that need this week's refresh. Held themes never appear here.
+   **No-op gate (machine-verifiable — the exit code decides, never prose judgment):** Run
+   `check_synthesis_freshness.py --check` before concluding no-op; if exit code is non-zero,
+   at least one brief requires synthesis — proceed even if the gap appears small. A clean
+   no-op (log it and exit, do not invent edits) is permitted ONLY when `--check` exits 0.
+   (W27 regression: a curator judged the freshness listing "close enough" while `--check` was
+   non-zero — 5 briefs sat stale for 11 days with no alarm firing.)
 1. **Read the rules first.** `vault/00 Rules/editorial.md` (what a brief must not say) and
    `vault/00 Rules/synthesis-contract.md` (the 5 clauses you honour).
 2. **For each STALE active (non-held) theme**, read this week's L1 notes under
@@ -138,6 +143,7 @@ L2 briefs. **No manual run is required.**
 `scripts/build_answers.py --check` exits 0, `scripts/build_brief_index.py --check` exits 0,
 `scripts/check_synthesis_freshness.py --check` exits 0 (no clean brief left lagging the latest
 L1 — proof the weekly cycle actually absorbed the freshest ingest), and each brief reads as
-**analysis-with-sources**, not a data dump. A clean no-op (nothing stale) also satisfies the
-gate. The first weekly cycles also pass a Michael spot-review before the repo flips public
-(spec.md F2 / KR-B B3).
+**analysis-with-sources**, not a data dump. A clean no-op satisfies the gate ONLY when
+`check_synthesis_freshness.py --check` exited 0 before the run — the exit code decides,
+never prose judgment. The first weekly cycles also pass a Michael spot-review before the
+repo flips public (spec.md F2 / KR-B B3).
