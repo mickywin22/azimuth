@@ -462,6 +462,28 @@ def test_every_live_channel_has_a_dedicated_colour() -> None:
     assert len(set(chosen)) == len(chosen), "two channels share a colour"
 
 
+def test_rendered_html_serialises_full_view_state_to_the_url(tmp_path: Path) -> None:
+    """Shareable view: the WHOLE view — layer filters + an active Trace + a focused node —
+    round-trips through one composite #hash, so "Copy link" reproduces the exact graph a
+    reader is looking at (not just a bare trace). Template-only behaviour, so it gets its own
+    presence guard alongside the legacy single-key deep-link guard above.
+    """
+    graph = _build(tmp_path)
+    html = build_graph_mod.render_html(graph)
+
+    # the composite serialiser + its VIEW source + the layer-diff helper
+    for token in ("const syncHash", "VIEW.layers", "VIEW.trace", "VIEW.node", "layersState"):
+        assert token in html, f"view-state token missing from graph.html: {token}"
+
+    # the filter set is now a URL key, joined to trace/node with '&' (not a lone key)
+    assert 'push("layers=' in html, "layer-filter state is not serialised into the hash"
+    assert 'parts.join("&")' in html, "view-state keys are not '&'-joined into one hash"
+
+    # applyHash restores the layer filters (back-compat: bare #trace=/#node= still parse)
+    assert 'k === "layers"' in html, "applyHash does not restore the layer-filter state"
+    assert 'raw.split("&")' in html, "applyHash does not parse a multi-key hash"
+
+
 def test_rendered_html_honours_reduced_motion(tmp_path: Path) -> None:
     """Accessibility: the viz must respect prefers-reduced-motion — no auto-playing
     layout animation for motion-sensitive visitors. The template detects the media query,

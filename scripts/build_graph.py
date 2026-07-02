@@ -663,6 +663,15 @@ document.getElementById("legend").innerHTML = legend;
 // "Reset filters" button returns to this default view.
 const DEFAULT_HIDDEN = ["commodity", "event"];
 const HIDDEN = new Set(DEFAULT_HIDDEN);
+// Full view state lives in the URL — the layer-filter set + an active Trace + a focused
+// node — so "Copy link" reproduces the EXACT graph a reader is looking at, not just a bare
+// trace. VIEW is the single source the #hash is serialised from; layersState() returns the
+// hidden-kinds set only when it differs from the default (else null = omit from the hash).
+const VIEW = { layers: null, trace: null, node: null };
+const layersState = () => {
+  const cur = [...HIDDEN].sort(), def = [...DEFAULT_HIDDEN].sort();
+  return (cur.length === def.length && cur.every((c, i) => c === def[i])) ? null : cur;
+};
 const classOf = n => n.kind === "concept" ? "channel"
   : n.kind === "brief" ? "brief"
   : n.kind === "source" ? "source"
@@ -677,13 +686,14 @@ document.querySelectorAll("#legend .lg[data-cls]").forEach(el => {
     const c = el.dataset.cls;
     HIDDEN.has(c) ? HIDDEN.delete(c) : HIDDEN.add(c);
     el.classList.toggle("off", HIDDEN.has(c));
+    VIEW.layers = layersState(); syncHash();   // the filter set is part of the shareable view
     mark();
   });
 });
 const freset = document.getElementById("freset");
 if (freset) freset.addEventListener("click", () => {
   HIDDEN.clear(); DEFAULT_HIDDEN.forEach(c => HIDDEN.add(c));
-  syncChips(); mark();
+  syncChips(); VIEW.layers = null; syncHash(); mark();
 });
 syncChips();  // reflect the default-hidden layers on the legend chips at load
 // --- text fallback / accessibility list -----------------------------------
@@ -856,21 +866,33 @@ function trace() {
   out.textContent = txt;
 }
 // --- shareable deep links --------------------------------------------------
-// The view is a URL: a Trace or a Find writes a #hash, and on load that hash replays the
-// same query — so a specific answer ("how energy connects to geophysical") can be linked
-// straight from the build-in-public feed and opens already traced. replaceState keeps it
-// off the back button and out of the hashchange loop.
+// The whole view is a URL: the layer filters + an active Trace + a focused node each write
+// into one composite #hash, and on load that hash replays the exact view — so a specific
+// answer ("how energy connects to geophysical, commodity layer on, Ukraine focused") can be
+// linked straight from the build-in-public feed and opens already set up. syncHash()
+// serialises VIEW into `layers=…&trace=…&node=…` (each key omitted when unset), so a bare
+// legacy `#trace=…` or `#node=…` link still parses as a single key. replaceState keeps the
+// hash off the back button and out of the hashchange loop.
 let applyingHash = false;
 const writeHash = h => { applyingHash = true; try {
   history.replaceState(null, "", h ? "#"+h : location.pathname + location.search);
 } finally { applyingHash = false; } };
+const syncHash = () => {
+  const parts = [];
+  if (VIEW.layers) parts.push("layers=" + VIEW.layers.map(encodeURIComponent).join(","));
+  if (VIEW.trace)  parts.push("trace=" + VIEW.trace.map(encodeURIComponent).join(","));
+  if (VIEW.node)   parts.push("node=" + encodeURIComponent(VIEW.node));
+  writeHash(parts.join("&"));
+};
 if (qa && qb) {
   document.getElementById("qgo").addEventListener("click", () => {
     trace();
-    if (qa.value !== qb.value) writeHash("trace=" + encodeURIComponent(qa.value) + "," + encodeURIComponent(qb.value));
+    VIEW.trace = (qa.value !== qb.value) ? [qa.value, qb.value] : null;
+    syncHash();
   });
   document.getElementById("qclear").addEventListener("click", () => {
-    HILITE = null; document.getElementById("qout").textContent = ""; writeHash(""); mark();
+    HILITE = null; document.getElementById("qout").textContent = "";
+    VIEW.trace = null; syncHash(); mark();
   });
 }
 // --- search: jump to any node by name --------------------------------------
@@ -884,7 +906,7 @@ if (search) {
     GRAPH.nodes.map(n => `<option value="${n.label.replace(/"/g, "&quot;")}"></option>`).join("");
   doFocus = () => {
     const q = search.value.trim().toLowerCase();
-    if (!q) { pinnedId = null; writeHash(""); mark(); return; }
+    if (!q) { pinnedId = null; VIEW.node = null; syncHash(); mark(); return; }
     const hit = GRAPH.nodes.find(n => n.label.toLowerCase() === q)
       || GRAPH.nodes.find(n => n.label.toLowerCase().includes(q));
     const nn = hit && idx[hit.id];
@@ -893,7 +915,7 @@ if (search) {
     view.s = Math.max(view.s, 1.2);
     view.tx = CSSW/2 - nn.x*view.s; view.ty = CSSH/2 - nn.y*view.s;
     userView = true; reheat(0.15);
-    writeHash("node=" + encodeURIComponent(nodeById[nn.id].label));
+    VIEW.node = nodeById[nn.id].label; syncHash();
   };
   search.addEventListener("change", doFocus);
   search.addEventListener("keydown", e => { if (e.key === "Enter") doFocus(); });
@@ -906,18 +928,29 @@ if (qshare) qshare.addEventListener("click", async () => {
   try { await navigator.clipboard.writeText(location.href); if (out) out.textContent = "Link copied to clipboard."; }
   catch (_) { if (out) out.textContent = location.href; }
 });
-// Replay a deep link on load: #trace=<themeA>,<themeB> or #node=<label>.
+// Replay a deep link on load: any `&`-joined mix of #layers=<kinds>, #trace=<themeA>,<themeB>
+// and #node=<label> (a bare single key is just the one-pair case, so old links still work).
+// Layers are restored first so a focused/traced node lands against the right visible set.
 function applyHash() {
   const raw = location.hash.replace(/^#/, "");
   if (!raw) return;
-  const eq = raw.indexOf("=");
-  const k = raw.slice(0, eq), v = decodeURIComponent(raw.slice(eq + 1));
-  if (k === "trace" && qa && qb) {
-    const [ta, tb] = v.split(",");
-    const themes = new Set(briefNodes.map(b => b.theme));
-    if (themes.has(ta) && themes.has(tb)) { qa.value = ta; qb.value = tb; trace(); }
-  } else if (k === "node" && search && doFocus) {
-    search.value = v; doFocus();
+  const pairs = raw.split("&").map(p => {
+    const eq = p.indexOf("=");
+    return eq < 0 ? null : [p.slice(0, eq), decodeURIComponent(p.slice(eq + 1))];
+  }).filter(Boolean);
+  pairs.sort((a, b) => (a[0] === "layers" ? -1 : 0) - (b[0] === "layers" ? -1 : 0));
+  for (const [k, v] of pairs) {
+    if (k === "layers") {
+      HIDDEN.clear();
+      v.split(",").filter(Boolean).forEach(c => HIDDEN.add(c));
+      syncChips(); VIEW.layers = layersState(); mark();
+    } else if (k === "trace" && qa && qb) {
+      const [ta, tb] = v.split(",");
+      const themes = new Set(briefNodes.map(b => b.theme));
+      if (themes.has(ta) && themes.has(tb)) { qa.value = ta; qb.value = tb; trace(); VIEW.trace = [ta, tb]; }
+    } else if (k === "node" && search && doFocus) {
+      search.value = v; doFocus();
+    }
   }
 }
 // Highlight = an active Trace (HILITE) OR, absent that, the hovered node's neighbourhood.
@@ -1172,7 +1205,7 @@ function focusNodeAt(i) {
   view.tx = CSSW/2 - n.x*view.s; view.ty = CSSH/2 - n.y*view.s;
   userView = true; reheat(0.12); mark();
   announce(`${n.label}: ${relText(n)}${n.url ? " — press Enter to open its page" : ""}. Node ${kbi+1} of ${order.length}.`);
-  writeHash("node=" + encodeURIComponent(n.label));
+  VIEW.node = n.label; syncHash();
 }
 cv.addEventListener("keydown", ev => {
   switch (ev.key) {
@@ -1190,7 +1223,7 @@ cv.addEventListener("keydown", ev => {
     case "-": case "_": ev.preventDefault(); zoomBy(1/1.3); break;
     case "0": ev.preventDefault(); userView = false; resize(); mark(); break;
     case "Escape": ev.preventDefault(); pinnedId = null; kbi = -1; HILITE = null;
-      announce("Selection cleared."); writeHash(""); mark(); break;
+      VIEW.node = null; VIEW.trace = null; announce("Selection cleared."); syncHash(); mark(); break;
   }
 });
 cv.addEventListener("focus", () => {

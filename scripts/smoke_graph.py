@@ -119,6 +119,31 @@ def main() -> int:
             if before_kb == after_kb:
                 failures.append("ArrowRight did not move/redraw the graph (keyboard nav is dead)")
             page.screenshot(path=str(_SHOTS / "graph-keyboard.png"))
+
+            # --- shareable view state: a legend filter round-trips through the URL -----
+            # Toggle the commodity layer ON, prove the #hash captured it (layers=...), reload
+            # from that same URL, and prove the layer stayed ON. This is the "the whole view
+            # is a URL" guarantee — a bare trace link can't reproduce which layers a reader
+            # had open; a shared link now can (KR-B full-view-state share proof).
+            page.eval_on_selector("#legend .lg[data-cls='commodity']", "el => el.click()")
+            page.wait_for_timeout(150)
+            hash_after_toggle = page.evaluate("() => location.hash")
+            print(f"Hash after commodity toggle: {hash_after_toggle!r}")
+            if "layers=" not in hash_after_toggle:
+                failures.append(
+                    f"legend toggle did not write layers= into the URL: {hash_after_toggle!r}"
+                )
+            page.reload(wait_until="networkidle")
+            page.wait_for_timeout(400)
+            chip_off = page.eval_on_selector(
+                "#legend .lg[data-cls='commodity']", "el => el.classList.contains('off')"
+            )
+            if chip_off:
+                failures.append(
+                    "commodity layer did not survive a reload from the shared URL (view state lost)"
+                )
+            else:
+                print("filter state round-tripped through the URL on reload OK")
             page.close()
 
             # --- mobile: responsive render + touch-drag pans -----------------------
