@@ -71,6 +71,30 @@ BENCHMARK_BRIEF = "Benchmark.md"
 _WIKILINK_RE = re.compile(r"\[\[([^\]]+)\]\]")
 _MD_EXTENSIONS = ["tables", "fenced_code", "sane_lists", "nl2br"]
 
+_DAY_DIR_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
+
+
+def latest_source_day(vault_dir: Path = DEFAULT_VAULT) -> str:
+    """Latest ingest day (``YYYY-MM-DD``) present under ``vault/01 Sources/``.
+
+    This is the site-wide data-freshness signal: the newest dated L1 folder is, by
+    construction, the most recent ingest the published bundle rests on. Returns ""
+    when the tree has no dated folders (empty test vaults) — renderers then omit
+    the badge instead of showing a wrong date.
+    """
+    sources_dir = vault_dir / "01 Sources"
+    if not sources_dir.is_dir():
+        return ""
+    days = [d.name for d in sources_dir.iterdir() if d.is_dir() and _DAY_DIR_RE.match(d.name)]
+    return max(days, default="")
+
+
+def _fresh_badge(day: str) -> str:
+    """Header badge HTML for the freshness signal ('' when no day is known)."""
+    if not day:
+        return ""
+    return f'<span class="fresh-badge">Data as of {html.escape(day)}</span>'
+
 
 @dataclass
 class Page:
@@ -81,6 +105,7 @@ class Page:
     body_md: str
     kind: str  # "brief" | "source" | "rule"
     day: str = ""  # only for source pages
+    updated: str = ""  # only for briefs: YYYY-MM-DD from the `updated:` frontmatter
 
 
 @dataclass
@@ -140,8 +165,11 @@ def discover(vault_dir: Path, registry: dict[str, Any]) -> SiteModel:
                 continue
             fm, body = split_frontmatter(path.read_text(encoding="utf-8"))
             title = (fm or {}).get("title", path.stem)
+            # `updated:` is an ISO timestamp in the brief frontmatter; the date part is
+            # the visible per-brief freshness signal (card + page header).
+            updated = str((fm or {}).get("updated", ""))[:10]
             out = f"briefs/{_slug(title)}.html"
-            model.briefs.append(Page(out, title, body, "brief"))
+            model.briefs.append(Page(out, title, body, "brief", updated=updated))
             # let wikilinks reach a brief by title or by file stem
             model.link_map[title] = out
             model.link_map[path.stem] = out
@@ -225,6 +253,7 @@ _PAGE_TEMPLATE = """<!DOCTYPE html>
     <a href="{root}index.html#sources">Sources</a>
     <a href="{root}editorial.html">Editorial line</a>
   </nav>
+  {fresh_badge}
 </header>
 <main class="content">
 {kind_block}
@@ -242,27 +271,36 @@ _PAGE_TEMPLATE = """<!DOCTYPE html>
 _KIND_LABEL = {"brief": "L2 Brief", "source": "L1 Source", "rule": "L3 Rule"}
 
 
-def _render_page(page: Page, link_map: dict[str, str]) -> str:
+def _render_page(page: Page, link_map: dict[str, str], fresh_day: str = "") -> str:
     depth = page.out_path.count("/")
     root = "../" * depth
     linked = resolve_wikilinks(page.body_md, page.out_path, link_map)
     html_body = _md().markdown(linked, extensions=_MD_EXTENSIONS)
     label = _KIND_LABEL.get(page.kind, "")
+    if label and page.updated:
+        # freshness at page entry — the kind pill a reader sees first, not a buried line
+        label = f"{label} · updated {html.escape(page.updated)}"
     kind_block = f'<div class="kind kind-{page.kind}">{label}</div>' if label else ""
     return _PAGE_TEMPLATE.format(
         title=html.escape(page.title),
         root=root,
         kind_block=kind_block,
         html_body=html_body,
+        fresh_badge=_fresh_badge(fresh_day),
     )
 
 
-def _render_index(model: SiteModel, aset: AnswerSet | None = None) -> str:
+def _render_index(model: SiteModel, aset: AnswerSet | None = None, fresh_day: str = "") -> str:
     cards = []
     for b in model.briefs:
+        card_fresh = (
+            f'<span class="card-fresh">Updated {html.escape(b.updated)}</span>'
+            if b.updated
+            else ""
+        )
         cards.append(
             f'<a class="card" href="{b.out_path}"><span class="card-kind">L2 Brief</span>'
-            f"<h3>{html.escape(b.title)}</h3></a>"
+            f"<h3>{html.escape(b.title)}</h3>{card_fresh}</a>"
         )
     brief_html = "\n".join(cards) or "<p>No active briefs.</p>"
 
@@ -280,9 +318,16 @@ def _render_index(model: SiteModel, aset: AnswerSet | None = None) -> str:
     sources_html = "\n".join(src_blocks) or "<p>No source notes.</p>"
 
     n_answers = len(aset.answers) if aset else 0
+    hero_fresh = (
+        f'<p class="hero-fresh"><span class="fresh-badge">Data as of {html.escape(fresh_day)}'
+        f"</span> — the latest L1 ingest in the published bundle.</p>"
+        if fresh_day
+        else ""
+    )
     body = f"""
 <div class="hero">
   <h1>azimuth</h1>
+  {hero_fresh}
   <p>A read-only, browsable view of the open-intelligence vault: weekly
   <strong>L2 briefs</strong> synthesised from dated <strong>L1 source notes</strong>,
   under one published <a href="editorial.html">editorial line</a>.
@@ -311,6 +356,7 @@ def _render_index(model: SiteModel, aset: AnswerSet | None = None) -> str:
         root="",
         kind_block="",
         html_body=body,
+        fresh_badge=_fresh_badge(fresh_day),
     )
 
 
@@ -388,7 +434,7 @@ def _render_whatif(a: Answer, page: str, link_map: dict[str, str]) -> str:
     )
 
 
-def _render_answers(aset: AnswerSet, link_map: dict[str, str]) -> str:
+def _render_answers(aset: AnswerSet, link_map: dict[str, str], fresh_day: str = "") -> str:
     """Render the demonstrator page: the TOP5 cross-channel answers, every claim sourced.
 
     Claim bullets keep their ``[[stem]]`` citations; ``resolve_wikilinks`` turns each into a
@@ -441,10 +487,11 @@ def _render_answers(aset: AnswerSet, link_map: dict[str, str]) -> str:
         root="",
         kind_block="",
         html_body=body,
+        fresh_badge=_fresh_badge(fresh_day),
     )
 
 
-def _render_benchmark(bench: Benchmark, link_map: dict[str, str]) -> str:
+def _render_benchmark(bench: Benchmark, link_map: dict[str, str], fresh_day: str = "") -> str:
     """Render the benchmark page: same topic, three columns, scorecard, verdict.
 
     azimuth's claim bullets keep their ``[[stem]]`` citations and resolve through the same
@@ -547,6 +594,7 @@ def _render_benchmark(bench: Benchmark, link_map: dict[str, str]) -> str:
         root="",
         kind_block="",
         html_body=body,
+        fresh_badge=_fresh_badge(fresh_day),
     )
 
 
@@ -561,6 +609,11 @@ backdrop-filter:blur(6px)}
 .brand{font-family:Rajdhani,Inter,sans-serif;font-weight:700;font-size:1.3rem;
 letter-spacing:.06em;text-transform:uppercase}
 .nav nav{display:flex;gap:1.1rem;font-size:.92rem}
+.fresh-badge{margin-left:auto;font-size:.74rem;letter-spacing:.04em;color:var(--muted);
+border:1px solid var(--line);border-radius:999px;padding:.15rem .6rem;white-space:nowrap}
+.hero-fresh{margin:.1rem 0 .4rem}
+.hero-fresh .fresh-badge{margin-left:0;color:var(--accent);border-color:var(--accent)}
+.card-fresh{display:block;font-size:.72rem;color:var(--muted);margin-top:.45rem}
 .content,.foot{max-width:820px;margin:0 auto;padding:1.4rem 1.2rem}
 .kind{display:inline-block;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;
 color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:.15rem .6rem;
@@ -673,6 +726,8 @@ def build_site(
 
     registry = json.loads(registry_path.read_text(encoding="utf-8"))
     model = discover(vault_dir, registry)
+    # One freshness date for the whole build: the newest dated L1 ingest folder.
+    fresh_day = latest_source_day(vault_dir)
 
     if out_dir.exists():
         shutil.rmtree(out_dir)
@@ -682,12 +737,14 @@ def build_site(
     for page in [*model.briefs, *model.sources, *model.rules]:
         target = out_dir / page.out_path
         target.parent.mkdir(parents=True, exist_ok=True)
-        target.write_text(_render_page(page, model.link_map), encoding="utf-8")
+        target.write_text(_render_page(page, model.link_map, fresh_day), encoding="utf-8")
 
     # The demonstrator centerpiece: TOP5 cross-channel answers, rendered live from the
     # answer engine (every claim wikilink resolves through the same link map as the briefs).
     aset = build_answer_set(vault_dir, registry)
-    (out_dir / "answers.html").write_text(_render_answers(aset, model.link_map), encoding="utf-8")
+    (out_dir / "answers.html").write_text(
+        _render_answers(aset, model.link_map, fresh_day), encoding="utf-8"
+    )
 
     # The benchmark page: same world-topic, observed+sourced facts vs a forecast vs an
     # intelligence product (the USP proof by contrast). azimuth's columns render live from the
@@ -696,8 +753,8 @@ def build_site(
     foils = json.loads(foils_path.read_text(encoding="utf-8")) if foils_path.exists() else {}
     bench = build_benchmark(vault_dir, registry, foils)
     (out_dir / "benchmark.html").write_text(
-        _render_benchmark(bench, model.link_map), encoding="utf-8"
+        _render_benchmark(bench, model.link_map, fresh_day), encoding="utf-8"
     )
 
-    (out_dir / "index.html").write_text(_render_index(model, aset), encoding="utf-8")
+    (out_dir / "index.html").write_text(_render_index(model, aset, fresh_day), encoding="utf-8")
     return model

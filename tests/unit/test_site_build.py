@@ -16,6 +16,7 @@ from synthesis.site_build import (
     discover,
     held_source_keys,
     held_themes,
+    latest_source_day,
     resolve_wikilinks,
 )
 
@@ -44,7 +45,8 @@ def _make_vault(tmp_path: Path) -> Path:
     )
     (vault / "02 Briefs").mkdir(parents=True)
     (vault / "02 Briefs" / "Energy Supply Weekly.md").write_text(
-        "---\ntitle: Energy Supply Weekly\ntheme: energy-supply\n---\n"
+        "---\ntitle: Energy Supply Weekly\ntheme: energy-supply\n"
+        "updated: 2026-06-19T04:00:00Z\n---\n"
         "# Energy Supply Weekly\n- Diesel ticked up ([[fuel-prices]]).\n"
         "- Odds moved ([[prediction-markets]]).\n",
         encoding="utf-8",
@@ -112,3 +114,31 @@ def test_build_site_writes_files_and_omits_held(tmp_path: Path) -> None:
     assert not list(out.glob("briefs/prediction*.html"))
     index_text = (out / "index.html").read_text(encoding="utf-8")
     assert "Prediction Markets" not in index_text
+
+
+def test_latest_source_day(tmp_path: Path) -> None:
+    """The freshness date is the newest YYYY-MM-DD folder under 01 Sources/."""
+    vault = _make_vault(tmp_path)
+    assert latest_source_day(vault) == "2026-06-20"
+    # non-date dirs / files are ignored, empty tree degrades to ""
+    (vault / "01 Sources" / "not-a-date").mkdir()
+    assert latest_source_day(vault) == "2026-06-20"
+    assert latest_source_day(tmp_path / "missing") == ""
+
+
+def test_index_carries_freshness_badge(tmp_path: Path) -> None:
+    """AZ-KR2: index hero shows 'Data as of <latest ingest day>' computed, not hardcoded."""
+    vault = _make_vault(tmp_path)
+    out = tmp_path / "site"
+    (tmp_path / "registry.json").write_text(json.dumps(_REGISTRY), encoding="utf-8")
+    build_site(out, vault_dir=vault, registry_path=tmp_path / "registry.json")
+
+    index_text = (out / "index.html").read_text(encoding="utf-8")
+    assert "Data as of 2026-06-20" in index_text
+
+    # the brief card + brief page carry the per-brief `updated:` signal at page entry
+    assert "Updated 2026-06-19" in index_text
+    brief_text = (out / "briefs" / "energy-supply-weekly.html").read_text(encoding="utf-8")
+    assert "updated 2026-06-19" in brief_text
+    # every page header carries the site-wide badge too
+    assert "Data as of 2026-06-20" in brief_text
