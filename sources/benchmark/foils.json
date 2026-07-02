@@ -2,9 +2,9 @@
   "$note": "Captured snapshot of the COMPARED forecast/intelligence product for the azimuth benchmark (synthesis/benchmark.py). Quoted by product + capture date; NOT surfaced as an azimuth channel and NOT an L1 source. Refresh with pull_benchmark_foils.py.",
   "endpoint": "/api/forecast/v1/get-forecasts",
   "attribution": "WorldMonitor (api.worldmonitor.app) — model-generated forecast/assessment product",
-  "feed_generated_at": 1782889478518,
+  "feed_generated_at": 1782975853219,
   "feed_degraded": false,
-  "captured_at": "2026-07-01T07:48:00Z",
+  "captured_at": "2026-07-02T07:22:27Z",
   "n_forecasts_seen": 14,
   "topics": {
     "energy-supply": {
@@ -13,21 +13,21 @@
         "domain": "market",
         "region": "Iraq",
         "title": "Inflation and rates pressure from Iraq infrastructure fragility state",
-        "probability": 0.594,
-        "prior_probability": 0.568,
+        "probability": 0.561,
+        "prior_probability": 0.561,
         "confidence": 0.75,
         "time_horizon": "30d",
         "trend": "stable",
         "projections": {
-          "d30": 0.594,
-          "d7": 0.82,
+          "d30": 0.561,
+          "d7": 0.775,
           "h24": 0.95
         },
-        "scenario_short": "Inflation and rates pressure in Iraq is probable (59%) over the next 30 days, stemming from infrastructure fragility (44% pressure, 67% state confirmation) and energy supply shock, with 2 urgent critical signals...",
-        "perspective_strategic": "The 59% probability of inflation and rates pressure in Iraq, driven by infrastructure fragility (44% pressure, 67% state confirmation) and energy supply shock, indicates a notable economic vulnerability linked to internal stability.",
-        "perspective_contrarian": "The lack of more directly matched reporting on Iraq and the 75% confidence level suggest that the inflation and rates pressure could be mitigated if new, stabilizing signals emerge, preventing a decisive break towards shock.",
-        "actor_lens": "Commodity traders: Price whether stress in Iraq becomes durable over the 30d. Rebalance positions if the probability path moves away from 59%.",
-        "top_signal": "Iraq infrastructure fragility state is feeding inflation and rates pressure through energy supply shock, with 44% pressure and 67% state confirmation"
+        "scenario_short": "Iraq infrastructure fragility state is feeding inflation and rates pressure through energy supply shock, with 42% pressure and 41% state confirmation. For now, the base case stays near 59% over the 30d. Actors absorb...",
+        "perspective_strategic": "Iraq infrastructure fragility state is feeding inflation and rates pressure through energy supply shock, with 42% pressure and 41% state confirmation is setting the strategic baseline, and the current 56% probability implies a live but not settled risk path.",
+        "perspective_contrarian": "The current 75% confidence level still leaves room for reversal. If that restraint persists, the forecast can move below the current 56% baseline. Actors prioritize containment and the system drifts toward stabilization unless new hard signals emerge.",
+        "actor_lens": "Commodity traders: Price whether stress in Iraq becomes durable over the 30d. Rebalance positions if the probability path moves away from 56%.",
+        "top_signal": "Iraq infrastructure fragility state is feeding inflation and rates pressure through energy supply shock, with 42% pressure and 41% state confirmation"
       },
       "absence_reason": null
     },
@@ -37,21 +37,21 @@
         "domain": "market",
         "region": "Iraq",
         "title": "Inflation and rates pressure from Iraq infrastructure fragility state",
-        "probability": 0.594,
-        "prior_probability": 0.568,
+        "probability": 0.561,
+        "prior_probability": 0.561,
         "confidence": 0.75,
         "time_horizon": "30d",
         "trend": "stable",
         "projections": {
-          "d30": 0.594,
-          "d7": 0.82,
+          "d30": 0.561,
+          "d7": 0.775,
           "h24": 0.95
         },
-        "scenario_short": "Inflation and rates pressure in Iraq is probable (59%) over the next 30 days, stemming from infrastructure fragility (44% pressure, 67% state confirmation) and energy supply shock, with 2 urgent critical signals...",
-        "perspective_strategic": "The 59% probability of inflation and rates pressure in Iraq, driven by infrastructure fragility (44% pressure, 67% state confirmation) and energy supply shock, indicates a notable economic vulnerability linked to internal stability.",
-        "perspective_contrarian": "The lack of more directly matched reporting on Iraq and the 75% confidence level suggest that the inflation and rates pressure could be mitigated if new, stabilizing signals emerge, preventing a decisive break towards shock.",
-        "actor_lens": "Commodity traders: Price whether stress in Iraq becomes durable over the 30d. Rebalance positions if the probability path moves away from 59%.",
-        "top_signal": "Iraq infrastructure fragility state is feeding inflation and rates pressure through energy supply shock, with 44% pressure and 67% state confirmation"
+        "scenario_short": "Iraq infrastructure fragility state is feeding inflation and rates pressure through energy supply shock, with 42% pressure and 41% state confirmation. For now, the base case stays near 59% over the 30d. Actors absorb...",
+        "perspective_strategic": "Iraq infrastructure fragility state is feeding inflation and rates pressure through energy supply shock, with 42% pressure and 41% state confirmation is setting the strategic baseline, and the current 56% probability implies a live but not settled risk path.",
+        "perspective_contrarian": "The current 75% confidence level still leaves room for reversal. If that restraint persists, the forecast can move below the current 56% baseline. Actors prioritize containment and the system drifts toward stabilization unless new hard signals emerge.",
+        "actor_lens": "Commodity traders: Price whether stress in Iraq becomes durable over the 30d. Rebalance positions if the probability path moves away from 56%.",
+        "top_signal": "Iraq infrastructure fragility state is feeding inflation and rates pressure through energy supply shock, with 42% pressure and 41% state confirmation"
       },
       "absence_reason": null
     },
