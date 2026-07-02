@@ -48,6 +48,26 @@ To flip the site live (Michael only, when ready):
 
 To take it back offline: Settings → Pages → set Source to *None* (or disable Pages).
 
+## Repository metadata (the About box)
+
+The GitHub **About** box (description · website · topics) is the very first thing a
+visitor reads — before the README. It is repo *settings*, not repo *content*, so it is
+versioned here as the single source of truth and applied with `gh`:
+
+```bash
+gh repo edit mickywin22/azimuth \
+  --description "Public demonstrator of the HemySphere L1/L2/L3 vault doctrine — daily L1 ingest of WorldMonitor open-intelligence data, weekly AI-synthesised L2 briefs, and a queryable cross-channel knowledge graph, published as a read-only static site." \
+  --homepage "https://mickywin22.github.io/azimuth/" \
+  --add-topic python --add-topic knowledge-graph --add-topic knowledge-management \
+  --add-topic second-brain --add-topic digital-garden --add-topic open-data \
+  --add-topic osint --add-topic static-site --add-topic github-pages
+```
+
+If the description or topics change, edit **this block first**, then re-run it —
+never hand-edit the About box alone, or the repo and its docs drift apart.
+(The homepage URL goes live only after the Pages flip above; setting it early is
+harmless — GitHub renders it as a plain link.)
+
 ## Validate the workflow locally
 
 ```bash
