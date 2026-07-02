@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import importlib.util
 import json
+import re
 from pathlib import Path
 
 _REPO_ROOT = Path(__file__).resolve().parents[2]
@@ -497,6 +498,82 @@ def test_rendered_html_honours_reduced_motion(tmp_path: Path) -> None:
     # cold start + synchronous pre-settle (no on-load spring animation)
     assert "heat = REDUCED ? 0 : 1" in html
     assert "if (REDUCED) { for (let k = 0; k < 600; k++) step(); heat = 0; dirty = true; }" in html
+
+
+def test_hostile_label_from_ingest_never_reaches_html_as_raw_markup(tmp_path: Path) -> None:
+    """AZ-KR1 (XSS audit 2026-07-01): an API-sourced place name carrying HTML must never
+    appear as raw markup in the committed graph.html.
+
+    The chain under test is the real one: a hostile ``place`` string in the earthquakes
+    L1 note (as USGS/WorldMonitor would deliver it) flows through ``_seismic_events``
+    into an event node label, and ``render_html`` embeds the graph inline in a
+    ``<script>`` block. The build must emit the label ``\\u``-escaped (``\\u003c`` for
+    ``<``) so the payload can neither break out of the script block nor parse as markup.
+    """
+    payload = "<img src=x onerror=alert(1)>"
+    vault = _make_vault(tmp_path)
+    (vault / "01 Sources" / "2026-06-23" / "earthquakes.md").write_text(
+        "---\nsource: USGS\n---\n# Quakes\nEvents recorded off Indonesia, Japan and Greece.\n\n"
+        f'| earthquakes | [{{"id": "q1", "magnitude": 6.5, "place": "5 km S of {payload}"}}] |\n',
+        encoding="utf-8",
+    )
+    reg = tmp_path / "registry.json"
+    reg.write_text(json.dumps(_REGISTRY), encoding="utf-8")
+    graph = build_graph_mod.build_graph(vault_dir=vault, registry_path=reg)
+
+    # the pipeline really carried the hostile string into a node label
+    event_labels = [n["label"] for n in graph["nodes"] if n.get("entity_kind") == "event"]
+    assert any(payload in label for label in event_labels), "fixture did not reach a node label"
+
+    html = build_graph_mod.render_html(graph)
+    assert payload not in html, "raw <img payload survived into graph.html"
+    assert "<img" not in html, "a raw <img tag appears in the rendered page"
+    assert "\\u003cimg src=x onerror=alert(1)\\u003e" in html, (
+        "the hostile label is not embedded in its escaped form"
+    )
+
+
+def test_every_innerhtml_sink_uses_the_escape_helper(tmp_path: Path) -> None:
+    """AZ-KR1: every innerHTML sink escapes API-sourced strings via the ``esc`` helper.
+
+    Guards the template statically: the ``esc`` helper must exist, the three audited
+    sinks (node tooltip, edge tooltip, glist builder) plus the option/datalist builders
+    must route labels through it, and NO template literal anywhere may interpolate a
+    ``.label`` without ``esc(`` — so a future edit cannot quietly add an unescaped sink.
+    """
+    html = build_graph_mod.render_html(_build(tmp_path))
+
+    assert "const esc = " in html, "esc() escape helper missing from the template"
+    for token in (
+        # node tooltip (tip.innerHTML)
+        "tip.innerHTML = `<strong>${esc(hit.label)}</strong><br>${esc(relText(hit))}`",
+        # edge tooltip (tip.innerHTML = edgeText) label interpolations
+        "${esc(e.s.label)}",
+        "${esc(e.t.label)}",
+        # glist builder: brief list, earthquake list, bridge list
+        "${esc(b.label)}",
+        "<li>${esc(n.label)}</li>",
+        "${esc(en.label)}",
+        # trace <option> builder + search datalist (attribute context)
+        'value="${esc(b.theme)}"',
+        'value="${esc(n.label)}"',
+    ):
+        assert token in html, f"escaped sink missing from graph.html: {token}"
+
+    # no template literal interpolates any .label outside esc(...) — EXCEPT lines feeding
+    # textContent sinks (the aria-live announce()), where the browser never parses HTML
+    # and escaping would corrupt what a screen reader hears.
+    raw_label = re.compile(r"\$\{(?!esc\()[^}]*\.label")
+    text_sink = re.compile(r"textContent|announce\(")
+    offenders = [
+        ln for ln in html.splitlines() if raw_label.search(ln) and not text_sink.search(ln)
+    ]
+    assert not offenders, f"raw .label interpolation found: {offenders}"
+
+    # every innerHTML line is either a variable assignment or an esc()-escaped literal
+    for ln in html.splitlines():
+        if "innerHTML" in ln:
+            assert not raw_label.search(ln), f"unescaped label on an innerHTML line: {ln}"
 
 
 def test_rendered_html_nav_matches_site_nav_no_dead_okf_link(tmp_path: Path) -> None:

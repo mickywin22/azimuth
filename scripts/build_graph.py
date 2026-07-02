@@ -643,10 +643,15 @@ const CROSS = "__CROSS_COLOR__";
 const cv = document.getElementById("g"), cx = cv.getContext("2d");
 const colorOf = n => n.theme === "shared" ? CROSS : (THEME_COLORS[n.theme] || THEME_COLORS.other);
 const isEntity = n => n.kind === "entity";
+// HTML-escape for every string that reaches an innerHTML sink. Labels, themes and
+// kinds ultimately come from the ingest JSON (USGS place names, WorldMonitor
+// registry) — untrusted input for the public page (XSS audit AZ-KR1).
+const esc = s => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;")
+  .replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#39;");
 // --- legend: themes + node-kind glyph guide -------------------------------
 const themes = [...new Set(GRAPH.nodes.filter(n => !isEntity(n)).map(n => n.theme))];
 let legend = themes.map(t =>
-  `<span class="lg"><i style="background:${THEME_COLORS[t]||THEME_COLORS.other}"></i>${t}</span>`
+  `<span class="lg"><i style="background:${THEME_COLORS[t]||THEME_COLORS.other}"></i>${esc(t)}</span>`
 ).join("");
 const has = (k, ek) => GRAPH.nodes.some(n => n.kind === k && (!ek || n.entity_kind === ek));
 legend += `<span class="lg" data-cls="channel" title="click to hide/show">&#x2B22; channel</span>`;
@@ -703,17 +708,17 @@ const childrenOf = (id, pred) => GRAPH.edges
   .filter(n => n && pred(n));
 const briefList = GRAPH.nodes.filter(n => n.kind === "brief").map(b => {
   const srcs = childrenOf(b.id, n => n.kind === "source")
-    .map(n => `<a href="${n.url}">${n.label}</a>`).join(", ");
+    .map(n => `<a href="${esc(n.url)}">${esc(n.label)}</a>`).join(", ");
   const comms = GRAPH.edges.filter(e => e.target === b.id)
     .map(e => nodeById[e.source]).filter(n => n && n.entity_kind === "commodity")
     .map(n => n.label);
-  const commTxt = comms.length ? ` <em>(commodities: ${[...new Set(comms)].join(", ")})</em>` : "";
-  return `<li><a href="${b.url}"><strong>${b.label}</strong></a> &rarr; ${srcs||"&mdash;"}${commTxt}</li>`;
+  const commTxt = comms.length ? ` <em>(commodities: ${esc([...new Set(comms)].join(", "))})</em>` : "";
+  return `<li><a href="${esc(b.url)}"><strong>${esc(b.label)}</strong></a> &rarr; ${srcs||"&mdash;"}${commTxt}</li>`;
 }).join("");
 const events = GRAPH.nodes.filter(n => n.entity_kind === "event")
-  .map(n => `<li>${n.label}</li>`).join("");
+  .map(n => `<li>${esc(n.label)}</li>`).join("");
 const bridges = GRAPH.nodes.filter(n => n.entity_kind === "region")
-  .map(en => `<li><strong>${en.label}</strong> bridges ${(en.themes||[]).join(" &harr; ")}</li>`).join("");
+  .map(en => `<li><strong>${esc(en.label)}</strong> bridges ${(en.themes||[]).map(esc).join(" &harr; ")}</li>`).join("");
 document.getElementById("glist").innerHTML =
   "<details><summary>Graph as a list</summary><ul>" + briefList + "</ul>" +
   (events ? "<p><strong>Largest live earthquakes</strong></p><ul>" + events + "</ul>" : "") +
@@ -821,7 +826,7 @@ const qa = document.getElementById("qa"), qb = document.getElementById("qb");
 let HILITE = null;
 if (qa && qb && briefNodes.length) {
   const opts = briefNodes
-    .map(b => `<option value="${b.theme}">${channelName(b.label)}</option>`).join("");
+    .map(b => `<option value="${esc(b.theme)}">${esc(channelName(b.label))}</option>`).join("");
   qa.innerHTML = opts; qb.innerHTML = opts;
   if (briefNodes.length > 1) qb.selectedIndex = 1;
 }
@@ -903,7 +908,7 @@ const search = document.getElementById("gsearch");
 let doFocus = null;   // exposed so a #node= hash can replay a Find on load
 if (search) {
   document.getElementById("gsearchlist").innerHTML =
-    GRAPH.nodes.map(n => `<option value="${n.label.replace(/"/g, "&quot;")}"></option>`).join("");
+    GRAPH.nodes.map(n => `<option value="${esc(n.label)}"></option>`).join("");
   doFocus = () => {
     const q = search.value.trim().toLowerCase();
     if (!q) { pinnedId = null; VIEW.node = null; syncHash(); mark(); return; }
@@ -1054,6 +1059,8 @@ const pick = (mx, my) => {                 // nearest node under the cursor, in 
   }
   return best;
 };
+// relText returns RAW text: the tooltip escapes it at its innerHTML sink, while the
+// aria-live announcer feeds it to textContent, where escaping would corrupt the output.
 const relText = n => {                      // one-line description for the tooltip
   const deg = ADJ[n.id] ? ADJ[n.id].size : 0;
   if (n.entity_kind === "region") return `shared region · bridges ${(n.themes||[]).join(" ↔ ")} · ${deg} links`;
@@ -1070,7 +1077,7 @@ const REL_LABEL = {"has-brief":"has brief","rests-on":"rests on","mentioned-in":
 const edgeText = e => {
   const w = e.weight > 1 ? ` · weight ${e.weight}` : "";
   const kind = e.cross ? " · cross-theme bridge" : "";
-  return `<strong>${REL_LABEL[e.rel] || e.rel}</strong>${w}${kind}<br>${e.s.label} ↔ ${e.t.label}`;
+  return `<strong>${REL_LABEL[e.rel] || esc(e.rel)}</strong>${w}${kind}<br>${esc(e.s.label)} ↔ ${esc(e.t.label)}`;
 };
 function segDist(px, py, ax, ay, bx, by) {   // distance from a point to a segment
   const dx = bx-ax, dy = by-ay, L2 = dx*dx + dy*dy || 1;
@@ -1108,7 +1115,7 @@ cv.addEventListener("mousemove", ev => {       // hover spotlight + tooltip (nod
   if (newHover !== hoverId || he !== hoverEdge) mark();   // repaint even when the layout is idle
   hoverId = newHover; hoverEdge = he;
   if (hit) {
-    tip.innerHTML = `<strong>${hit.label}</strong><br>${relText(hit)}`;
+    tip.innerHTML = `<strong>${esc(hit.label)}</strong><br>${esc(relText(hit))}`;
     tip.style.display = "block";
     tip.style.left = (mx + 14) + "px"; tip.style.top = (my + 12) + "px";
     cv.style.cursor = hit.url ? "pointer" : "grab";
@@ -1254,11 +1261,23 @@ window.addEventListener("hashchange", () => { if (!applyingHash) applyHash(); })
 """
 
 
+def _json_for_script(data: Any) -> str:
+    """``json.dumps`` hardened for inline ``<script>`` embedding (XSS audit AZ-KR1).
+
+    ``json.dumps`` leaves ``<``, ``>`` and ``&`` literal inside strings, so an
+    API-sourced label like ``</script><script>...`` could break out of the script
+    block, and a raw ``<img ...>`` payload would sit verbatim in the committed
+    artifact. Escaping them to ``\\uXXXX`` keeps the parsed JS values identical
+    while the page source never contains attacker-controlled markup characters.
+    """
+    return json.dumps(data).replace("<", "\\u003c").replace(">", "\\u003e").replace("&", "\\u0026")
+
+
 def render_html(graph: dict[str, Any]) -> str:
     """Render the interactive graph page with the graph embedded inline."""
     return (
-        _HTML_TEMPLATE.replace("__GRAPH_JSON__", json.dumps(graph))
-        .replace("__THEME_COLORS__", json.dumps(_THEME_COLORS))
+        _HTML_TEMPLATE.replace("__GRAPH_JSON__", _json_for_script(graph))
+        .replace("__THEME_COLORS__", _json_for_script(_THEME_COLORS))
         .replace("__CROSS_COLOR__", _CROSS_THEME_COLOR)
     )
 
