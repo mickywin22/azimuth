@@ -7,6 +7,14 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 ## [Unreleased]
 
 ### Added
+- **CLI-doc-coverage gate — `tests/unit/test_cli_doc_coverage.py` (2026-07-02, KR-C):**
+  `docs/cli.md` promises "Every command under `scripts/` in one map", but that completeness
+  was checked by eye — a sweep found `smoke_graph.py` (the KR-B knowledge-graph Playwright
+  smoke) and `Build-Graphify-AST-Only.py` (a dev-only code-graph helper) silently
+  undocumented. Documented both (`smoke_graph.py` next to `smoke_whatif.py`; the graphify
+  helper under a new "Dev tooling — not part of the azimuth engine" section) and added a
+  unit gate that fails the build if any runnable `scripts/*.py` is absent from `cli.md` —
+  the same "turn a docs-drift class into a build failure" pattern as the dead-link gate.
 - **CLI reference — `docs/cli.md` (2026-07-01, KR-C):** the whole engine is a set of 18
   pure-stdlib Python CLIs under `scripts/`, but no single page mapped them — a new contributor
   had to reverse-engineer the tool surface from the README fragments and each script's argparse.

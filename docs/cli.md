@@ -147,6 +147,20 @@ python scripts/smoke_whatif.py
 ```
 **Layer:** Gate (acceptance).
 
+### `smoke_graph.py` — live knowledge-graph smoke
+A live Playwright smoke of the knowledge-graph view (the KR-B state-of-the-art
+visualization gate). Serves the built `site/` locally, opens `graph.html` in a real
+Chromium, and proves what the token-presence unit tests can't reach: the canvas renders a
+non-blank graph, the queryable Trace layer answers over it, and on a phone viewport a
+one-finger touch-drag actually pans. Screenshots are banked to `_smoke/` (the desktop
+overview + Trace shots are copied into `docs/proof/`). Needs the Playwright browser deps
+installed.
+
+```bash
+python scripts/smoke_graph.py
+```
+**Layer:** Gate (acceptance).
+
 ---
 
 ## Gates — CI, pre-commit & public-flip
@@ -234,6 +248,21 @@ python scripts/scan_private_leakage.py --history --strict
 Flags: `--strict` (advisory findings also fail the gate), `--json` (findings as JSON),
 `--report` (emit a markdown verdict block on stdout — redirect to save it). **Layer:** Gate
 (`secret-scan.yml`, C1b).
+
+---
+
+## Dev tooling — not part of the azimuth engine
+
+### `Build-Graphify-AST-Only.py` — deterministic code-graph helper
+A standalone [graphify](https://github.com/mickywin22) helper that builds a code-only
+knowledge graph (`graphify-out/graph.json` + `GRAPH_REPORT.md`) from a target repo using
+pure deterministic Python — zero LLM tokens. It is a developer convenience that lives here
+for reuse; it plays **no role** in the azimuth L1 → L2 → L3 runtime or any CI gate.
+
+```bash
+python scripts/Build-Graphify-AST-Only.py <target-repo-path>
+```
+**Layer:** none (dev tooling).
 
 ---
 
