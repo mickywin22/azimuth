@@ -100,6 +100,25 @@ def main() -> int:
                     f"Trace answer names none of the known bridges {_KNOWN_BRIDGES}: {qout!r}"
                 )
             page.screenshot(path=str(_SHOTS / "graph-trace.png"))
+
+            # --- keyboard: the interactive graph is operable without a mouse (WCAG 2.1.1) ---
+            # Focus the canvas, walk one node with an arrow key, and prove BOTH the polite
+            # live region announced a node AND the canvas actually redrew (view re-centred) —
+            # the keyboard-nav gate the token-presence unit test can't reach.
+            page.eval_on_selector("#qclear", "el => el.click()")  # clear the trace first
+            page.wait_for_timeout(150)
+            page.locator("#g").focus()
+            before_kb = canvas.screenshot()
+            page.keyboard.press("ArrowRight")
+            page.wait_for_timeout(300)
+            kb_status = page.locator("#gstatus").inner_text().strip()
+            print(f"Keyboard focus status: {kb_status!r}")
+            if "node" not in kb_status.lower() or " of " not in kb_status.lower():
+                failures.append(f"ArrowRight did not announce a focused node: {kb_status!r}")
+            after_kb = canvas.screenshot()
+            if before_kb == after_kb:
+                failures.append("ArrowRight did not move/redraw the graph (keyboard nav is dead)")
+            page.screenshot(path=str(_SHOTS / "graph-keyboard.png"))
             page.close()
 
             # --- mobile: responsive render + touch-drag pans -----------------------

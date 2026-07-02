@@ -401,6 +401,21 @@ def test_rendered_html_wires_the_sota_viz_features(tmp_path: Path) -> None:
     for token in ("touchstart", "touchmove", "touchend", "pinch", "changedTouches"):
         assert token in html, f"mobile-touch token missing from graph.html: {token}"
 
+    # 4) keyboard operability (WCAG 2.1.1) — the canvas is focusable and arrow keys
+    # walk the visible nodes, Enter opens, with a polite live region announcing focus.
+    # Without these the interactive graph is mouse/touch-only (keyboard-dead).
+    for token in (
+        'tabindex="0"',
+        'role="application"',
+        "focusNodeAt",
+        "kbOrder",
+        "aria-live",
+        "gstatus",
+        "ev.key",
+        "ArrowRight",
+    ):
+        assert token in html, f"keyboard-a11y token missing from graph.html: {token}"
+
     # the graph JSON must be injected, not left as the placeholder
     assert "__GRAPH_JSON__" not in html
     assert '"nodes"' in html and '"edges"' in html

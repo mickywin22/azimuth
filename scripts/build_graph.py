@@ -554,6 +554,9 @@ font-weight:600;cursor:pointer;vertical-align:middle}
 #g{width:100%;height:min(68vh,600px);display:block;background:#0c1118;
 border:1px solid #1c2733;border-radius:10px;cursor:grab;touch-action:none}
 #g:active{cursor:grabbing}
+#g:focus{outline:2px solid #4cc2ff;outline-offset:2px}
+#g:focus:not(:focus-visible){outline:none}
+#gstatus{font-size:.78rem;color:#8fd0ff;margin:.3rem 0 0;min-height:1.15em}
 #gtip{position:absolute;display:none;pointer-events:none;z-index:5;max-width:240px;
 background:rgba(12,19,32,.94);border:1px solid #2a3a4d;border-radius:8px;padding:.4rem .55rem;
 font-size:.8rem;line-height:1.35;color:#e7edf5;box-shadow:0 4px 14px rgba(0,0,0,.5)}
@@ -606,7 +609,8 @@ the queryable half a static bundle cannot answer.</p>
   <p id="qout" class="qout"></p>
 </div>
 <div id="gwrap">
-  <canvas id="g"></canvas>
+  <canvas id="g" tabindex="0" role="application"
+    aria-label="Interactive cross-channel knowledge graph. Focus it, then use the arrow keys to walk between nodes, Enter to open the focused node's page, plus and minus to zoom, zero to reset the view, and Escape to clear."></canvas>
   <div class="gctrls">
     <button id="zin" type="button" title="Zoom in" aria-label="Zoom in">+</button>
     <button id="zout" type="button" title="Zoom out" aria-label="Zoom out">&minus;</button>
@@ -614,6 +618,10 @@ the queryable half a static bundle cannot answer.</p>
   </div>
   <div id="gtip"></div>
 </div>
+<p id="gstatus" class="ghint" role="status" aria-live="polite"></p>
+<p class="ghint"><strong>Keyboard:</strong> click or tab to the graph, then <strong>arrow keys</strong>
+walk the visible nodes, <strong>Enter</strong> opens the focused node&rsquo;s page,
+<strong>+ / &minus;</strong> zoom, <strong>0</strong> resets, <strong>Esc</strong> clears.</p>
 <p class="ghint">Scroll to zoom &middot; drag the background to pan &middot; hover a node to
 spotlight its links &middot; <strong>hover an edge</strong> to read its relation type + weight
 &middot; drag a node to reposition &middot; click to open its page
@@ -1143,6 +1151,51 @@ const zin = document.getElementById("zin"), zout = document.getElementById("zout
 if (zin) zin.addEventListener("click", () => zoomBy(1.3));
 if (zout) zout.addEventListener("click", () => zoomBy(1/1.3));
 if (zreset) zreset.addEventListener("click", () => { userView = false; resize(); mark(); });
+// --- keyboard: make the interactive graph operable without a mouse (WCAG 2.1.1) ---
+// The canvas is focusable (tabindex + role=application). Arrow keys walk the *visible*
+// nodes in a stable order (most-connected first, then alphabetical); Enter/Space opens
+// the focused node's page; +/- zoom, 0 resets, Esc clears. A polite live region
+// announces each focused node, so a keyboard / screen-reader visitor hears what a mouse
+// user sees spotlighted — the interactive graph itself, not only the list fallback.
+const gstatus = document.getElementById("gstatus");
+const announce = msg => { if (gstatus) gstatus.textContent = msg; };
+const kbOrder = () => N.filter(visible).sort((a, b) =>
+  ((ADJ[b.id] ? ADJ[b.id].size : 0) - (ADJ[a.id] ? ADJ[a.id].size : 0)) || a.label.localeCompare(b.label));
+let kbi = -1;
+function focusNodeAt(i) {
+  const order = kbOrder();
+  if (!order.length) { announce("No nodes are visible — reset the filters to walk the graph."); return; }
+  kbi = ((i % order.length) + order.length) % order.length;
+  const n = order[kbi];
+  pinnedId = n.id;
+  view.s = Math.max(view.s, 1.2);
+  view.tx = CSSW/2 - n.x*view.s; view.ty = CSSH/2 - n.y*view.s;
+  userView = true; reheat(0.12); mark();
+  announce(`${n.label}: ${relText(n)}${n.url ? " — press Enter to open its page" : ""}. Node ${kbi+1} of ${order.length}.`);
+  writeHash("node=" + encodeURIComponent(n.label));
+}
+cv.addEventListener("keydown", ev => {
+  switch (ev.key) {
+    case "ArrowRight": case "ArrowDown": ev.preventDefault(); focusNodeAt(kbi + 1); break;
+    case "ArrowLeft":  case "ArrowUp":   ev.preventDefault(); focusNodeAt(kbi - 1); break;
+    case "Home": ev.preventDefault(); focusNodeAt(0); break;
+    case "End":  ev.preventDefault(); focusNodeAt(-1); break;
+    case "Enter": case " ": {
+      ev.preventDefault();
+      const n = pinnedId && nodeById[pinnedId] && idx[pinnedId];
+      if (n && n.url) location.href = n.url;
+      break;
+    }
+    case "+": case "=": ev.preventDefault(); zoomBy(1.3); break;
+    case "-": case "_": ev.preventDefault(); zoomBy(1/1.3); break;
+    case "0": ev.preventDefault(); userView = false; resize(); mark(); break;
+    case "Escape": ev.preventDefault(); pinnedId = null; kbi = -1; HILITE = null;
+      announce("Selection cleared."); writeHash(""); mark(); break;
+  }
+});
+cv.addEventListener("focus", () => {
+  if (kbi < 0) announce("Graph focused. Arrow keys walk nodes, Enter opens, plus and minus zoom, Escape clears.");
+});
 window.addEventListener("resize", () => { resize(); dirty = true; });
 resize();
 // Reduced-motion: settle the force layout once, synchronously, so the graph opens in its

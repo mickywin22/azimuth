@@ -168,6 +168,17 @@
       ]
     },
     {
+      "id": "entity:philippines",
+      "label": "Philippines",
+      "kind": "entity",
+      "entity_kind": "region",
+      "theme": "shared",
+      "themes": [
+        "environmental-hazards",
+        "geophysical"
+      ]
+    },
+    {
       "id": "entity:new-zealand",
       "label": "New Zealand",
       "kind": "entity",
@@ -562,6 +573,26 @@
     {
       "source": "entity:united-states",
       "target": "source:radiation-observations",
+      "cross_theme": false,
+      "rel": "named-in"
+    },
+    {
+      "source": "entity:philippines",
+      "target": "brief:environmental-hazards-weekly",
+      "cross_theme": true,
+      "rel": "mentioned-in",
+      "weight": 0
+    },
+    {
+      "source": "entity:philippines",
+      "target": "brief:geophysical-weekly",
+      "cross_theme": true,
+      "rel": "mentioned-in",
+      "weight": 1
+    },
+    {
+      "source": "entity:philippines",
+      "target": "source:earthquakes",
       "cross_theme": false,
       "rel": "named-in"
     },
@@ -964,6 +995,12 @@
       "target": "brief:geophysical-weekly",
       "cross_theme": false,
       "rel": "reported-in"
+    },
+    {
+      "source": "event:us6000t8ec",
+      "target": "entity:philippines",
+      "cross_theme": false,
+      "rel": "located-in"
     },
     {
       "source": "event:us6000t8pa",
