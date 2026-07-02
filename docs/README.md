@@ -40,6 +40,7 @@ and quick start; come here to go deep.
 | Doc | What it covers |
 |-----|----------------|
 | [security/public-flip-readiness.md](security/public-flip-readiness.md) | The go/no-go checklist for flipping the repo public. |
+| [security/secret-scan-2026-06-30.md](security/secret-scan-2026-06-30.md) | Point-in-time C1 secret-scan report (gitleaks + stdlib scanner over full history + working tree) — verdict CLEAN, the evidence bank behind the flip gate. |
 | _C1c owner-private-history decision_ | The accept-vs-scrub call on the owner-private home-paths in history is an owner go-gate; the decision doc + the one-command `scripts/check_flip_readiness.py` aggregator are staged on the public-flip branch and land with the flip, not before it. See the `Secret Scan` workflow (§ below) for the live gate status. |
 | [SECURITY.md](../SECURITY.md) | Vulnerability-reporting policy (repo root). |
 
@@ -51,7 +52,7 @@ and quick start; come here to go deep.
 
 ## Continuous integration & gates
 
-Four GitHub Actions workflows run the engine and guard the repo. All are visible under
+Five GitHub Actions workflows run the engine and guard the repo. All are visible under
 [`.github/workflows/`](../.github/workflows/); the two badges at the top of the root README
 track the first two.
 
@@ -59,19 +60,22 @@ track the first two.
 |----------|------|-----------|--------|
 | `ci.yml` | every push / PR to `main` | lint · format · type-check · source-guardrail · synthesis-lint · brief-index + graph sync · **doc-link resolve** · **unit + integration tests + ≥80% coverage** | green |
 | `ingest.yml` | daily cron + `workflow_dispatch` | a stale L1 day (in-workflow liveness assert) | green, running daily |
-| `pages.yml` | push to `main` | the static-site build | — |
-| `secret-scan.yml` | every push / PR to `main` | **C1 public-flip gate** — gitleaks + the stdlib secret scan + the private-leakage scan, each over **full history** | **red, by design (see below)** |
+| `synthesis-freshness.yml` | weekly cron (Mondays) + `workflow_dispatch` | nothing per-push — opens a dedup'd `synthesis-alarm` issue if any clean-theme brief is genuinely **overdue** (lagging the latest L1 day by more than one weekly cadence) | green, running weekly |
+| `pages.yml` | push to `main` | the static-site build | skipped while the repo is private |
+| `secret-scan.yml` | every push / PR to `main` | **credentials over full history** (gitleaks + the stdlib scanner) and **owner-private context in the working tree** (C1b); pre-existing *history-only* privacy findings are surfaced non-blocking (C1c — see below) | green |
 
-**Why `secret-scan.yml` is red before the flip.** The private-leakage job scans the whole
-git history for owner-private context (home paths, personal email). History still carries a
-handful of the owner's local machine paths (`C:\Users\…`) in since-deleted security-report
-notes. These are the **C1c** findings: not credentials, but owner-private context. Resolving
-them is a deliberate **owner go-gate** — either *accept* them as harmless machine paths (record
-a scoped allowlist) or *scrub* history (a rewrite + force-push). The gate is intentionally kept
-**hard and red** until that call is made, so the repo cannot flip public with unresolved
-owner-private history. The one-command `scripts/check_flip_readiness.py` aggregator that fronts
-this gate, and the C1c decision write-up, are staged on the public-flip branch and land with the
-flip. Nothing here is silently dropped — the security gate is a dedicated, always-on workflow.
+**How the privacy gate is scoped.** `secret-scan.yml` guards two different things.
+*Credentials* (gitleaks + `scripts/scan_secrets.py`) hard-block over the **full history** —
+a leaked key committed and reverted is compromised forever. *Owner-private context*
+(`scripts/scan_private_leakage.py`) is split by scope: a HARD finding in the **working tree**
+blocks the merge, so no push can newly introduce an owner-private path; the handful of
+pre-existing **history-only** findings (the owner's local machine paths in since-deleted
+notes — never credentials) are surfaced **non-blocking** on every run. Those history findings
+are the **C1c** accept-vs-scrub call — a deliberate owner go-gate resolved at flip time
+(the `scripts/check_flip_readiness.py` aggregator and the C1c decision write-up are staged
+on the public-flip branch and land with the flip), never an autonomous history rewrite.
+The split design is pinned by `tests/unit/test_secret_scan_workflow.py`, and the full
+rationale lives in [security/public-flip-readiness.md](security/public-flip-readiness.md).
 
 ---
 
