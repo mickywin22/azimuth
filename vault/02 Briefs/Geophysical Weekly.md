@@ -3,7 +3,7 @@ title: Geophysical Weekly
 type: L2-brief
 theme: geophysical
 week: 2026-W27
-updated: 2026-06-30T12:00:00Z
+updated: 2026-07-02T22:40:00Z
 sources: [earthquakes]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -14,67 +14,63 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 > Synthesised from the week's L1 source notes under `../01 Sources/`. The `azimuth-curator`
 > fleet role evolves this single note in place each week. azimuth reports **observed**
 > seismicity from the USGS feed — what was recorded, never what will happen. Every claim
-> links to the L1 note it rests on. (This cycle reads the live `2026-06-30` ingest, covering
-> the seven days to 2026-06-30.)
+> links to the L1 note it rests on. (This cycle reads the live `2026-07-02` ingest, covering
+> the seven days to 2026-07-02.)
 
 ## This week at a glance
 
-- The USGS feed recorded 102 magnitude-4.5-or-greater earthquakes worldwide over the seven
-  days to 2026-06-30, of which 35 were M5+, 5 reached M6+ and 2 were M7+ — a touch busier than
-  the prior week (98), with the M6+ count rising from three to five as two fresh major shocks
-  entered the window while the Yumare, Venezuela doublet held on at its trailing edge
+- The USGS feed recorded 100 magnitude-4.5-or-greater earthquakes worldwide over the seven
+  days to 2026-07-02, of which 37 were M5+, 4 reached M6+ and none were M7+ — a quieter
+  strong-event picture, as the Yumare, Venezuela M7.5/M7.2 doublet and the Kuji, Japan M6.9
+  (all 2026-06-24) aged out of the rolling window exactly as the prior cycle anticipated
   ([[earthquakes]]).
-- The strongest events remain the shallow **Yumare, Venezuela** doublet — an M7.5 and an M7.2
-  seconds apart on 2026-06-24 (~23–28 km SE of Yumare, depths 10 and 20 km), the largest azimuth
-  has recorded since the brief began — now at the trailing edge of the rolling window and set to
-  age out next cycle, off the usual western-Pacific arcs on the South-American/Caribbean plate
-  margin ([[earthquakes]]).
-- Two new M6+ events joined the window: an **M6.5 WSW of Sarangani, Philippines** (2026-06-26,
-  42 km) on the Mindanao margin and a deep **M6.1 S of Jurm, Afghanistan** (2026-06-27, 199 km)
-  in the Hindu Kush intermediate-depth zone — together lifting the M6+ count even as the two
-  06-24 great shocks age ([[earthquakes]]).
+- The strongest events in the window are now the **M6.5 WSW of Sarangani, Philippines**
+  (2026-06-26, 42 km) on the Mindanao margin and the deep **M6.1 S of Jurm, Afghanistan**
+  (2026-06-27, 199 km) in the Hindu Kush intermediate-depth zone ([[earthquakes]]).
+- Two new M6.0 shocks joined the window from opposite sides of the Pacific: one **49 km E of
+  Noda, Japan** (2026-07-01, 44 km) — capping the running Sanriku-coast sequence — and a
+  shallow one **75 km SSW of El Progreso, Mexico** (2026-06-30, 10 km) ([[earthquakes]]).
 
 ## Largest events
 
-- Five M6+ events fell in the seven-day window, two of them above M7: the M7.5 / M7.2 Yumare,
-  Venezuela doublet (both 2026-06-24, shallow), the M6.9 ENE of Kuji, Japan (2026-06-24, 51 km),
-  the new M6.5 WSW of Sarangani, Philippines (2026-06-26, 42 km) and the deep M6.1 S of Jurm,
-  Afghanistan (2026-06-27, 199 km). The two Venezuela shocks and the Kuji M6.9 sit at the
-  trailing edge and will clear the window next cycle ([[earthquakes]]).
-- The window spans two contrasting settings: the continental near-coast Venezuela doublet on one
-  side and, on the other, the classic subduction sources — the Philippine (Sarangani) and Hindu
-  Kush (Jurm) events — a reminder that the strong-event picture this week is broad rather than
+- Four M6+ events fell in the seven-day window, none above M7: the M6.5 WSW of Sarangani,
+  Philippines (2026-06-26, 42 km), the deep M6.1 S of Jurm, Afghanistan (2026-06-27, 199 km),
+  the M6.0 E of Noda, Japan (2026-07-01, 44 km) and the shallow M6.0 SSW of El Progreso, Mexico
+  (2026-06-30, 10 km). The Yumare M7.5/M7.2 doublet and the Kuji M6.9 — all recorded 2026-06-24
+  — have now rolled out of the window, taking the M7+ count from two to zero ([[earthquakes]]).
+- The four strong events span classic subduction and intermediate-depth sources — the Philippine
+  (Sarangani) and Japanese (Noda/Sanriku) margins, the Hindu Kush slab under Jurm, and the
+  Middle-America margin off El Progreso — a broad strong-event picture rather than one
   concentrated on a single arc ([[earthquakes]]).
 
 ## Where the activity clustered
 
-- The Philippines led the count at 16 events — a persistent Catuday/Luzon cluster of repeated
-  M4.5–M5.0 shocks plus the Sarangani/Mindanao margin that carried this week's M6.5 — ahead of
-  Indonesia (8), Japan (8) and Venezuela (7); China (5), Papua New Guinea (5) and Alaska (4)
-  followed ([[earthquakes]]).
-- Japan's eight events ran along the Sanriku coast — a Noda sequence (M5.8 and repeats ENE of
-  Noda) plus an M5.8 SE of Yokoshiba and an M5.7 N of Oshino — while a Dunhuang/Changning string
-  registered across China (an M5.2 at Changning), a Barkhan, Pakistan sequence logged M5.2–M5.4,
-  and the eastern Pacific added an M5.5 west of Bandon, Oregon and an M5.59 at Redwood Valley,
-  California ([[earthquakes]]).
+- Japan took the lead at 14 events as the Sanriku-coast Noda sequence built to this week's M6.0
+  (with repeated M4.5–M5.8 shocks E, ENE and NE of Noda, plus two outlying island-region
+  shocks), ahead of the Philippines (10 — the Catuday/Luzon cluster plus the Sarangani margin),
+  Indonesia (6), and a new six-event string in the **South Sandwich Islands region** on the
+  remote South-Atlantic arc (M4.9–M5.3, from 10 km down to 183 km); China, Papua New Guinea,
+  Alaska and a coastal Venezuela string of M4.5–M4.8 shocks logged 4 each ([[earthquakes]]).
 
 ## Depth profile
 
-- Most events were shallow (≈10 km), including the Venezuela doublet and the Oregon and
-  California shocks, but the feed again recorded deep-focus earthquakes — the deepest an M4.6 at
-  617 km, 236 km E of Levuka, Fiji, alongside a deep M5.9 at 526 km N of Metinaro, Timor Leste
-  and the intermediate-depth M6.1 at 199 km under Jurm, Afghanistan — the Tonga–Fiji and Hindu
-  Kush slabs continuing to register activity well below the crust ([[earthquakes]]).
+- Nearly half the window was shallow (44 events at ≤15 km, including the El Progreso, Mexico
+  M6.0 and the coastal Venezuela string), but the deep-focus list thickened around the Fiji
+  slab: six events below 500 km — the deepest the standing M4.6 at 617 km E of Levuka, joined
+  by an M5.6 at 537 km S of Suva and further 531–555 km foci — alongside the intermediate-depth
+  M6.1 at 199 km under Jurm, Afghanistan; the Tonga–Fiji and Hindu Kush slabs continue to
+  register activity well below the crust ([[earthquakes]]).
 
 ## Reading the week
 
-- The count was typical-to-firm for the world's active plate boundaries — the Philippine,
-  Indonesian and Japanese arcs leading — and a touch above the prior week (102 vs 98). The
-  strong-event picture, by contrast, broadened: the M6+ count rose from three to five as the
-  Sarangani M6.5 and the deep Jurm M6.1 entered the window, while the Yumare M7.5/M7.2 doublet
-  and the Kuji M6.9 held on at the trailing edge and are set to age out next cycle. azimuth
-  records what the instruments measured — magnitude, location, depth, time — and stops there
-  ([[earthquakes]]).
+- The count held typical for the world's active plate boundaries (100 M4.5+, in line with the
+  prior 102) — the Japanese, Philippine and Indonesian arcs leading — while the strong-event
+  picture stepped down as expected: the Yumare M7.5/M7.2 doublet and the Kuji M6.9 rolled out
+  of the window, taking the M7+ count to zero, and two fresh M6.0s (Noda, Japan and El
+  Progreso, Mexico) kept the M6+ count at four. The week's texture is sequences rather than
+  great shocks — the building Noda/Sanriku string capped by an M6.0 and the new South Sandwich
+  arc activity. azimuth records what the instruments measured — magnitude, location, depth,
+  time — and stops there ([[earthquakes]]).
 
 ## Changelog
 
@@ -119,5 +115,15 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
   M5.7–M5.8, and eastern-Pacific M5.5/M5.59 events hit off Oregon and at Redwood Valley,
   California. Deepest event updated to a 617 km Fiji-region focus. Observed-only framing held
   ([[earthquakes]]).
+- 2026-07-02 — weekly synthesis (2026-W27): absorbed the 2026-07-01 and 2026-07-02 ingest days,
+  the seven days to 2026-07-02 (100 M4.5+, 37 M5+, 4 M6+, 0 M7+). The Yumare, Venezuela
+  M7.5/M7.2 doublet and the Kuji, Japan M6.9 aged out of the rolling window as the prior cycle
+  anticipated, taking M7+ to zero; two fresh M6.0s entered — 49 km E of Noda, Japan
+  (2026-07-01, 44 km), capping the building Sanriku sequence, and a shallow one 75 km SSW of
+  El Progreso, Mexico (2026-06-30, 10 km). Japan took the count lead at 14 (Noda sequence),
+  a new six-event South Sandwich Islands string opened (M4.9–M5.3), and the deep list
+  thickened around the Fiji slab (six foci below 500 km, deepest 617 km). Rewrote the
+  at-a-glance, largest-events, clustering, depth and reading sections. Observed-only framing
+  held ([[earthquakes]]).
 </content>
 </invoke>
