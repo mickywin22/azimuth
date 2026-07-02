@@ -2,8 +2,8 @@
 title: Top5 Answers
 type: L2-brief
 theme: cross-theme
-week: 2026-W26
-updated: 2026-06-26T04:00:00Z
+week: 2026-W27
+updated: 2026-06-30T04:00:00Z
 sources: [co2-monitoring, crude-oil-inventories, earthquakes, energy-prices, fuel-prices, natural-events, natural-gas-storage-eu, radiation-observations, thermal-escalations, wildfire-detections]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -34,7 +34,7 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 > **Channels:** Geophysical + Energy supply · **Serves:** Risk & humanitarian desk — a fast, non-alarmist read of whether a seismic week actually touched the energy map.
 
-- **Largest recorded event:** M7.5 28 km SE of Yumare, Venezuela — one of 30 events at or above M5 USGS logged this week ([[earthquakes]])
+- **Largest recorded event:** M7.5 28 km SE of Yumare, Venezuela — one of 35 events at or above M5 USGS logged this week ([[earthquakes]])
 - **No observed reach into energy infrastructure.** The week's quakes cluster away from the physical energy-supply core (US crude inventories, EU gas storage) and from the fuel-reporting countries — the data shows seismicity and the energy balances did not intersect this week ([[earthquakes]], [[crude-oil-inventories]])
 - azimuth reports what USGS RECORDED, never what may happen next — a sourced 'no significant overlap' is the honest, efficient answer when that is what the week's data shows ([[earthquakes]])
 
@@ -44,7 +44,7 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 - **Biggest move: Brent Crude Oil, -14.4% week-on-week** — the largest swing across the quantitative energy series this week ([[energy-prices]])
 - **What it connects to:** the move sits inside the inventories-vs-price loop — US crude drew down while spot prices eased, so the headline swing reflects demand-side repricing rippling from the spot tape into the physical balances and on to pump prices ([[crude-oil-inventories]], [[energy-prices]], [[fuel-prices]])
-- **The slow-moving record:** atmospheric CO2 stands at 431.1 ppm (Mauna Loa, 2.86 ppm/yr) — not a weekly 'shift' but the baseline every energy story is told against; the demonstrator flags it as a different time-scale, not the week's headline ([[co2-monitoring]])
+- **The slow-moving record:** atmospheric CO2 stands at 430.52 ppm (Mauna Loa, 2.86 ppm/yr) — not a weekly 'shift' but the baseline every energy story is told against; the demonstrator flags it as a different time-scale, not the week's headline ([[co2-monitoring]])
 
 ## Q5 — Show me everything that connects a given region or commodity across the data.
 
@@ -52,9 +52,9 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 - **Commodity spine — crude oil ties three feeds together:** the physical balance (-15,148 EIA stocks, 2026-06-19); the spot price (WTI $81.36/bbl); the pump (downstream fuel-price panel). One commodity, traced from the ground to the pump across separate L1 feeds ([[crude-oil-inventories]], [[energy-prices]], [[fuel-prices]])
 - **United States** surfaces under 2 channels this week (Energy supply + environmental-hazards) — a co-occurrence in the open data, reported as a link, not a cause ([[crude-oil-inventories]], [[energy-prices]], [[fuel-prices]], [[natural-events]], [[natural-gas-storage-eu]], [[radiation-observations]], [[thermal-escalations]], [[wildfire-detections]])
+- **Philippines** surfaces under 2 channels this week (environmental-hazards + Geophysical) — a co-occurrence in the open data, reported as a link, not a cause ([[earthquakes]], [[natural-events]], [[radiation-observations]], [[thermal-escalations]], [[wildfire-detections]])
 - **New Zealand** surfaces under 2 channels this week (Energy supply + Geophysical) — a co-occurrence in the open data, reported as a link, not a cause ([[crude-oil-inventories]], [[earthquakes]], [[energy-prices]], [[fuel-prices]], [[natural-gas-storage-eu]])
 - **Greece** surfaces under 2 channels this week (Energy supply + Geophysical) — a co-occurrence in the open data, reported as a link, not a cause ([[crude-oil-inventories]], [[earthquakes]], [[energy-prices]], [[fuel-prices]], [[natural-gas-storage-eu]])
-- **Mexico** surfaces under 2 channels this week (Energy supply + Geophysical) — a co-occurrence in the open data, reported as a link, not a cause ([[crude-oil-inventories]], [[earthquakes]], [[energy-prices]], [[fuel-prices]], [[natural-gas-storage-eu]])
 
 ## How these answers are made
 
@@ -65,3 +65,4 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 - 2026-06-24 — regenerated TOP5 demonstrator answers from the 2026-06-24 live bundle (2026-W26); 5 cross-channel answers, every claim L1-sourced.
 - 2026-06-25 — regenerated TOP5 demonstrator answers from the 2026-06-25 live bundle (2026-W26); 5 cross-channel answers, every claim L1-sourced.
 - 2026-06-26 — regenerated TOP5 demonstrator answers from the 2026-06-26 live bundle (2026-W26); 5 cross-channel answers, every claim L1-sourced.
+- 2026-06-30 — regenerated TOP5 demonstrator answers from the 2026-06-30 live bundle (2026-W27); 5 cross-channel answers, every claim L1-sourced.
