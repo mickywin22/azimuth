@@ -2,8 +2,8 @@
 title: Climate Signals Weekly
 type: L2-brief
 theme: climate-signals
-week: 2026-W26
-updated: 2026-06-26T12:00:00Z
+week: 2026-W27
+updated: 2026-06-30T12:00:00Z
 sources: [climate-anomalies, co2-monitoring, sea-ice-extent]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -17,28 +17,29 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 > recorded regional temperature/precipitation anomalies — never a forecast of what the climate
 > will do. Every claim links to the L1 note it rests on. This brief reads three independent
 > instrument channels at once (atmospheric chemistry, the cryosphere, regional reanalysis) for
-> the seven days to 2026-06-26, the synthesis a static single-source bundle cannot do.
+> the seven days to 2026-06-30, the synthesis a static single-source bundle cannot do.
 
 ## This week at a glance
 
-- Three independent channels point the same direction this cycle: atmospheric CO2 sits at a
-  recorded 431.1 ppm — about 54% above the pre-industrial 280 ppm baseline — Arctic sea-ice
-  extent is 1.36 million km² below its long-term average, and 15 of the 22 monitored land/ocean
-  zones ran warm over the week ([[co2-monitoring]], [[sea-ice-extent]], [[climate-anomalies]]).
-- The largest regional anomaly recorded this week was again the Western Antarctic Ice Sheet, at
-  +4.5 °C above normal — a Southern-Hemisphere winter polar-warm signal still the field's
-  largest, though it eased out of last week's `EXTREME` band to `MODERATE`; no zone reached
-  `EXTREME` this cycle ([[climate-anomalies]]).
-- The Arctic shows up in two channels at once — recorded sea-ice extent of 9.98 million km²
-  (1.36 below average, the feed's "below_average" flag) alongside a +2.3 °C warm-air anomaly
-  over the same region — a cross-channel join: low recorded ice co-located with a recorded
+- Three independent channels read the same direction this cycle: atmospheric CO2 sits at a
+  recorded 430.52 ppm — about 54% above the pre-industrial 280 ppm baseline and 2.04 ppm above
+  the year-ago 428.48 — Arctic sea-ice extent is 1.61 million km² below its long-term average,
+  and 19 of the 25 monitored land/ocean zones ran warm over the week ([[co2-monitoring]],
+  [[sea-ice-extent]], [[climate-anomalies]]).
+- The regional map hardened at the top this cycle: **two** zones reached the `EXTREME` band —
+  **Europe at +9.9 °C** and **Ukraine at +5.2 °C** above normal — after a cycle with none, the
+  largest recorded continental warm anomalies since the brief began ([[climate-anomalies]]).
+- The Arctic again shows up in two channels at once — recorded sea-ice extent of 9.48 million
+  km² (1.61 below average, the feed's "below_average" flag) alongside a +2.8 °C warm-air anomaly
+  over the same region — the cross-channel join of low recorded ice co-located with a recorded
   warm-air anomaly ([[sea-ice-extent]], [[climate-anomalies]]).
 
 ## Atmospheric chemistry (Mauna Loa)
 
-- The NOAA Mauna Loa record reads a current 431.1 ppm CO2, 1.28 ppm above the year-ago 429.82
+- The NOAA Mauna Loa record reads a current 430.52 ppm CO2, 2.04 ppm above the year-ago 428.48
   ppm, with the feed's stated annual growth rate at 2.86 ppm/yr; the May monthly average of
-  432.34 ppm marks the usual Northern-Hemisphere spring seasonal peak ([[co2-monitoring]]).
+  432.34 ppm marks the usual Northern-Hemisphere spring seasonal peak, so the current daily
+  reading sits just below it as the seasonal draw-down begins ([[co2-monitoring]]).
 - The same station reads two other long-lived greenhouse gases this cycle: methane at 1940.46
   ppb and nitrous oxide at 339.75 ppb — recorded concentrations reported as-measured, with no
   projection attached ([[co2-monitoring]]).
@@ -48,41 +49,43 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 ## Cryosphere & ocean (sea-ice channel)
 
-- Arctic sea-ice extent is recorded at 9.98 million km² for 2026-06, an anomaly of −1.36
-  million km² and flagged "below_average"; every one of the last twelve monthly readings in the
-  feed carries a negative anomaly (from −1.13 to −2.19 million km²) — a twelve-month unbroken
-  run below average ([[sea-ice-extent]]).
+- Arctic sea-ice extent is recorded at 9.48 million km² for 2026-06, an anomaly of −1.61
+  million km² and flagged "below_average" — a deeper deficit than the prior pull's −1.36; every
+  one of the last twelve monthly readings in the feed carries a negative anomaly, a twelve-month
+  unbroken run below average ([[sea-ice-extent]]).
 - The same ocean channel reports a global sea-surface-temperature anomaly of +0.61 °C, mean sea
-  level 97.8 mm above the 1993 reference at a recorded 4.4 mm/yr rise, and upper-ocean
+  level 98.1 mm above the 1993 reference at a recorded 4.4 mm/yr rise, and upper-ocean
   (0–700 m) heat content of 228.45 zettajoules — four recorded ocean measurements in one pull
   ([[sea-ice-extent]]).
 
-## Regional anomaly map (22 zones)
+## Regional anomaly map (25 zones)
 
-- Of the 22 monitored zones for the week 2026-06-20 to 2026-06-26, 15 were flagged warm, 6 cold
-  and 1 dry — a warm-leaning week, with Central Asia (+3.7 °C) and Ukraine (+3.6 °C) the warmest
-  non-polar zones (both `MODERATE` severity), the Middle East and Mediterranean (+2.6 °C each)
-  just behind ([[climate-anomalies]]).
-- The lone dry signal was the Coral Triangle (precip anomaly −6.9, `MODERATE`); the coldest
-  zones were Australia (−2.4 °C), Greenland (−2.2 °C) and the Sahel (−1.4 °C)
-  ([[climate-anomalies]]).
-- Warm anomalies clustered across the Congo Basin (+2.9 °C), the Mediterranean (+2.6 °C),
-  California (+2.2 °C), the Tibetan Plateau (+2.0 °C) and the Amazon (+0.6 °C), while the
-  Western Antarctic Ice Sheet's +4.5 °C `MODERATE` reading stood apart as the field's largest
+- Of the 25 monitored zones for the week 2026-06-24 to 2026-06-30, 19 were flagged warm, 5 cold
+  and 1 dry — a firmly warm-leaning week, and the top of the field jumped: Europe (+9.9 °C) and
+  Ukraine (+5.2 °C) both reached `EXTREME`, well ahead of the Mediterranean (+4.0 °C) and Congo
+  Basin (+3.5 °C), the two `MODERATE` warm zones ([[climate-anomalies]]).
+- The lone dry signal was the Coral Triangle (precip anomaly −7.0, `MODERATE`); the coldest
+  zones were the Western Antarctic Ice Sheet (−2.2 °C), South Asia (−1.7 °C) and the Sahel
+  (−1.0 °C) ([[climate-anomalies]]).
+- A notable flip: the Western Antarctic Ice Sheet — the field's largest *warm* anomaly for
+  several prior cycles (peaking at +6.2 °C) — swung to a −2.2 °C cold reading this week, so the
+  bipolar warm join of prior cycles broke while the Arctic warm-air anomaly (+2.8 °C) held
   ([[climate-anomalies]]).
 
 ## Reading the week
 
-- Read together, the three channels describe a consistent recorded picture: a record-high CO2
-  concentration, a sea-ice extent that has stayed below its average for twelve straight months,
-  and a warm-leaning regional map with both poles registering warm anomalies. azimuth reports
-  what the instruments measured — the value, the anomaly sign, the severity flag — and stops
-  there; the editorial line keeps the brief to observed facts and excludes any projection of
-  what follows ([[co2-monitoring]], [[sea-ice-extent]], [[climate-anomalies]]).
+- Read together, the three channels describe a consistent recorded picture: a CO2 concentration
+  ~54% above pre-industrial and 2 ppm above a year ago, a sea-ice extent that has stayed below
+  its average for twelve straight months and deepened its deficit this cycle, and a regional map
+  whose warm side hardened into two `EXTREME` continental anomalies over Europe and Ukraine.
+  azimuth reports what the instruments measured — the value, the anomaly sign, the severity flag
+  — and stops there; the editorial line keeps the brief to observed facts and excludes any
+  projection of what follows ([[co2-monitoring]], [[sea-ice-extent]], [[climate-anomalies]]).
 - The synthesis value this cycle is the cross-channel join a single feed cannot make: the
-  Arctic's low recorded ice extent and its recorded warm-air anomaly are two separate
-  measurements that line up, and the polar pair (Arctic +2.3 °C, Western Antarctic +4.5 °C)
-  both register warm in the same window ([[sea-ice-extent]], [[climate-anomalies]]).
+  Arctic's low recorded ice extent (9.48 million km²) and its recorded warm-air anomaly (+2.8 °C)
+  are two separate measurements that line up — and, distinctly, the Antarctic pole flipped from
+  warm to cold this week, so the poles no longer register warm in tandem the way they did last
+  cycle ([[sea-ice-extent]], [[climate-anomalies]]).
 
 ## Changelog
 
@@ -110,3 +113,13 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
   +4.5 °C `MODERATE`, with no zone `EXTREME` this cycle. Updated the at-a-glance, cryosphere,
   regional and reading sections; the Arctic ice/warm-air and bipolar warm joins held
   ([[co2-monitoring]], [[sea-ice-extent]], [[climate-anomalies]]).
+- 2026-06-30 — daily-ingest flowback (2026-W27): refreshed from the live 2026-06-30 ingest. CO2
+  eased to 430.52 ppm (2.04 ppm above the year-ago 428.48); Arctic ice fell to 9.48 million km²
+  at a deeper −1.61 anomaly (a twelfth straight below-average month). The regional field grew to
+  25 zones and hardened at the top: Europe (+9.9 °C) and Ukraine (+5.2 °C) both reached `EXTREME`
+  (none last cycle), while the Western Antarctic Ice Sheet flipped from the field's largest warm
+  anomaly to a −2.2 °C cold reading — breaking the bipolar-warm join while the Arctic warm-air
+  anomaly (+2.8 °C) co-located with the low ice held. Updated the at-a-glance, chemistry,
+  cryosphere, regional and reading sections; observed-only framing held ([[co2-monitoring]],
+  [[sea-ice-extent]], [[climate-anomalies]]).
+</content>

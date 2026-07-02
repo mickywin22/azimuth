@@ -2,8 +2,8 @@
 title: Prediction Markets Weekly
 type: L2-brief
 theme: prediction-markets
-week: 2026-W26
-updated: 2026-06-26T12:00:00Z
+week: 2026-W27
+updated: 2026-06-30T12:00:00Z
 sources: [prediction-markets]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -18,7 +18,7 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 > **not** a forecast azimuth makes, and **not** an instruction to trade: odds are not
 > predictions, and nothing here is investment advice. azimuth reports the priced number and its
 > source, and takes no position on the underlying question. (This cycle reads the live
-> `2026-06-26` ingest.)
+> `2026-06-30` ingest: the same single market, price unchanged, volume ticked marginally higher.)
 
 ## This week at a glance
 
@@ -26,7 +26,7 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
   "Will the US acquire part of Greenland in 2026?" — quoted at a **0.105 yes price**, i.e. the
   market is pricing the outcome at an implied **10.5% probability** as of the 2026-06-26 pull
   ([[prediction-markets]]).
-- That market has traded a cumulative **$10.31 million in volume** and is set to resolve at the
+- That market has traded a cumulative **$10.32 million in volume** and is set to resolve at the
   end of 2026 (`closesAt` 2026-12-31) — a liquid, single-question market rather than a thin one,
   even though it is the only market the feed currently lists ([[prediction-markets]]).
 
@@ -37,7 +37,7 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
   2026, which by construction reads as a **10.5% implied probability** of that outcome. azimuth
   records the priced number; it does not endorse, dispute, or forecast the outcome itself
   ([[prediction-markets]]).
-- The **$10.31M traded volume** is the liquidity behind that price — enough that the quote
+- The **$10.32M traded volume** is the liquidity behind that price — enough that the quote
   reflects a real, contested market rather than a stale or nominal listing. Volume is reported
   here as a measure of how much weight sits behind the quoted odds, not as a signal to act on
   ([[prediction-markets]]).
@@ -45,7 +45,7 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 ## Reading the week
 
 - One market, priced low. The single live contract this week sits at a **10.5% implied
-  probability** on $10.31M of volume — a market that is liquid but leaning firmly "no" on its
+  probability** on $10.32M of volume — a market that is liquid but leaning firmly "no" on its
   question. azimuth states what the venue quoted and stops there: the odds are the market's, not
   azimuth's, and the editorial line forbids reading them as either a forecast or a reason to
   trade ([[prediction-markets]]).
@@ -64,3 +64,9 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
   IQ #915/#901 (2026-06-26), which reversed the earlier #862 hold (2026-06-24) and put
   prediction-markets in scope for the editorial lens. Single-market breadth noted as the current
   scope limit ([[prediction-markets]]).
+- 2026-06-30 — daily-ingest flowback (2026-W27): the feed still lists exactly one market
+  (Polymarket's "Will the US acquire part of Greenland in 2026?"). Week-on-week the quoted yes
+  price was unchanged at 0.105 (10.5% implied probability) while cumulative volume ticked
+  marginally higher to $10.32M (from $10.31M). Reported as observed venue-quoted facts — no
+  forecast, no investment framing, no position on the underlying question; the brief's `week` and
+  `updated` were advanced to record that the latest L1 day was absorbed ([[prediction-markets]]).
