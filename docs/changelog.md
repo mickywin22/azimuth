@@ -7,6 +7,19 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 ## [Unreleased]
 
 ### Added
+- **Docs-index coverage gate — `tests/unit/test_docs_index_coverage.py` (2026-07-03, KR-C):**
+  `docs/README.md` promises "Everything under `docs/` in one map", but that completeness was
+  checked by eye — a sweep found `security/secret-scan-2026-06-30.md` (the C1 CLEAN evidence
+  report) on disk yet absent from the index. Indexed it and added a unit gate that fails the
+  build if any `docs/**/*.md` page is missing from the index — the third docs-drift class
+  (after dead links and undocumented CLIs) turned into a build failure.
+- **GitHub About box — versioned + applied (2026-07-03, KR-C):** the repo's About box (the
+  first thing a visitor reads, before the README) was empty — no topics, no homepage, and a
+  stale "(research stage)" description from the June scaffold. Now set: a pitch-matching
+  description, homepage = the future Pages URL, and 9 topics (python · knowledge-graph ·
+  knowledge-management · second-brain · digital-garden · open-data · osint · static-site ·
+  github-pages). Because the About box is repo *settings*, not content, the exact
+  `gh repo edit` command is versioned in `docs/deploy.md` as the single source of truth.
 - **CLI-doc-coverage gate — `tests/unit/test_cli_doc_coverage.py` (2026-07-02, KR-C):**
   `docs/cli.md` promises "Every command under `scripts/` in one map", but that completeness
   was checked by eye — a sweep found `smoke_graph.py` (the KR-B knowledge-graph Playwright
@@ -23,32 +36,6 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
   cross-link to its per-feature doc. Wired into `docs/README.md` (engine section) and the root
   README repo-layout table. Verified against the live `--help`/subcommand surface; the
   doc-link gate resolves all 17 new links.
-
-### Fixed
-- **Broken link + gate transparency in the docs index (2026-07-01, KR-C):** `docs/README.md`
-  linked `security/c1c-history-decision.md`, which is staged on the public-flip branch and is
-  not on `main` — a dead link on the public-grade front door. Replaced it with a non-linking
-  note that the C1c decision doc + the `check_flip_readiness.py` aggregator land with the flip.
-  Added a **Continuous integration & gates** section documenting all four workflows and, in
-  particular, why `secret-scan.yml` is intentionally red before the flip (the C1c owner-private
-  history go-gate) — so the always-on security gate is visibly accounted for, not mistaken for
-  a dropped job.
-- **CI red on `main` — site-build test (2026-07-01, KR-C engine):** the KR-B interactive
-  knowledge-graph work made `synthesis/site_build.py` render Markdown, so
-  `tests/unit/test_site_build.py` (and the coverage step) began raising
-  `ModuleNotFoundError: No module named 'markdown'` — the renderer lives in the `site`
-  optional-dependency extra, but the CI **Test** job installed only `.[dev]`. Result: three
-  consecutive pushes reddened the CI badge on the public-grade README front door while the
-  daily ingest and every other job stayed green. Fixed by installing `.[dev,site]` in the
-  Test job (the runtime + `dev` stack stay pure-stdlib; only the job that exercises the site
-  build pulls the renderer). Locally: 239 unit tests green.
-- **README license classification (2026-07-01, KR-C):** the split-license section listed
-  `synthesis/` as a *future* MIT-code path, but the L2 synthesis engine (`answers.py`,
-  `cross_theme.py`, `lint.py`, `benchmark.py`, `site_build.py`) has shipped and is already
-  covered by the repository-layout table above it. Reclassified `synthesis/` as a current
-  MIT-code directory so the license front door reads accurately for a public visitor.
-
-### Added
 - **Documentation link gate (2026-07-01, KR-C):** new `scripts/check_doc_links.py` — a
   pure-stdlib CI + pre-commit gate that walks all ~200 Markdown files and fails the build
   on any dead *relative* link (docs index, changelog, license split, generated brief index).
@@ -94,6 +81,30 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
   pre-commit with a `--check` sync guard. `azimuth-curator` role generalised to evolve one
   brief per clean theme. New `tests/unit/test_registry_themes.py` integrity tests.
 - Initial project scaffold from coding factory template
+
+### Fixed
+- **Broken link + gate transparency in the docs index (2026-07-01, KR-C):** `docs/README.md`
+  linked `security/c1c-history-decision.md`, which is staged on the public-flip branch and is
+  not on `main` — a dead link on the public-grade front door. Replaced it with a non-linking
+  note that the C1c decision doc + the `check_flip_readiness.py` aggregator land with the flip.
+  Added a **Continuous integration & gates** section documenting all four workflows and, in
+  particular, why `secret-scan.yml` is intentionally red before the flip (the C1c owner-private
+  history go-gate) — so the always-on security gate is visibly accounted for, not mistaken for
+  a dropped job.
+- **CI red on `main` — site-build test (2026-07-01, KR-C engine):** the KR-B interactive
+  knowledge-graph work made `synthesis/site_build.py` render Markdown, so
+  `tests/unit/test_site_build.py` (and the coverage step) began raising
+  `ModuleNotFoundError: No module named 'markdown'` — the renderer lives in the `site`
+  optional-dependency extra, but the CI **Test** job installed only `.[dev]`. Result: three
+  consecutive pushes reddened the CI badge on the public-grade README front door while the
+  daily ingest and every other job stayed green. Fixed by installing `.[dev,site]` in the
+  Test job (the runtime + `dev` stack stay pure-stdlib; only the job that exercises the site
+  build pulls the renderer). Locally: 239 unit tests green.
+- **README license classification (2026-07-01, KR-C):** the split-license section listed
+  `synthesis/` as a *future* MIT-code path, but the L2 synthesis engine (`answers.py`,
+  `cross_theme.py`, `lint.py`, `benchmark.py`, `site_build.py`) has shipped and is already
+  covered by the repository-layout table above it. Reclassified `synthesis/` as a current
+  MIT-code directory so the license front door reads accurately for a public visitor.
 
 ### Changed
 - **Editorial line rewritten to fact-vs-propaganda (2026-06-24, Michael):** azimuth now
