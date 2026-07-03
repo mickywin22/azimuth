@@ -40,6 +40,7 @@ token-presence unit tests can't reach):
 | Source-line evidence | `graph-evidence.png` | click/tap a shared entity (or walk to it and press **Enter**) and the page **quotes the literal dated L1 source line from each channel that names it**, deep-linked to the per-day source page — the in-browser `query_graph.py evidence`: a bridge is not asserted, it is proven |
 | Keyboard nav | `graph-keyboard.png` | canvas focused, **ArrowRight** walks to the most-connected node, re-centres the view, and a polite live region announces it (*"…: L2 brief · 18 links — press Enter to open. Node 1 of 35."*) — the graph is usable with no mouse |
 | Mobile responsive | `graph-mobile.png` | the graph fits a 390 px phone viewport (Michael's primary device) |
+| Site discoverability | `site-index-graph-cta.png` | the site front door links the graph twice: the **Knowledge graph** nav entry on every page and the gold index CTA card, whose node/edge/bridge counts are filled live from the published `graph.json` (at capture: *48 nodes, 88 edges, 11 cross-channel bridges*) — verified in Chromium including the click-through landing on `graph.html` |
 
 The smoke also **dispatches a real one-finger touch-drag** on a touch-emulated
 device and asserts the canvas pixels change (mobile pan/pinch), and **presses
