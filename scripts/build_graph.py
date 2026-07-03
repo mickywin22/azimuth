@@ -768,6 +768,12 @@ if (qa && qb && briefNodes.length) {
   if (briefNodes.length > 1) qb.selectedIndex = 1;
 }
 const briefIdOf = theme => { const b = briefNodes.find(n => n.theme === theme); return b ? b.id : null; };
+// mentioned-in weight per (entity -> brief): how many L1 source notes back the mention.
+const MWEIGHT = {};
+for (const e of GRAPH.edges) {
+  if (e.rel === "mentioned-in") MWEIGHT[e.source+"|"+e.target] = (e.weight || 0);
+}
+const mweight = (ent, brief) => MWEIGHT[ent+"|"+brief] || 0;
 function bfsPath(src, dst) {
   if (!ADJ[src] || !ADJ[dst]) return null;
   if (src === dst) return [src];
@@ -793,7 +799,15 @@ function trace() {
   if (ta === tb) { out.textContent = "Pick two different channels."; HILITE = null; return; }
   const ba = briefIdOf(ta), bb = briefIdOf(tb);
   const shared = [...ADJ[ba]].filter(x => ADJ[bb].has(x) && nodeById[x] && nodeById[x].kind === "entity");
-  const path = bfsPath(ba, bb);
+  // Rank bridges by source evidence: weaker leg (min) first, then total, then label.
+  // A bridge is only as strong as its less-evidenced side — mirrors query_graph.py.
+  const ranked = shared.map(x => {
+    const wa = mweight(x, ba), wb = mweight(x, bb);
+    return { id: x, wa, wb, min: Math.min(wa, wb), total: wa + wb };
+  }).sort((p, q) =>
+    q.min - p.min || q.total - p.total || nodeById[p.id].label.localeCompare(nodeById[q.id].label));
+  // Route the highlighted path through the strongest bridge, not an alphabetical one.
+  const path = ranked.length ? [ba, ranked[0].id, bb] : bfsPath(ba, bb);
   const nodes = new Set(path || []); nodes.add(ba); nodes.add(bb); shared.forEach(x => nodes.add(x));
   const edges = new Set();
   const link = (a, b) => { edges.add(a+"|"+b); edges.add(b+"|"+a); };
@@ -801,9 +815,11 @@ function trace() {
   shared.forEach(x => { link(x, ba); link(x, bb); });
   HILITE = { nodes, edges }; mark();
   const aL = channelName(nodeById[ba].label), bL = channelName(nodeById[bb].label);
-  if (!shared.length && !path) { out.textContent = `No connection found between ${aL} and ${bL}.`; return; }
-  const names = shared.map(x => nodeById[x].label).join(", ") || "no direct shared entity";
-  let txt = `${aL} ↔ ${bL}: ${shared.length} shared bridge(s) — ${names}.`;
+  if (!ranked.length && !path) { out.textContent = `No connection found between ${aL} and ${bL}.`; return; }
+  // textContent sink (never innerHTML) — plain concat keeps the raw-label guard happy.
+  const names = ranked.map(r => nodeById[r.id].label + " [" + r.wa + "+" + r.wb + " src]").join(", ") || "no direct shared entity";
+  const strongest = ranked.length ? ", strongest " + nodeById[ranked[0].id].label + " (" + ranked[0].wa + "+" + ranked[0].wb + " src)" : "";
+  let txt = `${aL} ↔ ${bL}: ${ranked.length} shared bridge(s)${strongest} — ${names}.`;
   if (path) txt += "  Path: " + path.map(id => nodeById[id].label).join(" → ") + ".";
   out.textContent = txt;
 }
