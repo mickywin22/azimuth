@@ -52,7 +52,7 @@ opinion (see work-item `azi-benchmark-vs-forecast-intelligence-W26`). prediction
 prices are the exception: the **quoted price is an observed fact**, so it stays allowed
 (with a synthesis caution forbidding investment framing).
 
-**Prediction markets are briefed (Michael IQ #915/#901, 2026-06-26 — reverses #862).** The
+**Prediction markets are briefed (owner review 2026-06-26 — reverses the earlier hold).** The
 earlier call (#862, 2026-06-24) kept prediction-markets **L1-only** — ingested but not
 briefed — on a synthesis-breadth concern (the live feed surfaced a single market). Michael
 reversed that in the 2026-06-26 interactive review: prediction-markets are now **in scope for

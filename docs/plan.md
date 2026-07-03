@@ -1,19 +1,19 @@
 # azimuth — Implementation Plan v1
 
-> **Status:** Ready (pending Michael sign-off on PRD + IQ #371 decisions)
+> **Status:** Ready (pending owner sign-off on PRD + the three scope decisions)
 > **Last updated:** 2026-06-09
 > **Source spec:** `docs/spec.md` v2
 
 ## Phases
 
 ### Phase 0 — Decision lock (Michael, ~5 min)
-**Target:** the 3 IQ #371 calls confirmed (v0 theme · cadence split · license split) via PRD sign-off.
+**Target:** the 3 scope calls confirmed (v0 theme · cadence split · license split) via PRD sign-off.
 
 - [x] Live API verification (5 endpoints, access model, rate limits) — done 2026-06-09
 - [x] Spec v2 + this plan written — done 2026-06-09
 - [ ] Michael confirms/overrides the 3 recommendations
 
-**Gate:** decisions logged in `05 Projects/azimuth.md` + IQ #371 closed.
+**Gate:** decisions logged in `05 Projects/azimuth.md` + the scope decisions closed.
 
 ### Phase 1 — F1 L1 ingest (1–2 fleet slots, ~40k tok)
 **Target:** vault self-populates daily with zero LLM involvement.
@@ -73,10 +73,10 @@
 
 ## Dependencies
 
-- IQ #371 decisions (Phase 0) gate Phase 1 start
+- The scope decisions (Phase 0) gate Phase 1 start
 - Phase 2 needs ≥1 week of banked L1 data from Phase 1 (natural sequencing, no idle wait — slots run in different weeks anyway)
 - Phase 3 needs first green Phase-2 brief
-- Build-week scheduling: F1–F3 sit in HemySphere Solo Queue, gated; Strategic Architect assigns the W-slot (W25+ candidate — W24 board is full with WC26 + Apex pin)
+- Build-week scheduling: F1–F3 are queued and owner-gated; the weekly planning pass assigns the build slot (W25+ candidate)
 
 ## Risks
 

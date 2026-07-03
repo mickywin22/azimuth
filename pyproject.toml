@@ -88,15 +88,6 @@ include = ["guardrail*", "ingest*", "synthesis*"]
 [tool.ruff]
 target-version = "py312"
 line-length = 99
-# scripts/Build-Graphify-AST-Only.py is a template-inherited, Apex-targeting graphify
-# tool: it imports the `graphify` package (not an azimuth dependency) and cannot run in
-# this repo. It is not part of azimuth's engine and is deliberately out of CI's explicit
-# ruff/mypy scope. Excluded from traversal so a plain `ruff check .` is clean repo-wide,
-# so the public repo reads as a polished artifact. Kept (not deleted) pending Michael's
-# keep-vs-delete call. Traversal-only: CI passes real paths explicitly, so this is inert
-# there. Remove this line if the script is deleted.
-extend-exclude = ["scripts/Build-Graphify-AST-Only.py"]
-
 [tool.ruff.lint]
 select = [
     "E",    # pycodestyle errors

@@ -72,7 +72,7 @@ The brief-per-theme mapping is **data-driven** — read `sources/registry.json`:
 
 Currently active brief themes: **energy-supply** (`natural-gas-storage-eu`,
 `crude-oil-inventories`, `fuel-prices`, `energy-prices`), **geophysical** (`earthquakes`) and
-**prediction-markets** (`prediction-markets`). The latter was un-held by Michael IQ #915/#901
+**prediction-markets** (`prediction-markets`). The latter was un-held by owner review (2026-06-26)
 (2026-06-26, reversing #862): its brief now lands under the fact-vs-propaganda lens, reporting
 the **venue-quoted price as an observed fact** with the `no-investment-framing` /
 `odds-are-not-forecasts` caution and no position on the underlying question.

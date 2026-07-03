@@ -1,6 +1,6 @@
 # azimuth — Specification v2
 
-> **Status:** Spec-locked + **CONFIRMED** — all 3 decisions accepted (IQ #371 (A), Michael 2026-06-10). Build week unblocked, dispatchable W25+.
+> **Status:** Spec-locked + **CONFIRMED** — all 3 decisions accepted (owner decision, 2026-06-10). Build week unblocked, dispatchable W25+.
 > **Last updated:** 2026-06-11
 > **Track:** Coding-Factory (HemySphere vault: `05 Projects/azimuth.md`)
 > **Supersedes:** spec v1 (2026-06-09 research scaffold). v2 = audit findings resolved + live API verification.
@@ -134,7 +134,7 @@ Trade-off accepted: L2 pauses if the box is down ≥1 week. Stale-data guard (Ph
 
 Enforcement = the F2 CI lint (deny-list + diff guard + link check). A rule without a lint line is a TODO, not a rule. The **per-source license + content guardrail** (attribution rule above) is the first of these lint lines to ship — it blocks the build if any surfaced WorldMonitor subset is unlicensed (`license` category), uncredited, or carries a non-factual content class (propaganda / opinion / position-taking — `editorial` category). The guardrail tags each block `license` vs `editorial` so a sensitive-but-factual channel held only for its license is never mistaken for an editorial exclusion.
 
-## License (resolves audit finding 3 — CONFIRMED IQ #371 (A), 2026-06-10)
+## License (resolves audit finding 3 — CONFIRMED, owner decision 2026-06-10)
 
 The v1 drift (CC-BY vs CC-BY-SA vs CC-BY-NC-SA across three docs) is resolved by **splitting code from content** — they are different artifacts:
 
@@ -159,10 +159,10 @@ The v1 drift (CC-BY vs CC-BY-SA vs CC-BY-NC-SA across three docs) is resolved by
 - Any web app / backend / search / API of our own
 - Monetization (Path C) — post-validation only
 
-## Decisions — CONFIRMED (Michael, IQ #371 (A), 2026-06-10)
+## Decisions — CONFIRMED (owner, 2026-06-10)
 
 All three accepted as recommended; build week unblocked, dispatchable W25+.
 
 1. **v0 theme = Energy Supply** (5–8 verified endpoints above) — ✅ CONFIRMED.
 2. **Cadence split: L1 daily (Actions) + L2 weekly (fleet)** — ✅ CONFIRMED.
-3. **License split: code MIT + content CC BY 4.0** — ✅ CONFIRMED. (LICENSE files finalised at the F3 public-flip milestone, per IQ #429.)
+3. **License split: code MIT + content CC BY 4.0** — ✅ CONFIRMED. (LICENSE files finalised at the F3 public-flip milestone, per the flip-milestone decision.)

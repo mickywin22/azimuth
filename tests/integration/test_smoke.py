@@ -1,4 +1,4 @@
-"""Integration-test placeholder (IQ #490 / #492).
+"""Integration-test placeholder (internal review records).
 
 The CI `pytest tests/integration/ -v` step predates any integration suite, so the
 job errored on a missing directory. This stub keeps the integration job green

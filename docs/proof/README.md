@@ -1,4 +1,4 @@
-# Demonstrator "what-if" proof (Azimuth KR-B, IQ #887)
+# Demonstrator "what-if" proof (Azimuth KR-B)
 
 The `answers.html` demonstrator carries an interactive **"show your work / what if the data
 were different?"** panel on the cross-channel verdicts (Q1 supply-health, Q2 supply-vs-demand).

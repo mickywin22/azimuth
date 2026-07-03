@@ -5,7 +5,7 @@ knowledge notes produced by the pipeline: L1 source notes, L2 weekly synthesis
 briefs, and L3 rule notes (everything under `vault/`). The azimuth **code** is
 licensed separately under the MIT License (see [`LICENSE`](LICENSE)).
 
-License split confirmed by Michael (IQ #371 option A, 2026-06-10): code = MIT,
+License split confirmed by the owner (2026-06-10): code = MIT,
 content = CC BY 4.0. The NC (non-commercial) variant was rejected — azimuth
 content has no commercial moat to protect; maximum shareability serves the
 demonstrator's credibility goal.

@@ -108,7 +108,7 @@ surfaceable the moment a clean free-to-use license / clean source path is confir
 
 ## License
 
-Split license — confirmed IQ #371 (A), 2026-06-10:
+Split license — owner decision, 2026-06-10:
 
 - **azimuth code:** MIT — see [`LICENSE`](LICENSE).
 - **azimuth vault content (derived L1/L2/L3 notes under `vault/`):** CC BY 4.0 — see [`LICENSE-CONTENT.md`](LICENSE-CONTENT.md).

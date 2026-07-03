@@ -44,7 +44,7 @@ REQUIRED_KEYS: tuple[str, ...] = (
     "attribution",
 )
 LOCKED_TYPE = "L2-brief"
-LOCKED_LICENSE = "CC-BY-4.0"  # IQ #371 (A): content = CC BY 4.0
+LOCKED_LICENSE = "CC-BY-4.0"  # locked owner decision: content = CC BY 4.0
 
 _WEEK_RE = re.compile(r"^\d{4}-W\d{2}$")
 _UPDATED_RE = re.compile(r"^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$")
@@ -222,7 +222,7 @@ def check_frontmatter_schema(fm: dict[str, str] | None) -> list[str]:
         violations.append(f"frontmatter type must be '{LOCKED_TYPE}', got '{fm['type'].strip()}'")
     if fm.get("license", "").strip() and fm["license"].strip() != LOCKED_LICENSE:
         violations.append(
-            f"frontmatter license must be '{LOCKED_LICENSE}' (IQ #371 A), got '{fm['license'].strip()}'"
+            f"frontmatter license must be '{LOCKED_LICENSE}' (locked decision), got '{fm['license'].strip()}'"
         )
     if fm.get("week", "").strip() and not _WEEK_RE.match(fm["week"].strip()):
         violations.append(f"frontmatter week must be YYYY-Www, got '{fm['week'].strip()}'")

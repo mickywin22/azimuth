@@ -72,7 +72,7 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
   its quoted 0.105 yes price (10.5% implied probability) on $10.31M volume, framed strictly as an
   observed venue-quoted fact under the fact-vs-propaganda editorial line — no forecast, no
   investment framing, no position on the underlying question. This brief lands per Michael's
-  IQ #915/#901 (2026-06-26), which reversed the earlier #862 hold (2026-06-24) and put
+  an owner review (2026-06-26), which reversed the earlier hold (2026-06-24) and put
   prediction-markets in scope for the editorial lens. Single-market breadth noted as the current
   scope limit ([[prediction-markets]]).
 - 2026-06-30 — daily-ingest flowback (2026-W27): the feed still lists exactly one market

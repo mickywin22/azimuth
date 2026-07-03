@@ -55,7 +55,7 @@ follow-up step (surfaced to Michael via IQ), not something the reviewer handles.
 **Pattern to drop.** Assuming the cross-repo reviewer-push behaves like it does on the
 vault repo.
 
-**Evidence.** HemySphere IQ #435 / #492 (`fleet/iq371-confirm-decisions-w24` etc.).
+**Evidence.** Internal review records (W24).
 
 ### 2. CI runs `pytest tests/integration/` but the dir doesn't exist (pre-existing)
 
@@ -73,4 +73,4 @@ Decision is michael_dep (same class as the open integration-tests IQ).
 
 **Pattern to drop.** Re-discovering this red on every new branch and treating it as new.
 
-**Evidence.** `ci.yml` `test` job · HemySphere IQ #490 / #492.
+**Evidence.** `ci.yml` `test` job · internal review records.

@@ -22,7 +22,7 @@ SOFTWARE.
 
 ---
 
-SCOPE NOTE — azimuth uses a split license (confirmed IQ #371(A), 2026-06-10):
+SCOPE NOTE — azimuth uses a split license (owner decision, 2026-06-10):
 
   * This MIT license covers the azimuth CODE only — the ingest pipeline,
     synthesis/curator logic, source guardrail, scripts, and CI workflows
