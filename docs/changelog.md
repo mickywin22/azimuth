@@ -7,6 +7,23 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 ## [Unreleased]
 
 ### Added
+- **Source-line evidence in the page — the graph now PROVES its bridges (2026-07-03, KR-B):**
+  the viz could name *which* L1 notes back a bridge (`named-in` edges) but not show the text.
+  The builder now embeds bounded per-theme quotes on every entity node (first whole-word
+  match, original casing, ≤2 per theme), and `graph.html` gains an evidence panel: click/tap
+  a shared entity — or walk to it with the keyboard and press Enter — and the page quotes the
+  literal dated L1 source line from each channel that names it, deep-linked to the per-day
+  source page. The in-browser counterpart of `query_graph.py evidence`. DOM-API +
+  `textContent` only (hostile ingest text can never become markup); Escape or a visible ✕
+  closes it. Proof: `docs/proof/graph-evidence.png` (live 2026-07-02 day — eia.gov fuel-price
+  and EPA RADNET lines naming United States across two channels).
+- **Evidence-ranked bridges land on `main` — CLI + in-page Trace (2026-07-03, KR-B):** the
+  W26 evidence-ranking work (`connect` bridges ranked by min-leg/total `mentioned-in` weight,
+  strongest named, path routed through it, per-bridge `[N+M src]` tags — plus the `evidence`
+  query that quotes the raw L1 line) had been stranded on two unmerged W26 fleet branches;
+  the site shipped alphabetical, unranked bridges. Ported both onto the current codebase and
+  mirrored the ranking into the browser Trace, with unit + live-Chromium smoke guards so the
+  rank can't silently regress.
 - **Docs-index coverage gate — `tests/unit/test_docs_index_coverage.py` (2026-07-03, KR-C):**
   `docs/README.md` promises "Everything under `docs/` in one map", but that completeness was
   checked by eye — a sweep found `security/secret-scan-2026-06-30.md` (the C1 CLEAN evidence
