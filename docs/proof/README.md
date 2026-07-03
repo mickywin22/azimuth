@@ -36,7 +36,8 @@ token-presence unit tests can't reach):
 | Proof | File | What it shows |
 |-------|------|---------------|
 | Desktop render | `graph-overview.png` | the graph renders a non-blank, laid-out node/edge canvas |
-| Queryable Trace | `graph-trace.png` | Trace `energy-supply ↔ geophysical` → **3 bridges (New Zealand, Greece, Mexico), path through Greece** — the evidence-ranked cross-source answer a static bundle cannot give |
+| Queryable Trace | `graph-trace.png` | Trace `energy-supply ↔ geophysical` → the **evidence-ranked** bridge list (each bridge tagged `[N+M src]`, the strongest named, the highlighted path routed through it) — the cross-source answer a static bundle cannot give. Bridges move with the live daily data; at capture: *2 bridges, strongest Mexico (1+1 src)* |
+| Source-line evidence | `graph-evidence.png` | click/tap a shared entity (or walk to it and press **Enter**) and the page **quotes the literal dated L1 source line from each channel that names it**, deep-linked to the per-day source page — the in-browser `query_graph.py evidence`: a bridge is not asserted, it is proven |
 | Keyboard nav | `graph-keyboard.png` | canvas focused, **ArrowRight** walks to the most-connected node, re-centres the view, and a polite live region announces it (*"…: L2 brief · 18 links — press Enter to open. Node 1 of 35."*) — the graph is usable with no mouse |
 | Mobile responsive | `graph-mobile.png` | the graph fits a 390 px phone viewport (Michael's primary device) |
 

@@ -533,7 +533,10 @@ font-weight:600;cursor:pointer;vertical-align:middle}
 .gquery .qout{flex-basis:100%;margin:.35rem 0 0;font-size:.88rem;color:#e7edf5;min-height:1.2em}
 #gevid{margin:.6rem 0 0;padding:.6rem .8rem;background:#141a23;border:1px solid #2a3a4d;
   border-radius:8px;font-size:.85rem;color:#c7d2df}
-#gevid h3{margin:0 0 .4rem;font-size:.92rem;color:#e7edf5}
+#gevid h3{margin:0 0 .4rem;font-size:.92rem;color:#e7edf5;display:flex;justify-content:space-between;align-items:center}
+#gevid .evclose{background:none;border:1px solid #2a3a4d;border-radius:6px;color:#7f8ea0;
+  cursor:pointer;font-size:.8rem;line-height:1;padding:.2rem .45rem}
+#gevid .evclose:hover{color:#e7edf5;border-color:#4a90d9}
 #gevid blockquote{margin:.3rem 0 .55rem;padding:.3rem .6rem;border-left:3px solid #4a90d9;
   color:#aeb9c6;overflow-wrap:anywhere}
 #gevid .evmeta{color:#7f8ea0;font-size:.78rem}
@@ -1146,6 +1149,11 @@ function showEvidence(n) {
   const frag = document.createDocumentFragment();
   const h = document.createElement("h3");
   h.textContent = "Source lines naming “" + n.label + "”";
+  const x = document.createElement("button");
+  x.type = "button"; x.className = "evclose"; x.textContent = "✕";
+  x.setAttribute("aria-label", "Close the evidence panel");
+  x.addEventListener("click", hideEvidence);
+  h.appendChild(x);
   frag.appendChild(h);
   for (const e of n.evidence) {
     const meta = document.createElement("p"); meta.className = "evmeta";
@@ -1167,6 +1175,11 @@ function openNode(hit) {
   if (hit.url) { location.href = hit.url; return; }
   showEvidence(hit);
 }
+// Escape closes the panel wherever focus sits (the canvas has its own richer
+// Escape); the ✕ button covers touch devices, which have no Escape at all.
+document.addEventListener("keydown", ev => {
+  if (ev.key === "Escape" && evid && !evid.hidden) hideEvidence();
+});
 cv.addEventListener("click", ev => {
   if (moved > 3) return;                       // a drag/pan, not a click
   const [mx, my] = localXY(ev); const hit = pick(mx, my);

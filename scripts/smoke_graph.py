@@ -110,6 +110,34 @@ def main() -> int:
                 failures.append(f"Trace answer does not name the strongest bridge: {qout!r}")
             page.screenshot(path=str(_SHOTS / "graph-trace.png"))
 
+            # --- source-line evidence panel: the page QUOTES the L1 text behind a bridge ---
+            # Open the panel for the first evidence-carrying entity (the same code path a
+            # click/tap/Enter takes via openNode) and prove the literal dated source lines
+            # rendered — the in-browser `query_graph.py evidence` counterpart.
+            ev_label = page.evaluate(
+                "() => { const n = Object.values(idx).find(n => n.evidence);"
+                " return n ? (openNode(n), n.label) : null; }"
+            )
+            print(f"Evidence panel entity: {ev_label!r}")
+            if not ev_label:
+                failures.append("no entity node carries embedded evidence in the live graph")
+            else:
+                page.wait_for_timeout(150)
+                if page.locator("#gevid").is_hidden():
+                    failures.append("evidence panel stayed hidden after openNode(entity)")
+                quotes = page.locator("#gevid blockquote").all_inner_texts()
+                if not quotes or not any(q.strip() for q in quotes):
+                    failures.append("evidence panel rendered no quoted source line")
+                if not page.locator("#gevid .evmeta a").count():
+                    failures.append("evidence quotes carry no per-day source link")
+                # shoot the panel element itself — it sits below the canvas fold
+                page.locator("#gevid").scroll_into_view_if_needed()
+                page.locator("#gevid").screenshot(path=str(_SHOTS / "graph-evidence.png"))
+                page.keyboard.press("Escape")
+                page.wait_for_timeout(150)
+                if page.locator("#gevid").is_visible():
+                    failures.append("Escape did not clear the evidence panel")
+
             # --- keyboard: the interactive graph is operable without a mouse (WCAG 2.1.1) ---
             # Focus the canvas, walk one node with an arrow key, and prove BOTH the polite
             # live region announced a node AND the canvas actually redrew (view re-centred) —
