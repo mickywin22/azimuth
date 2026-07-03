@@ -6,7 +6,7 @@
 > repo public. This page tracks every condition that must be GREEN first, so the
 > flip is a one-glance decision, not a re-investigation.
 
-_Last updated: 2026-06-30 (fleet, Azimuth KR-A)._
+_Last updated: 2026-07-03 (owner decision session)._
 
 ## Verdict at a glance
 
@@ -14,14 +14,14 @@ _Last updated: 2026-06-30 (fleet, Azimuth KR-A)._
 |---|------|-------|--------|
 | C1 | **Secret scan** — no key in working tree or git history | fleet | ✅ **GREEN** — [scan 2026-06-30](./secret-scan-2026-06-30.md), 543 blobs + 232 files, 0 findings; CI-enforced |
 | C1b | **Private-leakage scan (working tree)** — no owner-private context (home paths, personal email, local hook commands) | fleet | ✅ **GREEN** — `scripts/scan_private_leakage.py --worktree`, **0 HARD findings**; CI-enforced. Removed `.claude/settings.local.json` (local hook paths) + `.claude/dependency-cooldown-policy.md` (HemySphere-internal scaffold doctrine) from the publishable tree + gitignored both |
-| C1c | **Private-leakage scan (git history)** — same, over every reachable blob | **Michael** | ⚠️ **11 HARD findings in history** (as of 2026-07-01) — the now-removed `.claude/settings.local.json` blobs (this box's absolute hook paths, e.g. `C:\Users\Michael\...lean-ctx.exe`) plus machine paths quoted inside old security-doc / scrub-script blobs (`docs/security/*.md`, `scripts/scrub-history.sh`, `docs/coolify-deploy.md`). **Low severity** (machine paths + a username already public via the LICENSE, *not* credentials), but a public-flip judgement: **(a) accept** as-is, or **(b) scrub** the blobs from history (`git filter-repo`/BFG + force-push) before the flip — a destructive history rewrite, so **Michael/reviewer only**, never autonomous. Surfaced **non-blocking** in the every-push `privacy-scan` job so it doesn't red-fail CI by design; the full-history scan is enforced at flip time |
+| C1c | **Private-leakage scan (git history)** — same, over every reachable blob | **Michael** | ✅ **ACCEPTED as-is (owner decision 2026-07-03)** — 11 machine-path findings (never credentials; username already public via LICENSE) — the now-removed `.claude/settings.local.json` blobs (this box's absolute hook paths, e.g. `C:\Users\Michael\...lean-ctx.exe`) plus machine paths quoted inside old security-doc / scrub-script blobs (`docs/security/*.md`, `scripts/scrub-history.sh`, `docs/coolify-deploy.md`). **Low severity** (machine paths + a username already public via the LICENSE, *not* credentials), but a public-flip judgement: **(a) accept** as-is, or **(b) scrub** the blobs from history (`git filter-repo`/BFG + force-push) before the flip — a destructive history rewrite, so **Michael/reviewer only**, never autonomous. Surfaced **non-blocking** in the every-push `privacy-scan` job so it doesn't red-fail CI by design; the full-history scan is enforced at flip time |
 | C2 | **License files present** — code MIT + content CC-BY-4.0 | fleet | ✅ GREEN — `LICENSE` + `LICENSE-CONTENT.md` on `main` |
 | C3 | **Source guardrail green** — every surfaced source licensed + credited | fleet | ✅ GREEN — `scripts/check_sources.py` in CI |
 | C4 | **Daily ingest healthy** — GH-Actions L1 pull exits 0 | fleet | ✅ GREEN — 22 written / 0 errored after the 06-25 de-surface fix |
-| C5 | **USP / positioning spot-review** (~15 min) — `05 Projects/azimuth — USP & Strategy.md` reads right before it hardens into the public README/LinkedIn pitch | **Michael** | ⏳ **PENDING — IQ #888** |
-| C6 | **First autonomous weekly cycle spot-review** — the live briefs read neutral + correct | **Michael** | ⏳ **PENDING — IQ #937** |
+| C5 | **USP / positioning spot-review** (~15 min) | **Michael** | ✅ **GREEN — approved 2026-07-03** (5 claims + answers/benchmark surface signed off) |
+| C6 | **First autonomous weekly cycle spot-review** — the live briefs read neutral + correct | **Michael** | ✅ **GREEN — approved 2026-07-03** (W27 cycle: both lanes autonomous + lint-green) |
 | C7 | **prediction-markets editorial line** — confirm it stays HELD (or define how it's briefed) | **Michael** | ⏳ PENDING — IQ #915 (does not block flip; held source is `surfaced:false` for L2) |
-| 🚩 | **THE FLIP** — make the repo public | **Michael** | ⛔ **HELD** until C5 + C6 green — IQ #898 |
+| 🚩 | **THE FLIP** — make the repo public | **Michael** | ⛔ **HELD by owner decision 2026-07-03** — every gate is green; the flip is now execute-only on the owner's GO (IQ #898) |
 
 **Bottom line:** the fleet-owned gates (C1–C4, C1b) are all GREEN — the
 **publishable working tree is clean** of both credentials and owner-private
@@ -29,9 +29,13 @@ context. The flip now waits on Michael's two ~15-min spot-reviews (C5 #888,
 C6 #937) plus one one-line call on C1c (accept vs scrub the history home-paths).
 Nothing fleet-actionable blocks it.
 
-### Advisory (does NOT block the flip — a Michael judgement call)
+### Advisory — RESOLVED 2026-07-03 (scrubbed to 0)
 
-The private-leakage scan also surfaces **23 advisory findings** — internal
+Owner decision 2026-07-03: internal ticket refs are not needed for azimuth's
+function and were scrubbed to neutral provenance phrasing (22 findings -> 0,
+`scan_private_leakage.py --worktree` CLEAN). Historical context below.
+
+The private-leakage scan previously surfaced advisory findings — internal
 HemySphere **IQ ticket numbers** (`IQ #371`, `#429`, `#915`, …) and a couple of
 internal process markers (`Strategic Architect`, `HemySphere Sprint`) cited as
 provenance across the public-facing docs (`README.md`, `docs/spec.md`,
