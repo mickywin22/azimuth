@@ -3,7 +3,7 @@ title: Benchmark — Facts vs Forecast vs Intelligence
 type: L2-brief
 theme: cross-theme
 week: 2026-W27
-updated: 2026-07-02T04:00:00Z
+updated: 2026-07-03T04:00:00Z
 sources: [crude-oil-inventories, earthquakes, energy-prices, natural-gas-storage-eu]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources; the forecast/intelligence columns quote WorldMonitor as the COMPARED product, not an azimuth channel
@@ -11,7 +11,7 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 # Benchmark — azimuth vs a forecast vs an intelligence feed
 
-> *Why not just read a forecast or an intelligence feed?* Here is the same world-topic through three columns: **azimuth** (observed facts from the live bundle, every claim linked to its L1 source), a **FORECAST** product (a model probability), and an **INTELLIGENCE** product (an analyst assessment). It is a fair contrast, not a strawman: azimuth wins on provenance, neutrality and reproducibility; a forecast / intel feed legitimately wins on **forward-looking coverage** — it predicts, azimuth reports what already happened. The forecast / intelligence columns quote WorldMonitor as the *compared product* (captured 2026-07-02T07:22:27Z), deliberately NOT a clickable L1 link — because that is exactly the difference.
+> *Why not just read a forecast or an intelligence feed?* Here is the same world-topic through three columns: **azimuth** (observed facts from the live bundle, every claim linked to its L1 source), a **FORECAST** product (a model probability), and an **INTELLIGENCE** product (an analyst assessment). It is a fair contrast, not a strawman: azimuth wins on provenance, neutrality and reproducibility; a forecast / intel feed legitimately wins on **forward-looking coverage** — it predicts, azimuth reports what already happened. The forecast / intelligence columns quote WorldMonitor as the *compared product* (captured 2026-07-03T09:33:15Z), deliberately NOT a clickable L1 link — because that is exactly the difference.
 
 ## EU / global energy supply security
 
@@ -19,25 +19,25 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 ### azimuth — observed facts (EU gas storage + US crude inventories + Energy prices)
 
-- EU gas storage stands at 2,835 Bcf (+76 Bcf w/w) as of 2026-06-19 — an observed reading ([[natural-gas-storage-eu]])
+- EU gas storage stands at 2,922 Bcf (+87 Bcf w/w) as of 2026-06-26 — an observed reading ([[natural-gas-storage-eu]])
 - US crude inventories drew down -9,311 to 734,014 Mb (EIA week of 2026-06-26) — an observed reading ([[crude-oil-inventories]])
 - Spot crude as reported: WTI $73.59/bbl (-9.6 w/w), Brent $73.63/bbl (-9.1 w/w) — the observed price tape ([[energy-prices]])
 
 ### FORECAST product — model projection (compared)
 
-> Assigns a **56% probability** over 30d that “Inflation and rates pressure from Iraq infrastructure fragility state” — confidence 75%, trend stable.
+> Assigns a **40% probability** over 30d that “Oil price impact from Strait of Hormuz disruption” — confidence 58%, trend stable.
 >
-> Probability path: d30=56%, d7=78%, h24=95%
+> Probability path: d30=40%, d7=55%, h24=95%
 >
-> — *WorldMonitor forecast feed (model projection), captured 2026-07-02T07:22:27Z*
+> — *WorldMonitor forecast feed (model projection), captured 2026-07-03T09:33:15Z*
 
 ### INTELLIGENCE product — analyst assessment (compared)
 
-> Iraq infrastructure fragility state is feeding inflation and rates pressure through energy supply shock, with 42% pressure and 41% state confirmation is setting the strategic baseline, and the current 56% probability implies a live but not settled risk path.
+> Strait of Hormuz risk: critical is setting the strategic baseline, and the current 40% probability implies a live but not settled risk path.
 >
-> Actor lens: Commodity traders: Price whether stress in Iraq becomes durable over the 30d. Rebalance positions if the probability path moves away from 56%.
+> Actor lens: Commodity traders: Price whether stress in Middle East becomes durable over the 30d. Rebalance positions if the probability path moves away from 40%.
 >
-> — *WorldMonitor intelligence assessment (analyst judgement), captured 2026-07-02T07:22:27Z*
+> — *WorldMonitor intelligence assessment (analyst judgement), captured 2026-07-03T09:33:15Z*
 
 ### Scorecard
 
@@ -65,19 +65,19 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 ### FORECAST product — model projection (compared)
 
-> Assigns a **56% probability** over 30d that “Inflation and rates pressure from Iraq infrastructure fragility state” — confidence 75%, trend stable.
+> Assigns a **53% probability** over 30d that “Inflation and rates pressure from Iraq infrastructure fragility state” — confidence 75%, trend falling.
 >
-> Probability path: d30=56%, d7=78%, h24=95%
+> Probability path: d30=53%, d7=74%, h24=95%
 >
-> — *WorldMonitor forecast feed (model projection), captured 2026-07-02T07:22:27Z*
+> — *WorldMonitor forecast feed (model projection), captured 2026-07-03T09:33:15Z*
 
 ### INTELLIGENCE product — analyst assessment (compared)
 
-> Iraq infrastructure fragility state is feeding inflation and rates pressure through energy supply shock, with 42% pressure and 41% state confirmation is setting the strategic baseline, and the current 56% probability implies a live but not settled risk path.
+> Iraq infrastructure fragility state is feeding inflation and rates pressure through energy supply shock, with 34% pressure and 38% state confirmation is setting the strategic baseline, and the current 53% probability implies a live but not settled risk path.
 >
-> Actor lens: Commodity traders: Price whether stress in Iraq becomes durable over the 30d. Rebalance positions if the probability path moves away from 56%.
+> Actor lens: Commodity traders: Price whether stress in Iraq becomes durable over the 30d. Rebalance positions if the probability path moves away from 53%.
 >
-> — *WorldMonitor intelligence assessment (analyst judgement), captured 2026-07-02T07:22:27Z*
+> — *WorldMonitor intelligence assessment (analyst judgement), captured 2026-07-03T09:33:15Z*
 
 ### Scorecard
 
@@ -100,7 +100,7 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 ### azimuth — observed facts (Geophysical)
 
-- Largest recorded event this week: M6.5 34 km WSW of Sarangani, Philippines — one of 37 events at or above M5 USGS logged, an observed record ([[earthquakes]])
+- Largest recorded event this week: M6.5 34 km WSW of Sarangani, Philippines — one of 39 events at or above M5 USGS logged, an observed record ([[earthquakes]])
 - azimuth reports what USGS RECORDED, never what may happen next — a sourced, neutral record of seismicity, regenerable from the open USGS feed ([[earthquakes]])
 
 ### FORECAST product — model projection (compared)
@@ -141,3 +141,4 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 - 2026-06-30 — regenerated the facts-vs-forecast-vs-intelligence benchmark from the 2026-06-30 live bundle (2026-W27); 3 head-to-head topics, every azimuth claim L1-sourced, foil snapshot quoted as the compared product.
 - 2026-07-01 — regenerated the facts-vs-forecast-vs-intelligence benchmark from the 2026-07-01 live bundle (2026-W27); 3 head-to-head topics, every azimuth claim L1-sourced, foil snapshot quoted as the compared product.
 - 2026-07-02 — regenerated the facts-vs-forecast-vs-intelligence benchmark from the 2026-07-02 live bundle (2026-W27); 3 head-to-head topics, every azimuth claim L1-sourced, foil snapshot quoted as the compared product.
+- 2026-07-03 — regenerated the facts-vs-forecast-vs-intelligence benchmark from the 2026-07-03 live bundle (2026-W27); 3 head-to-head topics, every azimuth claim L1-sourced, foil snapshot quoted as the compared product.
