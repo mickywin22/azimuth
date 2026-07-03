@@ -422,6 +422,37 @@ def test_rendered_html_wires_the_sota_viz_features(tmp_path: Path) -> None:
     assert '"nodes"' in html and '"edges"' in html
 
 
+def test_rendered_html_ranks_trace_bridges_by_evidence(tmp_path: Path) -> None:
+    """The in-page Trace must mirror ``query_graph.py connect``'s evidence ranking (KR-B).
+
+    Bridges are ranked by mentioned-in weight — weaker leg (min) first, then total —
+    each labelled ``[N+M src]``, the strongest is named, and the highlighted path is
+    routed through the strongest bridge rather than an alphabetical BFS pick.
+    Template-only behaviour, so it gets its own presence guard: losing any of these
+    silently would demote the public Trace back to an unranked entity list.
+    """
+    graph = _build(tmp_path)
+    html = build_graph_mod.render_html(graph)
+
+    # evidence weights are read off the mentioned-in edges into a lookup
+    for token in ("MWEIGHT", '"mentioned-in"', "mweight(x, ba)", "mweight(x, bb)"):
+        assert token in html, f"evidence-weight token missing from graph.html: {token}"
+
+    # ranking: weaker leg (min) first, then total, then label as the stable tiebreak
+    assert "q.min - p.min || q.total - p.total" in html, (
+        "bridge ranking comparator (min-leg first, then total) missing from graph.html"
+    )
+
+    # the answer labels every bridge's evidence and names the strongest
+    for token in ('" src]"', '", strongest "', "ranked[0].id"):
+        assert token in html, f"ranked-answer token missing from graph.html: {token}"
+
+    # the highlighted path routes through the strongest bridge, not a BFS default
+    assert "[ba, ranked[0].id, bb]" in html, (
+        "trace path is not routed through the strongest bridge"
+    )
+
+
 def test_rendered_html_defaults_hide_dense_layers_and_offers_reset(tmp_path: Path) -> None:
     """First-paint UX: the commodity + earthquake(event) layers start hidden
     for a cleaner public first impression, and a 'Reset filters' control returns to that

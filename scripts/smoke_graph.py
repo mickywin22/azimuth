@@ -8,7 +8,9 @@ the token-presence unit tests can't reach:
   1. the canvas renders a non-blank graph (real pixels, not a frozen blank frame);
   2. the flagship queryable layer answers over the rendered graph — Trace
      ``energy-supply ↔ geophysical`` returns the evidence-ranked cross-source bridges
-     (the indispensable-layer proof a static bundle cannot give);
+     (the indispensable-layer proof a static bundle cannot give), with every bridge
+     labelled ``[N+M src]`` and the strongest bridge named (the evidence-rank mirror
+     of ``query_graph.py connect``);
   3. mobile: on a touch device with a phone viewport the graph renders responsively,
      and a one-finger touch-drag actually pans the view (canvas pixels change).
 
@@ -23,6 +25,7 @@ from __future__ import annotations
 
 import functools
 import http.server
+import re
 import socketserver
 import sys
 import threading
@@ -99,6 +102,12 @@ def main() -> int:
                 failures.append(
                     f"Trace answer names none of the known bridges {_KNOWN_BRIDGES}: {qout!r}"
                 )
+            # evidence ranking must survive to the live browser answer: every bridge
+            # labelled [N+M src] and the strongest named — not a bare entity list.
+            if not re.search(r"\[\d+\+\d+ src\]", qout):
+                failures.append(f"Trace answer carries no [N+M src] evidence labels: {qout!r}")
+            if "strongest" not in qout:
+                failures.append(f"Trace answer does not name the strongest bridge: {qout!r}")
             page.screenshot(path=str(_SHOTS / "graph-trace.png"))
 
             # --- keyboard: the interactive graph is operable without a mouse (WCAG 2.1.1) ---

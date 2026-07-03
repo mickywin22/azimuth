@@ -149,9 +149,14 @@ def _mentions(haystack_norm: str, term: str) -> bool:
     return re.search(pat, haystack_norm) is not None
 
 
-def _latest_source_text(vault_dir: Path, skip_keys: set[str]) -> dict[str, str]:
-    """Map each surfaced source key -> normalised text of its newest L1 note."""
-    out: dict[str, str] = {}
+def _latest_source_notes(vault_dir: Path, skip_keys: set[str]) -> dict[str, tuple[str, str]]:
+    """Map each surfaced source key -> (day, raw text) of its newest L1 note.
+
+    The raw text is kept (not just the normalised form) so the builder can quote
+    the literal source line behind an entity mention — the in-page counterpart of
+    ``query_graph.py evidence``.
+    """
+    out: dict[str, tuple[str, str]] = {}
     sources_dir = vault_dir / "01 Sources"
     if not sources_dir.is_dir():
         return out
@@ -160,8 +165,29 @@ def _latest_source_text(vault_dir: Path, skip_keys: set[str]) -> dict[str, str]:
             key = path.stem
             if key == "README" or key in skip_keys or key in out:
                 continue
-            out[key] = _norm(path.read_text(encoding="utf-8"))
+            out[key] = (day_dir.name, path.read_text(encoding="utf-8"))
     return out
+
+
+_EVIDENCE_WINDOW = 110  # chars of context either side of the matched entity name
+_EVIDENCE_PER_THEME = 2  # quoted source lines per theme, per entity (bounded graph.json)
+
+
+def _evidence_snippet(raw: str, term: str, window: int = _EVIDENCE_WINDOW) -> str | None:
+    """The literal source line naming ``term`` — bounded, whitespace-collapsed.
+
+    First whole-word, case-insensitive match in the raw note text; original casing
+    is preserved (this is a *quote*, unlike the lowercased match corpus).
+    """
+    flat = re.sub(r"\s+", " ", raw)
+    pat = r"(?<![A-Za-z0-9])" + re.escape(term) + r"(?![A-Za-z0-9])"
+    m = re.search(pat, flat, flags=re.IGNORECASE)
+    if not m:
+        return None
+    lo, hi = max(0, m.start() - window), min(len(flat), m.end() + window)
+    prefix = "…" if lo > 0 else ""
+    suffix = "…" if hi < len(flat) else ""
+    return f"{prefix}{flat[lo:hi].strip()}{suffix}"
 
 
 def _concept_label(theme: str, title: str) -> str:
@@ -332,7 +358,8 @@ def build_graph(
         )
 
     # --- source nodes + within-theme brief->source edges ----------------
-    src_text = _latest_source_text(vault_dir, skip_keys)
+    src_notes = _latest_source_notes(vault_dir, skip_keys)
+    src_text = {key: _norm(raw) for key, (_, raw) in src_notes.items()}
     latest_day = ""
     sources_dir = vault_dir / "01 Sources"
     if sources_dir.is_dir():
@@ -421,6 +448,19 @@ def build_graph(
             only = next(iter(per_theme))
             node["theme"] = only
             node["themes"] = [only]
+        # Literal source-line evidence: quote the L1 text that names the entity,
+        # per theme (bounded), so the rendered page can PROVE a bridge — the
+        # in-browser counterpart of `query_graph.py evidence`. A brief-only
+        # mention (no source key) contributes no quote: no source, no evidence.
+        evidence: list[dict[str, str]] = []
+        for theme in sorted(per_theme.keys()):
+            for key in sorted(per_theme[theme])[:_EVIDENCE_PER_THEME]:
+                day, raw = src_notes.get(key, ("", ""))
+                snip = _evidence_snippet(raw, term) if raw else None
+                if snip:
+                    evidence.append({"theme": theme, "source": key, "day": day, "text": snip})
+        if evidence:
+            node["evidence"] = evidence
         nodes.append(node)
         if kind == "region":
             region_entities[term.lower()] = eid
@@ -479,6 +519,10 @@ padding:.3rem .8rem;font:inherit;font-size:.82rem;font-weight:600;cursor:pointer
 .gquery button#qclear,.gquery button#qshare{background:transparent;color:#8a97a8;border:1px solid #2a3a4d}
 .gquery input#gsearch{background:#141a23;color:#e7edf5;border:1px solid #2a3a4d;border-radius:6px;
 padding:.25rem .5rem;font:inherit;font-size:.85rem;min-width:11rem}
+.legend{display:flex;flex-wrap:wrap;gap:.3rem .85rem;align-items:center;margin:.45rem 0 .2rem;
+font-size:.84rem;color:#aab7c6}
+.legend .lg{display:inline-flex;align-items:center;gap:.3rem;white-space:nowrap}
+.legend .lg i{display:inline-block;width:.62rem;height:.62rem;border-radius:2px;flex:none}
 .legend .lg[data-cls]{cursor:pointer;user-select:none}
 .legend .lg[data-cls]:hover{color:#8fd0ff}
 .legend .lg.off{opacity:.4;text-decoration:line-through}
@@ -487,6 +531,13 @@ border:1px solid #2a3a4d;border-radius:6px;padding:.15rem .55rem;font:inherit;fo
 font-weight:600;cursor:pointer;vertical-align:middle}
 .legend .lgreset:hover{color:#8fd0ff;border-color:#3a4a5d}
 .gquery .qout{flex-basis:100%;margin:.35rem 0 0;font-size:.88rem;color:#e7edf5;min-height:1.2em}
+#gevid{margin:.6rem 0 0;padding:.6rem .8rem;background:#141a23;border:1px solid #2a3a4d;
+  border-radius:8px;font-size:.85rem;color:#c7d2df}
+#gevid h3{margin:0 0 .4rem;font-size:.92rem;color:#e7edf5}
+#gevid blockquote{margin:.3rem 0 .55rem;padding:.3rem .6rem;border-left:3px solid #4a90d9;
+  color:#aeb9c6;overflow-wrap:anywhere}
+#gevid .evmeta{color:#7f8ea0;font-size:.78rem}
+#gevid .evmeta a{color:#4a90d9}
 #gwrap{position:relative;margin:.4rem 0}
 #g{width:100%;height:min(68vh,600px);display:block;background:#0c1118;
 border:1px solid #1c2733;border-radius:10px;cursor:grab;touch-action:none}
@@ -555,6 +606,7 @@ the queryable half a static bundle cannot answer.</p>
   </div>
   <div id="gtip"></div>
 </div>
+<div id="gevid" hidden aria-live="polite"></div>
 <p id="gstatus" class="ghint" role="status" aria-live="polite"></p>
 <p class="ghint"><strong>Keyboard:</strong> click or tab to the graph, then <strong>arrow keys</strong>
 walk the visible nodes, <strong>Enter</strong> opens the focused node&rsquo;s page,
@@ -562,6 +614,7 @@ walk the visible nodes, <strong>Enter</strong> opens the focused node&rsquo;s pa
 <p class="ghint">Scroll to zoom &middot; drag the background to pan &middot; hover a node to
 spotlight its links &middot; <strong>hover an edge</strong> to read its relation type + weight
 &middot; drag a node to reposition &middot; click to open its page
+&middot; <strong>click a shared entity</strong> to quote the literal L1 source lines naming it
 &middot; <strong>click a legend chip</strong> to hide/show that node kind
 (the commodity + earthquake layers start hidden &mdash; <strong>Reset filters</strong>
 returns to that default) &middot; <strong>Find</strong> to jump to any node by name.</p>
@@ -1071,7 +1124,7 @@ cv.addEventListener("mousemove", ev => {       // hover spotlight + tooltip (nod
     tip.innerHTML = `<strong>${esc(hit.label)}</strong><br>${esc(relText(hit))}`;
     tip.style.display = "block";
     tip.style.left = (mx + 14) + "px"; tip.style.top = (my + 12) + "px";
-    cv.style.cursor = hit.url ? "pointer" : "grab";
+    cv.style.cursor = (hit.url || hit.evidence) ? "pointer" : "grab";
   } else if (he) {
     tip.innerHTML = edgeText(he);
     tip.style.display = "block";
@@ -1081,10 +1134,43 @@ cv.addEventListener("mousemove", ev => {       // hover spotlight + tooltip (nod
 });
 cv.addEventListener("mouseleave", () => { hoverId = null; hoverEdge = null; tip.style.display = "none"; mark(); });
 window.addEventListener("mouseup", () => { drag = null; pan = null; });
+// --- source-line evidence panel: quote the literal L1 text naming an entity ---
+// The in-page counterpart of `query_graph.py evidence`: a bridge is not asserted,
+// it is PROVEN — click a shared entity and the panel quotes the dated raw source
+// line from each channel that names it. Built with DOM APIs + textContent only,
+// so hostile ingest text can never become markup.
+const evid = document.getElementById("gevid");
+function hideEvidence() { if (evid) { evid.hidden = true; evid.replaceChildren(); } }
+function showEvidence(n) {
+  if (!evid || !n || !Array.isArray(n.evidence) || !n.evidence.length) return false;
+  const frag = document.createDocumentFragment();
+  const h = document.createElement("h3");
+  h.textContent = "Source lines naming “" + n.label + "”";
+  frag.appendChild(h);
+  for (const e of n.evidence) {
+    const meta = document.createElement("p"); meta.className = "evmeta";
+    const a = document.createElement("a");
+    a.href = "sources/" + encodeURIComponent(e.day) + "/" + encodeURIComponent(e.source) + ".html";
+    a.textContent = e.source;
+    meta.append(e.theme + " · " + e.day + " · ", a);
+    const q = document.createElement("blockquote");
+    q.textContent = e.text;
+    frag.append(meta, q);
+  }
+  evid.replaceChildren(frag);
+  evid.hidden = false;
+  announce("Showing " + n.evidence.length + " source line(s) naming " + n.label + ".");
+  return true;
+}
+function openNode(hit) {
+  if (!hit) return;
+  if (hit.url) { location.href = hit.url; return; }
+  showEvidence(hit);
+}
 cv.addEventListener("click", ev => {
   if (moved > 3) return;                       // a drag/pan, not a click
   const [mx, my] = localXY(ev); const hit = pick(mx, my);
-  if (hit && hit.url) location.href = hit.url;
+  openNode(hit);
 });
 cv.addEventListener("wheel", ev => {           // zoom toward the cursor
   ev.preventDefault();
@@ -1129,7 +1215,7 @@ cv.addEventListener("touchend", ev => {
   if (ev.touches.length === 0) {                // a clean tap (little movement) on a node opens it
     if (moved <= 3 && ev.changedTouches.length) {
       const [mx, my] = touchXY(ev.changedTouches[0]); const hit = pick(mx, my);
-      if (hit && hit.url) location.href = hit.url;
+      openNode(hit);
     }
     drag = null; pan = null;
   }
@@ -1164,7 +1250,9 @@ function focusNodeAt(i) {
   view.s = Math.max(view.s, 1.2);
   view.tx = CSSW/2 - n.x*view.s; view.ty = CSSH/2 - n.y*view.s;
   userView = true; reheat(0.12); mark();
-  announce(`${n.label}: ${relText(n)}${n.url ? " — press Enter to open its page" : ""}. Node ${kbi+1} of ${order.length}.`);
+  const enterHint = n.url ? " — press Enter to open its page"
+    : (n.evidence ? " — press Enter to quote its L1 source lines" : "");
+  announce(`${n.label}: ${relText(n)}${enterHint}. Node ${kbi+1} of ${order.length}.`);
   VIEW.node = n.label; syncHash();
 }
 cv.addEventListener("keydown", ev => {
@@ -1176,14 +1264,15 @@ cv.addEventListener("keydown", ev => {
     case "Enter": case " ": {
       ev.preventDefault();
       const n = pinnedId && nodeById[pinnedId] && idx[pinnedId];
-      if (n && n.url) location.href = n.url;
+      openNode(n || null);
       break;
     }
     case "+": case "=": ev.preventDefault(); zoomBy(1.3); break;
     case "-": case "_": ev.preventDefault(); zoomBy(1/1.3); break;
     case "0": ev.preventDefault(); userView = false; resize(); mark(); break;
     case "Escape": ev.preventDefault(); pinnedId = null; kbi = -1; HILITE = null;
-      VIEW.node = null; VIEW.trace = null; announce("Selection cleared."); syncHash(); mark(); break;
+      VIEW.node = null; VIEW.trace = null; hideEvidence();
+      announce("Selection cleared."); syncHash(); mark(); break;
   }
 });
 cv.addEventListener("focus", () => {
