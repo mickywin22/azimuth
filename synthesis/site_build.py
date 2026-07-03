@@ -249,6 +249,7 @@ _PAGE_TEMPLATE = """<!DOCTYPE html>
   <nav>
     <a href="{root}answers.html">Ask the data</a>
     <a href="{root}benchmark.html">Benchmark</a>
+    <a href="{root}graph.html">Knowledge graph</a>
     <a href="{root}index.html">Briefs</a>
     <a href="{root}index.html#sources">Sources</a>
     <a href="{root}editorial.html">Editorial line</a>
@@ -348,6 +349,26 @@ def _render_index(model: SiteModel, aset: AnswerSet | None = None, fresh_day: st
   analyst&rsquo;s assessment. A fair head-to-head &mdash; azimuth wins on provenance,
   neutrality and reproducibility; a forecast legitimately wins on looking ahead. We say so.</p>
 </a>
+<a class="demo-cta graph-cta" href="graph.html">
+  <span class="demo-kind">The knowledge graph</span>
+  <h2>Explore the cross-channel graph &rarr;</h2>
+  <p>Every channel, brief, source note and shared entity as one interactive, evidence-weighted
+  graph<span id="graph-cta-stats"></span>. Gold bridges mark places the live data records under
+  more than one theme &mdash; trace two channels and the page quotes the literal L1 source
+  lines that join them. The cross-channel link a static feed cannot draw.</p>
+</a>
+<script>
+// Progressive enhancement only: fill in the live graph size from the published
+// graph.json. The card reads fine without it (fetch can fail on file:// previews).
+fetch("graph.json").then(function(r){{return r.json()}}).then(function(g){{
+  var bridges = g.nodes.filter(function(n){{
+    return n.kind === "entity" && (n.themes || []).length >= 2;
+  }}).length;
+  document.getElementById("graph-cta-stats").textContent =
+    " — " + g.nodes.length + " nodes, " + g.edges.length + " edges, " +
+    bridges + " cross-channel bridges today";
+}}).catch(function(){{}});
+</script>
 <section><h2>Briefs</h2><div class="cards">{brief_html}</div></section>
 <section id="sources"><h2>L1 Sources</h2>{sources_html}</section>
 """
@@ -663,6 +684,9 @@ font-family:JetBrains Mono,ui-monospace,monospace;font-size:.88em}
 .benchmark-cta{background:linear-gradient(135deg,#1d1726,#14101c);border-color:#a98bff}
 .benchmark-cta h2{color:#c9b3ff}
 .benchmark-cta:hover{box-shadow:0 6px 26px rgba(169,139,255,.18)}
+.graph-cta{background:linear-gradient(135deg,#26200f,#161209);border-color:#e0b34c}
+.graph-cta h2{color:#ffd166}
+.graph-cta:hover{box-shadow:0 6px 26px rgba(224,179,76,.18)}
 .bench{background:var(--panel);border:1px solid var(--line);border-radius:12px;
 padding:1.1rem 1.3rem;margin:1.4rem 0}
 .bench h2{margin:.1rem 0 .4rem;border:0;padding:0;font-size:1.3rem}

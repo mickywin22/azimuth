@@ -142,3 +142,28 @@ def test_index_carries_freshness_badge(tmp_path: Path) -> None:
     assert "updated 2026-06-19" in brief_text
     # every page header carries the site-wide badge too
     assert "Data as of 2026-06-20" in brief_text
+
+
+def test_graph_is_discoverable_from_the_site(tmp_path: Path) -> None:
+    """KR-B: the knowledge graph is reachable from every page, not a hidden URL.
+
+    graph.html sat orphaned — rendered next to the site but linked from nowhere, so a
+    visitor landing on index.html could never find the flagship KG visualization. Guard
+    both discovery surfaces: the site-wide nav link (root-relative on subdir pages) and
+    the index CTA card with its live-count fill from the published graph.json.
+    """
+    vault = _make_vault(tmp_path)
+    out = tmp_path / "site"
+    (tmp_path / "registry.json").write_text(json.dumps(_REGISTRY), encoding="utf-8")
+    build_site(out, vault_dir=vault, registry_path=tmp_path / "registry.json")
+
+    index_text = (out / "index.html").read_text(encoding="utf-8")
+    assert '<a href="graph.html">Knowledge graph</a>' in index_text
+    # the index CTA card: gold graph card + the progressive live-count enhancement
+    assert 'class="demo-cta graph-cta" href="graph.html"' in index_text
+    assert 'id="graph-cta-stats"' in index_text
+    assert 'fetch("graph.json")' in index_text
+
+    # subdir pages prefix the nav with {root} — a brief page must link ../graph.html
+    brief_text = (out / "briefs" / "energy-supply-weekly.html").read_text(encoding="utf-8")
+    assert '<a href="../graph.html">Knowledge graph</a>' in brief_text

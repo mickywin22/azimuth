@@ -389,6 +389,12 @@ def test_rendered_html_wires_the_sota_viz_features(tmp_path: Path) -> None:
     graph = _build(tmp_path)
     html = build_graph_mod.render_html(graph)
 
+    # 0) site-nav parity — graph.html carries the site-wide nav including its own
+    # entry (marked current), matching the nav site_build.py renders on every page.
+    # Without this the page is a dead end and the nav sets diverge silently.
+    for token in ('<a href="graph.html" aria-current="page">Knowledge graph</a>',):
+        assert token in html, f"site-nav token missing from graph.html: {token}"
+
     # 1) typed relation on hover + evidence-weighted edge thickness
     for token in ("hoverEdge", "pickEdge", "edgeText", "REL_LABEL", "e.weight"):
         assert token in html, f"edge-legibility token missing from graph.html: {token}"
