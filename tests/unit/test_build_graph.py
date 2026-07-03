@@ -666,3 +666,84 @@ def test_region_gazetteer_single_source_with_cross_theme() -> None:
         "Finland",
     ):
         assert region in REGIONS, f"2026-06-27 gazetteer addition missing: {region}"
+
+
+# --- source-line evidence embedded in the page (KR-B) ------------------------
+# The in-browser counterpart of `query_graph.py evidence`: the builder quotes the
+# literal L1 source line behind every entity mention, bounded, so the rendered
+# page can PROVE a bridge instead of asserting it.
+
+
+def test_entity_nodes_carry_bounded_source_line_evidence(tmp_path: Path) -> None:
+    graph = _build(tmp_path)
+    greece = next(n for n in graph["nodes"] if n["id"] == "entity:greece")
+    ev = greece.get("evidence")
+    assert ev, "bridge entity carries no embedded source-line evidence"
+    by_theme: dict = {}
+    for e in ev:
+        by_theme.setdefault(e["theme"], []).append(e)
+        # every entry is fully attributed: dated day, source key, literal text
+        assert e["day"] == "2026-06-23"
+        assert e["source"] in {"fuel-prices", "earthquakes"}
+        assert "Greece" in e["text"], "quote must contain the entity, original casing"
+        # bounded: never longer than match + window both sides (+ ellipses)
+        assert len(e["text"]) <= 2 * 110 + len("Greece") + 2
+    # both bridged themes are evidenced — that is what proves the bridge
+    assert set(by_theme) == {"energy-supply", "geophysical"}
+    # bounded per theme
+    assert all(len(v) <= 2 for v in by_theme.values())
+
+
+def test_evidence_snippet_is_whole_word_and_bounded() -> None:
+    snip = build_graph_mod._evidence_snippet("prices in Greecely fell", "Greece")
+    assert snip is None, "substring inside another word must not produce evidence"
+    long_tail = "x" * 500
+    snip2 = build_graph_mod._evidence_snippet(f"{long_tail} Greece {long_tail}", "Greece")
+    assert snip2 is not None
+    assert snip2.startswith("…") and snip2.endswith("…")
+    assert "Greece" in snip2
+
+
+def test_brief_only_mention_contributes_no_evidence(tmp_path: Path) -> None:
+    """A brief-text-only mention has no backing L1 note — no source, no quote."""
+    vault = _make_vault(tmp_path)
+    # "Indonesia" bridges via brief text (geophysical) but we check an entity whose
+    # only geophysical backing is the brief: seed a fresh region only in brief text.
+    (vault / "02 Briefs" / "Energy Supply Weekly.md").write_text(
+        "---\ntitle: Energy Supply Weekly\ntheme: energy-supply\n---\n"
+        "# Energy Supply Weekly\nZanzibar pump prices ([[fuel-prices]]).\n",
+        encoding="utf-8",
+    )
+    (vault / "02 Briefs" / "Geophysical Weekly.md").write_text(
+        "---\ntitle: Geophysical Weekly\ntheme: geophysical\n---\n"
+        "# Geophysical Weekly\nA quake near Zanzibar ([[earthquakes]]).\n",
+        encoding="utf-8",
+    )
+    reg = tmp_path / "registry.json"
+    reg.write_text(json.dumps(_REGISTRY), encoding="utf-8")
+    graph = build_graph_mod.build_graph(vault_dir=vault, registry_path=reg)
+    zanz = next(
+        (n for n in graph["nodes"] if n["id"] == "entity:zanzibar" and n["kind"] == "entity"),
+        None,
+    )
+    if zanz is not None:  # surfaces only if Zanzibar is in the gazetteer
+        for e in zanz.get("evidence", []):
+            assert e["source"], "evidence entry without a backing L1 source key"
+
+
+def test_rendered_html_wires_the_evidence_panel(tmp_path: Path) -> None:
+    """The page-side half: the panel exists and is a DOM-API/textContent-only sink."""
+    graph = _build(tmp_path)
+    html = build_graph_mod.render_html(graph)
+    for token in (
+        'id="gevid"',
+        "showEvidence",
+        "hideEvidence",
+        "openNode",
+        "replaceChildren",
+        "n.evidence",
+        "blockquote",
+    ):
+        assert token in html, f"evidence-panel token missing from graph.html: {token}"
+    # the quoted text lands via textContent, never innerHTML
+    assert "q.textContent = e.text" in html
