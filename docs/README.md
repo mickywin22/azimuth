@@ -51,6 +51,7 @@ and quick start; come here to go deep.
 | Doc | What it covers |
 |-----|----------------|
 | [proof/README.md](proof/README.md) | The "what-if / show-your-work" living-system proof baked into the demonstrator. |
+| [proof/kr-c-operating-proof-2026-W27.md](proof/kr-c-operating-proof-2026-W27.md) | Banked telemetry for week 2026-W27 — every daily L1 cron run and the weekly L2 synthesis pass observed firing on schedule, the "keeps operating" half of the public-grade claim. |
 
 ## Continuous integration & gates
 
