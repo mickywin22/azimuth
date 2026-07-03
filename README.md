@@ -2,6 +2,7 @@
 
 [![CI](https://github.com/mickywin22/azimuth/actions/workflows/ci.yml/badge.svg)](https://github.com/mickywin22/azimuth/actions/workflows/ci.yml)
 [![Daily ingest](https://github.com/mickywin22/azimuth/actions/workflows/ingest.yml/badge.svg)](https://github.com/mickywin22/azimuth/actions/workflows/ingest.yml)
+[![L2 freshness](https://github.com/mickywin22/azimuth/actions/workflows/synthesis-freshness.yml/badge.svg)](https://github.com/mickywin22/azimuth/actions/workflows/synthesis-freshness.yml)
 [![Code: MIT](https://img.shields.io/badge/code-MIT-blue.svg)](LICENSE)
 [![Content: CC BY 4.0](https://img.shields.io/badge/content-CC%20BY%204.0-lightgrey.svg)](LICENSE-CONTENT.md)
 
@@ -89,7 +90,9 @@ the ready-to-flip gate, and the local validation command are in
 ## Operations — engine liveness
 
 The two-lane engine's health is observable, not assumed — each lane has its own scheduled
-GitHub Actions heartbeat that raises a dedup'd tracking issue if it dies:
+GitHub Actions heartbeat that raises a dedup'd tracking issue if it dies. The full on-call
+runbook — every scheduled job, the alarm it raises, and the exact response when a badge goes
+red — is in **[docs/operations.md](docs/operations.md)**.
 
 **L1 ingest** ([`.github/workflows/ingest.yml`](.github/workflows/ingest.yml), daily) — the
 engine every brief rests on:
@@ -131,16 +134,20 @@ python scripts/check_synthesis_freshness.py --overdue  # exit 1 only if a brief 
 | `sources/registry.json` | Single source of truth — every WorldMonitor subset + its license/theme |
 | `docs/` | Spec, plan, architecture, deploy, security, and per-feature docs |
 | `.github/workflows/` | CI · daily L1 ingest · weekly L2 freshness gate · Pages deploy · secret + privacy scans |
+| `.github/dependabot.yml` | weekly `github-actions` supply-chain updater — keeps the CI toolchain patched |
 
 ## Documentation
 
 Full map of everything under `docs/` — concept & design, the engine, publish/operate,
 security, and the demonstrator proof — is in **[docs/README.md](docs/README.md)**.
 Start there to go deep; [docs/architecture.md](docs/architecture.md) is the design-decisions
-entry point.
+entry point, and [docs/faq.md](docs/faq.md) answers the first-time-visitor questions (is the
+data real, how current, can I trust it, license, why private).
 
 ## Contributing & security
 
+- **Getting help:** [SUPPORT.md](SUPPORT.md) — where to look first, how to report a
+  broken build vs a known-transient alarm, and the honest no-SLA expectation.
 - **Contributing:** read [CONTRIBUTING.md](CONTRIBUTING.md) first — it explains the
   L1/L2/L3 layer ownership (the `vault/` content is machine-generated, so PRs there are
   not accepted), the gates every change must pass, and the editorial line.
@@ -155,3 +162,8 @@ Split license:
 - **Vault content** (derived L1/L2/L3 notes under `vault/`): **CC BY 4.0** — see [`LICENSE-CONTENT.md`](LICENSE-CONTENT.md).
 
 Worldmonitor source data is consumed via its public API (Path A, no fork → AGPL not triggered); per-source attribution ships in [`CREDITS.md`](CREDITS.md) and is enforced by the per-source guardrail (`scripts/check_sources.py`).
+
+## Citing azimuth
+
+Machine-readable citation metadata lives in [`CITATION.cff`](CITATION.cff) — GitHub renders a
+**"Cite this repository"** button from it. Prefer that over hand-copying a reference.

@@ -57,6 +57,12 @@ repos:
         language: system
         pass_filenames: false
         files: \.md$|^scripts/check_doc_links\.py$
+      - id: doc-orphans
+        name: Documentation has no orphans (every docs/ page is reachable)
+        entry: python scripts/check_doc_orphans.py
+        language: system
+        pass_filenames: false
+        files: \.md$|^scripts/check_doc_(links|orphans)\.py$
       - id: secret-scan
         name: Secret scan (working tree) -- public-flip gate C1
         entry: python scripts/scan_secrets.py --worktree

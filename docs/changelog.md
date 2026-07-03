@@ -45,6 +45,87 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
   helper under a new "Dev tooling — not part of the azimuth engine" section) and added a
   unit gate that fails the build if any runnable `scripts/*.py` is absent from `cli.md` —
   the same "turn a docs-drift class into a build failure" pattern as the dead-link gate.
+- **Orphan-doc gate — `scripts/check_doc_orphans.py` (2026-07-01, KR-C):** the dead-link gate
+  proves every link *points at something real*; its new companion proves the inverse for the
+  documentation set — every `docs/**/*.md` page is *reachable* from a repo front door (README +
+  the community files), so no authored doc can silently become an orphan that renders on GitHub
+  only if you already know its URL. Reachability reuses the exact link parser of the dead-link
+  gate (code spans stripped, external schemes / anchors skipped, `<spaces>` / `%20` handled) and
+  walks transitively from every repo-root `*.md`; it flags an *island* (docs that link only each
+  other) too. Wired into the `Synthesis Lint` CI job (`Documentation has no orphans`), the
+  `doc-orphans` pre-commit hook, and ruff/mypy; documented in
+  [doc-links.md](doc-links.md#the-companion-no-orphan-docs) and [cli.md](cli.md); backed by an
+  8-case teeth-and-no-false-positives suite (`tests/unit/test_check_doc_orphans.py`). The live
+  repo ships **0 orphans across all 20 docs**.
+- **Getting-help policy — `SUPPORT.md` (2026-07-01, KR-C):** a public-grade repo needs the
+  GitHub-recognised "Get help" file, and azimuth had every community doc *except* that one —
+  README, CONTRIBUTING, CODE_OF_CONDUCT, SECURITY, CITATION, CREDITS, issue/PR templates were
+  all present, but a first-time visitor with a "how do I…?" or "is this broken?" question had no
+  single front door. Added `SUPPORT.md`: a router that sends questions to the right existing doc
+  (FAQ, architecture, CLI, docs index) and, crucially, distinguishes a *broken build* from a
+  *known-transient alarm* by pointing at the operations runbook (several red badges are red by
+  design). It states the honest no-SLA expectation for a solo-maintained demonstrator and the
+  scope boundary (upstream Worldmonitor questions belong with Worldmonitor). Surfaced from the
+  root README (Contributing & security) and the [docs index](README.md), and wired as a
+  `Questions & getting help` contact link in the issue-template chooser
+  (`.github/ISSUE_TEMPLATE/config.yml`) so GitHub shows it before someone opens a blank issue.
+  All new links resolve under the doc-link gate.
+- **Dependabot for the CI toolchain — `.github/dependabot.yml` (2026-07-01, KR-C):** the repo
+  brands itself on a per-source supply-chain guardrail for the *data* (`scripts/check_sources.py`),
+  but the *build* toolchain had the analogous gap — the six third-party GitHub Actions across the
+  five workflows (`actions/checkout`, `actions/setup-python`, `astral-sh/setup-uv`,
+  `gitleaks/gitleaks-action`, `actions/github-script`, `actions/upload-pages-artifact` /
+  `deploy-pages`) all floated on `@vN` tags with nothing keeping them current or patched. Added a
+  weekly `github-actions` Dependabot updater that opens a single grouped PR for minor/patch bumps
+  (a major version still opens on its own for a deliberate look), so the CI supply chain stays
+  current the same way the data supply chain does — a public-grade hygiene signal a reviewer
+  expects before a repo flips public.
+- **Operations runbook — `docs/operations.md` (2026-07-01, KR-C):** the operate knowledge
+  ("keep the engine operating") was accurate but scattered — the two-lane model in the README,
+  the alarm mechanics inside each workflow's YAML, the manual health commands across README +
+  cli.md. A public repo that promises a self-running engine needs one on-call page. Added a
+  single runbook: the two lanes (L1 GitHub-cron vs L2 fleet-curator) and why only one survives
+  a power-off; an at-a-glance table of all five scheduled jobs/gates; and a per-alarm response
+  section (`ingest-alarm`, `synthesis-alarm`, the by-design-red `secret-scan`, and normal
+  ci/pages breaks) with the exact reproduce-and-close commands. Wired into the [docs index](README.md)
+  (Publish & operate) and the root README Operations section; the doc-link gate resolves all
+  new links (134 -> 147 across 207 files).
+- **First-time-visitor FAQ + engine-liveness badge — `docs/faq.md` (2026-07-01, KR-C):** the
+  docs were complete but engine-facing (spec, plan, architecture, CLI) — a non-technical
+  visitor landing on the repo had no single page answering the credibility questions ("is the
+  data real?", "how current?", "can I trust the forecasts?", "why is it private?", "what
+  licence?"). Added a concise FAQ that answers each and cross-links to the deep doc, wired into
+  both the [docs index](README.md) (Concept & design) and the root README "Documentation"
+  section. Also surfaced the **L2 Synthesis Freshness** heartbeat as a third engine badge at the
+  top of the root README, so *both* liveness lanes (daily L1 ingest + weekly L2 synthesis) are
+  now visible at a glance rather than only the L1 one — closing the "keep the engine operating"
+  signal gap. The doc-link gate resolves all new links (110 → 134 across 206 files).
+- **Citation metadata — `CITATION.cff` (2026-07-01, KR-C):** the repo had every other
+  public-grade front-door file (README, split license, CONTRIBUTING, CODE_OF_CONDUCT,
+  SECURITY, issue/PR templates, CREDITS) but no machine-readable citation, so GitHub showed
+  no "Cite this repository" button. Added a CFF 1.2.0 file (software type, MIT, author +
+  repo URL + keywords, version 0.1.0) so the project is properly citable, and surfaced it
+  from both the root README ("Citing azimuth") and the docs index.
+- **Interactive SOTA knowledge-graph viz — `site/graph.html` (2026-07-01, KR-B):** the
+  read-only site's knowledge graph went from a static picker to a genuinely explorable,
+  phone-usable artifact — and the changelog front door had not logged any of it. Four
+  shipped, browser-render-proven features: (1) **typed edges made legible** — the relation
+  (`has-brief`, `rests-on`, `mentioned-in`, …) shows on hover and each edge's thickness is
+  weighted by how many L1 source notes back it, so provenance strength is visible at a glance;
+  (2) **shareable deep links** — a Trace or Find writes to `location.hash`, so any graph state
+  is a URL you can send; (3) **mobile touch** — pan/drag/tap plus pinch-zoom (`touchstart`
+  handlers), so the graph works on a phone, not just a desktop with a mouse; (4) a banked
+  **browser-render proof** test that guards all of the above so they can't silently regress.
+- **L2 synthesis-freshness heartbeat — `.github/workflows/synthesis-freshness.yml` (2026-07-01,
+  KR-C):** "keep the engine operating" was only half-true — the daily L1 ingest is autonomous
+  GitHub infra with its own liveness alarm, but the *weekly L2 brief* is written by the fleet
+  curator (an LLM job on Michael's box, off GitHub), so a power-off silently drifts the briefs
+  stale with nothing to surface it. New weekly Monday workflow gives the L2 lane the same
+  visible heartbeat: it checks each clean-theme brief against the latest L1 day and opens a
+  single dedup'd `synthesis-alarm` issue only when a brief is genuinely **overdue** (the
+  synthesis actually failed to run) — merely *stale* (awaiting the next scheduled pass) stays
+  quiet. Backed by `scripts/check_synthesis_freshness.py` and documented in the root README
+  "Operations — engine liveness" section.
 - **CLI reference — `docs/cli.md` (2026-07-01, KR-C):** the whole engine is a set of 18
   pure-stdlib Python CLIs under `scripts/`, but no single page mapped them — a new contributor
   had to reverse-engineer the tool surface from the README fragments and each script's argparse.

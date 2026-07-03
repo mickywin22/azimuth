@@ -1,0 +1,29 @@
+cff-version: 1.2.0
+message: "If you use azimuth or reference its architecture, please cite it as below."
+title: "azimuth — a public demonstrator of the HemySphere L1/L2/L3 vault doctrine"
+abstract: >-
+  azimuth is a public, read-only knowledge vault that applies the HemySphere
+  L1 sources -> L2 synthesis -> L3 rules wiki pattern to open global-intelligence
+  data sourced from the Worldmonitor public API. A daily job pulls WorldMonitor
+  subsets into dated L1 source notes, a weekly cycle synthesises per-theme L2
+  briefs, and a small L3 rule set governs both — all enforced by CI. The runtime
+  is pure standard-library Python (no web server, no third-party runtime deps),
+  published as a static site with a knowledge-graph layer.
+type: software
+authors:
+  - family-names: Rarivomanana
+    given-names: Michael
+    website: "https://github.com/mickywin22"
+version: "0.1.0"
+date-released: "2026-07-01"
+license: MIT
+url: "https://github.com/mickywin22/azimuth"
+repository-code: "https://github.com/mickywin22/azimuth"
+keywords:
+  - knowledge-graph
+  - open-knowledge
+  - open-intelligence
+  - static-site
+  - synthesis
+  - GraphRAG
+  - vault

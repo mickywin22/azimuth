@@ -177,6 +177,16 @@ python scripts/check_doc_links.py
 ```
 **Layer:** Gate (`ci.yml`) · See [doc-links.md](doc-links.md).
 
+### `check_doc_orphans.py` — orphan-doc gate
+Fails if any `docs/**/*.md` is unreachable from a repo front door (README + community
+files), so no authored doc is orphaned and undiscoverable on the public repo. The
+companion to the dead-link gate: links resolve *and* every doc is linked-to.
+
+```bash
+python scripts/check_doc_orphans.py
+```
+**Layer:** Gate (`ci.yml`) · See [doc-links.md](doc-links.md#the-companion-no-orphan-docs).
+
 ### `check_sources.py` — L3 source guardrail
 Enforces the per-source license / attribution / editorial guardrail from
 `sources/registry.json`.
