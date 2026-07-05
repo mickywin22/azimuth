@@ -80,6 +80,13 @@ edge carries a `weight` (how many L1 notes name the entity) and that count is ba
 `named-in` edge per actual source note — `provenance` re-expands it into the exact dated L1
 notes, channel by channel.
 
+Beyond link *topology*, the vault also lifts to a **typed RDF graph**. The `vault/` OKF-style
+Markdown bundle plus one committed composed context ([`vault/context.jsonld`](vault/context.jsonld))
+is already valid linked data — the **Vault-LD OKF compatibility profile** (SPEC Appendix B).
+[`scripts/build_rdf.py`](scripts/build_rdf.py) exports `schema.ttl` (the ontology) + `data.ttl`
+(every note as a typed subject) beside the site; `rdflib` is a **CI-only** dependency, so the
+runtime stays pure standard library. Full write-up: [docs/linked-data.md](docs/linked-data.md).
+
 > **Pages URL (once enabled): https://mickywin22.github.io/azimuth/**
 
 The repo is **private** and the site is **not live** until GitHub Pages is explicitly

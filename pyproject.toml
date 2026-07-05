@@ -62,6 +62,14 @@ Documentation = "https://github.com/mickywin22/azimuth/tree/main/docs"
 site = [
     "markdown>=3.7",
 ]
+# Linked-data export (scripts/build_rdf.py -> schema.ttl + data.ttl beside the site). rdflib is
+# a DEV/CI-ONLY tool: it lifts the vault/ OKF bundle into RDF via the Vault-LD OKF compatibility
+# profile (SPEC Appendix B), and runs in the `linked-data` CI job + the (flip-gated) Pages build
+# ONLY -- never on the pure-stdlib ingest/guardrail runtime path, so `dependencies` stays empty.
+# Kept separate from `site` + `dev` so neither pulls a graph library it does not need.
+ld = [
+    "rdflib>=7.0",
+]
 dev = [
     "pytest>=8.3.0",
     "pytest-cov>=6.0.0",
