@@ -2,36 +2,56 @@
   "$note": "Captured snapshot of the COMPARED forecast/intelligence product for the azimuth benchmark (synthesis/benchmark.py). Quoted by product + capture date; NOT surfaced as an azimuth channel and NOT an L1 source. Refresh with pull_benchmark_foils.py.",
   "endpoint": "/api/forecast/v1/get-forecasts",
   "attribution": "WorldMonitor (api.worldmonitor.app) — model-generated forecast/assessment product",
-  "feed_generated_at": 1783152333618,
+  "feed_generated_at": 1783242360248,
   "feed_degraded": false,
-  "captured_at": "2026-07-04T08:49:04Z",
+  "captured_at": "2026-07-05T09:21:14Z",
   "n_forecasts_seen": 14,
   "topics": {
     "energy-supply": {
-      "foil": null,
-      "absence_reason": "No forecast in the WorldMonitor feed targeted oil/energy supply this cycle — azimuth still reports the observed physical balances and price tape."
-    },
-    "supply-chain-inflation": {
       "foil": {
-        "id": "fc-market-f7b6efed",
+        "id": "fc-market-ac52d97e",
         "domain": "market",
-        "region": "Baltic Sea",
-        "title": "Inflation and rates pressure from Baltic Sea maritime disruption state",
-        "probability": 0.455,
-        "prior_probability": 0.454,
+        "region": "Iraq",
+        "title": "Inflation and rates pressure from Iraq infrastructure fragility state",
+        "probability": 0.664,
+        "prior_probability": 0.617,
         "confidence": 0.75,
         "time_horizon": "30d",
         "trend": "stable",
         "projections": {
-          "d30": 0.455,
-          "d7": 0.628,
+          "d30": 0.664,
+          "d7": 0.917,
           "h24": 0.95
         },
-        "scenario_short": "Baltic Sea maritime disruption state is feeding inflation and rates pressure through shipping cost shock, with 27% pressure and 59% state confirmation. For now, the base case stays near 48% over the 30d. Actors absorb...",
-        "perspective_strategic": "Baltic Sea maritime disruption state is feeding inflation and rates pressure through shipping cost shock, with 27% pressure and 59% state confirmation is setting the strategic baseline, and the current 46% probability implies a live but not settled risk path.",
-        "perspective_contrarian": "No directly matched headlines are currently attached to Baltic Sea. If that restraint persists, the forecast can move below the current 46% baseline. Actors prioritize containment and the system drifts toward stabilization unless new hard signals emerge.",
-        "actor_lens": "Commodity traders: Price whether stress in Baltic Sea becomes durable over the 30d. Rebalance positions if the probability path moves away from 46%.",
-        "top_signal": "Baltic Sea maritime disruption state is feeding inflation and rates pressure through shipping cost shock, with 27% pressure and 59% state confirmation"
+        "scenario_short": "Inflation and rates pressure in Iraq are probable (66%) over the next 30 days, stemming from 'Iraq infrastructure fragility state' feeding energy supply shock with 46% pressure and 68% state confirmation.",
+        "perspective_strategic": "The 66% probability of inflation and rates pressure, driven by 'Iraq infrastructure fragility state' and 46% energy supply shock, signals a significant economic vulnerability in Iraq.",
+        "perspective_contrarian": "Despite the 66% probability, the 75% confidence level and the need for more direct reporting on Iraq suggest that this outcome is not fully solidified and could be mitigated if infrastructure improvements or energy supply stabilization occurs.",
+        "actor_lens": "Commodity traders: Price whether stress in Iraq becomes durable over the 30d. Rebalance positions if the probability path moves away from 66%.",
+        "top_signal": "Iraq infrastructure fragility state is feeding inflation and rates pressure through energy supply shock, with 46% pressure and 68% state confirmation"
+      },
+      "absence_reason": null
+    },
+    "supply-chain-inflation": {
+      "foil": {
+        "id": "fc-market-ac52d97e",
+        "domain": "market",
+        "region": "Iraq",
+        "title": "Inflation and rates pressure from Iraq infrastructure fragility state",
+        "probability": 0.664,
+        "prior_probability": 0.617,
+        "confidence": 0.75,
+        "time_horizon": "30d",
+        "trend": "stable",
+        "projections": {
+          "d30": 0.664,
+          "d7": 0.917,
+          "h24": 0.95
+        },
+        "scenario_short": "Inflation and rates pressure in Iraq are probable (66%) over the next 30 days, stemming from 'Iraq infrastructure fragility state' feeding energy supply shock with 46% pressure and 68% state confirmation.",
+        "perspective_strategic": "The 66% probability of inflation and rates pressure, driven by 'Iraq infrastructure fragility state' and 46% energy supply shock, signals a significant economic vulnerability in Iraq.",
+        "perspective_contrarian": "Despite the 66% probability, the 75% confidence level and the need for more direct reporting on Iraq suggest that this outcome is not fully solidified and could be mitigated if infrastructure improvements or energy supply stabilization occurs.",
+        "actor_lens": "Commodity traders: Price whether stress in Iraq becomes durable over the 30d. Rebalance positions if the probability path moves away from 66%.",
+        "top_signal": "Iraq infrastructure fragility state is feeding inflation and rates pressure through energy supply shock, with 46% pressure and 68% state confirmation"
       },
       "absence_reason": null
     },
