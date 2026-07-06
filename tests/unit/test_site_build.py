@@ -167,3 +167,28 @@ def test_graph_is_discoverable_from_the_site(tmp_path: Path) -> None:
     # subdir pages prefix the nav with {root} — a brief page must link ../graph.html
     brief_text = (out / "briefs" / "energy-supply-weekly.html").read_text(encoding="utf-8")
     assert '<a href="../graph.html">Knowledge graph</a>' in brief_text
+
+
+def test_nav_is_mobile_responsive(tmp_path: Path) -> None:
+    """AZ-KR1 'incredible UI': the 6-link nav collapses behind a pure-CSS hamburger.
+
+    On a phone the flat nav overflowed the header; the fix is a checkbox+label burger
+    (no JS, so it works on the static file:// preview and in reduced-JS environments).
+    Guard both halves: the markup on every page and the toggle CSS in the shared sheet.
+    """
+    vault = _make_vault(tmp_path)
+    out = tmp_path / "site"
+    (tmp_path / "registry.json").write_text(json.dumps(_REGISTRY), encoding="utf-8")
+    build_site(out, vault_dir=vault, registry_path=tmp_path / "registry.json")
+
+    # the burger markup rides on the shared page template — on the index and subdir pages
+    for page in ("index.html", "briefs/energy-supply-weekly.html"):
+        text = (out / page).read_text(encoding="utf-8")
+        assert 'type="checkbox" id="nav-toggle" class="nav-toggle"' in text
+        assert 'class="nav-burger"' in text
+
+    css = (out / "assets" / "style.css").read_text(encoding="utf-8")
+    # burger hidden on desktop, revealed + wired to the checkbox inside the mobile query
+    assert ".nav-burger{display:none" in css
+    assert ".nav-toggle:checked~nav{display:flex}" in css
+    assert "@media(max-width:720px)" in css

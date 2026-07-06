@@ -246,6 +246,8 @@ _PAGE_TEMPLATE = """<!DOCTYPE html>
 </head><body>
 <header class="nav">
   <a class="brand" href="{root}index.html">azimuth</a>
+  <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation menu">
+  <label for="nav-toggle" class="nav-burger" title="Menu"><span></span><span></span><span></span></label>
   <nav>
     <a href="{root}answers.html">Ask the data</a>
     <a href="{root}benchmark.html">Benchmark</a>
@@ -621,29 +623,61 @@ def _render_benchmark(bench: Benchmark, link_map: dict[str, str], fresh_day: str
 
 _CSS = """:root{--bg:#0c0f14;--panel:#141a23;--ink:#e7edf5;--muted:#8a97a8;
 --accent:#4cc2ff;--line:#222c39;--held:#3a4250}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);
-font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;line-height:1.62}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--ink);
+font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;line-height:1.62;
+-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+text-rendering:optimizeLegibility;font-feature-settings:"kern","liga","calt";
+letter-spacing:.002em}
+::selection{background:rgba(76,194,255,.28);color:#fff}
 a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
-.nav{display:flex;gap:1.5rem;align-items:center;padding:.9rem 1.2rem;
-border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(12,15,20,.92);
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:3px}
+.nav{display:flex;gap:1.5rem;align-items:center;padding:.9rem 1.2rem;flex-wrap:wrap;
+border-bottom:1px solid var(--line);position:sticky;top:0;z-index:30;background:rgba(12,15,20,.92);
 backdrop-filter:blur(6px)}
 .brand{font-family:Rajdhani,Inter,sans-serif;font-weight:700;font-size:1.3rem;
 letter-spacing:.06em;text-transform:uppercase}
 .nav nav{display:flex;gap:1.1rem;font-size:.92rem}
+.nav nav a[aria-current]{color:var(--ink);font-weight:600}
+/* mobile hamburger: pure-CSS checkbox toggle, no JS. Hidden on desktop. */
+.nav-toggle{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none;margin:0}
+.nav-burger{display:none;flex-direction:column;justify-content:center;gap:5px;margin-left:auto;
+width:40px;height:34px;padding:8px 9px;border:1px solid var(--line);border-radius:9px;
+background:var(--panel);cursor:pointer}
+.nav-burger span{display:block;height:2px;width:100%;background:var(--ink);border-radius:2px;
+transition:transform .2s,opacity .2s}
 .fresh-badge{margin-left:auto;font-size:.74rem;letter-spacing:.04em;color:var(--muted);
 border:1px solid var(--line);border-radius:999px;padding:.15rem .6rem;white-space:nowrap}
+@media(max-width:720px){
+  .nav-burger{display:flex}
+  .nav nav{display:none;order:4;flex-basis:100%;flex-direction:column;gap:0;margin-top:.55rem}
+  .nav-toggle:checked~nav{display:flex}
+  .nav nav a{padding:.6rem .3rem;border-top:1px solid var(--line)}
+  .nav-toggle:checked~.nav-burger{background:#1d2735}
+  .nav-toggle:checked~.nav-burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .nav-toggle:checked~.nav-burger span:nth-child(2){opacity:0}
+  .nav-toggle:checked~.nav-burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  .fresh-badge{order:5;margin-left:0;margin-top:.5rem;flex-basis:100%}
+}
 .hero-fresh{margin:.1rem 0 .4rem}
 .hero-fresh .fresh-badge{margin-left:0;color:var(--accent);border-color:var(--accent)}
 .card-fresh{display:block;font-size:.72rem;color:var(--muted);margin-top:.45rem}
 .content,.foot{max-width:820px;margin:0 auto;padding:1.4rem 1.2rem}
+section,[id]{scroll-margin-top:4.8rem}
 .kind{display:inline-block;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;
 color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:.15rem .6rem;
 margin-bottom:1rem}
 .kind-brief{color:var(--accent);border-color:var(--accent)}
-h1,h2,h3{font-family:Rajdhani,Inter,sans-serif;letter-spacing:.01em;line-height:1.2}
+h1,h2,h3{font-family:Rajdhani,Inter,sans-serif;letter-spacing:.01em;line-height:1.2;
+font-weight:700}
 h1{font-size:2.1rem;margin:.2rem 0}h2{margin-top:2rem;border-bottom:1px solid var(--line);
 padding-bottom:.3rem}
-.hero p{color:var(--muted);max-width:64ch}
+.hero h1{font-size:clamp(2.2rem,6.5vw,3.1rem);letter-spacing:.02em;
+background:linear-gradient(92deg,#eaf3fb,#a9d8ff 60%,#6cc6ff);
+-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{color:var(--muted);max-width:64ch;font-size:1.02rem}
 .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:.9rem}
 .card{display:block;background:var(--panel);border:1px solid var(--line);border-radius:12px;
 padding:1rem 1.1rem;transition:border-color .15s,transform .15s}
