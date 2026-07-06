@@ -423,6 +423,11 @@ def test_rendered_html_wires_the_sota_viz_features(tmp_path: Path) -> None:
     ):
         assert token in html, f"keyboard-a11y token missing from graph.html: {token}"
 
+    # 5) story mode — a guided tour that drives the SAME trace() over three preset
+    # cross-channel pairs, so a first-time visitor is shown the point of the page.
+    for token in ("qstory", "gstory", "const STORY", "STEPS", "renderStory", "startStory"):
+        assert token in html, f"story-mode token missing from graph.html: {token}"
+
     # the graph JSON must be injected, not left as the placeholder
     assert "__GRAPH_JSON__" not in html
     assert '"nodes"' in html and '"edges"' in html
