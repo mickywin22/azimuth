@@ -192,3 +192,29 @@ def test_nav_is_mobile_responsive(tmp_path: Path) -> None:
     assert ".nav-burger{display:none" in css
     assert ".nav-toggle:checked~nav{display:flex}" in css
     assert "@media(max-width:720px)" in css
+
+
+def test_landing_has_graph_centerpiece(tmp_path: Path) -> None:
+    """AZ-KR1 'incredible UI': the knowledge graph IS the landing hero.
+
+    A canvas centerpiece draws a settled mini-graph from graph.json and links through to the
+    full interactive view. Guard the markup + the drawing script + its CSS; the live paint
+    (non-blank canvas) is proven separately by the Playwright smoke.
+    """
+    vault = _make_vault(tmp_path)
+    out = tmp_path / "site"
+    (tmp_path / "registry.json").write_text(json.dumps(_REGISTRY), encoding="utf-8")
+    build_site(out, vault_dir=vault, registry_path=tmp_path / "registry.json")
+
+    index_text = (out / "index.html").read_text(encoding="utf-8")
+    # the clickable centerpiece: canvas + live-count badge + a link to the full graph
+    assert '<canvas id="herograph"' in index_text
+    assert 'class="hero-graph" href="graph.html"' in index_text
+    assert 'id="hero-graph-count"' in index_text
+    # the drawing script fetches the published graph and reveals the canvas on success
+    assert 'document.getElementById("herograph")' in index_text
+    assert 'classList.add("is-live")' in index_text
+
+    css = (out / "assets" / "style.css").read_text(encoding="utf-8")
+    assert ".hero-graph{position:relative" in css
+    assert ".hero-graph.is-live canvas{opacity:1}" in css

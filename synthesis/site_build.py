@@ -295,6 +295,114 @@ def _render_page(page: Page, link_map: dict[str, str], fresh_day: str = "") -> s
     )
 
 
+# Landing centerpiece: a settled mini knowledge-graph, drawn on a canvas straight from the
+# published graph.json — the graph IS the hero, not a text box above three cards. Kept as a
+# plain (non-f) string so its many JS braces need no doubling when interpolated into the index
+# body. A legible SUBSET is drawn (channels + briefs + the gold cross-channel bridges) so the
+# hero reads as a constellation, not the dense full graph; the layout is force-settled ONCE
+# (no idle animation -> 0% CPU once painted; reduced-motion visitors are unaffected). On a
+# file:// preview where fetch is blocked the canvas simply stays transparent over its gradient,
+# so the block still looks intentional and the whole thing links through to graph.html.
+_HERO_GRAPH_JS = """<script>
+(function () {
+  var cv = document.getElementById("herograph");
+  if (!cv || !cv.getContext) return;
+  var ctx = cv.getContext("2d");
+  var TC = {"energy-supply":"#4cc2ff","geophysical":"#ff9d4c","climate-signals":"#37d6a0",
+    "prediction-markets":"#b07cff","environmental-hazards":"#ff5d73","other":"#8a97a8"};
+  var CROSS = "#ffe14c";
+  var colorOf = function (n) { return n.theme === "shared" ? CROSS : (TC[n.theme] || TC.other); };
+  fetch("graph.json").then(function (r) { return r.json(); }).then(function (g) {
+    // Hero subset: channels + briefs + the shared regions that bridge >=2 channels (the gold).
+    var keep = {};
+    var nodes = g.nodes.filter(function (n) {
+      var ok = n.kind === "concept" || n.kind === "brief" ||
+        (n.kind === "entity" && n.entity_kind === "region" && (n.themes || []).length >= 2);
+      if (ok) keep[n.id] = true;
+      return ok;
+    }).map(function (n, i) {
+      return { id:n.id, kind:n.kind, theme:n.theme, ek:n.entity_kind,
+        r: n.kind === "concept" ? 12 : (n.kind === "brief" ? 8.5 : 6.5),
+        x: Math.cos(i * 1.7) * 120, y: Math.sin(i * 2.3) * 84, vx:0, vy:0 };
+    });
+    if (!nodes.length) return;
+    var byId = {};
+    nodes.forEach(function (n) { byId[n.id] = n; });
+    var edges = g.edges.filter(function (e) { return keep[e.source] && keep[e.target]; })
+      .map(function (e) { return { s: byId[e.source], t: byId[e.target], cross: !!e.cross_theme }; });
+    function step() {
+      for (var i = 0; i < nodes.length; i++) {
+        var a = nodes[i];
+        for (var j = 0; j < nodes.length; j++) {
+          if (i === j) continue;
+          var b = nodes[j], dx = a.x - b.x, dy = a.y - b.y, d = Math.hypot(dx, dy) || 1, f = 1500 / (d * d);
+          a.vx += dx / d * f; a.vy += dy / d * f;
+        }
+        a.vx += -a.x * 0.02; a.vy += -a.y * 0.02;
+      }
+      for (var k = 0; k < edges.length; k++) {
+        var e = edges[k], dx = e.t.x - e.s.x, dy = e.t.y - e.s.y, d = Math.hypot(dx, dy) || 1;
+        var rest = e.cross ? 92 : 56, f = (d - rest) * 0.02;
+        e.s.vx += dx / d * f; e.s.vy += dy / d * f; e.t.vx -= dx / d * f; e.t.vy -= dy / d * f;
+      }
+      for (var m = 0; m < nodes.length; m++) {
+        var n = nodes[m]; n.x += n.vx * 0.5; n.y += n.vy * 0.5; n.vx *= 0.8; n.vy *= 0.8;
+      }
+    }
+    for (var s = 0; s < 280; s++) step();
+    function draw() {
+      var DPR = Math.max(1, Math.min(window.devicePixelRatio || 1, 2));
+      var rect = cv.getBoundingClientRect(), W = Math.max(1, rect.width), H = Math.max(1, rect.height);
+      cv.width = Math.round(W * DPR); cv.height = Math.round(H * DPR);
+      var minx = 1e9, miny = 1e9, maxx = -1e9, maxy = -1e9;
+      nodes.forEach(function (n) {
+        minx = Math.min(minx, n.x); miny = Math.min(miny, n.y);
+        maxx = Math.max(maxx, n.x); maxy = Math.max(maxy, n.y);
+      });
+      var pad = 24, cw = (maxx - minx) || 1, ch = (maxy - miny) || 1;
+      var sc = Math.min((W - 2 * pad) / cw, (H - 2 * pad) / ch);
+      var ox = (W - cw * sc) / 2 - minx * sc, oy = (H - ch * sc) / 2 - miny * sc;
+      var px = function (n) { return n.x * sc + ox; }, py = function (n) { return n.y * sc + oy; };
+      ctx.setTransform(DPR, 0, 0, DPR, 0, 0); ctx.clearRect(0, 0, W, H);
+      edges.forEach(function (e) {
+        ctx.strokeStyle = e.cross ? CROSS : "#33465b";
+        ctx.globalAlpha = e.cross ? 0.85 : 0.5; ctx.lineWidth = e.cross ? 1.7 : 1;
+        ctx.beginPath(); ctx.moveTo(px(e.s), py(e.s)); ctx.lineTo(px(e.t), py(e.t)); ctx.stroke();
+      });
+      ctx.globalAlpha = 1;
+      nodes.forEach(function (n) {
+        var X = px(n), Y = py(n), R = n.r; ctx.fillStyle = colorOf(n);
+        if (n.kind === "concept") {
+          ctx.beginPath();
+          for (var q = 0; q < 6; q++) {
+            var an = Math.PI / 6 + q * Math.PI / 3, X2 = X + R * Math.cos(an), Y2 = Y + R * Math.sin(an);
+            q ? ctx.lineTo(X2, Y2) : ctx.moveTo(X2, Y2);
+          }
+          ctx.closePath(); ctx.fill();
+          ctx.strokeStyle = "#cdd7e3"; ctx.lineWidth = 1.4; ctx.stroke();
+        } else if (n.ek === "region") {
+          ctx.beginPath(); ctx.moveTo(X, Y - R); ctx.lineTo(X + R, Y);
+          ctx.lineTo(X, Y + R); ctx.lineTo(X - R, Y); ctx.closePath(); ctx.fill();
+        } else {
+          ctx.beginPath(); ctx.arc(X, Y, R, 0, 7); ctx.fill();
+        }
+      });
+    }
+    draw();
+    window.addEventListener("resize", draw);
+    var badge = document.getElementById("hero-graph-count");
+    if (badge) {
+      var br = g.nodes.filter(function (n) {
+        return n.kind === "entity" && (n.themes || []).length >= 2;
+      }).length;
+      badge.textContent = g.nodes.length + " nodes \\u00b7 " + br + " cross-channel bridges";
+    }
+    if (cv.parentNode) cv.parentNode.classList.add("is-live");
+  }).catch(function () { /* file:// preview: keep the static gradient fallback */ });
+})();
+</script>"""
+
+
 def _render_index(
     model: SiteModel,
     aset: AnswerSet | None = None,
@@ -385,6 +493,13 @@ def _render_index(
   Every claim in a brief links to the data it rests on.</p>
   {pulse_html}
 </div>
+<a class="hero-graph" href="graph.html" aria-label="Open the interactive cross-channel knowledge graph">
+  <canvas id="herograph" aria-hidden="true"></canvas>
+  <span class="hero-graph-cta">
+    <span class="hero-graph-badge" id="hero-graph-count">Interactive knowledge graph</span>
+    <span class="hero-graph-go">Explore the cross-channel graph &rarr;</span>
+  </span>
+</a>
 <a class="demo-cta" href="answers.html">
   <span class="demo-kind">The demonstrator</span>
   <h2>Ask the World Data &rarr;</h2>
@@ -422,6 +537,7 @@ fetch("graph.json").then(function(r){{return r.json()}}).then(function(g){{
 </script>
 <section><h2>Briefs</h2><div class="cards">{brief_html}</div></section>
 <section id="sources"><h2>L1 Sources</h2>{sources_html}</section>
+{_HERO_GRAPH_JS}
 """
     return _PAGE_TEMPLATE.format(
         title="azimuth — open-intelligence vault",
@@ -727,6 +843,22 @@ padding-bottom:.3rem}
 background:linear-gradient(92deg,#eaf3fb,#a9d8ff 60%,#6cc6ff);
 -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 .hero p{color:var(--muted);max-width:64ch;font-size:1.02rem}
+/* landing centerpiece: the live mini knowledge-graph (canvas drawn from graph.json) */
+.hero-graph{position:relative;display:block;height:clamp(210px,32vw,300px);margin:1.1rem 0 .3rem;
+border:1px solid var(--line);border-radius:14px;overflow:hidden;
+background:radial-gradient(120% 140% at 50% -20%,rgba(76,194,255,.10),transparent 60%),
+linear-gradient(160deg,#101722,#0b0f16)}
+.hero-graph:hover{border-color:var(--accent);text-decoration:none}
+.hero-graph canvas{position:absolute;inset:0;width:100%;height:100%;display:block;
+opacity:0;transition:opacity .45s ease}
+.hero-graph.is-live canvas{opacity:1}
+.hero-graph-cta{position:absolute;left:0;right:0;bottom:0;display:flex;flex-wrap:wrap;gap:.4rem .8rem;
+align-items:center;justify-content:space-between;padding:.55rem .9rem;
+background:linear-gradient(transparent,rgba(8,12,18,.85))}
+.hero-graph-badge{color:var(--muted);font-size:.74rem;letter-spacing:.03em}
+.hero-graph-go{color:var(--accent);font-weight:600;font-size:.9rem}
+.hero-graph:hover .hero-graph-go{text-decoration:underline}
+@media(prefers-reduced-motion:reduce){.hero-graph canvas{transition:none}}
 .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:.9rem}
 .card{display:block;background:var(--panel);border:1px solid var(--line);border-radius:12px;
 padding:1rem 1.1rem;transition:border-color .15s,transform .15s}
