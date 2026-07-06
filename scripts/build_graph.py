@@ -561,6 +561,8 @@ color:#e7edf5;border-radius:7px;font:inherit;font-size:1rem;line-height:1;cursor
 </head><body>
 <header class="nav">
   <a class="brand" href="index.html">azimuth</a>
+  <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation menu">
+  <label for="nav-toggle" class="nav-burger" title="Menu"><span></span><span></span><span></span></label>
   <nav>
     <a href="answers.html">Ask the data</a>
     <a href="benchmark.html">Benchmark</a>
