@@ -50,8 +50,7 @@ _DAY_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 # can correct this one constant if real billing data ever lands.
 _EST_WEEKLY_SPEND_USD = 0.60
 _SPEND_BASIS = (
-    "order-of-magnitude estimate — one small weekly LLM synthesis job; "
-    "not metered billing data"
+    "order-of-magnitude estimate — one small weekly LLM synthesis job; not metered billing data"
 )
 
 
@@ -238,7 +237,9 @@ def main(argv: list[str] | None = None) -> int:
         return 0
 
     build()
-    print(f"autonomy: wrote site/autonomy.json + site/autonomy.html ({counters()['days_operating']} days)")
+    print(
+        f"autonomy: wrote site/autonomy.json + site/autonomy.html ({counters()['days_operating']} days)"
+    )
     return 0
 
 

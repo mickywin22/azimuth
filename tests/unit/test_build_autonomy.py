@@ -11,12 +11,24 @@ The load-bearing guarantees:
 
 from __future__ import annotations
 
+import importlib.util
 import json
 from pathlib import Path
+from typing import TYPE_CHECKING
 
-import pytest
+if TYPE_CHECKING:
+    import pytest
 
-import scripts.build_autonomy as ba
+# Load the CLI by file path (not `import scripts.build_autonomy`) so mypy never sees the
+# module under two names when `scripts/build_autonomy.py` is also a direct type-check
+# target — the same idiom test_build_graph.py uses.
+_REPO_ROOT = Path(__file__).resolve().parents[2]
+_spec = importlib.util.spec_from_file_location(
+    "build_autonomy", _REPO_ROOT / "scripts" / "build_autonomy.py"
+)
+assert _spec and _spec.loader
+ba = importlib.util.module_from_spec(_spec)
+_spec.loader.exec_module(ba)
 
 
 def _make_vault(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> Path:
