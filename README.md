@@ -49,17 +49,26 @@ python scripts/run_ingest.py
 
 ## Reproducibility challenge
 
-> **Two commands rebuild this week's brief from scratch.** No pre-built data, no secrets,
-> no external state beyond the free WorldMonitor API.
+> **Every derived artifact rebuilds byte-for-byte from the committed L1 sources** — a
+> deterministic, wall-clock-independent build, no pre-built data, no secrets, no hidden
+> state. CI proves it on every push; prove it yourself on any clone in three commands:
 
 ```bash
-python scripts/run_ingest.py   # pull today's L1 sources from WorldMonitor
-python scripts/build_site.py   # synthesise → L2 briefs → graph → site/
+python scripts/build_graph.py --check         # knowledge graph is byte-identical
+python scripts/build_brief_index.py --check    # brief index is byte-identical
+python scripts/build_autonomy.py --check       # autonomy counters are byte-identical
 ```
 
-The result is byte-for-byte identical to what you see on the live site for any given
-commit of `vault/` — the build is **deterministic and wall-clock independent**.
-`python scripts/build_autonomy.py --check` verifies the autonomy counters are in sync.
+Each exits `0` **only if** regenerating the artifact from the committed `vault/` reproduces
+the checked-in file bit-for-bit — the same guarantee that lets a public reader trust the
+numbers and the graph. Rendering the whole read-only site is deterministic too:
+`python scripts/build_site.py` produces byte-identical output across runs from the same
+`vault/`.
+
+**Run the live engine yourself** (fresh data — this is the engine, not the reproducibility
+proof): `python scripts/run_ingest.py` pulls a new L1 day from the free WorldMonitor API
+(anonymous session, no key), and the weekly `azimuth-curator` role evolves the L2 brief
+narrative from it. The deterministic artifacts above then re-derive from that new day.
 
 ## Development
 

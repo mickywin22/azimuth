@@ -36,8 +36,8 @@ Good places to contribute:
 The most impactful single-file contribution is adding a new WorldMonitor source subset that
 clears the editorial + license bar. Here is the exact sequence from zero to a green CI run.
 
-**Prerequisites:** Python 3.12, `uv` (or pip), a WorldMonitor free-tier API key
-(anonymous rate-limited access is enough for most subsets).
+**Prerequisites:** Python 3.12 and `uv` (or pip). WorldMonitor needs **no API key** — the
+ingest mints an anonymous, rate-limited session automatically, and every v0 subset is free-tier.
 
 **Step 1 — check the source clears the bar (~2 min)**
 
@@ -54,24 +54,36 @@ Before touching any file, verify three things:
 
 **Step 2 — add the source entry (~3 min)**
 
-Open `sources/registry.json` and append a new object inside `"sources"`:
+Open `sources/registry.json` and append a new object inside `"sources"`. Match the shape of
+the existing entries — the source-guardrail **requires** `key`, `endpoint`, and
+`content_class`, and the `license` must be one of the allowlisted identifiers (`CC-BY-4.0`,
+`CC0-1.0`, `ODbL-1.0`, `public-domain`, `US-Gov-public-domain`, `API-ToS-derived`):
 
 ```json
 {
-  "id": "your-theme-slug",
-  "theme": "Your Theme Name",
-  "endpoint": "/api/v1/...",
-  "license": "CC BY 4.0",
-  "attribution": "WorldMonitor / Your Theme Name (worldmonitor.app)",
-  "surfaced": true,
-  "notes": "One sentence on what this subset covers."
+  "key": "your-source-slug",
+  "endpoint": "/api/.../get-your-subset",
+  "upstream_source": "Upstream provider name",
+  "license": "CC-BY-4.0",
+  "attribution": "Data: Upstream provider via WorldMonitor (api.worldmonitor.app)",
+  "content_class": "climate-observation",
+  "theme": "your-theme-slug",
+  "risk_flags": [],
+  "synthesis_cautions": [],
+  "surfaced": true
 }
 ```
+
+`content_class` must be one of the **allowed** factual classes in the registry's
+`content_class_policy` (e.g. `market-data`, `natural-hazard`, `climate-observation`) — a
+denied class (opinion, propaganda, investment advice, safety/political position) fails the
+build. If the `theme` slug is new, also add it to the top-level `"themes"` map with a
+`title` and `brief` filename so the brief index and site can render it.
 
 Add the matching attribution line to `CREDITS.md`:
 
 ```
-**Your Theme Name** — WorldMonitor public API, CC BY 4.0. https://worldmonitor.app
+**Your Theme Name** — data via WorldMonitor public API (api.worldmonitor.app), CC-BY-4.0.
 ```
 
 **Step 3 — run the guardrail locally (~1 min)**
@@ -98,6 +110,7 @@ deny-list phrases).
 python scripts/check_synthesis.py        # claim-sourcing + editorial deny-list
 python scripts/build_brief_index.py --check
 python scripts/build_graph.py --check
+python scripts/build_autonomy.py --check
 ```
 
 The synthesis curator will pick up the new channel on the next weekly cycle — you do not
@@ -176,8 +189,8 @@ synthesis or ingest internals. Look for the **`good first issue`** label on the
 | **Docs clarity fix** | Correct a confusing sentence, add a missing example, fix a broken link in `docs/` | Beginner |
 | **Script output polish** | Improve the human-readable output of a CLI in `scripts/` (e.g., better progress messages, column alignment) | Beginner |
 | **Test coverage gap** | Add a unit test for an untested path in `guardrail/`, `ingest/`, or `synthesis/` (run `pytest --cov` to find gaps) | Intermediate |
-| **New query mode** | Add a subcommand to `scripts/query_graph.py` (e.g., `neighbors`, `timeline`) following the existing pattern | Intermediate |
-| **Synthesis lint rule** | Add a new editorial lint check to `synthesis/synthesis_lint.py` (e.g., detecting unattributed superlatives) | Intermediate |
+| **New query mode** | Add a subcommand to `scripts/query_graph.py` (e.g., `timeline`, `cluster`) following the existing pattern | Intermediate |
+| **Synthesis lint rule** | Add a new editorial lint check to `synthesis/lint.py` (e.g., detecting unattributed superlatives) | Intermediate |
 
 If you're unsure which issue to pick, start with a **docs clarity fix** — it's the fastest
 path to a merged PR and gives you a feel for the codebase.
