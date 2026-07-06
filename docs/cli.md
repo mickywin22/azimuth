@@ -92,6 +92,21 @@ python scripts/build_autonomy.py --check     # exit 1 if the committed counters 
 **Layer:** Site · re-derived daily in [`ingest.yml`](../.github/workflows/ingest.yml); CI
 asserts the committed counters are in sync.
 
+### `record_hero_gif.py` — generate the README hero animation
+Records an animated walkthrough of the azimuth site (home → knowledge graph → trace →
+autonomy counters) and writes `docs/assets/hero.gif`. Requires the `[demo]` optional
+dependencies (Playwright + Pillow) which are NOT installed by default.
+
+```bash
+uv pip install -e ".[demo]" && playwright install chromium
+python scripts/record_hero_gif.py            # uses already-built site/
+python scripts/record_hero_gif.py --serve    # build site first, then record
+python scripts/record_hero_gif.py --width 1280 --height 720 --fps 2
+```
+
+**Layer:** Docs-only · not part of CI · run manually to refresh `docs/assets/hero.gif`
+before a public flip or a major UI change.
+
 ### `query_graph.py` — query the graph from the CLI
 Answers cross-channel questions over the same `site/graph.json` the visual graph uses.
 Subcommands:

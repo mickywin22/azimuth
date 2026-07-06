@@ -62,6 +62,12 @@ Documentation = "https://github.com/mickywin22/azimuth/tree/main/docs"
 site = [
     "markdown>=3.7",
 ]
+demo = [
+    # Used by scripts/record_hero_gif.py to generate docs/assets/hero.gif.
+    # After install: playwright install chromium
+    "playwright>=1.48",
+    "Pillow>=11.0",
+]
 dev = [
     "pytest>=8.3.0",
     "pytest-cov>=6.0.0",

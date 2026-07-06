@@ -5,6 +5,9 @@
 [![L2 freshness](https://github.com/mickywin22/azimuth/actions/workflows/synthesis-freshness.yml/badge.svg)](https://github.com/mickywin22/azimuth/actions/workflows/synthesis-freshness.yml)
 [![Code: MIT](https://img.shields.io/badge/code-MIT-blue.svg)](LICENSE)
 [![Content: CC BY 4.0](https://img.shields.io/badge/content-CC%20BY%204.0-lightgrey.svg)](LICENSE-CONTENT.md)
+[![Days autonomous](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fmickywin22.github.io%2Fazimuth%2Fautonomy.json&query=%24.days_operating&suffix=%20days&label=autonomous&color=brightgreen)](https://mickywin22.github.io/azimuth/autonomy.html)
+[![L1 ingests](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fmickywin22.github.io%2Fazimuth%2Fautonomy.json&query=%24.l1_ingests_committed&label=L1%20ingests&color=blue)](https://mickywin22.github.io/azimuth/autonomy.html)
+[![LLM cost](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fmickywin22.github.io%2Fazimuth%2Fautonomy.json&query=%24.est_weekly_spend_usd&prefix=~%24&suffix=%2Fwk&label=LLM%20cost&color=lightgrey)](https://mickywin22.github.io/azimuth/autonomy.html)
 
 Public demonstrator of the HemySphere L1/L2/L3 vault doctrine, fed by Worldmonitor open-intelligence data.
 
@@ -17,6 +20,14 @@ Public demonstrator of the HemySphere L1/L2/L3 vault doctrine, fed by Worldmonit
 > [docs/plan.md](docs/plan.md), and [docs/architecture.md](docs/architecture.md).
 
 ![The azimuth read-only site — weekly L2 briefs synthesised from dated L1 source notes, with an "Ask the World Data" demonstrator and a facts-vs-forecast benchmark.](docs/assets/site-preview-home.png)
+
+![The cross-channel knowledge graph — hexagon channels holding L2 briefs, square commodities and triangle events, joined by gold "shared region" bridges; pick two channels and Trace how they connect, or Find any node by name.](docs/assets/graph-preview.png)
+
+> **Animated walkthrough** — generate `docs/assets/hero.gif` locally (requires `[demo]` extras):
+> ```bash
+> uv pip install -e ".[demo]" && playwright install chromium
+> python scripts/record_hero_gif.py --serve
+> ```
 
 ## What it is
 
@@ -35,6 +46,20 @@ uv pip install -e ".[dev]"
 # Run the L1 ingest (pulls WorldMonitor subsets -> dated L1 notes)
 python scripts/run_ingest.py
 ```
+
+## Reproducibility challenge
+
+> **Two commands rebuild this week's brief from scratch.** No pre-built data, no secrets,
+> no external state beyond the free WorldMonitor API.
+
+```bash
+python scripts/run_ingest.py   # pull today's L1 sources from WorldMonitor
+python scripts/build_site.py   # synthesise → L2 briefs → graph → site/
+```
+
+The result is byte-for-byte identical to what you see on the live site for any given
+commit of `vault/` — the build is **deterministic and wall-clock independent**.
+`python scripts/build_autonomy.py --check` verifies the autonomy counters are in sync.
 
 ## Development
 
@@ -59,8 +84,6 @@ The browsable read-only site (weekly L2 briefs → L1 sources → L3 editorial l
 cross-channel knowledge graph) builds with `python scripts/build_site.py` and is published
 to **GitHub Pages** by [`.github/workflows/pages.yml`](.github/workflows/pages.yml) on every
 push to `main`.
-
-![The cross-channel knowledge graph — hexagon channels holding L2 briefs, square commodities and triangle events, joined by gold "shared region" bridges; pick two channels and Trace how they connect, or Find any node by name.](docs/assets/graph-preview.png)
 
 The knowledge graph is both **visual** (`site/graph.html` — pick any two channels and
 **Trace** how they connect) and **queryable from the command line** via
@@ -121,6 +144,29 @@ python scripts/check_synthesis_freshness.py            # per-theme table: fresh 
 python scripts/check_synthesis_freshness.py --overdue  # exit 1 only if a brief genuinely failed to run
 ```
 
+## Autonomy — proof it runs itself
+
+The point of azimuth is not any single brief — it is that the whole pipeline *operates on
+its own*: the daily ingest, the weekly synthesis, and the CI doctrine gates run hands-off,
+for cents a week. That claim is surfaced as **hard, checkable counters** rather than a
+marketing sentence — days operating, daily L1 ingests committed, L1 source notes written,
+L2 briefs maintained, data channels surfaced, and an explicitly-labelled LLM-spend
+estimate:
+
+- **Live counters page:** [`site/autonomy.html`](site/autonomy.html) — machine-readable
+  companion [`site/autonomy.json`](site/autonomy.json).
+- Every counter is derived **purely from committed vault data, never the wall clock**, so
+  it is byte-reproducible and CI-guarded (`build_autonomy.py --check`). The counters
+  re-derive on each daily ingest — exactly like the knowledge graph and brief index — so
+  they advance one day at a time and can never drift from the data.
+- Spend is an honest **order-of-magnitude estimate** (weeks of operation × the small
+  weekly synthesis cost), clearly marked as an estimate — not fake-precise metered billing.
+
+```bash
+python scripts/build_autonomy.py            # rebuild site/autonomy.json + autonomy.html
+python scripts/build_autonomy.py --check    # exit 1 if the committed counters are stale
+```
+
 ## Repository layout
 
 | Path | What it holds |
@@ -130,7 +176,7 @@ python scripts/check_synthesis_freshness.py --overdue  # exit 1 only if a brief 
 | `synthesis/` | L2 curator logic, synthesis lint, cross-theme join |
 | `scripts/` | CLIs — ingest, site + graph + index builders, query engine, liveness + secret scans (full reference: [docs/cli.md](docs/cli.md)) |
 | `vault/` | The published vault — `00 Rules` (L3) · `01 Sources` (L1) · `02 Briefs` (L2) |
-| `site/` | Built read-only site + `graph.json` / `graph.html` knowledge graph |
+| `site/` | Built read-only site + `graph.json` / `graph.html` knowledge graph + `autonomy.json` / `autonomy.html` counters |
 | `sources/registry.json` | Single source of truth — every WorldMonitor subset + its license/theme |
 | `docs/` | Spec, plan, architecture, deploy, security, and per-feature docs |
 | `.github/workflows/` | CI · daily L1 ingest · weekly L2 freshness gate · Pages deploy · secret + privacy scans |

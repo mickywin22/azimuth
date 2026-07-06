@@ -16,7 +16,7 @@ ingest workflow regenerates this in the same run that commits a new L1 day, so t
 counters advance one day at a time while ``--check`` stays green on ``main``.
 
 The one figure that cannot be read out of the repo — the LLM spend — is an explicit,
-**labelled estimate** (weeks of operation × a documented ~$0.60/week order-of-magnitude
+**labelled estimate** (weeks of operation x a documented ~$0.60/week order-of-magnitude
 cost for the single small weekly synthesis job), never a fake-precise metered number.
 
 Usage:
