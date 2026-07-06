@@ -78,6 +78,20 @@ python scripts/build_graph.py --check        # exit 1 if committed graph is stal
 **Layer:** Site · CI asserts the committed graph is in sync. See
 [strategy/okf-and-knowledge-graph.md](strategy/okf-and-knowledge-graph.md).
 
+### `build_autonomy.py` — the autonomy counters
+Builds the "proof it runs itself" counters (`site/autonomy.json` + the visual
+`site/autonomy.html`): days operating, daily L1 ingests committed, L1 source notes, L2
+briefs, data channels, and an explicitly-labelled LLM-spend estimate. Every counter is
+derived from committed vault data (never the wall clock), so it is byte-reproducible and
+CI-guarded — and it re-derives each daily ingest, exactly like the graph and brief index.
+
+```bash
+python scripts/build_autonomy.py             # write site/autonomy.json + autonomy.html
+python scripts/build_autonomy.py --check     # exit 1 if the committed counters are stale (CI guard)
+```
+**Layer:** Site · re-derived daily in [`ingest.yml`](../.github/workflows/ingest.yml); CI
+asserts the committed counters are in sync.
+
 ### `query_graph.py` — query the graph from the CLI
 Answers cross-channel questions over the same `site/graph.json` the visual graph uses.
 Subcommands:

@@ -25,6 +25,7 @@ _REPO_ROOT = Path(__file__).resolve().parent.parent
 if str(_REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(_REPO_ROOT))
 
+from scripts.build_autonomy import build as build_autonomy  # noqa: E402
 from scripts.build_graph import build as build_graph  # noqa: E402
 from synthesis.site_build import build_site  # noqa: E402
 
@@ -55,6 +56,12 @@ def main(argv: list[str] | None = None) -> int:
         f"{len(graph['edges'])} edges ({n_entity} shared entities, "
         f"{n_cross} cross-theme edges)."
     )
+
+    # The autonomy counters (autonomy.json + autonomy.html) — the "proof it runs itself"
+    # surface. Emitted into the site root so the published site (and the README's dynamic
+    # shields.io badges, which read /autonomy.json) resolve after the Pages flip.
+    build_autonomy(out_dir)
+    print("Built autonomy counters: autonomy.json + autonomy.html.")
 
     if args.serve:
         handler = functools.partial(http.server.SimpleHTTPRequestHandler, directory=str(out_dir))
