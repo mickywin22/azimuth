@@ -106,6 +106,7 @@ class Page:
     kind: str  # "brief" | "source" | "rule"
     day: str = ""  # only for source pages
     updated: str = ""  # only for briefs: YYYY-MM-DD from the `updated:` frontmatter
+    theme: str = ""  # only for briefs: the channel key, for the per-channel sparkline
 
 
 @dataclass
@@ -168,8 +169,9 @@ def discover(vault_dir: Path, registry: dict[str, Any]) -> SiteModel:
             # `updated:` is an ISO timestamp in the brief frontmatter; the date part is
             # the visible per-brief freshness signal (card + page header).
             updated = str((fm or {}).get("updated", ""))[:10]
+            theme = str((fm or {}).get("theme", ""))
             out = f"briefs/{_slug(title)}.html"
-            model.briefs.append(Page(out, title, body, "brief", updated=updated))
+            model.briefs.append(Page(out, title, body, "brief", updated=updated, theme=theme))
             # let wikilinks reach a brief by title or by file stem
             model.link_map[title] = out
             model.link_map[path.stem] = out
@@ -293,7 +295,18 @@ def _render_page(page: Page, link_map: dict[str, str], fresh_day: str = "") -> s
     )
 
 
-def _render_index(model: SiteModel, aset: AnswerSet | None = None, fresh_day: str = "") -> str:
+def _render_index(
+    model: SiteModel,
+    aset: AnswerSet | None = None,
+    fresh_day: str = "",
+    pulse: Any = None,
+) -> str:
+    # Build-time sparklines: a KPI is a curve, not a bare number (vault doctrine). `pulse`
+    # carries the per-ingest-day L1 note counts; each brief card gets its channel's trend,
+    # the hero gets the site-wide pulse. Rendered to inline SVG here — no JS, no fetch.
+    from synthesis.sparkline import sparkline_svg  # local: avoids a site_build<->sparkline cycle
+
+    per_theme = getattr(pulse, "per_theme", {}) or {}
     cards = []
     for b in model.briefs:
         card_fresh = (
@@ -301,9 +314,24 @@ def _render_index(model: SiteModel, aset: AnswerSet | None = None, fresh_day: st
             if b.updated
             else ""
         )
+        series = per_theme.get(b.theme, [])
+        if series:
+            spark = sparkline_svg(
+                [float(v) for v in series],
+                label=f"{b.title}: L1 source notes per ingest day, "
+                f"latest {series[-1]} over {len(series)} days",
+            )
+            latest = series[-1]
+            card_spark = (
+                f'<span class="card-spark">{spark}'
+                f'<span class="card-spark-cap"><strong>{latest}</strong> notes/cycle</span>'
+                f"</span>"
+            )
+        else:
+            card_spark = ""
         cards.append(
             f'<a class="card" href="{b.out_path}"><span class="card-kind">L2 Brief</span>'
-            f"<h3>{html.escape(b.title)}</h3>{card_fresh}</a>"
+            f"<h3>{html.escape(b.title)}</h3>{card_fresh}{card_spark}</a>"
         )
     brief_html = "\n".join(cards) or "<p>No active briefs.</p>"
 
@@ -327,6 +355,26 @@ def _render_index(model: SiteModel, aset: AnswerSet | None = None, fresh_day: st
         if fresh_day
         else ""
     )
+    # Hero "vault pulse": the site-wide L1-notes-per-ingest-day curve, baked at build time.
+    pulse_total = list(getattr(pulse, "total", []) or [])
+    pulse_days = list(getattr(pulse, "days", []) or [])
+    if pulse_total:
+        pulse_spark = sparkline_svg(
+            [float(v) for v in pulse_total],
+            width=180,
+            height=34,
+            label=f"L1 source notes ingested per day, latest {pulse_total[-1]} "
+            f"over {len(pulse_total)} ingest days ({pulse_days[0]} to {pulse_days[-1]})",
+        )
+        pulse_html = (
+            f'<div class="pulse" title="L1 source notes ingested per day">'
+            f'<span class="pulse-kind">Vault pulse</span>'
+            f'<span class="pulse-spark">{pulse_spark}</span>'
+            f'<span class="pulse-cap"><strong>{pulse_total[-1]}</strong> L1 source notes '
+            f"this cycle · {len(pulse_total)} ingest days</span></div>"
+        )
+    else:
+        pulse_html = ""
     body = f"""
 <div class="hero">
   <h1>azimuth</h1>
@@ -335,6 +383,7 @@ def _render_index(model: SiteModel, aset: AnswerSet | None = None, fresh_day: st
   <strong>L2 briefs</strong> synthesised from dated <strong>L1 source notes</strong>,
   under one published <a href="editorial.html">editorial line</a>.
   Every claim in a brief links to the data it rests on.</p>
+  {pulse_html}
 </div>
 <a class="demo-cta" href="answers.html">
   <span class="demo-kind">The demonstrator</span>
@@ -684,6 +733,22 @@ padding:1rem 1.1rem;transition:border-color .15s,transform .15s}
 .card:hover{border-color:var(--accent);transform:translateY(-2px);text-decoration:none}
 .card-kind{font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
 .card h3{margin:.4rem 0 0}
+/* build-time sparklines (synthesis/sparkline.py) — colour via currentColor */
+.spark{display:block;overflow:visible}
+.spark-line{stroke:currentColor;stroke-width:1.6;stroke-linejoin:round;stroke-linecap:round;
+vector-effect:non-scaling-stroke}
+.spark-area{fill:currentColor;opacity:.13}
+.spark-dot{fill:currentColor}
+.card-spark{display:flex;align-items:center;gap:.55rem;margin-top:.7rem;color:var(--accent)}
+.card-spark .spark{flex:1;min-width:0}
+.card-spark-cap{font-size:.68rem;color:var(--muted);white-space:nowrap}
+.card-spark-cap strong{color:var(--ink)}
+.pulse{display:flex;align-items:center;gap:.7rem;flex-wrap:wrap;margin:.9rem 0 .2rem;
+padding:.55rem .8rem;background:var(--panel);border:1px solid var(--line);border-radius:10px}
+.pulse-kind{font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);
+font-weight:700}
+.pulse-spark{color:var(--accent);line-height:0}
+.pulse-cap{font-size:.8rem;color:var(--muted)}.pulse-cap strong{color:var(--ink)}
 .demo-cta{display:block;background:linear-gradient(135deg,#15212e,#101722);
 border:1px solid var(--accent);border-radius:14px;padding:1.3rem 1.4rem;margin:1.4rem 0 .5rem;
 transition:transform .15s,box-shadow .15s}
@@ -814,5 +879,11 @@ def build_site(
         _render_benchmark(bench, model.link_map, fresh_day), encoding="utf-8"
     )
 
-    (out_dir / "index.html").write_text(_render_index(model, aset, fresh_day), encoding="utf-8")
+    # Build-time sparkline series: L1 notes per ingest day (site-wide + per surfaced channel).
+    from synthesis.sparkline import daily_source_counts  # local import: sparkline imports us
+
+    pulse = daily_source_counts(vault_dir, registry)
+    (out_dir / "index.html").write_text(
+        _render_index(model, aset, fresh_day, pulse), encoding="utf-8"
+    )
     return model
