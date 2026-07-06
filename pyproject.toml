@@ -84,6 +84,14 @@ dev = [
     "mypy>=1.14,<2",
     "pre-commit>=4.0.0",
 ]
+# Live browser smokes (scripts/smoke_ui.py, smoke_graph.py, smoke_whatif.py) — the runtime
+# gate the token-presence unit tests can't reach. DEV/LOCAL-ONLY: kept out of `dev` so the
+# unit-test + lint CI jobs never pull a browser engine; run `playwright install chromium`
+# once after installing this extra. These prove the site's JS/canvas actually work in a
+# real Chromium (landing centerpiece paints, story mode traces, mobile nav toggles).
+smoke = [
+    "playwright>=1.40",
+]
 
 # Only the three real runtime packages are installable. scripts/ runs directly (adds the
 # repo root to sys.path, no __init__), src/ is empty post-strip, and site/ sources/ vault/

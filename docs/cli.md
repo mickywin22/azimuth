@@ -178,6 +178,23 @@ python scripts/smoke_graph.py
 ```
 **Layer:** Gate (acceptance).
 
+### `smoke_ui.py` — live "incredible UI" smoke
+A live Playwright smoke of the KR1 landing + story-mode surface. Builds the site fresh,
+serves it locally, and opens it in a real Chromium to prove what the token-presence unit
+tests can't reach: the landing **hero graph centerpiece** canvas draws a non-blank graph
+with its live node/bridge badge filled, the **build-time sparklines** (vault pulse + one per
+brief card) render as inline SVG, the **mobile hamburger nav** hides the menu then reveals it
+on tap, and `graph.html` **story mode** drives a real cross-channel Trace on each of its three
+steps (Finish + Escape both exit). Screenshots are banked to `_smoke/` (the landing,
+hero-graph, mobile-nav + story shots are copied into `docs/proof/`). Needs the Playwright
+browser deps installed (`pip install -e ".[smoke]" && playwright install chromium`).
+
+```bash
+python scripts/smoke_ui.py            # builds the site first, then smokes it
+python scripts/smoke_ui.py --no-build # smoke the already-built ./site
+```
+**Layer:** Gate (acceptance).
+
 ---
 
 ## Gates — CI, pre-commit & public-flip
