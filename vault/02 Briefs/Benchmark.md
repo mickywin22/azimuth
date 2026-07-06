@@ -2,8 +2,8 @@
 title: Benchmark — Facts vs Forecast vs Intelligence
 type: L2-brief
 theme: cross-theme
-week: 2026-W27
-updated: 2026-07-05T04:00:00Z
+week: 2026-W28
+updated: 2026-07-06T04:00:00Z
 sources: [crude-oil-inventories, earthquakes, energy-prices, natural-gas-storage-eu]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources; the forecast/intelligence columns quote WorldMonitor as the COMPARED product, not an azimuth channel
@@ -11,7 +11,7 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 # Benchmark — azimuth vs a forecast vs an intelligence feed
 
-> *Why not just read a forecast or an intelligence feed?* Here is the same world-topic through three columns: **azimuth** (observed facts from the live bundle, every claim linked to its L1 source), a **FORECAST** product (a model probability), and an **INTELLIGENCE** product (an analyst assessment). It is a fair contrast, not a strawman: azimuth wins on provenance, neutrality and reproducibility; a forecast / intel feed legitimately wins on **forward-looking coverage** — it predicts, azimuth reports what already happened. The forecast / intelligence columns quote WorldMonitor as the *compared product* (captured 2026-07-05T09:21:14Z), deliberately NOT a clickable L1 link — because that is exactly the difference.
+> *Why not just read a forecast or an intelligence feed?* Here is the same world-topic through three columns: **azimuth** (observed facts from the live bundle, every claim linked to its L1 source), a **FORECAST** product (a model probability), and an **INTELLIGENCE** product (an analyst assessment). It is a fair contrast, not a strawman: azimuth wins on provenance, neutrality and reproducibility; a forecast / intel feed legitimately wins on **forward-looking coverage** — it predicts, azimuth reports what already happened. The forecast / intelligence columns quote WorldMonitor as the *compared product* (captured 2026-07-06T10:59:16Z), deliberately NOT a clickable L1 link — because that is exactly the difference.
 
 ## EU / global energy supply security
 
@@ -25,19 +25,19 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 ### FORECAST product — model projection (compared)
 
-> Assigns a **66% probability** over 30d that “Inflation and rates pressure from Iraq infrastructure fragility state” — confidence 75%, trend stable.
+> Assigns a **61% probability** over 30d that “Inflation and rates pressure from Iraq infrastructure fragility state” — confidence 75%, trend rising.
 >
-> Probability path: d30=66%, d7=92%, h24=95%
+> Probability path: d30=61%, d7=84%, h24=95%
 >
-> — *WorldMonitor forecast feed (model projection), captured 2026-07-05T09:21:14Z*
+> — *WorldMonitor forecast feed (model projection), captured 2026-07-06T10:59:16Z*
 
 ### INTELLIGENCE product — analyst assessment (compared)
 
-> The 66% probability of inflation and rates pressure, driven by 'Iraq infrastructure fragility state' and 46% energy supply shock, signals a significant economic vulnerability in Iraq.
+> The rising probability (61%) of inflation and rates pressure in Iraq, linked to infrastructure fragility and energy supply shock (39% pressure, 57% state confirmation), signals a growing economic vulnerability.
 >
-> Actor lens: Commodity traders: Price whether stress in Iraq becomes durable over the 30d. Rebalance positions if the probability path moves away from 66%.
+> Actor lens: Commodity traders: Price whether stress in Iraq becomes durable over the 30d. Rebalance positions if the probability path moves away from 61%.
 >
-> — *WorldMonitor intelligence assessment (analyst judgement), captured 2026-07-05T09:21:14Z*
+> — *WorldMonitor intelligence assessment (analyst judgement), captured 2026-07-06T10:59:16Z*
 
 ### Scorecard
 
@@ -65,19 +65,19 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 ### FORECAST product — model projection (compared)
 
-> Assigns a **66% probability** over 30d that “Inflation and rates pressure from Iraq infrastructure fragility state” — confidence 75%, trend stable.
+> Assigns a **61% probability** over 30d that “Inflation and rates pressure from Iraq infrastructure fragility state” — confidence 75%, trend rising.
 >
-> Probability path: d30=66%, d7=92%, h24=95%
+> Probability path: d30=61%, d7=84%, h24=95%
 >
-> — *WorldMonitor forecast feed (model projection), captured 2026-07-05T09:21:14Z*
+> — *WorldMonitor forecast feed (model projection), captured 2026-07-06T10:59:16Z*
 
 ### INTELLIGENCE product — analyst assessment (compared)
 
-> The 66% probability of inflation and rates pressure, driven by 'Iraq infrastructure fragility state' and 46% energy supply shock, signals a significant economic vulnerability in Iraq.
+> The rising probability (61%) of inflation and rates pressure in Iraq, linked to infrastructure fragility and energy supply shock (39% pressure, 57% state confirmation), signals a growing economic vulnerability.
 >
-> Actor lens: Commodity traders: Price whether stress in Iraq becomes durable over the 30d. Rebalance positions if the probability path moves away from 66%.
+> Actor lens: Commodity traders: Price whether stress in Iraq becomes durable over the 30d. Rebalance positions if the probability path moves away from 61%.
 >
-> — *WorldMonitor intelligence assessment (analyst judgement), captured 2026-07-05T09:21:14Z*
+> — *WorldMonitor intelligence assessment (analyst judgement), captured 2026-07-06T10:59:16Z*
 
 ### Scorecard
 
@@ -100,7 +100,7 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 ### azimuth — observed facts (Geophysical)
 
-- Largest recorded event this week: M6.2 58 km W of Tobelo, Indonesia — one of 35 events at or above M5 USGS logged, an observed record ([[earthquakes]])
+- Largest recorded event this week: M6.2 58 km W of Tobelo, Indonesia — one of 36 events at or above M5 USGS logged, an observed record ([[earthquakes]])
 - azimuth reports what USGS RECORDED, never what may happen next — a sourced, neutral record of seismicity, regenerable from the open USGS feed ([[earthquakes]])
 
 ### FORECAST product — model projection (compared)
@@ -144,3 +144,4 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 - 2026-07-03 — regenerated the facts-vs-forecast-vs-intelligence benchmark from the 2026-07-03 live bundle (2026-W27); 3 head-to-head topics, every azimuth claim L1-sourced, foil snapshot quoted as the compared product.
 - 2026-07-04 — regenerated the facts-vs-forecast-vs-intelligence benchmark from the 2026-07-04 live bundle (2026-W27); 3 head-to-head topics, every azimuth claim L1-sourced, foil snapshot quoted as the compared product.
 - 2026-07-05 — regenerated the facts-vs-forecast-vs-intelligence benchmark from the 2026-07-05 live bundle (2026-W27); 3 head-to-head topics, every azimuth claim L1-sourced, foil snapshot quoted as the compared product.
+- 2026-07-06 — regenerated the facts-vs-forecast-vs-intelligence benchmark from the 2026-07-06 live bundle (2026-W28); 3 head-to-head topics, every azimuth claim L1-sourced, foil snapshot quoted as the compared product.

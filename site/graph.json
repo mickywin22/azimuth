@@ -70,91 +70,91 @@
       "label": "GIE AGSI+ (Gas Infrastructure Europe)",
       "kind": "source",
       "theme": "energy-supply",
-      "url": "sources/2026-07-05/natural-gas-storage-eu.html"
+      "url": "sources/2026-07-06/natural-gas-storage-eu.html"
     },
     {
       "id": "source:crude-oil-inventories",
       "label": "U.S. EIA (Energy Information Administration)",
       "kind": "source",
       "theme": "energy-supply",
-      "url": "sources/2026-07-05/crude-oil-inventories.html"
+      "url": "sources/2026-07-06/crude-oil-inventories.html"
     },
     {
       "id": "source:fuel-prices",
       "label": "WorldMonitor aggregated fuel-price feed",
       "kind": "source",
       "theme": "energy-supply",
-      "url": "sources/2026-07-05/fuel-prices.html"
+      "url": "sources/2026-07-06/fuel-prices.html"
     },
     {
       "id": "source:energy-prices",
       "label": "WorldMonitor aggregated energy spot/forward feed",
       "kind": "source",
       "theme": "energy-supply",
-      "url": "sources/2026-07-05/energy-prices.html"
+      "url": "sources/2026-07-06/energy-prices.html"
     },
     {
       "id": "source:earthquakes",
       "label": "USGS Earthquake Hazards Program",
       "kind": "source",
       "theme": "geophysical",
-      "url": "sources/2026-07-05/earthquakes.html"
+      "url": "sources/2026-07-06/earthquakes.html"
     },
     {
       "id": "source:climate-anomalies",
       "label": "NOAA / NASA reanalysis regional temperature & precipitation anomalies",
       "kind": "source",
       "theme": "climate-signals",
-      "url": "sources/2026-07-05/climate-anomalies.html"
+      "url": "sources/2026-07-06/climate-anomalies.html"
     },
     {
       "id": "source:co2-monitoring",
       "label": "NOAA Global Monitoring Laboratory (atmospheric CO2 record)",
       "kind": "source",
       "theme": "climate-signals",
-      "url": "sources/2026-07-05/co2-monitoring.html"
+      "url": "sources/2026-07-06/co2-monitoring.html"
     },
     {
       "id": "source:sea-ice-extent",
       "label": "NSIDC / NOAA@NSIDC Sea Ice Index (satellite-passive-microwave sea-ice extent)",
       "kind": "source",
       "theme": "climate-signals",
-      "url": "sources/2026-07-05/sea-ice-extent.html"
+      "url": "sources/2026-07-06/sea-ice-extent.html"
     },
     {
       "id": "source:prediction-markets",
       "label": "Polymarket public odds",
       "kind": "source",
       "theme": "prediction-markets",
-      "url": "sources/2026-07-05/prediction-markets.html"
+      "url": "sources/2026-07-06/prediction-markets.html"
     },
     {
       "id": "source:wildfire-detections",
       "label": "NASA FIRMS (VIIRS active-fire / thermal-anomaly detections)",
       "kind": "source",
       "theme": "environmental-hazards",
-      "url": "sources/2026-07-05/wildfire-detections.html"
+      "url": "sources/2026-07-06/wildfire-detections.html"
     },
     {
       "id": "source:thermal-escalations",
       "label": "NASA FIRMS (VIIRS thermal anomalies, clustered into escalation signals)",
       "kind": "source",
       "theme": "environmental-hazards",
-      "url": "sources/2026-07-05/thermal-escalations.html"
+      "url": "sources/2026-07-06/thermal-escalations.html"
     },
     {
       "id": "source:natural-events",
       "label": "NASA EONET + GDACS (UN-coordinated disaster alerts)",
       "kind": "source",
       "theme": "environmental-hazards",
-      "url": "sources/2026-07-05/natural-events.html"
+      "url": "sources/2026-07-06/natural-events.html"
     },
     {
       "id": "source:radiation-observations",
       "label": "US EPA RadNet + Safecast (ambient radiation measurements)",
       "kind": "source",
       "theme": "environmental-hazards",
-      "url": "sources/2026-07-05/radiation-observations.html"
+      "url": "sources/2026-07-06/radiation-observations.html"
     },
     {
       "id": "entity:united-states",
@@ -170,14 +170,14 @@
         {
           "theme": "energy-supply",
           "source": "fuel-prices",
-          "day": "2026-07-05",
+          "day": "2026-07-06",
           "text": "\u2026Price\": 1.012, \"observedAt\": \"2026-06-29\", \"source\": \"eia.gov\", \"usdPrice\": 1.012, \"wowPct\": -7.61}, \"name\": \"United States\"}, {\"code\": \"AT\", \"currency\": \"EUR\", \"diesel\": {\"grade\": \"Diesel\", \"localPrice\": 1.711, \"observedAt\": \"2026-0\u2026"
         },
         {
           "theme": "environmental-hazards",
           "source": "radiation-observations",
-          "day": "2026-07-05",
-          "text": "\u2026utingSources\": [\"RADIATION_SOURCE_EPA_RADNET\"], \"convertedFromCpm\": false, \"corroborated\": false, \"country\": \"United States\", \"delta\": -0.5, \"freshness\": \"RADIATION_FRESHNESS_LIVE\", \"id\": \"epa:PA:PHILADELPHIA:1783240860000\", \"locatio\u2026"
+          "day": "2026-07-06",
+          "text": "\u2026utingSources\": [\"RADIATION_SOURCE_EPA_RADNET\"], \"convertedFromCpm\": false, \"corroborated\": false, \"country\": \"United States\", \"delta\": 3.7, \"freshness\": \"RADIATION_FRESHNESS_LIVE\", \"id\": \"epa:MA:BOSTON:1783329660000\", \"location\": {\"l\u2026"
         }
       ]
     },
@@ -195,33 +195,8 @@
         {
           "theme": "geophysical",
           "source": "earthquakes",
-          "day": "2026-07-05",
-          "text": "\u20260994, \"longitude\": 125.1161}, \"magnitude\": 4.9, \"occurredAt\": 1783155203610, \"place\": \"51 km SW of Sarangani, Philippines\", \"sourceUrl\": \"https://earthquake.usgs.gov/earthquakes/eventpage/us6000ta31\"}, {\"depthKm\": 182.779, \"id\": \"u\u2026"
-        }
-      ]
-    },
-    {
-      "id": "entity:new-zealand",
-      "label": "New Zealand",
-      "kind": "entity",
-      "entity_kind": "region",
-      "theme": "shared",
-      "themes": [
-        "energy-supply",
-        "geophysical"
-      ],
-      "evidence": [
-        {
-          "theme": "energy-supply",
-          "source": "fuel-prices",
-          "day": "2026-07-05",
-          "text": "\u2026e | | prevFetchedAt | 2026-06-16T06:03:38.308Z | | sourceCount | 6 | | totalSources | 7 | | failedSources | [\"New Zealand\"] | | countryCount | 32 | | allSourcesFresh | false |"
-        },
-        {
-          "theme": "geophysical",
-          "source": "earthquakes",
-          "day": "2026-07-05",
-          "text": "\u20263938, \"longitude\": 174.4645}, \"magnitude\": 5, \"occurredAt\": 1782644652997, \"place\": \"65 km W of Foxton Beach, New Zealand\", \"sourceUrl\": \"https://earthquake.usgs.gov/earthquakes/eventpage/us6000t8t3\"}, {\"depthKm\": 10, \"id\": \"us6000\u2026"
+          "day": "2026-07-06",
+          "text": "\u2026091, \"longitude\": 125.1424}, \"magnitude\": 5.4, \"occurredAt\": 1783327298715, \"place\": \"65 km SSW of Sarangani, Philippines\", \"sourceUrl\": \"https://earthquake.usgs.gov/earthquakes/eventpage/us6000tadj\"}, {\"depthKm\": 35, \"id\": \"us6000\u2026"
         }
       ]
     },
@@ -239,8 +214,8 @@
         {
           "theme": "climate-signals",
           "source": "climate-anomalies",
-          "day": "2026-07-05",
-          "text": "\u2026cipDelta\": 0, \"severity\": \"ANOMALY_SEVERITY_NORMAL\", \"tempDelta\": -2.2, \"type\": \"ANOMALY_TYPE_COLD\", \"zone\": \"California\"}, {\"location\": {\"latitude\": -3.4, \"longitude\": -60}, \"period\": \"2026-06-29 to 2026-07-05\", \"precipDelta\": -2\u2026"
+          "day": "2026-07-06",
+          "text": "\u2026pDelta\": 0.1, \"severity\": \"ANOMALY_SEVERITY_NORMAL\", \"tempDelta\": -1.7, \"type\": \"ANOMALY_TYPE_COLD\", \"zone\": \"California\"}, {\"location\": {\"latitude\": -3.4, \"longitude\": -60}, \"period\": \"2026-06-30 to 2026-07-06\", \"precipDelta\": -2\u2026"
         }
       ]
     },
@@ -258,8 +233,8 @@
         {
           "theme": "geophysical",
           "source": "earthquakes",
-          "day": "2026-07-05",
-          "text": "\u2026601, \"longitude\": -66.8435}, \"magnitude\": 4.6, \"occurredAt\": 1782730863516, \"place\": \"27 km N of Caraballeda, Venezuela\", \"sourceUrl\": \"https://earthquake.usgs.gov/earthquakes/eventpage/us6000t8yf\"}, {\"depthKm\": 10, \"id\": \"us6000\u2026"
+          "day": "2026-07-06",
+          "text": "\u2026601, \"longitude\": -66.8435}, \"magnitude\": 4.6, \"occurredAt\": 1782730863516, \"place\": \"27 km N of Caraballeda, Venezuela\", \"sourceUrl\": \"https://earthquake.usgs.gov/earthquakes/eventpage/us6000t8yf\"}] |"
         }
       ]
     },
@@ -276,7 +251,7 @@
         {
           "theme": "energy-supply",
           "source": "energy-prices",
-          "day": "2026-07-05",
+          "day": "2026-07-06",
           "text": "\u2026r edit by hand. | field | value | | --- | --- | | prices | [{\"change\": -9.6, \"commodity\": \"wti\", \"name\": \"WTI Crude Oil\", \"price\": \"73.59\", \"priceAt\": 1782432000000, \"unit\": \"$/barrel\"}, {\"change\": -9.1, \"commodity\": \"brent\", \"na\u2026"
         }
       ]
@@ -294,7 +269,7 @@
         {
           "theme": "energy-supply",
           "source": "fuel-prices",
-          "day": "2026-07-05",
+          "day": "2026-07-06",
           "text": "\u20267, \"observedAt\": \"2026-07-01\", \"source\": \"data.gov.my\", \"usdPrice\": 0.9707}, \"flag\": \"\ud83c\uddf2\ud83c\uddfe\", \"fxRate\": 0.2445, \"gasoline\": {\"grade\": \"RON95\", \"localPrice\": 3.37, \"observedAt\": \"2026-07-01\", \"source\": \"data.gov.my\", \"usdPrice\": 0.8\u2026"
         }
       ]
@@ -313,14 +288,8 @@
         {
           "theme": "climate-signals",
           "source": "climate-anomalies",
-          "day": "2026-07-05",
-          "text": "\u2026ipDelta\": 0.6, \"severity\": \"ANOMALY_SEVERITY_MODERATE\", \"tempDelta\": 3, \"type\": \"ANOMALY_TYPE_WARM\", \"zone\": \"Ukraine\"}, {\"location\": {\"latitude\": 51, \"longitude\": 10}, \"period\": \"2026-06-29 to 2026-07-05\", \"precipDelta\": -0.4,\u2026"
-        },
-        {
-          "theme": "environmental-hazards",
-          "source": "wildfire-detections",
-          "day": "2026-07-05",
-          "text": "\u2026-07-05-45\", \"location\": {\"latitude\": 49.89514, \"longitude\": 35.12338}, \"possibleExplosion\": false, \"region\": \"Ukraine\", \"satellite\": \"N21\"}, {\"brightness\": 367, \"confidence\": \"FIRE_CONFIDENCE_LOW\", \"dayNight\": \"D\", \"detectedAt\"\u2026"
+          "day": "2026-07-06",
+          "text": "\u2026ipDelta\": 0.7, \"severity\": \"ANOMALY_SEVERITY_NORMAL\", \"tempDelta\": 1.9, \"type\": \"ANOMALY_TYPE_WARM\", \"zone\": \"Ukraine\"}, {\"location\": {\"latitude\": 51, \"longitude\": 10}, \"period\": \"2026-06-30 to 2026-07-06\", \"precipDelta\": -0.4,\u2026"
         }
       ]
     },
@@ -338,13 +307,13 @@
         {
           "theme": "energy-supply",
           "source": "fuel-prices",
-          "day": "2026-07-05",
+          "day": "2026-07-06",
           "text": "\u2026, \"observedAt\": \"2026-06-29\", \"source\": \"energy.ec.europa.eu\", \"usdPrice\": 2.1934, \"wowPct\": -5.85}, \"name\": \"Greece\"}, {\"code\": \"HU\", \"currency\": \"EUR\", \"diesel\": {\"grade\": \"Diesel\", \"localPrice\": 1.6423, \"observedAt\": \"2026-\u2026"
         },
         {
           "theme": "geophysical",
           "source": "earthquakes",
-          "day": "2026-07-05",
+          "day": "2026-07-06",
           "text": "\u20263034, \"longitude\": 27.2953}, \"magnitude\": 5.2, \"occurredAt\": 1782990381727, \"place\": \"23 km SSE of Karpathos, Greece\", \"sourceUrl\": \"https://earthquake.usgs.gov/earthquakes/eventpage/us6000t9lz\"}, {\"depthKm\": 22.124, \"id\": \"us\u2026"
         }
       ]
@@ -363,13 +332,13 @@
         {
           "theme": "energy-supply",
           "source": "fuel-prices",
-          "day": "2026-07-05",
+          "day": "2026-07-06",
           "text": "\u2026: 23.6907, \"observedAt\": \"2026-07-02\", \"source\": \"cre.gob.mx\", \"usdPrice\": 1.3527, \"wowPct\": -1.68}, \"name\": \"Mexico\"}, {\"code\": \"US\", \"currency\": \"USD\", \"diesel\": {\"grade\": \"Diesel\", \"localPrice\": 1.2332, \"observedAt\": \"2026-\u2026"
         },
         {
           "theme": "geophysical",
           "source": "earthquakes",
-          "day": "2026-07-05",
+          "day": "2026-07-06",
           "text": "\u2026, \"longitude\": -109.0169}, \"magnitude\": 5.3, \"occurredAt\": 1782853294191, \"place\": \"95 km SSW of El Progreso, Mexico\", \"sourceUrl\": \"https://earthquake.usgs.gov/earthquakes/eventpage/us6000t9a4\"}, {\"depthKm\": 10, \"id\": \"us6000\u2026"
         }
       ]
@@ -388,13 +357,13 @@
         {
           "theme": "climate-signals",
           "source": "climate-anomalies",
-          "day": "2026-07-05",
-          "text": "\u2026pDelta\": -0.4, \"severity\": \"ANOMALY_SEVERITY_NORMAL\", \"tempDelta\": 1.6, \"type\": \"ANOMALY_TYPE_WARM\", \"zone\": \"Europe\"}, {\"location\": {\"latitude\": 39, \"longitude\": 127}, \"period\": \"2026-06-29 to 2026-07-05\", \"precipDelta\": -4,\u2026"
+          "day": "2026-07-06",
+          "text": "\u2026pDelta\": -0.4, \"severity\": \"ANOMALY_SEVERITY_NORMAL\", \"tempDelta\": 1.2, \"type\": \"ANOMALY_TYPE_WARM\", \"zone\": \"Europe\"}, {\"location\": {\"latitude\": 39, \"longitude\": 127}, \"period\": \"2026-06-30 to 2026-07-06\", \"precipDelta\": -1.2\u2026"
         },
         {
           "theme": "energy-supply",
           "source": "natural-gas-storage-eu",
-          "day": "2026-07-05",
+          "day": "2026-07-06",
           "text": "--- source: \"GIE AGSI+ (Gas Infrastructure Europe)\" source_key: \"natural-gas-storage-eu\" endpoint: \"/api/economic/v1/get-nat-gas-storage\" retrieved: \"2026-07-0\u2026"
         }
       ]
@@ -414,26 +383,20 @@
         {
           "theme": "environmental-hazards",
           "source": "thermal-escalations",
-          "day": "2026-07-05",
-          "text": "\u2026H\", \"context\": \"THERMAL_CONTEXT_CONFLICT_ADJACENT\", \"countDelta\": 331.9, \"countryCode\": \"RU\", \"countryName\": \"Russia\", \"firstDetectedAt\": \"2026-07-05T00:33:00.000Z\", \"frpDelta\": 14644.1, \"id\": \"ru:68-5-156-5:2026070509\", \"last\u2026"
+          "day": "2026-07-06",
+          "text": "\u2026H\", \"context\": \"THERMAL_CONTEXT_CONFLICT_ADJACENT\", \"countDelta\": 196.6, \"countryCode\": \"RU\", \"countryName\": \"Russia\", \"firstDetectedAt\": \"2026-07-06T00:09:00.000Z\", \"frpDelta\": 2032.9, \"id\": \"ru:63-5-170-5:2026070609\", \"lastD\u2026"
         },
         {
           "theme": "environmental-hazards",
           "source": "wildfire-detections",
-          "day": "2026-07-05",
-          "text": "\u202607-05-33\", \"location\": {\"latitude\": 68.56811, \"longitude\": 156.75821}, \"possibleExplosion\": false, \"region\": \"Russia\", \"satellite\": \"N21\"}, {\"brightness\": 330.44, \"confidence\": \"FIRE_CONFIDENCE_NOMINAL\", \"dayNight\": \"D\", \"dete\u2026"
+          "day": "2026-07-06",
+          "text": "\u20267-06-427\", \"location\": {\"latitude\": 62.85624, \"longitude\": 133.83133}, \"possibleExplosion\": false, \"region\": \"Russia\", \"satellite\": \"N20\"}, {\"brightness\": 342.23, \"confidence\": \"FIRE_CONFIDENCE_NOMINAL\", \"dayNight\": \"D\", \"dete\u2026"
         },
         {
           "theme": "geophysical",
           "source": "earthquakes",
-          "day": "2026-07-05",
-          "text": "\u2026\"longitude\": 156.0014}, \"magnitude\": 5.3, \"occurredAt\": 1783237027006, \"place\": \"71 km S of Severo-Kuril\u2019sk, Russia\", \"sourceUrl\": \"https://earthquake.usgs.gov/earthquakes/eventpage/us6000ta86\"}, {\"depthKm\": 531.576, \"id\": \"u\u2026"
-        },
-        {
-          "theme": "prediction-markets",
-          "source": "prediction-markets",
-          "day": "2026-07-05",
-          "text": "\u2026000, \"id\": \"putin-out-before-2027\", \"source\": \"MARKET_SOURCE_POLYMARKET\", \"title\": \"Putin out as President of Russia by December 31, 2026?\", \"url\": \"https://polymarket.com/event/putin-out-before-2027\", \"volume\": 15936075.78041\u2026"
+          "day": "2026-07-06",
+          "text": "\u2026.9525, \"longitude\": 146.4326}, \"magnitude\": 4.5, \"occurredAt\": 1783263989483, \"place\": \"28 km NW of Shikotan, Russia\", \"sourceUrl\": \"https://earthquake.usgs.gov/earthquakes/eventpage/us6000taa3\"}, {\"depthKm\": 10, \"id\": \"us6000\u2026"
         }
       ]
     },
@@ -450,7 +413,7 @@
         {
           "theme": "energy-supply",
           "source": "fuel-prices",
-          "day": "2026-07-05",
+          "day": "2026-07-06",
           "text": "\u2026nsform; never edit by hand. | field | value | | --- | --- | | countries | [{\"code\": \"MY\", \"currency\": \"MYR\", \"diesel\": {\"grade\": \"Euro5\", \"localPrice\": 3.97, \"observedAt\": \"2026-07-01\", \"source\": \"data.gov.my\", \"usdPrice\": 0.9\u2026"
         }
       ]
@@ -479,13 +442,13 @@
         {
           "theme": "environmental-hazards",
           "source": "radiation-observations",
-          "day": "2026-07-05",
+          "day": "2026-07-06",
           "text": "\u2026ributingSources\": [\"RADIATION_SOURCE_SAFECAST\"], \"convertedFromCpm\": true, \"corroborated\": false, \"country\": \"Japan\", \"delta\": 5.7, \"freshness\": \"RADIATION_FRESHNESS_HISTORICAL\", \"id\": \"safecast:jp-fukushima:276622389\", \"loca\u2026"
         },
         {
           "theme": "geophysical",
           "source": "earthquakes",
-          "day": "2026-07-05",
+          "day": "2026-07-06",
           "text": "\u2026tude\": 29.7008, \"longitude\": 142.0588}, \"magnitude\": 4.7, \"occurredAt\": 1783184639362, \"place\": \"Izu Islands, Japan region\", \"sourceUrl\": \"https://earthquake.usgs.gov/earthquakes/eventpage/us6000ta53\"}, {\"depthKm\": 10, \"id\":\u2026"
         }
       ]
@@ -504,14 +467,14 @@
         {
           "theme": "environmental-hazards",
           "source": "natural-events",
-          "day": "2026-07-05",
+          "day": "2026-07-06",
           "text": "\u2026Volcano\", \"sourceUrl\": \"https://volcano.si.edu/volcano.cfm?vn=357070\", \"title\": \"Nevados del Chillan Volcano, Chile\"}, {\"category\": \"seaLakeIce\", \"categoryTitle\": \"Sea and Lake Ice\", \"closed\": false, \"date\": 1783036800000, \"d\u2026"
         },
         {
           "theme": "geophysical",
           "source": "earthquakes",
-          "day": "2026-07-05",
-          "text": "\u2026-30.9133, \"longitude\": -71.4792}, \"magnitude\": 5, \"occurredAt\": 1783134573198, \"place\": \"43 km SW of Ovalle, Chile\", \"sourceUrl\": \"https://earthquake.usgs.gov/earthquakes/eventpage/us6000ta18\"}, {\"depthKm\": 388.05, \"id\": \"us\u2026"
+          "day": "2026-07-06",
+          "text": "\u20269.1964, \"longitude\": -72.0113}, \"magnitude\": 5, \"occurredAt\": 1783266813718, \"place\": \"106 km NW of Coquimbo, Chile\", \"sourceUrl\": \"https://earthquake.usgs.gov/earthquakes/eventpage/us6000taab\"}, {\"depthKm\": 10, \"id\": \"us6000\u2026"
         }
       ]
     },
@@ -528,7 +491,7 @@
         {
           "theme": "energy-supply",
           "source": "energy-prices",
-          "day": "2026-07-05",
+          "day": "2026-07-06",
           "text": "\u2026I Crude Oil\", \"price\": \"73.59\", \"priceAt\": 1782432000000, \"unit\": \"$/barrel\"}, {\"change\": -9.1, \"commodity\": \"brent\", \"name\": \"Brent Crude Oil\", \"price\": \"73.63\", \"priceAt\": 1782432000000, \"unit\": \"$/barrel\"}] |"
         }
       ]
@@ -546,13 +509,13 @@
         {
           "theme": "energy-supply",
           "source": "crude-oil-inventories",
-          "day": "2026-07-05",
-          "text": "--- source: \"U.S. EIA (Energy Information Administration)\" source_key: \"crude-oil-inventories\" endpoint: \"/api/economic/v1/get-crude-inventories\" retrieved: \"2026-07-05T09:20:47Z\" license\u2026"
+          "day": "2026-07-06",
+          "text": "--- source: \"U.S. EIA (Energy Information Administration)\" source_key: \"crude-oil-inventories\" endpoint: \"/api/economic/v1/get-crude-inventories\" retrieved: \"2026-07-06T10:58:49Z\" license\u2026"
         },
         {
           "theme": "energy-supply",
           "source": "energy-prices",
-          "day": "2026-07-05",
+          "day": "2026-07-06",
           "text": "\u2026r edit by hand. | field | value | | --- | --- | | prices | [{\"change\": -9.6, \"commodity\": \"wti\", \"name\": \"WTI Crude Oil\", \"price\": \"73.59\", \"priceAt\": 1782432000000, \"unit\": \"$/barrel\"}, {\"change\": -9.1, \"commodity\": \"brent\",\u2026"
         }
       ]
@@ -570,7 +533,7 @@
         {
           "theme": "energy-supply",
           "source": "energy-prices",
-          "day": "2026-07-05",
+          "day": "2026-07-06",
           "text": "\u2026tim transform; never edit by hand. | field | value | | --- | --- | | prices | [{\"change\": -9.6, \"commodity\": \"wti\", \"name\": \"WTI Crude Oil\", \"price\": \"73.59\", \"priceAt\": 1782432000000, \"unit\": \"$/barrel\"}, {\"change\": -9.1,\u2026"
         }
       ]
@@ -595,7 +558,7 @@
         "geophysical"
       ],
       "magnitude": 6.2,
-      "url": "sources/2026-07-05/earthquakes.html"
+      "url": "sources/2026-07-06/earthquakes.html"
     },
     {
       "id": "event:us6000t9sj",
@@ -607,7 +570,7 @@
         "geophysical"
       ],
       "magnitude": 6.1,
-      "url": "sources/2026-07-05/earthquakes.html"
+      "url": "sources/2026-07-06/earthquakes.html"
     },
     {
       "id": "event:us6000t9ej",
@@ -619,7 +582,7 @@
         "geophysical"
       ],
       "magnitude": 6,
-      "url": "sources/2026-07-05/earthquakes.html"
+      "url": "sources/2026-07-06/earthquakes.html"
     },
     {
       "id": "event:us6000t99j",
@@ -631,7 +594,7 @@
         "geophysical"
       ],
       "magnitude": 6,
-      "url": "sources/2026-07-05/earthquakes.html"
+      "url": "sources/2026-07-06/earthquakes.html"
     },
     {
       "id": "event:us6000t9tf",
@@ -643,19 +606,19 @@
         "geophysical"
       ],
       "magnitude": 5.9,
-      "url": "sources/2026-07-05/earthquakes.html"
+      "url": "sources/2026-07-06/earthquakes.html"
     },
     {
-      "id": "event:us6000t9hu",
-      "label": "M5.7 \u00b7 Hihifo, Tonga",
+      "id": "event:us6000tadc",
+      "label": "M5.8 \u00b7 Sarangani, Philippines",
       "kind": "entity",
       "entity_kind": "event",
       "theme": "geophysical",
       "themes": [
         "geophysical"
       ],
-      "magnitude": 5.7,
-      "url": "sources/2026-07-05/earthquakes.html"
+      "magnitude": 5.8,
+      "url": "sources/2026-07-06/earthquakes.html"
     }
   ],
   "edges": [
@@ -814,32 +777,6 @@
       "rel": "named-in"
     },
     {
-      "source": "entity:new-zealand",
-      "target": "brief:energy-supply-weekly",
-      "cross_theme": true,
-      "rel": "mentioned-in",
-      "weight": 1
-    },
-    {
-      "source": "entity:new-zealand",
-      "target": "source:fuel-prices",
-      "cross_theme": false,
-      "rel": "named-in"
-    },
-    {
-      "source": "entity:new-zealand",
-      "target": "brief:geophysical-weekly",
-      "cross_theme": true,
-      "rel": "mentioned-in",
-      "weight": 1
-    },
-    {
-      "source": "entity:new-zealand",
-      "target": "source:earthquakes",
-      "cross_theme": false,
-      "rel": "named-in"
-    },
-    {
       "source": "entity:california",
       "target": "brief:climate-signals-weekly",
       "cross_theme": true,
@@ -923,13 +860,7 @@
       "target": "brief:environmental-hazards-weekly",
       "cross_theme": true,
       "rel": "mentioned-in",
-      "weight": 1
-    },
-    {
-      "source": "entity:ukraine",
-      "target": "source:wildfire-detections",
-      "cross_theme": false,
-      "rel": "named-in"
+      "weight": 0
     },
     {
       "source": "entity:greece",
@@ -1046,13 +977,7 @@
       "target": "brief:prediction-markets-weekly",
       "cross_theme": true,
       "rel": "mentioned-in",
-      "weight": 1
-    },
-    {
-      "source": "entity:russia",
-      "target": "source:prediction-markets",
-      "cross_theme": false,
-      "rel": "named-in"
+      "weight": 0
     },
     {
       "source": "entity:diesel",
@@ -1233,10 +1158,16 @@
       "rel": "located-in"
     },
     {
-      "source": "event:us6000t9hu",
+      "source": "event:us6000tadc",
       "target": "brief:geophysical-weekly",
       "cross_theme": false,
       "rel": "reported-in"
+    },
+    {
+      "source": "event:us6000tadc",
+      "target": "entity:philippines",
+      "cross_theme": false,
+      "rel": "located-in"
     }
   ]
 }
