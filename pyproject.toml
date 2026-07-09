@@ -62,6 +62,14 @@ Documentation = "https://github.com/mickywin22/azimuth/tree/main/docs"
 site = [
     "markdown>=3.7",
 ]
+# Linked-data export (scripts/build_rdf.py -> schema.ttl + data.ttl beside the site). rdflib is
+# a DEV/CI-ONLY tool: it lifts the vault/ OKF bundle into RDF via the Vault-LD OKF compatibility
+# profile (SPEC Appendix B), and runs in the `linked-data` CI job + the (flip-gated) Pages build
+# ONLY -- never on the pure-stdlib ingest/guardrail runtime path, so `dependencies` stays empty.
+# Kept separate from `site` + `dev` so neither pulls a graph library it does not need.
+ld = [
+    "rdflib>=7.0",
+]
 dev = [
     "pytest>=8.3.0",
     "pytest-cov>=6.0.0",
@@ -75,6 +83,14 @@ dev = [
     "ruff>=0.15,<0.16",
     "mypy>=1.14,<2",
     "pre-commit>=4.0.0",
+]
+# Live browser smokes (scripts/smoke_ui.py, smoke_graph.py, smoke_whatif.py) — the runtime
+# gate the token-presence unit tests can't reach. DEV/LOCAL-ONLY: kept out of `dev` so the
+# unit-test + lint CI jobs never pull a browser engine; run `playwright install chromium`
+# once after installing this extra. These prove the site's JS/canvas actually work in a
+# real Chromium (landing centerpiece paints, story mode traces, mobile nav toggles).
+smoke = [
+    "playwright>=1.40",
 ]
 
 # Only the three real runtime packages are installable. scripts/ runs directly (adds the

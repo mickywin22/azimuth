@@ -557,13 +557,35 @@ font-size:.8rem;line-height:1.35;color:#e7edf5;box-shadow:0 4px 14px rgba(0,0,0,
 color:#e7edf5;border-radius:7px;font:inherit;font-size:1rem;line-height:1;cursor:pointer}
 .gctrls button:hover{background:#1d2735}
 .ghint{font-size:.78rem;color:#8a97a8;margin:.3rem 0 0}
+/* story mode: guided tour of three cross-channel traces */
+.gquery button#qstory{background:transparent;color:#ffd166;border:1px solid #6b5a1f;font-weight:600}
+.gquery button#qstory:hover{background:#211b0c;color:#ffe08a}
+#gstory{margin:.6rem 0 0;padding:.75rem .9rem;background:linear-gradient(150deg,#161c26,#11151d);
+  border:1px solid #3a4658;border-left:3px solid #ffd166;border-radius:10px;max-width:640px}
+.story-head{display:flex;justify-content:space-between;align-items:center;gap:.6rem}
+.story-step{font-size:.72rem;letter-spacing:.09em;text-transform:uppercase;color:#ffd166;font-weight:700}
+.story-x{appearance:none;background:none;border:1px solid #3a4658;border-radius:6px;color:#8a97a8;
+  cursor:pointer;font-size:.8rem;line-height:1;padding:.2rem .45rem}
+.story-x:hover{color:#e7edf5;border-color:#4a90d9}
+.story-title{margin:.25rem 0 .2rem;font-size:1.02rem;color:#e7edf5;font-family:Rajdhani,Inter,sans-serif}
+.story-text{margin:.2rem 0 .6rem;font-size:.88rem;color:#c7d2df;line-height:1.5}
+.story-nav{display:flex;gap:.5rem}
+.story-nav button{appearance:none;border:1px solid #2a3a4d;background:transparent;color:#c7d2df;
+  border-radius:7px;font:inherit;font-size:.82rem;padding:.32rem .8rem;cursor:pointer}
+.story-nav button:hover:not(:disabled){border-color:#4a90d9;color:#e7edf5}
+.story-nav button:disabled{opacity:.4;cursor:default}
+.story-nav button.story-primary{background:#4cc2ff;color:#08121b;border-color:#4cc2ff;font-weight:600}
+.story-nav button.story-primary:hover{background:#6cceff}
 </style>
 </head><body>
 <header class="nav">
   <a class="brand" href="index.html">azimuth</a>
+  <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation menu">
+  <label for="nav-toggle" class="nav-burger" title="Menu"><span></span><span></span><span></span></label>
   <nav>
     <a href="answers.html">Ask the data</a>
     <a href="benchmark.html">Benchmark</a>
+    <a href="graph.html" aria-current="page">Knowledge graph</a>
     <a href="index.html">Briefs</a>
     <a href="index.html#sources">Sources</a>
     <a href="editorial.html">Editorial line</a>
@@ -593,11 +615,24 @@ the queryable half a static bundle cannot answer.</p>
   <button id="qgo" type="button">Trace</button>
   <button id="qclear" type="button">Clear</button>
   <button id="qshare" type="button" title="Copy a link to this view">&#x1F517; Copy link</button>
+  <button id="qstory" type="button" title="Take the guided tour of three cross-channel connections">&#x25B6; Story mode</button>
   <span class="qlabel" style="margin-left:.6rem">Find:</span>
   <input id="gsearch" list="gsearchlist" type="search" placeholder="node name…"
     autocomplete="off" aria-label="Find a node by name">
   <datalist id="gsearchlist"></datalist>
   <p id="qout" class="qout"></p>
+</div>
+<div id="gstory" hidden role="region" aria-label="Guided tour" aria-live="polite">
+  <div class="story-head">
+    <span class="story-step" id="story-step"></span>
+    <button id="story-exit" type="button" class="story-x" aria-label="Exit story mode">&#x2715;</button>
+  </div>
+  <h3 id="story-title" class="story-title"></h3>
+  <p id="story-text" class="story-text"></p>
+  <div class="story-nav">
+    <button id="story-prev" type="button">&#x2190; Back</button>
+    <button id="story-next" type="button" class="story-primary">Next &#x2192;</button>
+  </div>
 </div>
 <div id="gwrap">
   <canvas id="g" tabindex="0" role="application"
@@ -908,6 +943,66 @@ if (qa && qb) {
     HILITE = null; document.getElementById("qout").textContent = "";
     VIEW.trace = null; syncHash(); mark();
   });
+}
+// --- story mode: a guided tour of three cross-channel connections ------------
+// Walks a first-time visitor through the whole point of the page: pick two channels,
+// Trace, watch the gold bridges the live data draws between them. Each step drives the
+// SAME trace() the manual control uses — so qout carries the real, current bridges, never
+// a canned sentence — then frames why it matters and refits the view so the whole
+// highlighted path is visible. Steps whose channels aren't in this build (held themes)
+// drop out, so the tour never points at a channel the public site doesn't show.
+const STORY = [
+  { a: "energy-supply", b: "geophysical",
+    title: "Energy meets the ground it sits on",
+    text: "Energy supply and raw seismicity look unrelated — until you see the regions named in BOTH feeds this week. Every gold diamond is a place the energy data and the earthquake data each record. That shared ground is a link no single feed can draw; click a gold diamond to read the literal source lines." },
+  { a: "climate-signals", b: "energy-supply",
+    title: "Climate meets energy",
+    text: "Climate anomalies and the energy channel meet on shared regions — a place carrying both a temperature or precipitation anomaly and an energy record. Two channels, one ground, joined by the gold bridge below." },
+  { a: "environmental-hazards", b: "geophysical",
+    title: "Hazards meet seismicity",
+    text: "Hazard monitoring — fire, radiation, disaster alerts — and the earthquake feed overlap on the regions both channels report. Watch the gold path connect the two: the queryable half a static bundle cannot answer." },
+];
+const storyThemes = new Set(briefNodes.map(b => b.theme));
+const STEPS = STORY.filter(s => storyThemes.has(s.a) && storyThemes.has(s.b));
+const gstory = document.getElementById("gstory");
+const qstory = document.getElementById("qstory");
+let storyi = -1;
+function renderStory() {
+  if (!gstory || storyi < 0 || storyi >= STEPS.length) return;
+  const s = STEPS[storyi];
+  document.getElementById("story-step").textContent = "Story " + (storyi + 1) + " of " + STEPS.length;
+  document.getElementById("story-title").textContent = s.title;
+  document.getElementById("story-text").textContent = s.text;
+  document.getElementById("story-prev").disabled = storyi === 0;
+  document.getElementById("story-next").textContent = storyi === STEPS.length - 1 ? "Finish" : "Next →";
+  // drive the real trace, then refit the whole graph so the highlighted path is visible
+  if (qa && qb) { qa.value = s.a; qb.value = s.b; trace(); VIEW.trace = [s.a, s.b]; syncHash(); }
+  userView = false; resize(); mark();
+}
+function startStory() {
+  if (!gstory || !STEPS.length) return;
+  gstory.hidden = false; storyi = 0; renderStory();
+  gstory.scrollIntoView({ block: "nearest" });
+}
+function exitStory() {
+  if (!gstory || gstory.hidden) return;
+  gstory.hidden = true; storyi = -1;
+  HILITE = null;
+  const out = document.getElementById("qout"); if (out) out.textContent = "";
+  VIEW.trace = null; syncHash(); mark();
+}
+if (qstory) qstory.addEventListener("click", () => {
+  if (gstory && gstory.hidden) startStory(); else exitStory();
+});
+if (gstory) {
+  document.getElementById("story-next").addEventListener("click", () => {
+    if (storyi >= STEPS.length - 1) exitStory(); else { storyi++; renderStory(); }
+  });
+  document.getElementById("story-prev").addEventListener("click", () => {
+    if (storyi > 0) { storyi--; renderStory(); }
+  });
+  document.getElementById("story-exit").addEventListener("click", exitStory);
+  document.addEventListener("keydown", ev => { if (ev.key === "Escape") exitStory(); });
 }
 // --- search: jump to any node by name --------------------------------------
 // Type a node name (autocompleted from every label); on select the view centres

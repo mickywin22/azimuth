@@ -40,6 +40,7 @@ token-presence unit tests can't reach):
 | Source-line evidence | `graph-evidence.png` | click/tap a shared entity (or walk to it and press **Enter**) and the page **quotes the literal dated L1 source line from each channel that names it**, deep-linked to the per-day source page — the in-browser `query_graph.py evidence`: a bridge is not asserted, it is proven |
 | Keyboard nav | `graph-keyboard.png` | canvas focused, **ArrowRight** walks to the most-connected node, re-centres the view, and a polite live region announces it (*"…: L2 brief · 18 links — press Enter to open. Node 1 of 35."*) — the graph is usable with no mouse |
 | Mobile responsive | `graph-mobile.png` | the graph fits a 390 px phone viewport (Michael's primary device) |
+| Site discoverability | `site-index-graph-cta.png` | the site front door links the graph twice: the **Knowledge graph** nav entry on every page and the gold index CTA card, whose node/edge/bridge counts are filled live from the published `graph.json` (at capture: *48 nodes, 88 edges, 11 cross-channel bridges*) — verified in Chromium including the click-through landing on `graph.html` |
 
 The smoke also **dispatches a real one-finger touch-drag** on a touch-emulated
 device and asserts the canvas pixels change (mobile pan/pinch), and **presses
@@ -53,3 +54,35 @@ features present in the rendered HTML,
 · embedded JS `node --check` · `build_graph.py --check` in sync · `ruff` + `mypy`
 clean · live Playwright smoke (`scripts/smoke_graph.py`) · screenshots above.
 Regenerate any time by `python scripts/smoke_graph.py`.
+
+---
+
+# The "incredible UI" landing + story-mode proof (Azimuth KR1)
+
+KR1 makes the front door itself the demonstrator. The landing (`index.html`) leads with
+the **knowledge graph as the hero centerpiece** — a live canvas drawn from the published
+`graph.json`, not a static screenshot — over a **build-time "vault pulse" sparkline** and
+one **inline-SVG sparkline per brief card**, all baked at build time (no runtime data
+call). A **responsive hamburger nav** carries the six-entry menu on a phone, and
+`graph.html` gains a **story mode**: a guided three-step tour that drives a real cross-channel
+**Trace** on each step, so a first-time visitor is shown *why* the graph matters instead of
+facing a cold canvas. `scripts/smoke_ui.py` opens the built site in a **real Chromium** and
+proves every piece end-to-end — the runtime boundary the token-presence unit tests can't
+cross:
+
+| Proof | File | What it shows |
+|-------|------|---------------|
+| Landing hero (desktop) | `landing-desktop.png` | the whole front door — the graph centerpiece canvas over the vault-pulse sparkline, live node/bridge badge, and brief cards each with their own sparkline |
+| Hero graph centerpiece | `landing-hero-graph.png` | the hero `<canvas>` alone — a non-blank, laid-out mini knowledge-graph (smoke asserts ≥1500 non-transparent pixels; at capture **10 958 px** drawn) with its **"48 nodes · 11 cross-channel bridges"** badge filled live from `graph.json` |
+| Mobile nav fix | `landing-mobile-nav.png` | at a 390 px phone viewport the flat nav is collapsed behind the burger, then **revealed on tap** (the overflow the burger fixes) — the six-entry menu opens cleanly over the pulse strip |
+| Graph story mode | `graph-story.png` | `graph.html` story mode, **STORY 1 OF 3** — the guided tour drives a live Trace ("Energy meets the ground it sits on") whose output names the real shared bridge entities; the smoke walks all three steps and asserts each ran a real Trace, then that **Finish** and **Escape** both exit cleanly |
+
+The smoke's checks (all **PASS** at capture): hero canvas non-blank · badge filled from
+`graph.json` · ≥6 sparklines rendered (hero + cards) · vault-pulse strip visible · burger
+visible at phone width · nav hidden before tap · nav revealed after tap · three story steps
+labelled + each drives a real Trace (3/3) · Finish exits · Escape exits.
+
+Acceptance gates (all green): unit token guards (hero-centerpiece + sparkline + burger-nav +
+story-mode markup present in the built HTML) · `ruff` + `mypy` clean · live Playwright smoke
+(`scripts/smoke_ui.py`) · screenshots above. Regenerate any time by
+`python scripts/smoke_ui.py`.

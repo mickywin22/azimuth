@@ -78,6 +78,23 @@ python scripts/build_graph.py --check        # exit 1 if committed graph is stal
 **Layer:** Site · CI asserts the committed graph is in sync. See
 [strategy/okf-and-knowledge-graph.md](strategy/okf-and-knowledge-graph.md).
 
+### `build_rdf.py` — lift the vault into RDF (schema.ttl + data.ttl)
+Lifts the `vault/` OKF bundle into a linked-data graph via the **Vault-LD OKF compatibility
+profile** (SPEC Appendix B): reads the committed composed context (`vault/context.jsonld` +
+`vault/ontology/azimuth.context.jsonld`), then emits `schema.ttl` (the ontology) + `data.ttl`
+(every note as a typed subject) beside the static site, and copies the context so the graph is
+self-describing. Held themes are excluded, exactly as the site build excludes them. `rdflib`
+is a **CI-only** dependency (the `ld` extra) — the runtime stays pure-stdlib.
+
+```bash
+uv pip install -e ".[ld]"                    # one-time: the CI-only rdflib extra
+python scripts/build_rdf.py                   # write site/schema.ttl + site/data.ttl (+ context)
+python scripts/build_rdf.py --out DIR         # write into DIR (the Pages build uses _site)
+python scripts/build_rdf.py --check           # build + validate in-memory, write nothing (CI gate)
+```
+**Layer:** Site (linked-data export) · the `linked-data` CI job runs `--check`. See
+[linked-data.md](linked-data.md).
+
 ### `query_graph.py` — query the graph from the CLI
 Answers cross-channel questions over the same `site/graph.json` the visual graph uses.
 Subcommands:
@@ -158,6 +175,23 @@ installed.
 
 ```bash
 python scripts/smoke_graph.py
+```
+**Layer:** Gate (acceptance).
+
+### `smoke_ui.py` — live "incredible UI" smoke
+A live Playwright smoke of the KR1 landing + story-mode surface. Builds the site fresh,
+serves it locally, and opens it in a real Chromium to prove what the token-presence unit
+tests can't reach: the landing **hero graph centerpiece** canvas draws a non-blank graph
+with its live node/bridge badge filled, the **build-time sparklines** (vault pulse + one per
+brief card) render as inline SVG, the **mobile hamburger nav** hides the menu then reveals it
+on tap, and `graph.html` **story mode** drives a real cross-channel Trace on each of its three
+steps (Finish + Escape both exit). Screenshots are banked to `_smoke/` (the landing,
+hero-graph, mobile-nav + story shots are copied into `docs/proof/`). Needs the Playwright
+browser deps installed (`pip install -e ".[smoke]" && playwright install chromium`).
+
+```bash
+python scripts/smoke_ui.py            # builds the site first, then smokes it
+python scripts/smoke_ui.py --no-build # smoke the already-built ./site
 ```
 **Layer:** Gate (acceptance).
 

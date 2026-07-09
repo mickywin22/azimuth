@@ -24,6 +24,7 @@ and quick start; come here to go deep.
 | [synthesis.md](synthesis.md) | L2 synthesis engine — how per-theme briefs evolve from the L1 notes. |
 | [source-guardrail.md](source-guardrail.md) | The L3 source guardrail — per-source license + content check enforced in CI. |
 | [cli.md](cli.md) | CLI reference — every command under `scripts/`, how to run it, and the layer/gate it serves. |
+| [linked-data.md](linked-data.md) | The linked-data lift — the `vault/` OKF bundle exported to RDF (`schema.ttl` + `data.ttl`) via the Vault-LD OKF compatibility profile; composed context, CI-only tooling, editorial exclusion, honest scope. |
 | [doc-links.md](doc-links.md) | The documentation gates — no dead relative Markdown link *and* no orphaned (unreachable) doc reaches the public front door. |
 | [sources/worldmonitor-channel-audit.md](sources/worldmonitor-channel-audit.md) | Which WorldMonitor channels are surfaced, and why (full-universe audit). |
 

@@ -142,3 +142,79 @@ def test_index_carries_freshness_badge(tmp_path: Path) -> None:
     assert "updated 2026-06-19" in brief_text
     # every page header carries the site-wide badge too
     assert "Data as of 2026-06-20" in brief_text
+
+
+def test_graph_is_discoverable_from_the_site(tmp_path: Path) -> None:
+    """KR-B: the knowledge graph is reachable from every page, not a hidden URL.
+
+    graph.html sat orphaned — rendered next to the site but linked from nowhere, so a
+    visitor landing on index.html could never find the flagship KG visualization. Guard
+    both discovery surfaces: the site-wide nav link (root-relative on subdir pages) and
+    the index CTA card with its live-count fill from the published graph.json.
+    """
+    vault = _make_vault(tmp_path)
+    out = tmp_path / "site"
+    (tmp_path / "registry.json").write_text(json.dumps(_REGISTRY), encoding="utf-8")
+    build_site(out, vault_dir=vault, registry_path=tmp_path / "registry.json")
+
+    index_text = (out / "index.html").read_text(encoding="utf-8")
+    assert '<a href="graph.html">Knowledge graph</a>' in index_text
+    # the index CTA card: gold graph card + the progressive live-count enhancement
+    assert 'class="demo-cta graph-cta" href="graph.html"' in index_text
+    assert 'id="graph-cta-stats"' in index_text
+    assert 'fetch("graph.json")' in index_text
+
+    # subdir pages prefix the nav with {root} — a brief page must link ../graph.html
+    brief_text = (out / "briefs" / "energy-supply-weekly.html").read_text(encoding="utf-8")
+    assert '<a href="../graph.html">Knowledge graph</a>' in brief_text
+
+
+def test_nav_is_mobile_responsive(tmp_path: Path) -> None:
+    """AZ-KR1 'incredible UI': the 6-link nav collapses behind a pure-CSS hamburger.
+
+    On a phone the flat nav overflowed the header; the fix is a checkbox+label burger
+    (no JS, so it works on the static file:// preview and in reduced-JS environments).
+    Guard both halves: the markup on every page and the toggle CSS in the shared sheet.
+    """
+    vault = _make_vault(tmp_path)
+    out = tmp_path / "site"
+    (tmp_path / "registry.json").write_text(json.dumps(_REGISTRY), encoding="utf-8")
+    build_site(out, vault_dir=vault, registry_path=tmp_path / "registry.json")
+
+    # the burger markup rides on the shared page template — on the index and subdir pages
+    for page in ("index.html", "briefs/energy-supply-weekly.html"):
+        text = (out / page).read_text(encoding="utf-8")
+        assert 'type="checkbox" id="nav-toggle" class="nav-toggle"' in text
+        assert 'class="nav-burger"' in text
+
+    css = (out / "assets" / "style.css").read_text(encoding="utf-8")
+    # burger hidden on desktop, revealed + wired to the checkbox inside the mobile query
+    assert ".nav-burger{display:none" in css
+    assert ".nav-toggle:checked~nav{display:flex}" in css
+    assert "@media(max-width:720px)" in css
+
+
+def test_landing_has_graph_centerpiece(tmp_path: Path) -> None:
+    """AZ-KR1 'incredible UI': the knowledge graph IS the landing hero.
+
+    A canvas centerpiece draws a settled mini-graph from graph.json and links through to the
+    full interactive view. Guard the markup + the drawing script + its CSS; the live paint
+    (non-blank canvas) is proven separately by the Playwright smoke.
+    """
+    vault = _make_vault(tmp_path)
+    out = tmp_path / "site"
+    (tmp_path / "registry.json").write_text(json.dumps(_REGISTRY), encoding="utf-8")
+    build_site(out, vault_dir=vault, registry_path=tmp_path / "registry.json")
+
+    index_text = (out / "index.html").read_text(encoding="utf-8")
+    # the clickable centerpiece: canvas + live-count badge + a link to the full graph
+    assert '<canvas id="herograph"' in index_text
+    assert 'class="hero-graph" href="graph.html"' in index_text
+    assert 'id="hero-graph-count"' in index_text
+    # the drawing script fetches the published graph and reveals the canvas on success
+    assert 'document.getElementById("herograph")' in index_text
+    assert 'classList.add("is-live")' in index_text
+
+    css = (out / "assets" / "style.css").read_text(encoding="utf-8")
+    assert ".hero-graph{position:relative" in css
+    assert ".hero-graph.is-live canvas{opacity:1}" in css

@@ -7,6 +7,17 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 ## [Unreleased]
 
 ### Added
+- **The knowledge graph is now discoverable from the site front door (2026-07-03, KR-B):**
+  `graph.html` rendered next to the site but was linked from nowhere — no nav entry, no index
+  card — so a visitor could never find the flagship KG visualization. The site-wide nav (every
+  page, `synthesis/site_build.py`) and the graph page's own nav (`scripts/build_graph.py`,
+  marked `aria-current`) now carry a **Knowledge graph** entry, and the index gains a gold CTA
+  card whose node/edge/bridge counts fill live from the published `graph.json` (progressive
+  enhancement — the card reads fine if the fetch fails). Guarded by
+  `test_graph_is_discoverable_from_the_site` (nav on root + subdir pages, card, live-count
+  script) and a nav-parity token in the SOTA guard; proof
+  `docs/proof/site-index-graph-cta.png` (Chromium: counts filled, click-through lands on
+  `graph.html`).
 - **Source-line evidence in the page — the graph now PROVES its bridges (2026-07-03, KR-B):**
   the viz could name *which* L1 notes back a bridge (`named-in` edges) but not show the text.
   The builder now embeds bounded per-theme quotes on every entity node (first whole-word

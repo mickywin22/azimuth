@@ -106,6 +106,7 @@ class Page:
     kind: str  # "brief" | "source" | "rule"
     day: str = ""  # only for source pages
     updated: str = ""  # only for briefs: YYYY-MM-DD from the `updated:` frontmatter
+    theme: str = ""  # only for briefs: the channel key, for the per-channel sparkline
 
 
 @dataclass
@@ -168,8 +169,9 @@ def discover(vault_dir: Path, registry: dict[str, Any]) -> SiteModel:
             # `updated:` is an ISO timestamp in the brief frontmatter; the date part is
             # the visible per-brief freshness signal (card + page header).
             updated = str((fm or {}).get("updated", ""))[:10]
+            theme = str((fm or {}).get("theme", ""))
             out = f"briefs/{_slug(title)}.html"
-            model.briefs.append(Page(out, title, body, "brief", updated=updated))
+            model.briefs.append(Page(out, title, body, "brief", updated=updated, theme=theme))
             # let wikilinks reach a brief by title or by file stem
             model.link_map[title] = out
             model.link_map[path.stem] = out
@@ -246,9 +248,12 @@ _PAGE_TEMPLATE = """<!DOCTYPE html>
 </head><body>
 <header class="nav">
   <a class="brand" href="{root}index.html">azimuth</a>
+  <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation menu">
+  <label for="nav-toggle" class="nav-burger" title="Menu"><span></span><span></span><span></span></label>
   <nav>
     <a href="{root}answers.html">Ask the data</a>
     <a href="{root}benchmark.html">Benchmark</a>
+    <a href="{root}graph.html">Knowledge graph</a>
     <a href="{root}index.html">Briefs</a>
     <a href="{root}index.html#sources">Sources</a>
     <a href="{root}editorial.html">Editorial line</a>
@@ -290,7 +295,126 @@ def _render_page(page: Page, link_map: dict[str, str], fresh_day: str = "") -> s
     )
 
 
-def _render_index(model: SiteModel, aset: AnswerSet | None = None, fresh_day: str = "") -> str:
+# Landing centerpiece: a settled mini knowledge-graph, drawn on a canvas straight from the
+# published graph.json — the graph IS the hero, not a text box above three cards. Kept as a
+# plain (non-f) string so its many JS braces need no doubling when interpolated into the index
+# body. A legible SUBSET is drawn (channels + briefs + the gold cross-channel bridges) so the
+# hero reads as a constellation, not the dense full graph; the layout is force-settled ONCE
+# (no idle animation -> 0% CPU once painted; reduced-motion visitors are unaffected). On a
+# file:// preview where fetch is blocked the canvas simply stays transparent over its gradient,
+# so the block still looks intentional and the whole thing links through to graph.html.
+_HERO_GRAPH_JS = """<script>
+(function () {
+  var cv = document.getElementById("herograph");
+  if (!cv || !cv.getContext) return;
+  var ctx = cv.getContext("2d");
+  var TC = {"energy-supply":"#4cc2ff","geophysical":"#ff9d4c","climate-signals":"#37d6a0",
+    "prediction-markets":"#b07cff","environmental-hazards":"#ff5d73","other":"#8a97a8"};
+  var CROSS = "#ffe14c";
+  var colorOf = function (n) { return n.theme === "shared" ? CROSS : (TC[n.theme] || TC.other); };
+  fetch("graph.json").then(function (r) { return r.json(); }).then(function (g) {
+    // Hero subset: channels + briefs + the shared regions that bridge >=2 channels (the gold).
+    var keep = {};
+    var nodes = g.nodes.filter(function (n) {
+      var ok = n.kind === "concept" || n.kind === "brief" ||
+        (n.kind === "entity" && n.entity_kind === "region" && (n.themes || []).length >= 2);
+      if (ok) keep[n.id] = true;
+      return ok;
+    }).map(function (n, i) {
+      return { id:n.id, kind:n.kind, theme:n.theme, ek:n.entity_kind,
+        r: n.kind === "concept" ? 12 : (n.kind === "brief" ? 8.5 : 6.5),
+        x: Math.cos(i * 1.7) * 120, y: Math.sin(i * 2.3) * 84, vx:0, vy:0 };
+    });
+    if (!nodes.length) return;
+    var byId = {};
+    nodes.forEach(function (n) { byId[n.id] = n; });
+    var edges = g.edges.filter(function (e) { return keep[e.source] && keep[e.target]; })
+      .map(function (e) { return { s: byId[e.source], t: byId[e.target], cross: !!e.cross_theme }; });
+    function step() {
+      for (var i = 0; i < nodes.length; i++) {
+        var a = nodes[i];
+        for (var j = 0; j < nodes.length; j++) {
+          if (i === j) continue;
+          var b = nodes[j], dx = a.x - b.x, dy = a.y - b.y, d = Math.hypot(dx, dy) || 1, f = 1500 / (d * d);
+          a.vx += dx / d * f; a.vy += dy / d * f;
+        }
+        a.vx += -a.x * 0.02; a.vy += -a.y * 0.02;
+      }
+      for (var k = 0; k < edges.length; k++) {
+        var e = edges[k], dx = e.t.x - e.s.x, dy = e.t.y - e.s.y, d = Math.hypot(dx, dy) || 1;
+        var rest = e.cross ? 92 : 56, f = (d - rest) * 0.02;
+        e.s.vx += dx / d * f; e.s.vy += dy / d * f; e.t.vx -= dx / d * f; e.t.vy -= dy / d * f;
+      }
+      for (var m = 0; m < nodes.length; m++) {
+        var n = nodes[m]; n.x += n.vx * 0.5; n.y += n.vy * 0.5; n.vx *= 0.8; n.vy *= 0.8;
+      }
+    }
+    for (var s = 0; s < 280; s++) step();
+    function draw() {
+      var DPR = Math.max(1, Math.min(window.devicePixelRatio || 1, 2));
+      var rect = cv.getBoundingClientRect(), W = Math.max(1, rect.width), H = Math.max(1, rect.height);
+      cv.width = Math.round(W * DPR); cv.height = Math.round(H * DPR);
+      var minx = 1e9, miny = 1e9, maxx = -1e9, maxy = -1e9;
+      nodes.forEach(function (n) {
+        minx = Math.min(minx, n.x); miny = Math.min(miny, n.y);
+        maxx = Math.max(maxx, n.x); maxy = Math.max(maxy, n.y);
+      });
+      var pad = 24, cw = (maxx - minx) || 1, ch = (maxy - miny) || 1;
+      var sc = Math.min((W - 2 * pad) / cw, (H - 2 * pad) / ch);
+      var ox = (W - cw * sc) / 2 - minx * sc, oy = (H - ch * sc) / 2 - miny * sc;
+      var px = function (n) { return n.x * sc + ox; }, py = function (n) { return n.y * sc + oy; };
+      ctx.setTransform(DPR, 0, 0, DPR, 0, 0); ctx.clearRect(0, 0, W, H);
+      edges.forEach(function (e) {
+        ctx.strokeStyle = e.cross ? CROSS : "#33465b";
+        ctx.globalAlpha = e.cross ? 0.85 : 0.5; ctx.lineWidth = e.cross ? 1.7 : 1;
+        ctx.beginPath(); ctx.moveTo(px(e.s), py(e.s)); ctx.lineTo(px(e.t), py(e.t)); ctx.stroke();
+      });
+      ctx.globalAlpha = 1;
+      nodes.forEach(function (n) {
+        var X = px(n), Y = py(n), R = n.r; ctx.fillStyle = colorOf(n);
+        if (n.kind === "concept") {
+          ctx.beginPath();
+          for (var q = 0; q < 6; q++) {
+            var an = Math.PI / 6 + q * Math.PI / 3, X2 = X + R * Math.cos(an), Y2 = Y + R * Math.sin(an);
+            q ? ctx.lineTo(X2, Y2) : ctx.moveTo(X2, Y2);
+          }
+          ctx.closePath(); ctx.fill();
+          ctx.strokeStyle = "#cdd7e3"; ctx.lineWidth = 1.4; ctx.stroke();
+        } else if (n.ek === "region") {
+          ctx.beginPath(); ctx.moveTo(X, Y - R); ctx.lineTo(X + R, Y);
+          ctx.lineTo(X, Y + R); ctx.lineTo(X - R, Y); ctx.closePath(); ctx.fill();
+        } else {
+          ctx.beginPath(); ctx.arc(X, Y, R, 0, 7); ctx.fill();
+        }
+      });
+    }
+    draw();
+    window.addEventListener("resize", draw);
+    var badge = document.getElementById("hero-graph-count");
+    if (badge) {
+      var br = g.nodes.filter(function (n) {
+        return n.kind === "entity" && (n.themes || []).length >= 2;
+      }).length;
+      badge.textContent = g.nodes.length + " nodes \\u00b7 " + br + " cross-channel bridges";
+    }
+    if (cv.parentNode) cv.parentNode.classList.add("is-live");
+  }).catch(function () { /* file:// preview: keep the static gradient fallback */ });
+})();
+</script>"""
+
+
+def _render_index(
+    model: SiteModel,
+    aset: AnswerSet | None = None,
+    fresh_day: str = "",
+    pulse: Any = None,
+) -> str:
+    # Build-time sparklines: a KPI is a curve, not a bare number (vault doctrine). `pulse`
+    # carries the per-ingest-day L1 note counts; each brief card gets its channel's trend,
+    # the hero gets the site-wide pulse. Rendered to inline SVG here — no JS, no fetch.
+    from synthesis.sparkline import sparkline_svg  # local: avoids a site_build<->sparkline cycle
+
+    per_theme = getattr(pulse, "per_theme", {}) or {}
     cards = []
     for b in model.briefs:
         card_fresh = (
@@ -298,9 +422,24 @@ def _render_index(model: SiteModel, aset: AnswerSet | None = None, fresh_day: st
             if b.updated
             else ""
         )
+        series = per_theme.get(b.theme, [])
+        if series:
+            spark = sparkline_svg(
+                [float(v) for v in series],
+                label=f"{b.title}: L1 source notes per ingest day, "
+                f"latest {series[-1]} over {len(series)} days",
+            )
+            latest = series[-1]
+            card_spark = (
+                f'<span class="card-spark">{spark}'
+                f'<span class="card-spark-cap"><strong>{latest}</strong> notes/cycle</span>'
+                f"</span>"
+            )
+        else:
+            card_spark = ""
         cards.append(
             f'<a class="card" href="{b.out_path}"><span class="card-kind">L2 Brief</span>'
-            f"<h3>{html.escape(b.title)}</h3>{card_fresh}</a>"
+            f"<h3>{html.escape(b.title)}</h3>{card_fresh}{card_spark}</a>"
         )
     brief_html = "\n".join(cards) or "<p>No active briefs.</p>"
 
@@ -324,6 +463,26 @@ def _render_index(model: SiteModel, aset: AnswerSet | None = None, fresh_day: st
         if fresh_day
         else ""
     )
+    # Hero "vault pulse": the site-wide L1-notes-per-ingest-day curve, baked at build time.
+    pulse_total = list(getattr(pulse, "total", []) or [])
+    pulse_days = list(getattr(pulse, "days", []) or [])
+    if pulse_total:
+        pulse_spark = sparkline_svg(
+            [float(v) for v in pulse_total],
+            width=180,
+            height=34,
+            label=f"L1 source notes ingested per day, latest {pulse_total[-1]} "
+            f"over {len(pulse_total)} ingest days ({pulse_days[0]} to {pulse_days[-1]})",
+        )
+        pulse_html = (
+            f'<div class="pulse" title="L1 source notes ingested per day">'
+            f'<span class="pulse-kind">Vault pulse</span>'
+            f'<span class="pulse-spark">{pulse_spark}</span>'
+            f'<span class="pulse-cap"><strong>{pulse_total[-1]}</strong> L1 source notes '
+            f"this cycle · {len(pulse_total)} ingest days</span></div>"
+        )
+    else:
+        pulse_html = ""
     body = f"""
 <div class="hero">
   <h1>azimuth</h1>
@@ -332,7 +491,15 @@ def _render_index(model: SiteModel, aset: AnswerSet | None = None, fresh_day: st
   <strong>L2 briefs</strong> synthesised from dated <strong>L1 source notes</strong>,
   under one published <a href="editorial.html">editorial line</a>.
   Every claim in a brief links to the data it rests on.</p>
+  {pulse_html}
 </div>
+<a class="hero-graph" href="graph.html" aria-label="Open the interactive cross-channel knowledge graph">
+  <canvas id="herograph" aria-hidden="true"></canvas>
+  <span class="hero-graph-cta">
+    <span class="hero-graph-badge" id="hero-graph-count">Interactive knowledge graph</span>
+    <span class="hero-graph-go">Explore the cross-channel graph &rarr;</span>
+  </span>
+</a>
 <a class="demo-cta" href="answers.html">
   <span class="demo-kind">The demonstrator</span>
   <h2>Ask the World Data &rarr;</h2>
@@ -348,8 +515,29 @@ def _render_index(model: SiteModel, aset: AnswerSet | None = None, fresh_day: st
   analyst&rsquo;s assessment. A fair head-to-head &mdash; azimuth wins on provenance,
   neutrality and reproducibility; a forecast legitimately wins on looking ahead. We say so.</p>
 </a>
+<a class="demo-cta graph-cta" href="graph.html">
+  <span class="demo-kind">The knowledge graph</span>
+  <h2>Explore the cross-channel graph &rarr;</h2>
+  <p>Every channel, brief, source note and shared entity as one interactive, evidence-weighted
+  graph<span id="graph-cta-stats"></span>. Gold bridges mark places the live data records under
+  more than one theme &mdash; trace two channels and the page quotes the literal L1 source
+  lines that join them. The cross-channel link a static feed cannot draw.</p>
+</a>
+<script>
+// Progressive enhancement only: fill in the live graph size from the published
+// graph.json. The card reads fine without it (fetch can fail on file:// previews).
+fetch("graph.json").then(function(r){{return r.json()}}).then(function(g){{
+  var bridges = g.nodes.filter(function(n){{
+    return n.kind === "entity" && (n.themes || []).length >= 2;
+  }}).length;
+  document.getElementById("graph-cta-stats").textContent =
+    " — " + g.nodes.length + " nodes, " + g.edges.length + " edges, " +
+    bridges + " cross-channel bridges today";
+}}).catch(function(){{}});
+</script>
 <section><h2>Briefs</h2><div class="cards">{brief_html}</div></section>
 <section id="sources"><h2>L1 Sources</h2>{sources_html}</section>
+{_HERO_GRAPH_JS}
 """
     return _PAGE_TEMPLATE.format(
         title="azimuth — open-intelligence vault",
@@ -600,35 +788,99 @@ def _render_benchmark(bench: Benchmark, link_map: dict[str, str], fresh_day: str
 
 _CSS = """:root{--bg:#0c0f14;--panel:#141a23;--ink:#e7edf5;--muted:#8a97a8;
 --accent:#4cc2ff;--line:#222c39;--held:#3a4250}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);
-font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;line-height:1.62}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--ink);
+font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;line-height:1.62;
+-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+text-rendering:optimizeLegibility;font-feature-settings:"kern","liga","calt";
+letter-spacing:.002em}
+::selection{background:rgba(76,194,255,.28);color:#fff}
 a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
-.nav{display:flex;gap:1.5rem;align-items:center;padding:.9rem 1.2rem;
-border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(12,15,20,.92);
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:3px}
+.nav{display:flex;gap:1.5rem;align-items:center;padding:.9rem 1.2rem;flex-wrap:wrap;
+border-bottom:1px solid var(--line);position:sticky;top:0;z-index:30;background:rgba(12,15,20,.92);
 backdrop-filter:blur(6px)}
 .brand{font-family:Rajdhani,Inter,sans-serif;font-weight:700;font-size:1.3rem;
 letter-spacing:.06em;text-transform:uppercase}
 .nav nav{display:flex;gap:1.1rem;font-size:.92rem}
+.nav nav a[aria-current]{color:var(--ink);font-weight:600}
+/* mobile hamburger: pure-CSS checkbox toggle, no JS. Hidden on desktop. */
+.nav-toggle{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none;margin:0}
+.nav-burger{display:none;flex-direction:column;justify-content:center;gap:5px;margin-left:auto;
+width:40px;height:34px;padding:8px 9px;border:1px solid var(--line);border-radius:9px;
+background:var(--panel);cursor:pointer}
+.nav-burger span{display:block;height:2px;width:100%;background:var(--ink);border-radius:2px;
+transition:transform .2s,opacity .2s}
 .fresh-badge{margin-left:auto;font-size:.74rem;letter-spacing:.04em;color:var(--muted);
 border:1px solid var(--line);border-radius:999px;padding:.15rem .6rem;white-space:nowrap}
+@media(max-width:720px){
+  .nav-burger{display:flex}
+  .nav nav{display:none;order:4;flex-basis:100%;flex-direction:column;gap:0;margin-top:.55rem}
+  .nav-toggle:checked~nav{display:flex}
+  .nav nav a{padding:.6rem .3rem;border-top:1px solid var(--line)}
+  .nav-toggle:checked~.nav-burger{background:#1d2735}
+  .nav-toggle:checked~.nav-burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .nav-toggle:checked~.nav-burger span:nth-child(2){opacity:0}
+  .nav-toggle:checked~.nav-burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  .fresh-badge{order:5;margin-left:0;margin-top:.5rem;flex-basis:100%}
+}
 .hero-fresh{margin:.1rem 0 .4rem}
 .hero-fresh .fresh-badge{margin-left:0;color:var(--accent);border-color:var(--accent)}
 .card-fresh{display:block;font-size:.72rem;color:var(--muted);margin-top:.45rem}
 .content,.foot{max-width:820px;margin:0 auto;padding:1.4rem 1.2rem}
+section,[id]{scroll-margin-top:4.8rem}
 .kind{display:inline-block;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;
 color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:.15rem .6rem;
 margin-bottom:1rem}
 .kind-brief{color:var(--accent);border-color:var(--accent)}
-h1,h2,h3{font-family:Rajdhani,Inter,sans-serif;letter-spacing:.01em;line-height:1.2}
+h1,h2,h3{font-family:Rajdhani,Inter,sans-serif;letter-spacing:.01em;line-height:1.2;
+font-weight:700}
 h1{font-size:2.1rem;margin:.2rem 0}h2{margin-top:2rem;border-bottom:1px solid var(--line);
 padding-bottom:.3rem}
-.hero p{color:var(--muted);max-width:64ch}
+.hero h1{font-size:clamp(2.2rem,6.5vw,3.1rem);letter-spacing:.02em;
+background:linear-gradient(92deg,#eaf3fb,#a9d8ff 60%,#6cc6ff);
+-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{color:var(--muted);max-width:64ch;font-size:1.02rem}
+/* landing centerpiece: the live mini knowledge-graph (canvas drawn from graph.json) */
+.hero-graph{position:relative;display:block;height:clamp(210px,32vw,300px);margin:1.1rem 0 .3rem;
+border:1px solid var(--line);border-radius:14px;overflow:hidden;
+background:radial-gradient(120% 140% at 50% -20%,rgba(76,194,255,.10),transparent 60%),
+linear-gradient(160deg,#101722,#0b0f16)}
+.hero-graph:hover{border-color:var(--accent);text-decoration:none}
+.hero-graph canvas{position:absolute;inset:0;width:100%;height:100%;display:block;
+opacity:0;transition:opacity .45s ease}
+.hero-graph.is-live canvas{opacity:1}
+.hero-graph-cta{position:absolute;left:0;right:0;bottom:0;display:flex;flex-wrap:wrap;gap:.4rem .8rem;
+align-items:center;justify-content:space-between;padding:.55rem .9rem;
+background:linear-gradient(transparent,rgba(8,12,18,.85))}
+.hero-graph-badge{color:var(--muted);font-size:.74rem;letter-spacing:.03em}
+.hero-graph-go{color:var(--accent);font-weight:600;font-size:.9rem}
+.hero-graph:hover .hero-graph-go{text-decoration:underline}
+@media(prefers-reduced-motion:reduce){.hero-graph canvas{transition:none}}
 .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:.9rem}
 .card{display:block;background:var(--panel);border:1px solid var(--line);border-radius:12px;
 padding:1rem 1.1rem;transition:border-color .15s,transform .15s}
 .card:hover{border-color:var(--accent);transform:translateY(-2px);text-decoration:none}
 .card-kind{font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
 .card h3{margin:.4rem 0 0}
+/* build-time sparklines (synthesis/sparkline.py) — colour via currentColor */
+.spark{display:block;overflow:visible}
+.spark-line{stroke:currentColor;stroke-width:1.6;stroke-linejoin:round;stroke-linecap:round;
+vector-effect:non-scaling-stroke}
+.spark-area{fill:currentColor;opacity:.13}
+.spark-dot{fill:currentColor}
+.card-spark{display:flex;align-items:center;gap:.55rem;margin-top:.7rem;color:var(--accent)}
+.card-spark .spark{flex:1;min-width:0}
+.card-spark-cap{font-size:.68rem;color:var(--muted);white-space:nowrap}
+.card-spark-cap strong{color:var(--ink)}
+.pulse{display:flex;align-items:center;gap:.7rem;flex-wrap:wrap;margin:.9rem 0 .2rem;
+padding:.55rem .8rem;background:var(--panel);border:1px solid var(--line);border-radius:10px}
+.pulse-kind{font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);
+font-weight:700}
+.pulse-spark{color:var(--accent);line-height:0}
+.pulse-cap{font-size:.8rem;color:var(--muted)}.pulse-cap strong{color:var(--ink)}
 .demo-cta{display:block;background:linear-gradient(135deg,#15212e,#101722);
 border:1px solid var(--accent);border-radius:14px;padding:1.3rem 1.4rem;margin:1.4rem 0 .5rem;
 transition:transform .15s,box-shadow .15s}
@@ -663,6 +915,9 @@ font-family:JetBrains Mono,ui-monospace,monospace;font-size:.88em}
 .benchmark-cta{background:linear-gradient(135deg,#1d1726,#14101c);border-color:#a98bff}
 .benchmark-cta h2{color:#c9b3ff}
 .benchmark-cta:hover{box-shadow:0 6px 26px rgba(169,139,255,.18)}
+.graph-cta{background:linear-gradient(135deg,#26200f,#161209);border-color:#e0b34c}
+.graph-cta h2{color:#ffd166}
+.graph-cta:hover{box-shadow:0 6px 26px rgba(224,179,76,.18)}
 .bench{background:var(--panel);border:1px solid var(--line);border-radius:12px;
 padding:1.1rem 1.3rem;margin:1.4rem 0}
 .bench h2{margin:.1rem 0 .4rem;border:0;padding:0;font-size:1.3rem}
@@ -756,5 +1011,11 @@ def build_site(
         _render_benchmark(bench, model.link_map, fresh_day), encoding="utf-8"
     )
 
-    (out_dir / "index.html").write_text(_render_index(model, aset, fresh_day), encoding="utf-8")
+    # Build-time sparkline series: L1 notes per ingest day (site-wide + per surfaced channel).
+    from synthesis.sparkline import daily_source_counts  # local import: sparkline imports us
+
+    pulse = daily_source_counts(vault_dir, registry)
+    (out_dir / "index.html").write_text(
+        _render_index(model, aset, fresh_day, pulse), encoding="utf-8"
+    )
     return model

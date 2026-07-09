@@ -1,0 +1,22 @@
+{
+  "//": "azimuth DOMAIN-ONTOLOGY context — the azimuth namespace (@base) plus the term definitions for every azimuth frontmatter key, so a short key like `retrieved:` resolves to a full IRI (az:retrieved) with its datatype (xsd:dateTime). Referenced (composed) by the root vault/context.jsonld per Vault-LD SPEC §4.2. Keeping the ontology's vocabulary AND its namespace here — not in the root — is the modularity the spec asks for: the root merely lists the ontologies it composes. The class vocabulary (az:L1-source / az:L2-brief / az:L3-rule) resolves through the root @vocab, so an OKF note's bare `type: L2-brief` becomes a typed triple with no per-class mapping (Appendix B step 1). Full class + property definitions (rdfs:label / comment / domain / range) are emitted into schema.ttl by scripts/build_rdf.py, whose embedded ontology spec is pinned to this context by tests/unit/test_build_rdf.py so the two can never drift.",
+  "@context": {
+    "@base": "https://mickywin22.github.io/azimuth/ontology#",
+    "az": "https://mickywin22.github.io/azimuth/ontology#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+
+    "title": { "@id": "dcterms:title" },
+    "upstreamSource": { "@id": "az:upstreamSource" },
+    "source": { "@id": "az:upstreamSource" },
+    "source_key": { "@id": "az:sourceKey" },
+    "endpoint": { "@id": "az:endpoint" },
+    "retrieved": { "@id": "az:retrieved", "@type": "xsd:dateTime" },
+    "license": { "@id": "az:license" },
+    "attribution": { "@id": "az:attribution" },
+    "theme": { "@id": "az:theme" },
+    "week": { "@id": "az:week" },
+    "updated": { "@id": "az:updated", "@type": "xsd:dateTime" },
+    "sources": { "@id": "az:restsOn", "@type": "@id", "@container": "@set" }
+  }
+}

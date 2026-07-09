@@ -43,11 +43,20 @@ jobs:
         with:
           python-version: "3.12"
 
+      # `site` (Markdown renderer) + `ld` (rdflib) — both DEV/CI-only; the runtime stays
+      # pure-stdlib. `ld` powers the linked-data export step below.
       - name: Install site build deps
-        run: uv pip install --system -e ".[site]"
+        run: uv pip install --system -e ".[site,ld]"
 
       - name: Build site
         run: python scripts/build_site.py --out _site
+
+      # Publish the RDF graph BESIDE the static site: schema.ttl + data.ttl + the composed
+      # context, lifted from the vault/ OKF bundle (Vault-LD OKF profile, SPEC Appendix B).
+      # This whole build job is flip-gated (`if: !repository.private`), so the .ttl only ever
+      # deploy once Michael flips the repo public — nothing publishes early.
+      - name: Export linked data (schema.ttl + data.ttl) beside the site
+        run: python scripts/build_rdf.py --out _site
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3

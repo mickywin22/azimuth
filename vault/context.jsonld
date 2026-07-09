@@ -1,0 +1,25 @@
+{
+  "//": "azimuth Vault-LD ROOT context — the composed @context that lifts the azimuth OKF bundle into linked data (Vault-LD SPEC Appendix B, the OKF compatibility profile). This file is the single, self-describing adoption cost: an OKF-style Markdown bundle plus this context IS an RDF graph, without changing a single note. It is COMPOSED (a JSON-LD context array): the first entry carries the cross-cutting core (data @base, @vocab, keyword aliases, standard prefixes, structural RDFS/OWL/SKOS terms); the string entry pulls in the azimuth domain ontology's own self-contained context by reference (SPEC §4.2). The generated schema.ttl / data.ttl (scripts/build_rdf.py, rdflib, CI-only) are the read-only export face; the Markdown vault stays the source of truth (SPEC §5.4).",
+  "@context": [
+    {
+      "@base": "https://mickywin22.github.io/azimuth/data/",
+      "@vocab": "https://mickywin22.github.io/azimuth/ontology#",
+      "type": "@type",
+      "id": "@id",
+      "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+      "owl": "http://www.w3.org/2002/07/owl#",
+      "skos": "http://www.w3.org/2004/02/skos/core#",
+      "xsd": "http://www.w3.org/2001/XMLSchema#",
+      "dcterms": "http://purl.org/dc/terms/",
+      "sdo": "https://schema.org/",
+      "vld": "https://github.com/The-Knowledge-Graph-Guys/vault-ld#",
+      "az": "https://mickywin22.github.io/azimuth/ontology#",
+      "label": "rdfs:label",
+      "comment": "rdfs:comment",
+      "domain": { "@id": "rdfs:domain", "@type": "@id" },
+      "range": { "@id": "rdfs:range", "@type": "@id" },
+      "subClassOf": { "@id": "rdfs:subClassOf", "@type": "@id", "@container": "@set" }
+    },
+    "ontology/azimuth.context.jsonld"
+  ]
+}
