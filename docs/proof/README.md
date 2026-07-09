@@ -53,3 +53,25 @@ features present in the rendered HTML,
 · embedded JS `node --check` · `build_graph.py --check` in sync · `ruff` + `mypy`
 clean · live Playwright smoke (`scripts/smoke_graph.py`) · screenshots above.
 Regenerate any time by `python scripts/smoke_graph.py`.
+
+---
+
+# Public-launch attach set (W28 new-UI front door)
+
+The banked screenshots the two launch posts attach when Azimuth flips public —
+the LinkedIn OKF post and the Show HN pack (both in the HemySphere vault under
+`05 Projects/azimuth — …`). Captured 2026-07-06 from the live new-UI front door
+(graph-as-hero landing · one-click story mode · mobile nav). **Unlike the
+`graph-*` / `whatif-*` proofs above, these have no committed smoke generator** —
+they were captured manually from the running site, so they are banked here as the
+canonical launch-attach set (re-capture by hand from the live site if the
+front-door UI changes). They previously lived only in the git-ignored `_smoke/`
+scratch dir; banked into `docs/proof/` so the flip launch is one-click and the
+shots can't vanish on a `git clean`.
+
+| Shot | File | What it shows / where it's used |
+|------|------|--------------------------------|
+| Front door (hero) | `landing-desktop.png` | The new landing: the cross-channel knowledge graph as the hero centrepiece over the vault-pulse sparkline + brief cards. Single-shot fallback — carries the whole thesis in one frame (LinkedIn primary / Show HN URL card). |
+| Living-graph crop | `landing-hero-graph.png` | Tighter crop of the graph-as-hero centrepiece for a 2-up / carousel first frame. |
+| Story mode | `graph-story.png` | Story mode, **STORY 1 OF 3** ("Energy meets the ground it sits on") driving a live cross-source Trace — the v2 body's "one-click story mode / shows its work" bullet. LinkedIn 2-up second frame. |
+| Phone front door | `landing-mobile-nav.png` | The front door at a 390 px phone viewport with the hamburger nav — phone-audience alt. |
