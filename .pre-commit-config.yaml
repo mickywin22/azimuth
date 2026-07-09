@@ -51,6 +51,12 @@ repos:
         language: system
         pass_filenames: false
         files: ^(vault/01 Sources/|vault/02 Briefs/|sources/registry\.json|scripts/build_graph\.py)
+      - id: good-first-issues-sync
+        name: Good-first-issues catalog in sync with the seeder
+        entry: python scripts/seed_good_first_issues.py --check
+        language: system
+        pass_filenames: false
+        files: ^(scripts/seed_good_first_issues\.py|\.github/GOOD_FIRST_ISSUES\.md)$
       - id: doc-links
         name: Documentation links resolve (no dead relative Markdown links)
         entry: python scripts/check_doc_links.py

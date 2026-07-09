@@ -28,10 +28,10 @@ jobs:
         run: uv pip install --system -e ".[dev]"
 
       - name: Ruff lint
-        run: ruff check guardrail/ ingest/ tests/ synthesis/ scripts/check_synthesis.py scripts/build_brief_index.py scripts/check_synthesis_freshness.py scripts/build_graph.py scripts/build_autonomy.py scripts/query_graph.py scripts/check_ingest_liveness.py scripts/scan_secrets.py scripts/check_doc_links.py scripts/check_doc_orphans.py
+        run: ruff check guardrail/ ingest/ tests/ synthesis/ scripts/check_synthesis.py scripts/build_brief_index.py scripts/check_synthesis_freshness.py scripts/build_graph.py scripts/build_autonomy.py scripts/query_graph.py scripts/check_ingest_liveness.py scripts/scan_secrets.py scripts/check_doc_links.py scripts/check_doc_orphans.py scripts/seed_good_first_issues.py
 
       - name: Ruff format check
-        run: ruff format --check guardrail/ ingest/ tests/ synthesis/ scripts/check_synthesis.py scripts/build_brief_index.py scripts/check_synthesis_freshness.py scripts/build_graph.py scripts/build_autonomy.py scripts/query_graph.py scripts/check_ingest_liveness.py scripts/scan_secrets.py scripts/check_doc_links.py scripts/check_doc_orphans.py
+        run: ruff format --check guardrail/ ingest/ tests/ synthesis/ scripts/check_synthesis.py scripts/build_brief_index.py scripts/check_synthesis_freshness.py scripts/build_graph.py scripts/build_autonomy.py scripts/query_graph.py scripts/check_ingest_liveness.py scripts/scan_secrets.py scripts/check_doc_links.py scripts/check_doc_orphans.py scripts/seed_good_first_issues.py
 
   source-guardrail:
     name: Source Guardrail
@@ -77,6 +77,12 @@ jobs:
       - name: Autonomy counters in sync
         run: python scripts/build_autonomy.py --check
 
+      # The good-first-issues catalog is generated from the ISSUES list in the seeder;
+      # this fails if .github/GOOD_FIRST_ISSUES.md drifts from what flip-time seeding
+      # would create, so the contributor on-ramp can never rot.
+      - name: Good-first-issues catalog in sync
+        run: python scripts/seed_good_first_issues.py --check
+
       # Pure-stdlib check -- no dependency install needed. Blocks the build if any
       # relative Markdown link (docs index, changelog, license split, brief index)
       # points at a missing file, so a dead link can never reach the public front door.
@@ -107,7 +113,7 @@ jobs:
         run: uv pip install --system -e ".[dev]"
 
       - name: mypy
-        run: mypy guardrail/ ingest/ synthesis/ scripts/check_synthesis.py scripts/build_brief_index.py scripts/check_synthesis_freshness.py scripts/build_graph.py scripts/build_autonomy.py scripts/query_graph.py scripts/check_ingest_liveness.py scripts/scan_secrets.py scripts/check_doc_links.py scripts/check_doc_orphans.py
+        run: mypy guardrail/ ingest/ synthesis/ scripts/check_synthesis.py scripts/build_brief_index.py scripts/check_synthesis_freshness.py scripts/build_graph.py scripts/build_autonomy.py scripts/query_graph.py scripts/check_ingest_liveness.py scripts/scan_secrets.py scripts/check_doc_links.py scripts/check_doc_orphans.py scripts/seed_good_first_issues.py
 
   test:
     name: Test

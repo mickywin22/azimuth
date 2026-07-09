@@ -179,9 +179,16 @@ and attribution to `sources/registry.json` + `CREDITS.md`, or the guardrail fail
 
 ## Good first issues
 
-These issue types are well-scoped, self-contained, and don't require knowledge of the
-synthesis or ingest internals. Look for the **`good first issue`** label on the
-[issue tracker](https://github.com/mickywin22/azimuth/issues?q=label%3A%22good+first+issue%22).
+**The concrete, ready-to-pick list is [`.github/GOOD_FIRST_ISSUES.md`](.github/GOOD_FIRST_ISSUES.md)** —
+five real, open, self-contained tasks with the exact files to touch and the local commands
+to verify each. That catalog is *generated* from `scripts/seed_good_first_issues.py` (CI
+fails if it drifts), and at the public flip the same script seeds them onto the tracker in
+one command (`python scripts/seed_good_first_issues.py --create`), each tagged
+**`good first issue`** so the
+[label filter](https://github.com/mickywin22/azimuth/issues?q=label%3A%22good+first+issue%22)
+returns them.
+
+The broad shape of what makes a good first contribution:
 
 | Type | What it involves | Skill level |
 |------|-----------------|-------------|
