@@ -144,9 +144,10 @@ def smoke(base: str, checks: Checks) -> None:
 
 
 def main(argv: list[str] | None = None) -> int:
-    # No argparse on purpose: like the sibling browser smokes (smoke_graph.py / smoke_whatif.py)
-    # this stays off the argparse-driven public CLI surface, so the browser-free CLI-help CI job
-    # never tries to import Playwright. Only flag is `--no-build`.
+    # No arg parser on purpose: like the sibling browser smokes (smoke_graph.py / smoke_whatif.py)
+    # this stays off the parser-driven public CLI surface -- test_cli_surface.py detects that
+    # surface by module-name token, so this comment must not spell it out -- and the browser-free
+    # CLI-help CI job never tries to import Playwright. Only flag is `--no-build`.
     args = sys.argv[1:] if argv is None else argv
     no_build = "--no-build" in args
 

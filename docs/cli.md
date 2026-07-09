@@ -321,6 +321,19 @@ Flags: `--strict` (advisory findings also fail the gate), `--json` (findings as 
 `--report` (emit a markdown verdict block on stdout — redirect to save it). **Layer:** Gate
 (`secret-scan.yml`, C1b).
 
+### `seed_good_first_issues.py` — good-first-issues catalog
+Single source of truth for the newcomer task list: renders
+[`.github/GOOD_FIRST_ISSUES.md`](../.github/GOOD_FIRST_ISSUES.md) from the `ISSUES` table
+in the script (CI fails if the committed catalog drifts), and at the public flip seeds the
+same issues onto the GitHub tracker in one command.
+
+```bash
+python scripts/seed_good_first_issues.py --write    # render the committed catalog
+python scripts/seed_good_first_issues.py --check    # exit 1 if the catalog drifted (CI guard)
+python scripts/seed_good_first_issues.py --create   # flip day: create the issues via gh (needs auth)
+```
+**Layer:** Gate (CI drift guard) + flip-day tooling.
+
 ---
 
 ## Dev tooling — not part of the azimuth engine

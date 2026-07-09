@@ -45,6 +45,7 @@ _DEFAULT_W, _DEFAULT_H = 1280, 720
 # Lightweight static file server for the built site
 # ---------------------------------------------------------------------------
 
+
 class _SilentHandler(http.server.SimpleHTTPRequestHandler):
     def log_message(self, *_args: object) -> None:
         pass
@@ -58,6 +59,7 @@ def _serve(directory: Path, port: int) -> None:
 
 def _find_free_port() -> int:
     import socket
+
     with socket.socket() as s:
         s.bind(("127.0.0.1", 0))
         return s.getsockname()[1]
@@ -66,6 +68,7 @@ def _find_free_port() -> int:
 # ---------------------------------------------------------------------------
 # Frame capture
 # ---------------------------------------------------------------------------
+
 
 def _capture_frames(base_url: str, width: int, height: int) -> list[Path]:
     """Drive Playwright through the site and return a list of screenshot paths."""
@@ -146,13 +149,13 @@ def _capture_frames(base_url: str, width: int, height: int) -> list[Path]:
 # GIF assembly (requires Pillow)
 # ---------------------------------------------------------------------------
 
+
 def _frames_to_gif(frames: list[Path], out: Path, fps: int) -> None:
     try:
         from PIL import Image
     except ImportError:
         print(
-            "ERROR: Pillow is not installed.\n"
-            "Run:  uv pip install -e '.[demo]'",
+            "ERROR: Pillow is not installed.\nRun:  uv pip install -e '.[demo]'",
             file=sys.stderr,
         )
         sys.exit(1)
@@ -178,6 +181,7 @@ def _frames_to_gif(frames: list[Path], out: Path, fps: int) -> None:
 # ---------------------------------------------------------------------------
 # Entry point
 # ---------------------------------------------------------------------------
+
 
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="record the azimuth hero GIF")
