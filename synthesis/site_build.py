@@ -256,6 +256,7 @@ _PAGE_TEMPLATE = """<!DOCTYPE html>
     <a href="{root}graph.html">Knowledge graph</a>
     <a href="{root}index.html">Briefs</a>
     <a href="{root}index.html#sources">Sources</a>
+    <a href="{root}autonomy.html">Autonomy</a>
     <a href="{root}editorial.html">Editorial line</a>
   </nav>
   {fresh_badge}

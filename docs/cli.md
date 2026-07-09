@@ -94,6 +94,34 @@ python scripts/build_rdf.py --check           # build + validate in-memory, writ
 ```
 **Layer:** Site (linked-data export) · the `linked-data` CI job runs `--check`. See
 [linked-data.md](linked-data.md).
+### `build_autonomy.py` — the autonomy counters
+Builds the "proof it runs itself" counters (`site/autonomy.json` + the visual
+`site/autonomy.html`): days operating, daily L1 ingests committed, L1 source notes, L2
+briefs, data channels, and an explicitly-labelled LLM-spend estimate. Every counter is
+derived from committed vault data (never the wall clock), so it is byte-reproducible and
+CI-guarded — and it re-derives each daily ingest, exactly like the graph and brief index.
+
+```bash
+python scripts/build_autonomy.py             # write site/autonomy.json + autonomy.html
+python scripts/build_autonomy.py --check     # exit 1 if the committed counters are stale (CI guard)
+```
+**Layer:** Site · re-derived daily in [`ingest.yml`](../.github/workflows/ingest.yml); CI
+asserts the committed counters are in sync.
+
+### `record_hero_gif.py` — generate the README hero animation
+Records an animated walkthrough of the azimuth site (home → knowledge graph → trace →
+autonomy counters) and writes `docs/assets/hero.gif`. Requires the `[demo]` optional
+dependencies (Playwright + Pillow) which are NOT installed by default.
+
+```bash
+uv pip install -e ".[demo]" && playwright install chromium
+python scripts/record_hero_gif.py            # uses already-built site/
+python scripts/record_hero_gif.py --serve    # build site first, then record
+python scripts/record_hero_gif.py --width 1280 --height 720 --fps 2
+```
+
+**Layer:** Docs-only · not part of CI · run manually to refresh `docs/assets/hero.gif`
+before a public flip or a major UI change.
 
 ### `query_graph.py` — query the graph from the CLI
 Answers cross-channel questions over the same `site/graph.json` the visual graph uses.

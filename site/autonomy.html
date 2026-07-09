@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Autonomy · azimuth</title>
+<style>
+:root{--bg:#0c1118;--panel:#141a23;--border:#2a3a4d;--text:#e7edf5;--muted:#8a97a8;
+--accent:#4cc2ff;--accent2:#4a90d9}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);
+font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.wrap{max-width:900px;margin:0 auto;padding:2rem 1.1rem 3rem}
+a{color:var(--accent2)}
+.kick{text-transform:uppercase;letter-spacing:.14em;font-size:.72rem;color:var(--accent);
+font-weight:700;margin:0 0 .3rem}
+h1{margin:.1rem 0 .5rem;font-size:1.9rem}
+.lede{color:var(--muted);max-width:64ch;margin:.2rem 0 1.4rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.8rem}
+.card{background:var(--panel);border:1px solid var(--border);border-radius:12px;
+padding:1.1rem 1rem}
+.card .n{font-size:2.05rem;font-weight:800;line-height:1.05;color:var(--text)}
+.card .n.est{color:var(--accent)}
+.card .lab{margin-top:.25rem;font-size:.82rem;color:var(--muted)}
+.foot{margin-top:1.6rem;font-size:.82rem;color:var(--muted);max-width:70ch}
+.foot code{background:var(--panel);border:1px solid var(--border);border-radius:5px;
+padding:.05rem .35rem;font-size:.9em}
+.range{margin:.1rem 0 1.2rem;font-size:.86rem;color:var(--muted)}
+.range b{color:var(--text);font-weight:600}
+</style></head><body>
+<div class="wrap">
+<p class="kick">Proof it runs itself</p>
+<h1>azimuth autonomy counters</h1>
+<p class="lede">azimuth is not a snapshot — it is a knowledge system that operates on its
+own. A daily GitHub-Actions job pulls the sources, a weekly fleet curator evolves the
+briefs, and CI enforces the doctrine. Every number below is computed straight from the
+committed vault, not typed in by hand.</p>
+<p class="range">Operating <b>2026-06-15</b> → <b>2026-07-06</b>.</p>
+<div class="grid">
+  <div class="card"><div class="n">22</div><div class="lab">days operating autonomously</div></div>
+  <div class="card"><div class="n">18</div><div class="lab">daily L1 ingests committed</div></div>
+  <div class="card"><div class="n">294</div><div class="lab">L1 source notes written</div></div>
+  <div class="card"><div class="n">8</div><div class="lab">L2 briefs maintained</div></div>
+  <div class="card"><div class="n">22</div><div class="lab">data channels surfaced</div></div>
+  <div class="card"><div class="n est">~$1.86</div><div class="lab">estimated LLM spend, all-time</div></div>
+</div>
+<p class="foot">Counters regenerate automatically with each daily ingest
+(<code>scripts/build_autonomy.py</code>) and are guarded in CI by
+<code>build_autonomy.py --check</code>, so they can never drift from the data. Spend is an
+order-of-magnitude estimate — one small weekly LLM synthesis job; not metered billing data — the hard counters (days, ingests, notes, briefs, channels) are read
+directly from the repository and are byte-reproducible. Machine-readable: <a
+href="autonomy.json">autonomy.json</a>.</p>
+</div></body></html>
