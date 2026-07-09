@@ -2,43 +2,19 @@
   "$note": "Captured snapshot of the COMPARED forecast/intelligence product for the azimuth benchmark (synthesis/benchmark.py). Quoted by product + capture date; NOT surfaced as an azimuth channel and NOT an L1 source. Refresh with pull_benchmark_foils.py.",
   "endpoint": "/api/forecast/v1/get-forecasts",
   "attribution": "WorldMonitor (api.worldmonitor.app) — model-generated forecast/assessment product",
-  "feed_generated_at": 1783497617784,
+  "feed_generated_at": 1783587702736,
   "feed_degraded": false,
-  "captured_at": "2026-07-08T08:42:38Z",
+  "captured_at": "2026-07-09T09:55:55Z",
   "n_forecasts_seen": 14,
   "topics": {
     "energy-supply": {
       "foil": {
-        "id": "fc-market-9b487abf",
+        "id": "fc-market-019112bf",
         "domain": "market",
-        "region": "Cuba",
-        "title": "Inflation and rates pressure from Cuba infrastructure fragility state",
-        "probability": 0.657,
-        "prior_probability": 0.66,
-        "confidence": 0.75,
-        "time_horizon": "30d",
-        "trend": "stable",
-        "projections": {
-          "d30": 0.657,
-          "d7": 0.907,
-          "h24": 0.95
-        },
-        "scenario_short": "Cuba infrastructure fragility state is feeding inflation and rates pressure through energy supply shock, with 45% pressure and 74% state confirmation. For now, the base case stays near 68% over the 30d. Actors absorb...",
-        "perspective_strategic": "Cuba infrastructure fragility state is feeding inflation and rates pressure through energy supply shock, with 45% pressure and 74% state confirmation is setting the strategic baseline, and the current 66% probability implies a live but not settled risk path.",
-        "perspective_contrarian": "No directly matched headlines are currently attached to Cuba. If that restraint persists, the forecast can move below the current 66% baseline. Actors prioritize containment and the system drifts toward stabilization unless new hard signals emerge.",
-        "actor_lens": "Commodity traders: Price whether stress in Cuba becomes durable over the 30d. Rebalance positions if the probability path moves away from 66%.",
-        "top_signal": "Cuba infrastructure fragility state is feeding inflation and rates pressure through energy supply shock, with 45% pressure and 74% state confirmation"
-      },
-      "absence_reason": null
-    },
-    "supply-chain-inflation": {
-      "foil": {
-        "id": "fc-market-8d21b764",
-        "domain": "market",
-        "region": "Eastern Mediterranean",
-        "title": "Inflation and rates pressure from Eastern Mediterranean maritime disruption state",
+        "region": "Israel/Gaza",
+        "title": "Energy repricing risk from Israel/Gaza security escalation state",
         "probability": 0.588,
-        "prior_probability": 0.62,
+        "prior_probability": 0.588,
         "confidence": 0.75,
         "time_horizon": "30d",
         "trend": "stable",
@@ -47,11 +23,35 @@
           "d7": 0.812,
           "h24": 0.95
         },
-        "scenario_short": "Eastern Mediterranean maritime disruption state is feeding inflation and rates pressure through shipping cost shock, with 45% pressure and 74% state confirmation. For now, the base case stays near 62% over the 30d....",
-        "perspective_strategic": "Eastern Mediterranean maritime disruption state is feeding inflation and rates pressure through shipping cost shock, with 45% pressure and 74% state confirmation is setting the strategic baseline, and the current 59% probability implies a live but not settled risk path.",
-        "perspective_contrarian": "The current 75% confidence level still leaves room for reversal. If that restraint persists, the forecast can move below the current 59% baseline. Actors prioritize containment and the system drifts toward stabilization unless new hard signals emerge.",
-        "actor_lens": "Commodity traders: Price whether stress in Eastern Mediterranean becomes durable over the 30d. Rebalance positions if the probability path moves away from 59%.",
-        "top_signal": "Eastern Mediterranean maritime disruption state is feeding inflation and rates pressure through shipping cost shock, with 45% pressure and 74% state confirmation"
+        "scenario_short": "Israel/Gaza security escalation state, with 52% pressure and 70% state confirmation, will feed energy repricing through energy supply shock over the next 30 days, driven by 10 urgent critical signals and headlines of...",
+        "perspective_strategic": "The 52% pressure and 70% state confirmation indicate a moderate but active energy supply shock transmission path, with 10 urgent critical signals reinforcing the current stable baseline.",
+        "perspective_contrarian": "The 75% confidence level leaves room for reversal, and the trigger for more directly matched reporting has not yet been met, suggesting the path could stall if no new hard signals emerge.",
+        "actor_lens": "Commodity traders: Price whether stress in Israel/Gaza becomes durable over the 30d. Rebalance positions if the probability path moves away from 59%.",
+        "top_signal": "Israel/Gaza security escalation state is feeding energy repricing through energy supply shock, with 52% pressure and 70% state confirmation"
+      },
+      "absence_reason": null
+    },
+    "supply-chain-inflation": {
+      "foil": {
+        "id": "fc-market-9b487abf",
+        "domain": "market",
+        "region": "Cuba",
+        "title": "Inflation and rates pressure from Cuba infrastructure fragility state",
+        "probability": 0.639,
+        "prior_probability": 0.638,
+        "confidence": 0.75,
+        "time_horizon": "30d",
+        "trend": "stable",
+        "projections": {
+          "d30": 0.639,
+          "d7": 0.882,
+          "h24": 0.95
+        },
+        "scenario_short": "Cuba infrastructure fragility state is feeding inflation and rates pressure through energy supply shock, with 47% pressure and 62% state confirmation. For now, the base case stays near 66% over the 30d. Actors absorb...",
+        "perspective_strategic": "Cuba infrastructure fragility state is feeding inflation and rates pressure through energy supply shock, with 47% pressure and 62% state confirmation is setting the strategic baseline, and the current 64% probability implies a live but not settled risk path.",
+        "perspective_contrarian": "No directly matched headlines are currently attached to Cuba. If that restraint persists, the forecast can move below the current 64% baseline. Actors prioritize containment and the system drifts toward stabilization unless new hard signals emerge.",
+        "actor_lens": "Commodity traders: Price whether stress in Cuba becomes durable over the 30d. Rebalance positions if the probability path moves away from 64%.",
+        "top_signal": "Cuba infrastructure fragility state is feeding inflation and rates pressure through energy supply shock, with 47% pressure and 62% state confirmation"
       },
       "absence_reason": null
     },

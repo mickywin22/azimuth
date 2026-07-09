@@ -3,7 +3,7 @@ title: Benchmark — Facts vs Forecast vs Intelligence
 type: L2-brief
 theme: cross-theme
 week: 2026-W28
-updated: 2026-07-08T04:00:00Z
+updated: 2026-07-09T04:00:00Z
 sources: [crude-oil-inventories, earthquakes, energy-prices, natural-gas-storage-eu]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources; the forecast/intelligence columns quote WorldMonitor as the COMPARED product, not an azimuth channel
@@ -11,7 +11,7 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 # Benchmark — azimuth vs a forecast vs an intelligence feed
 
-> *Why not just read a forecast or an intelligence feed?* Here is the same world-topic through three columns: **azimuth** (observed facts from the live bundle, every claim linked to its L1 source), a **FORECAST** product (a model probability), and an **INTELLIGENCE** product (an analyst assessment). It is a fair contrast, not a strawman: azimuth wins on provenance, neutrality and reproducibility; a forecast / intel feed legitimately wins on **forward-looking coverage** — it predicts, azimuth reports what already happened. The forecast / intelligence columns quote WorldMonitor as the *compared product* (captured 2026-07-08T08:42:38Z), deliberately NOT a clickable L1 link — because that is exactly the difference.
+> *Why not just read a forecast or an intelligence feed?* Here is the same world-topic through three columns: **azimuth** (observed facts from the live bundle, every claim linked to its L1 source), a **FORECAST** product (a model probability), and an **INTELLIGENCE** product (an analyst assessment). It is a fair contrast, not a strawman: azimuth wins on provenance, neutrality and reproducibility; a forecast / intel feed legitimately wins on **forward-looking coverage** — it predicts, azimuth reports what already happened. The forecast / intelligence columns quote WorldMonitor as the *compared product* (captured 2026-07-09T09:55:55Z), deliberately NOT a clickable L1 link — because that is exactly the difference.
 
 ## EU / global energy supply security
 
@@ -20,24 +20,24 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 ### azimuth — observed facts (EU gas storage + US crude inventories + Energy prices)
 
 - EU gas storage stands at 2,922 Bcf (+87 Bcf w/w) as of 2026-06-26 — an observed reading ([[natural-gas-storage-eu]])
-- US crude inventories drew down -9,311 to 734,014 Mb (EIA week of 2026-06-26) — an observed reading ([[crude-oil-inventories]])
-- Spot crude as reported: WTI $73.59/bbl (-9.6 w/w), Brent $73.63/bbl (-9.1 w/w) — the observed price tape ([[energy-prices]])
+- US crude inventories drew down -3,168 to 730,846 Mb (EIA week of 2026-07-03) — an observed reading ([[crude-oil-inventories]])
+- Spot crude as reported: WTI $70.48/bbl (-4.2 w/w), Brent $69.7/bbl (-5.3 w/w) — the observed price tape ([[energy-prices]])
 
 ### FORECAST product — model projection (compared)
 
-> Assigns a **66% probability** over 30d that “Inflation and rates pressure from Cuba infrastructure fragility state” — confidence 75%, trend stable.
+> Assigns a **59% probability** over 30d that “Energy repricing risk from Israel/Gaza security escalation state” — confidence 75%, trend stable.
 >
-> Probability path: d30=66%, d7=91%, h24=95%
+> Probability path: d30=59%, d7=81%, h24=95%
 >
-> — *WorldMonitor forecast feed (model projection), captured 2026-07-08T08:42:38Z*
+> — *WorldMonitor forecast feed (model projection), captured 2026-07-09T09:55:55Z*
 
 ### INTELLIGENCE product — analyst assessment (compared)
 
-> Cuba infrastructure fragility state is feeding inflation and rates pressure through energy supply shock, with 45% pressure and 74% state confirmation is setting the strategic baseline, and the current 66% probability implies a live but not settled risk path.
+> The 52% pressure and 70% state confirmation indicate a moderate but active energy supply shock transmission path, with 10 urgent critical signals reinforcing the current stable baseline.
 >
-> Actor lens: Commodity traders: Price whether stress in Cuba becomes durable over the 30d. Rebalance positions if the probability path moves away from 66%.
+> Actor lens: Commodity traders: Price whether stress in Israel/Gaza becomes durable over the 30d. Rebalance positions if the probability path moves away from 59%.
 >
-> — *WorldMonitor intelligence assessment (analyst judgement), captured 2026-07-08T08:42:38Z*
+> — *WorldMonitor intelligence assessment (analyst judgement), captured 2026-07-09T09:55:55Z*
 
 ### Scorecard
 
@@ -60,24 +60,24 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 ### azimuth — observed facts (Energy prices + US crude inventories)
 
-- WTI crude as reported: $73.59/bbl (-9.6 w/w) — the observed energy-cost input to inflation, not a forecast of it ([[energy-prices]])
-- US crude stocks -9,311 (week of 2026-06-26) — the observed physical balance behind the cost line, every figure clickable ([[crude-oil-inventories]])
+- WTI crude as reported: $70.48/bbl (-4.2 w/w) — the observed energy-cost input to inflation, not a forecast of it ([[energy-prices]])
+- US crude stocks -3,168 (week of 2026-07-03) — the observed physical balance behind the cost line, every figure clickable ([[crude-oil-inventories]])
 
 ### FORECAST product — model projection (compared)
 
-> Assigns a **59% probability** over 30d that “Inflation and rates pressure from Eastern Mediterranean maritime disruption state” — confidence 75%, trend stable.
+> Assigns a **64% probability** over 30d that “Inflation and rates pressure from Cuba infrastructure fragility state” — confidence 75%, trend stable.
 >
-> Probability path: d30=59%, d7=81%, h24=95%
+> Probability path: d30=64%, d7=88%, h24=95%
 >
-> — *WorldMonitor forecast feed (model projection), captured 2026-07-08T08:42:38Z*
+> — *WorldMonitor forecast feed (model projection), captured 2026-07-09T09:55:55Z*
 
 ### INTELLIGENCE product — analyst assessment (compared)
 
-> Eastern Mediterranean maritime disruption state is feeding inflation and rates pressure through shipping cost shock, with 45% pressure and 74% state confirmation is setting the strategic baseline, and the current 59% probability implies a live but not settled risk path.
+> Cuba infrastructure fragility state is feeding inflation and rates pressure through energy supply shock, with 47% pressure and 62% state confirmation is setting the strategic baseline, and the current 64% probability implies a live but not settled risk path.
 >
-> Actor lens: Commodity traders: Price whether stress in Eastern Mediterranean becomes durable over the 30d. Rebalance positions if the probability path moves away from 59%.
+> Actor lens: Commodity traders: Price whether stress in Cuba becomes durable over the 30d. Rebalance positions if the probability path moves away from 64%.
 >
-> — *WorldMonitor intelligence assessment (analyst judgement), captured 2026-07-08T08:42:38Z*
+> — *WorldMonitor intelligence assessment (analyst judgement), captured 2026-07-09T09:55:55Z*
 
 ### Scorecard
 
@@ -147,3 +147,4 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 - 2026-07-06 — regenerated the facts-vs-forecast-vs-intelligence benchmark from the 2026-07-06 live bundle (2026-W28); 3 head-to-head topics, every azimuth claim L1-sourced, foil snapshot quoted as the compared product.
 - 2026-07-07 — regenerated the facts-vs-forecast-vs-intelligence benchmark from the 2026-07-07 live bundle (2026-W28); 3 head-to-head topics, every azimuth claim L1-sourced, foil snapshot quoted as the compared product.
 - 2026-07-08 — regenerated the facts-vs-forecast-vs-intelligence benchmark from the 2026-07-08 live bundle (2026-W28); 3 head-to-head topics, every azimuth claim L1-sourced, foil snapshot quoted as the compared product.
+- 2026-07-09 — regenerated the facts-vs-forecast-vs-intelligence benchmark from the 2026-07-09 live bundle (2026-W28); 3 head-to-head topics, every azimuth claim L1-sourced, foil snapshot quoted as the compared product.
