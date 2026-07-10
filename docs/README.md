@@ -34,6 +34,7 @@ and quick start; come here to go deep.
 |-----|----------------|
 | [site.md](site.md) | The public static site — build + structure. |
 | [deploy.md](deploy.md) | Deploy pipeline (GitHub Pages). |
+| [deploy-cloudflare.md](deploy-cloudflare.md) | Cloudflare Pages deploy — a public URL from a still-private repo, so the site is mobile-viewable before the public flip. |
 | [operations.md](operations.md) | On-call runbook — every scheduled job, the alarm it raises, and exactly what to do when a badge goes red. |
 | [changelog.md](changelog.md) | Notable changes, Keep-a-Changelog format. |
 | [LESSONS.md](LESSONS.md) | Running log of build lessons. |
@@ -53,10 +54,11 @@ and quick start; come here to go deep.
 |-----|----------------|
 | [proof/README.md](proof/README.md) | The "what-if / show-your-work" living-system proof baked into the demonstrator. |
 | [proof/kr-c-operating-proof-2026-W27.md](proof/kr-c-operating-proof-2026-W27.md) | Banked telemetry for week 2026-W27 — every daily L1 cron run and the weekly L2 synthesis pass observed firing on schedule, the "keeps operating" half of the public-grade claim. |
+| [proof/engine-proof-2-2026-W28.md](proof/engine-proof-2-2026-W28.md) | Engine proof #2 (2026-W28) — the external `AzimuthSynthesisWatch` watchdog's confirmed first fire (it caught a real weekly-cycle miss), plus the honest weekly-synthesis status it surfaced. |
 
 ## Continuous integration & gates
 
-Five GitHub Actions workflows run the engine and guard the repo. All are visible under
+Six GitHub Actions workflows run the engine and guard the repo. All are visible under
 [`.github/workflows/`](../.github/workflows/); the three engine badges at the top of the root
 README track `ci.yml`, `ingest.yml`, and `synthesis-freshness.yml` — both liveness heartbeats
 visible at a glance.
@@ -67,9 +69,10 @@ visible at a glance.
 | `ingest.yml` | daily cron + `workflow_dispatch` | a stale L1 day (in-workflow liveness assert) | green, running daily |
 | `synthesis-freshness.yml` | weekly cron (Mondays) + `workflow_dispatch` | nothing per-push — opens a dedup'd `synthesis-alarm` issue if any clean-theme brief is genuinely **overdue** (lagging the latest L1 day by more than one weekly cadence) | green, running weekly |
 | `pages.yml` | push to `main` | the static-site build | skipped while the repo is private |
+| `deploy-cloudflare.yml` | push to `main` + `workflow_dispatch` | builds `_site` and deploys to Cloudflare Pages (`azimuth.pages.dev`) | skipped until the two `CLOUDFLARE_*` repo secrets are set (skip-not-fail) |
 | `secret-scan.yml` | every push / PR to `main` | **credentials over full history** (gitleaks + the stdlib scanner) and **owner-private context in the working tree** (C1b); pre-existing *history-only* privacy findings are surfaced non-blocking (C1c — see below) | green |
 
-Keeping those five workflows current is itself automated: [`.github/dependabot.yml`](../.github/dependabot.yml)
+Keeping those six workflows current is itself automated: [`.github/dependabot.yml`](../.github/dependabot.yml)
 runs a weekly `github-actions` updater that opens one grouped PR for minor/patch action bumps
 (a major version opens on its own) — the build-toolchain analog of the per-source data guardrail,
 so the CI supply chain stays patched the same way the data supply chain does.

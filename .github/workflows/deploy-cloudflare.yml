@@ -1,0 +1,97 @@
+name: Deploy site to Cloudflare Pages
+
+# Builds the public static site (scripts/build_site.py -> ./_site, plus the RDF export)
+# and publishes it to Cloudflare Pages via `wrangler pages deploy` (direct upload).
+#
+# WHY (Azimuth KR3, the convince-me package): CF Pages serves the built site at a public
+# https://azimuth.pages.dev URL from a still-PRIVATE repo — so the demonstrator is live and
+# mobile-viewable BEFORE the separate, explicit public-flip decision. GitHub Pages (pages.yml)
+# ties publishing to repo visibility; this path does not. See docs/deploy-cloudflare.md.
+#
+# READY-TO-DEPLOY GATE (skip-not-fail): this workflow only deploys once the two Cloudflare
+# repo secrets are set (Settings -> Secrets and variables -> Actions):
+#   * CLOUDFLARE_API_TOKEN   — a token scoped to "Account · Cloudflare Pages · Edit"
+#   * CLOUDFLARE_ACCOUNT_ID  — the Cloudflare account id
+# Until both exist the preflight step marks the run "not configured" and every real step is
+# skipped, so the job stays GREEN doing nothing (it never red-fails an unconfigured repo, the
+# same design as pages.yml skipping while private). Adding the secrets + creating the Pages
+# project is Michael's manual, explicitly-confirmed step — the runbook has it.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Least-privilege: the deploy authenticates to Cloudflare with the API token, not GITHUB_TOKEN.
+permissions:
+  contents: read
+
+# One publish at a time; don't cancel an in-progress upload.
+concurrency:
+  group: cloudflare-pages
+  cancel-in-progress: false
+
+jobs:
+  deploy-cloudflare:
+    name: Build + deploy to Cloudflare Pages
+    runs-on: ubuntu-latest
+    steps:
+      # Gate on the presence of BOTH Cloudflare secrets. The secrets context cannot be read in
+      # a job/step `if:`, so surface it as a step output and gate every later step on that.
+      - name: Preflight — is Cloudflare configured?
+        id: preflight
+        env:
+          CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CF_ACCOUNT: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          if [ -n "$CF_TOKEN" ] && [ -n "$CF_ACCOUNT" ]; then
+            echo "configured=true" >> "$GITHUB_OUTPUT"
+            echo "Cloudflare secrets present — building and deploying."
+          else
+            echo "configured=false" >> "$GITHUB_OUTPUT"
+            echo "Cloudflare secrets not set — skipping deploy (pre-configuration state; see docs/deploy-cloudflare.md)."
+          fi
+
+      - name: Checkout
+        if: steps.preflight.outputs.configured == 'true'
+        uses: actions/checkout@v4
+
+      - name: Install uv
+        if: steps.preflight.outputs.configured == 'true'
+        uses: astral-sh/setup-uv@v5
+
+      - name: Set up Python
+        if: steps.preflight.outputs.configured == 'true'
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # `site` (Markdown renderer) + `ld` (rdflib) — both DEV/CI-only; the runtime stays
+      # pure-stdlib. `ld` powers the linked-data export step below. Same as pages.yml.
+      - name: Install site build deps
+        if: steps.preflight.outputs.configured == 'true'
+        run: uv pip install --system -e ".[site,ld]"
+
+      - name: Build site
+        if: steps.preflight.outputs.configured == 'true'
+        run: python scripts/build_site.py --out _site
+
+      # Publish the RDF graph BESIDE the static site: schema.ttl + data.ttl + the composed
+      # context, lifted from the vault/ OKF bundle (Vault-LD OKF profile). Same as pages.yml.
+      - name: Export linked data (schema.ttl + data.ttl) beside the site
+        if: steps.preflight.outputs.configured == 'true'
+        run: python scripts/build_rdf.py --out _site
+
+      # CF Pages reads _headers (+ _redirects, if present) from the output root. The built
+      # _site never contains them (build_site.py owns that dir), so copy them in here.
+      - name: Add Cloudflare Pages headers
+        if: steps.preflight.outputs.configured == 'true'
+        run: cp cloudflare/_headers _site/_headers
+
+      - name: Deploy to Cloudflare Pages
+        if: steps.preflight.outputs.configured == 'true'
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy _site --project-name=azimuth --branch=main

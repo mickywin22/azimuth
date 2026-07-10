@@ -3,6 +3,11 @@
 The public static site (see [docs/site.md](site.md)) is published to **GitHub Pages**
 by the [`.github/workflows/pages.yml`](../.github/workflows/pages.yml) workflow.
 
+> **Want a public URL while the repo stays private?** GitHub Pages ties publishing to
+> repo visibility. For a stable public preview URL (e.g. to open the demonstrator on a
+> phone) *before* the public-flip decision, use the **Cloudflare Pages** path instead:
+> [deploy-cloudflare.md](deploy-cloudflare.md). The two paths are not exclusive.
+
 ## Pages URL
 
 Once Pages is enabled (see the gate below), the site serves at:

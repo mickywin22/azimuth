@@ -1,0 +1,17 @@
+# Cloudflare Pages project config for the azimuth public static site.
+#
+# WHY Cloudflare Pages (in addition to GitHub Pages): CF Pages serves the built site at a
+# public https://azimuth.pages.dev URL via `wrangler pages deploy` (direct upload with a
+# scoped API token) REGARDLESS of the GitHub repo's visibility. That decouples "the site is
+# live" from "the repo is public" — so a stable public URL can preview the demonstrator on a
+# phone (the convince-me package) while the repo stays PRIVATE until the separate, explicit
+# public-flip decision. GitHub Pages on a private repo needs a paid plan and still ties the
+# site to repo visibility; CF Pages does not. Full runbook: docs/deploy-cloudflare.md.
+#
+# The site is a pre-built static directory (scripts/build_site.py -> _site), so there is NO
+# framework build on Cloudflare's side — the CI workflow builds _site and uploads it as-is.
+# Local preview: `python scripts/build_site.py --out _site` then `npx wrangler pages dev _site`.
+
+name = "azimuth"
+compatibility_date = "2026-07-10"
+pages_build_output_dir = "_site"

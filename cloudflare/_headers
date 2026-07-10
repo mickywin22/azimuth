@@ -1,0 +1,15 @@
+# Cloudflare Pages response headers for the azimuth public site.
+# CF Pages reads this file from the deploy output root (_site/_headers) and applies the
+# rules below to matching responses. The CI deploy workflow copies it there.
+#
+# Kept deliberately CSP-light so the site's inline progressive-enhancement scripts
+# (graph.html canvas, build-time sparklines, the live autonomy counters that fetch
+# /autonomy.json + /graph.json) keep working. A nonce-based Content-Security-Policy is a
+# documented follow-up (see docs/deploy-cloudflare.md "Hardening"). The four headers below
+# harden the site (MIME-sniffing, clickjacking, referrer leakage, feature access) and break
+# nothing on a static read-only site.
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), microphone=(), camera=(), browsing-topics=()
