@@ -2,56 +2,56 @@
   "$note": "Captured snapshot of the COMPARED forecast/intelligence product for the azimuth benchmark (synthesis/benchmark.py). Quoted by product + capture date; NOT surfaced as an azimuth channel and NOT an L1 source. Refresh with pull_benchmark_foils.py.",
   "endpoint": "/api/forecast/v1/get-forecasts",
   "attribution": "WorldMonitor (api.worldmonitor.app) — model-generated forecast/assessment product",
-  "feed_generated_at": 1783587702736,
+  "feed_generated_at": 1783674118496,
   "feed_degraded": false,
-  "captured_at": "2026-07-09T09:55:55Z",
+  "captured_at": "2026-07-10T09:51:23Z",
   "n_forecasts_seen": 14,
   "topics": {
     "energy-supply": {
       "foil": {
-        "id": "fc-market-019112bf",
+        "id": "fc-market-fd587dc3",
         "domain": "market",
-        "region": "Israel/Gaza",
-        "title": "Energy repricing risk from Israel/Gaza security escalation state",
-        "probability": 0.588,
-        "prior_probability": 0.588,
+        "region": "Black Sea",
+        "title": "Energy repricing risk from Black Sea maritime disruption state",
+        "probability": 0.611,
+        "prior_probability": 0.611,
         "confidence": 0.75,
         "time_horizon": "30d",
         "trend": "stable",
         "projections": {
-          "d30": 0.588,
-          "d7": 0.812,
-          "h24": 0.95
+          "d30": 0.257,
+          "d7": 0.354,
+          "h24": 0.611
         },
-        "scenario_short": "Israel/Gaza security escalation state, with 52% pressure and 70% state confirmation, will feed energy repricing through energy supply shock over the next 30 days, driven by 10 urgent critical signals and headlines of...",
-        "perspective_strategic": "The 52% pressure and 70% state confirmation indicate a moderate but active energy supply shock transmission path, with 10 urgent critical signals reinforcing the current stable baseline.",
-        "perspective_contrarian": "The 75% confidence level leaves room for reversal, and the trigger for more directly matched reporting has not yet been met, suggesting the path could stall if no new hard signals emerge.",
-        "actor_lens": "Commodity traders: Price whether stress in Israel/Gaza becomes durable over the 30d. Rebalance positions if the probability path moves away from 59%.",
-        "top_signal": "Israel/Gaza security escalation state is feeding energy repricing through energy supply shock, with 52% pressure and 70% state confirmation"
+        "scenario_short": "Black Sea maritime disruption state is feeding energy repricing through gas supply stress, with 68% pressure and 73% state confirmation. For now, the base case stays near 64% over the 30d. Actors absorb the current...",
+        "perspective_strategic": "Black Sea maritime disruption state is feeding energy repricing through gas supply stress, with 68% pressure and 73% state confirmation is setting the strategic baseline, and the current 61% probability implies a live but not settled risk path.",
+        "perspective_contrarian": "The current 75% confidence level still leaves room for reversal. If that restraint persists, the forecast can move below the current 61% baseline. Actors prioritize containment and the system drifts toward stabilization unless new hard signals emerge.",
+        "actor_lens": "Commodity traders: Price whether stress in Black Sea becomes durable over the 30d. Rebalance positions if the probability path moves away from 61%.",
+        "top_signal": "Black Sea maritime disruption state is feeding energy repricing through gas supply stress, with 68% pressure and 73% state confirmation"
       },
       "absence_reason": null
     },
     "supply-chain-inflation": {
       "foil": {
-        "id": "fc-market-9b487abf",
+        "id": "fc-market-fd587dc3",
         "domain": "market",
-        "region": "Cuba",
-        "title": "Inflation and rates pressure from Cuba infrastructure fragility state",
-        "probability": 0.639,
-        "prior_probability": 0.638,
+        "region": "Black Sea",
+        "title": "Energy repricing risk from Black Sea maritime disruption state",
+        "probability": 0.611,
+        "prior_probability": 0.611,
         "confidence": 0.75,
         "time_horizon": "30d",
         "trend": "stable",
         "projections": {
-          "d30": 0.639,
-          "d7": 0.882,
-          "h24": 0.95
+          "d30": 0.257,
+          "d7": 0.354,
+          "h24": 0.611
         },
-        "scenario_short": "Cuba infrastructure fragility state is feeding inflation and rates pressure through energy supply shock, with 47% pressure and 62% state confirmation. For now, the base case stays near 66% over the 30d. Actors absorb...",
-        "perspective_strategic": "Cuba infrastructure fragility state is feeding inflation and rates pressure through energy supply shock, with 47% pressure and 62% state confirmation is setting the strategic baseline, and the current 64% probability implies a live but not settled risk path.",
-        "perspective_contrarian": "No directly matched headlines are currently attached to Cuba. If that restraint persists, the forecast can move below the current 64% baseline. Actors prioritize containment and the system drifts toward stabilization unless new hard signals emerge.",
-        "actor_lens": "Commodity traders: Price whether stress in Cuba becomes durable over the 30d. Rebalance positions if the probability path moves away from 64%.",
-        "top_signal": "Cuba infrastructure fragility state is feeding inflation and rates pressure through energy supply shock, with 47% pressure and 62% state confirmation"
+        "scenario_short": "Black Sea maritime disruption state is feeding energy repricing through gas supply stress, with 68% pressure and 73% state confirmation. For now, the base case stays near 64% over the 30d. Actors absorb the current...",
+        "perspective_strategic": "Black Sea maritime disruption state is feeding energy repricing through gas supply stress, with 68% pressure and 73% state confirmation is setting the strategic baseline, and the current 61% probability implies a live but not settled risk path.",
+        "perspective_contrarian": "The current 75% confidence level still leaves room for reversal. If that restraint persists, the forecast can move below the current 61% baseline. Actors prioritize containment and the system drifts toward stabilization unless new hard signals emerge.",
+        "actor_lens": "Commodity traders: Price whether stress in Black Sea becomes durable over the 30d. Rebalance positions if the probability path moves away from 61%.",
+        "top_signal": "Black Sea maritime disruption state is feeding energy repricing through gas supply stress, with 68% pressure and 73% state confirmation"
       },
       "absence_reason": null
     },
