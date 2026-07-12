@@ -1,14 +1,14 @@
 {
   "channels_surfaced": 22,
-  "days_operating": 27,
-  "est_llm_spend_usd": 2.34,
+  "days_operating": 28,
+  "est_llm_spend_usd": 2.4,
   "est_weekly_spend_usd": 0.6,
   "first_l1_day": "2026-06-15",
   "generated_from": "committed vault data (wall-clock independent)",
-  "l1_ingests_committed": 23,
-  "l1_source_notes": 404,
+  "l1_ingests_committed": 24,
+  "l1_source_notes": 426,
   "l2_briefs": 8,
-  "latest_l1_day": "2026-07-11",
+  "latest_l1_day": "2026-07-12",
   "spend_basis": "order-of-magnitude estimate \u2014 one small weekly LLM synthesis job; not metered billing data",
-  "weeks_operating": 3.9
+  "weeks_operating": 4.0
 }

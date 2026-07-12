@@ -2,9 +2,9 @@
   "$note": "Captured snapshot of the COMPARED forecast/intelligence product for the azimuth benchmark (synthesis/benchmark.py). Quoted by product + capture date; NOT surfaced as an azimuth channel and NOT an L1 source. Refresh with pull_benchmark_foils.py.",
   "endpoint": "/api/forecast/v1/get-forecasts",
   "attribution": "WorldMonitor (api.worldmonitor.app) — model-generated forecast/assessment product",
-  "feed_generated_at": 1783756834841,
+  "feed_generated_at": 1783843227875,
   "feed_degraded": false,
-  "captured_at": "2026-07-11T08:10:58Z",
+  "captured_at": "2026-07-12T08:29:53Z",
   "n_forecasts_seen": 14,
   "topics": {
     "energy-supply": {
@@ -13,21 +13,21 @@
         "domain": "market",
         "region": "Black Sea",
         "title": "Energy repricing risk from Black Sea maritime disruption state",
-        "probability": 0.61,
-        "prior_probability": 0.619,
+        "probability": 0.586,
+        "prior_probability": 0.586,
         "confidence": 0.75,
         "time_horizon": "30d",
         "trend": "stable",
         "projections": {
-          "d30": 0.256,
-          "d7": 0.354,
-          "h24": 0.61
+          "d30": 0.246,
+          "d7": 0.34,
+          "h24": 0.586
         },
-        "scenario_short": "Black Sea maritime disruption state, with 69% pressure and 72% state confirmation, will drive energy repricing through gas supply stress over the next 30 days, transmitted via 1 edge and reinforced by 8 urgent...",
-        "perspective_strategic": "The 69% pressure and 72% state confirmation signals indicate that gas supply stress is the primary transmission mechanism, with 8 urgent critical signals reinforcing energy repricing, but the thin public reporting limits confidence in the path.",
-        "perspective_contrarian": "The lack of directly matched headlines attached to Black Sea, as noted in the counter-evidence, could prevent confirmation of the escalation path, allowing the 75% confidence level to cap the forecast and keep it below the 61% baseline.",
-        "actor_lens": "Commodity traders: Price whether stress in Black Sea becomes durable over the 30d. Rebalance positions if the probability path moves away from 61%.",
-        "top_signal": "Black Sea maritime disruption state is feeding energy repricing through gas supply stress, with 69% pressure and 72% state confirmation"
+        "scenario_short": "Energy repricing risk from Black Sea maritime disruption state remains at 59% probability over 30d, driven by a 62% pressure and 71% state confirmation feeding gas supply stress, with 7 urgent critical signals...",
+        "perspective_strategic": "The 62% pressure and 71% state confirmation indicate a strong transmission path through gas supply stress, with 7 urgent critical signals reinforcing energy pressure, suggesting sustained market repricing risk.",
+        "perspective_contrarian": "The 75% confidence level leaves room for reversal, and the lack of more directly matched reporting on Black Sea could prevent escalation, as actors prioritize containment and the system stabilizes without new hard signals.",
+        "actor_lens": "Commodity traders: Price whether stress in Black Sea becomes durable over the 30d. Rebalance positions if the probability path moves away from 59%.",
+        "top_signal": "Black Sea maritime disruption state is feeding energy repricing through gas supply stress, with 62% pressure and 71% state confirmation"
       },
       "absence_reason": null
     },
@@ -37,21 +37,21 @@
         "domain": "market",
         "region": "Black Sea",
         "title": "Energy repricing risk from Black Sea maritime disruption state",
-        "probability": 0.61,
-        "prior_probability": 0.619,
+        "probability": 0.586,
+        "prior_probability": 0.586,
         "confidence": 0.75,
         "time_horizon": "30d",
         "trend": "stable",
         "projections": {
-          "d30": 0.256,
-          "d7": 0.354,
-          "h24": 0.61
+          "d30": 0.246,
+          "d7": 0.34,
+          "h24": 0.586
         },
-        "scenario_short": "Black Sea maritime disruption state, with 69% pressure and 72% state confirmation, will drive energy repricing through gas supply stress over the next 30 days, transmitted via 1 edge and reinforced by 8 urgent...",
-        "perspective_strategic": "The 69% pressure and 72% state confirmation signals indicate that gas supply stress is the primary transmission mechanism, with 8 urgent critical signals reinforcing energy repricing, but the thin public reporting limits confidence in the path.",
-        "perspective_contrarian": "The lack of directly matched headlines attached to Black Sea, as noted in the counter-evidence, could prevent confirmation of the escalation path, allowing the 75% confidence level to cap the forecast and keep it below the 61% baseline.",
-        "actor_lens": "Commodity traders: Price whether stress in Black Sea becomes durable over the 30d. Rebalance positions if the probability path moves away from 61%.",
-        "top_signal": "Black Sea maritime disruption state is feeding energy repricing through gas supply stress, with 69% pressure and 72% state confirmation"
+        "scenario_short": "Energy repricing risk from Black Sea maritime disruption state remains at 59% probability over 30d, driven by a 62% pressure and 71% state confirmation feeding gas supply stress, with 7 urgent critical signals...",
+        "perspective_strategic": "The 62% pressure and 71% state confirmation indicate a strong transmission path through gas supply stress, with 7 urgent critical signals reinforcing energy pressure, suggesting sustained market repricing risk.",
+        "perspective_contrarian": "The 75% confidence level leaves room for reversal, and the lack of more directly matched reporting on Black Sea could prevent escalation, as actors prioritize containment and the system stabilizes without new hard signals.",
+        "actor_lens": "Commodity traders: Price whether stress in Black Sea becomes durable over the 30d. Rebalance positions if the probability path moves away from 59%.",
+        "top_signal": "Black Sea maritime disruption state is feeding energy repricing through gas supply stress, with 62% pressure and 71% state confirmation"
       },
       "absence_reason": null
     },
