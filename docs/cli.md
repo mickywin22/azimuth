@@ -321,6 +321,24 @@ Flags: `--strict` (advisory findings also fail the gate), `--json` (findings as 
 `--report` (emit a markdown verdict block on stdout — redirect to save it). **Layer:** Gate
 (`secret-scan.yml`, C1b).
 
+### `check_flip_readiness.py` — one-command public-flip go/no-go (aggregates C1–C4)
+One glance instead of five commands: runs every *fleet-owned* readiness gate — C1 secret
+scan · C1b working-tree privacy · C2 license files · C3 source guardrail · C4 ingest
+liveness — as isolated child processes, prints a GREEN/RED go-table, and **exits 0 only if
+every blocking fleet gate passes**. The Michael-gated decisions (C1c history accept-vs-scrub,
+C5/C6 spot-reviews, C7 editorial line, and THE FLIP itself) are listed for context but never
+run and never move the exit code. Run it against the exact commit being published as the
+flip-time re-verify step.
+
+```bash
+python scripts/check_flip_readiness.py             # run all fleet gates, print the go-table
+python scripts/check_flip_readiness.py --json      # machine-readable verdict
+python scripts/check_flip_readiness.py --history   # also report C1c (history privacy), informational
+```
+Flags: `--json` (machine-readable verdict), `--history` (also run the C1c git-history privacy
+scan — informational, never blocks). **Layer:** Gate aggregator + flip runbook step 1 · See
+[security/public-flip-readiness.md](security/public-flip-readiness.md).
+
 ### `seed_good_first_issues.py` — good-first-issues catalog
 Single source of truth for the newcomer task list: renders
 [`.github/GOOD_FIRST_ISSUES.md`](../.github/GOOD_FIRST_ISSUES.md) from the `ISSUES` table
