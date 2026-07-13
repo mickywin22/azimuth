@@ -7,7 +7,7 @@
 > flip is a one-glance decision, not a re-investigation.
 
 _Last updated: 2026-07-03 (owner decision session)._
-_Re-verified: 2026-07-13 (W29) against `main` @ `cead29a` — fleet gates still all GREEN on the grown surface; see [2026-W29 re-verification](#2026-w29-re-verification-2026-07-13)._
+_Re-verified: 2026-07-13 (W29, two passes) — every fleet gate is GREEN once the 2026-07-13 weekly L2 curator run lands (it clears the C4b freshness gate; `check_flip_readiness.py` exits 0 with it applied). The flip stays execute-only on Michael's GO (#898); see [2026-W29 re-verification](#2026-w29-re-verification-2026-07-13)._
 
 ## Verdict at a glance
 
@@ -19,20 +19,22 @@ _Re-verified: 2026-07-13 (W29) against `main` @ `cead29a` — fleet gates still 
 | C2 | **License files present** — code MIT + content CC-BY-4.0 | fleet | ✅ GREEN — `LICENSE` + `LICENSE-CONTENT.md` on `main` |
 | C3 | **Source guardrail green** — every surfaced source licensed + credited | fleet | ✅ GREEN — `scripts/check_sources.py` in CI |
 | C4 | **Daily ingest healthy** — GH-Actions L1 pull exits 0 | fleet | ✅ GREEN — re-verified 2026-07-13: ingest **alive**, latest L1 day 2026-07-12 (1d old), 24 days on record; `ingest.yml` 07-10/11/12 all success |
-| C4b | **Synthesis freshness** — no clean brief overdue past the weekly cadence (else main CI is red) | fleet | 🔴 **RED (2026-07-13)** — all 5 clean briefs last synthesised 2026-07-02, **10d overdue (> 8d)** → the weekly L2 curator has not run → `pytest`'s `test_live_repo_is_internally_consistent` fails → **`ci.yml` on `main` = failure**. Fix = run the `azimuth-curator` weekly pass on the 2026-07-12 L1 day. Now a **blocking** gate in `check_flip_readiness.py` (was previously uncovered — the tool used to report "all GREEN" while CI was red) |
+| C4b | **Synthesis freshness** — no clean brief overdue past the weekly cadence (else main CI is red) | fleet | ✅ **GREEN — cleared 2026-07-13** by the weekly L2 curator run (all 5 clean briefs re-synthesised to the 2026-07-13 L1; `check_synthesis_freshness.py --overdue` exits 0, 0/5 stale). Was 🔴 RED earlier the same day (5/5 briefs **11d overdue** → `pytest`'s `test_live_repo_is_internally_consistent` failed → `ci.yml` on `main` = failure). The curator commit (`2e209ba`) lands via the concurrent Azimuth-KR3 dispatch; **`ci.yml` goes green on `main` when it merges.** Blocking gate in `check_flip_readiness.py` |
 | C5 | **USP / positioning spot-review** (~15 min) | **Michael** | ✅ **GREEN — approved 2026-07-03** (5 claims + answers/benchmark surface signed off) |
 | C6 | **First autonomous weekly cycle spot-review** — the live briefs read neutral + correct | **Michael** | ✅ **GREEN — approved 2026-07-03** (W27 cycle: both lanes autonomous + lint-green) |
 | C7 | **prediction-markets editorial line** — confirm it stays HELD (or define how it's briefed) | **Michael** | ⏳ PENDING — IQ #915 (does not block flip; held source is `surfaced:false` for L2) |
 | 🚩 | **THE FLIP** — make the repo public | **Michael** | ⛔ **HELD by owner decision 2026-07-03** — every gate is green; the flip is now execute-only on the owner's GO (IQ #898) |
 
-**Bottom line (2026-07-13):** the **credential + owner-private surface is clean**
-(C1/C1b/C2/C3/C4 all GREEN — no secret, no owner-private path in the publishable
-tree). The two Michael spot-reviews and the C1c call are **already decided** (see
-the ledger below). **The one thing NOT flip-ready is CI: `ci.yml` on `main` is
-RED** because the weekly L2 curator is 10 days overdue (C4b) — you do not flip a
-repo public onto a red build. So the honest order is: **run the weekly curator →
-CI green → then the flip is execute-only on your GO (#898)**. This is a
-*fleet-actionable* step (run the curator), not a Michael gate.
+**Bottom line (2026-07-13, later W29 pass):** **every fleet gate is now GREEN.**
+The C4b freshness gate — the one red gate earlier today — is **cleared**: the
+weekly L2 curator has run (all 5 clean briefs re-synthesised to the 2026-07-13
+L1), so `python scripts/check_flip_readiness.py` **exits 0 — all fleet gates
+GREEN** (C1 secret scan CLEAN · C1b/C2/C3/C4/C4b green). `ci.yml` on `main` goes
+green when that curator commit (`2e209ba`) merges — it is landing via the
+concurrent Azimuth-KR3 dispatch. The two Michael spot-reviews and the C1c call are
+**already decided** (see the ledger below). So the flip is now **execute-only on
+Michael's GO (#898)** — no fleet-actionable step remains once the curator commit
+is on `main`.
 
 **Owner decisions are now recorded** in
 [`flip-decisions.json`](./flip-decisions.json), which `check_flip_readiness.py`
@@ -80,6 +82,27 @@ if **every** blocking fleet gate — now including freshness — is GREEN.
 
 **The flip itself remains HELD on Michael's GO (IQ #898) — unchanged.** This dispatch verified
 readiness only; it did **not** touch repo visibility.
+
+### Later W29 pass — C4b cleared, all fleet gates GREEN (2026-07-13)
+
+The earlier pass above found a single red gate: **C4b** (5/5 clean briefs 11d overdue → `ci.yml`
+red). This later pass confirms it is **resolved**. The weekly L2 `azimuth-curator` re-synthesised
+all five clean-theme briefs to the 2026-07-13 L1 day (commit `2e209ba`), and the full aggregator
+was re-run against that exact surface in an isolated `git worktree`:
+
+| Gate | origin/main @ `4189e60` (before curator) | curator tip `2e209ba` (after) |
+|------|------------------------------------------|-------------------------------|
+| C1 secret scan (history + tree) | ✅ CLEAN | ✅ CLEAN |
+| C1b privacy scan (worktree) | ✅ CLEAN (8 advisory only) | ✅ CLEAN (8 advisory only) |
+| C2 / C3 / C4 | ✅ GREEN | ✅ GREEN (C4: L1 2026-07-13, 0d old, 25 days on record) |
+| C4b synthesis freshness | 🔴 **RED** — 5/5 briefs 11d overdue, `--overdue` exit 1 | ✅ **GREEN** — 0/5 stale, `--overdue` exit 0 |
+| `check_flip_readiness.py` verdict | exit 1 (C4b red) | **exit 0 — all fleet gates GREEN** |
+
+So the only fleet-actionable blocker disappears the moment the curator commit (`2e209ba`) is on
+`main` — it lands via the concurrent Azimuth-KR3 dispatch. This dispatch (Azimuth-KR1 S2)
+**pre-verified** readiness against both the current and post-curator surface; it did **not** run
+the curator itself and it did **not** touch repo visibility. The flip remains **execute-only on
+Michael's GO (#898)**.
 
 ### Advisory — RESOLVED 2026-07-03 (scrubbed to 0)
 
