@@ -267,6 +267,19 @@ python scripts/check_doc_orphans.py
 ```
 **Layer:** Gate (`ci.yml`) · See [doc-links.md](doc-links.md#the-companion-no-orphan-docs).
 
+### `check_hero_gif.py` — committed-hero guard
+Fails if the committed README hero (`docs/assets/hero.gif`) is missing, not a valid GIF, or
+the wrong shape (expects 900x840, six frames). Validates the committed bytes with the
+**standard library only** — no Pillow, no browser, no version coupling — so it runs in any CI
+job and can never flake on a dependency bump. The CI counterpart to
+[`build_hero_gif.py`](#build_hero_gifpy--the-readme-hero-animation), which owns the exact-bytes
+`--check`.
+
+```bash
+python scripts/check_hero_gif.py
+```
+**Layer:** Gate (`ci.yml`) · guards the landing artifact.
+
 ### `check_sources.py` — L3 source guardrail
 Enforces the per-source license / attribution / editorial guardrail from
 `sources/registry.json`.
