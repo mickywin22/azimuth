@@ -78,6 +78,15 @@ Michael-gated rows show your recorded calls (C5/C6 approved, C1c accepted, FLIP 
 a blanket PENDING. Run it at flip time against the exact commit being published; it exits 0 only
 if **every** blocking fleet gate — now including freshness — is GREEN.
 
+That same aggregator now also runs in CI as the non-blocking **`flip-readiness.yml`** workflow
+(`workflow_dispatch` + every push / PR to `main` + a weekly cron): it renders the GREEN/RED
+go-table into the run summary and banks the verdict as a downloadable artifact, so the go/no-go
+is a **one-glance Actions check** with no local checkout needed. It is deliberately non-blocking —
+the roll-up is a decision surface, and each gate it aggregates already hard-fails in its own job
+(Secret Scan, Source Guardrail, the pytest freshness assert) — so it surfaces the verdict without
+reddening the build during the held-flip window. Its shape is pinned by
+`tests/unit/test_flip_readiness_workflow.py`.
+
 **The flip itself remains HELD on Michael's GO (IQ #898) — unchanged.** This dispatch verified
 readiness only; it did **not** touch repo visibility.
 
@@ -111,6 +120,8 @@ Once C5 + C6 are signed off:
 
 ```bash
 # 1. (re-confirm every fleet gate is still green on the exact commit being published)
+#    Local: run the aggregator. Or remote: trigger the `flip-readiness.yml` workflow
+#    (Actions tab -> Flip Readiness -> Run workflow) and read the go-table in its summary.
 cd ~/Projects/azimuth && git checkout main && git pull
 python scripts/check_flip_readiness.py    # expect: FLEET GATES all GREEN, exit 0
 

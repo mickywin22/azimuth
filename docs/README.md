@@ -45,7 +45,7 @@ and quick start; come here to go deep.
 |-----|----------------|
 | [security/public-flip-readiness.md](security/public-flip-readiness.md) | The go/no-go checklist for flipping the repo public. |
 | [security/secret-scan-2026-06-30.md](security/secret-scan-2026-06-30.md) | Point-in-time C1 secret-scan report (gitleaks + stdlib scanner over full history + working tree) — verdict CLEAN, the evidence bank behind the flip gate. |
-| _C1c owner-private-history decision_ | The accept-vs-scrub call on the owner-private home-paths in history is an owner go-gate; the decision doc + the one-command `scripts/check_flip_readiness.py` aggregator are staged on the public-flip branch and land with the flip, not before it. See the `Secret Scan` workflow (§ below) for the live gate status. |
+| _C1c owner-private-history decision_ | The accept-vs-scrub call on the owner-private home-paths in history is an owner go-gate, recorded **accepted** in [`security/flip-decisions.json`](security/flip-decisions.json). The one-command `scripts/check_flip_readiness.py` aggregator (on `main`) reads that ledger and runs on every push as the non-blocking `flip-readiness.yml` go/no-go job. See the `Secret Scan` + `flip-readiness.yml` workflows (§ below) for the live gate status. |
 | [SECURITY.md](../SECURITY.md) | Vulnerability-reporting policy (repo root). |
 
 ## Proof
@@ -58,7 +58,7 @@ and quick start; come here to go deep.
 
 ## Continuous integration & gates
 
-Six GitHub Actions workflows run the engine and guard the repo. All are visible under
+Seven GitHub Actions workflows run the engine and guard the repo. All are visible under
 [`.github/workflows/`](../.github/workflows/); the three engine badges at the top of the root
 README track `ci.yml`, `ingest.yml`, and `synthesis-freshness.yml` — both liveness heartbeats
 visible at a glance.
@@ -71,8 +71,9 @@ visible at a glance.
 | `pages.yml` | push to `main` | the static-site build | skipped while the repo is private |
 | `deploy-cloudflare.yml` | push to `main` + `workflow_dispatch` | builds `_site` and deploys to Cloudflare Pages (`azimuth.pages.dev`) | skipped until the two `CLOUDFLARE_*` repo secrets are set (skip-not-fail) |
 | `secret-scan.yml` | every push / PR to `main` | **credentials over full history** (gitleaks + the stdlib scanner) and **owner-private context in the working tree** (C1b); pre-existing *history-only* privacy findings are surfaced non-blocking (C1c — see below) | green |
+| `flip-readiness.yml` | `workflow_dispatch` + push / PR to `main` + weekly cron | nothing — **non-blocking** roll-up of every fleet-owned readiness gate (`scripts/check_flip_readiness.py`) into one go/no-go verdict in the run summary; each gate it aggregates already hard-fails in its own job, so this surfaces the flip verdict without reddening the build | green (RED verdict → warning annotation) |
 
-Keeping those six workflows current is itself automated: [`.github/dependabot.yml`](../.github/dependabot.yml)
+Keeping those seven workflows current is itself automated: [`.github/dependabot.yml`](../.github/dependabot.yml)
 runs a weekly `github-actions` updater that opens one grouped PR for minor/patch action bumps
 (a major version opens on its own) — the build-toolchain analog of the per-source data guardrail,
 so the CI supply chain stays patched the same way the data supply chain does.
@@ -85,8 +86,9 @@ blocks the merge, so no push can newly introduce an owner-private path; the hand
 pre-existing **history-only** findings (the owner's local machine paths in since-deleted
 notes — never credentials) are surfaced **non-blocking** on every run. Those history findings
 are the **C1c** accept-vs-scrub call — a deliberate owner go-gate resolved at flip time
-(the `scripts/check_flip_readiness.py` aggregator and the C1c decision write-up are staged
-on the public-flip branch and land with the flip), never an autonomous history rewrite.
+(recorded in `docs/security/flip-decisions.json`, which the `scripts/check_flip_readiness.py`
+aggregator reads; the aggregator runs on every push as the non-blocking `flip-readiness.yml`
+go/no-go job), never an autonomous history rewrite.
 The split design is pinned by `tests/unit/test_secret_scan_workflow.py`, and the full
 rationale lives in [security/public-flip-readiness.md](security/public-flip-readiness.md).
 

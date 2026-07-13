@@ -1,0 +1,70 @@
+name: Flip Readiness
+
+# Public-flip go/no-go surface. Runs scripts/check_flip_readiness.py -- the one-command
+# aggregate over every fleet-owned readiness gate (C1 secret scan . C1b privacy working-tree .
+# C2 license files . C3 source guardrail . C4 ingest liveness . C4b synthesis freshness) plus
+# the recorded owner-decision ledger (C1c/C5/C6/C7/FLIP from docs/security/flip-decisions.json).
+# It renders the GREEN/RED go-table into the run summary and banks the verdict as an artifact,
+# so "is azimuth ready to go public?" is a one-glance Actions check instead of a five-command
+# local re-investigation. `workflow_dispatch` is the deliberate pre-flip re-verify.
+#
+# NON-BLOCKING by design. The aggregate is a DECISION surface for Michael, not a merge gate:
+# every gate it rolls up already hard-fails in its own job (Secret Scan, Source Guardrail via
+# ci.yml, the pytest freshness assert). Making the roll-up ALSO hard-block would (a) be redundant
+# and (b) go red-by-design during the pre-flip window -- the exact anti-pattern secret-scan.yml's
+# C1b history split already removed. So this job SURFACES the verdict (job summary + a notice/
+# warning annotation) and never reddens the build. The blocking gates keep their own teeth.
+
+on:
+  workflow_dispatch: {}
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  schedule:
+    - cron: "17 6 * * 1"  # Mon 06:17 UTC -- weekly honesty heartbeat on the flip verdict
+
+permissions:
+  contents: read
+
+jobs:
+  flip-readiness:
+    name: Public-flip go/no-go
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # C1 (scan_secrets) and the informational C1c report read the FULL git history;
+          # a shallow clone would give a false GREEN by not seeing the historical blobs.
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # Pure-stdlib aggregate: check_flip_readiness.py runs each gate as a child process and each
+      # gate self-inserts the repo root onto sys.path, so no dependency install is needed -- same
+      # as the source-guardrail / synthesis-lint jobs in ci.yml.
+      - name: Run flip-readiness aggregator (decision surface -- non-blocking)
+        run: |
+          {
+            echo '### Azimuth public-flip readiness'
+            echo ''
+            echo '```text'
+            python scripts/check_flip_readiness.py | tee flip-readiness.txt
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY" 2>&1 || true
+          if grep -q 'FLEET GATES: all GREEN' flip-readiness.txt; then
+            echo "::notice title=Flip readiness::GREEN -- no fleet gate blocks the flip; execution is Michael's GO (#898)."
+          else
+            echo "::warning title=Flip readiness::RED -- a fleet-owned gate must be fixed before the flip. See the job summary."
+          fi
+
+      - name: Bank the verdict
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: flip-readiness-verdict
+          path: flip-readiness.txt
+          if-no-files-found: warn
