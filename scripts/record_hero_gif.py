@@ -1,5 +1,11 @@
 #!/usr/bin/env python3
-"""Generate docs/assets/hero.gif — an animated walkthrough of the azimuth site.
+"""Live browser-recorded variant of the azimuth hero walkthrough (OPTIONAL).
+
+NOTE: this is NOT the source of the committed ``docs/assets/hero.gif``. That asset is built
+deterministically, with no browser, by ``scripts/build_hero_gif.py`` (byte-reproducible and
+CI-checkable, in keeping with azimuth's pure-stdlib promise). This recorder is kept only for
+anyone who wants a full-fidelity live capture; its frames vary run-to-run and must not be
+committed as the canonical asset.
 
 Uses Playwright to drive a headless browser through three scenes:
   1. The home page (brief cards + autonomy counters)
