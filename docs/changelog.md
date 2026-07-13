@@ -7,6 +7,20 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 ## [Unreleased]
 
 ### Added
+- **The README now opens with a real animated hero, built deterministically (2026-07-13, KR2):**
+  the README's "animated walkthrough" was only an *instruction* to generate `docs/assets/hero.gif`
+  locally (needing `[demo]` extras + `playwright install chromium`), so the repo's own front door
+  had a hole — and the intended Playwright screen-recording could never be committed reproducibly:
+  a heavyweight non-stdlib browser whose frames vary run-to-run, against azimuth's byte-for-byte
+  promise. `scripts/build_hero_gif.py` now composes the committed 900×840 six-frame hero
+  (`docs/assets/hero.gif`, home → knowledge graph → weekly brief, a zoom-out reveal per scene)
+  **deterministically from the three committed page previews** using only Pillow — fixed frame
+  order, crop boxes, LANCZOS resample and one shared median-cut palette, so the same inputs + same
+  Pillow yield identical bytes (its `--check` guards that exactly). The README embeds it above the
+  fold and folds the static stills into a `<details>`. Guarded in CI by `scripts/check_hero_gif.py`,
+  a pure-stdlib validator (valid GIF, 900×840, six frames — parsed from the GIF's own bytes, so it
+  can never flake on a Pillow bump). `scripts/record_hero_gif.py` stays as an optional live-capture
+  variant that no longer sources the committed asset.
 - **The knowledge graph is now discoverable from the site front door (2026-07-03, KR-B):**
   `graph.html` rendered next to the site but was linked from nowhere — no nav entry, no index
   card — so a visitor could never find the flagship KG visualization. The site-wide nav (every
