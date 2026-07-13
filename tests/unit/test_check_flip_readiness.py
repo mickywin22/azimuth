@@ -65,11 +65,84 @@ def test_michael_gates_are_advisory_and_never_block(monkeypatch: pytest.MonkeyPa
     assert readiness.all_fleet_green
 
 
-def test_fleet_gates_are_exactly_the_blocking_five(monkeypatch: pytest.MonkeyPatch) -> None:
+def test_fleet_gates_are_exactly_the_blocking_six(monkeypatch: pytest.MonkeyPatch) -> None:
     monkeypatch.setattr(cfr, "_run_script", lambda script, args: (True, "ok"))
     monkeypatch.setattr(cfr, "_check_licenses", lambda: (True, "ok"))
     readiness = cfr.evaluate()
-    assert {r.gate_id for r in readiness.fleet_gates} == {"C1", "C1b", "C2", "C3", "C4"}
+    assert {r.gate_id for r in readiness.fleet_gates} == {"C1", "C1b", "C2", "C3", "C4", "C4b"}
+
+
+def test_freshness_overdue_blocks_the_flip(monkeypatch: pytest.MonkeyPatch) -> None:
+    # A brief overdue past the weekly cadence turns main CI red. The aggregator must NOT
+    # report the flip ready while that gate fails — the false-green the prior tool gave.
+    def fake_run(script: str, args: list[str]) -> tuple[bool, str]:
+        if script == "check_synthesis_freshness.py" and "--overdue" in args:
+            return False, "5 overdue (lagging > 8d -- synthesis genuinely failed)."
+        return True, f"{script} ok"
+
+    monkeypatch.setattr(cfr, "_run_script", fake_run)
+    monkeypatch.setattr(cfr, "_check_licenses", lambda: (True, "ok"))
+    readiness = cfr.evaluate()
+    assert "C4b" in {r.gate_id for r in readiness.fleet_gates}
+    assert not readiness.all_fleet_green
+    assert cfr.main([]) == 1
+
+
+def test_michael_gate_status_comes_from_the_ledger(monkeypatch: pytest.MonkeyPatch) -> None:
+    ledger = {
+        "C1c": {"status": "accepted", "date": "2026-07-03", "note": "history paths accepted"},
+        "C5": {"status": "approved", "date": "2026-07-03", "note": "USP signed off"},
+        "C6": {"status": "approved", "date": "2026-07-03", "note": "weekly cycle ok"},
+        "FLIP": {"status": "held", "date": "2026-07-03", "note": "execute-only on GO"},
+    }
+    monkeypatch.setattr(cfr, "_load_decisions", lambda: ledger)
+    monkeypatch.setattr(cfr, "_run_script", lambda script, args: (True, "ok"))
+    monkeypatch.setattr(cfr, "_check_licenses", lambda: (True, "ok"))
+    readiness = cfr.evaluate()
+    by_id = {r.gate_id: r for r in readiness.results}
+    assert by_id["C5"].decision == "approved"
+    assert by_id["C6"].decision == "approved"
+    assert by_id["C1c"].decision == "accepted"
+    assert by_id["FLIP"].decision == "held"
+    # Recorded decisions NEVER change the blocking/fleet verdict — the flip stays Michael's.
+    assert all(not by_id[g].blocking for g in ("C5", "C6", "C1c", "FLIP"))
+    assert readiness.all_fleet_green
+    # The rendered table shows the recorded status word, not a bare PENDING.
+    table = cfr.render_table(readiness)
+    assert "APPROVED" in table
+    assert "ACCEPTED" in table
+    assert "HELD" in table
+
+
+def test_footer_reflects_recorded_decisions_not_stale_pending(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    ledger = {
+        "C1c": {"status": "accepted", "date": "2026-07-03"},
+        "C5": {"status": "approved", "date": "2026-07-03"},
+        "C6": {"status": "approved", "date": "2026-07-03"},
+        "FLIP": {"status": "held", "date": "2026-07-03"},
+    }
+    monkeypatch.setattr(cfr, "_load_decisions", lambda: ledger)
+    monkeypatch.setattr(cfr, "_run_script", lambda script, args: (True, "ok"))
+    monkeypatch.setattr(cfr, "_check_licenses", lambda: (True, "ok"))
+    footer = cfr.render_table(cfr.evaluate()).rsplit("=" * 60, 1)[-1]
+    # Once C5/C6 are approved, the footer must stop claiming the flip waits on those reviews.
+    assert "C5 #888" not in footer
+    assert "C6 #937" not in footer
+    assert "execute-only on Michael's GO" in footer
+
+
+def test_ledger_missing_falls_back_to_pending(monkeypatch: pytest.MonkeyPatch) -> None:
+    # Fail-soft: a missing / malformed ledger must never crash the flip tool; gates read PENDING.
+    monkeypatch.setattr(cfr, "_load_decisions", lambda: {})
+    monkeypatch.setattr(cfr, "_run_script", lambda script, args: (True, "ok"))
+    monkeypatch.setattr(cfr, "_check_licenses", lambda: (True, "ok"))
+    readiness = cfr.evaluate()
+    c5 = next(r for r in readiness.results if r.gate_id == "C5")
+    assert c5.decision is None
+    assert cfr._icon(c5) == "PENDING"
+    assert readiness.all_fleet_green
 
 
 def test_history_flag_adds_c1c_as_nonblocking(monkeypatch: pytest.MonkeyPatch) -> None:
@@ -98,4 +171,4 @@ def test_json_output_is_wellformed(
     cfr.main(["--json"])
     payload = json.loads(capsys.readouterr().out)
     assert payload["all_fleet_green"] is True
-    assert {g["id"] for g in payload["gates"]} >= {"C1", "C1b", "C2", "C3", "C4", "FLIP"}
+    assert {g["id"] for g in payload["gates"]} >= {"C1", "C1b", "C2", "C3", "C4", "C4b", "FLIP"}

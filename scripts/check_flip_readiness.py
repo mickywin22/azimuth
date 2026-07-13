@@ -30,11 +30,19 @@ import argparse
 import json
 import subprocess
 import sys
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, replace
 from pathlib import Path
 
 _REPO_ROOT = Path(__file__).resolve().parent.parent
 _PY = sys.executable
+
+# Owner-decision ledger: records Michael's calls on the non-automatable gates (C1c/C5/C6/C7)
+# so this tool's verdict reflects RECORDED decisions instead of a hard-coded PENDING. See
+# docs/security/flip-decisions.json. Fail-soft: a missing/malformed ledger reads as no decisions.
+_DECISIONS_PATH = _REPO_ROOT / "docs" / "security" / "flip-decisions.json"
+
+# The Michael gates that actually gate the flip decision (C7 editorial line does not block it).
+_FLIP_DECISION_GATES = ("C1c", "C5", "C6")
 
 # Full-history secret/privacy scans grow with the repo: 300s fit the 543-blob W27 surface but
 # timed out on the 1382-blob 2026-07-13 surface (a false RED at flip time). 900s gives headroom.
@@ -52,6 +60,9 @@ class GateResult:
     detail: str
     blocking: bool = True
     ran: bool = True
+    # For Michael-gated rows: the recorded owner-decision word (approved/accepted/held/pending),
+    # or None when no decision is on record. Never affects the exit code — a decision, not a check.
+    decision: str | None = None
 
 
 @dataclass
@@ -101,6 +112,35 @@ def _check_licenses() -> tuple[bool, str]:
     if missing:
         return False, f"missing: {', '.join(missing)}"
     return True, "LICENSE (MIT) + LICENSE-CONTENT.md (CC-BY-4.0) present"
+
+
+def _load_decisions() -> dict[str, dict[str, object]]:
+    """Read the owner-decision ledger. Fail-soft: any error -> {} (gates read PENDING)."""
+    try:
+        raw = json.loads(_DECISIONS_PATH.read_text(encoding="utf-8"))
+        gates = raw.get("gates", {})
+        return {k: v for k, v in gates.items() if isinstance(v, dict)}
+    except (OSError, ValueError, AttributeError):
+        return {}
+
+
+def _apply_decision(gate: GateResult, decisions: dict[str, dict[str, object]]) -> GateResult:
+    """Overlay a recorded owner decision onto a Michael gate (status word + provenance detail)."""
+    d = decisions.get(gate.gate_id)
+    if not d:
+        return gate
+    status = str(d.get("status") or "").strip().lower()
+    if not status:
+        return gate
+    parts: list[str] = []
+    if d.get("note"):
+        parts.append(str(d["note"]))
+    if d.get("evidence"):
+        parts.append(f"[{d['evidence']}]")
+    if d.get("date"):
+        parts.append(f"(recorded {d['date']})")
+    detail = " ".join(parts) if parts else gate.detail
+    return replace(gate, decision=status, detail=detail)
 
 
 # Michael-gated conditions: shown for context, never run, never affect exit code.
@@ -176,6 +216,15 @@ def evaluate(*, include_history: bool = False) -> FlipReadiness:
     c4_ok, c4_msg = _run_script("check_ingest_liveness.py", ["--check"])
     readiness.results.append(GateResult("C4", "Daily ingest healthy", "fleet", c4_ok, c4_msg))
 
+    # C4b — a clean brief overdue past the weekly cadence turns main CI red (the pytest freshness
+    # gate). Blocking, so this tool can never report "flip-ready" while CI is red on staleness.
+    c4b_ok, c4b_msg = _run_script("check_synthesis_freshness.py", ["--overdue"])
+    readiness.results.append(
+        GateResult("C4b", "Synthesis freshness (no clean brief overdue)", "fleet", c4b_ok, c4b_msg)
+    )
+
+    decisions = _load_decisions()
+
     if include_history:
         # C1c is informational only — a non-zero exit here NEVER blocks the runner.
         hist_ok, hist_msg = _run_script("scan_private_leakage.py", ["--history"])
@@ -190,15 +239,21 @@ def evaluate(*, include_history: bool = False) -> FlipReadiness:
             )
         )
     else:
-        readiness.results.extend(r for r in _MICHAEL_GATES if r.gate_id == "C1c")
+        readiness.results.extend(
+            _apply_decision(r, decisions) for r in _MICHAEL_GATES if r.gate_id == "C1c"
+        )
 
-    readiness.results.extend(r for r in _MICHAEL_GATES if r.gate_id != "C1c")
+    readiness.results.extend(
+        _apply_decision(r, decisions) for r in _MICHAEL_GATES if r.gate_id != "C1c"
+    )
     return readiness
 
 
 def _icon(r: GateResult) -> str:
     if not r.ran:
-        return "PENDING" if r.owner == "Michael" else "----"
+        if r.owner == "Michael":
+            return r.decision.upper() if r.decision else "PENDING"
+        return "----"
     return "GREEN" if r.passed else "RED"
 
 
@@ -211,7 +266,27 @@ def render_table(readiness: FlipReadiness) -> str:
     lines.append("=" * 60)
     if readiness.all_fleet_green:
         lines.append("FLEET GATES: all GREEN -- nothing fleet-actionable blocks the flip.")
-        lines.append("Flip waits only on Michael (C5 #888, C6 #937, the C1c call, then THE FLIP).")
+        michael = {r.gate_id: r for r in readiness.results if r.owner == "Michael"}
+        decided = [
+            f"{g} {michael[g].decision}"
+            for g in _FLIP_DECISION_GATES
+            if g in michael and michael[g].decision and michael[g].decision != "pending"
+        ]
+        undecided = [
+            g for g in _FLIP_DECISION_GATES if g in michael and _icon(michael[g]) == "PENDING"
+        ]
+        if decided:
+            lines.append("Owner decisions recorded: " + ", ".join(decided) + ".")
+        if undecided:
+            lines.append("Still needs Michael: " + ", ".join(undecided) + ", then THE FLIP.")
+        else:
+            lines.append(
+                "All flip-gating owner decisions recorded -- "
+                "the flip is execute-only on Michael's GO (#898)."
+            )
+        flip = michael.get("FLIP")
+        if flip is not None and flip.decision == "held":
+            lines.append("Currently HELD by owner choice (#898); no gate blocks it.")
     else:
         red = [r.gate_id for r in readiness.fleet_gates if not r.passed]
         lines.append(f"FLEET GATES: RED -- {', '.join(red)} must be fixed before the flip.")
@@ -231,6 +306,7 @@ def _to_dict(readiness: FlipReadiness) -> dict[str, object]:
                 "passed": r.passed if r.ran else None,
                 "blocking": r.blocking,
                 "ran": r.ran,
+                "decision": r.decision,
                 "detail": r.detail,
             }
             for r in readiness.results

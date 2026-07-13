@@ -19,16 +19,26 @@ _Re-verified: 2026-07-13 (W29) against `main` @ `cead29a` — fleet gates still 
 | C2 | **License files present** — code MIT + content CC-BY-4.0 | fleet | ✅ GREEN — `LICENSE` + `LICENSE-CONTENT.md` on `main` |
 | C3 | **Source guardrail green** — every surfaced source licensed + credited | fleet | ✅ GREEN — `scripts/check_sources.py` in CI |
 | C4 | **Daily ingest healthy** — GH-Actions L1 pull exits 0 | fleet | ✅ GREEN — re-verified 2026-07-13: ingest **alive**, latest L1 day 2026-07-12 (1d old), 24 days on record; `ingest.yml` 07-10/11/12 all success |
+| C4b | **Synthesis freshness** — no clean brief overdue past the weekly cadence (else main CI is red) | fleet | 🔴 **RED (2026-07-13)** — all 5 clean briefs last synthesised 2026-07-02, **10d overdue (> 8d)** → the weekly L2 curator has not run → `pytest`'s `test_live_repo_is_internally_consistent` fails → **`ci.yml` on `main` = failure**. Fix = run the `azimuth-curator` weekly pass on the 2026-07-12 L1 day. Now a **blocking** gate in `check_flip_readiness.py` (was previously uncovered — the tool used to report "all GREEN" while CI was red) |
 | C5 | **USP / positioning spot-review** (~15 min) | **Michael** | ✅ **GREEN — approved 2026-07-03** (5 claims + answers/benchmark surface signed off) |
 | C6 | **First autonomous weekly cycle spot-review** — the live briefs read neutral + correct | **Michael** | ✅ **GREEN — approved 2026-07-03** (W27 cycle: both lanes autonomous + lint-green) |
 | C7 | **prediction-markets editorial line** — confirm it stays HELD (or define how it's briefed) | **Michael** | ⏳ PENDING — IQ #915 (does not block flip; held source is `surfaced:false` for L2) |
 | 🚩 | **THE FLIP** — make the repo public | **Michael** | ⛔ **HELD by owner decision 2026-07-03** — every gate is green; the flip is now execute-only on the owner's GO (IQ #898) |
 
-**Bottom line:** the fleet-owned gates (C1–C4, C1b) are all GREEN — the
-**publishable working tree is clean** of both credentials and owner-private
-context. The flip now waits on Michael's two ~15-min spot-reviews (C5 #888,
-C6 #937) plus one one-line call on C1c (accept vs scrub the history home-paths).
-Nothing fleet-actionable blocks it.
+**Bottom line (2026-07-13):** the **credential + owner-private surface is clean**
+(C1/C1b/C2/C3/C4 all GREEN — no secret, no owner-private path in the publishable
+tree). The two Michael spot-reviews and the C1c call are **already decided** (see
+the ledger below). **The one thing NOT flip-ready is CI: `ci.yml` on `main` is
+RED** because the weekly L2 curator is 10 days overdue (C4b) — you do not flip a
+repo public onto a red build. So the honest order is: **run the weekly curator →
+CI green → then the flip is execute-only on your GO (#898)**. This is a
+*fleet-actionable* step (run the curator), not a Michael gate.
+
+**Owner decisions are now recorded** in
+[`flip-decisions.json`](./flip-decisions.json), which `check_flip_readiness.py`
+reads so its verdict reflects your real calls instead of a hard-coded PENDING:
+**C5 approved · C6 approved · C1c accepted** (all 2026-07-03) · **C7 pending**
+(non-blocking) · **FLIP held** (execute-only on GO #898).
 
 ## 2026-W29 re-verification (2026-07-13)
 
@@ -46,18 +56,27 @@ pass rot 35 commits behind `main` — so every fleet gate was re-run against the
 | C2 license files | ✅ `LICENSE` (MIT) + `LICENSE-CONTENT.md` (CC-BY-4.0) present |
 | C3 source guardrail | ✅ PASS — 38 sources, 22 surfaced, all licensed/attributed/credited |
 | C4 ingest liveness | ✅ alive — latest L1 day 2026-07-12 (1d old), 24 days on record |
+| C4b synthesis freshness | 🔴 **RED** — 5/5 clean briefs 10d overdue (curator due); makes `ci.yml` red |
 
-**All fleet gates GREEN on the current surface.** No new secret or owner-private path entered
-the 2.5×-larger tree — notably the new Cloudflare Pages deploy path carries **no
-`CLOUDFLARE_API_TOKEN`** in the working tree or git history (the deploy secrets live only in
-GitHub-Actions repo secrets, never committed). CI confirms it: `secret-scan.yml` + `ci.yml`
-latest runs on `main` = success; `ingest.yml` 07-10 / 07-11 / 07-12 all success.
+**Correction (2026-07-13): the earlier "all fleet gates GREEN / ci.yml = success" claim was
+wrong.** The credential + owner-private gates (C1/C1b/C2/C3/C4) are GREEN — no new secret or
+owner-private path entered the 2.5×-larger tree, and the new Cloudflare Pages deploy path
+carries **no `CLOUDFLARE_API_TOKEN`** in tree or history (deploy secrets live only in
+GitHub-Actions repo secrets). **But `ci.yml` on `main` is FAILURE** (GH-Actions run
+29222624953, the prior re-verify commit `9150ad7`): `pytest tests/unit/` fails
+`test_live_repo_is_internally_consistent` because the weekly L2 curator has not run — all 5
+clean briefs are 10 days stale (> the 8-day overdue grace). `secret-scan.yml` + the L1
+`ingest.yml` 07-10/11/12 are green; **`ci.yml` is not.** The flip must wait for the curator to
+run and CI to go green.
 
-This whole re-verify is now **one command** — `python scripts/check_flip_readiness.py` — landed
-on `main` this dispatch. It had been stranded on the unmerged W27 branch
-`fleet/azimuth-kra-secretscan-batch-W27-06300615`, so the "one-glance, not a re-investigation"
-tool this page promised was not actually on the surface that flips. Run it at flip time against
-the exact commit being published; it exits 0 only if every blocking fleet gate is GREEN.
+This whole re-verify is now **one command** — `python scripts/check_flip_readiness.py`. As of
+2026-07-13 it is **hardened** so it can no longer give a false green: it now includes **C4b
+(synthesis freshness overdue)** as a blocking gate, so it reports RED whenever main CI is red on
+stale briefs — the exact gap that let the prior run print "all GREEN" while `ci.yml` was
+failing. It also reads the **owner-decision ledger** (`flip-decisions.json`), so the
+Michael-gated rows show your recorded calls (C5/C6 approved, C1c accepted, FLIP held) instead of
+a blanket PENDING. Run it at flip time against the exact commit being published; it exits 0 only
+if **every** blocking fleet gate — now including freshness — is GREEN.
 
 **The flip itself remains HELD on Michael's GO (IQ #898) — unchanged.** This dispatch verified
 readiness only; it did **not** touch repo visibility.

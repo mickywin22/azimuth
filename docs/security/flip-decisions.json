@@ -1,0 +1,36 @@
+{
+  "_comment": "Owner (Michael) decisions on the non-automatable public-flip gates. check_flip_readiness.py reads this so its go/no-go verdict reflects RECORDED owner decisions instead of a hard-coded PENDING. Edit ONLY to record a real owner decision (cite the IQ / readiness-doc line in 'evidence'); a worker must never flip a gate here without an owner decision to point at. See docs/security/public-flip-readiness.md.",
+  "recorded": "2026-07-03 owner-decision session",
+  "gates": {
+    "C1c": {
+      "status": "accepted",
+      "date": "2026-07-03",
+      "evidence": "public-flip-readiness.md C1c row",
+      "note": "owner-private machine paths in git history accepted as-is (never credentials)"
+    },
+    "C5": {
+      "status": "approved",
+      "date": "2026-07-03",
+      "evidence": "IQ #888",
+      "note": "USP & Strategy note signed off"
+    },
+    "C6": {
+      "status": "approved",
+      "date": "2026-07-03",
+      "evidence": "IQ #937",
+      "note": "first autonomous weekly cycle reads neutral + correct"
+    },
+    "C7": {
+      "status": "pending",
+      "date": null,
+      "evidence": "IQ #915",
+      "note": "does not block the flip; held source is surfaced:false for L2"
+    },
+    "FLIP": {
+      "status": "held",
+      "date": "2026-07-03",
+      "evidence": "IQ #898",
+      "note": "execute-only on Michael's GO; currently held by owner choice"
+    }
+  }
+}
