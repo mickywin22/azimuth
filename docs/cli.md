@@ -108,20 +108,38 @@ python scripts/build_autonomy.py --check     # exit 1 if the committed counters 
 **Layer:** Site · re-derived daily in [`ingest.yml`](../.github/workflows/ingest.yml); CI
 asserts the committed counters are in sync.
 
-### `record_hero_gif.py` — generate the README hero animation
-Records an animated walkthrough of the azimuth site (home → knowledge graph → trace →
-autonomy counters) and writes `docs/assets/hero.gif`. Requires the `[demo]` optional
-dependencies (Playwright + Pillow) which are NOT installed by default.
+### `build_hero_gif.py` — the README hero animation
+Composes the committed README hero (`docs/assets/hero.gif`) — a six-frame walkthrough
+(home → knowledge graph → weekly brief, a zoom-out reveal per scene) — **deterministically
+from the three committed page previews** (`docs/assets/*.png`) using only Pillow, with no
+browser. Fixed frame order, crop boxes, LANCZOS resample and one shared median-cut palette
+mean the same inputs + same Pillow yield identical bytes, so it is byte-reproducible and
+CI-guardable exactly like the graph / brief-index / autonomy builders. Only Pillow (the
+`[demo]` extra) is required — no Playwright, no chromium.
+
+```bash
+uv pip install -e ".[demo]"                  # Pillow only
+python scripts/build_hero_gif.py             # write docs/assets/hero.gif
+python scripts/build_hero_gif.py --check     # exit 1 if the committed GIF is stale
+```
+
+**Layer:** Docs / landing · rebuild after a page-preview refresh; `--check` guards the
+committed asset against drift.
+
+### `record_hero_gif.py` — optional live browser-recorded variant
+A full-fidelity alternative that drives a real headless browser (Playwright + chromium)
+through the live site. It is **not** the source of the committed `docs/assets/hero.gif`
+and is **not** in CI — its frames vary run-to-run, so it must not be committed as the
+canonical asset. Kept only for anyone who wants a live capture. Requires the full `[demo]`
+extra plus a browser download.
 
 ```bash
 uv pip install -e ".[demo]" && playwright install chromium
-python scripts/record_hero_gif.py            # uses already-built site/
 python scripts/record_hero_gif.py --serve    # build site first, then record
 python scripts/record_hero_gif.py --width 1280 --height 720 --fps 2
 ```
 
-**Layer:** Docs-only · not part of CI · run manually to refresh `docs/assets/hero.gif`
-before a public flip or a major UI change.
+**Layer:** Docs-only · not part of CI · optional.
 
 ### `query_graph.py` — query the graph from the CLI
 Answers cross-channel questions over the same `site/graph.json` the visual graph uses.

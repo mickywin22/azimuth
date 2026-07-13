@@ -52,6 +52,7 @@ _CANVAS_H = 840
 # lets the encoder delta-compress the zoom pairs.
 _PALETTE_COLORS = 128
 
+
 # The walkthrough: each committed preview plays as a two-frame "zoom-out reveal" — a tight
 # hero crop of the headline area, then the full page. ``*_cs`` is that frame's on-screen
 # time in centiseconds (GIF's native unit), so playback is identical everywhere.
@@ -201,7 +202,9 @@ def main(argv: list[str] | None = None) -> int:
 
     path = build()
     size_kb = path.stat().st_size // 1024
-    print(f"hero.gif: wrote {path.relative_to(_REPO_ROOT)} ({len(_SCENES) * 2} frames, {size_kb} KB)")
+    print(
+        f"hero.gif: wrote {path.relative_to(_REPO_ROOT)} ({len(_SCENES) * 2} frames, {size_kb} KB)"
+    )
     return 0
 
 
