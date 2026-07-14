@@ -7,7 +7,8 @@
 > flip is a one-glance decision, not a re-investigation.
 
 _Last updated: 2026-07-03 (owner decision session)._
-_Re-verified: 2026-07-13 (W29) against `main` @ `cead29a` — fleet gates still all GREEN on the grown surface; see [2026-W29 re-verification](#2026-w29-re-verification-2026-07-13)._
+_Re-verified: 2026-07-13 (W29) against `main` @ `cead29a` — credential/owner-private gates GREEN, but C4b synthesis-freshness RED (main CI failing on stale briefs); see [2026-W29 re-verification](#2026-w29-re-verification-2026-07-13)._
+_Re-verified: 2026-07-14 (W29) against the curator-fix surface `2e209ba` (= `main` @ `4189e60` + the staged weekly-curator refresh) — **ALL fleet gates GREEN, `check_flip_readiness.py` exits 0, secret-scan CLEAN (1439 history blobs + 595 files, 0 findings)**; C4b now GREEN (0/5 briefs overdue). The C4b-clearing fix is **committed as `2e209ba` but not yet on `main`** — main CI stays RED only until it is pushed. See [2026-07-14 re-verification](#2026-07-14-re-verification-w29)._
 
 ## Verdict at a glance
 
@@ -19,26 +20,56 @@ _Re-verified: 2026-07-13 (W29) against `main` @ `cead29a` — fleet gates still 
 | C2 | **License files present** — code MIT + content CC-BY-4.0 | fleet | ✅ GREEN — `LICENSE` + `LICENSE-CONTENT.md` on `main` |
 | C3 | **Source guardrail green** — every surfaced source licensed + credited | fleet | ✅ GREEN — `scripts/check_sources.py` in CI |
 | C4 | **Daily ingest healthy** — GH-Actions L1 pull exits 0 | fleet | ✅ GREEN — re-verified 2026-07-13: ingest **alive**, latest L1 day 2026-07-12 (1d old), 24 days on record; `ingest.yml` 07-10/11/12 all success |
-| C4b | **Synthesis freshness** — no clean brief overdue past the weekly cadence (else main CI is red) | fleet | 🔴 **RED (2026-07-13)** — all 5 clean briefs last synthesised 2026-07-02, **10d overdue (> 8d)** → the weekly L2 curator has not run → `pytest`'s `test_live_repo_is_internally_consistent` fails → **`ci.yml` on `main` = failure**. Fix = run the `azimuth-curator` weekly pass on the 2026-07-12 L1 day. Now a **blocking** gate in `check_flip_readiness.py` (was previously uncovered — the tool used to report "all GREEN" while CI was red) |
+| C4b | **Synthesis freshness** — no clean brief overdue past the weekly cadence (else main CI is red) | fleet | 🟡 **FIX STAGED (2026-07-14)** — the 10d-overdue stall (5 clean briefs last synthesised 2026-07-02) is resolved by the weekly-curator refresh to the 2026-07-13 L1, **committed as `2e209ba`**. Verified **GREEN on the fix surface**: `check_flip_readiness.py` C4b = 0/5 overdue, exit 0. Still **RED on `main`** only until `2e209ba` is pushed (reviewer's job) → then `pytest`'s `test_live_repo_is_internally_consistent` passes and `ci.yml` goes green. Blocking gate in `check_flip_readiness.py` (added 2026-07-13 so the tool can no longer report "all GREEN" while CI is red) |
 | C5 | **USP / positioning spot-review** (~15 min) | **Michael** | ✅ **GREEN — approved 2026-07-03** (5 claims + answers/benchmark surface signed off) |
 | C6 | **First autonomous weekly cycle spot-review** — the live briefs read neutral + correct | **Michael** | ✅ **GREEN — approved 2026-07-03** (W27 cycle: both lanes autonomous + lint-green) |
 | C7 | **prediction-markets editorial line** — confirm it stays HELD (or define how it's briefed) | **Michael** | ⏳ PENDING — IQ #915 (does not block flip; held source is `surfaced:false` for L2) |
 | 🚩 | **THE FLIP** — make the repo public | **Michael** | ⛔ **HELD by owner decision 2026-07-03** — every gate is green; the flip is now execute-only on the owner's GO (IQ #898) |
 
-**Bottom line (2026-07-13):** the **credential + owner-private surface is clean**
-(C1/C1b/C2/C3/C4 all GREEN — no secret, no owner-private path in the publishable
-tree). The two Michael spot-reviews and the C1c call are **already decided** (see
-the ledger below). **The one thing NOT flip-ready is CI: `ci.yml` on `main` is
-RED** because the weekly L2 curator is 10 days overdue (C4b) — you do not flip a
-repo public onto a red build. So the honest order is: **run the weekly curator →
-CI green → then the flip is execute-only on your GO (#898)**. This is a
-*fleet-actionable* step (run the curator), not a Michael gate.
+**Bottom line (2026-07-14):** **every fleet gate is now GREEN and the flip is one
+reviewer-push away from execute-ready.** The credential + owner-private surface is
+clean (C1/C1b/C2/C3/C4 GREEN — no secret, no owner-private path). The two Michael
+spot-reviews and the C1c call are **already decided** (ledger below). The C4b
+freshness blocker (the only thing keeping `ci.yml` red) is **fixed** — the weekly
+curator ran and the refresh is **committed as `2e209ba`**; `check_flip_readiness.py`
+exits 0 on that surface. The **one remaining fleet step is mechanical, not a
+decision: push `2e209ba` to `main`** (reviewer's job) so `ci.yml` re-runs green.
+Once it lands, **the flip is execute-only on your GO (#898)** — no further fleet
+work. This dispatch verified readiness against the fix surface and banked the
+snapshot; it did **not** touch repo visibility.
 
 **Owner decisions are now recorded** in
 [`flip-decisions.json`](./flip-decisions.json), which `check_flip_readiness.py`
 reads so its verdict reflects your real calls instead of a hard-coded PENDING:
 **C5 approved · C6 approved · C1c accepted** (all 2026-07-03) · **C7 pending**
 (non-blocking) · **FLIP held** (execute-only on GO #898).
+
+## 2026-07-14 re-verification (W29)
+
+`fleet-kr1-auto-W29-07140454` (S2 pre-verify). The 2026-07-13 run left `main` CI **RED**
+on C4b (5 clean briefs 10d overdue). Since then the weekly `azimuth-curator` ran and
+refreshed all 5 clean briefs to the 2026-07-13 L1 day — **committed as `2e209ba`** — but
+that commit was **local-only, not yet on `main`** (`origin/main` @ `4189e60`, `ci.yml`
+still failure at re-verify time). This dispatch re-ran **every fleet gate against the fix
+surface `2e209ba`** (= `main` + the curator refresh, i.e. the exact tree `main` becomes the
+moment the commit is pushed):
+
+| Gate | Result on `2e209ba` (2026-07-14) |
+|------|----------------------------------|
+| C1 secret scan (history + tree) | ✅ CLEAN — **1439 history blobs + 595 files, 0 findings** (grew from 1382+570 on 07-13; the new ingest day + curator refresh are scan-covered & clean) |
+| C1b privacy scan (worktree) | ✅ GREEN — 8 advisory only, 0 HARD |
+| C2 license files | ✅ `LICENSE` (MIT) + `LICENSE-CONTENT.md` (CC-BY-4.0) present |
+| C3 source guardrail | ✅ PASS — every surfaced source licensed/attributed/credited |
+| C4 ingest liveness | ✅ alive — latest L1 day 2026-07-13 (1d old), 25 days on record |
+| C4b synthesis freshness | ✅ **GREEN — 0/5 clean briefs overdue** (was RED; `2e209ba` cleared it) |
+| **`check_flip_readiness.py`** | ✅ **exits 0 — `all_fleet_green: true`** |
+
+**Verdict:** the S2 fleet-half stop_when is **MET** — `check_flip_readiness.py` exits 0,
+secret-scan CLEAN, the owner-decision ledger records C5/C6 approved + C1c accepted, and
+#898 is the standing decision-grade GO row. The **only** thing between here and a green
+`main` CI is pushing `2e209ba` (this branch carries it) — a mechanical reviewer-push, not a
+Michael decision. After it lands, **the flip is execute-only on Michael's GO (#898)**, which
+remains HELD by owner choice — untouched by this dispatch.
 
 ## 2026-W29 re-verification (2026-07-13)
 
