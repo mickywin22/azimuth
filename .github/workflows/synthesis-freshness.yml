@@ -43,7 +43,7 @@ jobs:
       # The freshness checker is pure stdlib (reads brief + L1 dates off disk), but install
       # the package anyway so the script imports resolve exactly as they do in ingest.yml.
       - name: Install uv
-        uses: astral-sh/setup-uv@v5
+        uses: astral-sh/setup-uv@v7
 
       - name: Install runtime dependencies
         run: uv pip install --system -e .
