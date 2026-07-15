@@ -7,7 +7,7 @@
   "generated_from": "committed vault data (wall-clock independent)",
   "l1_ingests_committed": 27,
   "l1_source_notes": 492,
-  "l2_briefs": 8,
+  "l2_briefs": 15,
   "latest_l1_day": "2026-07-15",
   "spend_basis": "order-of-magnitude estimate \u2014 one small weekly LLM synthesis job; not metered billing data",
   "weeks_operating": 4.4
