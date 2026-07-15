@@ -70,12 +70,15 @@ The brief-per-theme mapping is **data-driven** — read `sources/registry.json`:
 - A theme whose entry has `brief_held: true` is **ingested as L1 but its brief is held** for
   the stated `hold_reason` — do NOT write its brief until that condition clears.
 
-Currently active brief themes: **energy-supply** (`natural-gas-storage-eu`,
-`crude-oil-inventories`, `fuel-prices`, `energy-prices`), **geophysical** (`earthquakes`) and
-**prediction-markets** (`prediction-markets`). The latter was un-held by owner review (2026-06-26)
-(2026-06-26, reversing #862): its brief now lands under the fact-vs-propaganda lens, reporting
-the **venue-quoted price as an observed fact** with the `no-investment-framing` /
-`odds-are-not-forecasts` caution and no position on the underlying question.
+The active set is whatever the registry says — do not hardcode it. As of 2026-07-15 twelve
+themes brief (energy-supply, geophysical, climate-signals, environmental-hazards,
+prediction-markets, conflict-watch, cyber-watch, public-health, macro-markets, orbital-watch,
+humanitarian, infrastructure-watch — the last seven un-held 2026-07-15 once their
+ingest-pending holds cleared with 21 committed L1 days each), plus the two deterministic
+meta-briefs. Two themes stay held with honest reasons in the registry: maritime-safety
+(upstream feed returns an empty payload every day) and sanctions-watch (source not yet
+surfaced). Thin channels brief with an explicit honest-scope note (the prediction-markets
+single-market pattern), never with manufactured content.
 
 ## How you are dispatched (daily cadence)
 

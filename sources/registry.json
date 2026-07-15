@@ -72,20 +72,26 @@
     "conflict-watch": {
       "title": "Conflict Watch Weekly",
       "brief": "Conflict Watch Weekly.md",
-      "brief_held": true,
-      "hold_reason": "INGEST-PENDING (not editorial): conflict-events-ucdp is surfaced via UCDP (Uppsala Conflict Data Program), which publishes its event data under CC-BY-4.0 — a free, attribution-only license that the azimuth CREDITS.md satisfies. A conflict EVENT record is an observed fact (allowed under the fact-vs-propaganda line; sensitivity is never a deny reason). The ACLED feed for the same topic stays held-on-license (its ToU restricts redistribution). Brief lands after first ingest."
+      "brief_held": false,
+      "hold_reason": "",
+      "brief_landed": "2026-07-15 -- UN-HELD: the hold was INGEST-PENDING (not editorial) and the condition cleared -- the theme sources are license-clean, surfaced, and carry 21 days of committed L1 history (verified 2026-07-15). First cycle written from the live 2026-07-15 ingest; themes with partially-live channels scope the brief honestly to the channels that ingest today.",
+      "prior_hold_reason": "INGEST-PENDING (not editorial): conflict-events-ucdp is surfaced via UCDP (Uppsala Conflict Data Program), which publishes its event data under CC-BY-4.0 — a free, attribution-only license that the azimuth CREDITS.md satisfies. A conflict EVENT record is an observed fact (allowed under the fact-vs-propaganda line; sensitivity is never a deny reason). The ACLED feed for the same topic stays held-on-license (its ToU restricts redistribution). Brief lands after first ingest."
     },
     "maritime-safety": {
       "title": "Maritime Safety Weekly",
       "brief": "Maritime Safety Weekly.md",
       "brief_held": true,
-      "hold_reason": "INGEST-PENDING (not editorial): maritime-navwarnings is surfaced via NGA (US National Geospatial-Intelligence Agency) Broadcast/Navigational Warnings — a US-Gov public-domain feed. A navigational warning is an issued, observed maritime-safety fact. (The separate vessel-AIS-position feed stays held-on-license: the AIS aggregator license is commercial/unknown.) Brief lands after first ingest."
+      "hold_reason": "FEED-EMPTY (not editorial, re-held 2026-07-15): the NGA navigational-warnings channel is license-clean and surfaced, but the upstream feed has returned an empty warnings payload on every committed ingest day (verified 2026-07-08/12/15). A brief on a permanently-empty payload would be manufactured content. Lands when the feed carries data.",
+      "brief_landed": false,
+      "prior_hold_reason": "INGEST-PENDING (not editorial): maritime-navwarnings is surfaced via NGA (US National Geospatial-Intelligence Agency) Broadcast/Navigational Warnings — a US-Gov public-domain feed. A navigational warning is an issued, observed maritime-safety fact. (The separate vessel-AIS-position feed stays held-on-license: the AIS aggregator license is commercial/unknown.) Brief lands after first ingest."
     },
     "cyber-watch": {
       "title": "Cyber Watch Weekly",
       "brief": "Cyber Watch Weekly.md",
-      "brief_held": true,
-      "hold_reason": "INGEST-PENDING (not editorial): cyber-threats is surfaced via abuse.ch (URLhaus + Feodo Tracker), whose IOC feeds are released under CC0-1.0 (public-domain dedication). A cyber-incident IOC (C2 host, malware URL) is an observed fact. Brief lands after first ingest."
+      "brief_held": false,
+      "hold_reason": "",
+      "brief_landed": "2026-07-15 -- UN-HELD: the hold was INGEST-PENDING (not editorial) and the condition cleared -- the theme sources are license-clean, surfaced, and carry 21 days of committed L1 history (verified 2026-07-15). First cycle written from the live 2026-07-15 ingest; themes with partially-live channels scope the brief honestly to the channels that ingest today.",
+      "prior_hold_reason": "INGEST-PENDING (not editorial): cyber-threats is surfaced via abuse.ch (URLhaus + Feodo Tracker), whose IOC feeds are released under CC0-1.0 (public-domain dedication). A cyber-incident IOC (C2 host, malware URL) is an observed fact. Brief lands after first ingest."
     },
     "sanctions-watch": {
       "title": "Sanctions Watch Weekly",
@@ -96,32 +102,42 @@
     "public-health": {
       "title": "Public Health Weekly",
       "brief": "Public Health Weekly.md",
-      "brief_held": true,
-      "hold_reason": "INGEST-PENDING (not editorial): disease-outbreaks is surfaced via WHO Disease Outbreak News + US CDC Health Alert Network — both public-domain / open-data. A reported disease-outbreak event is an observed public-health fact. Brief lands after first ingest."
+      "brief_held": false,
+      "hold_reason": "",
+      "brief_landed": "2026-07-15 -- UN-HELD: the hold was INGEST-PENDING (not editorial) and the condition cleared -- the theme sources are license-clean, surfaced, and carry 21 days of committed L1 history (verified 2026-07-15). First cycle written from the live 2026-07-15 ingest; themes with partially-live channels scope the brief honestly to the channels that ingest today.",
+      "prior_hold_reason": "INGEST-PENDING (not editorial): disease-outbreaks is surfaced via WHO Disease Outbreak News + US CDC Health Alert Network — both public-domain / open-data. A reported disease-outbreak event is an observed public-health fact. Brief lands after first ingest."
     },
     "macro-markets": {
       "title": "Macro & Markets Weekly",
       "brief": "Macro & Markets Weekly.md",
-      "brief_held": true,
-      "hold_reason": "INGEST-PENDING (not editorial): the three channels (crypto-quotes via CoinGecko API-ToS, world-bank-indicators via World Bank Open Data CC-BY-4.0, tariff-trends via WTO CC-BY-4.0) are license-cleared and credited. A quoted price / published indicator value / applied-tariff record is an observed fact (carries no-investment-framing caution). Brief lands after first ingest."
+      "brief_held": false,
+      "hold_reason": "",
+      "brief_landed": "2026-07-15 -- UN-HELD: the hold was INGEST-PENDING (not editorial) and the condition cleared -- the theme sources are license-clean, surfaced, and carry 21 days of committed L1 history (verified 2026-07-15). First cycle written from the live 2026-07-15 ingest; themes with partially-live channels scope the brief honestly to the channels that ingest today.",
+      "prior_hold_reason": "INGEST-PENDING (not editorial): the three channels (crypto-quotes via CoinGecko API-ToS, world-bank-indicators via World Bank Open Data CC-BY-4.0, tariff-trends via WTO CC-BY-4.0) are license-cleared and credited. A quoted price / published indicator value / applied-tariff record is an observed fact (carries no-investment-framing caution). Brief lands after first ingest."
     },
     "orbital-watch": {
       "title": "Orbital Watch Weekly",
       "brief": "Orbital Watch Weekly.md",
-      "brief_held": true,
-      "hold_reason": "INGEST-PENDING (not editorial): orbital-satellites is surfaced via CelesTrak TLE element sets, which derive from US Space Command public-domain orbital data. A satellite's TLE-propagated position is an observed/recorded fact. Brief lands after first ingest."
+      "brief_held": false,
+      "hold_reason": "",
+      "brief_landed": "2026-07-15 -- UN-HELD: the hold was INGEST-PENDING (not editorial) and the condition cleared -- the theme sources are license-clean, surfaced, and carry 21 days of committed L1 history (verified 2026-07-15). First cycle written from the live 2026-07-15 ingest; themes with partially-live channels scope the brief honestly to the channels that ingest today.",
+      "prior_hold_reason": "INGEST-PENDING (not editorial): orbital-satellites is surfaced via CelesTrak TLE element sets, which derive from US Space Command public-domain orbital data. A satellite's TLE-propagated position is an observed/recorded fact. Brief lands after first ingest."
     },
     "humanitarian": {
       "title": "Humanitarian Watch Weekly",
       "brief": "Humanitarian Watch Weekly.md",
-      "brief_held": true,
-      "hold_reason": "INGEST-PENDING (not editorial): displacement-flows is surfaced via UNHCR Refugee Data + UN OCHA HAPI — both free-to-use/open-with-attribution (OCHA HAPI is CC-BY-4.0). A refugee/IDP population count is an observed humanitarian fact. Brief lands after first ingest."
+      "brief_held": false,
+      "hold_reason": "",
+      "brief_landed": "2026-07-15 -- UN-HELD: the hold was INGEST-PENDING (not editorial) and the condition cleared -- the theme sources are license-clean, surfaced, and carry 21 days of committed L1 history (verified 2026-07-15). First cycle written from the live 2026-07-15 ingest; themes with partially-live channels scope the brief honestly to the channels that ingest today.",
+      "prior_hold_reason": "INGEST-PENDING (not editorial): displacement-flows is surfaced via UNHCR Refugee Data + UN OCHA HAPI — both free-to-use/open-with-attribution (OCHA HAPI is CC-BY-4.0). A refugee/IDP population count is an observed humanitarian fact. Brief lands after first ingest."
     },
     "infrastructure-watch": {
       "title": "Infrastructure Watch Weekly",
       "brief": "Infrastructure Watch Weekly.md",
-      "brief_held": true,
-      "hold_reason": "INGEST-PENDING (not editorial): internet-outages (Cloudflare Radar, API-ToS) and chokepoint-status (IMF PortWatch, free/open) are license-cleared and credited. An internet-outage event and a chokepoint-transit count are observed infrastructure facts. Brief lands after first ingest."
+      "brief_held": false,
+      "hold_reason": "",
+      "brief_landed": "2026-07-15 -- UN-HELD: the hold was INGEST-PENDING (not editorial) and the condition cleared -- the theme sources are license-clean, surfaced, and carry 21 days of committed L1 history (verified 2026-07-15). First cycle written from the live 2026-07-15 ingest; themes with partially-live channels scope the brief honestly to the channels that ingest today.",
+      "prior_hold_reason": "INGEST-PENDING (not editorial): internet-outages (Cloudflare Radar, API-ToS) and chokepoint-status (IMF PortWatch, free/open) are license-cleared and credited. An internet-outage event and a chokepoint-transit count are observed infrastructure facts. Brief lands after first ingest."
     }
   },
   "sources": [
@@ -158,7 +174,9 @@
       "content_class": "market-data",
       "theme": "energy-supply",
       "risk_flags": [],
-      "synthesis_cautions": ["no-investment-framing"],
+      "synthesis_cautions": [
+        "no-investment-framing"
+      ],
       "surfaced": true
     },
     {
@@ -170,7 +188,9 @@
       "content_class": "market-data",
       "theme": "energy-supply",
       "risk_flags": [],
-      "synthesis_cautions": ["no-investment-framing"],
+      "synthesis_cautions": [
+        "no-investment-framing"
+      ],
       "surfaced": true
     },
     {
@@ -182,7 +202,9 @@
       "content_class": "natural-hazard",
       "theme": "geophysical",
       "risk_flags": [],
-      "synthesis_cautions": ["report-observed-not-predicted"],
+      "synthesis_cautions": [
+        "report-observed-not-predicted"
+      ],
       "surfaced": true
     },
     {
@@ -194,7 +216,9 @@
       "content_class": "climate-observation",
       "theme": "climate-signals",
       "risk_flags": [],
-      "synthesis_cautions": ["report-observed-not-predicted"],
+      "synthesis_cautions": [
+        "report-observed-not-predicted"
+      ],
       "surfaced": true
     },
     {
@@ -206,7 +230,9 @@
       "content_class": "climate-observation",
       "theme": "climate-signals",
       "risk_flags": [],
-      "synthesis_cautions": ["report-observed-not-predicted"],
+      "synthesis_cautions": [
+        "report-observed-not-predicted"
+      ],
       "surfaced": true
     },
     {
@@ -218,7 +244,9 @@
       "content_class": "climate-observation",
       "theme": "climate-signals",
       "risk_flags": [],
-      "synthesis_cautions": ["report-observed-not-predicted"],
+      "synthesis_cautions": [
+        "report-observed-not-predicted"
+      ],
       "surfaced": true
     },
     {
@@ -230,7 +258,10 @@
       "content_class": "prediction-market",
       "theme": "prediction-markets",
       "risk_flags": [],
-      "synthesis_cautions": ["no-investment-framing", "odds-are-not-forecasts"],
+      "synthesis_cautions": [
+        "no-investment-framing",
+        "odds-are-not-forecasts"
+      ],
       "surfaced": true
     },
     {
@@ -242,7 +273,9 @@
       "content_class": "natural-hazard",
       "theme": "environmental-hazards",
       "risk_flags": [],
-      "synthesis_cautions": ["report-observed-not-predicted"],
+      "synthesis_cautions": [
+        "report-observed-not-predicted"
+      ],
       "max_rows": 250,
       "truncate_by": "frp",
       "surfaced": true,
@@ -257,7 +290,9 @@
       "content_class": "natural-hazard",
       "theme": "environmental-hazards",
       "risk_flags": [],
-      "synthesis_cautions": ["report-observed-not-predicted"],
+      "synthesis_cautions": [
+        "report-observed-not-predicted"
+      ],
       "surfaced": true
     },
     {
@@ -269,7 +304,9 @@
       "content_class": "natural-hazard",
       "theme": "environmental-hazards",
       "risk_flags": [],
-      "synthesis_cautions": ["report-observed-not-predicted"],
+      "synthesis_cautions": [
+        "report-observed-not-predicted"
+      ],
       "surfaced": true
     },
     {
@@ -281,7 +318,9 @@
       "content_class": "natural-hazard",
       "theme": "environmental-hazards",
       "risk_flags": [],
-      "synthesis_cautions": ["report-observed-not-predicted"],
+      "synthesis_cautions": [
+        "report-observed-not-predicted"
+      ],
       "surfaced": true
     },
     {
@@ -292,8 +331,13 @@
       "attribution": "Data: UCDP (Uppsala Conflict Data Program) via WorldMonitor (api.worldmonitor.app)",
       "content_class": "conflict-event-record",
       "theme": "conflict-watch",
-      "risk_flags": ["sensitive-topic"],
-      "synthesis_cautions": ["report-observed-not-predicted", "no-political-position"],
+      "risk_flags": [
+        "sensitive-topic"
+      ],
+      "synthesis_cautions": [
+        "report-observed-not-predicted",
+        "no-political-position"
+      ],
       "surfaced": true
     },
     {
@@ -305,7 +349,9 @@
       "content_class": "maritime-safety-notice",
       "theme": "maritime-safety",
       "risk_flags": [],
-      "synthesis_cautions": ["report-observed-not-predicted"],
+      "synthesis_cautions": [
+        "report-observed-not-predicted"
+      ],
       "surfaced": true
     },
     {
@@ -316,8 +362,12 @@
       "attribution": "Data: abuse.ch (URLhaus + Feodo Tracker, CC0) via WorldMonitor (api.worldmonitor.app)",
       "content_class": "cyber-event",
       "theme": "cyber-watch",
-      "risk_flags": ["sensitive-topic"],
-      "synthesis_cautions": ["report-observed-not-predicted"],
+      "risk_flags": [
+        "sensitive-topic"
+      ],
+      "synthesis_cautions": [
+        "report-observed-not-predicted"
+      ],
       "surfaced": true
     },
     {
@@ -328,10 +378,15 @@
       "attribution": "Data: US Treasury OFAC (sanctionslistservice.ofac.treas.gov) via WorldMonitor (api.worldmonitor.app)",
       "content_class": "sanctions-record",
       "theme": "sanctions-watch",
-      "risk_flags": ["sensitive-topic"],
-      "synthesis_cautions": ["report-observed-not-predicted", "no-political-position"],
+      "risk_flags": [
+        "sensitive-topic"
+      ],
+      "synthesis_cautions": [
+        "report-observed-not-predicted",
+        "no-political-position"
+      ],
       "surfaced": false,
-      "surfaced_reason": "LIVE-REACHABILITY HOLD (not editorial/license): the endpoint /api/sanctions/v1/list-sanctions-pressure returned HTTP 401 Unauthorized on the live 2026-06-25 ingest \u2014 it now requires auth beyond azimuth's free anonymous session, so it fails the Path-A free-tier bar. Re-surface when a clean free-tier endpoint is confirmed; the OFAC source is otherwise license-clean (US-Gov public domain)."
+      "surfaced_reason": "LIVE-REACHABILITY HOLD (not editorial/license): the endpoint /api/sanctions/v1/list-sanctions-pressure returned HTTP 401 Unauthorized on the live 2026-06-25 ingest — it now requires auth beyond azimuth's free anonymous session, so it fails the Path-A free-tier bar. Re-surface when a clean free-tier endpoint is confirmed; the OFAC source is otherwise license-clean (US-Gov public domain)."
     },
     {
       "key": "disease-outbreaks",
@@ -341,8 +396,12 @@
       "attribution": "Data: WHO Disease Outbreak News + US CDC HAN via WorldMonitor (api.worldmonitor.app)",
       "content_class": "health-event",
       "theme": "public-health",
-      "risk_flags": ["sensitive-topic"],
-      "synthesis_cautions": ["report-observed-not-predicted"],
+      "risk_flags": [
+        "sensitive-topic"
+      ],
+      "synthesis_cautions": [
+        "report-observed-not-predicted"
+      ],
       "surfaced": true
     },
     {
@@ -354,7 +413,9 @@
       "content_class": "market-data",
       "theme": "macro-markets",
       "risk_flags": [],
-      "synthesis_cautions": ["no-investment-framing"],
+      "synthesis_cautions": [
+        "no-investment-framing"
+      ],
       "surfaced": true
     },
     {
@@ -366,7 +427,9 @@
       "content_class": "economic-indicator",
       "theme": "macro-markets",
       "risk_flags": [],
-      "synthesis_cautions": ["report-observed-not-predicted"],
+      "synthesis_cautions": [
+        "report-observed-not-predicted"
+      ],
       "surfaced": true
     },
     {
@@ -378,9 +441,11 @@
       "content_class": "trade-record",
       "theme": "macro-markets",
       "risk_flags": [],
-      "synthesis_cautions": ["report-observed-not-predicted"],
+      "synthesis_cautions": [
+        "report-observed-not-predicted"
+      ],
       "surfaced": false,
-      "surfaced_reason": "LIVE-REACHABILITY HOLD (not editorial/license): the endpoint /api/trade/v1/get-tariff-trends returned HTTP 401 Unauthorized on the live 2026-06-25 ingest \u2014 now auth-gated beyond the free anonymous session, failing the free-tier bar. Re-surface when a clean free-tier endpoint is confirmed; the WTO source is otherwise CC-BY-4.0."
+      "surfaced_reason": "LIVE-REACHABILITY HOLD (not editorial/license): the endpoint /api/trade/v1/get-tariff-trends returned HTTP 401 Unauthorized on the live 2026-06-25 ingest — now auth-gated beyond the free anonymous session, failing the free-tier bar. Re-surface when a clean free-tier endpoint is confirmed; the WTO source is otherwise CC-BY-4.0."
     },
     {
       "key": "orbital-satellites",
@@ -391,7 +456,9 @@
       "content_class": "orbital-position",
       "theme": "orbital-watch",
       "risk_flags": [],
-      "synthesis_cautions": ["report-observed-not-predicted"],
+      "synthesis_cautions": [
+        "report-observed-not-predicted"
+      ],
       "surfaced": true
     },
     {
@@ -403,9 +470,11 @@
       "content_class": "economic-indicator",
       "theme": "macro-markets",
       "risk_flags": [],
-      "synthesis_cautions": ["report-observed-not-predicted"],
+      "synthesis_cautions": [
+        "report-observed-not-predicted"
+      ],
       "surfaced": false,
-      "surfaced_reason": "LIVE-REACHABILITY HOLD (not editorial/license): the endpoint /api/consumer_prices/v1/get-consumer-price-overview returned HTTP 404 Not Found on the live 2026-06-25 ingest \u2014 the path is not live on api.worldmonitor.app. Re-surface when a working endpoint is confirmed; the Eurostat source is otherwise CC-BY-4.0."
+      "surfaced_reason": "LIVE-REACHABILITY HOLD (not editorial/license): the endpoint /api/consumer_prices/v1/get-consumer-price-overview returned HTTP 404 Not Found on the live 2026-06-25 ingest — the path is not live on api.worldmonitor.app. Re-surface when a working endpoint is confirmed; the Eurostat source is otherwise CC-BY-4.0."
     },
     {
       "key": "displacement-flows",
@@ -415,8 +484,13 @@
       "attribution": "Data: UNHCR + UN OCHA HAPI via WorldMonitor (api.worldmonitor.app)",
       "content_class": "displacement-record",
       "theme": "humanitarian",
-      "risk_flags": ["sensitive-topic"],
-      "synthesis_cautions": ["report-observed-not-predicted", "no-political-position"],
+      "risk_flags": [
+        "sensitive-topic"
+      ],
+      "synthesis_cautions": [
+        "report-observed-not-predicted",
+        "no-political-position"
+      ],
       "surfaced": true
     },
     {
@@ -428,7 +502,9 @@
       "content_class": "physical-infrastructure",
       "theme": "infrastructure-watch",
       "risk_flags": [],
-      "synthesis_cautions": ["report-observed-not-predicted"],
+      "synthesis_cautions": [
+        "report-observed-not-predicted"
+      ],
       "surfaced": true
     },
     {
@@ -440,9 +516,11 @@
       "content_class": "physical-infrastructure",
       "theme": "infrastructure-watch",
       "risk_flags": [],
-      "synthesis_cautions": ["report-observed-not-predicted"],
+      "synthesis_cautions": [
+        "report-observed-not-predicted"
+      ],
       "surfaced": false,
-      "surfaced_reason": "LIVE-REACHABILITY HOLD (not editorial/license): the endpoint /api/supply_chain/v1/get-chokepoint-status returned HTTP 404 Not Found on the live 2026-06-25 ingest \u2014 the path is not live on api.worldmonitor.app. Re-surface when a working endpoint is confirmed; the IMF PortWatch source is otherwise API-ToS-derived."
+      "surfaced_reason": "LIVE-REACHABILITY HOLD (not editorial/license): the endpoint /api/supply_chain/v1/get-chokepoint-status returned HTTP 404 Not Found on the live 2026-06-25 ingest — the path is not live on api.worldmonitor.app. Re-surface when a working endpoint is confirmed; the IMF PortWatch source is otherwise API-ToS-derived."
     },
     {
       "key": "conflict-events-acled",
@@ -451,8 +529,13 @@
       "license": "unknown",
       "attribution": "",
       "content_class": "conflict-event-record",
-      "risk_flags": ["sensitive-topic"],
-      "synthesis_cautions": ["report-observed-not-predicted", "no-political-position"],
+      "risk_flags": [
+        "sensitive-topic"
+      ],
+      "synthesis_cautions": [
+        "report-observed-not-predicted",
+        "no-political-position"
+      ],
       "surfaced": false,
       "surfaced_reason": "HELD ON LICENSE GROUNDS ONLY (re-evaluated W26 2026-06-24): a conflict EVENT record is an observed fact (allowed — sensitivity is never a deny reason). ACLED stays surfaced:false because the ACLED Terms of Use restrict redistribution of event data and require a use agreement / forbid re-serving the dataset — that exceeds azimuth's free-to-use-with-attribution bar even as a non-commercial demonstrator with CREDITS.md. The SAME conflict topic IS now surfaced via UCDP (conflict-events-ucdp), which publishes under a clean CC-BY-4.0 license. ACLED becomes surfaceable if/when a clean ACLED license path is confirmed; the hold is purely license, never editorial."
     },
@@ -463,8 +546,13 @@
       "license": "unknown",
       "attribution": "",
       "content_class": "vessel-position",
-      "risk_flags": ["sensitive-topic"],
-      "synthesis_cautions": ["report-observed-not-predicted", "no-safety-position"],
+      "risk_flags": [
+        "sensitive-topic"
+      ],
+      "synthesis_cautions": [
+        "report-observed-not-predicted",
+        "no-safety-position"
+      ],
       "surfaced": false,
       "surfaced_reason": "HELD ON LICENSE GROUNDS ONLY (re-evaluated W26 2026-06-24): a vessel POSITION is an observed fact (allowed — sensitivity is never a deny reason). The vessel-AIS feed stays surfaced:false purely because the AIS-aggregator license is commercial/unknown (not in the free-to-use allowlist). The Maritime theme is NOT empty, though: maritime-navwarnings (NGA navigational warnings, US-Gov public-domain) IS now surfaced under the 'maritime-safety' theme. Vessel-AIS becomes surfaceable once a free-to-use AIS feed is confirmed; the hold is purely license, never editorial."
     },
@@ -475,8 +563,13 @@
       "license": "unknown",
       "attribution": "",
       "content_class": "flight-track",
-      "risk_flags": ["sensitive-topic"],
-      "synthesis_cautions": ["report-observed-not-predicted", "no-political-position"],
+      "risk_flags": [
+        "sensitive-topic"
+      ],
+      "synthesis_cautions": [
+        "report-observed-not-predicted",
+        "no-political-position"
+      ],
       "surfaced": false,
       "surfaced_reason": "HELD ON LICENSE GROUNDS ONLY: a flight TRACK is an observed fact (allowed under the 2026-06-24 fact-vs-propaganda line — sensitivity is never a deny reason). Air-traffic/ADS-B would be the 'Air-traffic' theme; it stays surfaced:false purely because the ADS-B Exchange license is restrictive (commercial; not in the free-to-use allowlist). OpenSky Network is a partial free-for-research alternative but its ToS still restricts redistribution of raw positions. Surfaceable once a clean license is confirmed; no editorial barrier remains."
     },
@@ -487,8 +580,13 @@
       "license": "unknown",
       "attribution": "",
       "content_class": "flight-track",
-      "risk_flags": ["sensitive-topic"],
-      "synthesis_cautions": ["report-observed-not-predicted", "no-political-position"],
+      "risk_flags": [
+        "sensitive-topic"
+      ],
+      "synthesis_cautions": [
+        "report-observed-not-predicted",
+        "no-political-position"
+      ],
       "surfaced": false,
       "surfaced_reason": "HELD ON LICENSE GROUNDS ONLY: a GPS-interference observation is an observed fact (factual, allowed). Held because gpsjam.org derives from ADS-B Exchange, whose license is restrictive (same upstream-license bar as military-flights-adsb). No editorial barrier — surfaceable once the upstream ADS-B license is free-to-use."
     },
@@ -500,7 +598,9 @@
       "attribution": "",
       "content_class": "market-data",
       "risk_flags": [],
-      "synthesis_cautions": ["no-investment-framing"],
+      "synthesis_cautions": [
+        "no-investment-framing"
+      ],
       "surfaced": false,
       "surfaced_reason": "HELD ON LICENSE GROUNDS ONLY: a quoted price is an observed fact (factual, allowed). Held because the Yahoo Finance feed is proprietary-with-fair-use, not in the free-to-use allowlist — fair-use display is not the same as a redistribution license for a derived public vault. Crypto quotes (CoinGecko, API-ToS) ARE surfaced; equities wait on a clean license."
     },
@@ -512,7 +612,9 @@
       "attribution": "",
       "content_class": "economic-indicator",
       "risk_flags": [],
-      "synthesis_cautions": ["report-observed-not-predicted"],
+      "synthesis_cautions": [
+        "report-observed-not-predicted"
+      ],
       "surfaced": false,
       "surfaced_reason": "HELD ON LICENSE GROUNDS ONLY: a published index value is an observed fact (factual, allowed). Held because The Economist's Big Mac Index is proprietary (CC-BY-NC-SA-style restrictions on the published dataset), not in the free-to-use allowlist. No editorial barrier."
     },
@@ -524,7 +626,9 @@
       "attribution": "",
       "content_class": "trade-record",
       "risk_flags": [],
-      "synthesis_cautions": ["report-observed-not-predicted"],
+      "synthesis_cautions": [
+        "report-observed-not-predicted"
+      ],
       "surfaced": false,
       "surfaced_reason": "HELD ON LICENSE GROUNDS: a recorded trade flow is an observed fact (factual, allowed). UN Comtrade is widely cited as CC BY-SA 3.0 IGO but its dissemination terms restrict bulk redistribution and the free tier is rate/volume-limited; pending an explicit confirmation it stays held. tariff-trends (WTO, CC-BY-4.0) IS surfaced as the clean trade channel. No editorial barrier."
     },
@@ -548,7 +652,9 @@
       "attribution": "",
       "content_class": "physical-infrastructure",
       "risk_flags": [],
-      "synthesis_cautions": ["report-observed-not-predicted"],
+      "synthesis_cautions": [
+        "report-observed-not-predicted"
+      ],
       "surfaced": false,
       "surfaced_reason": "HELD ON LICENSE GROUNDS: imagery is observed fact, but the imagery search spans mixed providers — Copernicus Sentinel + USGS Landsat are free/public-domain, but commercial tiers are not. Surfaceable once the feed is restricted to the public-domain providers only. Low priority. No editorial barrier."
     },
@@ -572,7 +678,9 @@
       "attribution": "",
       "content_class": "economic-indicator",
       "risk_flags": [],
-      "synthesis_cautions": ["report-observed-not-predicted"],
+      "synthesis_cautions": [
+        "report-observed-not-predicted"
+      ],
       "surfaced": false,
       "surfaced_reason": "HELD AS DERIVED-COMPOSITE: the giving summary is a WorldMonitor-constructed composite INDEX (modelled from annual-report baselines + on-chain tracking), not a single raw observed feed — closer to an analytic product than a channel. Held pending a decomposition into its underlying free-licensed component facts. No editorial barrier."
     },

@@ -4,7 +4,7 @@ type: L2-brief
 theme: cross-theme
 week: 2026-W29
 updated: 2026-07-15T04:00:00Z
-sources: [climate-anomalies, co2-monitoring, crude-oil-inventories, earthquakes, energy-prices, fuel-prices, natural-events, natural-gas-storage-eu, radiation-observations, sea-ice-extent, thermal-escalations, wildfire-detections]
+sources: [co2-monitoring, conflict-events-ucdp, crude-oil-inventories, disease-outbreaks, displacement-flows, earthquakes, energy-prices, fuel-prices, natural-events, natural-gas-storage-eu, radiation-observations, thermal-escalations, wildfire-detections]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
 ---
@@ -51,10 +51,10 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 > **Channels:** Energy supply + Geophysical + Climate signals · **Serves:** Researcher / analyst — the cross-channel graph for one subject, every edge clickable to its L1 note.
 
 - **Commodity spine — crude oil ties three feeds together:** the physical balance (-3,168 EIA stocks, 2026-07-03); the spot price (WTI $70.48/bbl); the pump (downstream fuel-price panel). One commodity, traced from the ground to the pump across separate L1 feeds ([[crude-oil-inventories]], [[energy-prices]], [[fuel-prices]])
-- **United States** surfaces under 2 channels this week (Energy supply + environmental-hazards) — a co-occurrence in the open data, reported as a link, not a cause ([[crude-oil-inventories]], [[energy-prices]], [[fuel-prices]], [[natural-events]], [[natural-gas-storage-eu]], [[radiation-observations]], [[thermal-escalations]], [[wildfire-detections]])
-- **New Zealand** surfaces under 2 channels this week (Energy supply + Geophysical) — a co-occurrence in the open data, reported as a link, not a cause ([[crude-oil-inventories]], [[earthquakes]], [[energy-prices]], [[fuel-prices]], [[natural-gas-storage-eu]])
-- **Portugal** surfaces under 2 channels this week (Energy supply + Geophysical) — a co-occurrence in the open data, reported as a link, not a cause ([[crude-oil-inventories]], [[earthquakes]], [[energy-prices]], [[fuel-prices]], [[natural-gas-storage-eu]])
-- **Ukraine** surfaces under 2 channels this week (Climate signals + environmental-hazards) — a co-occurrence in the open data, reported as a link, not a cause ([[climate-anomalies]], [[co2-monitoring]], [[natural-events]], [[radiation-observations]], [[sea-ice-extent]], [[thermal-escalations]], [[wildfire-detections]])
+- **Papua New Guinea** surfaces under 2 channels this week (Geophysical + humanitarian) — a co-occurrence in the open data, reported as a link, not a cause ([[displacement-flows]], [[earthquakes]])
+- **United Kingdom** surfaces under 3 channels this week (Energy supply + humanitarian + public-health) — a co-occurrence in the open data, reported as a link, not a cause ([[crude-oil-inventories]], [[disease-outbreaks]], [[displacement-flows]], [[energy-prices]], [[fuel-prices]], [[natural-gas-storage-eu]])
+- **United States** surfaces under 5 channels this week (conflict-watch + Energy supply + environmental-hazards + humanitarian + public-health) — a co-occurrence in the open data, reported as a link, not a cause ([[conflict-events-ucdp]], [[crude-oil-inventories]], [[disease-outbreaks]], [[displacement-flows]], [[energy-prices]], [[fuel-prices]], [[natural-events]], [[natural-gas-storage-eu]], [[radiation-observations]], [[thermal-escalations]], [[wildfire-detections]])
+- **Netherlands** surfaces under 2 channels this week (Energy supply + humanitarian) — a co-occurrence in the open data, reported as a link, not a cause ([[crude-oil-inventories]], [[displacement-flows]], [[energy-prices]], [[fuel-prices]], [[natural-gas-storage-eu]])
 
 ## How these answers are made
 
