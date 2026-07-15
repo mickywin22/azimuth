@@ -58,7 +58,7 @@ and quick start; come here to go deep.
 
 ## Continuous integration & gates
 
-Six GitHub Actions workflows run the engine and guard the repo. All are visible under
+Seven GitHub Actions workflows run the engine and guard the repo. All are visible under
 [`.github/workflows/`](../.github/workflows/); the three engine badges at the top of the root
 README track `ci.yml`, `ingest.yml`, and `synthesis-freshness.yml` — both liveness heartbeats
 visible at a glance.
@@ -71,8 +71,9 @@ visible at a glance.
 | `pages.yml` | push to `main` | the static-site build | skipped while the repo is private |
 | `deploy-cloudflare.yml` | push to `main` + `workflow_dispatch` | builds `_site` and deploys to Cloudflare Pages (`azimuth.pages.dev`) | skipped until the two `CLOUDFLARE_*` repo secrets are set (skip-not-fail) |
 | `secret-scan.yml` | every push / PR to `main` | **credentials over full history** (gitleaks + the stdlib scanner) and **owner-private context in the working tree** (C1b); pre-existing *history-only* privacy findings are surfaced non-blocking (C1c — see below) | green |
+| `attach-domain.yml` | `workflow_dispatch` only | nothing — one-shot operational helper that attaches `azimuth.emi-factory.dev` to the Cloudflare Pages project (reports the manual DNS step when the least-privilege token can't) | run on demand |
 
-Keeping those six workflows current is itself automated: [`.github/dependabot.yml`](../.github/dependabot.yml)
+Keeping those seven workflows current is itself automated: [`.github/dependabot.yml`](../.github/dependabot.yml)
 runs a weekly `github-actions` updater that opens one grouped PR for minor/patch action bumps
 (a major version opens on its own) — the build-toolchain analog of the per-source data guardrail,
 so the CI supply chain stays patched the same way the data supply chain does.
