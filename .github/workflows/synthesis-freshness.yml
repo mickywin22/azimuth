@@ -63,7 +63,7 @@ jobs:
       # the label so a repeated weekly miss appends a comment instead of spamming issues.
       - name: Alarm on overdue synthesis
         if: failure()
-        uses: actions/github-script@v7
+        uses: actions/github-script@v9
         with:
           script: |
             const day = new Date().toISOString().slice(0, 10);
