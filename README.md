@@ -5,11 +5,13 @@
 [![L2 freshness](https://github.com/mickywin22/azimuth/actions/workflows/synthesis-freshness.yml/badge.svg)](https://github.com/mickywin22/azimuth/actions/workflows/synthesis-freshness.yml)
 [![Code: MIT](https://img.shields.io/badge/code-MIT-blue.svg)](LICENSE)
 [![Content: CC BY 4.0](https://img.shields.io/badge/content-CC%20BY%204.0-lightgrey.svg)](LICENSE-CONTENT.md)
-[![Days autonomous](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fmickywin22.github.io%2Fazimuth%2Fautonomy.json&query=%24.days_operating&suffix=%20days&label=autonomous&color=brightgreen)](https://mickywin22.github.io/azimuth/autonomy.html)
-[![L1 ingests](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fmickywin22.github.io%2Fazimuth%2Fautonomy.json&query=%24.l1_ingests_committed&label=L1%20ingests&color=blue)](https://mickywin22.github.io/azimuth/autonomy.html)
-[![LLM cost](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fmickywin22.github.io%2Fazimuth%2Fautonomy.json&query=%24.est_weekly_spend_usd&prefix=~%24&suffix=%2Fwk&label=LLM%20cost&color=lightgrey)](https://mickywin22.github.io/azimuth/autonomy.html)
+[![Days autonomous](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fazimuth.pages.dev%2Fautonomy.json&query=%24.days_operating&suffix=%20days&label=autonomous&color=brightgreen)](https://azimuth.emi-factory.dev/autonomy.html)
+[![L1 ingests](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fazimuth.pages.dev%2Fautonomy.json&query=%24.l1_ingests_committed&label=L1%20ingests&color=blue)](https://azimuth.emi-factory.dev/autonomy.html)
+[![LLM cost](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fazimuth.pages.dev%2Fautonomy.json&query=%24.est_weekly_spend_usd&prefix=~%24&suffix=%2Fwk&label=LLM%20cost&color=lightgrey)](https://azimuth.emi-factory.dev/autonomy.html)
 
 Public demonstrator of the HemySphere L1/L2/L3 vault doctrine, fed by Worldmonitor open-intelligence data.
+
+**Live site: <https://azimuth.emi-factory.dev>** — [weekly briefs](https://azimuth.emi-factory.dev/) · [Ask the World Data](https://azimuth.emi-factory.dev/answers.html) · [knowledge graph](https://azimuth.emi-factory.dev/graph.html) · [facts-vs-forecast benchmark](https://azimuth.emi-factory.dev/benchmark.html) · [autonomy counters](https://azimuth.emi-factory.dev/autonomy.html)
 
 > **Status — engine live, awaiting public flip.** The pipeline runs end-to-end: a daily
 > GitHub Actions job pulls the WorldMonitor subsets into dated **L1 source notes**, a weekly
@@ -97,9 +99,13 @@ pre-commit install
 ## Public site & deploy
 
 The browsable read-only site (weekly L2 briefs → L1 sources → L3 editorial line, plus the
-cross-channel knowledge graph) builds with `python scripts/build_site.py` and is published
-to **GitHub Pages** by [`.github/workflows/pages.yml`](.github/workflows/pages.yml) on every
-push to `main`.
+cross-channel knowledge graph) builds with `python scripts/build_site.py` and is **live at
+<https://azimuth.emi-factory.dev>**, published to **Cloudflare Pages** by
+[`.github/workflows/deploy-cloudflare.yml`](.github/workflows/deploy-cloudflare.yml) on every
+push to `main` (direct upload — publishing is decoupled from repo visibility; full write-up:
+[docs/deploy-cloudflare.md](docs/deploy-cloudflare.md)). A secondary GitHub Pages lane
+([`.github/workflows/pages.yml`](.github/workflows/pages.yml)) exists but is not the
+canonical deploy.
 
 The knowledge graph is both **visual** (`site/graph.html` — pick any two channels and
 **Trace** how they connect) and **queryable from the command line** via
@@ -126,11 +132,7 @@ is already valid linked data — the **Vault-LD OKF compatibility profile** (SPE
 (every note as a typed subject) beside the site; `rdflib` is a **CI-only** dependency, so the
 runtime stays pure standard library. Full write-up: [docs/linked-data.md](docs/linked-data.md).
 
-> **Pages URL (once enabled): https://mickywin22.github.io/azimuth/**
-
-The repo is **private** and the site is **not live** until GitHub Pages is explicitly
-enabled in the repo settings — that flip is a deliberate manual step. Full build steps,
-the ready-to-flip gate, and the local validation command are in
+Full build steps, the ready-to-flip gate, and the local validation command are in
 [docs/deploy.md](docs/deploy.md).
 
 ## Operations — engine liveness
@@ -176,8 +178,9 @@ marketing sentence — days operating, daily L1 ingests committed, L1 source not
 L2 briefs maintained, data channels surfaced, and an explicitly-labelled LLM-spend
 estimate:
 
-- **Live counters page:** [`site/autonomy.html`](site/autonomy.html) — machine-readable
-  companion [`site/autonomy.json`](site/autonomy.json).
+- **Live counters page:** <https://azimuth.emi-factory.dev/autonomy.html> (source:
+  [`site/autonomy.html`](site/autonomy.html)) — machine-readable companion
+  [`site/autonomy.json`](site/autonomy.json).
 - Every counter is derived **purely from committed vault data, never the wall clock**, so
   it is byte-reproducible and CI-guarded (`build_autonomy.py --check`). The counters
   re-derive on each daily ingest — exactly like the knowledge graph and brief index — so

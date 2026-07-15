@@ -23,6 +23,14 @@ jobs:
     steps:
       - name: Attach domain to the Pages project
         run: |
+          # Self-resolve the account id from the token (the secret arrived empty on the first
+          # dispatch -- the token itself knows its account memberships).
+          if [ -z "${CF_ACCOUNT}" ]; then
+            CF_ACCOUNT=$(curl -sS "https://api.cloudflare.com/client/v4/accounts" \
+              -H "Authorization: Bearer ${CF_TOKEN}" | python3 -c 'import json,sys; d=json.load(sys.stdin); r=d.get("result") or []; print(r[0]["id"] if r else "")')
+            echo "resolved account id: ${CF_ACCOUNT:0:6}..."
+          fi
+          echo "CF_ACCOUNT=${CF_ACCOUNT}" >> "$GITHUB_ENV"
           curl -sS -X POST \
             "https://api.cloudflare.com/client/v4/accounts/${CF_ACCOUNT}/pages/projects/${PROJECT}/domains" \
             -H "Authorization: Bearer ${CF_TOKEN}" -H "Content-Type: application/json" \
