@@ -608,25 +608,6 @@
       ]
     },
     {
-      "id": "entity:chile",
-      "label": "Chile",
-      "kind": "entity",
-      "entity_kind": "region",
-      "theme": "shared",
-      "themes": [
-        "environmental-hazards",
-        "geophysical"
-      ],
-      "evidence": [
-        {
-          "theme": "geophysical",
-          "source": "earthquakes",
-          "day": "2026-07-15",
-          "text": "\u202634, \"longitude\": -71.8626}, \"magnitude\": 5.1, \"occurredAt\": 1784077760402, \"place\": \"52 km NNW of Valpara\u00edso, Chile\", \"sourceUrl\": \"https://earthquake.usgs.gov/earthquakes/eventpage/us7000t0it\"}, {\"depthKm\": 66.6, \"id\": \"us70\u2026"
-        }
-      ]
-    },
-    {
       "id": "entity:brent",
       "label": "Brent",
       "kind": "entity",
@@ -665,6 +646,25 @@
           "source": "energy-prices",
           "day": "2026-07-15",
           "text": "\u2026r edit by hand. | field | value | | --- | --- | | prices | [{\"change\": -4.2, \"commodity\": \"wti\", \"name\": \"WTI Crude Oil\", \"price\": \"70.48\", \"priceAt\": 1783036800000, \"unit\": \"$/barrel\"}, {\"change\": -5.3, \"commodity\": \"brent\",\u2026"
+        }
+      ]
+    },
+    {
+      "id": "entity:iran",
+      "label": "Iran",
+      "kind": "entity",
+      "entity_kind": "region",
+      "theme": "shared",
+      "themes": [
+        "environmental-hazards",
+        "geophysical"
+      ],
+      "evidence": [
+        {
+          "theme": "geophysical",
+          "source": "earthquakes",
+          "day": "2026-07-15",
+          "text": "\u202633.0578, \"longitude\": 47.3941}, \"magnitude\": 4.5, \"occurredAt\": 1783524154759, \"place\": \"7 km NNW of \u0100bd\u0101n\u0101n, Iran\", \"sourceUrl\": \"https://earthquake.usgs.gov/earthquakes/eventpage/us6000tazy\"}, {\"depthKm\": 10, \"id\": \"us6000\u2026"
         }
       ]
     },
@@ -1336,26 +1336,6 @@
       "rel": "named-in"
     },
     {
-      "source": "entity:chile",
-      "target": "brief:environmental-hazards-weekly",
-      "cross_theme": true,
-      "rel": "mentioned-in",
-      "weight": 0
-    },
-    {
-      "source": "entity:chile",
-      "target": "brief:geophysical-weekly",
-      "cross_theme": true,
-      "rel": "mentioned-in",
-      "weight": 1
-    },
-    {
-      "source": "entity:chile",
-      "target": "source:earthquakes",
-      "cross_theme": false,
-      "rel": "named-in"
-    },
-    {
       "source": "entity:brent",
       "target": "brief:energy-supply-weekly",
       "cross_theme": false,
@@ -1384,6 +1364,26 @@
     {
       "source": "entity:crude",
       "target": "source:energy-prices",
+      "cross_theme": false,
+      "rel": "named-in"
+    },
+    {
+      "source": "entity:iran",
+      "target": "brief:environmental-hazards-weekly",
+      "cross_theme": true,
+      "rel": "mentioned-in",
+      "weight": 0
+    },
+    {
+      "source": "entity:iran",
+      "target": "brief:geophysical-weekly",
+      "cross_theme": true,
+      "rel": "mentioned-in",
+      "weight": 1
+    },
+    {
+      "source": "entity:iran",
+      "target": "source:earthquakes",
       "cross_theme": false,
       "rel": "named-in"
     },
