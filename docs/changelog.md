@@ -230,6 +230,13 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
   MIT-code directory so the license front door reads accurately for a public visitor.
 
 ### Changed
+- **Weekly L2 synthesis cycle refreshed after an 11-day stall (2026-07-13, Azimuth KR3):**
+  the `azimuth-curator` re-synthesised all five clean-theme briefs
+  (`vault/02 Briefs/`: Climate Signals, Energy Supply, Environmental Hazards, Geophysical,
+  Prediction Markets) up to the 2026-07-13 L1 ingest day, clearing the 11-day weekly-cadence
+  overrun that reddened `test_live_repo_is_internally_consistent` (the C4b synthesis-freshness
+  gate doing its job). Merged to `main` 2026-07-15 together with the `docs/cli.md` entry for
+  `check_hero_gif.py` — the two commits that un-redden the flip-readiness CI gate.
 - **Editorial line rewritten to fact-vs-propaganda (2026-06-24, Michael):** azimuth now
   surfaces ANY free-to-use channel that monitors **facts** (observed events, measurements,
   positions, records) on ANY topic, and denies only **non-factual** content (political
