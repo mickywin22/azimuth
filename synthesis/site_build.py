@@ -22,6 +22,7 @@ never disagree with what the lint validated.
 from __future__ import annotations
 
 import html
+import json
 import re
 import shutil
 import sys
@@ -277,7 +278,9 @@ _PAGE_TEMPLATE = """<!DOCTYPE html>
 _KIND_LABEL = {"brief": "L2 Brief", "source": "L1 Source", "rule": "L3 Rule"}
 
 
-def _render_page(page: Page, link_map: dict[str, str], fresh_day: str = "") -> str:
+def _render_page(
+    page: Page, link_map: dict[str, str], fresh_day: str = "", vault_dir: Path | None = None
+) -> str:
     depth = page.out_path.count("/")
     root = "../" * depth
     linked = resolve_wikilinks(page.body_md, page.out_path, link_map)
@@ -287,10 +290,32 @@ def _render_page(page: Page, link_map: dict[str, str], fresh_day: str = "") -> s
         # freshness at page entry — the kind pill a reader sees first, not a buried line
         label = f"{label} · updated {html.escape(page.updated)}"
     kind_block = f'<div class="kind kind-{page.kind}">{label}</div>' if label else ""
+
+    # Brief pages open with the numbers they are about: a build-time key-figures band
+    # (chips + sparklines straight from the newest L1 day) and section-anchor chips, so a
+    # long brief reads as a dashboard-with-prose, not a wall of bullets. Both are additive
+    # and fail-soft — a source-shape change degrades to "no band", never a broken page.
+    band = ""
+    toc = ""
+    if page.kind == "brief" and page.theme and vault_dir is not None and fresh_day:
+        from synthesis.brief_stats import brief_band_html  # lazy: keeps module imports acyclic
+
+        band = brief_band_html(page.theme, vault_dir / "01 Sources" / fresh_day)
+        heads = re.findall(r"^## (.+)$", page.body_md, re.M)
+        if len(heads) >= 2:
+            chips = []
+            for h in heads:
+                slug = re.sub(r"[^a-z0-9]+", "-", h.lower()).strip("-")
+                html_body = html_body.replace(
+                    f"<h2>{html.escape(h)}</h2>", f'<h2 id="{slug}">{html.escape(h)}</h2>', 1
+                )
+                chips.append(f'<a class="toc-chip" href="#{slug}">{html.escape(h)}</a>')
+            toc = f'<nav class="toc-chips" aria-label="Sections">{"".join(chips)}</nav>'
+
     return _PAGE_TEMPLATE.format(
         title=html.escape(page.title),
         root=root,
-        kind_block=kind_block,
+        kind_block=kind_block + band + toc,
         html_body=html_body,
         fresh_badge=_fresh_badge(fresh_day),
     )
@@ -310,7 +335,10 @@ _HERO_GRAPH_JS = """<script>
   if (!cv || !cv.getContext) return;
   var ctx = cv.getContext("2d");
   var TC = {"energy-supply":"#4cc2ff","geophysical":"#ff9d4c","climate-signals":"#37d6a0",
-    "prediction-markets":"#b07cff","environmental-hazards":"#ff5d73","other":"#8a97a8"};
+    "prediction-markets":"#b07cff","environmental-hazards":"#ff5d73",
+    "conflict-watch":"#ff7a5c","cyber-watch":"#5ce8d5","public-health":"#7ddc6a",
+    "macro-markets":"#ffd166","orbital-watch":"#9db4ff","humanitarian":"#ff9ecb",
+    "infrastructure-watch":"#c8ad7f","other":"#8a97a8"};
   var CROSS = "#ffe14c";
   var colorOf = function (n) { return n.theme === "shared" ? CROSS : (TC[n.theme] || TC.other); };
   fetch("graph.json").then(function (r) { return r.json(); }).then(function (g) {
@@ -409,6 +437,7 @@ def _render_index(
     aset: AnswerSet | None = None,
     fresh_day: str = "",
     pulse: Any = None,
+    autonomy: dict[str, Any] | None = None,
 ) -> str:
     # Build-time sparklines: a KPI is a curve, not a bare number (vault doctrine). `pulse`
     # carries the per-ingest-day L1 note counts; each brief card gets its channel's trend,
@@ -484,14 +513,35 @@ def _render_index(
         )
     else:
         pulse_html = ""
+    # Landing counters strip: the autonomy story belongs on the front door, not a subpage.
+    # `autonomy` is read by build_site BEFORE the out-dir teardown (the counters file lives in
+    # the same tree this build wipes) and passed through; fail-soft to no strip.
+    counters_html = ""
+    try:
+        auto = autonomy or {}
+        pairs = [
+            (f"{auto['days_operating']}", "days running itself"),
+            (f"{auto['l1_source_notes']:,}", "L1 source notes"),
+            (f"{auto['l2_briefs']}", "L2 briefs maintained"),
+            (f"~${auto['est_llm_spend_usd']}", "LLM spend, all-time"),
+        ]
+        counters_html = (
+            '<a class="hero-counters" href="autonomy.html" '
+            'aria-label="Autonomy counters — proof it runs itself">'
+            + "".join(f"<span class='hc'><b>{v}</b><i>{c}</i></span>" for v, c in pairs)
+            + "</a>"
+        )
+    except Exception:
+        counters_html = ""
     body = f"""
 <div class="hero">
   <h1>azimuth</h1>
   {hero_fresh}
-  <p>A read-only, browsable view of the open-intelligence vault: weekly
-  <strong>L2 briefs</strong> synthesised from dated <strong>L1 source notes</strong>,
-  under one published <a href="editorial.html">editorial line</a>.
-  Every claim in a brief links to the data it rests on.</p>
+  <p>An open-intelligence vault that <strong>runs itself</strong>: a daily L1 ingest of
+  open WorldMonitor data, daily AI-synthesised <strong>L2 briefs</strong> under one
+  machine-enforced <a href="editorial.html">editorial contract</a>, and a knowledge graph
+  that answers across channels. Every claim in a brief links to the data it rests on.</p>
+  {counters_html}
   {pulse_html}
 </div>
 <a class="hero-graph" href="graph.html" aria-label="Open the interactive cross-channel knowledge graph">
@@ -876,6 +926,29 @@ vector-effect:non-scaling-stroke}
 .card-spark .spark{flex:1;min-width:0}
 .card-spark-cap{font-size:.68rem;color:var(--muted);white-space:nowrap}
 .card-spark-cap strong{color:var(--ink)}
+/* landing autonomy counters — the proof strip on the front door (links to autonomy.html) */
+.hero-counters{display:flex;flex-wrap:wrap;gap:.6rem;margin:1rem 0 .3rem}
+.hero-counters .hc{display:flex;flex-direction:column;gap:.1rem;min-width:120px;
+background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:.6rem .9rem;
+transition:border-color .15s,transform .15s}
+.hero-counters:hover{text-decoration:none}
+.hero-counters:hover .hc{border-color:var(--accent)}
+.hero-counters .hc b{font-family:Rajdhani,Inter,sans-serif;font-size:1.5rem;line-height:1.1;
+color:var(--ink)}
+.hero-counters .hc i{font-style:normal;font-size:.72rem;color:var(--muted);letter-spacing:.03em}
+/* brief key-figures band + section chips — a brief opens as a dashboard, then the prose */
+.stats-band{display:flex;flex-wrap:wrap;gap:.6rem;margin:.2rem 0 1.1rem}
+.stats-band .stat{display:flex;flex-direction:column;gap:.15rem;min-width:130px;flex:0 1 auto;
+background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:.6rem .85rem}
+.stats-band .stat b{font-family:Rajdhani,Inter,sans-serif;font-size:1.35rem;line-height:1.1}
+.stats-band .stat span{font-size:.7rem;color:var(--muted);letter-spacing:.02em}
+.stats-band .stat-sparkline{color:var(--accent);min-width:190px}
+.stats-band .stat-sparkline b{color:var(--ink)}
+.stats-band .stat-sparkline .spark{margin-top:.35rem}
+.toc-chips{display:flex;flex-wrap:wrap;gap:.4rem;margin:0 0 1.2rem}
+.toc-chip{font-size:.74rem;color:var(--muted);border:1px solid var(--line);border-radius:999px;
+padding:.18rem .65rem;transition:color .12s,border-color .12s}
+.toc-chip:hover{color:var(--accent);border-color:var(--accent);text-decoration:none}
 .pulse{display:flex;align-items:center;gap:.7rem;flex-wrap:wrap;margin:.9rem 0 .2rem;
 padding:.55rem .8rem;background:var(--panel);border:1px solid var(--line);border-radius:10px}
 .pulse-kind{font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);
@@ -984,6 +1057,13 @@ def build_site(
     model = discover(vault_dir, registry)
     # One freshness date for the whole build: the newest dated L1 ingest folder.
     fresh_day = latest_source_day(vault_dir)
+    # Autonomy counters for the landing strip — read BEFORE the teardown below wipes the
+    # out-dir this very file lives in (it is regenerated right after the page loop).
+    autonomy: dict[str, Any] = {}
+    try:
+        autonomy = json.loads((out_dir / "autonomy.json").read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        autonomy = {}
 
     if out_dir.exists():
         shutil.rmtree(out_dir)
@@ -993,7 +1073,9 @@ def build_site(
     for page in [*model.briefs, *model.sources, *model.rules]:
         target = out_dir / page.out_path
         target.parent.mkdir(parents=True, exist_ok=True)
-        target.write_text(_render_page(page, model.link_map, fresh_day), encoding="utf-8")
+        target.write_text(
+            _render_page(page, model.link_map, fresh_day, vault_dir), encoding="utf-8"
+        )
 
     # The demonstrator centerpiece: TOP5 cross-channel answers, rendered live from the
     # answer engine (every claim wikilink resolves through the same link map as the briefs).
@@ -1017,6 +1099,6 @@ def build_site(
 
     pulse = daily_source_counts(vault_dir, registry)
     (out_dir / "index.html").write_text(
-        _render_index(model, aset, fresh_day, pulse), encoding="utf-8"
+        _render_index(model, aset, fresh_day, pulse, autonomy), encoding="utf-8"
     )
     return model
