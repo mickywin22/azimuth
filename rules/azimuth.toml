@@ -1,0 +1,31 @@
+# The azimuth vault's contract, declared for the generic vault-contract engine.
+# This is the DOGFOOD config: CI runs `python -m vault_contract "vault/02 Briefs" --rules
+# rules/azimuth.toml --sources-root "vault/01 Sources"` against the live corpus, proving the
+# reusable engine on the same vault the richer azimuth-specific lint (synthesis/lint.py)
+# guards. Reuse: copy this file, point it at your own vault, adjust the clauses.
+
+[notes]
+# the brief index is a machine-generated directory listing, not an L2 note
+exclude = ["README.md"]
+
+[frontmatter]
+required = ["title", "type", "license", "updated"]
+
+[claims]
+# azimuth uses wikilinks; a standard-markdown-link corpus would use e.g. "\\[[^\\]]+\\]\\([^)]+\\)"
+link_pattern = "\\[\\[[^\\]]+\\]\\]"
+sources_root = "vault/01 Sources"
+
+[changelog]
+required = true
+
+[denylist]
+# the investment-framing clause of the azimuth editorial line, distilled
+patterns = ["(?i)\\byou should (buy|sell)\\b", "(?i)\\bprice target\\b", "(?i)\\bgo (long|short)\\b"]
+
+[artifacts]
+markers = ["</content>", "</invoke>", "<function_calls", "[Truncated:"]
+
+[diff]
+allowed_prefixes = ["vault/02 Briefs/"]
+forbidden_prefixes = ["vault/01 Sources/"]

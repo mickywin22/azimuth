@@ -68,6 +68,12 @@ jobs:
       - name: L2 synthesis lint
         run: python scripts/check_synthesis.py
 
+      # Dogfood the REUSABLE contract engine (vault_contract/) against the same live corpus
+      # the azimuth-specific lint above guards -- proves the distilled package on real data,
+      # every push. Pure stdlib; runs straight off the checkout.
+      - name: vault-contract engine on the live vault
+        run: python -m vault_contract "vault/02 Briefs" --rules rules/azimuth.toml --sources-root "vault/01 Sources"
+
       - name: Brief index in sync
         run: python scripts/build_brief_index.py --check
 

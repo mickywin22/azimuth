@@ -66,6 +66,24 @@ uv pip install -e ".[dev]"
 python scripts/run_ingest.py
 ```
 
+## Reuse the contract engine
+
+The doctrine's enforcement layer ships as a reusable, pure-stdlib package:
+[`vault_contract/`](vault_contract/__init__.py). Point it at **your own** markdown vault,
+declare your contract in one TOML file, and every clause becomes a blocking check —
+unsourced claims, dangling source links, missing changelogs, denylisted framing, leaked
+LLM tool artifacts, and L1-immutability on diffs:
+
+```bash
+pip install "azimuth @ git+https://github.com/mickywin22/azimuth"
+vault-contract "my-vault/notes" --rules my-rules.toml --sources-root "my-vault/sources"
+```
+
+The rules format is documented in the [package docstring](vault_contract/__init__.py);
+[`rules/azimuth.toml`](rules/azimuth.toml) is the live example — CI runs the generic engine
+against this repo's own vault on every push (azimuth's richer, theme-aware lint in
+[`synthesis/lint.py`](synthesis/lint.py) remains the reference deployment).
+
 ## Reproducibility challenge
 
 > **Every derived artifact rebuilds byte-for-byte from the committed L1 sources** — a
