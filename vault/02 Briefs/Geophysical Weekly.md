@@ -3,7 +3,7 @@ title: Geophysical Weekly
 type: L2-brief
 theme: geophysical
 week: 2026-W29
-updated: 2026-07-13T18:30:00Z
+updated: 2026-07-15T13:45:00Z
 sources: [earthquakes]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -14,62 +14,62 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 > Synthesised from the week's L1 source notes under `../01 Sources/`. The `azimuth-curator`
 > fleet role evolves this single note in place each week. azimuth reports **observed**
 > seismicity from the USGS feed — what was recorded, never what will happen. Every claim
-> links to the L1 note it rests on. (This cycle absorbs the 2026-07-06 through 2026-07-13
-> ingests after an 11-day curator gap, covering the seven days to 2026-07-13.)
+> links to the L1 note it rests on. (This cycle absorbs the 2026-07-14 and 2026-07-15
+> ingests, covering the seven days to 2026-07-15.)
 
 ## This week at a glance
 
-- The USGS feed recorded 98 magnitude-4.5-or-greater earthquakes worldwide over the seven
-  days to 2026-07-13, of which 36 were M5+, 2 reached M6+ and none were M7+ — a still-quieter
-  strong-event picture than the prior cycle's four M6+, as the M6.5 WSW of Sarangani, the deep
-  M6.1 S of Jurm and both M6.0 Pacific shocks aged out of the rolling window ([[earthquakes]]).
-- The two strongest events are a matched pair of **M6.4** shallow shocks in the Southern
-  Hemisphere: one **191 km SE of Lorengau, Papua New Guinea** (2026-07-13, 10 km) on the
-  Bismarck-Sea margin, and one in the **South Sandwich Islands region** (2026-07-11, 26 km) on
-  the remote South-Atlantic arc ([[earthquakes]]).
-- Below them the window is a string of moderate shocks around the Southern Ocean and southwest
-  Pacific — two M5.8s (91 km SSW of Isangel, Vanuatu, 2026-07-08; 296 km SSE of Ushuaia,
-  Argentina, 2026-07-07) and two M5.5s (the southern East Pacific Rise, 2026-07-12; the Balleny
-  Islands region, 2026-07-08), all shallow ([[earthquakes]]).
+- The USGS feed recorded 104 magnitude-4.5-or-greater earthquakes worldwide over the seven
+  days to 2026-07-15, of which 41 were M5+, 4 reached M6+ and none were M7+ — the M6+ count
+  doubling from two as an M6.3 capped a Loyalty-Islands swarm and an M6.2 struck off Sarangani,
+  Philippines, joining the paired M6.4s already in the window ([[earthquakes]]).
+- The window's new feature is an **11-event swarm southeast of the Loyalty Islands** (New
+  Caledonia margin), all shallow at 10 km and capped by an **M6.3** on 2026-07-13 — the
+  densest single-locality string of the cycle — while the **M6.2 34 km WSW of Sarangani,
+  Philippines** (2026-07-14, 68 km) put a fourth major on the board in the same arc the count
+  leader occupies ([[earthquakes]]).
+- The paired **M6.4** shocks carried from earlier in the window still stand — 191 km SE of
+  Lorengau, Papua New Guinea (2026-07-13, 10 km) and the South Sandwich Islands region
+  (2026-07-11, 26 km) — and a fresh Kamchatka string opened at the window's leading edge on
+  2026-07-15 (M5.1/M4.9/M4.7 SSE of Vilyuchinsk) ([[earthquakes]]).
 
 ## Largest events
 
-- Two M6+ events fell in the seven-day window, both M6.4 and neither above M7: the M6.4 191 km
-  SE of Lorengau, Papua New Guinea (2026-07-13, 10 km) and the M6.4 South Sandwich Islands
-  region (2026-07-11, 26 km). Last cycle's four M6+ shocks — the M6.5 Sarangani, the deep M6.1
-  Jurm and the two M6.0s off Noda and El Progreso — have all rolled out of the window, taking
-  the M6+ count from four to two and the M7+ count still at zero ([[earthquakes]]).
-- Both majors are shallow oceanic-margin events in the Southern Hemisphere — the Bismarck-Sea
-  margin north of Papua New Guinea and the South-Atlantic Scotia arc — rather than the
-  western-Pacific subduction zones that led prior cycles; the strong-event picture rotated
-  south this week rather than concentrating on one familiar arc ([[earthquakes]]).
+- Four M6+ events sit in the seven-day window, none above M7: the paired M6.4s — 191 km SE of
+  Lorengau, Papua New Guinea (2026-07-13, 10 km) and the South Sandwich Islands region
+  (2026-07-11, 26 km) — joined by the **M6.3 southeast of the Loyalty Islands** (2026-07-13,
+  10 km) capping that swarm, and the **M6.2 34 km WSW of Sarangani, Philippines** (2026-07-14,
+  68 km), the only major of the four with an intermediate focus ([[earthquakes]]).
+- Three of the four majors are shallow Southern-Hemisphere oceanic-margin events (Bismarck Sea,
+  Scotia arc, New Caledonia margin); the Sarangani M6.2 returns the strong-event picture to the
+  Philippine arc that carried it in late June — the same locality as that cycle's M6.5
+  ([[earthquakes]]).
 
 ## Where the activity clustered
 
-- Indonesia took the lead at 15 events, ahead of the Philippines (9), China (7) and Vanuatu (7 —
-  a Port-Olry / Isangel string capped by the M5.8), with Tonga and Japan next at 5 each; the
-  **South Sandwich Islands region** logged 4 (including the M6.4 and an M5.4), a persistent
-  South-Atlantic-arc string, and Papua New Guinea's 3 include the window's largest shock
-  ([[earthquakes]]).
+- The Philippines took the count lead at 15 events (a Sarangani/Mabiton spread including the
+  M6.2 and three M5.0–M5.4s), ahead of Indonesia (12) and the **Loyalty-Islands swarm at 11**
+  (all shallow, M4.5–M6.3, concentrated 2026-07-12/13); Vanuatu logged 7, the South Sandwich
+  Islands region 6 (including its M6.4), and Russia 5 — the latter led by the fresh
+  2026-07-15 Vilyuchinsk string off Kamchatka ([[earthquakes]]).
 
 ## Depth profile
 
-- Over half the window was shallow (51 events at ≤15 km, including both M6.4 majors and the two
-  Southern-Ocean M5.5s), and the deep-focus list thinned sharply from the prior cycle: just one
-  event below 500 km this week — an M4.5 at 561 km in the Fiji region — with the next-deepest a
-  427 km focus under the Sea of Okhotsk and a 368 km shock W of Neiafu, Tonga; a shallow-textured
-  week rather than the deep-slab activity of recent cycles ([[earthquakes]]).
+- The shallow texture deepened slightly in count terms: 57 of 104 events at ≤15 km (including
+  three of the four majors and the whole Loyalty swarm), while the deep-focus list stayed thin —
+  two events below 500 km, both in the Fiji region (574 km and 561 km), with the next-deepest a
+  427 km focus under the Sea of Okhotsk ([[earthquakes]]).
 
 ## Reading the week
 
-- The count held typical for the world's active plate boundaries (98 M4.5+, in line with the
-  prior 100) — the Indonesian, Philippine and southwest-Pacific arcs leading — while the
-  strong-event picture stepped down again: last cycle's four M6+ shocks aged out and only two
-  fresh majors entered, both M6.4 and both shallow, keeping the M6+ count at two and M7+ at zero.
-  The week's texture is a rotation south — the paired M6.4s off Papua New Guinea and in the South
-  Sandwich arc, a Vanuatu string and Southern-Ocean moderates — with the deep-slab list thinning
-  to a single sub-500 km focus. azimuth records what the instruments measured — magnitude,
-  location, depth, time — and stops there ([[earthquakes]]).
+- The count held typical for the world's active plate boundaries (104 M4.5+, in line with the
+  prior 98) but the strong-event picture stepped back up: the M6+ count doubled from two to four
+  as the Loyalty-Islands swarm capped at M6.3 and an M6.2 struck the Philippine arc, joining the
+  paired M6.4s; M7+ stayed at zero. The week's texture is swarm-led — 11 shocks at one
+  New-Caledonia-margin locality in ~36 hours — over a still-shallow field (57 of 104 at ≤15 km)
+  with the deep-slab list confined to two Fiji foci; a fresh Kamchatka string at the leading edge
+  is recorded as three moderate shocks, nothing more. azimuth records what the instruments
+  measured — magnitude, location, depth, time — and stops there ([[earthquakes]]).
 
 ## Changelog
 
@@ -134,5 +134,12 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
   to a single sub-500 km event (an M4.5 at 561 km, Fiji region) as 51 of 98 shocks were shallow
   ≤15 km. Rewrote the at-a-glance, largest-events, clustering, depth and reading sections.
   Observed-only framing held ([[earthquakes]]).
-</content>
-</invoke>
+- 2026-07-15 — daily-ingest flowback (2026-W29): refreshed from the live 2026-07-14/15 USGS days,
+  the seven days to 2026-07-15 (104 M4.5+, 41 M5+, 4 M6+, 0 M7+). The M6+ count doubled from two
+  to four: an **11-event shallow swarm southeast of the Loyalty Islands** capped at M6.3
+  (2026-07-13) and an M6.2 struck 34 km WSW of Sarangani, Philippines (2026-07-14, 68 km),
+  joining the carried M6.4 pair (Lorengau PNG / South Sandwich). The Philippines took the count
+  lead at 15 from Indonesia (12), the Loyalty swarm logged 11, and a fresh Kamchatka string
+  (M5.1/M4.9/M4.7, Vilyuchinsk) opened on 2026-07-15. Deep-focus list: two Fiji foci (574/561 km);
+  57 of 104 shocks shallow ≤15 km. Rewrote the at-a-glance, largest-events, clustering, depth and
+  reading sections. Observed-only framing held ([[earthquakes]]).
