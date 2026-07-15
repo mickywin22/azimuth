@@ -266,6 +266,29 @@ def check_editorial_denylist(text: str) -> list[str]:
     return violations
 
 
+_TOOL_ARTIFACT_PATTERNS = (
+    "</content>",
+    "</invoke>",
+    "<function_calls",
+    "[Truncated:",
+)
+
+
+def check_no_tool_artifacts(text: str) -> list[str]:
+    """No LLM-tooling XML/markers may leak into a published brief.
+
+    A 2026-07-13 curator run committed ``</content></invoke>`` fragments into three
+    briefs — straight onto the public site. The curator writes briefs via tool calls,
+    so the failure class is structural; this makes it a blocking lint like every other
+    contract clause.
+    """
+    violations: list[str] = []
+    for marker in _TOOL_ARTIFACT_PATTERNS:
+        if marker in text:
+            violations.append(f"tool artifact leaked into the brief: {marker!r}")
+    return violations
+
+
 def check_diff_guard(changed_paths: list[str] | None) -> list[str]:
     """A synthesis commit may touch ``vault/02 Briefs/`` only.
 
@@ -302,5 +325,6 @@ def lint_brief(
     violations += check_l1_links_exist(text, sources_root)
     violations += check_evolve_not_duplicate(body)
     violations += check_editorial_denylist(text)
+    violations += check_no_tool_artifacts(text)
     violations += check_diff_guard(changed_paths)
     return violations

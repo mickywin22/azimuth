@@ -17,10 +17,12 @@ name: L2 Synthesis Freshness
 
 on:
   schedule:
-    # 06:40 UTC every Monday — after the weekend's daily ingests have landed the latest L1
-    # day and after the fleet's Monday synthesis window, so a still-overdue brief on Monday
-    # morning is a real miss, not a race with the curator that is about to run.
-    - cron: "40 6 * * 1"
+    # 10:40 UTC daily (was Mondays-only) — the curator cadence went weekly -> daily on
+    # 2026-07-15 after two public staleness episodes (11d theme briefs, 13d meta-briefs), so
+    # the heartbeat matches the promise: it fires after the ~08:32 UTC daily ingest and the
+    # fleet's morning curator window. The FAIL gate stays --overdue (> one cadence genuinely
+    # missed); merely-stale remains quiet, so a flat day never alarms.
+    - cron: "40 10 * * *"
   workflow_dispatch: {}
 
 # Read the vault + open/append the alarm issue. No content writes — this lane only observes.
@@ -48,15 +50,37 @@ jobs:
       - name: Install runtime dependencies
         run: uv pip install --system -e .
 
-      # Print the full table into the run log regardless of verdict, so the weekly health of
+      # Print the full table into the run log regardless of verdict, so the daily health of
       # every theme is readable at a glance from the Actions tab.
       - name: Report L2 synthesis freshness
         run: python scripts/check_synthesis_freshness.py
 
-      # Gate on OVERDUE (> one weekly cadence behind), not merely stale. A non-zero exit here
-      # means the weekly curator genuinely failed to run — fail the job so the alarm fires.
+      # Informational meta-brief sync (World Watch + Top5): these are deterministic regens the
+      # curator runs after the theme briefs — the 2026-07-15 episode had them 13 days stale
+      # while the theme gate stayed green. Reported daily (non-blocking: a same-day race with
+      # the curator is normal); the Monday step below turns a WEEK of drift into an alarm.
+      - name: Report meta-brief sync (informational)
+        run: |
+          python scripts/build_cross_theme.py --check || echo "::warning::World Watch has not absorbed the latest L1 yet"
+          python scripts/build_answers.py --check || echo "::warning::Top5 Answers has not absorbed the latest L1 yet"
+
+      # Gate on OVERDUE (> one cadence genuinely missed), not merely stale. A non-zero exit
+      # here means the curator genuinely failed to run — fail the job so the alarm fires.
       - name: Fail if any brief is genuinely overdue
         run: python scripts/check_synthesis_freshness.py --overdue
+
+      # Mondays only: the meta-briefs must have absorbed the latest L1 at least once over the
+      # past week. A Monday failure = the deterministic regens were skipped for a full week
+      # (the exact 13-day World Watch/Top5 failure class) — alarm-worthy, not a race.
+      - name: Fail if the meta-briefs drifted a full week (Mondays)
+        if: github.event.schedule == '40 10 * * *'
+        run: |
+          if [ "$(date -u +%u)" = "1" ]; then
+            python scripts/build_cross_theme.py --check
+            python scripts/build_answers.py --check
+          else
+            echo "not Monday -- weekly meta-brief gate skipped"
+          fi
 
       # Mirror the L1 ingest-alarm: on a genuine overdue miss, open (or append to) one
       # `synthesis-alarm` tracking issue so the L2 engine can never die silently. Dedup by

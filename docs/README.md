@@ -67,7 +67,7 @@ visible at a glance.
 |----------|------|-----------|--------|
 | `ci.yml` | every push / PR to `main` | lint · format · type-check · source-guardrail · synthesis-lint · brief-index + graph sync · **doc-link resolve + orphan check** · **unit + integration tests + ≥80% coverage** | green |
 | `ingest.yml` | daily cron + `workflow_dispatch` | a stale L1 day (in-workflow liveness assert) | green, running daily |
-| `synthesis-freshness.yml` | weekly cron (Mondays) + `workflow_dispatch` | nothing per-push — opens a dedup'd `synthesis-alarm` issue if any clean-theme brief is genuinely **overdue** (lagging the latest L1 day by more than one weekly cadence) | green, running weekly |
+| `synthesis-freshness.yml` | daily cron + `workflow_dispatch` | nothing per-push — opens a dedup'd `synthesis-alarm` issue if any clean-theme brief is genuinely **overdue**; also reports World Watch / Top5 meta-brief sync daily (informational) and gates it hard on Mondays | green, running daily |
 | `pages.yml` | push to `main` | the static-site build | skipped while the repo is private |
 | `deploy-cloudflare.yml` | push to `main` + `workflow_dispatch` | builds `_site` and deploys to Cloudflare Pages (`azimuth.pages.dev`) | skipped until the two `CLOUDFLARE_*` repo secrets are set (skip-not-fail) |
 | `secret-scan.yml` | every push / PR to `main` | **credentials over full history** (gitleaks + the stdlib scanner) and **owner-private context in the working tree** (C1b); pre-existing *history-only* privacy findings are surfaced non-blocking (C1c — see below) | green |

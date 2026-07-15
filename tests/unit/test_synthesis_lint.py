@@ -225,6 +225,22 @@ def test_diff_guard_skipped_when_none() -> None:
     assert check_diff_guard(None) == []
 
 
+# --- 7. tool-artifact leak guard (2026-07-15: a curator run committed its tool XML) ---
+def test_tool_artifacts_blocked() -> None:
+    from synthesis.lint import check_no_tool_artifacts
+
+    leaked = "Observed-only framing held ([[earthquakes]]).\n</content>\n</invoke>"
+    violations = check_no_tool_artifacts(leaked)
+    assert any("</content>" in v for v in violations)
+    assert any("</invoke>" in v for v in violations)
+
+
+def test_tool_artifacts_clean_on_ordinary_brief() -> None:
+    from synthesis.lint import check_no_tool_artifacts
+
+    assert check_no_tool_artifacts(CLEAN_BRIEF) == []
+
+
 # --- end-to-end planted breaches via lint_brief --------------------------------------
 def test_lint_brief_catches_editorial_breach(tmp_path: Path) -> None:
     sources = _write_sources(tmp_path, "natural-gas-storage-eu", "crude-oil-inventories")
