@@ -5,9 +5,9 @@
 [![L2 freshness](https://github.com/mickywin22/azimuth/actions/workflows/synthesis-freshness.yml/badge.svg)](https://github.com/mickywin22/azimuth/actions/workflows/synthesis-freshness.yml)
 [![Code: MIT](https://img.shields.io/badge/code-MIT-blue.svg)](LICENSE)
 [![Content: CC BY 4.0](https://img.shields.io/badge/content-CC%20BY%204.0-lightgrey.svg)](LICENSE-CONTENT.md)
-[![Days autonomous](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fazimuth.pages.dev%2Fautonomy.json&query=%24.days_operating&suffix=%20days&label=autonomous&color=brightgreen)](https://azimuth.emi-factory.dev/autonomy.html)
-[![L1 ingests](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fazimuth.pages.dev%2Fautonomy.json&query=%24.l1_ingests_committed&label=L1%20ingests&color=blue)](https://azimuth.emi-factory.dev/autonomy.html)
-[![LLM cost](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fazimuth.pages.dev%2Fautonomy.json&query=%24.est_weekly_spend_usd&prefix=~%24&suffix=%2Fwk&label=LLM%20cost&color=lightgrey)](https://azimuth.emi-factory.dev/autonomy.html)
+[![Days autonomous](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fazimuth.emi-factory.dev%2Fautonomy.json&query=%24.days_operating&suffix=%20days&label=autonomous&color=brightgreen)](https://azimuth.emi-factory.dev/autonomy.html)
+[![L1 ingests](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fazimuth.emi-factory.dev%2Fautonomy.json&query=%24.l1_ingests_committed&label=L1%20ingests&color=blue)](https://azimuth.emi-factory.dev/autonomy.html)
+[![LLM cost](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fazimuth.emi-factory.dev%2Fautonomy.json&query=%24.est_weekly_spend_usd&prefix=~%24&suffix=%2Fwk&label=LLM%20cost&color=lightgrey)](https://azimuth.emi-factory.dev/autonomy.html)
 
 Public demonstrator of the HemySphere L1/L2/L3 vault doctrine, fed by Worldmonitor open-intelligence data.
 
@@ -38,9 +38,19 @@ Public demonstrator of the HemySphere L1/L2/L3 vault doctrine, fed by Worldmonit
 
 </details>
 
-## What it is
+## What it is — the HemySphere doctrine, run in public
 
-A public, read-only knowledge vault that applies the HemySphere **L1 sources → L2 synthesis → L3 rules** wiki pattern to open global-intelligence data sourced from the [Worldmonitor](https://worldmonitor.app) public API. It proves the doctrine bundle in a live, non-personal domain — showing the architecture without exposing any private Emi vault content.
+A public, read-only knowledge vault that applies the HemySphere **L1 sources → L2 synthesis → L3 rules** wiki pattern to open global-intelligence data sourced from the [Worldmonitor](https://worldmonitor.app) public API. It proves the doctrine bundle in a live, non-personal domain — showing the architecture without exposing any private vault content.
+
+The doctrine is a three-layer contract over one markdown corpus:
+
+| Layer | What it holds | The rule |
+|-------|---------------|----------|
+| **L1 — sources** | dated, verbatim API transforms (`vault/01 Sources/`) | append-only ground truth; **never edited after creation** (CI-enforced) |
+| **L2 — synthesis** | one evolving brief per theme (`vault/02 Briefs/`) | an LLM curator **deepens each note in place** — never forks a new file — and every claim carries a `[[wikilink]]` back to the L1 note it rests on |
+| **L3 — rules** | the editorial line + synthesis contract (`vault/00 Rules/`) | small, human-owned, and **machine-enforced**: every clause maps to a blocking lint in CI |
+
+**Where it sits.** The idea is the same family as [Andrej Karpathy's *LLM Wiki*](https://github.com/karpathy) — a compounding knowledge base an LLM maintains, where each fresh pass over the data unlocks a new projection — and the format is [Google's **Open Knowledge Format (OKF)**](docs/strategy/okf-and-knowledge-graph.md): azimuth's `vault/` is a Tier-1-conformant OKF Knowledge Bundle (frontmatter `type` on every note, reserved `index.md`/`log.md`, distributable as a git repo), and lifts to typed RDF via the [Vault-LD OKF compatibility profile](docs/linked-data.md). What the HemySphere doctrine adds on top of both is **governance you can check**: an immutable source layer, a provenance contract on every synthesized claim, an editorial line with teeth (blocking lints, not guidelines), and derived artifacts (graph, index, counters) that rebuild byte-for-byte from the committed sources. An LLM writes the briefs; the contract decides what ships.
 
 ## Quick Start
 
