@@ -657,7 +657,8 @@
       "theme": "shared",
       "themes": [
         "environmental-hazards",
-        "geophysical"
+        "geophysical",
+        "prediction-markets"
       ],
       "evidence": [
         {
@@ -1386,6 +1387,13 @@
       "target": "source:earthquakes",
       "cross_theme": false,
       "rel": "named-in"
+    },
+    {
+      "source": "entity:iran",
+      "target": "brief:prediction-markets-weekly",
+      "cross_theme": true,
+      "rel": "mentioned-in",
+      "weight": 0
     },
     {
       "source": "entity:wti",
