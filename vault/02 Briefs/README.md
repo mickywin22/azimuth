@@ -7,11 +7,11 @@ weekly (see its `## Changelog`). All content is CC-BY-4.0; see `../../CREDITS.md
 | Brief | Theme | Week | Last updated | L1 sources |
 | --- | --- | --- | --- | --- |
 | [Benchmark — Facts vs Forecast vs Intelligence](<Benchmark.md>) | cross-theme | 2026-W29 | 2026-07-15T04:00:00Z | [crude-oil-inventories, earthquakes, energy-prices, natural-gas-storage-eu] |
-| [Climate Signals Weekly](<Climate Signals Weekly.md>) | climate-signals | 2026-W27 | 2026-07-02T22:40:00Z | [climate-anomalies, co2-monitoring, sea-ice-extent] |
-| [Energy Supply Weekly](<Energy Supply Weekly.md>) | energy-supply | 2026-W27 | 2026-07-02T22:40:00Z | [natural-gas-storage-eu, crude-oil-inventories, fuel-prices, energy-prices] |
-| [Environmental Hazards Weekly](<Environmental Hazards Weekly.md>) | environmental-hazards | 2026-W27 | 2026-07-02T22:40:00Z | [wildfire-detections, thermal-escalations, natural-events, radiation-observations] |
-| [Geophysical Weekly](<Geophysical Weekly.md>) | geophysical | 2026-W27 | 2026-07-02T22:40:00Z | [earthquakes] |
-| [Prediction Markets Weekly](<Prediction Markets Weekly.md>) | prediction-markets | 2026-W27 | 2026-07-02T22:40:00Z | [prediction-markets] |
+| [Climate Signals Weekly](<Climate Signals Weekly.md>) | climate-signals | 2026-W29 | 2026-07-13T18:30:00Z | [climate-anomalies, co2-monitoring, sea-ice-extent] |
+| [Energy Supply Weekly](<Energy Supply Weekly.md>) | energy-supply | 2026-W29 | 2026-07-13T18:30:00Z | [natural-gas-storage-eu, crude-oil-inventories, fuel-prices, energy-prices] |
+| [Environmental Hazards Weekly](<Environmental Hazards Weekly.md>) | environmental-hazards | 2026-W29 | 2026-07-13T18:30:00Z | [wildfire-detections, thermal-escalations, natural-events, radiation-observations] |
+| [Geophysical Weekly](<Geophysical Weekly.md>) | geophysical | 2026-W29 | 2026-07-13T18:30:00Z | [earthquakes] |
+| [Prediction Markets Weekly](<Prediction Markets Weekly.md>) | prediction-markets | 2026-W29 | 2026-07-13T18:30:00Z | [prediction-markets] |
 | [Top5 Answers](<Top5 Answers.md>) | cross-theme | 2026-W27 | 2026-07-02T04:00:00Z | [climate-anomalies, co2-monitoring, crude-oil-inventories, earthquakes, energy-prices, fuel-prices, natural-events, natural-gas-storage-eu, radiation-observations, sea-ice-extent, thermal-escalations, wildfire-detections] |
 | [World Watch Weekly](<World Watch Weekly.md>) | cross-theme | 2026-W27 | 2026-07-02T04:00:00Z | [climate-anomalies, co2-monitoring, crude-oil-inventories, earthquakes, energy-prices, fuel-prices, natural-events, natural-gas-storage-eu, prediction-markets, radiation-observations, sea-ice-extent, thermal-escalations, wildfire-detections] |
 
