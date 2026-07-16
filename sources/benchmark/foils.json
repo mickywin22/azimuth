@@ -2,9 +2,9 @@
   "$note": "Captured snapshot of the COMPARED forecast/intelligence product for the azimuth benchmark (synthesis/benchmark.py). Quoted by product + capture date; NOT surfaced as an azimuth channel and NOT an L1 source. Refresh with pull_benchmark_foils.py.",
   "endpoint": "/api/forecast/v1/get-forecasts",
   "attribution": "WorldMonitor (api.worldmonitor.app) — model-generated forecast/assessment product",
-  "feed_generated_at": 1784102430315,
+  "feed_generated_at": 1784188847857,
   "feed_degraded": false,
-  "captured_at": "2026-07-15T08:32:20Z",
+  "captured_at": "2026-07-16T08:30:07Z",
   "n_forecasts_seen": 14,
   "topics": {
     "energy-supply": {
@@ -37,21 +37,21 @@
         "domain": "market",
         "region": "Eastern Mediterranean",
         "title": "Inflation and rates pressure from Eastern Mediterranean maritime disruption state",
-        "probability": 0.596,
-        "prior_probability": 0.617,
+        "probability": 0.563,
+        "prior_probability": 0.563,
         "confidence": 0.75,
         "time_horizon": "30d",
         "trend": "stable",
         "projections": {
-          "d30": 0.25,
-          "d7": 0.346,
-          "h24": 0.596
+          "d30": 0.236,
+          "d7": 0.327,
+          "h24": 0.563
         },
-        "scenario_short": "Eastern Mediterranean maritime disruption state feeds inflation and rates pressure through shipping cost shock, with 49% pressure and 75% state confirmation, reinforced by 5 urgent critical signals.",
-        "perspective_strategic": "The 49% pressure via shipping cost shock is moderate but amplified by 5 urgent critical signals, with Reuters reporting US consumer inflation moderating amid renewed Middle East conflict.",
-        "perspective_contrarian": "No directly matched reporting on Eastern Mediterranean (key unknown) and 75% confidence ceiling could stall the path, as actors wait for hard signals before rebalancing.",
-        "actor_lens": "Commodity traders: Price whether stress in Eastern Mediterranean becomes durable over the 30d. Rebalance positions if the probability path moves away from 60%.",
-        "top_signal": "Eastern Mediterranean maritime disruption state is feeding inflation and rates pressure through shipping cost shock, with 49% pressure and 75% state confirmation"
+        "scenario_short": "Inflation and rates pressure from Eastern Mediterranean maritime disruption will persist over the next 30 days as shipping cost shock, with 45% pressure and 69% state confirmation, transmits through 1 edge toward...",
+        "perspective_strategic": "The 45% pressure and 69% state confirmation indicate a moderate but confirmed maritime disruption state, with the strongest transmission path through shipping cost shock toward rates and inflation, signaling persistent upward pressure on consumer prices.",
+        "perspective_contrarian": "The 75% confidence level still allows for reversal, and the lack of more directly matched reporting on Eastern Mediterranean could stall the path, as actors prioritize containment and the system drifts toward stabilization.",
+        "actor_lens": "Commodity traders: Price whether stress in Eastern Mediterranean becomes durable over the 30d. Rebalance positions if the probability path moves away from 56%.",
+        "top_signal": "Eastern Mediterranean maritime disruption state is feeding inflation and rates pressure through shipping cost shock, with 45% pressure and 69% state confirmation"
       },
       "absence_reason": null
     },
