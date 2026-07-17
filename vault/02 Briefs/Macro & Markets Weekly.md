@@ -3,8 +3,8 @@ title: Macro & Markets Weekly
 type: L2-brief
 theme: macro-markets
 week: 2026-W29
-updated: 2026-07-15T14:30:00Z
-sources: [crypto-quotes]
+updated: 2026-07-18T09:00:00Z
+sources: [crypto-quotes, world-bank-indicators]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
 ---
@@ -15,35 +15,40 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 > fleet role evolves this single note in place each cycle. azimuth reports **venue-quoted
 > market prices as observed facts** — a quote is what a market printed, recorded with its
 > change and its source — under the `no-investment-framing` caution: nothing here is advice,
-> a target, or a forecast. Every claim links to the L1 note it rests on. (First cycle,
-> written from the 2026-07-15 ingest.)
+> a target, or a forecast. Every claim links to the L1 note it rests on.
 
 ## This week at a glance
 
-- The CoinGecko-fed crypto channel quotes **10 major assets**, all higher on the day of the
-  pull: **Bitcoin at $64,590 (+3.2%)** and **Ethereum at $1,873 (+5.0%)** lead the majors,
-  with Chainlink the day's largest recorded mover at **+5.6%** ($8.37) and Tron the smallest
-  at +0.9% ([[crypto-quotes]]).
-- The full quoted panel: BTC $64,590 (+3.2%) · ETH $1,873 (+5.0%) · BNB $575.78 (+1.0%) ·
-  SOL $77.31 (+2.8%) · XRP $1.11 (+3.5%) · ADA $0.163 (+2.8%) · DOGE $0.074 (+2.8%) ·
-  TRX $0.327 (+0.9%) · AVAX $6.62 (+2.0%) · LINK $8.37 (+5.6%) — venue-quoted prices and
-  day-changes as published, with intraday sparkline series carried in the L1 note
-  ([[crypto-quotes]]).
+- The CoinGecko-fed crypto channel quotes **10 major assets**, all lower on the 07-17 pull:
+  **Bitcoin at $62,740 (−1.96%)** and **Ethereum at $1,823.90 (−3.05%)** recorded the
+  largest cap declines, with Chainlink the day's largest recorded faller at **−3.00%**
+  ($8.16) and Tron the smallest at **−0.35%** ($0.322257) ([[crypto-quotes]]).
+- The full quoted panel as of 2026-07-17T08:25Z: BTC $62,740 (−1.96%) · ETH $1,823.90
+  (−3.05%) · BNB $564.02 (−1.91%) · SOL $74.41 (−1.86%) · XRP $1.082 (−1.72%) · ADA
+  $0.158658 (−1.72%) · DOGE $0.071465 (−1.79%) · TRX $0.322257 (−0.35%) · AVAX $6.46
+  (−1.52%) · LINK $8.16 (−3.00%) — venue-quoted prices and day-changes as published, with
+  intraday sparkline series carried in the L1 note ([[crypto-quotes]]).
+- The World Bank indicators channel carried no new reporting this cycle; its payload
+  was empty on the 2026-07-17 pull and is held flat ([[world-bank-indicators]]).
 
 ## Honest scope — one live channel of four
 
 - The macro-markets theme registers four channels; **only the crypto-quotes channel currently
   carries data.** The World Bank indicators channel returns an empty payload on every
   committed ingest day, and the tariff/consumer-price channels are not yet surfaced upstream.
-  This brief scopes to the live channel and widens as the others land — the same honest-scope
-  posture the prediction-markets brief uses ([[crypto-quotes]]).
+  This brief scopes to the live channel and widens as the others land ([[crypto-quotes]],
+  [[world-bank-indicators]]).
 
 ## Reading the week
 
-- A uniformly green quoted day across the ten-asset panel, led by the two largest caps —
-  recorded as the venue printed it. The quotes are the market's numbers, not azimuth's view:
-  no target, no direction call, no investment framing — the caution is the contract, not a
-  disclaimer ([[crypto-quotes]]).
+- A uniformly red quoted day across the ten-asset panel on 07-17, reversing the green close
+  seen on 07-16 (BTC $63,995, ETH $1,881.69). The largest observed two-day moves were ETH
+  (−$57.79, −3.05%) and LINK (−$0.25, −3.00%); TRX held the tightest at −0.35%. These are
+  the venue's numbers, not azimuth's view: no target, no direction call, no investment
+  framing — the caution is the contract, not a disclaimer ([[crypto-quotes]]).
+- World Bank development indicators carried no new reporting this cycle; the endpoint
+  returned an empty data array on 2026-07-17 and the prior reading is unchanged
+  ([[world-bank-indicators]]).
 
 ## Changelog
 
@@ -54,3 +59,4 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
   reading sections from the live 2026-07-15 pull: 10 quoted assets, all green, BTC $64,590
   (+3.2%), ETH $1,873 (+5.0%), LINK the largest mover (+5.6%). Venue-quoted facts under the
   no-investment-framing caution ([[crypto-quotes]]).
+- 2026-07-18 — daily-ingest synthesis (2026-W29): crypto-quotes moved (07-17 pull): all 10 assets down, BTC $62,740 (−1.96%), ETH $1,823.90 (−3.05%), LINK $8.16 (−3.00%), TRX smallest faller (−0.35%); world-bank-indicators held (empty payload, no new reporting) ([[crypto-quotes]], [[world-bank-indicators]]).

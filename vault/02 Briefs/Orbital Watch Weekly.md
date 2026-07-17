@@ -3,7 +3,7 @@ title: Orbital Watch Weekly
 type: L2-brief
 theme: orbital-watch
 week: 2026-W29
-updated: 2026-07-15T14:30:00Z
+updated: 2026-07-18T09:00:00Z
 sources: [orbital-satellites]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -20,14 +20,17 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 ## This week at a glance
 
-- The CelesTrak channel tracks **98 catalogued satellites** in this pull, carrying each
-  object's live two-line element set with derived altitude, inclination and velocity
-  ([[orbital-satellites]]).
+- The CelesTrak channel tracks **98 catalogued satellites** in this pull (unchanged from
+  the 07-15 baseline through 07-16 and 07-17), carrying each object's live two-line element
+  set with updated epoch and drag-term values ([[orbital-satellites]]).
 - By operator country: the **US leads at 38 objects**, ahead of **China (30)**, the
-  **EU (19)**, India (7) and Turkey (3) — the catalogue's own attribution field, reported
-  as published ([[orbital-satellites]]).
+  **EU (19)**, India (7), Turkey (3) and South Korea (1) — the catalogue's own attribution
+  field, reported as published; no change from prior readings ([[orbital-satellites]]).
 - By the catalogue's type label: **47 optical-imaging** objects, **34 military** and
-  **17 SAR** (synthetic-aperture radar) — the feed's classification, not azimuth's
+  **17 SAR** (synthetic-aperture radar) — unchanged across the 07-16 and 07-17 pulls;
+  the feed's classification, not azimuth's ([[orbital-satellites]]).
+- TLE epochs in the 07-17 pull carry day-of-year values near **197.x** (i.e. approximately
+  16–17 July 2026), confirming the element sets refreshed on schedule for each object
   ([[orbital-satellites]]).
 
 ## Reading the week
@@ -36,6 +39,9 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
   (optical + SAR), and the US/China pair accounts for roughly 70% of the catalogue. azimuth
   records the element sets and the catalogue's own labels — position is public physics,
   purpose beyond the label is not claimed ([[orbital-satellites]]).
+- Over the 07-15 → 07-17 window the **object composition held constant at 98 entries**;
+  the feed recorded fresh TLE data for each object on both days, with no additions or
+  removals observed ([[orbital-satellites]]).
 
 ## Changelog
 
@@ -45,3 +51,4 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
   pull: 98 tracked objects (US 38 / CN 30 / EU 19), type split 47 optical / 34 military /
   17 SAR. Observed-only framing, catalogue labels reported as published
   ([[orbital-satellites]]).
+- 2026-07-18 — daily-ingest synthesis (2026-W29): 07-16 and 07-17 pulls both recorded 98 catalogued objects — object set stable, country split (US 38 / CN 30 / EU 19 / IN 7 / TR 3 / KR 1) and type split (47 optical / 34 military / 17 SAR) unchanged; TLE elements refreshed each day with updated epochs near day-of-year 197 ([[orbital-satellites]]).

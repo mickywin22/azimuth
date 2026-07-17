@@ -3,7 +3,7 @@ title: Energy Supply Weekly
 type: L2-brief
 theme: energy-supply
 week: 2026-W29
-updated: 2026-07-15T13:45:00Z
+updated: 2026-07-18T09:00:00Z
 sources: [natural-gas-storage-eu, crude-oil-inventories, fuel-prices, energy-prices]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -14,69 +14,69 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 > Synthesised from the week's L1 source notes under `../01 Sources/`. The `azimuth-curator`
 > fleet role evolves this single note in place each week — it deepens this brief and appends
 > a dated `## Changelog` line rather than forking a new file. Every claim links to the L1
-> note it rests on. (This cycle absorbs the 2026-07-14 and 2026-07-15 daily ingests: a
-> pump-side movement cycle — the road-fuel panel advanced to its 2026-07-06 observations with a
-> sharp, uneven rebound led by Germany and Poland — while EU gas storage, US crude inventories
-> and the spot crude benchmarks all carried no new reporting week and are held.)
+> note it rests on. (This cycle absorbs the 2026-07-16 and 2026-07-17 daily ingests: a
+> three-feed upstream movement cycle — EU gas storage, US crude inventories and the spot crude
+> benchmarks each advanced a fresh reporting week to 2026-07-10, and the crude screen rebounded
+> for the first time in the run, while the road-fuel panel carried no new observation week and is
+> held.)
 
 ## This week at a glance
 
-- The oil divergence extended a third step: US crude inventories drew another ~3.2 million
-  barrels to 730.8 million for the week ending 2026-07-03 — the twelfth straight weekly draw and
-  the smallest of the run — while WTI fell again to $70.48/barrel (−4.2%) and Brent to $69.70
-  (−5.3%), Brent slipping under $70 for the first time since the brief began
-  ([[crude-oil-inventories]], [[energy-prices]]).
-- European gas supply stayed comfortable: storage advanced two reporting weeks to 2,983 Bcf as
-  of the week ending 2026-07-03 (+61 Bcf on top of a +87 Bcf week), the twelfth straight build
-  and up from 2,835 Bcf three weeks earlier ([[natural-gas-storage-eu]]).
-- The pump snapped back: the road-fuel panel advanced to its 2026-07-06 observations and the
-  broad decline of the prior reading reversed unevenly — German diesel jumped +9.2% w/w to
-  €1.928/L and E5 petrol +8.15% to €2.058/L, Poland rose ~+13.5% on both fuels, while Sweden fell
-  −12.5% / −13.9% and US diesel eased −1.9% — a sharply mixed pump map against a crude screen
-  that carried no new reading ([[fuel-prices]], [[energy-prices]]).
+- The oil picture split further: US crude inventories drew a thirteenth straight week to 726.2
+  million barrels for the week ending 2026-07-10 (−4.7 million w/w) — an uninterrupted drawdown —
+  yet the spot screen turned UP for the first time in the run, WTI recovering to $72.26/barrel
+  (+2.5%) and Brent to $73.33 (+5.2%), Brent back above $70 ([[crude-oil-inventories]],
+  [[energy-prices]]).
+- European gas supply stayed comfortable: storage advanced a reporting week to 3,024 Bcf as of
+  the week ending 2026-07-10 (+41 Bcf w/w), the thirteenth straight build — though the smallest
+  weekly add of the recent run, decelerating from +61 and +87 Bcf the prior two weeks
+  ([[natural-gas-storage-eu]]).
+- The pump held its rebound: the road-fuel panel carried no new observation week this cycle
+  (still its 2026-07-06 readings — German diesel €1.928/L, E5 petrol €2.058/L after the prior
+  +9.2% / +8.15% jump), so the sharply mixed pump map stands where the last movement cycle left
+  it, now against a firmer crude screen ([[fuel-prices]], [[energy-prices]]).
 
 ## Storage and inventories
 
-- US commercial crude inventories fell to 730.8 million barrels for the week ending 2026-07-03,
-  a draw of ~3.2 million barrels and the twelfth straight weekly draw — the smallest weekly draw
-  of the run (the prior three ranged −9.3 to −15.1 million) but still an uninterrupted drawdown
+- US commercial crude inventories fell to 726.2 million barrels for the week ending 2026-07-10,
+  a draw of ~4.7 million barrels and the thirteenth straight weekly draw — a touch larger than the
+  prior week's −3.2 million but still among the smallest of the run, an uninterrupted drawdown
   from ~837 million in early May ([[crude-oil-inventories]]).
-- EU gas storage advanced two reporting weeks to 2,983 Bcf for the week ending 2026-07-03: +87
-  Bcf to 2,922 Bcf for the week ending 2026-06-26, then +61 Bcf on top — the eleventh and
-  twelfth straight builds, up from the 2,835 Bcf (week ending 2026-06-19) the prior brief carried
-  ([[natural-gas-storage-eu]]).
-- The two stockpiles still point in opposite directions: gas has now built for twelve straight
-  weeks while crude has drawn for twelve — a comfortable gas balance alongside a still-tightening
-  oil inventory even as crude prices fell ([[natural-gas-storage-eu]], [[crude-oil-inventories]]).
+- EU gas storage advanced a reporting week to 3,024 Bcf for the week ending 2026-07-10 (+41 Bcf
+  w/w) — the thirteenth straight build but the smallest weekly add of the recent run, decelerating
+  from +61 Bcf (07-03) and +87 Bcf (06-26) as the summer refill matures, up from the 2,983 Bcf
+  (week ending 2026-07-03) the prior brief carried ([[natural-gas-storage-eu]]).
+- The two stockpiles still point in opposite directions: gas has now built for thirteen straight
+  weeks while crude has drawn for thirteen — a comfortable gas balance alongside a still-tightening
+  oil inventory, though this cycle crude prices turned up rather than down
+  ([[natural-gas-storage-eu]], [[crude-oil-inventories]]).
 
 ## Prices
 
-- Both crude benchmarks fell a third consecutive cycle: the latest energy-prices feed reads WTI
-  at $70.48/barrel (−4.2%) and Brent at $69.70/barrel (−5.3%), down roughly $3 each from the
-  prior cycle's $73.59 / $73.63 and down about 23–26% from the $92.16 / $93.76 of mid-June across
-  three reporting steps even as the inventory draw continued ([[energy-prices]],
+- Both crude benchmarks rebounded after three consecutive falls: the latest energy-prices feed
+  reads WTI at $72.26/barrel (+2.5%) and Brent at $73.33/barrel (+5.2%), up roughly $2–4 each from
+  the prior cycle's $70.48 / $69.70, Brent back above $70 — the first upward step since the brief
+  began, even as the inventory draw ran into a thirteenth week ([[energy-prices]],
   [[crude-oil-inventories]]).
-- Brent traded under $70/barrel for the first time since the brief began — the softest crude
-  screen on record here — while the inventory draw ran into a twelfth straight week, the
-  tight-stocks / soft-price split now three steps deep ([[energy-prices]],
-  [[crude-oil-inventories]]).
-- The road-fuel panel advanced a fresh observation week (2026-07-06 readings, pulled 2026-07-14):
-  German diesel rebounded +9.2% w/w to €1.928/L and E5 petrol +8.15% to €2.058/L — retracing the
-  prior week's fall and then some — with Poland up ~+13.5% on both fuels and Greek diesel +8.9%,
-  while Sweden dropped −12.5% (diesel) / −13.9% (petrol) and the US eased (diesel −1.9%, gasoline
-  −1.4%); two of the panel's seven upstream sources (Brazil, New Zealand) failed this pull and are
-  recorded as absent, not zero ([[fuel-prices]]).
+- The tight-stocks / soft-price split that ran three steps deep began to close this cycle: Brent
+  climbed back over $70 and WTI over $72 while crude inventories kept drawing (−4.7 million to
+  726.2 million), so a still-tightening screen now meets a firming price rather than a falling one
+  ([[energy-prices]], [[crude-oil-inventories]]).
+- The road-fuel panel carried no new observation week this cycle — it still reads its 2026-07-06
+  values (German diesel €1.928/L, E5 petrol €2.058/L after the +9.2% / +8.15% jump, Poland ~+13.5%
+  higher, Sweden −12.5% / −13.9%, the US easing ~−2%); two of the panel's seven upstream sources
+  (Brazil, New Zealand) remained absent, recorded as such rather than zero ([[fuel-prices]]).
 
 ## Reading the week
 
-- A pump-side cycle on a quiet upstream: the storage, inventory and spot feeds all carried no new
-  reporting week (crude 730.8 Mb and gas 2,983 Bcf both still week-ending 2026-07-03; WTI $70.48 /
-  Brent $69.70 unchanged), so the tight-stocks / soft-screen divergence stands where the last
-  movement cycle left it. The action was at the pump: the road-fuel panel's fresh 2026-07-06
-  observations reversed the prior broad decline unevenly — Germany +9.2% (diesel) and Poland
-  ~+13.5% up sharply while Sweden fell double-digits and the US eased — a mixed retail map moving
-  against a flat crude screen; the data records the divergence and attributes it to nothing
-  ([[fuel-prices]], [[energy-prices]], [[crude-oil-inventories]], [[natural-gas-storage-eu]]).
+- An upstream movement cycle after a quiet one: all three physical/spot feeds advanced a fresh
+  week to 2026-07-10 while the pump stood still. Crude inventories drew a thirteenth straight week
+  to 726.2 Mb and EU gas built a thirteenth to 3,024 Bcf — the two stockpiles still opposed — but
+  the crude screen broke its three-step slide, WTI +2.5% to $72.26 and Brent +5.2% to $73.33 (back
+  over $70). So the tight-stocks / soft-price divergence that had widened for weeks narrowed this
+  cycle as price firmed into a still-drawing inventory, while the road-fuel panel held its
+  2026-07-06 map; the data records the turn and attributes it to nothing ([[crude-oil-inventories]],
+  [[natural-gas-storage-eu]], [[energy-prices]], [[fuel-prices]]).
 
 ## Changelog
 
@@ -158,3 +158,12 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
   carried no new reporting week and were held. Rewrote the at-a-glance, price and reading sections
   around the pump rebound on a flat upstream ([[fuel-prices]], [[energy-prices]],
   [[crude-oil-inventories]], [[natural-gas-storage-eu]]).
+- 2026-07-18 — daily-ingest synthesis (2026-W29): absorbed the 2026-07-16 and 2026-07-17 ingests —
+  a three-feed upstream movement cycle. Crude inventories advanced a fresh reporting week to 726.2
+  Mb for the week ending 2026-07-10 (−4.7 Mb w/w, the thirteenth straight draw). EU gas storage
+  advanced to 3,024 Bcf (+41 Bcf w/w, the thirteenth straight build and the smallest add of the
+  run). The spot benchmarks rebounded for the first time since the brief began — WTI $72.26 (+2.5%)
+  and Brent $73.33 (+5.2%), Brent back above $70. The road-fuel panel carried no new observation
+  week (still its 2026-07-06 readings) and was held. Rewrote the at-a-glance, inventory, price and
+  reading sections around the narrowing tight-stocks / firming-price turn ([[crude-oil-inventories]],
+  [[natural-gas-storage-eu]], [[energy-prices]], [[fuel-prices]]).
