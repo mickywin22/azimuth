@@ -19,19 +19,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
----
-
-SCOPE NOTE — azimuth uses a split license (owner decision, 2026-06-10):
-
-  * This MIT license covers the azimuth CODE only — the ingest pipeline,
-    synthesis/curator logic, source guardrail, scripts, and CI workflows
-    (ingest/, guardrail/, scripts/, .github/, and any future synthesis/ code).
-
-  * The derived VAULT CONTENT (L1 source notes, L2 weekly briefs, L3 rule
-    notes — i.e. everything under vault/) is licensed separately under
-    Creative Commons Attribution 4.0 International (CC BY 4.0).
-    See LICENSE-CONTENT.md.
-
-Upstream WorldMonitor data is consumed via its public API only (Path A — no
-source fork, AGPL untriggered). Per-source attribution is in CREDITS.md.
