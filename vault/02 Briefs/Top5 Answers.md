@@ -3,7 +3,7 @@ title: Top5 Answers
 type: L2-brief
 theme: cross-theme
 week: 2026-W29
-updated: 2026-07-17T04:00:00Z
+updated: 2026-07-18T04:00:00Z
 sources: [co2-monitoring, conflict-events-ucdp, crude-oil-inventories, disease-outbreaks, displacement-flows, earthquakes, energy-prices, fuel-prices, natural-events, natural-gas-storage-eu, radiation-observations, thermal-escalations, wildfire-detections]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -34,7 +34,7 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 > **Channels:** Geophysical + Energy supply · **Serves:** Risk & humanitarian desk — a fast, non-alarmist read of whether a seismic week actually touched the energy map.
 
-- **Largest recorded event:** M6.4 191 km SE of Lorengau, Papua New Guinea — one of 44 events at or above M5 USGS logged this week ([[earthquakes]])
+- **Largest recorded event:** M7.3 58 km WSW of Puerto Madero, Mexico — one of 61 events at or above M5 USGS logged this week ([[earthquakes]])
 - **No observed reach into energy infrastructure.** The week's quakes cluster away from the physical energy-supply core (US crude inventories, EU gas storage) and from the fuel-reporting countries — the data shows seismicity and the energy balances did not intersect this week ([[earthquakes]], [[crude-oil-inventories]])
 - azimuth reports what USGS RECORDED, never what may happen next — a sourced 'no significant overlap' is the honest, efficient answer when that is what the week's data shows ([[earthquakes]])
 
@@ -51,7 +51,7 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 > **Channels:** Energy supply + Geophysical + Climate signals · **Serves:** Researcher / analyst — the cross-channel graph for one subject, every edge clickable to its L1 note.
 
 - **Commodity spine — crude oil ties three feeds together:** the physical balance (-4,677 EIA stocks, 2026-07-10); the spot price (WTI $72.26/bbl); the pump (downstream fuel-price panel). One commodity, traced from the ground to the pump across separate L1 feeds ([[crude-oil-inventories]], [[energy-prices]], [[fuel-prices]])
-- **Papua New Guinea** surfaces under 3 channels this week (conflict-watch + Geophysical + humanitarian) — a co-occurrence in the open data, reported as a link, not a cause ([[conflict-events-ucdp]], [[displacement-flows]], [[earthquakes]])
+- **Papua New Guinea** surfaces under 2 channels this week (Geophysical + humanitarian) — a co-occurrence in the open data, reported as a link, not a cause ([[displacement-flows]], [[earthquakes]])
 - **United Kingdom** surfaces under 3 channels this week (Energy supply + humanitarian + public-health) — a co-occurrence in the open data, reported as a link, not a cause ([[crude-oil-inventories]], [[disease-outbreaks]], [[displacement-flows]], [[energy-prices]], [[fuel-prices]], [[natural-gas-storage-eu]])
 - **United States** surfaces under 5 channels this week (conflict-watch + Energy supply + environmental-hazards + humanitarian + public-health) — a co-occurrence in the open data, reported as a link, not a cause ([[conflict-events-ucdp]], [[crude-oil-inventories]], [[disease-outbreaks]], [[displacement-flows]], [[energy-prices]], [[fuel-prices]], [[natural-events]], [[natural-gas-storage-eu]], [[radiation-observations]], [[thermal-escalations]], [[wildfire-detections]])
 - **Netherlands** surfaces under 2 channels this week (Energy supply + humanitarian) — a co-occurrence in the open data, reported as a link, not a cause ([[crude-oil-inventories]], [[displacement-flows]], [[energy-prices]], [[fuel-prices]], [[natural-gas-storage-eu]])
@@ -69,3 +69,4 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 - 2026-07-02 — regenerated TOP5 demonstrator answers from the 2026-07-02 live bundle (2026-W27); 5 cross-channel answers, every claim L1-sourced.
 - 2026-07-15 — regenerated TOP5 demonstrator answers from the 2026-07-15 live bundle (2026-W29); 5 cross-channel answers, every claim L1-sourced.
 - 2026-07-17 — regenerated TOP5 demonstrator answers from the 2026-07-17 live bundle (2026-W29); 5 cross-channel answers, every claim L1-sourced.
+- 2026-07-18 — regenerated TOP5 demonstrator answers from the 2026-07-18 live bundle (2026-W29); 5 cross-channel answers, every claim L1-sourced.
