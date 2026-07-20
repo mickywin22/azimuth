@@ -2,8 +2,8 @@
 title: Top5 Answers
 type: L2-brief
 theme: cross-theme
-week: 2026-W29
-updated: 2026-07-18T04:00:00Z
+week: 2026-W30
+updated: 2026-07-20T04:00:00Z
 sources: [co2-monitoring, conflict-events-ucdp, crude-oil-inventories, disease-outbreaks, displacement-flows, earthquakes, energy-prices, fuel-prices, natural-events, natural-gas-storage-eu, radiation-observations, thermal-escalations, wildfire-detections]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -44,7 +44,7 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 - **Biggest move: Brent Crude Oil, +7.6% week-on-week** — the largest swing across the quantitative energy series this week ([[energy-prices]])
 - **What it connects to:** the move sits inside the inventories-vs-price loop — US crude drew down while spot prices eased, so the headline swing reflects demand-side repricing rippling from the spot tape into the physical balances and on to pump prices ([[crude-oil-inventories]], [[energy-prices]], [[fuel-prices]])
-- **The slow-moving record:** atmospheric CO2 stands at 428.85 ppm (Mauna Loa, 2.85 ppm/yr) — not a weekly 'shift' but the baseline every energy story is told against; the demonstrator flags it as a different time-scale, not the week's headline ([[co2-monitoring]])
+- **The slow-moving record:** atmospheric CO2 stands at 428.86 ppm (Mauna Loa, 2.85 ppm/yr) — not a weekly 'shift' but the baseline every energy story is told against; the demonstrator flags it as a different time-scale, not the week's headline ([[co2-monitoring]])
 
 ## Q5 — Show me everything that connects a given region or commodity across the data.
 
@@ -70,3 +70,4 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 - 2026-07-15 — regenerated TOP5 demonstrator answers from the 2026-07-15 live bundle (2026-W29); 5 cross-channel answers, every claim L1-sourced.
 - 2026-07-17 — regenerated TOP5 demonstrator answers from the 2026-07-17 live bundle (2026-W29); 5 cross-channel answers, every claim L1-sourced.
 - 2026-07-18 — regenerated TOP5 demonstrator answers from the 2026-07-18 live bundle (2026-W29); 5 cross-channel answers, every claim L1-sourced.
+- 2026-07-20 — regenerated TOP5 demonstrator answers from the 2026-07-20 live bundle (2026-W30); 5 cross-channel answers, every claim L1-sourced.
