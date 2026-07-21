@@ -13,6 +13,7 @@ and quick start; come here to go deep.
 | [faq.md](faq.md) | First-time-visitor FAQ — is the data real, how current, can I trust it, license, why private. |
 | [spec.md](spec.md) | The specification — what azimuth is, the doctrine it proves, and why. |
 | [plan.md](plan.md) | The implementation plan (phased build sequence). |
+| [prediction-layer-design.md](prediction-layer-design.md) | The "Outlook" prediction layer — a decision-grade design for a glass-box baseline forecast (data available → forecast target → method → success metric), scoped for a later build sprint. |
 | [architecture.md](architecture.md) | How the pieces fit: ingest → synthesis → guardrail → static site. |
 | [strategy/okf-and-knowledge-graph.md](strategy/okf-and-knowledge-graph.md) | OKF (Open Knowledge Foundation) conformance + the knowledge-graph layer. |
 
