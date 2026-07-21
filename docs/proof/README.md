@@ -73,7 +73,7 @@ cross:
 | Proof | File | What it shows |
 |-------|------|---------------|
 | Landing hero (desktop) | `landing-desktop.png` | the whole front door — the graph centerpiece canvas over the vault-pulse sparkline, live node/bridge badge, and brief cards each with their own sparkline |
-| Hero graph centerpiece | `landing-hero-graph.png` | the hero `<canvas>` alone — a non-blank, laid-out mini knowledge-graph (smoke asserts ≥1500 non-transparent pixels; at capture **10 958 px** drawn) with its **"48 nodes · 11 cross-channel bridges"** badge filled live from `graph.json` |
+| Hero graph centerpiece | `landing-hero-graph.png` | the hero `<canvas>` alone — a non-blank, laid-out mini knowledge-graph (smoke asserts ≥1500 non-transparent pixels) with its **"105 nodes · 45 cross-channel bridges"** badge filled live from `graph.json` (re-shot 2026-07-21 at the current live count; the badge tracks each daily ingest) |
 | Mobile nav fix | `landing-mobile-nav.png` | at a 390 px phone viewport the flat nav is collapsed behind the burger, then **revealed on tap** (the overflow the burger fixes) — the six-entry menu opens cleanly over the pulse strip |
 | Graph story mode | `graph-story.png` | `graph.html` story mode, **STORY 1 OF 3** — the guided tour drives a live Trace ("Energy meets the ground it sits on") whose output names the real shared bridge entities; the smoke walks all three steps and asserts each ran a real Trace, then that **Finish** and **Escape** both exit cleanly |
 
@@ -91,14 +91,20 @@ story-mode markup present in the built HTML) · `ruff` + `mypy` clean · live Pl
 
 The banked screenshots the two launch posts attach when Azimuth flips public —
 the LinkedIn OKF post and the Show HN pack (both in the HemySphere vault under
-`05 Projects/azimuth — …`). Captured 2026-07-06 from the live new-UI front door
-(graph-as-hero landing · one-click story mode · mobile nav). **Unlike the
-`graph-*` / `whatif-*` proofs above, these have no committed smoke generator** —
-they were captured manually from the running site, so they are banked here as the
-canonical launch-attach set (re-capture by hand from the live site if the
-front-door UI changes). They previously lived only in the git-ignored `_smoke/`
-scratch dir; banked into `docs/proof/` so the flip launch is one-click and the
-shots can't vanish on a `git clean`.
+`05 Projects/azimuth — …`). First captured 2026-07-06 from the live new-UI front
+door (graph-as-hero landing · one-click story mode · mobile nav); the two
+count-bearing shots (`landing-desktop.png` + `landing-hero-graph.png`) were
+**re-shot 2026-07-21 at the current live count (105 nodes · 45 bridges)** so the
+visible headline matches the launch-post body. **These regenerate from
+`scripts/smoke_ui.py`** (it screenshots `landing-desktop.png`,
+`landing-hero-graph.png`, `landing-mobile-nav.png` + `graph-story.png` after
+asserting the live badge) — re-run it whenever the front-door UI or the graph
+count moves, then copy the four shots from `_smoke/` here. (On a RAM-starved box
+smoke_ui's single-threaded server can stall on `wait_until="load"`; a threading
+server + `wait_until="domcontentloaded"` + waiting on `.hero-graph.is-live`
+captures cleanly.) They previously lived only in the git-ignored `_smoke/` scratch
+dir; banked into `docs/proof/` so the flip launch is one-click and the shots can't
+vanish on a `git clean`.
 
 | Shot | File | What it shows / where it's used |
 |------|------|--------------------------------|
