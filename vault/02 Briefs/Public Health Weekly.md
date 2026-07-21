@@ -2,8 +2,8 @@
 title: Public Health Weekly
 type: L2-brief
 theme: public-health
-week: 2026-W29
-updated: 2026-07-18T09:00:00Z
+week: 2026-W30
+updated: 2026-07-21T09:00:00Z
 sources: [disease-outbreaks]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -19,40 +19,37 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 ## This week at a glance
 
-- The WHO / CDC outbreak channel carries **198 active outbreak notifications** as of the
-  2026-07-17 pull — down one from the 199 recorded on 2026-07-15. By the feed's own alert
-  bands: **144 watch**, **53 alert** and **1 warning** — the single warning-level entry
-  remains a **measles outbreak in North Darfur's El Taweisha district (Sudan), with around
-  300 infections and 9 confirmed pediatric deaths** ([[disease-outbreaks]]).
-- **Measles leads the slate at 104 of 198 notifications** — ahead of polio (19), unknown
-  disease (24), hepatitis A (10), diphtheria (9) and whooping cough (7); the feed's
-  "unknown disease" label covers 24 entries pending identification ([[disease-outbreaks]]).
-- The largest single alert-level outbreak on the feed is **measles in Bangladesh**, which the
-  2026-07-17 pull records at **120,000 suspected and confirmed cases** since mid-March, with
-  nearly 1,000 new suspected cases per day still being reported. Other major alert-level
-  measles entries include **Guatemala City (21,700 cases, 22 deaths)**, **Mexico (11,748
-  confirmed cases)** and **Yemen (7,140 cases, 36 deaths)** ([[disease-outbreaks]]).
-- Alert-level (non-watch) notifications on the 07-17 pull cluster in the **United States (8)**
-  and **Dhaka/Bangladesh (5 combined)**, with Guatemala City, Mexico and Japan at 2 each
-  ([[disease-outbreaks]]).
+- The WHO / CDC outbreak channel carries **184 active outbreak notifications** as of the
+  2026-07-20 pull — down from 198 on 2026-07-17. By the feed's own alert bands: **133 watch**
+  and **51 alert**; no warning-level entry is carried on this pull — the 07-17 warning-level
+  **measles outbreak in North Darfur's El Taweisha district (Sudan)** is not present in the
+  07-20 feed ([[disease-outbreaks]]).
+- **Measles leads the slate at 95 of 184 notifications** — ahead of unknown disease (25),
+  polio (18), hepatitis A (8), diphtheria (8) and whooping cough (6); the feed's
+  "unknown disease" label covers 25 entries pending identification ([[disease-outbreaks]]).
+- The largest single alert-level outbreak on the feed remains **measles in Bangladesh**, which
+  the 2026-07-20 pull records at **120,000 suspected and confirmed cases**. Other major measles
+  entries include **Guatemala City (~21,700 cases, alert)**, **Mongolia (~15,475 cases, watch)**
+  and **Mexico (~11,771 confirmed cases)** ([[disease-outbreaks]]).
+- Alert-level (non-watch) notifications number **51 of the 184** on the 07-20 pull — led by
+  measles entries — with the remaining **133 at watch level**; azimuth reports each notification
+  in the alert band the reporting body assigned it ([[disease-outbreaks]]).
 
 ## Reading the week
 
-- The 07-16 and 07-17 pulls are identical in entry set and case counts — no new outbreak
-  notifications entered and none were closed between those two pulls. The single structural
-  move since the 07-15 baseline is a net reduction of one entry: two 07-15 entries were
-  retired (a Measles/Dhaka alert at 3,065 cases and a Lassa/Iowa watch-level entry) and one
-  new watch-level "Unknown Disease / Healthcare-Associated Infections" entry at 0 reported
-  cases was added ([[disease-outbreaks]]).
-- Measles remains the defining disease on the slate, accounting for 104 of 198 notifications
-  including the only warning-level entry (El Taweisha, Sudan, 300 cases, 9 pediatric deaths).
-  The Bangladesh outbreak is the highest-count single entry in the feed at 120,000
-  suspected and confirmed cases. azimuth records the notifications as the reporting bodies
-  published them — disease, location, case count, alert level — and attaches no assessment
-  of risk, spread or response ([[disease-outbreaks]]).
+- The slate contracted from 198 notifications on 07-17 to 184 on 07-20, a net removal of 14
+  entries across the window, and the single warning-level entry (the Sudan El Taweisha measles
+  outbreak) dropped off the feed — no warning-level notification is carried on the 07-20 pull
+  ([[disease-outbreaks]]).
+- Measles remains the defining disease on the slate, accounting for 95 of 184 notifications,
+  with the Bangladesh outbreak (120,000 suspected and confirmed cases) the highest-count single
+  entry. azimuth records the notifications as the reporting bodies published them — disease,
+  location, case count, alert level — and attaches no assessment of risk, spread or response
+  ([[disease-outbreaks]]).
 
 ## Changelog
 
+- 2026-07-21 — daily-ingest synthesis (2026-W30): absorbed the 07-18 through 07-20 pulls; the 07-20 feed carries 184 notifications (133 watch / 51 alert), down from 198 on 07-17, with no warning-level entry this pull (the Sudan El Taweisha measles warning dropped off). Measles leads 95 of 184; largest entry measles Bangladesh 120,000 cases; other majors Guatemala City ~21,700, Mongolia ~15,475, Mexico ~11,771 ([[disease-outbreaks]]).
 - 2026-07-18 — daily-ingest synthesis (2026-W29): 07-16 and 07-17 pulls identical (198 entries, 144 watch / 53 alert / 1 warning); net change vs 07-15 baseline = -1 entry (Measles/Dhaka 3,065-case alert + Lassa/Iowa watch retired; Unknown Disease/HAI watch added). Warning level unchanged: measles El Taweisha, Sudan, 300 cases, 9 pediatric deaths. Largest alert entry: measles Bangladesh 120,000 cases ([[disease-outbreaks]]).
 - 2026-07-15 — first Public Health Weekly cycle (2026-W29): theme un-held (the hold was
   ingest-pending; the WHO/CDC channel is public-domain, surfaced, and carries 21 committed L1

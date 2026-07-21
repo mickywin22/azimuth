@@ -2,8 +2,8 @@
 title: Geophysical Weekly
 type: L2-brief
 theme: geophysical
-week: 2026-W29
-updated: 2026-07-18T09:00:00Z
+week: 2026-W30
+updated: 2026-07-21T09:00:00Z
 sources: [earthquakes]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -14,72 +14,70 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 > Synthesised from the week's L1 source notes under `../01 Sources/`. The `azimuth-curator`
 > fleet role evolves this single note in place each week. azimuth reports **observed**
 > seismicity from the USGS feed — what was recorded, never what will happen. Every claim
-> links to the L1 note it rests on. (This cycle absorbs the 2026-07-16 and 2026-07-17
-> ingests, covering the rolling seven-day window to 2026-07-17.)
+> links to the L1 note it rests on. (This cycle absorbs the 2026-07-18 through 2026-07-20
+> ingests, covering the rolling seven-day window to 2026-07-20.)
 
 ## This week at a glance
 
-- The USGS feed recorded **111** magnitude-4.5-or-greater earthquakes in the rolling window
-  retrieved 2026-07-17, of which 43 were M5+, 4 reached M6+ and none were M7+ — the M6+ count
-  is unchanged from the 07-15 snapshot; the same four majors remain in the window and no new
-  M6+ entered ([[earthquakes]]).
-- The leading-edge additions visible in the 07-17 pull are a **9-event southern Mid-Atlantic
-  Ridge cluster** (all shallow at 10 km, M4.7–M5.3, entering the window on 2026-07-16/17) and a
-  **M5.9 42 km NNW of Te Anau, New Zealand** (2026-07-17, 76 km) — the strongest new event of
-  the two-day ingest — alongside an M5.2 at 42 km NE of Shwebo, Myanmar (2026-07-17, 10 km)
+- The USGS feed recorded **149** magnitude-4.5-or-greater earthquakes in the rolling window
+  retrieved 2026-07-20, of which 61 were M5+, 4 reached M6+ and **one reached M7+** — the count
+  climbed from 111 as a major Mexican Pacific-coast sequence entered the window ([[earthquakes]]).
+- The headline is a **M7.3 58 km WSW of Puerto Madero, Mexico** (2026-07-17, 18.6 km deep) — the
+  strongest recorded event since the late-June Yumare M7.5, and the first M7+ in the window since
+  then. It anchors a dense offshore swarm on the Chiapas/Guatemala Pacific margin that also
+  produced an **M6.0** (2026-07-17, 90 km SW of Puerto Madero, 10 km) and dozens of M4.5–M5.5
+  shocks; the pair entered the feed on the 07-18 ingest, after the prior brief's cutoff
   ([[earthquakes]]).
-- The four carried M6+ events — **M6.4** 191 km SE of Lorengau, Papua New Guinea (2026-07-13,
-  10 km); **M6.4** South Sandwich Islands region (2026-07-11, 26 km); **M6.3** southeast of the
-  Loyalty Islands (2026-07-13, 10 km); **M6.2** 32 km WSW of Sarangani, Philippines
-  (2026-07-14, 68 km) — remain the strongest recorded events of the window ([[earthquakes]]).
+- The two carried majors are the **M6.3 southeast of the Loyalty Islands** (2026-07-13, 10 km)
+  and the **M6.2 32 km WSW of Sarangani, Philippines** (2026-07-14, 46 km); below M6 the
+  strongest are an M5.9 42 km NNW of Te Anau, New Zealand (2026-07-16, 76 km) and an M5.8 south
+  of the Fiji Islands (340 km) ([[earthquakes]]).
 
 ## Largest events
 
-- Four M6+ events sit in the rolling window, none above M7: the paired **M6.4s** — 191 km SE of
-  Lorengau, Papua New Guinea (2026-07-13, 10 km) and the South Sandwich Islands region
-  (2026-07-11, 26 km) — joined by the **M6.3** southeast of the Loyalty Islands (2026-07-13,
-  10 km) and the **M6.2** 32 km WSW of Sarangani, Philippines (2026-07-14, 68 km), the only
-  major of the four with an intermediate focus ([[earthquakes]]).
-- Below the M6 threshold, the window's strongest new arrival is the **M5.9** 42 km NNW of Te
-  Anau, New Zealand (2026-07-17, 76 km depth), followed by an **M5.8** south of the Fiji Islands
-  (340 km deep), an **M5.7** east of the South Sandwich Islands (13 km), two **M5.5** shocks
-  (Fiji region deep at 574 km; Volcano Islands, Japan region at 13 km) and an **M5.6**
-  11 km N of Pichigua, Peru (140 km) ([[earthquakes]]).
+- One M7 and three sub-M7 majors sit in the rolling window: the **M7.3 58 km WSW of Puerto
+  Madero, Mexico** (2026-07-17, 18.6 km) is the strongest, joined by the **M6.3** southeast of
+  the Loyalty Islands (2026-07-13, 10 km), the **M6.2** 32 km WSW of Sarangani, Philippines
+  (2026-07-14, 46 km) and the **M6.0** 90 km SW of Puerto Madero (2026-07-17, 10 km) — two of the
+  four on the same Chiapas offshore trend ([[earthquakes]]).
+- Below the M6 threshold the window's strongest are the **M5.9** 42 km NNW of Te Anau, New
+  Zealand (2026-07-16, 76 km depth), an **M5.8** south of the Fiji Islands (340 km deep), and a
+  string of M5.1–M5.7 shocks along the Mexican Pacific margin around Puerto Madero — the Chiapas
+  sequence driving the M5+ count's rise from 43 to 61 ([[earthquakes]]).
 
 ## Where the activity clustered
 
-- The **Philippines led the count at 17 events** (Sarangani/Mabiton/Basco spread including the
-  M6.2 and multiple M5.0–M5.4s); the **Loyalty-Islands swarm held at 11** (M4.5–M6.3, all
-  shallow at 10 km, concentrated 2026-07-12/13 and aging toward the trailing edge);
-  **Indonesia logged 11** and **Japan 10** (Noda/Sosa/Volcano-Islands spread including the M5.5);
-  the South Sandwich Islands region recorded 8 events (including its M6.4 and the M5.7)
+- **Mexico led the count at 36 events**, almost all on the Chiapas/Puerto Madero offshore trend
+  (the M7.3, the M6.0 and a dense M4.5–M5.5 sequence); the **Philippines followed at 13**
+  (Sarangani spread including the M6.2), the **southern Mid-Atlantic Ridge held 10** and the
+  **Loyalty-Islands swarm 10** (M4.5–M6.3, all shallow), with Russia (7) and Indonesia (6) next
   ([[earthquakes]]).
-- A new **9-event cluster on the southern Mid-Atlantic Ridge** (approximately 12–13°S,
-  14–15°W), all at 10–12 km depth and ranging M4.7–M5.3, is the cycle's most distinct
-  new feature — a closely spaced ridge-axis sequence that was absent from the 07-15 snapshot
+- The **Puerto Madero / Chiapas offshore sequence** — roughly 14°N, 92–93°W, most events at
+  10–35 km — is the cycle's dominant new feature, a mainshock–aftershock cluster capped by the
+  M7.3 that was absent from the 07-17 window; the Loyalty-Islands (07-13) and Mid-Atlantic-Ridge
+  clusters carried over from the prior cycle and are aging toward the trailing edge
   ([[earthquakes]]).
 
 ## Depth profile
 
-- The shallow proportion rose slightly: at least 57 of 111 events at ≤15 km (including three of
-  the four M6+ shocks and the entire Loyalty swarm and the new Mid-Atlantic Ridge cluster); the
-  deep-focus list extended — the deepest recorded event in the window is a **625.6 km** Fiji-region
-  shock (us7000t0tz), followed by **574 km** (Fiji, us7000t0hk) and **340 km** (south of Fiji,
-  us7000t0u6), with the next-deepest a 427 km focus under the Sea of Okhotsk ([[earthquakes]]).
+- The shallow proportion stayed high: the great majority of the Chiapas sequence sits at
+  10–35 km, and most of the window's events are ≤35 km (including the M7.3 at 18.6 km and three
+  of the four majors); the deep-focus list is unchanged at the top — the deepest recorded event
+  in the window is still a **625.6 km** Fiji-region shock (us7000t0tz), followed by **574 km**
+  (Fiji, us7000t0hk) and **529 km** (south of the Fiji Islands, us7000t1kh) ([[earthquakes]]).
 
 ## Reading the week
 
-- The rolling count grew from 104 to 111 M4.5+ as two days of new events entered the leading
-  edge while older events aged off the trailing edge; M5+ rose from 41 to 43 and the M6+ count
-  held at four, with the same paired M6.4s (Lorengau PNG / South Sandwich), M6.3 (Loyalty
-  Islands) and M6.2 (Sarangani) unchanged. The dominant new features of the 07-16/17 ingest are
-  a 9-event shallow swarm on the southern Mid-Atlantic Ridge (M4.7–M5.3) and the M5.9 at Te
-  Anau, New Zealand — neither approaches the week's strongest events but both represent fresh
-  mid-ocean and intraplate activity at the leading edge. The Loyalty-Islands swarm and the
-  Philippine-arc M6.2 remain the week's defining clusters as the window's trailing edge
-  approaches their 2026-07-11/13 origin dates. The deep-slab picture deepened marginally with
-  the 625.6 km Fiji focus now the window's deepest. azimuth records what the instruments
-  measured — magnitude, location, depth, time — and stops there ([[earthquakes]]).
+- The rolling count jumped from 111 to 149 M4.5+ as a major Mexican Pacific-coast sequence
+  entered the window; M5+ rose from 43 to 61 and the M6+ count held at four, but the composition
+  changed decisively — an **M7.3 58 km WSW of Puerto Madero, Mexico** (2026-07-17) is now the
+  window's strongest event, the first M7+ since the late-June Yumare M7.5, capping a dense
+  Chiapas offshore swarm that also produced an M6.0 (2026-07-17) and dozens of aftershocks. The
+  carried Loyalty-Islands M6.3 (07-13) and Sarangani M6.2 (07-14) remain the other majors and sit
+  near the trailing edge, while the southern Mid-Atlantic Ridge cluster held at 10 events. The
+  deep-slab picture was unchanged, the 625.6 km Fiji focus still the window's deepest. azimuth
+  records what the instruments measured — magnitude, location, depth, time — and stops there,
+  making no forecast of what the sequence does next ([[earthquakes]]).
 
 ## Changelog
 
@@ -154,3 +152,4 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
   57 of 104 shocks shallow ≤15 km. Rewrote the at-a-glance, largest-events, clustering, depth and
   reading sections. Observed-only framing held ([[earthquakes]]).
 - 2026-07-18 — daily-ingest synthesis (2026-W29): absorbed 2026-07-16 and 2026-07-17 USGS pulls; rolling window grew to 111 M4.5+ (43 M5+, 4 M6+, 0 M7+); same four M6+ in window (no new majors); leading-edge additions: 9-event southern Mid-Atlantic Ridge shallow cluster (M4.7–M5.3), M5.9 at Te Anau, New Zealand (76 km), M5.2 at Shwebo, Myanmar; Philippines rose to 17-event count leader; deepest event updated to 625.6 km Fiji-region focus ([[earthquakes]]).
+- 2026-07-21 — daily-ingest synthesis (2026-W30): absorbed the 07-18 through 07-20 USGS pulls; the rolling window to 2026-07-20 grew to 149 M4.5+ (61 M5+, 4 M6+, 1 M7+). The headline is a major Mexican Pacific-coast sequence: an M7.3 58 km WSW of Puerto Madero, Mexico (2026-07-17, 18.6 km) — the first M7+ since the late-June Yumare M7.5 — capping a dense Chiapas offshore swarm that also produced an M6.0 (2026-07-17) and dozens of M4.5–M5.5 aftershocks; the pair entered the feed on the 07-18 ingest, after the prior brief's cutoff. Mexico took the count lead at 36 events; the carried Loyalty-Islands M6.3 (07-13) and Sarangani M6.2 (07-14) remain the other majors; deepest event held at the 625.6 km Fiji focus. Rewrote the at-a-glance, largest-events, clustering, depth and reading sections. Observed-only framing held ([[earthquakes]]).

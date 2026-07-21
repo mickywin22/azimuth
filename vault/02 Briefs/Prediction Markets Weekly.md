@@ -2,8 +2,8 @@
 title: Prediction Markets Weekly
 type: L2-brief
 theme: prediction-markets
-week: 2026-W29
-updated: 2026-07-18T09:00:00Z
+week: 2026-W30
+updated: 2026-07-21T09:00:00Z
 sources: [prediction-markets]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -17,60 +17,54 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 > reports it the same way it reports a gas-storage figure or an earthquake magnitude. It is
 > **not** a forecast azimuth makes, and **not** an instruction to trade: odds are not
 > predictions, and nothing here is investment advice. azimuth reports the priced number and its
-> source, and takes no position on the underlying question. (This cycle absorbs the 2026-07-16
-> and 2026-07-17 ingests: the same market that entered on 07-15 — the US–Iran nuclear-material
-> question — remains listed and its yes price held flat at 0.115 across both days; volume
-> continued to accumulate.)
+> source, and takes no position on the underlying question. (This cycle absorbs the 2026-07-18
+> through 2026-07-20 ingests: a listing rotation — the US–Iran enriched-uranium question that ran
+> through 07-17 was replaced, and the 07-20 pull lists a new Polymarket contract on an
+> Iran–MOU-negotiations question at a 0.10 yes price on $7.44M volume.)
 
 ## This week at a glance
 
-- The WorldMonitor prediction-market feed continued to list a single live market across both
-  days absorbed this cycle: Polymarket's **"US obtains Iranian enriched uranium by December 31?"**,
-  quoted at a **0.115 yes price** on both the 2026-07-16 and 2026-07-17 pulls — the venue's
-  implied **11.5% probability** held flat for a third consecutive recorded day ([[prediction-markets]]).
-- No listing rotation occurred this cycle: the market that entered on 07-15 remained the sole
-  listed contract through 07-17. The feed does not state how many markets sit behind its single
-  rotating slot, so azimuth records presence and absence as the observed facts and carries no
-  view on which markets it may or may not surface next ([[prediction-markets]]).
-- Cumulative traded volume continued to accumulate: the 07-16 pull recorded **$28,518,862**
-  and the 07-17 pull recorded **$28,528,722** — a net gain of roughly **$28,000 across the two
-  days**, indicating the market remained active but at a slower pace than earlier in the listing.
-  Volume is reported as a measure of liquidity behind the quoted odds, not as a signal to act on
-  ([[prediction-markets]]).
+- The WorldMonitor prediction-market feed continued to list a single live market, but the
+  listing **rotated** this cycle: the 2026-07-20 pull carries Polymarket's **"Will Iran announce
+  withdrawal from MOU negotiations by July 31?"**, quoted at a **0.10 yes price** — the venue's
+  implied **10% probability** — resolving 2026-07-31 ([[prediction-markets]]).
+- This is the **fifth listing rotation** in the brief's run (Greenland → Russia → Israel →
+  US–Iran uranium → Iran–MOU): the US–Iran enriched-uranium market that held 0.115 through 07-17
+  no longer appears. The feed does not state how many markets sit behind its single rotating slot,
+  so azimuth records presence and absence as the observed facts and carries no view on which
+  markets it may or may not surface next ([[prediction-markets]]).
+- Cumulative traded volume on the new listing is recorded at **$7,439,764** on the 07-20 pull —
+  a smaller book than the outgoing listing's ~$28.5M, consistent with a freshly-surfaced
+  contract. Volume is reported as a measure of liquidity behind the quoted odds, not as a signal
+  to act on ([[prediction-markets]]).
 
 ## The market
 
-- Polymarket's quoted **yes price of 0.115** is the observed datum: traders are collectively
-  paying 11.5 cents for a contract that pays out 1.00 if the market's stated condition — the US
-  obtaining Iranian enriched uranium by December 31 — resolves true, which by construction reads
-  as an **11.5% implied probability** priced by the venue. The yes price was unchanged on both
-  the 07-16 and 07-17 pulls. The question is a geopolitical one; azimuth's report is not: it
-  records the venue's number and takes no position on US–Iran relations, the market's resolution,
-  or the outcome itself ([[prediction-markets]]).
-- The **$28,528,722 cumulative traded volume** recorded on the 07-17 pull is the latest liquidity
-  figure behind that price — ahead of the prior listing's $26.61M and the largest recorded in
-  this brief's run. The two-day volume increment of ~$28,000 (from $28,518,862 on 07-16 to
-  $28,528,722 on 07-17) indicates sustained but moderate trading activity with the price stable.
-  Volume is reported as a measure of how much weight sits behind the quoted odds, not as a signal
-  to act on ([[prediction-markets]]).
+- Polymarket's quoted **yes price of 0.10** is the observed datum: traders are collectively
+  paying 10 cents for a contract that pays out 1.00 if the market's stated condition — Iran
+  announcing withdrawal from MOU negotiations by July 31 — resolves true, which by construction
+  reads as a **10% implied probability** priced by the venue. The question is a geopolitical one;
+  azimuth's report is not: it records the venue's number and takes no position on Iran, the
+  negotiations, the market's resolution, or the outcome itself ([[prediction-markets]]).
+- The **$7,439,764 cumulative traded volume** recorded on the 07-20 pull is the liquidity behind
+  that price — well below the $28.5M carried by the outgoing US–Iran-uranium listing, as expected
+  for a freshly-surfaced contract that resolves at end-July. Volume is reported as a measure of
+  how much weight sits behind the quoted odds, not as a signal to act on ([[prediction-markets]]).
 
 ## Reading the week
 
-- One market, same price, accumulating volume. The feed's single live contract asks about
-  US–Iran nuclear material and held its **11.5% implied probability** without movement on both
-  days absorbed this cycle; cumulative volume reached **$28,528,722** on the 07-17 pull. The
-  price stability across multiple consecutive pulls is an observed fact about the venue's quoted
-  number — azimuth states what was recorded and stops there: the odds are the market's, not
-  azimuth's, and the editorial line forbids reading them as either a forecast or a reason to
-  trade ([[prediction-markets]]).
-- **Breadth note (honest scope):** the live feed currently lists exactly one market at a time,
-  and the listing has rotated on four straight synthesis cycles (Greenland → Russia → Israel →
-  US–Iran) — so week-on-week price continuity is not guaranteed across cycles. The current
-  listing has now held for three consecutive recorded days (07-15, 07-16, 07-17) without
-  rotation, the longest streak in this brief's run. As the upstream feed carries a broader
-  market set, this note widens to report the spread of priced questions; until then it tracks
-  whatever single market the feed quotes, reporting price, volume and listing changes as observed
-  facts ([[prediction-markets]]).
+- A listing rotation, a new question, a lower price. The feed's single live contract now asks
+  whether Iran will announce withdrawal from MOU negotiations by July 31, quoted at a **10%
+  implied probability** on **$7,439,764** volume on the 07-20 pull, resolving end-July. azimuth
+  states what was recorded and stops there: the odds are the market's, not azimuth's, and the
+  editorial line forbids reading them as either a forecast or a reason to trade
+  ([[prediction-markets]]).
+- **Breadth note (honest scope):** the live feed still lists exactly one market at a time, and
+  the listing has now rotated on **five** synthesis cycles (Greenland → Russia → Israel → US–Iran
+  uranium → Iran–MOU) — so week-on-week price continuity is not guaranteed across cycles. As the
+  upstream feed carries a broader market set, this note widens to report the spread of priced
+  questions; until then it tracks whatever single market the feed quotes, reporting price, volume
+  and listing changes as observed facts ([[prediction-markets]]).
 
 ## Changelog
 
@@ -117,3 +111,4 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
   observed fact — no forecast, no investment framing, no position on the underlying question
   ([[prediction-markets]]).
 - 2026-07-18 — daily-ingest synthesis (2026-W29): absorbed the 2026-07-16 and 2026-07-17 ingests — no listing rotation. The "US obtains Iranian enriched uranium by December 31?" market remained the sole listed contract; yes price held flat at 0.115 (11.5% implied probability) on both days; cumulative volume rose from $28,518,862 (07-16) to $28,528,722 (07-17), a ~$28K two-day increment ([[prediction-markets]]).
+- 2026-07-21 — daily-ingest synthesis (2026-W30): absorbed the 07-18 through 07-20 ingests — a fifth listing rotation. The "US obtains Iranian enriched uranium by December 31?" market (0.115 yes, ~$28.5M through 07-17) no longer appears; the 07-20 pull instead lists Polymarket's "Will Iran announce withdrawal from MOU negotiations by July 31?" at a 0.10 yes price (10% implied probability) on $7,439,764 cumulative volume, resolving 2026-07-31. Rewrote the at-a-glance, market and reading sections around the new listing and extended the breadth note to five straight rotations. Venue-quoted price reported as an observed fact — no forecast, no investment framing, no position on the underlying question ([[prediction-markets]]).
