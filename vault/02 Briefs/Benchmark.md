@@ -3,7 +3,7 @@ title: Benchmark — Facts vs Forecast vs Intelligence
 type: L2-brief
 theme: cross-theme
 week: 2026-W30
-updated: 2026-07-20T04:00:00Z
+updated: 2026-07-21T04:00:00Z
 sources: [crude-oil-inventories, earthquakes, energy-prices, natural-gas-storage-eu]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources; the forecast/intelligence columns quote WorldMonitor as the COMPARED product, not an azimuth channel
@@ -11,7 +11,7 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 # Benchmark — azimuth vs a forecast vs an intelligence feed
 
-> *Why not just read a forecast or an intelligence feed?* Here is the same world-topic through three columns: **azimuth** (observed facts from the live bundle, every claim linked to its L1 source), a **FORECAST** product (a model probability), and an **INTELLIGENCE** product (an analyst assessment). It is a fair contrast, not a strawman: azimuth wins on provenance, neutrality and reproducibility; a forecast / intel feed legitimately wins on **forward-looking coverage** — it predicts, azimuth reports what already happened. The forecast / intelligence columns quote WorldMonitor as the *compared product* (captured 2026-07-20T09:31:43Z), deliberately NOT a clickable L1 link — because that is exactly the difference.
+> *Why not just read a forecast or an intelligence feed?* Here is the same world-topic through three columns: **azimuth** (observed facts from the live bundle, every claim linked to its L1 source), a **FORECAST** product (a model probability), and an **INTELLIGENCE** product (an analyst assessment). It is a fair contrast, not a strawman: azimuth wins on provenance, neutrality and reproducibility; a forecast / intel feed legitimately wins on **forward-looking coverage** — it predicts, azimuth reports what already happened. The forecast / intelligence columns quote WorldMonitor as the *compared product* (captured 2026-07-21T08:42:02Z), deliberately NOT a clickable L1 link — because that is exactly the difference.
 
 ## EU / global energy supply security
 
@@ -29,7 +29,7 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 >
 > Probability path: d30=20%, d7=27%, h24=47%
 >
-> — *WorldMonitor forecast feed (model projection), captured 2026-07-20T09:31:43Z*
+> — *WorldMonitor forecast feed (model projection), captured 2026-07-21T08:42:02Z*
 
 ### INTELLIGENCE product — analyst assessment (compared)
 
@@ -37,7 +37,7 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 >
 > Actor lens: Commodity traders: Price whether stress in Black Sea becomes durable over the 30d. Rebalance positions if the probability path moves away from 47%.
 >
-> — *WorldMonitor intelligence assessment (analyst judgement), captured 2026-07-20T09:31:43Z*
+> — *WorldMonitor intelligence assessment (analyst judgement), captured 2026-07-21T08:42:02Z*
 
 ### Scorecard
 
@@ -65,19 +65,19 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 ### FORECAST product — model projection (compared)
 
-> Assigns a **64% probability** over 30d that “Sovereign risk repricing from Black Sea maritime disruption state (supply_chain)” — confidence 75%, trend stable.
+> Assigns a **67% probability** over 30d that “Sovereign risk repricing from Black Sea maritime disruption state” — confidence 75%, trend stable.
 >
-> Probability path: d30=27%, d7=37%, h24=64%
+> Probability path: d30=28%, d7=39%, h24=67%
 >
-> — *WorldMonitor forecast feed (model projection), captured 2026-07-20T09:31:43Z*
+> — *WorldMonitor forecast feed (model projection), captured 2026-07-21T08:42:02Z*
 
 ### INTELLIGENCE product — analyst assessment (compared)
 
-> The 77% pressure and 74% state confirmation signals indicate that Black Sea maritime disruption is structurally elevating sovereign risk through risk off rotation, with 1 clustered situation and 1 linked forecast reinforcing the transmission path.
+> The 73% state confirmation and 71% pressure indicate that Black Sea maritime disruption is a concentrated risk with only 1 clustered situation and 1 linked forecast, meaning the sovereign stress transmission is narrow but intense, with 8 urgent critical signals reinforcing the path that commodity traders, policy officials, and large importers are monitoring.
 >
-> Actor lens: Commodity traders: Price whether stress in Black Sea becomes durable over the 30d. Rebalance positions if the probability path moves away from 64%.
+> Actor lens: Commodity traders: Price whether stress in Black Sea becomes durable over the 30d. Rebalance positions if the probability path moves away from 67%.
 >
-> — *WorldMonitor intelligence assessment (analyst judgement), captured 2026-07-20T09:31:43Z*
+> — *WorldMonitor intelligence assessment (analyst judgement), captured 2026-07-21T08:42:02Z*
 
 ### Scorecard
 
@@ -159,3 +159,4 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 - 2026-07-18 — regenerated the facts-vs-forecast-vs-intelligence benchmark from the 2026-07-18 live bundle (2026-W29); 3 head-to-head topics, every azimuth claim L1-sourced, foil snapshot quoted as the compared product.
 - 2026-07-19 — regenerated the facts-vs-forecast-vs-intelligence benchmark from the 2026-07-19 live bundle (2026-W29); 3 head-to-head topics, every azimuth claim L1-sourced, foil snapshot quoted as the compared product.
 - 2026-07-20 — regenerated the facts-vs-forecast-vs-intelligence benchmark from the 2026-07-20 live bundle (2026-W30); 3 head-to-head topics, every azimuth claim L1-sourced, foil snapshot quoted as the compared product.
+- 2026-07-21 — regenerated the facts-vs-forecast-vs-intelligence benchmark from the 2026-07-21 live bundle (2026-W30); 3 head-to-head topics, every azimuth claim L1-sourced, foil snapshot quoted as the compared product.
