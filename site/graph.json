@@ -368,6 +368,7 @@
       "theme": "shared",
       "themes": [
         "conflict-watch",
+        "cyber-watch",
         "energy-supply",
         "environmental-hazards",
         "humanitarian",
@@ -1626,7 +1627,6 @@
       "entity_kind": "region",
       "theme": "shared",
       "themes": [
-        "environmental-hazards",
         "geophysical",
         "humanitarian",
         "orbital-watch"
@@ -2276,6 +2276,13 @@
       "target": "source:conflict-events-ucdp",
       "cross_theme": false,
       "rel": "named-in"
+    },
+    {
+      "source": "entity:united-states",
+      "target": "brief:cyber-watch-weekly",
+      "cross_theme": true,
+      "rel": "mentioned-in",
+      "weight": 0
     },
     {
       "source": "entity:united-states",
@@ -3840,13 +3847,6 @@
       "target": "source:disease-outbreaks",
       "cross_theme": false,
       "rel": "named-in"
-    },
-    {
-      "source": "entity:china",
-      "target": "brief:environmental-hazards-weekly",
-      "cross_theme": true,
-      "rel": "mentioned-in",
-      "weight": 0
     },
     {
       "source": "entity:china",
