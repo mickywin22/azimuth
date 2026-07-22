@@ -3,7 +3,7 @@ title: Environmental Hazards Weekly
 type: L2-brief
 theme: environmental-hazards
 week: 2026-W30
-updated: 2026-07-21T09:00:00Z
+updated: 2026-07-22T09:00:00Z
 sources: [wildfire-detections, thermal-escalations, natural-events, radiation-observations]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -24,10 +24,11 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 ## This week at a glance
 
 - Among the NASA FIRMS VIIRS feed's **top 250 active-fire detections by radiative power** (of
-  **4,592** in the endpoint), the strongest fires again cluster **almost entirely over Russia** —
-  the detection coordinates fall across Siberia and the Far East, the most energetic at ~59°N
-  85°E and ~67°N 164°E — with **peak FRP firming to ~404 MW** (from ~282); zero
-  `possibleExplosion` flags ([[wildfire-detections]]).
+  **4,592** in the endpoint), the feed's own per-detection region field attributes the subset
+  **Russia 243 / Iran 5 / Ukraine 2** — exact country counts, not eyeballed from coordinates
+  (0 rows unattributed) — the Russian detections falling across Siberia and the Far East, the
+  most energetic at ~59°N 85°E and ~67°N 164°E — with **peak FRP firming to ~404 MW** (from
+  ~282); zero `possibleExplosion` flags ([[wildfire-detections]]).
 - The FIRMS thermal-escalation feed clustered the window into **12 signals, all over Russia**
   (from Russia 11 / Ukraine 1 the prior cycle), with status heating from **all-12-PERSISTENT
   back to all-12-SPIKE**; all 12 remain conflict-adjacent and high-relevance; the largest cluster
@@ -44,10 +45,12 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 ## Active fire — where the detections clustered
 
-- The top-250-by-FRP subset again concentrates almost entirely over Russia — the detection
-  coordinates fall across Siberia and the Far East, the two strongest at ~59°N 85°E (404 MW) and
-  ~67°N 164°E (179 MW). Peak FRP firmed to ~404 MW (from ~282 MW). The full endpoint returned
-  4,592 detections (near the prior 4,693), so the top-250 subset remains the strongest fires only
+- The top-250-by-FRP subset attributes — by each detection's own `region` field, deterministically
+  tallied — as **Russia 243 / Iran 5 / Ukraine 2** (0 unattributed); the Russian detections fall
+  across Siberia and the Far East, the two strongest at ~59°N 85°E (404 MW) and ~67°N 164°E
+  (179 MW). Peak FRP firmed to ~404 MW (from ~282 MW). The full endpoint returned 4,592 detections
+  (near the prior 4,693), so the top-250 subset remains the strongest fires only; the per-country
+  split above is exact for that strongest-fire subset, not the entire 4,592-detection set
   ([[wildfire-detections]]).
 - azimuth caps this L1 note to the top 250 detections by FRP — the strongest, most energetic
   fires — because the endpoint returns the full detection set (4,592 this pull) and ignores
@@ -167,3 +170,4 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
   [[thermal-escalations]], [[natural-events]], [[radiation-observations]]).
 - 2026-07-18 — daily-ingest synthesis (2026-W29): absorbed the 2026-07-16 and 2026-07-17 ingests. Active-fire top-250 diversified: Russia eased from 246 to 143; Iran entered at 46, Saudi Arabia and Turkey each at 19, Ukraine rose to 13, Syria 9, Israel/Gaza 1; max FRP eased to ~282 MW; full endpoint jumped from 793 to 4,693 detections. Thermal clusters shifted to Russia 11 / Ukraine 1 (from Ukraine 7 / Russia 5) and status moved from all-12-SPIKE to all-12-PERSISTENT; largest cluster 248 obs / 8,379 MW total FRP, max z-score 4.69. Natural events grew from 20 to 30: wildfire entries surged from 1 to 10 (US fires), drought entries rose to 3, Mayon volcano added, iceberg series held at 13 tracks, severe storms fell to 2. Radiation observations narrowed from 11 to 2 (Houston EPA + Fukushima Safecast), all normal, 36–74.3 nSv/h ([[wildfire-detections]], [[thermal-escalations]], [[natural-events]], [[radiation-observations]]).
 - 2026-07-21 — daily-ingest synthesis (2026-W30): absorbed the 07-18 through 07-20 ingests. Active-fire top-250 stayed concentrated over Russia (Siberia/Far East by detection coordinates), peak FRP firming to ~404 MW on a 4,592-detection full set. Thermal clusters re-consolidated to all-12-Russia and heated from all-12-PERSISTENT back to all-12-SPIKE, all conflict-adjacent and high-relevance, largest cluster 906 obs / 31,279 MW total FRP, sharpest z 2.95. Natural events narrowed from 30 to 21 as the US wildfire entries dropped off — 13 iceberg tracks, 3 tropical cyclones (Fausto, Elida, TD Two), 3 droughts, 1 Peru earthquake. Radiation widened back to 11 observations (10 EPA + 1 Safecast), all normal, 24–74.3 nSv/h ([[wildfire-detections]], [[thermal-escalations]], [[natural-events]], [[radiation-observations]]).
+- 2026-07-22 — attribution fix (IQ #1161): the active-fire top-250 country split is now stated as **exact per-country counts** (Russia 243 / Iran 5 / Ukraine 2, 0 unattributed) read from each detection's own `region` field (deterministic tally, `synthesis/fire_geo.country_tally`), replacing the eyeballed-from-coordinates "almost entirely Russia"; the FIRMS feed already ships `region` on every row, so no coordinate reverse-geocode is needed ([[wildfire-detections]]).

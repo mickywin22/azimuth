@@ -11,7 +11,7 @@ weekly (see its `## Changelog`). All content is CC-BY-4.0; see `../../CREDITS.md
 | [Conflict Watch Weekly](<Conflict Watch Weekly.md>) | conflict-watch | 2026-W30 | 2026-07-21T09:00:00Z | [conflict-events-ucdp] |
 | [Cyber Watch Weekly](<Cyber Watch Weekly.md>) | cyber-watch | 2026-W30 | 2026-07-21T09:00:00Z | [cyber-threats] |
 | [Energy Supply Weekly](<Energy Supply Weekly.md>) | energy-supply | 2026-W30 | 2026-07-21T09:00:00Z | [natural-gas-storage-eu, crude-oil-inventories, fuel-prices, energy-prices] |
-| [Environmental Hazards Weekly](<Environmental Hazards Weekly.md>) | environmental-hazards | 2026-W30 | 2026-07-21T09:00:00Z | [wildfire-detections, thermal-escalations, natural-events, radiation-observations] |
+| [Environmental Hazards Weekly](<Environmental Hazards Weekly.md>) | environmental-hazards | 2026-W30 | 2026-07-22T09:00:00Z | [wildfire-detections, thermal-escalations, natural-events, radiation-observations] |
 | [Geophysical Weekly](<Geophysical Weekly.md>) | geophysical | 2026-W30 | 2026-07-21T09:00:00Z | [earthquakes] |
 | [Humanitarian Watch Weekly](<Humanitarian Watch Weekly.md>) | humanitarian | 2026-W30 | 2026-07-21T09:00:00Z | [displacement-flows] |
 | [Infrastructure Watch Weekly](<Infrastructure Watch Weekly.md>) | infrastructure-watch | 2026-W30 | 2026-07-21T09:00:00Z | [internet-outages] |

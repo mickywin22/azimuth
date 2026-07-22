@@ -114,6 +114,12 @@ behind it. A day where `check_synthesis_freshness.py --check` exits 0 is a logge
    - Every claim paragraph or bullet carries **>=1 `[[wikilink]]`** to the L1 note it rests
      on (e.g. `[[natural-gas-storage-eu]]`, `[[earthquakes]]`).
    - Append one dated line to `## Changelog` describing what changed this week.
+   - **Country attribution is deterministic, never eyeballed from coordinates.** When a feed's
+     rows carry their own per-detection country/`region` field (e.g. `wildfire-detections`), cite
+     **exact per-country counts** from that field via `synthesis.fire_geo.country_tally`
+     (`"Russia 243 / Iran 5 / Ukraine 2"`) — do not approximate the country from latitude/longitude.
+     The FIRMS feed ships `region` on every row, so no reverse-geocode is needed (IQ #1161); a row
+     that is genuinely missing `region` is reported "unattributed", never guessed.
    - Do **not** create a new file for an existing theme. One brief per theme, evolving.
 4. **Honour each source's `synthesis_cautions`.** `report-observed-not-predicted` (earthquakes)
    means report what was recorded, never what will happen; `no-investment-framing` /

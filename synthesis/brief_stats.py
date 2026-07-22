@@ -19,6 +19,8 @@ import json
 import re
 from typing import TYPE_CHECKING, Any
 
+from synthesis.fire_geo import country_tally
+
 if TYPE_CHECKING:
     from pathlib import Path
 
@@ -161,6 +163,12 @@ def _hazards(day: Path) -> list[dict[str, Any]]:
     fires = _load(day, "wildfire-detections", "fireDetections") or []
     if fires:
         out.append(_chip(str(len(fires)), "top fire detections by FRP"))
+        # Exact country attribution from the feed's own per-detection region field
+        # (IQ #1161 — deterministic, no reverse-geocode). The dominant country + its share.
+        geo = country_tally(fires)
+        if geo.dominant is not None:
+            name, count = geo.dominant
+            out.append(_chip(name, f"{count} of {geo.attributed} detections (top country)"))
     thermal = _load(day, "thermal-escalations", "summary") or {}
     if thermal:
         out.append(_chip(str(thermal.get("clusterCount", "?")), "thermal escalation clusters"))
