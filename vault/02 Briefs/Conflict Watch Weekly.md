@@ -3,7 +3,7 @@ title: Conflict Watch Weekly
 type: L2-brief
 theme: conflict-watch
 week: 2026-W30
-updated: 2026-07-21T09:00:00Z
+updated: 2026-07-22T09:00:00Z
 sources: [conflict-events-ucdp]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -21,9 +21,9 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 - The channel is the **UCDP** (Uppsala Conflict Data Program) georeferenced event feed — a
   research-grade dataset published with a deliberate verification lag, not a breaking-news
-  wire. The 2026-07-20 pull carries **2,000 events dated 2025-11-05 through 2025-12-31** — the
-  window contracted back from the transient 2025-05-28 start the 07-17 pull briefly showed,
-  reverting to the same slice the 07-15 baseline carried. The brief describes the
+  wire. The 2026-07-22 pull carries **2,000 events dated 2025-11-05 through 2025-12-31** — the
+  narrow slice, restored after the 07-21 pull briefly re-widened the window to a mid-2025 start
+  again (the same oscillation the 07-17→07-20 pulls showed). The brief describes the
   most recent *published* conflict record, and says so ([[conflict-events-ucdp]]).
 
 ## This window at a glance
@@ -43,20 +43,22 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
   tail through Brazil (51), Nigeria (56), Colombia (63), Yemen (63), Myanmar (69) and Burkina
   Faso (70) ([[conflict-events-ucdp]]).
 
-## Move since prior reading (2026-07-17 → 2026-07-20)
+## Move since prior reading (2026-07-20 → 2026-07-22)
 
-- The UCDP dataset window **contracted back from 2025-05-28 to 2025-11-05**, dropping the
-  roughly six months of older records the 07-17 pull had briefly carried. Event totals hold at
-  2,000 (the API cap), but the composition returned to the narrower slice: state-based events
-  rose from 976 back to 1,266, non-state fell from 690 to 505, and one-sided fell from 334 to
-  229 ([[conflict-events-ucdp]]).
-- Country rankings reverted accordingly: Ukraine returned to first (536 events, from second at
-  291), Mexico back to second (317, from first at 310), and Pakistan re-entered the top three at
-  175; Ethiopia fell from third (212) back to a tie for fourth at 96. This mirrors the 07-15
-  baseline composition exactly ([[conflict-events-ucdp]]).
-- The summed deathsBest fell from 78,517 back to 15,012 as Sudan's 60,264-fatality window (an
-  artefact of the transient date extension) dropped out — an observed dataset-composition change,
-  not a change in recorded events on the ground ([[conflict-events-ucdp]]).
+- The window **oscillated once more and then settled back narrow.** The 07-21 pull briefly
+  re-widened the dataset to a mid-2025 start — 2,000 events summing **~76,537 deathsBest**, with
+  two large Sudan one-sided rows (SFA vs civilians, ~32,505 and ~24,173 best-estimate) re-entering
+  — before the 07-22 pull **reverted to the 2025-11-05 → 2025-12-31 slice** (15,012 deathsBest).
+  The event count holds at the 2,000 API cap throughout; only the date window moves
+  ([[conflict-events-ucdp]]).
+- On the restored 07-22 slice the composition matches the 07-20 baseline exactly: **1,266
+  state-based, 505 non-state, 229 one-sided**, with Ukraine first (536 events), Mexico second (317)
+  and Pakistan third (175). The 07-21 re-widening had briefly lifted Mexico's daily count and
+  reshuffled the tail; the reversion undoes it ([[conflict-events-ucdp]]).
+- The summed deathsBest swinging 15,012 → ~76,537 → 15,012 across three pulls is an **observed
+  dataset-composition change** — two very-high-fatality Sudan rows entering and leaving the rolling
+  window — **not a change in violence recorded on the ground.** azimuth reports the swing and names
+  its cause ([[conflict-events-ucdp]]).
 
 ## Reading the window
 
@@ -70,6 +72,14 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 ## Changelog
 
+- 2026-07-22 — daily-ingest synthesis (2026-W30): absorbed the 07-21 and 07-22 pulls — a
+  window-oscillation cycle with no material change to the recorded slice. The 07-21 pull briefly
+  re-widened the UCDP window to a mid-2025 start (2,000 events, ~76,537 summed deathsBest, two
+  large Sudan one-sided rows ~32,505 + ~24,173 re-entering) before the 07-22 pull reverted to the
+  2025-11-05 → 2025-12-31 slice: 15,012 deathsBest, 1,266 state-based / 505 non-state / 229
+  one-sided, Ukraine 536 / Mexico 317 / Pakistan 175 by event count, Ukraine the fatality leader at
+  10,051. Refreshed the honest-scope and move sections around the oscillation; the at-a-glance
+  figures are unchanged from the restored narrow slice ([[conflict-events-ucdp]]).
 - 2026-07-21 — daily-ingest synthesis (2026-W30): absorbed the 07-18 through 07-20 pulls. The UCDP window contracted back from the transient 07-17 extension (2025-05-28 → 2025-12-31) to 2025-11-05 → 2025-12-31 — the 07-15 baseline slice. 2,000 events; summed deathsBest fell from 78,517 back to 15,012 (Sudan's 60,264-fatality window dropped out); violence-type split returned to 1,266 state / 505 non-state / 229 one-sided; Ukraine 536 / Mexico 317 / Pakistan 175 lead by event count, Ukraine also the fatality leader at 10,051. Rewrote the honest-scope, at-a-glance, move and reading sections ([[conflict-events-ucdp]]).
 - 2026-07-18 — daily-ingest synthesis (2026-W29): UCDP dataset window extended to 2025-05-28 → 2025-12-31 (was 2025-11-05); 2,000 events, 78,517 summed deathsBest (up from 15,012, driven by Sudan 60,264 entering the wider window); 976/690/334 state-based/non-state/one-sided; Mexico 310 / Ukraine 291 / Ethiopia 212 lead by event count ([[conflict-events-ucdp]]).
 - 2026-07-15 — first Conflict Watch Weekly cycle (2026-W29): theme un-held (the hold was

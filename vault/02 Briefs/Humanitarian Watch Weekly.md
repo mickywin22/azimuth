@@ -3,7 +3,7 @@ title: Humanitarian Watch Weekly
 type: L2-brief
 theme: humanitarian
 week: 2026-W30
-updated: 2026-07-21T09:00:00Z
+updated: 2026-07-22T09:00:00Z
 sources: [displacement-flows]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -27,8 +27,8 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
   single origin-flow recorded is **Syrian Arab Rep. at ~2.35 million refugees**; the next
   largest origin flows are Sudan (~1.33M), Myanmar (~1.18M), Ukraine (~1.17M) and Afghanistan
   (~1.16M) — corridor-level counts as the source publishes them ([[displacement-flows]]).
-- The 2026-07-16 through 2026-07-20 pulls returned **identical figures** to the 2026-07-15
-  baseline — no revision to the 2025 reference-year totals was recorded across the six-day
+- The 2026-07-16 through 2026-07-22 pulls returned **identical figures** to the 2026-07-15
+  baseline — no revision to the 2025 reference-year totals was recorded across the eight-day
   window ([[displacement-flows]]).
 
 ## Honest scope — annual statistics, weekly heartbeat
@@ -37,7 +37,7 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
   periodic revisions — so week-on-week this brief typically holds flat and moves when the
   source revises or rolls the year. The weekly cycle records that heartbeat honestly: a flat
   week is the source being stable, not the brief being stale ([[displacement-flows]]).
-- The 07-16 through 07-20 ingest cycles each confirmed the same totals (106,175,975 total /
+- The 07-16 through 07-22 ingest cycles each confirmed the same totals (106,175,975 total /
   64,239,352 IDPs / 28,461,306 refugees / 8,998,097 asylum seekers / 4,477,220 stateless),
   consistent with the annual-snapshot cadence ([[displacement-flows]]).
 
@@ -56,6 +56,7 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 ## Changelog
 
+- 2026-07-22 — daily-ingest flowback (2026-W30): an honest flat cycle. The 07-21 and 07-22 displacement-flows pulls each returned the unchanged 2025 reference-year totals (106,175,975 total forcibly displaced — 64,239,352 IDPs / 28,461,306 refugees / 8,998,097 asylum / 4,477,220 stateless, 212 countries); only the payload's fetchedAt timestamp moved. No source revision recorded; `week` and `updated` advanced so the freshness gate records the latest L1 day was absorbed ([[displacement-flows]]).
 - 2026-07-21 — daily-ingest flowback (2026-W30): an honest flat cycle. The 2026-07-18, 07-19 and 07-20 displacement-flows pulls each returned the unchanged 2025 reference-year totals (106,175,975 total forcibly displaced — 64,239,352 IDPs / 28,461,306 refugees / 8,998,097 asylum / 4,477,220 stateless, 212 countries); only the payload's fetchedAt timestamp moved. No source revision recorded; `week` and `updated` advanced so the freshness gate records the latest L1 day was absorbed ([[displacement-flows]]).
 - 2026-07-18 — daily-ingest synthesis (2026-W29): the 2026-07-16 and 2026-07-17 displacement-flows pulls both returned unchanged 2025 reference-year totals — 106,175,975 total forcibly displaced (64,239,352 IDPs / 28,461,306 refugees / 8,998,097 asylum / 4,477,220 stateless), 212 countries, largest origin-flow Syria ~2.35M. No source revision recorded across either cycle ([[displacement-flows]]).
 - 2026-07-15 — first Humanitarian Watch Weekly cycle (2026-W29): theme un-held (the hold was

@@ -3,7 +3,7 @@ title: Infrastructure Watch Weekly
 type: L2-brief
 theme: infrastructure-watch
 week: 2026-W30
-updated: 2026-07-21T09:00:00Z
+updated: 2026-07-22T09:00:00Z
 sources: [internet-outages]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -27,7 +27,7 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
   government-directed cause label — and **Cuba now holds 2 recorded events**, both
   attributed to nationwide power-grid failure, with single events recorded in Ukraine,
   Tanzania and Venezuela ([[internet-outages]]).
-- The feed was stable across the 2026-07-16 through 2026-07-20 pulls: no new events entered
+- The feed was stable across the 2026-07-16 through 2026-07-22 pulls: no new events entered
   or exited the active set in that window ([[internet-outages]]).
 
 ## Honest scope
@@ -53,6 +53,7 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 ## Changelog
 
+- 2026-07-22 — daily-ingest flowback (2026-W30): an honest flat cycle. The 07-21 and 07-22 Cloudflare Radar pulls held the active set byte-identical to 07-17 (9 outages — 6 nationwide / 3 regional; 4 government-directed, 4 power, 1 natural-disaster; Iraq 4, Cuba 2, plus single events in Ukraine, Tanzania and Venezuela) apart from the retrieval timestamp; no event entered or exited. `week` and `updated` advanced so the freshness gate records the latest L1 day was absorbed ([[internet-outages]]).
 - 2026-07-21 — daily-ingest flowback (2026-W30): an honest flat cycle. The 2026-07-18, 07-19 and 07-20 Cloudflare Radar pulls held the active set byte-identical to 07-17 (9 outages — 6 nationwide / 3 regional; 4 government-directed, 4 power, 1 natural-disaster; Iraq 4, Cuba 2) apart from the retrieval timestamp; no event entered or exited. `week` and `updated` advanced so the freshness gate records the latest L1 day was absorbed ([[internet-outages]]).
 - 2026-07-18 — daily-ingest synthesis (2026-W29): feed stable at 9 outages (6 nationwide / 3 regional; 4 government-directed, 4 power, 1 natural-disaster); net addition since 07-15 brief = cf-1637 (Cuba, nationwide power outage, total severity, detected 2026-07-15); Cuba moves from 1 to 2 recorded events; 07-16 and 07-17 pulls identical ([[internet-outages]]).
 - 2026-07-15 — first Infrastructure Watch Weekly cycle (2026-W29): theme un-held (the hold

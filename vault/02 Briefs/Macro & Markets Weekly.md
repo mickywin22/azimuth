@@ -3,7 +3,7 @@ title: Macro & Markets Weekly
 type: L2-brief
 theme: macro-markets
 week: 2026-W30
-updated: 2026-07-21T09:00:00Z
+updated: 2026-07-22T09:00:00Z
 sources: [crypto-quotes, world-bank-indicators]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -19,18 +19,18 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 ## This week at a glance
 
-- The CoinGecko-fed crypto channel quotes **10 major assets**, mixed and little-changed on the
-  07-20 pull: **Bitcoin recovered to $64,130 (−0.62%)** and **Ethereum to $1,861.78 (−0.30%)**
-  from the 07-17 lows, with Solana (+0.49%, $76.35), Avalanche (+0.21%) and Chainlink (+0.06%)
-  the day's only gainers and Cardano the largest recorded faller at **−1.37%** ($0.162452)
-  ([[crypto-quotes]]).
-- The full quoted panel as of the 2026-07-20 pull: BTC $64,130 (−0.62%) · ETH $1,861.78
-  (−0.30%) · BNB $565.93 (−0.24%) · SOL $76.35 (+0.49%) · XRP $1.088 (−0.61%) · ADA
-  $0.162452 (−1.37%) · DOGE $0.071882 (−0.87%) · TRX $0.32556 (−0.15%) · AVAX $6.51
-  (+0.21%) · LINK $8.34 (+0.06%) — venue-quoted prices and day-changes as published, with
+- The CoinGecko-fed crypto channel quotes **10 major assets**, broadly lower on the 07-22 pull
+  after a strong 07-21 up-day: **Bitcoin eased to $65,935 (−0.47%)** and **Ethereum to $1,919.39
+  (−1.05%)**, with only XRP (+0.07%, $1.13) and Tron (+0.74%) higher on the day and Avalanche the
+  largest recorded faller at **−2.16%** ($6.51); across the two-day cycle both majors sit net
+  higher than the 07-20 pull's $64,130 / $1,861.78 ([[crypto-quotes]]).
+- The full quoted panel as of the 2026-07-22 pull: BTC $65,935 (−0.47%) · ETH $1,919.39
+  (−1.05%) · BNB $569.61 (−1.37%) · SOL $77.31 (−1.39%) · XRP $1.13 (+0.07%) · ADA
+  $0.171951 (−1.76%) · DOGE $0.072413 (−1.55%) · TRX $0.328861 (+0.74%) · AVAX $6.51
+  (−2.16%) · LINK $8.61 (−1.23%) — venue-quoted prices and day-changes as published, with
   intraday sparkline series carried in the L1 note ([[crypto-quotes]]).
 - The World Bank indicators channel carried no new reporting this cycle; its payload
-  was empty on the 2026-07-20 pull and is held flat ([[world-bank-indicators]]).
+  was empty on the 2026-07-22 pull and is held flat ([[world-bank-indicators]]).
 
 ## Honest scope — one live channel of four
 
@@ -42,17 +42,24 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 ## Reading the week
 
-- A mixed, near-flat quoted day across the ten-asset panel on 07-20, with Bitcoin recovering
-  to $64,130 from the $62,740 print of 07-17. Seven assets sat marginally lower and three
-  (SOL, AVAX, LINK) marginally higher; the widest observed move was Cardano at −1.37%. These are
+- A two-step cycle: the 07-21 pull printed a broad rally — all ten assets green, Bitcoin to
+  $66,237 (+3.67%), Ethereum +4.54% and Cardano the day's top mover at +7.88% — before the 07-22
+  pull gave part of it back, eight of ten lower with Avalanche the widest faller at −2.16% and only
+  XRP and Tron higher. Net across the two days the panel sits above the 07-20 reading. These are
   the venue's numbers, not azimuth's view: no target, no direction call, no investment
   framing — the caution is the contract, not a disclaimer ([[crypto-quotes]]).
 - World Bank development indicators carried no new reporting this cycle; the endpoint
-  returned an empty data array on 2026-07-20 and the prior reading is unchanged
+  returned an empty data array on 2026-07-22 and the prior reading is unchanged
   ([[world-bank-indicators]]).
 
 ## Changelog
 
+- 2026-07-22 — daily-ingest synthesis (2026-W30): absorbed the 07-21 and 07-22 pulls — a two-step
+  crypto cycle. The 07-21 pull printed a broad rally (all 10 assets green, BTC $66,237 / +3.67%,
+  ETH +4.54%, ADA +7.88%); the 07-22 pull gave part of it back (8 of 10 lower, BTC $65,935 / −0.47%,
+  ETH $1,919.39 / −1.05%, AVAX the widest faller at −2.16%, only XRP and Tron higher), the panel net
+  higher than the 07-20 reading. world-bank-indicators held (empty payload, no new reporting).
+  Updated the at-a-glance and reading sections ([[crypto-quotes]], [[world-bank-indicators]]).
 - 2026-07-15 — first Macro & Markets Weekly cycle (2026-W29): theme un-held (the hold was
   ingest-pending; the crypto-quotes channel is API-ToS-cleared, surfaced, and carries 21
   committed L1 days; World Bank / tariff / consumer-price channels documented as empty or
