@@ -3,7 +3,7 @@ title: Environmental Hazards Weekly
 type: L2-brief
 theme: environmental-hazards
 week: 2026-W30
-updated: 2026-07-22T09:00:00Z
+updated: 2026-07-23T09:00:00Z
 sources: [wildfire-detections, thermal-escalations, natural-events, radiation-observations]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -16,7 +16,7 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 > environmental hazards — active-fire detections, clustered thermal anomalies, disaster
 > alerts and ambient-radiation readings — what the instruments recorded, never what will
 > happen, and never a position on any conflict the data sits near. Every claim links to the
-> L1 note it rests on. (This cycle absorbs the 2026-07-18 through 2026-07-20 ingests. The wildfire
+> L1 note it rests on. (This cycle absorbs the 2026-07-23 ingest. The wildfire
 > note renders the top 250 detections by fire radiative power, with the cap stated in the note
 > caption, so the active-fire figures below describe that strongest-fires subset rather than
 > the full multi-thousand-detection set — [[wildfire-detections]].)
@@ -24,83 +24,85 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 ## This week at a glance
 
 - Among the NASA FIRMS VIIRS feed's **top 250 active-fire detections by radiative power** (of
-  **4,592** in the endpoint), the feed's own per-detection region field attributes the subset
-  **Russia 243 / Iran 5 / Ukraine 2** — exact country counts, not eyeballed from coordinates
-  (0 rows unattributed) — the Russian detections falling across Siberia and the Far East, the
-  most energetic at ~59°N 85°E and ~67°N 164°E — with **peak FRP firming to ~404 MW** (from
-  ~282); zero `possibleExplosion` flags ([[wildfire-detections]]).
-- The FIRMS thermal-escalation feed clustered the window into **12 signals, all over Russia**
-  (from Russia 11 / Ukraine 1 the prior cycle), with status heating from **all-12-PERSISTENT
-  back to all-12-SPIKE**; all 12 remain conflict-adjacent and high-relevance; the largest cluster
-  reached **906 observations and 31,279 MW total FRP**; sharpest z-score 2.95
-  ([[thermal-escalations]]).
-- The GDACS / NASA EONET disaster feed narrowed to **21 active events** (from 30): 13 iceberg /
-  sea-lake-ice tracks, **3 tropical-cyclone entries** (Tropical Depression Two, Tropical Storm
-  Fausto, Tropical Storm Elida) plus one further severe-storm entry, **3 drought entries**
-  (Madagascar + Ethiopia/Kenya/Somalia + a multi-country European drought) and 1 earthquake
-  (Peru); the prior cycle's US wildfire entries dropped off the slate ([[natural-events]]).
-- Ambient radiation stayed at normal background everywhere measured: **11 observations** (10
-  US-EPA RadNet stations + 1 Safecast), up from 2 the prior cycle; **zero anomalies and zero
-  elevated readings**, values 24–74.3 nSv/h ([[radiation-observations]]).
+  **3,747** total in the endpoint), the feed's own per-detection region field attributes the
+  sample entirely to **Russia (250/250)** — exact count, not eyeballed from coordinates (0 rows
+  unattributed); the Siberian fire season is the dominant signal this pull
+  ([[wildfire-detections]]).
+- The FIRMS thermal-escalation feed clustered the 2026-07-23 window into **12 signals, all over
+  Russia** (all-12-Russia again, unchanged from the 07-21 cycle); all 12 carry the feed's own
+  narrativeFlags `[conflict_adjacent, spike, multi_source]` and status `THERMAL_STATUS_SPIKE`,
+  all 12 `THERMAL_RELEVANCE_HIGH`; the largest cluster reached **~24,449 MW total FRP** (max
+  brightness 367 K), the second **~20,905 MW**; sharpest z-score 32.08 ([[thermal-escalations]]).
+- The GDACS / NASA EONET disaster feed showed **21 open events**: 13 Sea and Lake Ice entries,
+  **3 Severe Storms**, **2 Tropical Cyclone entries** (one Atlantic tropical storm, one East
+  Pacific hurricane), plus drought entries for Madagascar, Ethiopia/Kenya/Somalia (Horn of Africa),
+  and a Europe-wide drought spanning approximately 25 countries ([[natural-events]]).
+- The prior cycle's single radiation anomaly **cleared**: anomalyCount and elevatedCount both
+  returned to 0; **11 observations** (10 US-EPA RadNet + 1 Safecast, Fukushima), all at normal
+  background severity, values 27–74.3 nSv/h ([[radiation-observations]]).
 
 ## Active fire — where the detections clustered
 
-- The top-250-by-FRP subset attributes — by each detection's own `region` field, deterministically
-  tallied — as **Russia 243 / Iran 5 / Ukraine 2** (0 unattributed); the Russian detections fall
-  across Siberia and the Far East, the two strongest at ~59°N 85°E (404 MW) and ~67°N 164°E
-  (179 MW). Peak FRP firmed to ~404 MW (from ~282 MW). The full endpoint returned 4,592 detections
-  (near the prior 4,693), so the top-250 subset remains the strongest fires only; the per-country
-  split above is exact for that strongest-fire subset, not the entire 4,592-detection set
-  ([[wildfire-detections]]).
+- The top-250-by-FRP sample attributes — by each detection's own `region` field, deterministically
+  tallied — as **Russia 250/250** (0 unattributed); the full endpoint returned **3,747 detections**
+  (pagination.totalCount), down from 4,592 the prior cycle. The 250-row surfaced subset is entirely
+  Russia, the feed's own `region` field on every row. The Siberian fire season drives the dominant
+  signal across Siberia and the Far East ([[wildfire-detections]]).
 - azimuth caps this L1 note to the top 250 detections by FRP — the strongest, most energetic
-  fires — because the endpoint returns the full detection set (4,592 this pull) and ignores
+  fires — because the endpoint returns the full detection set (3,747 this pull) and ignores
   limit parameters; the cap is recorded in the note's own caption so the truncation is never
-  silent, and the full set remains at the source endpoint. The coordinates above describe the
-  strongest-fire subset, not the entire detection count ([[wildfire-detections]]).
+  silent, and the full set remains at the source endpoint. The country split above is exact for
+  that strongest-fire subset, not the entire 3,747-detection set ([[wildfire-detections]]).
 
 ## Thermal escalations — the clustered signal
 
-- The 12 thermal-escalation clusters all fell over **Russia** this cycle (from Russia 11 /
-  Ukraine 1 the prior cycle), and the status mix heated: **all 12 now classed `SPIKE`** (from
-  all-12-`PERSISTENT` the prior cycle; none elevated, normal or persistent). The largest cluster
-  carried **906 observations and 31,279 MW total FRP** — a sharp jump from the prior 248 / 8,379;
-  the sharpest baseline departure was a z-score of 2.95 across the 12 clusters
+- The 12 thermal-escalation clusters all fell over **Russia** this cycle (all-12-Russia,
+  unchanged from the 07-21 cycle); all 12 carry status `THERMAL_STATUS_SPIKE` and
+  `THERMAL_RELEVANCE_HIGH`. The two largest clusters recorded total FRP of **~24,449 MW** (795
+  observations, centroid ~68.4°N 156.6°E, z-score 3.8) and **~20,905 MW** (785 observations,
+  centroid ~66.7°N 164.5°E), both with maxBrightness 367 K. Next-ranked clusters: ~3,933 MW,
+  ~1,449 MW, ~1,136 MW. The sharpest z-score across the 12 was 32.08 (cluster ~66.5°N 141.8°E,
+  79 observations, ~1,136 MW total FRP) ([[thermal-escalations]]).
+- The feed's own narrativeFlags on all 12 clusters are `[conflict_adjacent, spike, multi_source]`
+  (four clusters additionally carry `above_baseline`). azimuth reports those flag values as the
+  observed feed output and takes no position on them — a thermal cluster is a measured radiance
+  aggregate, and the L2 line stops at what was detected, where, and how hot
   ([[thermal-escalations]]).
-- The feed's own geospatial tagging again marked all 12 clusters `conflict-adjacent` and all 12
-  high-relevance this cycle. azimuth reports those classifications as the observed feed output and
-  takes no position on them — a thermal anomaly is a measured radiance, and the L2 line stops at
-  what was detected, where, and how hot ([[thermal-escalations]]).
 
 ## Disaster alerts and radiation
 
-- The GDACS/EONET disaster slate narrowed to **21 active events** (from 30 the prior cycle): 13
-  iceberg / sea-lake-ice tracks (the Antarctic-iceberg series, unchanged); **3 tropical-cyclone
-  entries** — Tropical Depression Two (Atlantic), Tropical Storm Fausto and Tropical Storm Elida
-  (eastern Pacific), with one duplicate Elida title carried as a further severe-storm entry;
-  **3 drought entries** — Madagascar, Ethiopia/Kenya/Somalia and a large multi-country European
-  drought spanning Germany, France, Spain, Poland and others; and 1 earthquake entry (Peru). The
-  prior cycle's 10 US wildfire entries dropped off the EONET slate this cycle ([[natural-events]]).
-- Radiation observations rose from 2 (07-17) to **11 this pull** (10 US-EPA RadNet stations —
-  Albany, Honolulu, Houston, Seattle, Chicago, Washington DC and others — plus 1 Safecast
-  reading); all sat in the normal background band, the feed's anomaly, elevated and spike counts
-  all at zero, and the value range was 24–74.3 nSv/h — nothing out of the ordinary was measured
-  ([[radiation-observations]]).
+- The GDACS/EONET disaster slate held at **21 open events** (unchanged in count from the 07-21
+  cycle): 13 Sea and Lake Ice entries; **3 Severe Storm entries**; **2 Tropical Cyclone entries**
+  — one Atlantic tropical storm and one East Pacific hurricane (the feed's own category labels);
+  and **drought entries** — Madagascar, Ethiopia/Kenya/Somalia (Horn of Africa), and a Europe-wide
+  drought the feed attributes to approximately 25 countries ([[natural-events]]).
+- Radiation observations this pull: **11 readings** (10 US-EPA RadNet stations — Houston,
+  Philadelphia, Boston, San Francisco, Albany, Anchorage, Honolulu, Chicago, Seattle, Washington
+  DC — plus 1 Safecast reading, Fukushima, Japan). The feed's anomalyCount and elevatedCount both
+  returned to **0** (from anomalyCount 1 / elevatedCount 1 the prior cycle); spikeCount 0,
+  conflictingCount 0. The value range across all 11 readings was 27–74.3 nSv/h, all classed
+  `RADIATION_SEVERITY_NORMAL`. The prior cycle's single anomaly has cleared; all readings are at
+  baseline ([[radiation-observations]]).
 
 ## Reading the week
 
-- The 07-18→07-20 window saw movement across all four feeds. The strongest-fire subset stayed
-  concentrated over Russia — the top-250 detection coordinates cluster in Siberian and Far-East
-  boreal fires, peak FRP firming to ~404 MW while the full endpoint held near 4,592 detections
-  ([[wildfire-detections]]). The thermal-escalation picture heated and re-consolidated: all 12
-  clusters fell over Russia (from Russia 11 / Ukraine 1) and status moved from all-12-PERSISTENT
-  back to all-12-SPIKE, the largest cluster jumping to 906 observations and 31,279 MW total FRP;
-  all 12 remain conflict-adjacent and high-relevance ([[thermal-escalations]]). The disaster feed
-  narrowed to 21 events as the prior cycle's US wildfire entries dropped off, leaving 13 iceberg
-  tracks, three tropical cyclones (Fausto, Elida, Tropical Depression Two), three droughts and a
-  Peru earthquake ([[natural-events]]). Radiation coverage widened back to 11 readings (from 2),
-  all entirely normal ([[radiation-observations]]). azimuth records the detections, the cluster
-  statuses, the alert categories and the sensor values, links each to its L1 note, and stops
-  there — what the satellites and stations measured, not what may follow ([[wildfire-detections]],
+- The 2026-07-23 pull shows the Russian Siberian fire season as the sole signal in the
+  strongest-fire sample: the top-250-by-FRP detections are attributed entirely to Russia by the
+  feed's own `region` field, out of a full endpoint of **3,747 detections** (down from 4,592 the
+  prior cycle) ([[wildfire-detections]]). The thermal-escalation picture held its all-Russia,
+  all-SPIKE shape: 12 clusters, all carrying the feed's narrativeFlags `[conflict_adjacent, spike,
+  multi_source]`, the two largest recording ~24,449 MW and ~20,905 MW total FRP — a change in
+  distribution from the prior cycle's single dominant cluster at 906 observations / 31,279 MW,
+  now split across two large clusters with 795 and 785 observations; sharpest z-score 32.08
+  ([[thermal-escalations]]). The disaster slate held at 21 events — 13 Sea and Lake Ice, 3 Severe
+  Storms, 2 Tropical Cyclones (one Atlantic tropical storm, one East Pacific hurricane), and three
+  drought entries (Madagascar, Horn of Africa, Europe-wide) — the composition shifting from the
+  prior cycle's Peru earthquake and named-cyclone trio ([[natural-events]]). The radiation picture
+  clarified: the prior cycle's single anomaly cleared, anomalyCount and elevatedCount returned to
+  0, all 11 readings (10 EPA RadNet + 1 Safecast Fukushima) at normal background 27–74.3 nSv/h
+  ([[radiation-observations]]). azimuth records the detections, the cluster statuses, the alert
+  categories and the sensor values, links each to its L1 note, and stops there — what the
+  satellites and stations measured, not what may follow ([[wildfire-detections]],
   [[thermal-escalations]], [[natural-events]], [[radiation-observations]]).
 
 ## Changelog
@@ -171,3 +173,4 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 - 2026-07-18 — daily-ingest synthesis (2026-W29): absorbed the 2026-07-16 and 2026-07-17 ingests. Active-fire top-250 diversified: Russia eased from 246 to 143; Iran entered at 46, Saudi Arabia and Turkey each at 19, Ukraine rose to 13, Syria 9, Israel/Gaza 1; max FRP eased to ~282 MW; full endpoint jumped from 793 to 4,693 detections. Thermal clusters shifted to Russia 11 / Ukraine 1 (from Ukraine 7 / Russia 5) and status moved from all-12-SPIKE to all-12-PERSISTENT; largest cluster 248 obs / 8,379 MW total FRP, max z-score 4.69. Natural events grew from 20 to 30: wildfire entries surged from 1 to 10 (US fires), drought entries rose to 3, Mayon volcano added, iceberg series held at 13 tracks, severe storms fell to 2. Radiation observations narrowed from 11 to 2 (Houston EPA + Fukushima Safecast), all normal, 36–74.3 nSv/h ([[wildfire-detections]], [[thermal-escalations]], [[natural-events]], [[radiation-observations]]).
 - 2026-07-21 — daily-ingest synthesis (2026-W30): absorbed the 07-18 through 07-20 ingests. Active-fire top-250 stayed concentrated over Russia (Siberia/Far East by detection coordinates), peak FRP firming to ~404 MW on a 4,592-detection full set. Thermal clusters re-consolidated to all-12-Russia and heated from all-12-PERSISTENT back to all-12-SPIKE, all conflict-adjacent and high-relevance, largest cluster 906 obs / 31,279 MW total FRP, sharpest z 2.95. Natural events narrowed from 30 to 21 as the US wildfire entries dropped off — 13 iceberg tracks, 3 tropical cyclones (Fausto, Elida, TD Two), 3 droughts, 1 Peru earthquake. Radiation widened back to 11 observations (10 EPA + 1 Safecast), all normal, 24–74.3 nSv/h ([[wildfire-detections]], [[thermal-escalations]], [[natural-events]], [[radiation-observations]]).
 - 2026-07-22 — attribution fix (IQ #1161): the active-fire top-250 country split is now stated as **exact per-country counts** (Russia 243 / Iran 5 / Ukraine 2, 0 unattributed) read from each detection's own `region` field (deterministic tally, `synthesis/fire_geo.country_tally`), replacing the eyeballed-from-coordinates "almost entirely Russia"; the FIRMS feed already ships `region` on every row, so no coordinate reverse-geocode is needed ([[wildfire-detections]]).
+- 2026-07-23 — daily-ingest synthesis (2026-W30): active-fire top-250 sample re-concentrated to Russia 250/250 (from 243/5/2) on a smaller full set of 3,747 detections (from 4,592); Siberian fire season dominant. Thermal clusters held all-12-Russia all-SPIKE, FRP distribution shifted from one 31,279 MW dominant cluster to two large clusters at ~24,449 MW and ~20,905 MW (795 and 785 obs), sharpest z-score 32.08. Natural events held at 21 but composition shifted: Peru earthquake and named-cyclone trio replaced by 2 Tropical Cyclone entries (one Atlantic tropical storm, one East Pacific hurricane), 3 Severe Storms, 13 Sea and Lake Ice, 3 droughts (Madagascar, Horn of Africa, Europe-wide ~25 countries). Radiation anomaly cleared: anomalyCount and elevatedCount both 0 (from 1/1 prior cycle); all 11 readings normal 27–74.3 nSv/h ([[wildfire-detections]], [[thermal-escalations]], [[natural-events]], [[radiation-observations]]).

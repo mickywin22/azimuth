@@ -7,20 +7,20 @@ weekly (see its `## Changelog`). All content is CC-BY-4.0; see `../../CREDITS.md
 | Brief | Theme | Week | Last updated | L1 sources |
 | --- | --- | --- | --- | --- |
 | [Benchmark — Facts vs Forecast vs Intelligence](<Benchmark.md>) | cross-theme | 2026-W30 | 2026-07-23T04:00:00Z | [crude-oil-inventories, earthquakes, energy-prices, natural-gas-storage-eu] |
-| [Climate Signals Weekly](<Climate Signals Weekly.md>) | climate-signals | 2026-W30 | 2026-07-21T09:00:00Z | [climate-anomalies, co2-monitoring, sea-ice-extent] |
-| [Conflict Watch Weekly](<Conflict Watch Weekly.md>) | conflict-watch | 2026-W30 | 2026-07-21T09:00:00Z | [conflict-events-ucdp] |
-| [Cyber Watch Weekly](<Cyber Watch Weekly.md>) | cyber-watch | 2026-W30 | 2026-07-21T09:00:00Z | [cyber-threats] |
-| [Energy Supply Weekly](<Energy Supply Weekly.md>) | energy-supply | 2026-W30 | 2026-07-21T09:00:00Z | [natural-gas-storage-eu, crude-oil-inventories, fuel-prices, energy-prices] |
-| [Environmental Hazards Weekly](<Environmental Hazards Weekly.md>) | environmental-hazards | 2026-W30 | 2026-07-22T09:00:00Z | [wildfire-detections, thermal-escalations, natural-events, radiation-observations] |
-| [Geophysical Weekly](<Geophysical Weekly.md>) | geophysical | 2026-W30 | 2026-07-21T09:00:00Z | [earthquakes] |
-| [Humanitarian Watch Weekly](<Humanitarian Watch Weekly.md>) | humanitarian | 2026-W30 | 2026-07-21T09:00:00Z | [displacement-flows] |
-| [Infrastructure Watch Weekly](<Infrastructure Watch Weekly.md>) | infrastructure-watch | 2026-W30 | 2026-07-21T09:00:00Z | [internet-outages] |
-| [Macro & Markets Weekly](<Macro & Markets Weekly.md>) | macro-markets | 2026-W30 | 2026-07-21T09:00:00Z | [crypto-quotes, world-bank-indicators] |
-| [Orbital Watch Weekly](<Orbital Watch Weekly.md>) | orbital-watch | 2026-W30 | 2026-07-21T09:00:00Z | [orbital-satellites] |
-| [Prediction Markets Weekly](<Prediction Markets Weekly.md>) | prediction-markets | 2026-W30 | 2026-07-21T09:00:00Z | [prediction-markets] |
-| [Public Health Weekly](<Public Health Weekly.md>) | public-health | 2026-W30 | 2026-07-21T09:00:00Z | [disease-outbreaks] |
-| [Top5 Answers](<Top5 Answers.md>) | cross-theme | 2026-W30 | 2026-07-21T04:00:00Z | [co2-monitoring, conflict-events-ucdp, crude-oil-inventories, disease-outbreaks, displacement-flows, earthquakes, energy-prices, fuel-prices, natural-events, natural-gas-storage-eu, radiation-observations, thermal-escalations, wildfire-detections] |
-| [World Watch Weekly](<World Watch Weekly.md>) | cross-theme | 2026-W30 | 2026-07-21T04:00:00Z | [climate-anomalies, co2-monitoring, conflict-events-ucdp, crude-oil-inventories, crypto-quotes, cyber-threats, disease-outbreaks, displacement-flows, earthquakes, energy-prices, fuel-prices, internet-outages, natural-events, natural-gas-storage-eu, orbital-satellites, prediction-markets, radiation-observations, sea-ice-extent, thermal-escalations, wildfire-detections, world-bank-indicators] |
+| [Climate Signals Weekly](<Climate Signals Weekly.md>) | climate-signals | 2026-W30 | 2026-07-23T09:00:00Z | [climate-anomalies, co2-monitoring, sea-ice-extent] |
+| [Conflict Watch Weekly](<Conflict Watch Weekly.md>) | conflict-watch | 2026-W30 | 2026-07-23T09:00:00Z | [conflict-events-ucdp] |
+| [Cyber Watch Weekly](<Cyber Watch Weekly.md>) | cyber-watch | 2026-W30 | 2026-07-23T09:00:00Z | [cyber-threats] |
+| [Energy Supply Weekly](<Energy Supply Weekly.md>) | energy-supply | 2026-W30 | 2026-07-23T09:00:00Z | [natural-gas-storage-eu, crude-oil-inventories, fuel-prices, energy-prices] |
+| [Environmental Hazards Weekly](<Environmental Hazards Weekly.md>) | environmental-hazards | 2026-W30 | 2026-07-23T09:00:00Z | [wildfire-detections, thermal-escalations, natural-events, radiation-observations] |
+| [Geophysical Weekly](<Geophysical Weekly.md>) | geophysical | 2026-W30 | 2026-07-23T09:00:00Z | [earthquakes] |
+| [Humanitarian Watch Weekly](<Humanitarian Watch Weekly.md>) | humanitarian | 2026-W30 | 2026-07-23T09:00:00Z | [displacement-flows] |
+| [Infrastructure Watch Weekly](<Infrastructure Watch Weekly.md>) | infrastructure-watch | 2026-W30 | 2026-07-23T09:00:00Z | [internet-outages] |
+| [Macro & Markets Weekly](<Macro & Markets Weekly.md>) | macro-markets | 2026-W30 | 2026-07-23T09:00:00Z | [crypto-quotes, world-bank-indicators] |
+| [Orbital Watch Weekly](<Orbital Watch Weekly.md>) | orbital-watch | 2026-W30 | 2026-07-23T09:00:00Z | [orbital-satellites] |
+| [Prediction Markets Weekly](<Prediction Markets Weekly.md>) | prediction-markets | 2026-W30 | 2026-07-23T09:00:00Z | [prediction-markets] |
+| [Public Health Weekly](<Public Health Weekly.md>) | public-health | 2026-W30 | 2026-07-23T09:00:00Z | [disease-outbreaks] |
+| [Top5 Answers](<Top5 Answers.md>) | cross-theme | 2026-W30 | 2026-07-23T04:00:00Z | [co2-monitoring, conflict-events-ucdp, crude-oil-inventories, disease-outbreaks, displacement-flows, earthquakes, energy-prices, fuel-prices, natural-events, natural-gas-storage-eu, radiation-observations, thermal-escalations, wildfire-detections] |
+| [World Watch Weekly](<World Watch Weekly.md>) | cross-theme | 2026-W30 | 2026-07-23T04:00:00Z | [climate-anomalies, co2-monitoring, conflict-events-ucdp, crude-oil-inventories, crypto-quotes, cyber-threats, disease-outbreaks, displacement-flows, earthquakes, energy-prices, fuel-prices, internet-outages, natural-events, natural-gas-storage-eu, orbital-satellites, prediction-markets, radiation-observations, sea-ice-extent, thermal-escalations, wildfire-detections, world-bank-indicators] |
 
 ## Surfaced themes with a held brief
 
