@@ -998,7 +998,6 @@
       "entity_kind": "region",
       "theme": "shared",
       "themes": [
-        "cyber-watch",
         "energy-supply",
         "environmental-hazards",
         "humanitarian"
@@ -1288,7 +1287,8 @@
       "theme": "shared",
       "themes": [
         "climate-signals",
-        "energy-supply"
+        "energy-supply",
+        "environmental-hazards"
       ],
       "evidence": [
         {
@@ -1313,7 +1313,6 @@
       "theme": "shared",
       "themes": [
         "conflict-watch",
-        "cyber-watch",
         "environmental-hazards",
         "geophysical",
         "prediction-markets",
@@ -3038,13 +3037,6 @@
     },
     {
       "source": "entity:romania",
-      "target": "brief:cyber-watch-weekly",
-      "cross_theme": true,
-      "rel": "mentioned-in",
-      "weight": 0
-    },
-    {
-      "source": "entity:romania",
       "target": "brief:energy-supply-weekly",
       "cross_theme": true,
       "rel": "mentioned-in",
@@ -3421,6 +3413,13 @@
       "rel": "named-in"
     },
     {
+      "source": "entity:europe",
+      "target": "brief:environmental-hazards-weekly",
+      "cross_theme": true,
+      "rel": "mentioned-in",
+      "weight": 0
+    },
+    {
       "source": "entity:russia",
       "target": "brief:conflict-watch-weekly",
       "cross_theme": true,
@@ -3432,13 +3431,6 @@
       "target": "source:conflict-events-ucdp",
       "cross_theme": false,
       "rel": "named-in"
-    },
-    {
-      "source": "entity:russia",
-      "target": "brief:cyber-watch-weekly",
-      "cross_theme": true,
-      "rel": "mentioned-in",
-      "weight": 0
     },
     {
       "source": "entity:russia",
