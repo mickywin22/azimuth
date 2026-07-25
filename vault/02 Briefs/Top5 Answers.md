@@ -3,7 +3,7 @@ title: Top5 Answers
 type: L2-brief
 theme: cross-theme
 week: 2026-W30
-updated: 2026-07-23T04:00:00Z
+updated: 2026-07-24T04:00:00Z
 sources: [co2-monitoring, conflict-events-ucdp, crude-oil-inventories, disease-outbreaks, displacement-flows, earthquakes, energy-prices, fuel-prices, natural-events, natural-gas-storage-eu, radiation-observations, thermal-escalations, wildfire-detections]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -18,7 +18,7 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 > **Channels:** EU gas storage + US crude inventories + Energy prices · **Serves:** Energy / policy desk — a one-glance supply-health read across the physical balances and the price tape.
 
 - **Verdict — the data leans well-supplied, not fragile.** Storage is filling and spot crude eased, while the multi-week US crude draw is the single signal to watch; azimuth states what the feeds show, not a safety call ([[natural-gas-storage-eu]], [[crude-oil-inventories]], [[energy-prices]])
-- **EU gas storage is building** — 3,024 Bcf as of 2026-07-10, +41 Bcf week-on-week, extending the injection run to 8 straight weeks ([[natural-gas-storage-eu]])
+- **EU gas storage is building** — 3,056 Bcf as of 2026-07-17, +32 Bcf week-on-week, extending the injection run to 8 straight weeks ([[natural-gas-storage-eu]])
 - **US crude inventories drew down** -3,047 (EIA week of 2026-07-17) to 723,122 — the 8th straight weekly draw, the one tightening signal in the picture ([[crude-oil-inventories]])
 - **Spot crude eased** this week — WTI $80.77/bbl (+11.8), Brent $82.93/bbl (+13.1) on the reported week-on-week change, so the price tape is not signalling scarcity ([[energy-prices]])
 
@@ -34,7 +34,7 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 > **Channels:** Geophysical + Energy supply · **Serves:** Risk & humanitarian desk — a fast, non-alarmist read of whether a seismic week actually touched the energy map.
 
-- **Largest recorded event:** M7.3 58 km WSW of Puerto Madero, Mexico — one of 59 events at or above M5 USGS logged this week ([[earthquakes]])
+- **Largest recorded event:** M7.3 58 km WSW of Puerto Madero, Mexico — one of 54 events at or above M5 USGS logged this week ([[earthquakes]])
 - **No observed reach into energy infrastructure.** The week's quakes cluster away from the physical energy-supply core (US crude inventories, EU gas storage) and from the fuel-reporting countries — the data shows seismicity and the energy balances did not intersect this week ([[earthquakes]], [[crude-oil-inventories]])
 - azimuth reports what USGS RECORDED, never what may happen next — a sourced 'no significant overlap' is the honest, efficient answer when that is what the week's data shows ([[earthquakes]])
 
@@ -73,3 +73,4 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 - 2026-07-20 — regenerated TOP5 demonstrator answers from the 2026-07-20 live bundle (2026-W30); 5 cross-channel answers, every claim L1-sourced.
 - 2026-07-21 — regenerated TOP5 demonstrator answers from the 2026-07-21 live bundle (2026-W30); 5 cross-channel answers, every claim L1-sourced.
 - 2026-07-23 — regenerated TOP5 demonstrator answers from the 2026-07-23 live bundle (2026-W30); 5 cross-channel answers, every claim L1-sourced.
+- 2026-07-24 — regenerated TOP5 demonstrator answers from the 2026-07-24 live bundle (2026-W30); 5 cross-channel answers, every claim L1-sourced.
