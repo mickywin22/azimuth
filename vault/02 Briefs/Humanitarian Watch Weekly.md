@@ -3,7 +3,7 @@ title: Humanitarian Watch Weekly
 type: L2-brief
 theme: humanitarian
 week: 2026-W30
-updated: 2026-07-24T09:00:00Z
+updated: 2026-07-25T09:00:00Z
 sources: [displacement-flows]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -15,7 +15,7 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 > fleet role evolves this single note in place each cycle. azimuth reports **recorded
 > displacement statistics** — a refugee or IDP population count is an observed figure
 > published by UNHCR / UN OCHA — and never assigns cause-blame or projects flows. Every claim
-> links to the L1 note it rests on. Data as of the **2026-07-24T08:39:11Z** pull.
+> links to the L1 note it rests on. Data as of the **2026-07-25T08:20:59Z** pull.
 
 ## This week at a glance
 
@@ -32,7 +32,7 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
   (refugees 2,671,560 / asylum-seekers 270,007), **South Sudan** (refugees 2,386,499 / IDPs
   1,277,527) and **Myanmar** (refugees 1,524,378 / IDPs 3,628,840) — figures as the source
   publishes them ([[displacement-flows]]).
-- The 2026-07-24 pull confirmed the **global aggregate totals held flat** (106,175,975 total /
+- The 2026-07-25 pull confirmed the **global aggregate totals held flat** (106,175,975 total /
   64,239,352 IDPs / 28,461,306 refugees / 8,998,097 asylum seekers / 4,477,220 stateless)
   — no revision to the 2025 reference-year headline was recorded ([[displacement-flows]]).
 
@@ -42,9 +42,9 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
   periodic revisions — so week-on-week this brief typically holds flat and moves when the
   source revises or rolls the year. The weekly cycle records that heartbeat honestly: a flat
   week is the source being stable, not the brief being stale ([[displacement-flows]]).
-- The 07-16 through 07-24 ingest cycles each confirmed the same aggregate totals
+- The 07-16 through 07-25 ingest cycles each confirmed the same aggregate totals
   (106,175,975 total / 64,239,352 IDPs / 28,461,306 refugees / 8,998,097 asylum seekers /
-  4,477,220 stateless), consistent with the annual-snapshot cadence. The 2026-07-24 pull
+  4,477,220 stateless), consistent with the annual-snapshot cadence. The 2026-07-25 pull
   extended this run without revision ([[displacement-flows]]).
 
 ## Reading the week
@@ -61,12 +61,13 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
   records no IDP figure in the published data but carries 2,671,560 refugees and 270,007
   asylum-seekers. These are recorded stocks as the source publishes them; no move since the
   prior published year is implied ([[displacement-flows]]).
-- The global aggregate totals held flat across the full W30 window (07-16 through 07-24),
+- The global aggregate totals held flat across the full W30 window (07-16 through 07-25),
   consistent with the annual-snapshot cadence of UNHCR/OCHA publishing. The per-country
-  detail rows above reflect the source as ingested on 2026-07-24 ([[displacement-flows]]).
+  detail rows above reflect the source as ingested on 2026-07-25 ([[displacement-flows]]).
 
 ## Changelog
 
+- 2026-07-25 — daily-ingest synthesis (2026-W30): no fresh print — 2026-07-25 pull (08:20:59Z) returned unchanged 2025 reference-year totals (106,175,975 total / 64,239,352 IDPs / 28,461,306 refugees / 8,998,097 asylum / 4,477,220 stateless); all 50 top-flow corridors and all 212 per-country figures identical to 07-24; `updated` and pull timestamp advanced, W30 flat-run extended to 07-25 ([[displacement-flows]]).
 - 2026-07-24 — daily-ingest synthesis (2026-W30): no fresh print — 2026-07-24 pull returned unchanged 2025 reference-year totals (106,175,975 total / 64,239,352 IDPs / 28,461,306 refugees / 8,998,097 asylum / 4,477,220 stateless); values carried, `updated` and pull timestamp advanced, W30 flat-run extended to 07-24 ([[displacement-flows]]).
 - 2026-07-23 — daily-ingest synthesis (2026-W30): global aggregate held flat (106,175,975 / 64,239,352 IDPs / 28,461,306 refugees / 8,998,097 asylum / 4,477,220 stateless); at-a-glance and reading-the-week deepened with 2026-07-23 per-country stocks — Sudan IDP 9,139,309 (largest in set), Ukraine refugees 5,224,131, Syria refugees 4,865,764 / IDPs 5,542,227, Myanmar IDPs 3,628,840, South Sudan refugees 2,386,499, Afghanistan refugees 2,671,560 ([[displacement-flows]]).
 - 2026-07-21 — daily-ingest flowback (2026-W30): an honest flat cycle. The 2026-07-18, 07-19 and 07-20 displacement-flows pulls each returned the unchanged 2025 reference-year totals (106,175,975 total forcibly displaced — 64,239,352 IDPs / 28,461,306 refugees / 8,998,097 asylum / 4,477,220 stateless, 212 countries); only the payload's fetchedAt timestamp moved. No source revision recorded; `week` and `updated` advanced so the freshness gate records the latest L1 day was absorbed ([[displacement-flows]]).

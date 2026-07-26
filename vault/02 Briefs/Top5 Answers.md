@@ -3,7 +3,7 @@ title: Top5 Answers
 type: L2-brief
 theme: cross-theme
 week: 2026-W30
-updated: 2026-07-24T04:00:00Z
+updated: 2026-07-25T04:00:00Z
 sources: [co2-monitoring, conflict-events-ucdp, crude-oil-inventories, disease-outbreaks, displacement-flows, earthquakes, energy-prices, fuel-prices, natural-events, natural-gas-storage-eu, radiation-observations, thermal-escalations, wildfire-detections]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -34,7 +34,7 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 > **Channels:** Geophysical + Energy supply · **Serves:** Risk & humanitarian desk — a fast, non-alarmist read of whether a seismic week actually touched the energy map.
 
-- **Largest recorded event:** M7.3 58 km WSW of Puerto Madero, Mexico — one of 54 events at or above M5 USGS logged this week ([[earthquakes]])
+- **Largest recorded event:** M6 82 km W of Sola, Vanuatu — one of 44 events at or above M5 USGS logged this week ([[earthquakes]])
 - **No observed reach into energy infrastructure.** The week's quakes cluster away from the physical energy-supply core (US crude inventories, EU gas storage) and from the fuel-reporting countries — the data shows seismicity and the energy balances did not intersect this week ([[earthquakes]], [[crude-oil-inventories]])
 - azimuth reports what USGS RECORDED, never what may happen next — a sourced 'no significant overlap' is the honest, efficient answer when that is what the week's data shows ([[earthquakes]])
 
@@ -44,7 +44,7 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 - **Biggest move: Brent Crude Oil, +18.8% week-on-week** — the largest swing across the quantitative energy series this week ([[energy-prices]])
 - **What it connects to:** the move sits inside the inventories-vs-price loop — US crude drew down while spot prices eased, so the headline swing reflects demand-side repricing rippling from the spot tape into the physical balances and on to pump prices ([[crude-oil-inventories]], [[energy-prices]], [[fuel-prices]])
-- **The slow-moving record:** atmospheric CO2 stands at 428.76 ppm (Mauna Loa, 2.85 ppm/yr) — not a weekly 'shift' but the baseline every energy story is told against; the demonstrator flags it as a different time-scale, not the week's headline ([[co2-monitoring]])
+- **The slow-moving record:** atmospheric CO2 stands at 429.16 ppm (Mauna Loa, 2.85 ppm/yr) — not a weekly 'shift' but the baseline every energy story is told against; the demonstrator flags it as a different time-scale, not the week's headline ([[co2-monitoring]])
 
 ## Q5 — Show me everything that connects a given region or commodity across the data.
 
@@ -74,3 +74,4 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 - 2026-07-21 — regenerated TOP5 demonstrator answers from the 2026-07-21 live bundle (2026-W30); 5 cross-channel answers, every claim L1-sourced.
 - 2026-07-23 — regenerated TOP5 demonstrator answers from the 2026-07-23 live bundle (2026-W30); 5 cross-channel answers, every claim L1-sourced.
 - 2026-07-24 — regenerated TOP5 demonstrator answers from the 2026-07-24 live bundle (2026-W30); 5 cross-channel answers, every claim L1-sourced.
+- 2026-07-25 — regenerated TOP5 demonstrator answers from the 2026-07-25 live bundle (2026-W30); 5 cross-channel answers, every claim L1-sourced.

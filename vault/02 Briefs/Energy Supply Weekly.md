@@ -3,7 +3,7 @@ title: Energy Supply Weekly
 type: L2-brief
 theme: energy-supply
 week: 2026-W30
-updated: 2026-07-24T09:00:00Z
+updated: 2026-07-25T09:00:00Z
 sources: [natural-gas-storage-eu, crude-oil-inventories, fuel-prices, energy-prices]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -14,9 +14,10 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 > Synthesised from the week's L1 source notes under `../01 Sources/`. The `azimuth-curator`
 > fleet role evolves this single note in place each week — it deepens this brief and appends
 > a dated `## Changelog` line rather than forking a new file. Every claim links to the L1
-> note it rests on. (This cycle absorbs the 2026-07-24 daily ingest: a two-feed movement
-> cycle — EU gas storage advanced a fresh reporting week and the road-fuel panel moved to
-> 2026-07-13 observations, while crude inventories and spot benchmarks carried no new data.)
+> note it rests on. (The 2026-07-25 daily ingest is byte-identical to the 2026-07-24 pull
+> across all four feeds — the figures below carry from the 2026-07-24 movement cycle, when EU
+> gas storage advanced a fresh reporting week and the road-fuel panel moved to 2026-07-13
+> observations while crude inventories and spot benchmarks held.)
 
 ## This week at a glance
 
@@ -195,3 +196,11 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
   the at-a-glance, inventory, price and reading sections around the symmetrical 14-build / 14-draw
   milestone and the pump catching up to the upstream rally ([[natural-gas-storage-eu]],
   [[fuel-prices]], [[crude-oil-inventories]], [[energy-prices]]).
+- 2026-07-25 — daily-ingest flowback (2026-W30): an honest flat cycle. The 2026-07-25
+  WorldMonitor pull carried no new data in any of the four feeds — EU gas storage (3,056 Bcf,
+  week ending 2026-07-17), US crude inventories (723.1 Mb, week ending 2026-07-17), the spot
+  crude benchmarks (WTI $80.77 / Brent $82.93) and the road-fuel panel (2026-07-13 observations)
+  were byte-identical to the 2026-07-24 ingest apart from the retrieval timestamp. Figures held
+  with no fabricated movement; `updated` advanced so the freshness gate records the latest L1 day
+  was absorbed ([[natural-gas-storage-eu]], [[crude-oil-inventories]], [[energy-prices]],
+  [[fuel-prices]]).
