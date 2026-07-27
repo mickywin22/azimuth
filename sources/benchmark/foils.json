@@ -2,56 +2,56 @@
   "$note": "Captured snapshot of the COMPARED forecast/intelligence product for the azimuth benchmark (synthesis/benchmark.py). Quoted by product + capture date; NOT surfaced as an azimuth channel and NOT an L1 source. Refresh with pull_benchmark_foils.py.",
   "endpoint": "/api/forecast/v1/get-forecasts",
   "attribution": "WorldMonitor (api.worldmonitor.app) — model-generated forecast/assessment product",
-  "feed_generated_at": 1785053030275,
+  "feed_generated_at": 1785146565148,
   "feed_degraded": false,
-  "captured_at": "2026-07-26T08:37:57Z",
+  "captured_at": "2026-07-27T10:06:36Z",
   "n_forecasts_seen": 14,
   "topics": {
     "energy-supply": {
       "foil": {
-        "id": "fc-market-3b03eb86",
+        "id": "fc-market-7d51445e",
         "domain": "market",
-        "region": "Middle East",
-        "title": "Oil price impact from Strait of Hormuz disruption",
-        "probability": 0.4,
-        "prior_probability": 0.4,
-        "confidence": 0.583,
+        "region": "Strait of Hormuz",
+        "title": "Inflation and rates pressure from Strait of Hormuz maritime disruption state",
+        "probability": 0.556,
+        "prior_probability": 0.56,
+        "confidence": 0.75,
         "time_horizon": "30d",
         "trend": "stable",
         "projections": {
-          "d30": 0.168,
-          "d7": 0.232,
-          "h24": 0.4
+          "d30": 0.234,
+          "d7": 0.322,
+          "h24": 0.556
         },
-        "scenario_short": "Strait of Hormuz risk: critical. For now, the base case stays near 44% over the 30d. Actors absorb the current evidence mix without a decisive break toward either shock or relief.",
-        "perspective_strategic": "Strait of Hormuz risk: critical is setting the strategic baseline, and the current 40% probability implies a live but not settled risk path.",
-        "perspective_contrarian": "The current 58% confidence level still leaves room for reversal. If that restraint persists, the forecast can move below the current 40% baseline. Actors prioritize containment and the system drifts toward stabilization unless new hard signals emerge.",
-        "actor_lens": "Commodity traders: Price whether stress in Middle East becomes durable over the 30d. Rebalance positions if the probability path moves away from 40%.",
-        "top_signal": "Strait of Hormuz risk: critical"
+        "scenario_short": "Strait of Hormuz maritime disruption state is feeding inflation and rates pressure through shipping cost shock, with 56% pressure and 76% state confirmation. For now, the base case stays near 59% over the 30d. Actors...",
+        "perspective_strategic": "Strait of Hormuz maritime disruption state is feeding inflation and rates pressure through shipping cost shock, with 56% pressure and 76% state confirmation is setting the strategic baseline, and the current 56% probability implies a live but not settled risk path.",
+        "perspective_contrarian": "The current 75% confidence level still leaves room for reversal. If that restraint persists, the forecast can move below the current 56% baseline. Actors prioritize containment and the system drifts toward stabilization unless new hard signals emerge.",
+        "actor_lens": "Commodity traders: Price whether stress in Strait of Hormuz becomes durable over the 30d. Rebalance positions if the probability path moves away from 56%.",
+        "top_signal": "Strait of Hormuz maritime disruption state is feeding inflation and rates pressure through shipping cost shock, with 56% pressure and 76% state confirmation"
       },
       "absence_reason": null
     },
     "supply-chain-inflation": {
       "foil": {
-        "id": "fc-market-2b10db4d",
+        "id": "fc-market-cd2eaadb",
         "domain": "market",
-        "region": "Black Sea",
-        "title": "Sovereign risk repricing from Black Sea maritime disruption state",
-        "probability": 0.606,
-        "prior_probability": 0.614,
+        "region": "Middle East",
+        "title": "FX stress from Middle East governance pressure state",
+        "probability": 0.715,
+        "prior_probability": 0.733,
         "confidence": 0.75,
         "time_horizon": "30d",
         "trend": "stable",
         "projections": {
-          "d30": 0.255,
-          "d7": 0.351,
-          "h24": 0.606
+          "d30": 0.3,
+          "d7": 0.415,
+          "h24": 0.715
         },
-        "scenario_short": "Black Sea maritime disruption state is keeping sovereign risk elevated through sovereign stress, with 71% pressure and 71% state confirmation. For now, the base case stays near 64% over the 30d. Actors absorb the...",
-        "perspective_strategic": "Black Sea maritime disruption state is keeping sovereign risk elevated through sovereign stress, with 71% pressure and 71% state confirmation is setting the strategic baseline, and the current 61% probability implies a live but not settled risk path.",
-        "perspective_contrarian": "The current 75% confidence level still leaves room for reversal. If that restraint persists, the forecast can move below the current 61% baseline. Actors prioritize containment and the system drifts toward stabilization unless new hard signals emerge.",
-        "actor_lens": "Commodity traders: Price whether stress in Black Sea becomes durable over the 30d. Rebalance positions if the probability path moves away from 61%.",
-        "top_signal": "Black Sea maritime disruption state is keeping sovereign risk elevated through sovereign stress, with 71% pressure and 71% state confirmation"
+        "scenario_short": "Middle East governance pressure sustains FX stress via sovereign stress, with 59% pressure and 85% state confirmation, as Houthi attacks on Saudi Arabia slow Red Sea shipping.",
+        "perspective_strategic": "Middle East governance pressure state is keeping FX stress active through sovereign stress, with 59% pressure and 85% state confirmation is setting the strategic baseline, and the current 72% probability implies a live but not settled risk path.",
+        "perspective_contrarian": "The current 75% confidence level leaves room for reversal; if restraint persists, the forecast can move below 72% as actors prioritize containment, with Gold climbing 1% on U.S.-Iran truce pressures signaling potential stabilization.",
+        "actor_lens": "Commodity traders: Price whether stress in Middle East becomes durable over the 30d. Rebalance positions if the probability path moves away from 72%.",
+        "top_signal": "Middle East governance pressure state is keeping FX stress active through sovereign stress, with 59% pressure and 85% state confirmation"
       },
       "absence_reason": null
     },
