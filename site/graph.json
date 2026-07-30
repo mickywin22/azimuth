@@ -1342,7 +1342,6 @@
       "theme": "shared",
       "themes": [
         "conflict-watch",
-        "cyber-watch",
         "energy-supply",
         "humanitarian",
         "public-health"
@@ -3356,13 +3355,6 @@
       "target": "source:conflict-events-ucdp",
       "cross_theme": false,
       "rel": "named-in"
-    },
-    {
-      "source": "entity:brazil",
-      "target": "brief:cyber-watch-weekly",
-      "cross_theme": true,
-      "rel": "mentioned-in",
-      "weight": 0
     },
     {
       "source": "entity:brazil",
