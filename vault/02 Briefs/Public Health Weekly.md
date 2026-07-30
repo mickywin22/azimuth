@@ -2,8 +2,8 @@
 title: Public Health Weekly
 type: L2-brief
 theme: public-health
-week: 2026-W30
-updated: 2026-07-25T09:00:00Z
+week: 2026-W31
+updated: 2026-07-30T09:00:00Z
 sources: [disease-outbreaks]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -15,52 +15,48 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 > fleet role evolves this single note in place each cycle. azimuth reports **recorded disease
 > outbreak notifications** — the disease, the place, the case count and the alert level as the
 > reporting body published them — never a health prediction, never advice. Every claim links
-> to the L1 note it rests on. (Updated from the 2026-07-25 ingest.)
+> to the L1 note it rests on. (Updated from the 2026-07-30 ingest.)
 
 ## This week at a glance
 
-- The WHO / CDC outbreak channel carries **173 active outbreak signals** as of the
-  2026-07-25 pull — down from 177 on 2026-07-24. No warning-level entry is carried on this
-  pull; the feed's own alert bands classify entries as "alert" or "watch" only
-  (127 watch / 46 alert) ([[disease-outbreaks]]).
-- **Measles dominates the slate by entry count and case count** across the 2026-07-25 pull,
-  accounting for 83 of 173 entries. The feed's alertLevelMethodologyVersion is v1; azimuth
-  records each notification in the alert band the reporting body assigned it
+- The WHO / CDC outbreak channel carries **165 active outbreak signals** on the 2026-07-30
+  pull — **120 watch / 45 alert**, with **no warning-level entry** on the feed's own alert
+  bands. The slate eased across the 07-26 → 07-30 catch-up from the prior cycle's count
   ([[disease-outbreaks]]).
-- The top case-count ranking is unchanged from 07-24. **Guatemala City (GT) holds the highest
-  single-entry case count** on the feed: an alert-level measles entry at **27,145 cases**
-  alongside the 21,700-case alert entry and a third entry at 6,209 cases (alert). The
-  Bangladesh top entry remains **13,907 cases (alert)**, with further Bangladesh entries at
-  11,549 (watch) and 10,949 (watch). Mongolia measles at **15,475 (watch)** and Mexico's
-  three entries — **11,771 (watch)**, **11,748 (alert)**, **11,111 (alert)** — are carried
-  forward at the same figures ([[disease-outbreaks]]).
-- Five entries entered the feed on the 07-25 pull, all with zero recorded cases: a CDC
-  Unknown Disease alert for the United States, two CDC Unknown Disease watch entries for
-  California, a CDC Lassa watch entry, and a CDC E. coli alert entry referencing the
-  McDonald's Quarter Pounder linked cluster in Mountain West states ([[disease-outbreaks]]).
+- **Measles dominates the slate by entry count**, accounting for **78 of the 165 entries**.
+  The feed's alertLevelMethodologyVersion is v1; azimuth records each notification in the alert
+  band the reporting body assigned it ([[disease-outbreaks]]).
+- **Guatemala City (GT) holds the two highest single-entry case counts** on the feed — alert-level
+  measles at **27,145** and **21,700 cases**. **Mongolia** measles is next at **15,475 (watch)**,
+  then a new **Bangladesh 14,841 (watch)** entry and the carried Bangladesh **13,907 (alert)**;
+  **Mexico** carries **11,771 (watch)** and **11,748 (alert)**, and **Dhaka 11,549 (watch)**
+  ([[disease-outbreaks]]).
+- New this window: a **Bangladesh measles 14,841 (watch)** entry entered the top ranks, and the
+  CDC channel added a **United States measles entry at 2,318 cases (watch)** whose own source
+  summary records the 2026 US case total surpassing the full-year 2025 total; a **Whooping Cough
+  Santander 3,171 (watch)**, **Measles Punia (DR Congo) 2,089 (watch)** and **Measles Peru 1,233
+  (watch)** entry also arrived ([[disease-outbreaks]]).
 
 ## Reading the week
 
-- The slate contracted from 177 notifications on 07-24 to 173 signals on 07-25, a net
-  reduction of 4 entries. No warning-level notification is present; the feed's highest band on
-  the 07-25 pull remains "alert", now at 46 entries (down from 50 on 07-24)
-  ([[disease-outbreaks]]).
-- Eight entries departed the feed between 07-24 and 07-25. The two most case-rich departures
-  were measles notifications with recorded cases: **Measles Pakistan (Lahore area) at 4,541
-  cases (alert)** and **Measles Dhaka (Bangladesh) at 4,460 cases (alert)**. Also departed:
-  a Polio Sudan watch entry (2 cases) and five zero-case entries from outbreak-news-today
-  sources (including H5N1 Kozhikode, Meningitis GB, Unknown Disease Spain alert, and two
-  Unknown Disease alerts without location). No entry that previously appeared changed its
-  field values — zero id-matched mutations on this pull ([[disease-outbreaks]]).
-- Five new entries arrived, all sourced from the CDC HAN and all carrying zero recorded
-  cases at the time of the 07-25 pull. The E. coli entry references the McDonald's
-  Quarter Pounder cluster in Mountain West states; the location cell carries the full
-  situation descriptor as the CDC published it. azimuth records the notifications as the
-  reporting bodies published them — disease, location, case count, alert level — and
-  attaches no assessment of risk, spread or response ([[disease-outbreaks]]).
+- The slate eased to **165 signals** on 07-30 from the prior synthesised cycle, the reduction
+  spread across the five-day catch-up rather than landing on a single day. **No warning-level
+  notification is present**; the feed's highest band remains "alert", now at **45 entries**,
+  with 120 in the lower "watch" band ([[disease-outbreaks]]).
+- The case-count ranking is measles-led at the top: Guatemala City's two alert entries (27,145
+  and 21,700) sit above Mongolia (15,475 watch), the new Bangladesh 14,841 (watch) and the
+  carried Bangladesh 13,907 (alert). The **United States measles entry (2,318 cases, watch)**
+  carries a source note that the 2026 US measles total has surpassed the whole of 2025 — azimuth
+  records the notification and the reporting body's figure, and attaches no assessment of
+  trajectory ([[disease-outbreaks]]).
+- azimuth records the notifications as the reporting bodies published them — disease, location,
+  case count, alert level — and attaches no assessment of risk, spread or response. A measles-led
+  slate easing to 165 signals with no warning-level entry is what the WHO/CDC channel carried on
+  the 2026-07-30 pull; nothing beyond that is inferred ([[disease-outbreaks]]).
 
 ## Changelog
 
+- 2026-07-30 — daily-ingest synthesis (2026-W31): absorbed the 07-26 through 07-30 pulls after a 5-day curator gap. The 07-30 feed carries 165 active signals (120 watch / 45 alert; no warning-level entry), easing from the prior cycle; measles leads 78 of 165. Top case counts: Guatemala City measles 27,145 (alert) and 21,700 (alert), Mongolia 15,475 (watch), a new Bangladesh 14,841 (watch), Bangladesh 13,907 (alert), Mexico 11,771 (watch) / 11,748 (alert), Dhaka 11,549 (watch). Notable arrivals: US measles 2,318 (watch, source note: 2026 US total surpasses all of 2025), Whooping Cough Santander 3,171 (watch), Measles Punia 2,089 (watch), Measles Peru 1,233 (watch). Rewrote the at-a-glance and reading sections; observed-only framing, no health advice ([[disease-outbreaks]]).
 - 2026-07-25 — daily-ingest synthesis (2026-W30): 07-25 pull carries 173 signals (down from 177 on 07-24; 127 watch / 46 alert); no warning-level entry. No id-matched field mutations. Eight entries departed: Measles Pakistan 4,541 (alert) and Measles Dhaka 4,460 (alert) were the largest departures; Polio Sudan 2 (watch) and five zero-case outbreak-news-today entries also left. Five new zero-case CDC entries entered: Unknown Disease US alert, two California Unknown Disease watch, Lassa watch, and E. coli alert (McDonald's Quarter Pounder cluster, Mountain West states). Top case-count ranking unchanged from 07-24; Guatemala City measles 27,145 (alert) remains highest single entry ([[disease-outbreaks]]).
 - 2026-07-24 — daily-ingest synthesis (2026-W30): 07-24 pull carries 177 signals (up from 169 on 07-23; 127 watch / 50 alert); no warning-level entry. Bangladesh 120,000-case alert entry departed the feed; highest Bangladesh measles entry now 13,907 cases (alert). Guatemala City gains a new top-entry at 27,145 cases (alert) alongside the carried 21,700-case alert and a 6,209-case alert — three distinct Guatemala City alert entries on this pull. Mongolia 15,475 (watch) and Mexico three entries (11,771 watch / 11,748 alert / 11,111 alert) carried forward unchanged ([[disease-outbreaks]]).
 - 2026-07-23 — daily-ingest synthesis (2026-W30): 07-23 pull carries 169 signals (down from 184 on 07-20); no warning-level entry. Bangladesh measles 120,000 cases (alert) unchanged; Guatemala 21,700 (alert) and Mongolia 15,475 (watch) carried forward; Mexico now shows three distinct entries: 11,771 (watch), 11,748 (alert), 11,111 (alert). Bangladesh also carries two additional watch entries (11,549; 10,949) ([[disease-outbreaks]]).

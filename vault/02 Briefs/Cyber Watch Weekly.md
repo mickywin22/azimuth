@@ -2,8 +2,8 @@
 title: Cyber Watch Weekly
 type: L2-brief
 theme: cyber-watch
-week: 2026-W30
-updated: 2026-07-25T09:00:00Z
+week: 2026-W31
+updated: 2026-07-30T09:00:00Z
 sources: [cyber-threats]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -16,20 +16,20 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 > threat indicators** — an IOC is an observed fact (a host, an IP, a first-seen timestamp,
 > a severity as the tracker scored it) — and never attributes intent, names a victim, or
 > predicts an attack. Every claim links to the L1 note it rests on. (First cycle written
-> from the 2026-07-15 ingest; current cutoff: 2026-07-25T08:20:59Z.)
+> from the 2026-07-15 ingest; current cutoff: 2026-07-30T08:45:14Z.)
 
 ## This week at a glance
 
 - The abuse.ch / AbuseIPDB channel again surfaced **one critical-severity indicator on the
-  2026-07-25 pull** — the one-indicator critical tier the feed has shown on every pull this run
+  2026-07-30 pull** — the one-indicator critical tier the feed has shown on every pull this run
   ([[cyber-threats]]).
-- **2026-07-25 pull:** one malware-host IP geolocated to **Great Britain** (GB),
-  `81.19.219.204`, AbuseIPDB confidence score 100, criticality CRITICAL, no malware family
-  tagged; feed pagination totalCount **819** ([[cyber-threats]]).
-- The surfaced indicator **rotated** (new IP vs. `179.176.210.17` on the 07-24 pull); the origin
-  country shifted from Brazil to Great Britain. totalCount dropped from **922**
-  (07-24) to **819** (07-25) — the upstream tracker net-retired approximately 103 indicators
-  overnight, the largest single-day retirement recorded in this brief to date ([[cyber-threats]]).
+- **2026-07-30 pull:** one malware-host IP geolocated to **Bangladesh** (BD),
+  `103.213.238.91`, AbuseIPDB confidence score 100, criticality CRITICAL, no malware family
+  tagged; feed pagination totalCount **1,022** ([[cyber-threats]]).
+- The surfaced indicator **rotated** (new IP vs. `81.19.219.204` on the 07-25 pull); the origin
+  country shifted from Great Britain to Bangladesh. totalCount **rose** from **819**
+  (07-25) to **1,022** (07-30) — the upstream tracker net-added approximately 203 indicators
+  over the five-day gap, reversing the sharp 07-24/07-25 contraction ([[cyber-threats]]).
 
 ## Honest scope
 
@@ -44,17 +44,17 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 ## Reading the week
 
-- The 2026-07-25 indicator is a CYBER_THREAT_TYPE_MALWARE_HOST entry sourced from AbuseIPDB at
+- The 2026-07-30 indicator is a CYBER_THREAT_TYPE_MALWARE_HOST entry sourced from AbuseIPDB at
   maximum confidence (score:100, CRITICALITY_LEVEL_CRITICAL); the malwareFamily field is empty,
   so no specific malware family was tagged by the tracker at pull time ([[cyber-threats]]).
-- The surfaced IP rotated from `179.176.210.17` (07-24, BR) to `81.19.219.204` (07-25, GB);
+- The surfaced IP rotated from `81.19.219.204` (07-25, GB) to `103.213.238.91` (07-30, BD);
   both carry the same CRITICAL severity and score:100 tag as assigned by the upstream tracker.
-  The origin country moved from Brazil (07-24) to Great Britain (07-25) — this is a geolocation
+  The origin country moved from Great Britain (07-25) to Bangladesh (07-30) — this is a geolocation
   of the indicator IP, not an actor attribution ([[cyber-threats]]).
-- The feed's pagination totalCount fell from 922 (07-24) to 819 (07-25), a net retirement of
-  approximately 103 indicators in a single overnight window — the largest single-day drop
-  recorded in this brief to date. The single-slot surface against an 819-count feed remains the
-  known honest-scope posture of the WorldMonitor curated channel ([[cyber-threats]]).
+- The feed's pagination totalCount rose from 819 (07-25) to 1,022 (07-30), a net addition of
+  approximately 203 indicators over the five-day gap that reverses the sharp 07-24/07-25
+  contraction. The single-slot surface against a 1,022-count feed remains the known honest-scope
+  posture of the WorldMonitor curated channel ([[cyber-threats]]).
 - azimuth records the indicator, its type, severity and geolocation exactly as the tracker
   scored them, and infers no actor, victim or campaign behind the one listed host
   ([[cyber-threats]]).
@@ -62,6 +62,7 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 ## Changelog
 
 - 2026-07-25 — daily-ingest synthesis (2026-W30): surfaced indicator rotated to 81.19.219.204 (GB, AbuseIPDB score 100, CRITICAL, no malware family); prior slot held 179.176.210.17 (07-24, BR); totalCount fell from 922 to 819, a net -103 overnight retirement and the largest single-day drop recorded in this brief to date; origin country shifted BR → GB ([[cyber-threats]]).
+- 2026-07-30 — daily-ingest synthesis (2026-W31): absorbed the 2026-07-26 through 2026-07-30 pulls after a five-day gap behind the live L1; surfaced indicator rotated to 103.213.238.91 (BD, AbuseIPDB score 100, CRITICAL, no malware family); prior slot held 81.19.219.204 (07-25, GB); totalCount rose from 819 to 1,022, a net +203 re-expansion that reverses the 07-24/07-25 contraction; origin country shifted GB → BD (geolocation, not attribution) ([[cyber-threats]]).
 - 2026-07-24 — daily-ingest synthesis (2026-W30): surfaced indicator rotated to 179.176.210.17 (BR, AbuseIPDB score 100, CRITICAL, no malware family); prior slot held 50.6.197.105 (07-23, US); totalCount fell sharply from 999 to 922, a net -77 overnight retirement and the steepest single-day drop recorded in this brief; origin country shifted US → BR ([[cyber-threats]]).
 - 2026-07-23 — daily-ingest synthesis (2026-W30): surfaced indicator rotated to 50.6.197.105 (US, AbuseIPDB score 100, CRITICAL, no malware family); prior slot held 165.22.1.254 (07-20); totalCount eased from 1,004 to 999, lowest reading to date; origin country held US ([[cyber-threats]]).
 - 2026-07-21 — daily-ingest synthesis (2026-W30): absorbed the 07-18 through 07-20 pulls; the 07-20 pull lists one critical malware-host IP geolocated to the US (165.22.1.254, AbuseIPDB score 100, CRITICAL, no malware family); totalCount eased from 1,021 (07-17) to 1,004 (07-20), a net ~17-indicator retirement; origin country moved to the US after RO (07-17) and RU (07-15/16) ([[cyber-threats]]).
