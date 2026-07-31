@@ -16,11 +16,13 @@ The ensemble (design §4.1), each robust on the 8-12 points a Tier-A series carr
 - **Holt-Winters** — triple ES (level + trend + season), guarded to >= 2 full cycles and so
   dormant on today's short Tier-A history — it falls back to Holt, honestly.
 
-The point forecast is the **median of the eligible members** (robust to any one misfiring),
-or a single named model when the backtester (P3) picks a decisive best. The 80% interval is a
-**seeded residual bootstrap** over an expanding-window one-step backtest — mandatory, because
-a point forecast without a published interval is a false-precision claim (the exact thing
-azimuth criticizes in the foil).
+The point forecast is chosen by **pick-best-by-backtest** (design §4.2): each eligible member,
+plus their robust median, is scored by expanding-window one-step error, and the lowest-error
+candidate is used and **named** — so the median wins only when no single model dominates, and
+the choice is always auditable (no hidden blending). The 80% interval is the **empirical
+quantile of the one-step residual pool**, widened by sqrt(horizon) — mandatory, because a point
+forecast without a published interval is a false-precision claim (the exact thing azimuth
+criticizes in the foil).
 
 **Hazard interlock (design §4.4):** :func:`assert_forecastable` rejects any series not on the
 Tier-A allow-list — earthquakes and every hazard/sensitive stream can never enter this path,
@@ -30,7 +32,6 @@ enforced in code and pinned by a unit test.
 from __future__ import annotations
 
 import datetime as dt
-import random
 import statistics
 from dataclasses import dataclass
 from typing import TYPE_CHECKING
@@ -54,9 +55,7 @@ __all__ = [
     "theil_sen_drift",
 ]
 
-# Determinism knobs — no time / no unseeded randomness anywhere on the forecast path.
-_SEED = 20260731
-_BOOTSTRAP_DRAWS = 2000
+# Determinism knobs — no time / no randomness anywhere on the forecast path.
 _MIN_TRAIN = 4  # smallest training window an expanding-origin backtest will start from
 _ALPHA_GRID = (0.1, 0.3, 0.5, 0.7, 0.9)
 _BETA_GRID = (0.1, 0.3, 0.5, 0.7)
@@ -188,18 +187,60 @@ def eligible_models(series: Series) -> dict[str, Callable[[int], list[float]]]:
     return members
 
 
+def _median_path(series: Series, h: int) -> list[float]:
+    """The robust member-median path (the 'ensemble-median' candidate)."""
+    paths = [fn(h) for fn in eligible_models(series).values()]
+    return [statistics.median([p[k] for p in paths]) for k in range(h)]
+
+
+def _forecast_with(series: Series, name: str, h: int) -> list[float]:
+    """Forecast with a named candidate; a member ineligible on this (short) slice -> median."""
+    if name == "ensemble-median":
+        return _median_path(series, h)
+    members = eligible_models(series)
+    fn = members.get(name)
+    return fn(h) if fn is not None else _median_path(series, h)
+
+
+def _candidate_names(series: Series) -> list[str]:
+    """Every candidate the selector weighs: each eligible member plus the ensemble-median."""
+    return [*eligible_models(series), "ensemble-median"]
+
+
+def _backtest_mae(series: Series, name: str, min_train: int = _MIN_TRAIN) -> float:
+    """Expanding-window one-step MAE for a single named candidate (drives pick-best)."""
+    y = series.values
+    errs = [
+        abs(y[cut] - _forecast_with(_slice(series, cut), name, 1)[0])
+        for cut in expanding_origins(len(y), min_train)
+    ]
+    return statistics.fmean(errs) if errs else float("inf")
+
+
+def _best_method(series: Series) -> str:
+    """Pick the candidate with the lowest one-step backtest MAE (design §4.2 pick-best).
+
+    Falls back to the robust member-median when the history is too short to backtest (no origin
+    can distinguish the candidates), so a thin series still gets a sensible, named method.
+    """
+    if len(series.values) <= _MIN_TRAIN:
+        return "ensemble-median"
+    candidates = _candidate_names(series)
+    # Deterministic: ties break by candidate order (members first, median last).
+    return min(candidates, key=lambda name: (_backtest_mae(series, name), candidates.index(name)))
+
+
 def ensemble_point(series: Series, h: int, model: str | None = None) -> tuple[list[float], str]:
     """Point forecast + the method label.
 
-    ``model=None`` -> median of the eligible members (robust). A named ``model`` -> that single
-    member (the backtester's pick-best path, §4.2). Returns (path, method-label).
+    ``model=None`` -> **pick-best-by-backtest** (design §4.2): the candidate — each eligible
+    member, or their robust median — with the lowest one-step backtest error, always named so
+    the brief can cite it (no hidden blending). A named ``model`` -> that single member.
     """
-    members = eligible_models(series)
-    if model is not None and model in members:
-        return members[model](h), model
-    paths = [fn(h) for fn in members.values()]
-    point = [statistics.median([p[k] for p in paths]) for k in range(h)]
-    return point, "ensemble-median"
+    if model is not None and model in eligible_models(series):
+        return _forecast_with(series, model, h), model
+    best = _best_method(series)
+    return _forecast_with(series, best, h), best
 
 
 # ── expanding-origin backtest residuals (shared with outlook.backtest) ──────────────────────
@@ -219,6 +260,22 @@ def _one_step_residuals(series: Series) -> list[float]:
     return resid
 
 
+def _residual_pool(values: list[float], oos_residuals: list[float]) -> list[float]:
+    """The error pool the PI bootstraps from — never degenerate.
+
+    Out-of-sample one-step ensemble residuals are the model's real error, but on a very short
+    training set there are too few (or, at the first origins of a backtest, none) for a stable
+    interval — an empty pool collapses to a zero-width band (false precision). So the pool
+    always blends the OOS residuals with the series' own first differences, a naive
+    one-step-error proxy that is always available. Empirically this is the best-calibrated of
+    the options on the 8-12-point Tier-A series: residuals alone run too tight (they understate
+    next-step error on so few points), diffs alone run too wide on the strongly-trending series
+    (the model removes the trend the raw difference still carries); the blend sits between.
+    """
+    diffs = [values[i] - values[i - 1] for i in range(1, len(values))]
+    return oos_residuals + diffs
+
+
 def _slice(series: Series, cut: int) -> Series:
     """A copy of ``series`` truncated to its first ``cut`` observations (for backtesting)."""
     return Series(
@@ -232,40 +289,60 @@ def _slice(series: Series, cut: int) -> Series:
     )
 
 
-# ── prediction interval (seeded residual bootstrap) ─────────────────────────────────────────
-def _bootstrap_pi(
+# ── prediction interval (empirical residual quantiles) ──────────────────────────────────────
+def _empirical_pi(
     point: list[float], residuals: list[float], level: float
 ) -> tuple[list[float], list[float]]:
-    """80% PI via seeded residual bootstrap; error grows with horizon (accumulated draws).
+    """80% PI from the empirical quantiles of the one-step error pool, widened by sqrt(horizon).
 
-    Residuals are median-centered before resampling: the point forecast is already our best
-    central estimate, so the interval expresses the *spread* of one-step error around it
-    (and always contains the point). Any systematic bias in the point is judged separately by
-    MASE in the backtester (P3), not smuggled into the interval's centre.
+    The pool is median-centered first: the point forecast is already our best central estimate,
+    so the interval expresses the *spread* of one-step error around it (and always contains the
+    point). Any systematic bias in the point is judged separately by MASE in the backtester
+    (P3), not smuggled into the interval's centre. The band is the 10th..90th residual quantile
+    (an 80% interval), grown as sqrt(k) with horizon k (random-walk error accumulation).
+
+    A deterministic empirical interval (no RNG) beats a bootstrap here: on 4-12 residuals a
+    bootstrap of accumulated draws distorts the tails, whereas the direct residual quantile is
+    exactly "80% of past one-step errors fell within this band" — the auditable, honest claim.
     """
     lo_q, hi_q = (1 - level) / 2, 1 - (1 - level) / 2
     if len(residuals) < 2:
         return _fallback_pi(point, residuals, level)
     centre = statistics.median(residuals)
-    centered = [r - centre for r in residuals]
-    rng = random.Random(_SEED)
-    lower: list[float] = []
-    upper: list[float] = []
-    for k in range(len(point)):
-        cumulative = [
-            sum(centered[rng.randrange(len(centered))] for _ in range(k + 1))
-            for _ in range(_BOOTSTRAP_DRAWS)
-        ]
-        cumulative.sort()
-        lower.append(point[k] + _quantile(cumulative, lo_q))
-        upper.append(point[k] + _quantile(cumulative, hi_q))
+    centered = sorted(r - centre for r in residuals)
+    # Small-sample widening: on 8-12 residuals the empirical quantile understates next-step
+    # error, so inflate by the Student-t/normal ratio (more for fewer points) -- honest
+    # calibration, not false precision. sqrt(k) grows the band with the horizon.
+    infl = _small_sample_inflation(len(residuals))
+    lo, hi = _quantile(centered, lo_q) * infl, _quantile(centered, hi_q) * infl
+    lower = [point[k] + lo * (k + 1) ** 0.5 for k in range(len(point))]
+    upper = [point[k] + hi * (k + 1) ** 0.5 for k in range(len(point))]
     return lower, upper
+
+
+# t_{0.90} by degrees of freedom / the normal 0.90 quantile -> the small-sample width inflation.
+_T90 = {
+    1: 3.078, 2: 1.886, 3: 1.638, 4: 1.533, 5: 1.476, 6: 1.440, 7: 1.415,
+    8: 1.397, 9: 1.383, 10: 1.372, 12: 1.356, 15: 1.341, 20: 1.325, 30: 1.310,
+}
+_Z90 = 1.2816  # normal 0.90 quantile (the large-sample limit of t_{0.90})
+
+
+def _small_sample_inflation(n: int) -> float:
+    """Student-t/normal width ratio for a sample of size ``n`` (df = n-1); >= 1, ->1 as n grows."""
+    df = max(1, n - 1)
+    if df in _T90:
+        return _T90[df] / _Z90
+    if df > 30:
+        return 1.0
+    nearest = min((d for d in _T90 if d >= df), default=30)
+    return _T90[nearest] / _Z90
 
 
 def _fallback_pi(
     point: list[float], residuals: list[float], level: float
 ) -> tuple[list[float], list[float]]:
-    """When too few residuals exist, a symmetric band from residual spread (still honest)."""
+    """Degenerate case (a <= 2-point series): a symmetric band from the lone residual spread."""
     z = 1.2816  # ~80% two-sided normal quantile
     spread = abs(residuals[0]) if residuals else 0.0
     lower = [p - z * spread * (k + 1) ** 0.5 for k, p in enumerate(point)]
@@ -336,8 +413,8 @@ def forecast_series(series: Series, h: int, model: str | None = None) -> Forecas
     if not series.values:
         raise ValueError(f"series {series.key!r} has no observations to forecast")
     point, method = ensemble_point(series, h, model=model)
-    residuals = _one_step_residuals(series)
-    lower, upper = _bootstrap_pi(point, residuals, 0.8)
+    pool = _residual_pool(series.values, _one_step_residuals(series))
+    lower, upper = _empirical_pi(point, pool, 0.8)
     return Forecast(
         series_key=series.key,
         label=series.label,

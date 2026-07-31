@@ -13,6 +13,7 @@ from outlook.forecast import (
     Forecast,
     HazardInterlockError,
     assert_forecastable,
+    eligible_models,
     ensemble_point,
     forecast_series,
     holt,
@@ -107,11 +108,19 @@ def test_every_model_is_deterministic(fn) -> None:  # type: ignore[no-untyped-de
 
 
 # ── ensemble ──────────────────────────────────────────────────────────────────────────────
-def test_ensemble_point_is_the_member_median() -> None:
+def test_ensemble_picks_a_named_candidate_by_backtest() -> None:
     s = _monthly("co2-ppm", 12, [400.0 + i for i in range(12)])
     point, method = ensemble_point(s, 1)
-    assert method == "ensemble-median"
+    # Pick-best always returns a nameable candidate (an eligible member or the median).
+    assert method in {*eligible_models(s), "ensemble-median"}
     assert len(point) == 1
+
+
+def test_ensemble_prefers_a_trend_model_on_a_linear_series() -> None:
+    # A perfect upward line: a level+trend model must beat the flat/median candidates.
+    s = _monthly("co2-ppm", 12, [400.0 + i for i in range(12)])
+    _, method = ensemble_point(s, 1)
+    assert method in {"holt", "theil-sen"}
 
 
 def test_ensemble_can_force_a_single_named_model() -> None:
