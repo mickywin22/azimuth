@@ -103,13 +103,14 @@ smoke = [
     "playwright>=1.40",
 ]
 
-# Only the three real runtime packages are installable. scripts/ runs directly (adds the
+# Only the real runtime packages are installable. scripts/ runs directly (adds the
 # repo root to sys.path, no __init__), src/ is empty post-strip, and site/ sources/ vault/
 # docs/ _site/ _smoke/ tests/ are data or test trees -- none should be auto-discovered as a
 # distribution package. Explicit discovery disables the flat-layout auto-scan that aborted
-# `-e .` and silently kept the daily ingest workflow red.
+# `-e .` and silently kept the daily ingest workflow red. outlook* is the pure-stdlib
+# Outlook forecast layer (peer of the others; no third-party runtime dep, Quality Rule #6).
 [tool.setuptools.packages.find]
-include = ["guardrail*", "ingest*", "synthesis*", "vault_contract*"]
+include = ["guardrail*", "ingest*", "synthesis*", "vault_contract*", "outlook*"]
 
 [tool.ruff]
 target-version = "py312"
