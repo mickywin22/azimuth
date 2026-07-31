@@ -55,6 +55,7 @@ site/*
 !site/graph.html
 !site/autonomy.json
 !site/autonomy.html
+!site/outlook-scorecard.json
 _site/
 
 # Logs

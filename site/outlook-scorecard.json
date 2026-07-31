@@ -1,0 +1,139 @@
+{
+  "layer": "outlook",
+  "design": "docs/prediction-layer-design.md",
+  "gated_on": "KR1 daily-update guarantee (newest committed L1 day)",
+  "l1_day": "2026-07-30",
+  "tier_a_expected": [
+    "arctic-sea-ice",
+    "co2-ppm",
+    "eu-gas-storage",
+    "us-crude-stocks"
+  ],
+  "series": [
+    {
+      "key": "arctic-sea-ice",
+      "label": "Arctic sea-ice extent",
+      "unit": "Mkm2",
+      "cadence": "monthly",
+      "n_observations": 12,
+      "forecast": {
+        "period": "2026-08",
+        "point": 4.2209,
+        "lower": 3.4138,
+        "upper": 7.399,
+        "pi_level": 0.8,
+        "method": "holt",
+        "members": [
+          "theil-sen",
+          "ses",
+          "holt",
+          "seasonal-naive"
+        ]
+      },
+      "score": {
+        "n_test": 8,
+        "mase": 0.7848,
+        "smape": 9.88,
+        "coverage": 0.75,
+        "beats_naive": true,
+        "coverage_ok": true,
+        "recommended": "forecast"
+      }
+    },
+    {
+      "key": "co2-ppm",
+      "label": "Atmospheric CO2 (Mauna Loa)",
+      "unit": "ppm",
+      "cadence": "monthly",
+      "n_observations": 12,
+      "forecast": {
+        "period": "2026-07",
+        "point": 431.5031,
+        "lower": 429.6591,
+        "upper": 432.324,
+        "pi_level": 0.8,
+        "method": "holt",
+        "members": [
+          "theil-sen",
+          "ses",
+          "holt",
+          "seasonal-naive"
+        ]
+      },
+      "score": {
+        "n_test": 8,
+        "mase": 0.6937,
+        "smape": 0.18,
+        "coverage": 0.75,
+        "beats_naive": true,
+        "coverage_ok": true,
+        "recommended": "forecast"
+      }
+    },
+    {
+      "key": "eu-gas-storage",
+      "label": "EU gas storage",
+      "unit": "Bcf",
+      "cadence": "weekly",
+      "n_observations": 8,
+      "forecast": {
+        "period": "2026-07-24",
+        "point": 3094.9513,
+        "lower": 3026.883,
+        "upper": 3144.196,
+        "pi_level": 0.8,
+        "method": "holt",
+        "members": [
+          "theil-sen",
+          "ses",
+          "holt"
+        ]
+      },
+      "score": {
+        "n_test": 4,
+        "mase": 0.3676,
+        "smape": 0.83,
+        "coverage": 1.0,
+        "beats_naive": true,
+        "coverage_ok": false,
+        "recommended": "forecast"
+      }
+    },
+    {
+      "key": "us-crude-stocks",
+      "label": "US crude oil inventories",
+      "unit": "Mb",
+      "cadence": "weekly",
+      "n_observations": 8,
+      "forecast": {
+        "period": "2026-07-31",
+        "point": 704.8077,
+        "lower": 694.055,
+        "upper": 707.0096,
+        "pi_level": 0.8,
+        "method": "holt",
+        "members": [
+          "theil-sen",
+          "ses",
+          "holt"
+        ]
+      },
+      "score": {
+        "n_test": 4,
+        "mase": 0.8022,
+        "smape": 1.01,
+        "coverage": 0.75,
+        "beats_naive": true,
+        "coverage_ok": true,
+        "recommended": "forecast"
+      }
+    }
+  ],
+  "ship_bar": {
+    "total": 4,
+    "mase_pass": 4,
+    "coverage_pass": 3,
+    "required": 3,
+    "passed": true
+  }
+}

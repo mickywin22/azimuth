@@ -63,11 +63,16 @@ jobs:
       # on main daily instead of reddening for ~6 days out of every 7. (L2 brief *narrative*
       # stays weekly — that is the curator's job, gated by the synthesis-freshness --overdue
       # tolerance, not regenerated here.)
-      - name: Regenerate deterministic artifacts (knowledge graph + brief index + autonomy)
+      - name: Regenerate deterministic artifacts (knowledge graph + brief index + autonomy + outlook)
         run: |
           python scripts/build_graph.py
           python scripts/build_brief_index.py
           python scripts/build_autonomy.py
+          # The Outlook scorecard is fit on the newest L1 day, so it re-derives here too (keeps
+          # `smoke_outlook.py --check` green on main daily). The artifact is written before the
+          # ship-bar gate, so a soft ship-bar miss still refreshes the file rather than blocking
+          # the daily commit -- the miss stays visible in the committed JSON's ship_bar.passed.
+          python scripts/smoke_outlook.py --out site || echo "outlook scorecard: ship-bar soft-miss, artifact still refreshed"
 
       - name: Commit new L1 notes + refreshed benchmark + re-derived artifacts
         run: |
@@ -75,12 +80,12 @@ jobs:
           git config user.email "azimuth-ingest@users.noreply.github.com"
           git add "vault/01 Sources/" "sources/benchmark/foils.json" "vault/02 Briefs/Benchmark.md" \
                   "vault/02 Briefs/README.md" "site/graph.json" "site/graph.html" \
-                  "site/autonomy.json" "site/autonomy.html"
+                  "site/autonomy.json" "site/autonomy.html" "site/outlook-scorecard.json"
           if git diff --cached --quiet; then
             echo "No new or changed L1 notes / benchmark / derived artifacts — nothing to commit."
           else
             DAY="$(date -u +%F)"
-            git commit -m "chore(ingest): daily L1 pull + benchmark + graph/index/autonomy refresh ${DAY} (WorldMonitor)"
+            git commit -m "chore(ingest): daily L1 pull + benchmark + graph/index/autonomy/outlook refresh ${DAY} (WorldMonitor)"
             git push
           fi
 
