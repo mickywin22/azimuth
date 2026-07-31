@@ -3,18 +3,24 @@ name: Deploy site to GitHub Pages
 # Builds the public static site (scripts/build_site.py -> ./_site) and publishes it
 # to GitHub Pages on every push to main, plus a manual trigger.
 #
-# READY-TO-FLIP GATE: this workflow only DEPLOYS once GitHub Pages is enabled in the
-# repo settings (Settings -> Pages -> Source: "GitHub Actions"). Until Michael enables
-# that, the `deploy` job fails by design and nothing is published — the site stays
-# private. Enabling Pages is Michael's manual, explicitly-confirmed step. See
-# docs/deploy.md.
+# READY-TO-FLIP GATE (skip-not-fail): this workflow only DEPLOYS once GitHub Pages is actually
+# ENABLED in the repo settings (Settings -> Pages -> Source: "GitHub Actions"). Enabling it is
+# Michael's manual, explicitly-confirmed infra step. Until then actions/deploy-pages 404s
+# ("Ensure GitHub Pages has been enabled"), reddening every push.
+#
+# The old gate keyed on repository *visibility* (`!github.event.repository.private`). That went
+# stale the moment the repo was flipped public: build+deploy then ran and 404'd because Pages was
+# still not enabled. The real blocker is Pages *enablement*, not visibility — so the `preflight`
+# job below probes the Pages API and skips (green) until it is enabled, then auto-deploys on the
+# next push with no further change here. See docs/deploy.md.
 
 on:
   push:
     branches: [main]
   workflow_dispatch:
 
-# Least-privilege token scopes required by actions/deploy-pages.
+# Least-privilege token scopes required by actions/deploy-pages (deploy job) + the Pages-status
+# probe (preflight job). Scoped per-job below; this top-level block is the union.
 permissions:
   contents: read
   pages: write
@@ -26,11 +32,40 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  # Gate: is GitHub Pages actually enabled? The secrets/settings context needed for this is not
+  # available in a job `if:`, so probe the Pages REST API and surface the verdict as an output the
+  # build + deploy jobs gate on. 200 = enabled -> deploy; anything else (typically 404 while Pages
+  # is off) = skip green. This never red-fails an un-provisioned repo.
+  preflight:
+    name: Is GitHub Pages enabled?
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: read
+    outputs:
+      enabled: ${{ steps.probe.outputs.enabled }}
+    steps:
+      - name: Probe the Pages API
+        id: probe
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          code="$(curl -s -o /dev/null -w '%{http_code}' \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/${GITHUB_REPOSITORY}/pages")"
+          if [ "$code" = "200" ]; then
+            echo "enabled=true" >> "$GITHUB_OUTPUT"
+            echo "GitHub Pages is enabled — building and deploying."
+          else
+            echo "enabled=false" >> "$GITHUB_OUTPUT"
+            echo "GitHub Pages is not enabled (HTTP $code) — skipping deploy. Enable it (Settings -> Pages -> Source: GitHub Actions; Michael's gated infra step) and the next push auto-deploys."
+          fi
+
   build:
     name: Build static site
-    # Gate: the repo is private (public flip is Michael's gated decision), so GitHub Pages cannot
-    # publish -> the deploy fails every push. Skip (not fail) while private; auto-runs once flipped public.
-    if: ${{ !github.event.repository.private }}
+    needs: preflight
+    if: needs.preflight.outputs.enabled == 'true'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -53,8 +88,8 @@ jobs:
 
       # Publish the RDF graph BESIDE the static site: schema.ttl + data.ttl + the composed
       # context, lifted from the vault/ OKF bundle (Vault-LD OKF profile, SPEC Appendix B).
-      # This whole build job is flip-gated (`if: !repository.private`), so the .ttl only ever
-      # deploy once Michael flips the repo public — nothing publishes early.
+      # This whole build job is enablement-gated (needs.preflight.outputs.enabled), so the .ttl
+      # only ever deploys once Michael enables Pages — nothing publishes early.
       - name: Export linked data (schema.ttl + data.ttl) beside the site
         run: python scripts/build_rdf.py --out _site
 
@@ -65,7 +100,8 @@ jobs:
 
   deploy:
     name: Deploy to GitHub Pages
-    needs: build
+    needs: [preflight, build]
+    if: needs.preflight.outputs.enabled == 'true'
     runs-on: ubuntu-latest
     environment:
       name: github-pages

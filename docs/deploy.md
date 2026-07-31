@@ -3,10 +3,10 @@
 The public static site (see [docs/site.md](site.md)) is published to **GitHub Pages**
 by the [`.github/workflows/pages.yml`](../.github/workflows/pages.yml) workflow.
 
-> **Want a public URL while the repo stays private?** GitHub Pages ties publishing to
-> repo visibility. For a stable public preview URL (e.g. to open the demonstrator on a
-> phone) *before* the public-flip decision, use the **Cloudflare Pages** path instead:
-> [deploy-cloudflare.md](deploy-cloudflare.md). The two paths are not exclusive.
+> **Want a public URL without enabling GitHub Pages?** The **Cloudflare Pages** path
+> ([deploy-cloudflare.md](deploy-cloudflare.md)) serves the same built site at a
+> `*.pages.dev` URL independently of GitHub Pages enablement. The two paths are not
+> exclusive — either, both, or neither can be live.
 
 ## Pages URL
 
@@ -34,21 +34,26 @@ workflow on every run, never committed.
 
 ## READY-TO-FLIP gate (Michael's manual step)
 
-**The repo is PRIVATE and the site is not live until Michael explicitly enables Pages.**
-The workflow file existing in the repo does **not** publish anything on its own — the
-`deploy` job only succeeds once GitHub Pages is turned on for the repo. Until then the
-`deploy` job fails by design and nothing is exposed.
+**The site is not live until Michael explicitly enables GitHub Pages.** The repo itself is
+public (flipped 2026-07-20), but that only makes Pages *possible* — it does not turn Pages
+on. Publishing still waits on the one manual enablement step below.
+
+**Skip-not-fail (no red X while Pages is off).** The workflow's `preflight` job probes the
+Pages REST API and emits an `enabled` verdict; the `build` and `deploy` jobs run only when
+`enabled == 'true'`. While Pages is disabled the whole workflow **skips green** — it never
+red-fails, so pushing to `main` (and every daily-ingest commit) no longer floods a red X.
+Once Pages is enabled the next push auto-deploys with no further change.
+
+> This gate keys on Pages **enablement**, not repo **visibility**. The earlier
+> `if: !repository.private` gate went stale the moment the repo flipped public — it then
+> ran build+deploy and 404'd because Pages was still off. Enablement is the real blocker.
 
 To flip the site live (Michael only, when ready):
 
-1. Confirm the repo can serve Pages. GitHub Pages on a **private** repo requires a paid
-   plan (Pro / Team / Enterprise); a private repo on the free plan cannot publish Pages.
-   The alternative is making the repo public first — which is itself a separate,
-   explicit decision.
-2. **Settings → Pages → Build and deployment → Source: `GitHub Actions`.**
-3. Re-run the `Deploy site to GitHub Pages` workflow (Actions tab → that workflow →
+1. **Settings → Pages → Build and deployment → Source: `GitHub Actions`.**
+2. Re-run the `Deploy site to GitHub Pages` workflow (Actions tab → that workflow →
    *Run workflow*), or push any commit to `main`.
-4. The site appears at the Pages URL above; the live URL is also shown on the workflow
+3. The site appears at the Pages URL above; the live URL is also shown on the workflow
    run's `deploy` job summary.
 
 To take it back offline: Settings → Pages → set Source to *None* (or disable Pages).

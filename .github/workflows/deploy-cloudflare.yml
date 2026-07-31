@@ -8,14 +8,18 @@ name: Deploy site to Cloudflare Pages
 # mobile-viewable BEFORE the separate, explicit public-flip decision. GitHub Pages (pages.yml)
 # ties publishing to repo visibility; this path does not. See docs/deploy-cloudflare.md.
 #
-# READY-TO-DEPLOY GATE (skip-not-fail): this workflow only deploys once the two Cloudflare
-# repo secrets are set (Settings -> Secrets and variables -> Actions):
-#   * CLOUDFLARE_API_TOKEN   — a token scoped to "Account · Cloudflare Pages · Edit"
-#   * CLOUDFLARE_ACCOUNT_ID  — the Cloudflare account id
-# Until both exist the preflight step marks the run "not configured" and every real step is
-# skipped, so the job stays GREEN doing nothing (it never red-fails an unconfigured repo, the
-# same design as pages.yml skipping while private). Adding the secrets + creating the Pages
-# project is Michael's manual, explicitly-confirmed step — the runbook has it.
+# READY-TO-DEPLOY GATE (skip-not-fail): this workflow only deploys once BOTH are true —
+#   1. the two Cloudflare repo secrets are set (Settings -> Secrets and variables -> Actions):
+#        * CLOUDFLARE_API_TOKEN   — a token scoped to "Account · Cloudflare Pages · Edit"
+#        * CLOUDFLARE_ACCOUNT_ID  — the Cloudflare account id
+#   2. the Cloudflare Pages project named "azimuth" actually EXISTS (the preflight probes the CF
+#      API for it). `wrangler pages deploy` cannot publish to a project that has not been created,
+#      so before it exists every push red-failed with "Project not found [code: 8000007]".
+# Until BOTH hold, the preflight marks the run "not configured" and every real step is skipped, so
+# the job stays GREEN doing nothing (it never red-fails an un-provisioned repo, the same design as
+# pages.yml skipping until Pages is enabled). Adding the secrets + creating the Pages project is
+# Michael's manual, explicitly-confirmed step — the runbook has it. Once done, the next push
+# auto-deploys with no further change here.
 
 on:
   push:
@@ -36,20 +40,36 @@ jobs:
     name: Build + deploy to Cloudflare Pages
     runs-on: ubuntu-latest
     steps:
-      # Gate on the presence of BOTH Cloudflare secrets. The secrets context cannot be read in
-      # a job/step `if:`, so surface it as a step output and gate every later step on that.
-      - name: Preflight — is Cloudflare configured?
+      # Gate on BOTH Cloudflare secrets AND the Pages project existing. The secrets context cannot
+      # be read in a job/step `if:`, so surface the verdict as a step output and gate every later
+      # step on it. Probing the project (not just the secrets) is what stops the "Project not found
+      # [code: 8000007]" red-flood: secrets can be present while the project is still uncreated.
+      - name: Preflight — Cloudflare secrets present AND Pages project 'azimuth' created?
         id: preflight
         env:
           CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CF_ACCOUNT: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         run: |
-          if [ -n "$CF_TOKEN" ] && [ -n "$CF_ACCOUNT" ]; then
-            echo "configured=true" >> "$GITHUB_OUTPUT"
-            echo "Cloudflare secrets present — building and deploying."
-          else
+          if [ -z "$CF_TOKEN" ] || [ -z "$CF_ACCOUNT" ]; then
             echo "configured=false" >> "$GITHUB_OUTPUT"
             echo "Cloudflare secrets not set — skipping deploy (pre-configuration state; see docs/deploy-cloudflare.md)."
+            exit 0
+          fi
+          # Secrets exist, but `wrangler pages deploy` still needs the Pages *project* to exist —
+          # creating it is Michael's gated, explicitly-confirmed infra step. The CF API returns
+          # {"success":true,...} for an existing project and an 8000007 "Project not found" error
+          # otherwise. Gate on that so a not-yet-created project SKIPS green instead of red-failing
+          # every push. Once the project exists the next push auto-deploys.
+          body="$(curl -s -w '\n%{http_code}' \
+            -H "Authorization: Bearer $CF_TOKEN" \
+            "https://api.cloudflare.com/client/v4/accounts/$CF_ACCOUNT/pages/projects/azimuth" || true)"
+          code="$(printf '%s' "$body" | tail -n1)"
+          if printf '%s' "$body" | grep -qE '"success"[[:space:]]*:[[:space:]]*true'; then
+            echo "configured=true" >> "$GITHUB_OUTPUT"
+            echo "Cloudflare secrets present and Pages project 'azimuth' exists — building and deploying."
+          else
+            echo "configured=false" >> "$GITHUB_OUTPUT"
+            echo "Cloudflare secrets present but Pages project 'azimuth' is not reachable (HTTP $code) — skipping deploy. Create the Pages project (Michael's gated infra step; see docs/deploy-cloudflare.md); the next push then auto-deploys."
           fi
 
       - name: Checkout

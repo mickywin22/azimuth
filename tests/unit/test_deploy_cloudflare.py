@@ -72,6 +72,27 @@ def test_deploy_targets_the_azimuth_pages_project() -> None:
     assert "--project-name=azimuth" in text, "deploy must target the 'azimuth' Pages project"
 
 
+def test_preflight_probes_the_pages_project_not_just_the_secrets() -> None:
+    """The preflight must verify the CF Pages *project* exists, not only the secrets.
+
+    Regression guard for the real red-flood cause: both Cloudflare secrets were present
+    (so a secrets-only gate went ``configured=true``) while the ``azimuth`` Pages project
+    had never been created, so ``wrangler pages deploy`` red-failed every push with
+    "Project not found [code: 8000007]". A skip-not-fail gate must therefore probe the
+    project, not just the secrets — else the flood returns the moment the secrets are added.
+    """
+    text = _WORKFLOW.read_text(encoding="utf-8")
+    # The preflight must hit the CF Pages *projects* API for the 'azimuth' project.
+    assert "pages/projects/azimuth" in text, (
+        "preflight must probe the Cloudflare Pages project (…/pages/projects/azimuth), "
+        "not just the presence of the secrets"
+    )
+    # It must decide from the project-existence response, not assume presence.
+    assert '"success"' in text, (
+        "preflight must branch on the CF API success flag so a missing project skips green"
+    )
+
+
 def test_site_is_built_and_headers_copied() -> None:
     text = _WORKFLOW.read_text(encoding="utf-8")
     assert "scripts/build_site.py --out _site" in text, "site build step missing / wrong out dir"

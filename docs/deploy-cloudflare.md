@@ -37,8 +37,13 @@ can be attached later in the Cloudflare dashboard, which changes this URL accord
 
 On every push to `main` (and on manual `workflow_dispatch`), the workflow:
 
-1. **preflight-gates** on the two Cloudflare secrets — if either is missing it marks the run
-   *not configured* and skips every real step, so the job stays green doing nothing;
+1. **preflight-gates** on the two Cloudflare secrets **and** on the `azimuth` Pages project
+   actually existing (it probes the CF API `…/pages/projects/azimuth`) — if the secrets are
+   missing *or* the project has not been created yet, it marks the run *not configured* and
+   skips every real step, so the job stays green doing nothing. Probing the project (not just
+   the secrets) is what stops the old "Project not found [code: 8000007]" red-flood: `wrangler
+   pages deploy` cannot publish to a project that does not exist, so the secrets-only gate
+   red-failed every push once the secrets were present but the project was not yet created;
 2. checks out the repo and installs Python 3.12 + the `site` and `ld` extras
    (`uv pip install --system -e ".[site,ld]"`);
 3. builds the site with `python scripts/build_site.py --out _site` (this also renders the
@@ -55,9 +60,10 @@ every run, never committed. The deploy config is [`wrangler.toml`](../wrangler.t
 
 ## READY-TO-DEPLOY gate (Michael's manual step, ~15 min, one time)
 
-**Nothing publishes until both Cloudflare secrets are set.** The workflow file existing in the
-repo does not deploy on its own — the preflight step skips the whole job while the secrets are
-absent. To turn the Cloudflare Pages site on (Michael only, when ready):
+**Nothing publishes until both Cloudflare secrets are set AND the `azimuth` Pages project
+exists.** The workflow file existing in the repo does not deploy on its own — the preflight
+step skips the whole job (green, no red X) until both are true. To turn the Cloudflare Pages
+site on (Michael only, when ready):
 
 1. **Create the Pages project.** In the Cloudflare dashboard → *Workers & Pages* → *Create* →
    *Pages* → *Direct upload* (or, from a machine with Node:
