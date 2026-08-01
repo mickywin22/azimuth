@@ -2,56 +2,56 @@
   "$note": "Captured snapshot of the COMPARED forecast/intelligence product for the azimuth benchmark (synthesis/benchmark.py). Quoted by product + capture date; NOT surfaced as an azimuth channel and NOT an L1 source. Refresh with pull_benchmark_foils.py.",
   "endpoint": "/api/forecast/v1/get-forecasts",
   "attribution": "WorldMonitor (api.worldmonitor.app) — model-generated forecast/assessment product",
-  "feed_generated_at": 1785488469636,
+  "feed_generated_at": 1785571295032,
   "feed_degraded": false,
-  "captured_at": "2026-07-31T09:14:13Z",
+  "captured_at": "2026-08-01T08:32:01Z",
   "n_forecasts_seen": 14,
   "topics": {
     "energy-supply": {
       "foil": {
-        "id": "fc-market-8d21b764",
+        "id": "fc-market-3b03eb86",
         "domain": "market",
-        "region": "Eastern Mediterranean",
-        "title": "Inflation and rates pressure from Eastern Mediterranean maritime disruption state",
-        "probability": 0.644,
-        "prior_probability": 0.648,
-        "confidence": 0.75,
+        "region": "Middle East",
+        "title": "Oil price impact from Strait of Hormuz disruption",
+        "probability": 0.4,
+        "prior_probability": 0.4,
+        "confidence": 0.583,
         "time_horizon": "30d",
         "trend": "stable",
         "projections": {
-          "d30": 0.27,
-          "d7": 0.374,
-          "h24": 0.644
+          "d30": 0.168,
+          "d7": 0.232,
+          "h24": 0.4
         },
-        "scenario_short": "Eastern Mediterranean maritime disruption state is feeding inflation and rates pressure through gas supply stress, with 56% pressure and 81% state confirmation. For now, the base case stays near 67% over the 30d....",
-        "perspective_strategic": "Eastern Mediterranean maritime disruption state is feeding inflation and rates pressure through gas supply stress, with 56% pressure and 81% state confirmation is setting the strategic baseline, and the current 64% probability implies a live but not settled risk path.",
-        "perspective_contrarian": "The current 75% confidence level still leaves room for reversal. If that restraint persists, the forecast can move below the current 64% baseline. Actors prioritize containment and the system drifts toward stabilization unless new hard signals emerge.",
-        "actor_lens": "Commodity traders: Price whether stress in Eastern Mediterranean becomes durable over the 30d. Rebalance positions if the probability path moves away from 64%.",
-        "top_signal": "Eastern Mediterranean maritime disruption state is feeding inflation and rates pressure through gas supply stress, with 56% pressure and 81% state confirmation"
+        "scenario_short": "Strait of Hormuz risk: critical. For now, the base case stays near 44% over the 30d. Actors absorb the current evidence mix without a decisive break toward either shock or relief.",
+        "perspective_strategic": "Strait of Hormuz risk: critical is setting the strategic baseline, and the current 40% probability implies a live but not settled risk path.",
+        "perspective_contrarian": "The current 58% confidence level still leaves room for reversal. If that restraint persists, the forecast can move below the current 40% baseline. Actors prioritize containment and the system drifts toward stabilization unless new hard signals emerge.",
+        "actor_lens": "Commodity traders: Price whether stress in Middle East becomes durable over the 30d. Rebalance positions if the probability path moves away from 40%.",
+        "top_signal": "Strait of Hormuz risk: critical"
       },
       "absence_reason": null
     },
     "supply-chain-inflation": {
       "foil": {
-        "id": "fc-market-8d21b764",
+        "id": "fc-market-2b10db4d",
         "domain": "market",
-        "region": "Eastern Mediterranean",
-        "title": "Inflation and rates pressure from Eastern Mediterranean maritime disruption state",
-        "probability": 0.644,
-        "prior_probability": 0.648,
+        "region": "Black Sea",
+        "title": "Sovereign risk repricing from Black Sea maritime disruption state",
+        "probability": 0.601,
+        "prior_probability": 0.602,
         "confidence": 0.75,
         "time_horizon": "30d",
         "trend": "stable",
         "projections": {
-          "d30": 0.27,
-          "d7": 0.374,
-          "h24": 0.644
+          "d30": 0.252,
+          "d7": 0.349,
+          "h24": 0.601
         },
-        "scenario_short": "Eastern Mediterranean maritime disruption state is feeding inflation and rates pressure through gas supply stress, with 56% pressure and 81% state confirmation. For now, the base case stays near 67% over the 30d....",
-        "perspective_strategic": "Eastern Mediterranean maritime disruption state is feeding inflation and rates pressure through gas supply stress, with 56% pressure and 81% state confirmation is setting the strategic baseline, and the current 64% probability implies a live but not settled risk path.",
-        "perspective_contrarian": "The current 75% confidence level still leaves room for reversal. If that restraint persists, the forecast can move below the current 64% baseline. Actors prioritize containment and the system drifts toward stabilization unless new hard signals emerge.",
-        "actor_lens": "Commodity traders: Price whether stress in Eastern Mediterranean becomes durable over the 30d. Rebalance positions if the probability path moves away from 64%.",
-        "top_signal": "Eastern Mediterranean maritime disruption state is feeding inflation and rates pressure through gas supply stress, with 56% pressure and 81% state confirmation"
+        "scenario_short": "Black Sea maritime disruption state is keeping sovereign risk elevated through sovereign stress, with 76% pressure and 68% state confirmation. For now, the base case stays near 62% over the 30d. Actors absorb the...",
+        "perspective_strategic": "Black Sea maritime disruption state is keeping sovereign risk elevated through sovereign stress, with 76% pressure and 68% state confirmation is setting the strategic baseline, and the current 60% probability implies a live but not settled risk path.",
+        "perspective_contrarian": "No directly matched headlines are currently attached to Black Sea. If that restraint persists, the forecast can move below the current 60% baseline. Actors prioritize containment and the system drifts toward stabilization unless new hard signals emerge.",
+        "actor_lens": "Commodity traders: Price whether stress in Black Sea becomes durable over the 30d. Rebalance positions if the probability path moves away from 60%.",
+        "top_signal": "Black Sea maritime disruption state is keeping sovereign risk elevated through sovereign stress, with 76% pressure and 68% state confirmation"
       },
       "absence_reason": null
     },
