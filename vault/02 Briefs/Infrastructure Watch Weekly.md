@@ -3,7 +3,7 @@ title: Infrastructure Watch Weekly
 type: L2-brief
 theme: infrastructure-watch
 week: 2026-W31
-updated: 2026-07-30T09:00:00Z
+updated: 2026-08-01T09:00:00Z
 sources: [internet-outages]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -16,20 +16,20 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 > infrastructure disruption events** — an internet outage is an observed network measurement
 > (Cloudflare Radar), with the cause category the source itself assigns — and takes no
 > position on any actor involved. Every claim links to the L1 note it rests on. (Pull
-> date of current cycle: 2026-07-30.)
+> date of current cycle: 2026-08-01.)
 
 ## This week at a glance
 
-- The Cloudflare Radar channel records **5 active internet outages**: **3 nationwide** and
-  **2 regional** in scope. By the source's own cause category: **3 power-outage**
+- The Cloudflare Radar channel records **6 active internet outages**: **4 nationwide** and
+  **2 regional** in scope. By the source's own cause category: **4 power-outage**
   and **2 government-directed** ([[internet-outages]]).
-- **Cuba and Iraq each hold 2 of the 5 events**, with a single event in Ukraine. Cuba's two
-  are both source-labelled POWER OUTAGE (nationwide grid failure amid fuel shortages); Iraq's
-  two both carry the GOVERNMENT DIRECTED label (exam shutdowns) ([[internet-outages]]).
-- The active set **contracted from 8 to 5** since the 2026-07-25 pull: the Tanzania power
-  event and two of Iraq's four exam-shutdown entries have aged out, leaving five events detected
-  between 2026-07-05 and 2026-07-14; no new outage entered over the 07-26 → 07-30 window
-  ([[internet-outages]]).
+- **Cuba and Iraq each hold 2 of the 6 events**, with single events in Kenya and Ukraine. Cuba's
+  two are both source-labelled POWER OUTAGE (nationwide grid failure amid fuel shortages); Iraq's
+  two both carry the GOVERNMENT DIRECTED label (exam shutdowns); Kenya's is a new nationwide
+  POWER OUTAGE ([[internet-outages]]).
+- The active set **expanded from 5 to 6** since the 2026-07-30 synthesis: a new Kenya nationwide
+  power outage (cf-1641, detected 2026-07-29) entered, joining the carried Cuba (2), Iraq (2) and
+  Ukraine (1) events detected between 2026-07-05 and 2026-07-14 ([[internet-outages]]).
 
 ## Honest scope
 
@@ -48,13 +48,17 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
   cf-1637 (detected 2026-07-14) ([[internet-outages]]).
 - Ukraine holds one regional major-severity event (cf-1633, source-labelled POWER OUTAGE, a
   power blackout in Sevastopol, detected 2026-07-05) ([[internet-outages]]).
+- Kenya holds one new nationwide total-severity event (cf-1641, source-labelled POWER OUTAGE, a
+  national power grid failure that dropped internet traffic across the Coast and Central regions,
+  detected 2026-07-29) — the one entrant this cycle ([[internet-outages]]).
 - The Tanzania power event and two of Iraq's four exam-shutdown entries that appeared in prior
-  pulls are no longer present in the 2026-07-30 active set ([[internet-outages]]).
+  pulls remain absent from the 2026-08-01 active set ([[internet-outages]]).
 - azimuth reports the measurements and the source's cause labels, and stops there
   ([[internet-outages]]).
 
 ## Changelog
 
+- 2026-08-01 — daily-ingest synthesis (2026-W31): absorbed the 2026-07-31 and 2026-08-01 pulls; active set expanded from 5 to 6 outages (4 nationwide / 2 regional; 4 power-outage, 2 government-directed; Cuba 2, Iraq 2, Kenya 1, Ukraine 1) as a new Kenya nationwide total-severity POWER OUTAGE (cf-1641, detected 2026-07-29, a national grid failure dropping internet traffic across the Coast and Central regions) entered; the five carried events (Cuba cf-1637/cf-1632, Iraq cf-1631/cf-1634, Ukraine cf-1633) held unchanged; at-a-glance and reading updated accordingly ([[internet-outages]]).
 - 2026-07-25 — daily-ingest synthesis (2026-W30): flat cycle — 2026-07-25 pull byte-identical to 07-24 (same 8 events, same IDs, same split: 5 nationwide / 3 regional; 4 government-directed, 4 power; Iraq 4, Cuba 2, Ukraine 1, Tanzania 1); values carried, no movement to report; `updated` and pull-date advanced ([[internet-outages]]).
 - 2026-07-30 — daily-ingest synthesis (2026-W31): absorbed the 2026-07-26 through 2026-07-30 pulls after a five-day gap behind the live L1; active set contracted from 8 to 5 outages (3 nationwide / 2 regional; 3 power, 2 government-directed; Cuba 2, Iraq 2, Ukraine 1) as the Tanzania power event and two of Iraq's four exam-shutdown entries aged out; five remaining events detected 2026-07-05 to 07-14, none new in the window; at-a-glance and reading rewritten accordingly ([[internet-outages]]).
 - 2026-07-24 — daily-ingest synthesis (2026-W30): flat cycle — 2026-07-24 pull is byte-identical to 07-23 (same 8 events, same IDs, same split: 5 nationwide / 3 regional; 4 government-directed, 4 power; Iraq 4, Cuba 2, Ukraine 1, Tanzania 1); values carried, no movement to report ([[internet-outages]]).

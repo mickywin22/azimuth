@@ -3,7 +3,7 @@ title: Macro & Markets Weekly
 type: L2-brief
 theme: macro-markets
 week: 2026-W31
-updated: 2026-07-30T09:00:00Z
+updated: 2026-08-01T09:00:00Z
 sources: [crypto-quotes, world-bank-indicators]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -16,22 +16,22 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 > market prices as observed facts** — a quote is what a market printed, recorded with its
 > change and its source — under the `no-investment-framing` caution: nothing here is advice,
 > a target, or a forecast. Every claim links to the L1 note it rests on.
-> Last updated from the 2026-07-30 pull.
+> Last updated from the 2026-08-01 pull.
 
 ## This week at a glance
 
-- The CoinGecko-fed crypto channel quotes **10 major assets** on the 2026-07-30 pull. After the
-  07-25 fully-red sweep the panel steadied: **8 of 10 assets are down on the day but two gained**,
-  and levels edged up from the 07-25 lows. **Bitcoin recovered to $64,174 (−0.7% on the day)**,
-  back above $64,000, and **Ethereum to $1,911.08 (−0.9%)**. Chainlink was the largest faller at
-  **−1.6%**; BNB (+0.6%) and TRON (+0.5%) were the only gainers ([[crypto-quotes]]).
-- The full quoted panel as of the 2026-07-30 pull: BTC $64,174 (−0.7%) · ETH $1,911.08
-  (−0.9%) · BNB $576.78 (+0.6%) · SOL $73.57 (−0.8%) · XRP $1.077 (−1.0%) · ADA
-  $0.1643 (−0.5%) · DOGE $0.0699 (−1.3%) · TRX $0.3274 (+0.5%) · AVAX $6.43
-  (−0.1%) · LINK $8.33 (−1.6%) — venue-quoted prices and day-changes as published, with
+- The CoinGecko-fed crypto channel quotes **10 major assets** on the 2026-08-01 pull. After the
+  07-30 steadying the panel turned broadly lower again: **9 of 10 assets are down on the day, with
+  only Cardano green**. **Bitcoin eased to $63,043 (−1.8% on the day)**, back below $64,000 (down
+  ~$1,131 from the 07-30 print), and **Ethereum to $1,867.81 (−1.7%)**. Chainlink was the largest
+  faller at **−2.4%**; Cardano (+1.6%) was the sole gainer ([[crypto-quotes]]).
+- The full quoted panel as of the 2026-08-01 pull: BTC $63,043 (−1.8%) · ETH $1,867.81
+  (−1.7%) · BNB $588.30 (−0.4%) · SOL $72.96 (−1.4%) · XRP $1.061 (−1.6%) · ADA
+  $0.1721 (+1.6%) · DOGE $0.0698 (−0.2%) · TRX $0.3273 (−0.4%) · AVAX $6.37
+  (−0.8%) · LINK $8.13 (−2.4%) — venue-quoted prices and day-changes as published, with
   intraday sparkline series carried in the L1 note ([[crypto-quotes]]).
 - The World Bank indicators channel carried no new reporting this cycle; its payload
-  was empty on the 2026-07-30 pull and is held flat ([[world-bank-indicators]]).
+  was empty on the 2026-08-01 pull and is held flat ([[world-bank-indicators]]).
 
 ## Honest scope — one live channel of four
 
@@ -43,15 +43,15 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 ## Reading the week
 
-- The 2026-07-30 pull records the panel steadying after the 07-25 down-sweep. Bitcoin is quoted
-  at $64,174 (−0.7% on the day but ~$245 above its 07-25 $63,929 print) and Ethereum at $1,911.08
-  (−0.9%, up ~$57 from 07-25); across the ten assets **8 are down on the day and 2 up** (BNB
-  +0.6%, TRON +0.5%), with Chainlink the largest faller (−1.6%). So the levels recovered modestly
-  over the five-day gap while the day itself printed mostly red. These are the venue's numbers,
-  not azimuth's view: no target, no direction call, no investment framing — the caution is the
-  contract, not a disclaimer ([[crypto-quotes]]).
+- The 2026-08-01 pull records the panel turning broadly lower again after the 07-30 steadying.
+  Bitcoin is quoted at $63,043 (−1.8% on the day, ~$1,131 below its 07-30 $64,174 print and back
+  under $64,000) and Ethereum at $1,867.81 (−1.7%, down ~$43 from 07-30); across the ten assets
+  **9 are down on the day and only 1 up** (Cardano +1.6%), with Chainlink the largest faller
+  (−2.4%). So the modest 07-30 recovery reversed and the levels stepped back down. These are the
+  venue's numbers, not azimuth's view: no target, no direction call, no investment framing — the
+  caution is the contract, not a disclaimer ([[crypto-quotes]]).
 - World Bank development indicators carried no new reporting this cycle; the endpoint
-  returned an empty data array on 2026-07-30 and the prior reading is unchanged
+  returned an empty data array on 2026-08-01 and the prior reading is unchanged
   ([[world-bank-indicators]]).
 
 ## Changelog
@@ -69,3 +69,4 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 - 2026-07-24 — daily-ingest synthesis (2026-W30): pullback broadened — nine of ten assets down on the day; BTC $65,361 (−0.4%, down $224 from 07-23), ETH $1,889.61 (−1.5%, down $33), AVAX the largest faller (−4.6%), DOGE −3.6%, ADA −3.5%; sole gainer TRX +0.7%; world-bank-indicators held (empty payload, no new reporting) ([[crypto-quotes]], [[world-bank-indicators]]).
 - 2026-07-25 — daily-ingest synthesis (2026-W30): the pullback went fully red — all ten assets down on the day (from nine of ten on 07-24), the first clean down-sweep since the 07-21 rally; BTC $63,929 (−2.3%, down $1,432 from 07-24 and its first sub-$64,000 print of the pullback), ETH $1,854.00 (−1.9%), ADA the largest faller (−3.5%), SOL −2.8%, XRP −2.5%, LINK −2.2%; no gainer; world-bank-indicators held (empty payload, no new reporting) ([[crypto-quotes]], [[world-bank-indicators]]).
 - 2026-07-30 — daily-ingest synthesis (2026-W31): absorbed the 2026-07-26 through 2026-07-30 pulls after a five-day gap behind the live L1. crypto-quotes steadied after the 07-25 fully-red sweep — 8 of 10 assets down on the day but two green; levels recovered modestly from the 07-25 lows: BTC $64,174 (−0.7%, ~$245 above the 07-25 print), ETH $1,911.08 (−0.9%), LINK the largest faller (−1.6%), BNB (+0.6%) and TRX (+0.5%) the only gainers. world-bank-indicators held (empty payload, no new reporting). Updated the at-a-glance and reading sections ([[crypto-quotes]], [[world-bank-indicators]]).
+- 2026-08-01 — daily-ingest synthesis (2026-W31): absorbed the 2026-07-31 and 2026-08-01 pulls. crypto-quotes turned broadly lower again after the 07-30 steadying — 9 of 10 assets down on the day, only Cardano green (+1.6%); BTC $63,043 (−1.8%, ~$1,131 below the 07-30 print and back under $64,000), ETH $1,867.81 (−1.7%), LINK the largest faller (−2.4%), the remaining seven down 0.2–1.6%. world-bank-indicators held (empty payload, no new reporting). Updated the at-a-glance and reading sections ([[crypto-quotes]], [[world-bank-indicators]]).

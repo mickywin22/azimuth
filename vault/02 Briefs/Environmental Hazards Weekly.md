@@ -3,7 +3,7 @@ title: Environmental Hazards Weekly
 type: L2-brief
 theme: environmental-hazards
 week: 2026-W31
-updated: 2026-07-30T09:00:00Z
+updated: 2026-08-01T09:00:00Z
 sources: [wildfire-detections, thermal-escalations, natural-events, radiation-observations]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -16,90 +16,90 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 > environmental hazards — active-fire detections, clustered thermal anomalies, disaster
 > alerts and ambient-radiation readings — what the instruments recorded, never what will
 > happen, and never a position on any conflict the data sits near. Every claim links to the
-> L1 note it rests on. (This cycle absorbs the 2026-07-26 through 2026-07-30 ingest after a
-> five-day curator gap. The wildfire note renders the top 250 detections by fire radiative power,
+> L1 note it rests on. (This cycle absorbs the 2026-07-31 and 2026-08-01 ingest.
+> The wildfire note renders the top 250 detections by fire radiative power,
 > with the cap stated in the note caption, so the active-fire figures below describe that
 > strongest-fires subset rather than the full multi-thousand-detection set — [[wildfire-detections]].)
 
 ## This week at a glance
 
 - Among the NASA FIRMS VIIRS feed's **top 250 active-fire detections by radiative power** (of
-  **5,929** total in the endpoint), the feed's own per-detection region field attributes the
-  strongest-fire sample to **Russia 241 / Turkey 9** — exact counts, not eyeballed from
-  coordinates (0 rows unattributed); Turkey enters the strongest subset (9) as the single prior
-  Iran detection leaves, the full endpoint grew from 4,286 to 5,929 detections, and max FRP in the
-  capped set eased to **326.7 MW** (from 740) ([[wildfire-detections]]).
-- The FIRMS thermal-escalation feed again clustered the window into **12 signals**, all carrying
-  status `THERMAL_STATUS_SPIKE`, `conflict_adjacent` and `THERMAL_RELEVANCE_HIGH`, and this pull
-  **carries a country field again — Russia 10 / Ukraine 2** (the 07-25 pull carried none). The FRP
-  magnitude collapsed from the prior cycle: the largest cluster fell to **~792 MW total FRP** (63
-  observations, from ~19,555 MW / 761 obs), the next two **~226 MW** (8 obs) and **~224 MW** (13
-  obs); sharpest z-score firmed to **5.38** (from 3.39) ([[thermal-escalations]]).
-- The GDACS / NASA EONET disaster feed eased to **18 open events** (from 22): 13 Sea and Lake Ice
-  entries and **5 severe-storm entries** (Hurricane Genevieve × 2 source entries, Super Typhoon
-  Dolphin, Typhoon Noul, Hurricane Fausto); the two US wildfire entries (Ten Mile in Oregon,
-  Railroad in Washington) and the Hong Kong Tropical Cyclone Warning Signal all cleared this cycle
-  ([[natural-events]]).
+  **16,033** total in the endpoint), the feed's own per-detection region field attributes the
+  strongest-fire sample to **Russia 250 / 250** — exact counts, not eyeballed from
+  coordinates (0 rows unattributed); Russia reclaims the whole strongest subset as the prior
+  Turkey cluster (9) leaves, the full endpoint jumped from 5,929 to 16,033 detections, and max FRP
+  in the capped set firmed to **698.3 MW** (from 326.7) ([[wildfire-detections]]).
+- The FIRMS thermal-escalation feed again clustered the window into **12 signals**, now split
+  **9 `THERMAL_STATUS_SPIKE` / 3 `THERMAL_STATUS_PERSISTENT`** (from all-12-SPIKE), all still
+  `conflict_adjacent` and `THERMAL_RELEVANCE_HIGH`, over **Russia 11 / Ukraine 1** (from Russia
+  10 / Ukraine 2). The FRP magnitude stepped up sharply from the prior cycle: the largest cluster
+  rose to **~2,157 MW total FRP** (82 observations, from ~792 MW / 63 obs), the next two
+  **~1,690 MW** (48 obs) and **~1,568 MW** (96 obs); sharpest z-score eased to **2.00** (from
+  5.38) ([[thermal-escalations]]).
+- The GDACS / NASA EONET disaster feed eased to **17 open events** (from 18): 13 Sea and Lake Ice
+  entries and **4 severe-storm entries** (Genevieve × 2 source entries — one now a Tropical Storm,
+  one a Hurricane — Super Typhoon Dolphin and Hurricane Fausto); **Typhoon Noul cleared** this
+  cycle, the single storm departure ([[natural-events]]).
 - Radiation: **anomalyCount 0, elevatedCount 0** — no elevated station this pull; all **11 readings**
-  normal (EPA RadNet stations plus a Safecast reading), value range 27.0–74.3 nSv/h
+  normal (10 EPA RadNet stations plus a Safecast reading), value range 26.0–74.3 nSv/h
   ([[radiation-observations]]).
 
 ## Active fire — where the detections clustered
 
 - The top-250-by-FRP sample attributes — by each detection's own `region` field, deterministically
-  tallied — as **Russia 241 / Turkey 9** (0 unattributed); the full endpoint returned **5,929
-  detections** (pagination.totalCount), up from 4,286 the prior cycle. Turkey enters the strongest
-  subset at 9 as the single prior Iran detection leaves; max FRP in the capped set eased to **326.7
-  MW** (from 740). The Siberian fire season still drives the dominant signal across Siberia and the
-  Far East, with a smaller Turkish cluster now among the strongest fires ([[wildfire-detections]]).
+  tallied — as **Russia 250 / 250** (0 unattributed); the full endpoint returned **16,033
+  detections** (pagination.totalCount), up sharply from 5,929 the prior cycle. Russia reclaims the
+  entire strongest subset as the prior Turkey cluster (9) leaves; max FRP in the capped set firmed
+  to **698.3 MW** (from 326.7). The Siberian fire season drives the dominant signal across Siberia
+  and the Far East, the strongest-fire sample once again entirely Russian ([[wildfire-detections]]).
 - azimuth caps this L1 note to the top 250 detections by FRP — the strongest, most energetic
-  fires — because the endpoint returns the full detection set (5,929 this pull) and ignores
+  fires — because the endpoint returns the full detection set (16,033 this pull) and ignores
   limit parameters; the cap is recorded in the note's own caption so the truncation is never
   silent, and the full set remains at the source endpoint. The country split above is exact for
-  that strongest-fire subset, not the entire 5,929-detection set ([[wildfire-detections]]).
+  that strongest-fire subset, not the entire 16,033-detection set ([[wildfire-detections]]).
 
 ## Thermal escalations — the clustered signal
 
-- The 12 thermal-escalation clusters again all carry status `THERMAL_STATUS_SPIKE`,
-  `conflict_adjacent` and `THERMAL_RELEVANCE_HIGH` (12/12 on each), and this pull **carries a
-  country field again — Russia 10 / Ukraine 2** (the prior pull carried none). The FRP magnitude
-  collapsed from the prior cycle's spike: the largest cluster recorded **~792 MW total FRP** (63
-  observations), followed by **~226 MW** (8 observations) and **~224 MW** (13 observations) — well
-  down from the prior cycle's ~19,555 MW / 761-obs largest. The sharpest z-score across the 12
-  firmed to **5.38** (from 3.39) ([[thermal-escalations]]).
-- The feed marks all 12 clusters `conflict_adjacent` alongside the `SPIKE` status. azimuth reports
-  those flag values as the observed feed output and takes no position on them — a thermal cluster
-  is a measured radiance aggregate, and the L2 line stops at what was detected, when, where
-  (Russia 10 / Ukraine 2 this pull), and how hot ([[thermal-escalations]]).
+- The 12 thermal-escalation clusters now split **9 `THERMAL_STATUS_SPIKE` /
+  3 `THERMAL_STATUS_PERSISTENT`** (from all-12-SPIKE), still all `conflict_adjacent` and
+  `THERMAL_RELEVANCE_HIGH` (12/12 on each), over **Russia 11 / Ukraine 1** (from Russia 10 /
+  Ukraine 2). The FRP magnitude stepped up sharply from the prior cycle: the largest cluster
+  recorded **~2,157 MW total FRP** (82 observations), followed by **~1,690 MW** (48 observations)
+  and **~1,568 MW** (96 observations) — up from the prior cycle's ~792 MW / 63-obs largest. The
+  sharpest z-score across the 12 eased to **2.00** (from 5.38) ([[thermal-escalations]]).
+- The feed marks all 12 clusters `conflict_adjacent` alongside the SPIKE / PERSISTENT status.
+  azimuth reports those flag values as the observed feed output and takes no position on them — a
+  thermal cluster is a measured radiance aggregate, and the L2 line stops at what was detected,
+  when, where (Russia 11 / Ukraine 1 this pull), and how hot ([[thermal-escalations]]).
 
 ## Disaster alerts and radiation
 
-- The GDACS/EONET disaster slate eased to **18 open events** (from 22 the prior cycle): 13 Sea
-  and Lake Ice entries and **5 severe-storm entries** — Hurricane Genevieve (two source entries),
-  Super Typhoon Dolphin, Typhoon Noul and Hurricane Fausto. The two US wildfire entries — Ten Mile
-  (Jefferson County, Oregon) and Railroad (Grant County, Washington) — cleared this cycle, as did
-  the Hong Kong Tropical Cyclone Warning Signal and Tropical Storms Bertha and Elida; Genevieve
-  upgraded to Hurricane and Super Typhoon Dolphin entered the slate ([[natural-events]]).
-- Radiation observations this pull: **11 readings** (US-EPA RadNet stations plus a Safecast
+- The GDACS/EONET disaster slate eased to **17 open events** (from 18 the prior cycle): 13 Sea
+  and Lake Ice entries and **4 severe-storm entries** — Genevieve (two source entries, now one
+  Tropical Storm and one Hurricane track), Super Typhoon Dolphin and Hurricane Fausto. **Typhoon
+  Noul cleared** this cycle, the single storm departure; the 13 Sea and Lake Ice tracks carried
+  unchanged ([[natural-events]]).
+- Radiation observations this pull: **11 readings** (10 US-EPA RadNet stations plus a Safecast
   reading). The feed's **anomalyCount and elevatedCount both returned 0** — no elevated station this
-  pull; spikeCount 0, conflictingCount 0. The value range across all 11 readings was 27.0–74.3
+  pull; spikeCount 0, conflictingCount 0. The value range across all 11 readings was 26.0–74.3
   nSv/h, normal background ([[radiation-observations]]).
 
 ## Reading the week
 
-- The 2026-07-30 pull shows the Russian Siberian fire season still the dominant signal in the
-  strongest-fire sample: the top-250-by-FRP detections attribute **Russia 241 / Turkey 9** by the
-  feed's own `region` field (Turkey entering as Iran leaves), while the full endpoint grew to
-  **5,929 detections** (from 4,286), and peak FRP in the capped set eased to **326.7 MW** (from 740)
-  ([[wildfire-detections]]). The thermal-escalation picture held its 12-cluster, all-SPIKE,
-  all-conflict-adjacent shape and carried a country field again (**Russia 10 / Ukraine 2**), but the
-  FRP magnitude collapsed: the largest cluster fell to **~792 MW total FRP** (63 observations) from
-  the prior cycle's ~19,555 MW, followed by ~226 MW and ~224 MW, while the sharpest z-score firmed
-  to **5.38** (from 3.39) ([[thermal-escalations]]). The disaster slate eased from 22 to **18
-  events** — 13 Sea and Lake Ice and 5 severe-storm entries (Genevieve × 2, Super Typhoon Dolphin,
-  Noul, Fausto) — as the two US wildfire entries (Oregon, Washington) and the Hong Kong
-  tropical-cyclone-warning cleared ([[natural-events]]). The radiation picture stayed clear:
-  anomalyCount and elevatedCount both 0 across 11 readings at normal background 27.0–74.3 nSv/h
+- The 2026-08-01 pull shows the Russian Siberian fire season sweeping the strongest-fire sample
+  outright: the top-250-by-FRP detections attribute **Russia 250 / 250** by the
+  feed's own `region` field (the prior Turkey cluster gone), while the full endpoint jumped to
+  **16,033 detections** (from 5,929), and peak FRP in the capped set firmed to **698.3 MW** (from
+  326.7) ([[wildfire-detections]]). The thermal-escalation picture held its 12-cluster,
+  all-conflict-adjacent shape but the status mix eased from all-SPIKE to **9 SPIKE / 3 PERSISTENT**
+  over **Russia 11 / Ukraine 1**, while the FRP magnitude stepped up sharply: the largest cluster
+  rose to **~2,157 MW total FRP** (82 observations) from the prior cycle's ~792 MW, followed by
+  ~1,690 MW and ~1,568 MW, and the sharpest z-score eased to **2.00** (from 5.38)
+  ([[thermal-escalations]]). The disaster slate eased from 18 to **17
+  events** — 13 Sea and Lake Ice and 4 severe-storm entries (Genevieve × 2 as a Tropical Storm and
+  a Hurricane, Super Typhoon Dolphin, Fausto) — as Typhoon Noul cleared ([[natural-events]]). The
+  radiation picture stayed clear: anomalyCount and elevatedCount both 0 across 11 readings at
+  normal background 26.0–74.3 nSv/h
   ([[radiation-observations]]). azimuth records the detections, the cluster statuses, the alert
   categories and the sensor values, links each to its L1 note, and stops there — what the satellites
   and stations measured, not what may follow ([[wildfire-detections]], [[thermal-escalations]],
@@ -176,4 +176,4 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 - 2026-07-23 — daily-ingest synthesis (2026-W30): active-fire top-250 sample re-concentrated to Russia 250/250 (from 243/5/2) on a smaller full set of 3,747 detections (from 4,592); Siberian fire season dominant. Thermal clusters held all-12-Russia all-SPIKE, FRP distribution shifted from one 31,279 MW dominant cluster to two large clusters at ~24,449 MW and ~20,905 MW (795 and 785 obs), sharpest z-score 32.08. Natural events held at 21 but composition shifted: Peru earthquake and named-cyclone trio replaced by 2 Tropical Cyclone entries (one Atlantic tropical storm, one East Pacific hurricane), 3 Severe Storms, 13 Sea and Lake Ice, 3 droughts (Madagascar, Horn of Africa, Europe-wide ~25 countries). Radiation anomaly cleared: anomalyCount and elevatedCount both 0 (from 1/1 prior cycle); all 11 readings normal 27–74.3 nSv/h ([[wildfire-detections]], [[thermal-escalations]], [[natural-events]], [[radiation-observations]]).
 - 2026-07-24 — daily-ingest synthesis (2026-W30): active-fire top-250 held Russia 250/250 (carried) while the full endpoint grew to 6,774 (from 3,747); max FRP in the capped set 637 MW. Thermal clusters held all-12-Russia all-SPIKE with a major FRP step-up: largest cluster ~67,948 MW / 1,764 obs (from ~24,449 MW / 795 obs prior), sharpest z-score 98.87 (from 32.08). Natural events grew from 21 to 26: 6 Severe Storm entries (Bertha TD+TS, Fausto Hurricane x2, Elida TS, NOUL-26 Cat 1), 4 US wildfire entries (Oregon/Washington/Texas/Louisiana), 13 Sea and Lake Ice, 3 droughts. Radiation anomaly re-appeared: anomalyCount 1 / elevatedCount 1 — Anchorage EPA 33 nSv/h (ELEVATED, zScore 2.21), after clearing in the prior cycle; 10 other readings normal 26–74.3 nSv/h ([[wildfire-detections]], [[thermal-escalations]], [[natural-events]], [[radiation-observations]]).
 - 2026-07-25 — daily-ingest synthesis (2026-W30): active-fire top-250 attributed Russia 249 / Iran 1 (from Russia 250/250, one Iran detection entering) as the full endpoint eased to 4,286 (from 6,774); max FRP in the capped set firmed to 740 MW (from 637). Thermal clusters held the 12-cluster all-SPIKE all-conflict-adjacent shape but the FRP magnitude eased sharply: largest ~19,555 MW / 761 obs (from ~67,948 MW / 1,764 obs), sharpest z-score 3.39 (from 98.87); the feed carried no country field on the clusters this pull. Natural events eased from 26 to 22: 7 Severe Storm entries (Fausto x2, Bertha, Elida, Genevieve, Noul, a Hong Kong Tropical Cyclone Warning Signal), 2 US wildfire entries (Oregon, Washington — down from 4 as Texas and Louisiana dropped off), 13 Sea and Lake Ice; the three drought entries (Madagascar, Horn of Africa, Europe) all cleared. Radiation anomaly cleared again: anomalyCount and elevatedCount both 0 (from 1/1), 10 readings normal 27–74.3 nSv/h. Observed-only, no-political-position framing held ([[wildfire-detections]], [[thermal-escalations]], [[natural-events]], [[radiation-observations]]).
-- 2026-07-30 — daily-ingest synthesis (2026-W31): absorbed the 07-26 through 07-30 ingests after a 5-day curator gap. Active-fire top-250 attributed Russia 241 / Turkey 9 (from Russia 249 / Iran 1 — Turkey entering, Iran leaving) as the full endpoint grew to 5,929 (from 4,286); max FRP in the capped set eased to 326.7 MW (from 740), 0 explosion flags. Thermal clusters held the 12-cluster all-SPIKE all-conflict-adjacent all-high-relevance shape and carried a country field again — Russia 10 / Ukraine 2 (the 07-25 pull carried none); FRP magnitude collapsed, largest cluster ~792 MW / 63 obs (from ~19,555 MW / 761 obs), next ~226 MW and ~224 MW, sharpest z-score 5.38 (from 3.39). Natural events eased from 22 to 18: 13 Sea and Lake Ice, 5 severe-storm entries (Hurricane Genevieve x2, Super Typhoon Dolphin, Typhoon Noul, Hurricane Fausto); the 2 US wildfire entries (Oregon, Washington) and the Hong Kong tropical-cyclone-warning cleared. Radiation stayed clear: anomalyCount and elevatedCount both 0, 11 readings normal 27.0–74.3 nSv/h. Observed-only, no-political-position framing held ([[wildfire-detections]], [[thermal-escalations]], [[natural-events]], [[radiation-observations]]).
+- 2026-08-01 — daily-ingest synthesis (2026-W31): absorbed the 07-31 and 08-01 ingests. Active-fire top-250 swept back to Russia 250 / 250 (from Russia 241 / Turkey 9 — the Turkey cluster leaving) as the full endpoint jumped to 16,033 (from 5,929); max FRP in the capped set firmed to 698.3 MW (from 326.7), 0 explosion flags. Thermal clusters held the 12-cluster all-conflict-adjacent all-high-relevance shape but the status mix eased from all-12-SPIKE to 9 SPIKE / 3 PERSISTENT over Russia 11 / Ukraine 1 (from Russia 10 / Ukraine 2); FRP magnitude stepped up, largest cluster ~2,157 MW / 82 obs (from ~792 MW / 63 obs), next ~1,690 MW and ~1,568 MW, sharpest z-score 2.00 (from 5.38). Natural events eased from 18 to 17: 13 Sea and Lake Ice, 4 severe-storm entries (Genevieve as one Tropical Storm + one Hurricane track, Super Typhoon Dolphin, Hurricane Fausto); Typhoon Noul cleared. Radiation stayed clear: anomalyCount and elevatedCount both 0, 11 readings normal 26.0–74.3 nSv/h. Observed-only, no-political-position framing held ([[wildfire-detections]], [[thermal-escalations]], [[natural-events]], [[radiation-observations]]). Active-fire top-250 attributed Russia 241 / Turkey 9 (from Russia 249 / Iran 1 — Turkey entering, Iran leaving) as the full endpoint grew to 5,929 (from 4,286); max FRP in the capped set eased to 326.7 MW (from 740), 0 explosion flags. Thermal clusters held the 12-cluster all-SPIKE all-conflict-adjacent all-high-relevance shape and carried a country field again — Russia 10 / Ukraine 2 (the 07-25 pull carried none); FRP magnitude collapsed, largest cluster ~792 MW / 63 obs (from ~19,555 MW / 761 obs), next ~226 MW and ~224 MW, sharpest z-score 5.38 (from 3.39). Natural events eased from 22 to 18: 13 Sea and Lake Ice, 5 severe-storm entries (Hurricane Genevieve x2, Super Typhoon Dolphin, Typhoon Noul, Hurricane Fausto); the 2 US wildfire entries (Oregon, Washington) and the Hong Kong tropical-cyclone-warning cleared. Radiation stayed clear: anomalyCount and elevatedCount both 0, 11 readings normal 27.0–74.3 nSv/h. Observed-only, no-political-position framing held ([[wildfire-detections]], [[thermal-escalations]], [[natural-events]], [[radiation-observations]]).

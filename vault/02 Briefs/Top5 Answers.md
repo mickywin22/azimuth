@@ -3,7 +3,7 @@ title: Top5 Answers
 type: L2-brief
 theme: cross-theme
 week: 2026-W31
-updated: 2026-07-30T04:00:00Z
+updated: 2026-08-01T04:00:00Z
 sources: [co2-monitoring, conflict-events-ucdp, crude-oil-inventories, disease-outbreaks, displacement-flows, earthquakes, energy-prices, fuel-prices, natural-events, natural-gas-storage-eu, radiation-observations, thermal-escalations, wildfire-detections]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -18,7 +18,7 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 > **Channels:** EU gas storage + US crude inventories + Energy prices · **Serves:** Energy / policy desk — a one-glance supply-health read across the physical balances and the price tape.
 
 - **Verdict — the data leans well-supplied, not fragile.** Storage is filling and spot crude eased, while the multi-week US crude draw is the single signal to watch; azimuth states what the feeds show, not a safety call ([[natural-gas-storage-eu]], [[crude-oil-inventories]], [[energy-prices]])
-- **EU gas storage is building** — 3,056 Bcf as of 2026-07-17, +32 Bcf week-on-week, extending the injection run to 8 straight weeks ([[natural-gas-storage-eu]])
+- **EU gas storage is building** — 3,084 Bcf as of 2026-07-24, +28 Bcf week-on-week, extending the injection run to 8 straight weeks ([[natural-gas-storage-eu]])
 - **US crude inventories drew down** -10,964 (EIA week of 2026-07-24) to 712,158 — the 8th straight weekly draw, the one tightening signal in the picture ([[crude-oil-inventories]])
 - **Spot crude eased** this week — WTI $88.58/bbl (+9.7), Brent $96.12/bbl (+15.9) on the reported week-on-week change, so the price tape is not signalling scarcity ([[energy-prices]])
 
@@ -44,7 +44,7 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 - **Biggest move: Brent Crude Oil, +19.8% week-on-week** — the largest swing across the quantitative energy series this week ([[energy-prices]])
 - **What it connects to:** the move sits inside the inventories-vs-price loop — US crude drew down while spot prices eased, so the headline swing reflects demand-side repricing rippling from the spot tape into the physical balances and on to pump prices ([[crude-oil-inventories]], [[energy-prices]], [[fuel-prices]])
-- **The slow-moving record:** atmospheric CO2 stands at 429.01 ppm (Mauna Loa, 2.85 ppm/yr) — not a weekly 'shift' but the baseline every energy story is told against; the demonstrator flags it as a different time-scale, not the week's headline ([[co2-monitoring]])
+- **The slow-moving record:** atmospheric CO2 stands at 429.29 ppm (Mauna Loa, 2.85 ppm/yr) — not a weekly 'shift' but the baseline every energy story is told against; the demonstrator flags it as a different time-scale, not the week's headline ([[co2-monitoring]])
 
 ## Q5 — Show me everything that connects a given region or commodity across the data.
 
@@ -76,3 +76,4 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 - 2026-07-24 — regenerated TOP5 demonstrator answers from the 2026-07-24 live bundle (2026-W30); 5 cross-channel answers, every claim L1-sourced.
 - 2026-07-25 — regenerated TOP5 demonstrator answers from the 2026-07-25 live bundle (2026-W30); 5 cross-channel answers, every claim L1-sourced.
 - 2026-07-30 — regenerated TOP5 demonstrator answers from the 2026-07-30 live bundle (2026-W31); 5 cross-channel answers, every claim L1-sourced.
+- 2026-08-01 — regenerated TOP5 demonstrator answers from the 2026-08-01 live bundle (2026-W31); 5 cross-channel answers, every claim L1-sourced.
