@@ -16,12 +16,19 @@ a minority (<= 1/4) of the sources attempted, so a single flaky upstream never b
 day's good notes (an all-skipped run is still 0). 1 = the run is unhealthy — nothing written,
 or a broad outage past tolerance — so the daily workflow fails loudly and its alarm + liveness
 gate fire.
+
+Because a healthy-but-degraded run exits 0, the workflow's ``if: failure()`` alarm would
+skip and the errored source(s) would vanish silently. To keep the ``ingest-alarm`` issue
+firing for a tolerated failure too, this CLI publishes the errored source keys as GitHub
+Actions step outputs (``errored`` / ``errored_count`` / ``written_count``) that ``ingest.yml``
+keys its alarm off. Off CI (no ``GITHUB_OUTPUT``) that emission is a no-op.
 """
 
 from __future__ import annotations
 
 import argparse
 import logging
+import os
 import sys
 from pathlib import Path
 
@@ -29,8 +36,31 @@ _REPO_ROOT = Path(__file__).resolve().parent.parent
 if str(_REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(_REPO_ROOT))
 
-from ingest import pull  # noqa: E402
+from ingest import IngestOutcome, pull  # noqa: E402
 from ingest.http import HttpFetcher  # noqa: E402
+
+
+def _emit_step_outputs(outcome: IngestOutcome) -> None:
+    """Publish the run's errored source keys as GitHub Actions step outputs.
+
+    A *healthy* run that tolerated a minority of source errors exits 0, so the workflow's
+    ``if: failure()`` alarm step is skipped and the dead source would be committed *around*
+    silently. Emitting the errored keys here lets ``ingest.yml`` raise the ``ingest-alarm``
+    issue on a committed-but-degraded run too (``steps.ingest.outputs.errored != ''``), while
+    the good notes still commit. A clean run emits an empty ``errored`` so the alarm stays
+    quiet. No-op when not running under GitHub Actions (``GITHUB_OUTPUT`` unset).
+
+    ``GITHUB_OUTPUT`` is the runner-owned, append-only step-output file — append, never
+    truncate, so a prior step's outputs survive.
+    """
+    output_path = os.environ.get("GITHUB_OUTPUT")
+    if not output_path:
+        return
+    errored = ",".join(sorted(outcome.errors))
+    with open(output_path, "a", encoding="utf-8") as handle:
+        handle.write(f"errored={errored}\n")
+        handle.write(f"errored_count={len(outcome.errors)}\n")
+        handle.write(f"written_count={len(outcome.written)}\n")
 
 
 def main() -> int:
@@ -69,6 +99,9 @@ def main() -> int:
             f"({len(outcome.written)} written) — committing the good notes; the failed "
             f"source(s) are surfaced above and the liveness gate still guards a dead engine."
         )
+    # Publish errored keys as step outputs so ingest.yml alarms on a tolerated failure too
+    # (exit 0 would otherwise skip its `if: failure()` alarm). No-op off CI.
+    _emit_step_outputs(outcome)
     return 0 if outcome.healthy else 1
 
 

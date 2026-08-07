@@ -41,7 +41,12 @@ jobs:
       - name: Install runtime dependencies
         run: uv pip install --system -e .
 
+      # `id: ingest` so the alarm step below can read the errored source keys this step
+      # publishes (steps.ingest.outputs.errored). A healthy-but-degraded run exits 0 and
+      # reaches the commit step, so `if: failure()` alone would never surface a tolerated
+      # source failure — the step output is what keeps that alarm firing.
       - name: Run live L1 ingest against WorldMonitor
+        id: ingest
         run: python scripts/run_ingest.py --base-url https://api.worldmonitor.app
 
       # Refresh the benchmark FOIL corpus (the compared forecast/intelligence product) and
@@ -94,19 +99,57 @@ jobs:
       # ("keep L1 ingest operating"): the engine every brief rests on is down. Open (or
       # update) one tracking issue so it cannot fail silently. Dedup by the ingest-alarm
       # label so repeated failures append instead of spamming new issues.
-      - name: Alarm on ingest failure
-        if: failure()
+      #
+      # Fire on EITHER: (a) a hard job failure — an unhealthy ingest (nothing written /
+      # broad outage), a red liveness gate, or a failed commit/push — OR (b) a healthy run
+      # that still had a MINORITY of sources error (steps.ingest.outputs.errored != ''). Case
+      # (b) exits 0 and commits the good notes, so `if: failure()` alone would let the dead
+      # source vanish silently — the step output is what keeps the alarm honest for a
+      # tolerated failure. The two cases raise distinct messages against the same label.
+      - name: Alarm on ingest failure or tolerated source error
+        if: failure() || steps.ingest.outputs.errored != ''
         uses: actions/github-script@v7
+        env:
+          JOB_STATUS: ${{ job.status }}
+          ERRORED: ${{ steps.ingest.outputs.errored }}
+          ERRORED_COUNT: ${{ steps.ingest.outputs.errored_count }}
+          WRITTEN_COUNT: ${{ steps.ingest.outputs.written_count }}
         with:
           script: |
             const day = new Date().toISOString().slice(0, 10);
-            const title = "azimuth L1 ingest failing";
-            const body = [
-              `The daily L1 ingest workflow failed on ${day} (run ${context.runId}).`,
-              "",
-              "The L1-ingest engine that feeds every L2 brief is down. Check the run:",
-              `https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`,
-            ].join("\n");
+            const runUrl =
+              `https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
+            const errored = (process.env.ERRORED || "").trim();
+            const erroredCount = process.env.ERRORED_COUNT || "0";
+            const writtenCount = process.env.WRITTEN_COUNT || "0";
+
+            let title, body;
+            if (process.env.JOB_STATUS === "failure") {
+              // Hard failure: unhealthy ingest, a dead liveness gate, or a failed commit/push.
+              title = "azimuth L1 ingest failing";
+              body = [
+                `The daily L1 ingest workflow failed on ${day} (run ${context.runId}).`,
+                "",
+                "The L1-ingest engine that feeds every L2 brief is down. Check the run:",
+                runUrl,
+              ].join("\n");
+            } else {
+              // Soft degradation: the run was healthy enough to commit (a minority of sources
+              // errored), so exit 0 reached the commit step and the good notes shipped — but
+              // the errored source(s) must not vanish. Name them so they get fixed or de-surfaced.
+              title = "azimuth L1 ingest: source(s) errored (good notes still committed)";
+              body = [
+                `The daily L1 ingest committed ${writtenCount} good note(s) on ${day} but ` +
+                  `${erroredCount} source(s) errored (run ${context.runId}).`,
+                "",
+                "Tolerated as a minority so the day's good notes still shipped — but these " +
+                  "source(s) need a fix or a de-surface:",
+                ...errored.split(",").filter(Boolean).map((k) => `- \`${k}\``),
+                "",
+                `Per-source reasons are in the run log: ${runUrl}`,
+              ].join("\n");
+            }
+
             const open = await github.rest.issues.listForRepo({
               owner: context.repo.owner, repo: context.repo.repo,
               state: "open", labels: "ingest-alarm",
