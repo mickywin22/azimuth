@@ -79,6 +79,34 @@ class IngestOutcome:
         """True when nothing errored. An empty run (all skipped) is still ok."""
         return not self.errors
 
+    @property
+    def attempted(self) -> int:
+        """Sources actually fetched this run (written + errored).
+
+        Skipped sources failed the guardrail upstream and were never fetched, so they
+        don't count toward run health either way.
+        """
+        return len(self.written) + len(self.errors)
+
+    @property
+    def healthy(self) -> bool:
+        """True when the run is healthy enough to commit its L1 notes.
+
+        Distinct from ``ok`` (strict: *nothing* errored). A single flaky upstream — one
+        endpoint returning HTTP 400 — must NOT blackhole the 20+ good notes the run *did*
+        write. That self-abort is exactly what starved the daily synthesis cadence for
+        days: 21 notes written, one source errored, the workflow exited non-zero and never
+        reached its commit step, so every good note was discarded with the runner.
+
+        So a run is healthy when it wrote at least one note and its errors stay a minority
+        (<= 1/4 of the sources attempted). A genuinely-dead engine (nothing written, or a
+        broad outage past that tolerance) stays unhealthy, so the daily workflow still fails
+        loudly and its ingest alarm + liveness gate fire.
+        """
+        if not self.written:
+            return False
+        return len(self.errors) <= max(1, self.attempted // 4)
+
 
 def _yaml_quote(value: str) -> str:
     """Double-quote a scalar for the simple flat frontmatter block we emit."""

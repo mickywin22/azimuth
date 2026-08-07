@@ -11,7 +11,11 @@ Usage:
     python scripts/run_ingest.py --dry-run    # fetch + render, write nothing
     python scripts/run_ingest.py --base-url http://localhost:8080   # against a stub
 
-Exit codes: 0 = no errors (an all-skipped run is still 0); 1 = at least one source errored.
+Exit codes: 0 = the run is healthy enough to commit — at least one note written and errors
+a minority (<= 1/4) of the sources attempted, so a single flaky upstream never blackholes the
+day's good notes (an all-skipped run is still 0). 1 = the run is unhealthy — nothing written,
+or a broad outage past tolerance — so the daily workflow fails loudly and its alarm + liveness
+gate fire.
 """
 
 from __future__ import annotations
@@ -59,7 +63,13 @@ def main() -> int:
         print(f"  ERROR {key}: {reason}")
     for key, reason in sorted(outcome.skipped.items()):
         print(f"  skip  {key}: {reason}")
-    return 0 if outcome.ok else 1
+    if outcome.errors and outcome.healthy:
+        print(
+            f"ingest: {len(outcome.errors)} source(s) errored but the run is healthy "
+            f"({len(outcome.written)} written) — committing the good notes; the failed "
+            f"source(s) are surfaced above and the liveness gate still guards a dead engine."
+        )
+    return 0 if outcome.healthy else 1
 
 
 if __name__ == "__main__":

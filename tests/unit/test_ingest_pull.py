@@ -14,7 +14,15 @@ from pathlib import Path
 import pytest
 
 from guardrail import SourceEntry, load_registry, parse_credited_keys
-from ingest import cap_payload, eligible_sources, frontmatter_for, pull, render_note
+from ingest import (
+    IngestOutcome,
+    L1Note,
+    cap_payload,
+    eligible_sources,
+    frontmatter_for,
+    pull,
+    render_note,
+)
 
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
 REGISTRY_PATH = REPO_ROOT / "sources" / "registry.json"
@@ -288,3 +296,81 @@ def test_note_frontmatter_is_parseable_block() -> None:
     assert match is not None
     keys = {line.split(":", 1)[0] for line in match.group(1).splitlines()}
     assert keys == {"source", "source_key", "endpoint", "retrieved", "license", "attribution"}
+
+
+# --- run-health tolerance: `healthy` (commit-worthy) vs strict `ok` --------------------
+# One flaky upstream (an endpoint 400ing) used to blackhole the whole day: run_ingest
+# exited non-zero on any single error, the workflow aborted before its commit step, and the
+# 20+ good notes were discarded — starving the daily synthesis cadence. `healthy` tolerates
+# a minority of source errors so the good notes commit, while a dead/broad-outage engine
+# stays unhealthy (loud).
+
+
+def _note(key: str) -> L1Note:
+    return L1Note(source_key=key, relative_path=Path(f"2026-06-10/{key}.md"), text="body")
+
+
+def test_outcome_healthy_tolerates_a_single_flaky_source() -> None:
+    # The real prod shape: 21 good notes, one upstream HTTP 400. Strict `ok` is False, but
+    # the run is healthy — the good notes must still commit (they were being blackholed).
+    outcome = IngestOutcome(
+        written=[_note(f"src-{i}") for i in range(21)],
+        errors={"world-bank-indicators": "HTTP Error 400: Bad Request"},
+    )
+    assert not outcome.ok
+    assert outcome.healthy
+    assert outcome.attempted == 22
+
+
+def test_outcome_clean_run_is_both_ok_and_healthy() -> None:
+    outcome = IngestOutcome(written=[_note("a"), _note("b")])
+    assert outcome.ok
+    assert outcome.healthy
+
+
+def test_outcome_unhealthy_when_nothing_written() -> None:
+    # A dead engine (every source errored, nothing written) stays unhealthy so the daily
+    # workflow fails loudly and its alarm + liveness gate fire.
+    outcome = IngestOutcome(errors={"a": "boom", "b": "boom"})
+    assert not outcome.healthy
+
+
+def test_outcome_unhealthy_on_broad_outage() -> None:
+    # Errors past the 1/4 tolerance = a broad outage, not one flaky source -> loud.
+    outcome = IngestOutcome(
+        written=[_note("a"), _note("b"), _note("c")],
+        errors={f"e{i}": "boom" for i in range(17)},
+    )
+    assert not outcome.healthy
+
+
+def test_outcome_healthy_at_quarter_error_boundary() -> None:
+    # 3 written + 1 errored = 4 attempted; 1 <= max(1, 4 // 4 == 1) -> healthy.
+    outcome = IngestOutcome(
+        written=[_note("a"), _note("b"), _note("c")],
+        errors={"e": "boom"},
+    )
+    assert outcome.healthy
+
+
+def test_pull_single_failed_fetch_is_healthy(tmp_path: Path) -> None:
+    # Same setup as the degraded-mode test, but asserting the run stays *healthy* (exit 0 in
+    # run_ingest) even though one fetch errored — the fix that unblocks the daily commit.
+    registry = load_registry(REGISTRY_PATH)
+    credited = parse_credited_keys(CREDITS_PATH.read_text(encoding="utf-8"))
+    eligible = eligible_sources(registry, credited)
+    assert len(eligible) >= 2
+    failing = eligible[0]
+    fetcher = DictFetcher({e.endpoint: [{"v": 1}] for e in eligible if e.key != failing.key})
+
+    outcome = pull(
+        registry_path=REGISTRY_PATH,
+        credits_path=CREDITS_PATH,
+        fetcher=fetcher,
+        out_dir=tmp_path,
+        now=FIXED,
+    )
+
+    assert not outcome.ok  # strict signal still flags the errored source
+    assert outcome.healthy  # but the run commits — one flaky source no longer blackholes the day
+    assert failing.key in outcome.errors
