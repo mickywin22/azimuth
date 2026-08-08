@@ -2,56 +2,56 @@
   "$note": "Captured snapshot of the COMPARED forecast/intelligence product for the azimuth benchmark (synthesis/benchmark.py). Quoted by product + capture date; NOT surfaced as an azimuth channel and NOT an L1 source. Refresh with pull_benchmark_foils.py.",
   "endpoint": "/api/forecast/v1/get-forecasts",
   "attribution": "WorldMonitor (api.worldmonitor.app) — model-generated forecast/assessment product",
-  "feed_generated_at": 1786086216859,
+  "feed_generated_at": 1786172693377,
   "feed_degraded": false,
-  "captured_at": "2026-08-07T07:38:02Z",
+  "captured_at": "2026-08-08T07:10:04Z",
   "n_forecasts_seen": 14,
   "topics": {
     "energy-supply": {
       "foil": {
-        "id": "fc-market-e25dc44e",
+        "id": "fc-market-3b03eb86",
         "domain": "market",
-        "region": "Black Sea",
-        "title": "Inflation and rates pressure from Black Sea maritime disruption state",
-        "probability": 0.66,
-        "prior_probability": 0.66,
-        "confidence": 0.75,
+        "region": "Middle East",
+        "title": "Oil price impact from Strait of Hormuz disruption",
+        "probability": 0.533,
+        "prior_probability": 0.533,
+        "confidence": 0.583,
         "time_horizon": "30d",
         "trend": "stable",
         "projections": {
-          "d30": 0.277,
-          "d7": 0.383,
-          "h24": 0.66
+          "h24": 0.533,
+          "d7": 0.309,
+          "d30": 0.224
         },
-        "scenario_short": "Black Sea maritime disruption state is feeding inflation and rates pressure through gas supply stress, with 58% pressure and 76% state confirmation. For now, the base case stays near 69% over the 30d. Actors absorb...",
-        "perspective_strategic": "Black Sea maritime disruption state is feeding inflation and rates pressure through gas supply stress, with 58% pressure and 76% state confirmation is setting the strategic baseline, and the current 66% probability implies a live but not settled risk path.",
-        "perspective_contrarian": "The current 75% confidence level still leaves room for reversal. If that restraint persists, the forecast can move below the current 66% baseline. Actors prioritize containment and the system drifts toward stabilization unless new hard signals emerge.",
-        "actor_lens": "Commodity traders: Price whether stress in Black Sea becomes durable over the 30d. Rebalance positions if the probability path moves away from 66%.",
-        "top_signal": "Black Sea maritime disruption state is feeding inflation and rates pressure through gas supply stress, with 58% pressure and 76% state confirmation"
+        "scenario_short": "Strait of Hormuz risk: critical. For now, the base case stays near 57% over the 30d. Actors absorb the current evidence mix without a decisive break toward either shock or relief.",
+        "perspective_strategic": "Strait of Hormuz risk: critical is setting the strategic baseline, and the current 53% probability implies a live but not settled risk path.",
+        "perspective_contrarian": "The current 58% confidence level still leaves room for reversal. If that restraint persists, the forecast can move below the current 53% baseline. Actors prioritize containment and the system drifts toward stabilization unless new hard signals emerge.",
+        "actor_lens": "Commodity traders: Price whether stress in Middle East becomes durable over the 30d. Rebalance positions if the probability path moves away from 53%.",
+        "top_signal": "Strait of Hormuz risk: critical"
       },
       "absence_reason": null
     },
     "supply-chain-inflation": {
       "foil": {
-        "id": "fc-market-e25dc44e",
+        "id": "fc-market-265c5f55",
         "domain": "market",
         "region": "Black Sea",
-        "title": "Inflation and rates pressure from Black Sea maritime disruption state",
-        "probability": 0.66,
-        "prior_probability": 0.66,
+        "title": "Sovereign risk repricing from Black Sea maritime disruption state (supply_chain)",
+        "probability": 0.614,
+        "prior_probability": 0.615,
         "confidence": 0.75,
         "time_horizon": "30d",
         "trend": "stable",
         "projections": {
-          "d30": 0.277,
-          "d7": 0.383,
-          "h24": 0.66
+          "h24": 0.614,
+          "d7": 0.356,
+          "d30": 0.258
         },
-        "scenario_short": "Black Sea maritime disruption state is feeding inflation and rates pressure through gas supply stress, with 58% pressure and 76% state confirmation. For now, the base case stays near 69% over the 30d. Actors absorb...",
-        "perspective_strategic": "Black Sea maritime disruption state is feeding inflation and rates pressure through gas supply stress, with 58% pressure and 76% state confirmation is setting the strategic baseline, and the current 66% probability implies a live but not settled risk path.",
-        "perspective_contrarian": "The current 75% confidence level still leaves room for reversal. If that restraint persists, the forecast can move below the current 66% baseline. Actors prioritize containment and the system drifts toward stabilization unless new hard signals emerge.",
-        "actor_lens": "Commodity traders: Price whether stress in Black Sea becomes durable over the 30d. Rebalance positions if the probability path moves away from 66%.",
-        "top_signal": "Black Sea maritime disruption state is feeding inflation and rates pressure through gas supply stress, with 58% pressure and 76% state confirmation"
+        "scenario_short": "Black Sea maritime disruption state (supply_chain) is keeping sovereign risk elevated through sovereign stress, with 75% pressure and 70% state confirmation. For now, the base case stays near 64% over the 30d. Actors...",
+        "perspective_strategic": "Black Sea maritime disruption state (supply_chain) is keeping sovereign risk elevated through sovereign stress, with 75% pressure and 70% state confirmation is setting the strategic baseline, and the current 61% probability implies a live but not settled risk path.",
+        "perspective_contrarian": "The current 75% confidence level still leaves room for reversal. If that restraint persists, the forecast can move below the current 61% baseline. Actors prioritize containment and the system drifts toward stabilization unless new hard signals emerge.",
+        "actor_lens": "Commodity traders: Price whether stress in Black Sea becomes durable over the 30d. Rebalance positions if the probability path moves away from 61%.",
+        "top_signal": "Black Sea maritime disruption state (supply_chain) is keeping sovereign risk elevated through sovereign stress, with 75% pressure and 70% state confirmation"
       },
       "absence_reason": null
     },
