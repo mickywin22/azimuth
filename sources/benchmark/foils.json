@@ -2,9 +2,9 @@
   "$note": "Captured snapshot of the COMPARED forecast/intelligence product for the azimuth benchmark (synthesis/benchmark.py). Quoted by product + capture date; NOT surfaced as an azimuth channel and NOT an L1 source. Refresh with pull_benchmark_foils.py.",
   "endpoint": "/api/forecast/v1/get-forecasts",
   "attribution": "WorldMonitor (api.worldmonitor.app) — model-generated forecast/assessment product",
-  "feed_generated_at": 1786259007599,
+  "feed_generated_at": 1786345327508,
   "feed_degraded": false,
-  "captured_at": "2026-08-09T07:11:35Z",
+  "captured_at": "2026-08-10T08:00:14Z",
   "n_forecasts_seen": 14,
   "topics": {
     "energy-supply": {
@@ -33,25 +33,25 @@
     },
     "supply-chain-inflation": {
       "foil": {
-        "id": "fc-market-2b10db4d",
+        "id": "fc-market-265c5f55",
         "domain": "market",
         "region": "Black Sea",
-        "title": "Sovereign risk repricing from Black Sea maritime disruption state",
-        "probability": 0.683,
-        "prior_probability": 0.701,
+        "title": "Sovereign risk repricing from Black Sea maritime disruption state (supply_chain)",
+        "probability": 0.643,
+        "prior_probability": 0.65,
         "confidence": 0.75,
         "time_horizon": "30d",
         "trend": "stable",
         "projections": {
-          "d30": 0.287,
-          "d7": 0.396,
-          "h24": 0.683
+          "d30": 0.27,
+          "d7": 0.373,
+          "h24": 0.643
         },
-        "scenario_short": "Black Sea maritime disruption state is keeping sovereign risk elevated through sovereign stress, with 76% pressure and 75% state confirmation. For now, the base case stays near 71% over the 30d. Actors absorb the...",
-        "perspective_strategic": "Black Sea maritime disruption state is keeping sovereign risk elevated through sovereign stress, with 76% pressure and 75% state confirmation is setting the strategic baseline, and the current 68% probability implies a live but not settled risk path.",
-        "perspective_contrarian": "The current 75% confidence level still leaves room for reversal. If that restraint persists, the forecast can move below the current 68% baseline. Actors prioritize containment and the system drifts toward stabilization unless new hard signals emerge.",
-        "actor_lens": "Commodity traders: Price whether stress in Black Sea becomes durable over the 30d. Rebalance positions if the probability path moves away from 68%.",
-        "top_signal": "Black Sea maritime disruption state is keeping sovereign risk elevated through sovereign stress, with 76% pressure and 75% state confirmation"
+        "scenario_short": "Black Sea maritime disruption state (supply_chain) is keeping sovereign risk elevated through sovereign stress, with 74% pressure and 73% state confirmation. For now, the base case stays near 67% over the 30d. Actors...",
+        "perspective_strategic": "Black Sea maritime disruption state (supply_chain) is keeping sovereign risk elevated through sovereign stress, with 74% pressure and 73% state confirmation is setting the strategic baseline, and the current 64% probability implies a live but not settled risk path.",
+        "perspective_contrarian": "The current 75% confidence level still leaves room for reversal. If that restraint persists, the forecast can move below the current 64% baseline. Actors prioritize containment and the system drifts toward stabilization unless new hard signals emerge.",
+        "actor_lens": "Commodity traders: Price whether stress in Black Sea becomes durable over the 30d. Rebalance positions if the probability path moves away from 64%.",
+        "top_signal": "Black Sea maritime disruption state (supply_chain) is keeping sovereign risk elevated through sovereign stress, with 74% pressure and 73% state confirmation"
       },
       "absence_reason": null
     },
