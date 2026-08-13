@@ -4,7 +4,7 @@ type: L2-brief
 theme: macro-markets
 week: 2026-W31
 updated: 2026-08-01T09:00:00Z
-sources: [crypto-quotes, world-bank-indicators]
+sources: [crypto-quotes]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
 ---
@@ -33,13 +33,11 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 - The World Bank indicators channel carried no new reporting this cycle; its payload
   was empty on the 2026-08-01 pull and is held flat ([[world-bank-indicators]]).
 
-## Honest scope — one live channel of four
+## Honest scope — one live channel of three
 
-- The macro-markets theme registers four channels; **only the crypto-quotes channel currently
-  carries data.** The World Bank indicators channel returns an empty payload on every
-  committed ingest day, and the tariff/consumer-price channels are not yet surfaced upstream.
-  This brief scopes to the live channel and widens as the others land ([[crypto-quotes]],
-  [[world-bank-indicators]]).
+- The macro-markets theme registers three channels; **only the crypto-quotes channel currently
+  carries data.** The tariff and consumer-price channels are not yet surfaced upstream. This
+  brief scopes to the live channel and widens as the others land ([[crypto-quotes]]).
 
 ## Reading the week
 
@@ -70,3 +68,4 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 - 2026-07-25 — daily-ingest synthesis (2026-W30): the pullback went fully red — all ten assets down on the day (from nine of ten on 07-24), the first clean down-sweep since the 07-21 rally; BTC $63,929 (−2.3%, down $1,432 from 07-24 and its first sub-$64,000 print of the pullback), ETH $1,854.00 (−1.9%), ADA the largest faller (−3.5%), SOL −2.8%, XRP −2.5%, LINK −2.2%; no gainer; world-bank-indicators held (empty payload, no new reporting) ([[crypto-quotes]], [[world-bank-indicators]]).
 - 2026-07-30 — daily-ingest synthesis (2026-W31): absorbed the 2026-07-26 through 2026-07-30 pulls after a five-day gap behind the live L1. crypto-quotes steadied after the 07-25 fully-red sweep — 8 of 10 assets down on the day but two green; levels recovered modestly from the 07-25 lows: BTC $64,174 (−0.7%, ~$245 above the 07-25 print), ETH $1,911.08 (−0.9%), LINK the largest faller (−1.6%), BNB (+0.6%) and TRX (+0.5%) the only gainers. world-bank-indicators held (empty payload, no new reporting). Updated the at-a-glance and reading sections ([[crypto-quotes]], [[world-bank-indicators]]).
 - 2026-08-01 — daily-ingest synthesis (2026-W31): absorbed the 2026-07-31 and 2026-08-01 pulls. crypto-quotes turned broadly lower again after the 07-30 steadying — 9 of 10 assets down on the day, only Cardano green (+1.6%); BTC $63,043 (−1.8%, ~$1,131 below the 07-30 print and back under $64,000), ETH $1,867.81 (−1.7%), LINK the largest faller (−2.4%), the remaining seven down 0.2–1.6%. world-bank-indicators held (empty payload, no new reporting). Updated the at-a-glance and reading sections ([[crypto-quotes]], [[world-bank-indicators]]).
+- 2026-08-14 — cosmetic scope edit (no L1 synthesis): dropped the de-surfaced world-bank-indicators channel from the frontmatter `sources` and the honest-scope note now that it is on a live-reachability hold (empty upstream on every committed ingest day, `surfaced:false` in the sources registry). The crypto-quotes data and all prior readings are unchanged, and `updated`/`week` stay at 2026-08-01 / 2026-W31 because no new pull was absorbed this edit ([[crypto-quotes]]).
