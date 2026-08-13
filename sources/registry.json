@@ -430,7 +430,8 @@
       "synthesis_cautions": [
         "report-observed-not-predicted"
       ],
-      "surfaced": true
+      "surfaced": false,
+      "surfaced_reason": "LIVE-REACHABILITY HOLD (not editorial/license): the WorldMonitor world-bank endpoint returns NO usable free data. It returned an empty payload {\"data\":[]} on EVERY committed L1 ingest day of its whole life (2026-06-25 through 2026-08-01 — never one row); then ~2026-08-02 the API added a required query param and the parameterless call started returning HTTP 400 {\"violations\":[{\"field\":\"indicatorCode\",\"description\":\"value is required\"}]} — a persistent daily failure that fired the ingest alarm (IQ #1280). Investigated 2026-08-14: the correct call is ?indicator_code=<CODE> (snake_case query; camelCase indicatorCode is only the proto field), which restores HTTP 200 — but standard World Bank codes (NY.GDP.MKTP.CD, SP.POP.TOTL, FP.CPI.TOTL.ZG) still return {\"data\":[]}. So no new key/endpoint from Michael fixes this: the session mints fine and the path exists; the upstream is simply an empty stub on azimuth's free anonymous tier. The macro-markets theme is unaffected — its live data comes from crypto-quotes. Re-surface only if the endpoint is later confirmed to return real free-tier rows; the World Bank Open Data source is otherwise CC-BY-4.0. If Michael wants macro indicators in azimuth, the path is the direct World Bank Open Data API (api.worldbank.org, genuinely free, no key), added as a NEW source — not this dead WorldMonitor channel."
     },
     {
       "key": "tariff-trends",
