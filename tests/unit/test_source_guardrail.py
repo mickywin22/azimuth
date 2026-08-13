@@ -67,16 +67,17 @@ def _check(entry: SourceEntry, credited: frozenset[str] = frozenset({"demo"})) -
 def test_live_registry_passes() -> None:
     result = check_registry(REGISTRY_PATH, CREDITS_PATH)
     assert result.ok, [str(v) for v in result.violations]
-    # 22 surfaced after the W26 full-universe audit (docs/sources/worldmonitor-channel-audit.md)
-    # minus the 4 LIVE-REACHABILITY holds applied 2026-06-25: the audit surfaced channels from a
-    # docs survey, but four of them do not return free data on the live api.worldmonitor.app —
-    # sanctions-designations + tariff-trends (HTTP 401, now auth-gated beyond the free anonymous
-    # session) and consumer-prices + chokepoint-status (HTTP 404, path not live). All four carry a
-    # surfaced_reason and re-surface automatically if a clean free-tier endpoint is confirmed.
+    # 21 surfaced after the W26 full-universe audit (docs/sources/worldmonitor-channel-audit.md)
+    # minus the 4 LIVE-REACHABILITY holds applied 2026-06-25 (sanctions-designations + tariff-trends
+    # HTTP 401 auth-gated; consumer-prices + chokepoint-status HTTP 404 path-not-live) minus the 5th
+    # LIVE-REACHABILITY hold applied 2026-08-14: world-bank-indicators returns no usable free data —
+    # empty {"data":[]} on every committed ingest day of its whole life, then HTTP 400 once the API
+    # added a required indicator_code param; even the correct call returns empty (IQ #1280). All five
+    # carry a surfaced_reason and re-surface automatically if a clean free-tier endpoint is confirmed.
     # Net surfaced = original 9 (4 energy + earthquakes + prediction-markets + 3 climate-signals)
-    # + 13 audit channels that DO return live free data. 16 stay held (license / news-filter /
-    # derived-composite / live-reachability), each with a surfaced_reason.
-    assert result.surfaced == 22
+    # + 13 audit channels that DO return live free data - 1 (world-bank now held) = 21. 17 stay held
+    # (license / news-filter / derived-composite / live-reachability), each with a surfaced_reason.
+    assert result.surfaced == 21
     assert result.checked == 38
 
 
