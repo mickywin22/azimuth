@@ -68,7 +68,10 @@ join stays machine-checkable.
 **Macro & Markets theme** (W26)
 
 - `crypto-quotes` — CoinGecko (crypto spot prices) — API-ToS-derived (L2 carries no-investment-framing caution)
-- `world-bank-indicators` — World Bank Open Data (development indicators) — CC-BY-4.0
+- `world-bank-gdp` — World Bank Open Data (GDP, current US$; direct api.worldbank.org, keyless) — CC-BY-4.0
+- `world-bank-cpi` — World Bank Open Data (inflation, consumer prices; direct api.worldbank.org, keyless) — CC-BY-4.0
+- `world-bank-unemployment` — World Bank Open Data (unemployment, modeled ILO; direct api.worldbank.org, keyless) — CC-BY-4.0
+- `world-bank-indicators` — World Bank Open Data (via WorldMonitor) — CC-BY-4.0 — retired free-tier stub, superseded by the three direct `world-bank-*` sources above
 - `tariff-trends` — WTO (applied tariffs & trade restrictions) — CC-BY-4.0
 - `consumer-prices` — Eurostat HICP / national statistical offices — CC-BY-4.0
 

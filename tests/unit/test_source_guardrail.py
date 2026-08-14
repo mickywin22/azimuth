@@ -75,10 +75,12 @@ def test_live_registry_passes() -> None:
     # added a required indicator_code param; even the correct call returns empty (IQ #1280). All five
     # carry a surfaced_reason and re-surface automatically if a clean free-tier endpoint is confirmed.
     # Net surfaced = original 9 (4 energy + earthquakes + prediction-markets + 3 climate-signals)
-    # + 13 audit channels that DO return live free data - 1 (world-bank now held) = 21. 17 stay held
+    # + 13 audit channels that DO return live free data - 1 (world-bank WM channel now held) = 21.
+    # + 3 DIRECT World Bank Open Data sources added 2026-08-14 (world-bank-gdp / -cpi / -unemployment,
+    #   keyless api.worldbank.org, replacing the dead WorldMonitor world-bank stub) = 24. 17 stay held
     # (license / news-filter / derived-composite / live-reachability), each with a surfaced_reason.
-    assert result.surfaced == 21
-    assert result.checked == 38
+    assert result.surfaced == 24
+    assert result.checked == 41
 
 
 def test_live_registry_loads_with_policy() -> None:
@@ -90,7 +92,7 @@ def test_live_registry_loads_with_policy() -> None:
     assert "sanctions-record" in registry.allowed_content_classes
     assert "health-event" in registry.allowed_content_classes
     assert "orbital-position" in registry.allowed_content_classes
-    assert len(registry.sources) == 38
+    assert len(registry.sources) == 41
 
 
 # --- a clean surfaced source passes -----------------------------------------------------

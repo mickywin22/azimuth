@@ -37,7 +37,7 @@ if str(_REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(_REPO_ROOT))
 
 from ingest import IngestOutcome, pull  # noqa: E402
-from ingest.http import HttpFetcher  # noqa: E402
+from ingest.http import CompositeFetcher, HttpFetcher, WorldBankFetcher  # noqa: E402
 
 
 def _emit_step_outputs(outcome: IngestOutcome) -> None:
@@ -76,7 +76,11 @@ def main() -> int:
 
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(name)s: %(message)s")
 
-    fetcher = HttpFetcher(args.base_url) if args.base_url else HttpFetcher()
+    # WorldMonitor sources (``/api/...``) go through the session-minting HttpFetcher; direct
+    # World Bank sources (``worldbank:<CODE>``) go through the keyless WorldBankFetcher. The
+    # CompositeFetcher routes per endpoint, so ``--base-url`` still stubs only WorldMonitor.
+    worldmonitor = HttpFetcher(args.base_url) if args.base_url else HttpFetcher()
+    fetcher = CompositeFetcher(worldmonitor, WorldBankFetcher())
     outcome = pull(
         registry_path=_REPO_ROOT / "sources" / "registry.json",
         credits_path=_REPO_ROOT / "CREDITS.md",

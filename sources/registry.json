@@ -1,6 +1,6 @@
 {
   "$schema": "./registry.schema.md",
-  "description": "Canonical registry of every WorldMonitor-derived data subset azimuth may surface. The per-source license guardrail (scripts/check_sources.py) validates every entry before any subset is surfaced as L1. A subset that is not in this registry, or whose entry fails the guardrail, MUST NOT be surfaced. See docs/source-guardrail.md. Each surfaced source carries a `theme` that maps it to one L2 brief (see `themes` below); excluded sources carry a `surfaced_reason` explaining why they stay surfaced:false.",
+  "description": "Canonical registry of every data subset azimuth may surface — most WorldMonitor-derived (endpoint `/api/...`, session-minted), plus direct free-tier sources such as World Bank Open Data (endpoint `worldbank:<CODE>`, keyless api.worldbank.org, routed by ingest.http.CompositeFetcher). The per-source license guardrail (scripts/check_sources.py) validates every entry before any subset is surfaced as L1. A subset that is not in this registry, or whose entry fails the guardrail, MUST NOT be surfaced. See docs/source-guardrail.md. Each surfaced source carries a `theme` that maps it to one L2 brief (see `themes` below); excluded sources carry a `surfaced_reason` explaining why they stay surfaced:false.",
   "content_class_policy": {
     "line": "fact-vs-propaganda (Michael 2026-06-24). A channel is surfaceable iff it (1) monitors FACTS — observed events, measurements, positions, records — AND (2) is free-to-use (license-clean). Sensitivity is NEVER a deny reason; only LICENSE or non-factual (opinion/propaganda) content is. A factual record is allowed even on a sensitive topic — a conflict EVENT, a ship POSITION, a flight TRACK, a power outage are observed facts; an OPINION about them is propaganda.",
     "allowed": [
@@ -432,6 +432,48 @@
       ],
       "surfaced": false,
       "surfaced_reason": "LIVE-REACHABILITY HOLD (not editorial/license): the WorldMonitor world-bank endpoint returns NO usable free data. It returned an empty payload {\"data\":[]} on EVERY committed L1 ingest day of its whole life (2026-06-25 through 2026-08-01 — never one row); then ~2026-08-02 the API added a required query param and the parameterless call started returning HTTP 400 {\"violations\":[{\"field\":\"indicatorCode\",\"description\":\"value is required\"}]} — a persistent daily failure that fired the ingest alarm (IQ #1280). Investigated 2026-08-14: the correct call is ?indicator_code=<CODE> (snake_case query; camelCase indicatorCode is only the proto field), which restores HTTP 200 — but standard World Bank codes (NY.GDP.MKTP.CD, SP.POP.TOTL, FP.CPI.TOTL.ZG) still return {\"data\":[]}. So no new key/endpoint from Michael fixes this: the session mints fine and the path exists; the upstream is simply an empty stub on azimuth's free anonymous tier. The macro-markets theme is unaffected — its live data comes from crypto-quotes. Re-surface only if the endpoint is later confirmed to return real free-tier rows; the World Bank Open Data source is otherwise CC-BY-4.0. If Michael wants macro indicators in azimuth, the path is the direct World Bank Open Data API (api.worldbank.org, genuinely free, no key), added as a NEW source — not this dead WorldMonitor channel."
+    },
+    {
+      "key": "world-bank-gdp",
+      "endpoint": "worldbank:NY.GDP.MKTP.CD",
+      "upstream_source": "World Bank Open Data (GDP, current US$)",
+      "license": "CC-BY-4.0",
+      "attribution": "Data: World Bank Open Data (api.worldbank.org)",
+      "content_class": "economic-indicator",
+      "theme": "macro-markets",
+      "risk_flags": [],
+      "synthesis_cautions": [
+        "report-observed-not-predicted"
+      ],
+      "surfaced": true
+    },
+    {
+      "key": "world-bank-cpi",
+      "endpoint": "worldbank:FP.CPI.TOTL.ZG",
+      "upstream_source": "World Bank Open Data (inflation, consumer prices, annual %)",
+      "license": "CC-BY-4.0",
+      "attribution": "Data: World Bank Open Data (api.worldbank.org)",
+      "content_class": "economic-indicator",
+      "theme": "macro-markets",
+      "risk_flags": [],
+      "synthesis_cautions": [
+        "report-observed-not-predicted"
+      ],
+      "surfaced": true
+    },
+    {
+      "key": "world-bank-unemployment",
+      "endpoint": "worldbank:SL.UEM.TOTL.ZS",
+      "upstream_source": "World Bank Open Data (unemployment, % of labor force, modeled ILO)",
+      "license": "CC-BY-4.0",
+      "attribution": "Data: World Bank Open Data (api.worldbank.org)",
+      "content_class": "economic-indicator",
+      "theme": "macro-markets",
+      "risk_flags": [],
+      "synthesis_cautions": [
+        "report-observed-not-predicted"
+      ],
+      "surfaced": true
     },
     {
       "key": "tariff-trends",
