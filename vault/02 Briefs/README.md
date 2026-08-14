@@ -8,14 +8,14 @@ weekly (see its `## Changelog`). All content is CC-BY-4.0; see `../../CREDITS.md
 | --- | --- | --- | --- | --- |
 | [Benchmark — Facts vs Forecast vs Intelligence](<Benchmark.md>) | cross-theme | 2026-W33 | 2026-08-13T04:00:00Z | [crude-oil-inventories, earthquakes, energy-prices, natural-gas-storage-eu] |
 | [Climate Signals Weekly](<Climate Signals Weekly.md>) | climate-signals | 2026-W31 | 2026-08-01T09:00:00Z | [climate-anomalies, co2-monitoring, sea-ice-extent] |
-| [Conflict Watch Weekly](<Conflict Watch Weekly.md>) | conflict-watch | 2026-W31 | 2026-08-01T09:00:00Z | [conflict-events-ucdp] |
+| [Conflict Watch Weekly](<Conflict Watch Weekly.md>) | conflict-watch | 2026-W32 | 2026-08-08T09:00:00Z | [conflict-events-ucdp] |
 | [Cyber Watch Weekly](<Cyber Watch Weekly.md>) | cyber-watch | 2026-W31 | 2026-08-01T09:00:00Z | [cyber-threats] |
-| [Energy Supply Weekly](<Energy Supply Weekly.md>) | energy-supply | 2026-W31 | 2026-08-01T09:00:00Z | [natural-gas-storage-eu, crude-oil-inventories, fuel-prices, energy-prices] |
+| [Energy Supply Weekly](<Energy Supply Weekly.md>) | energy-supply | 2026-W32 | 2026-08-08T09:00:00Z | [natural-gas-storage-eu, crude-oil-inventories, fuel-prices, energy-prices] |
 | [Environmental Hazards Weekly](<Environmental Hazards Weekly.md>) | environmental-hazards | 2026-W31 | 2026-08-01T09:00:00Z | [wildfire-detections, thermal-escalations, natural-events, radiation-observations] |
 | [Geophysical Weekly](<Geophysical Weekly.md>) | geophysical | 2026-W31 | 2026-08-01T09:00:00Z | [earthquakes] |
 | [Humanitarian Watch Weekly](<Humanitarian Watch Weekly.md>) | humanitarian | 2026-W31 | 2026-08-01T09:00:00Z | [displacement-flows] |
 | [Infrastructure Watch Weekly](<Infrastructure Watch Weekly.md>) | infrastructure-watch | 2026-W31 | 2026-08-01T09:00:00Z | [internet-outages] |
-| [Macro & Markets Weekly](<Macro & Markets Weekly.md>) | macro-markets | 2026-W31 | 2026-08-01T09:00:00Z | [crypto-quotes, world-bank-indicators] |
+| [Macro & Markets Weekly](<Macro & Markets Weekly.md>) | macro-markets | 2026-W33 | 2026-08-13T09:00:00Z | [crypto-quotes, world-bank-indicators] |
 | [Orbital Watch Weekly](<Orbital Watch Weekly.md>) | orbital-watch | 2026-W31 | 2026-08-01T09:00:00Z | [orbital-satellites] |
 | [Prediction Markets Weekly](<Prediction Markets Weekly.md>) | prediction-markets | 2026-W31 | 2026-08-01T09:00:00Z | [prediction-markets] |
 | [Public Health Weekly](<Public Health Weekly.md>) | public-health | 2026-W31 | 2026-08-01T09:00:00Z | [disease-outbreaks] |
