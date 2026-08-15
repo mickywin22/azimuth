@@ -2,56 +2,56 @@
   "$note": "Captured snapshot of the COMPARED forecast/intelligence product for the azimuth benchmark (synthesis/benchmark.py). Quoted by product + capture date; NOT surfaced as an azimuth channel and NOT an L1 source. Refresh with pull_benchmark_foils.py.",
   "endpoint": "/api/forecast/v1/get-forecasts",
   "attribution": "WorldMonitor (api.worldmonitor.app) — model-generated forecast/assessment product",
-  "feed_generated_at": 1786690978732,
+  "feed_generated_at": 1786773698874,
   "feed_degraded": false,
-  "captured_at": "2026-08-14T07:46:24Z",
+  "captured_at": "2026-08-15T06:54:36Z",
   "n_forecasts_seen": 14,
   "topics": {
     "energy-supply": {
       "foil": {
-        "id": "fc-market-ddc670c6",
+        "id": "fc-market-e3e84e27",
         "domain": "market",
-        "region": "Europe",
-        "title": "FX stress from Europe governance pressure state",
-        "probability": 0.765,
-        "prior_probability": 0.752,
+        "region": "Baltic Sea",
+        "title": "Inflation and rates pressure from Baltic Sea maritime disruption state",
+        "probability": 0.59,
+        "prior_probability": 0.59,
         "confidence": 0.75,
         "time_horizon": "30d",
         "trend": "stable",
         "projections": {
-          "d30": 0.321,
-          "d7": 0.444,
-          "h24": 0.765
+          "d30": 0.248,
+          "d7": 0.342,
+          "h24": 0.59
         },
-        "scenario_short": "FX stress in Europe persists due to governance pressure, with sovereign stress at 69% pressure and 90% state confirmation, reinforced by 4 urgent critical signals and headlines on Europe's gas demand bust and diesel...",
-        "perspective_strategic": "The 69% sovereign stress pressure and 90% state confirmation, combined with 4 urgent critical signals, indicate a robust transmission path to FX stress, but the lack of directly matched reporting limits confidence.",
-        "perspective_contrarian": "The 75% confidence level and absence of directly matched reporting on Europe leave room for reversal; if sovereign stress eases due to ECB intervention or energy price drops, FX stress could fall below 69%.",
-        "actor_lens": "Commodity traders: Price whether stress in Europe becomes durable over the 30d. Rebalance positions if the probability path moves away from 77%.",
-        "top_signal": "Europe governance pressure state is keeping FX stress active through sovereign stress, with 69% pressure and 90% state confirmation"
+        "scenario_short": "Baltic Sea maritime disruption state is feeding inflation and rates pressure through energy supply shock, with 50% pressure and 73% state confirmation. For now, the base case stays near 61% over the 30d. Actors absorb...",
+        "perspective_strategic": "Baltic Sea maritime disruption state is feeding inflation and rates pressure through energy supply shock, with 50% pressure and 73% state confirmation is setting the strategic baseline, and the current 59% probability implies a live but not settled risk path.",
+        "perspective_contrarian": "No directly matched headlines are currently attached to Baltic Sea. If that restraint persists, the forecast can move below the current 59% baseline. Actors prioritize containment and the system drifts toward stabilization unless new hard signals emerge.",
+        "actor_lens": "Commodity traders: Price whether stress in Baltic Sea becomes durable over the 30d. Rebalance positions if the probability path moves away from 59%.",
+        "top_signal": "Baltic Sea maritime disruption state is feeding inflation and rates pressure through energy supply shock, with 50% pressure and 73% state confirmation"
       },
       "absence_reason": null
     },
     "supply-chain-inflation": {
       "foil": {
-        "id": "fc-market-2b10db4d",
+        "id": "fc-market-e04be152",
         "domain": "market",
         "region": "Black Sea",
-        "title": "Sovereign risk repricing from Black Sea maritime disruption state",
-        "probability": 0.689,
-        "prior_probability": 0.698,
+        "title": "Sovereign risk repricing from Black Sea market repricing state (supply_chain)",
+        "probability": 0.652,
+        "prior_probability": 0.652,
         "confidence": 0.75,
         "time_horizon": "30d",
         "trend": "stable",
         "projections": {
-          "d30": 0.289,
-          "d7": 0.4,
-          "h24": 0.689
+          "d30": 0.274,
+          "d7": 0.378,
+          "h24": 0.652
         },
-        "scenario_short": "Black Sea maritime disruption state is keeping sovereign risk elevated through sovereign stress, with 80% pressure and 75% state confirmation. For now, the base case stays near 72% over the 30d. Actors absorb the...",
-        "perspective_strategic": "Black Sea maritime disruption state is keeping sovereign risk elevated through sovereign stress, with 80% pressure and 75% state confirmation is setting the strategic baseline, and the current 69% probability implies a live but not settled risk path.",
-        "perspective_contrarian": "The current 75% confidence level still leaves room for reversal. If that restraint persists, the forecast can move below the current 69% baseline. Actors prioritize containment and the system drifts toward stabilization unless new hard signals emerge.",
-        "actor_lens": "Commodity traders: Price whether stress in Black Sea becomes durable over the 30d. Rebalance positions if the probability path moves away from 69%.",
-        "top_signal": "Black Sea maritime disruption state is keeping sovereign risk elevated through sovereign stress, with 80% pressure and 75% state confirmation"
+        "scenario_short": "Black Sea market repricing state (supply_chain) is keeping sovereign risk elevated through sovereign stress, with 78% pressure and 72% state confirmation. For now, the base case stays near 68% over the 30d. Actors...",
+        "perspective_strategic": "Black Sea market repricing state (supply_chain) is keeping sovereign risk elevated through sovereign stress, with 78% pressure and 72% state confirmation is setting the strategic baseline, and the current 65% probability implies a live but not settled risk path.",
+        "perspective_contrarian": "The current 75% confidence level still leaves room for reversal. If that restraint persists, the forecast can move below the current 65% baseline. Actors prioritize containment and the system drifts toward stabilization unless new hard signals emerge.",
+        "actor_lens": "Commodity traders: Price whether stress in Black Sea becomes durable over the 30d. Rebalance positions if the probability path moves away from 65%.",
+        "top_signal": "Black Sea market repricing state (supply_chain) is keeping sovereign risk elevated through sovereign stress, with 78% pressure and 72% state confirmation"
       },
       "absence_reason": null
     },
