@@ -2,8 +2,8 @@
 title: Geophysical Weekly
 type: L2-brief
 theme: geophysical
-week: 2026-W31
-updated: 2026-08-01T09:00:00Z
+week: 2026-W33
+updated: 2026-08-16T09:00:00Z
 sources: [earthquakes]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -14,71 +14,70 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 > Synthesised from the week's L1 source notes under `../01 Sources/`. The `azimuth-curator`
 > fleet role evolves this single note in place each week. azimuth reports **observed**
 > seismicity from the USGS feed — what was recorded, never what will happen. Every claim
-> links to the L1 note it rests on. (This cycle absorbs the 2026-08-01 ingest,
-> covering the rolling window to 2026-08-01.)
+> links to the L1 note it rests on. (This cycle absorbs the 2026-08-07 through 2026-08-16 ingest
+> after a curator gap, covering the rolling window to 2026-08-16.)
 
 ## This week at a glance
 
-- The USGS feed recorded **138** magnitude-4.5-or-greater earthquakes in the rolling window
-  retrieved 2026-08-01, of which **66 were M5+**, **one reached M6+** and **none reached M7** — the
-  count held near flat (137 to 138) while the M5+ tally eased from 69 to 66 and the M6+ count fell
-  from two to one as the Vanuatu M6.0 aged off the trailing edge, leaving the M6.8 Uto shock the sole
-  major; the south-of-Tonga swarm and the Kyushu, Japan sequence both carried into the new window
-  ([[earthquakes]]).
-- The week's headline is the **M6.8 shock in Kyushu, Japan** — logged by the USGS as the "2026 Uto,
-  Japan Earthquake" (2026-07-28, 10 km) — now the **sole M6+ in the window** and its strongest event,
-  the first M6.5-or-greater recorded since the Chiapas M7.3 aged out; it caps a shallow Kyushu cluster
-  around Tsunagi / Honmachi / Mifune ([[earthquakes]]).
-- The carried **M6.0 82 km W of Sola, Vanuatu** (2026-07-24, 44.6 km) has now aged off the
-  seven-day trailing edge, taking the M6+ count from two to one. The **"south of Tonga" swarm** —
-  now **15 events**, mostly 10 km deep at M4.8–M5.2 — stays the cycle's dominant cluster, and the
-  **Qinghai, China sequence** near Oula Xiuma still carries **M5.8** shocks ([[earthquakes]]).
+- The USGS feed recorded **128** magnitude-4.5-or-greater earthquakes in the rolling window
+  retrieved 2026-08-16, of which **51 were M5+**, **six reached M6+** and **two reached M7** — a
+  sharp step up in the strong-event tally from the 08-01 window (138 / 66 / 1 / 0) as two major
+  shocks entered: an **M7.7 off Ende, Indonesia** and an **M7.4 in Colombia** ([[earthquakes]]).
+- The window's headline is the shallow **M7.7 68 km NNW of Ende, Indonesia** (2026-08-14, 10 km) —
+  the strongest event recorded, capping a dense shallow offshore swarm north of Flores that also
+  logged an M6.1 and a string of M4.5–M5.9 shocks; the deep **M7.4 5 km S of San José del Palmar,
+  Colombia** (2026-08-10, 110 km) is the window's second major ([[earthquakes]]).
+- Below the two M7s sit four more M6+: an **M6.9** 15 km NNW of Pematangsiantar, Indonesia
+  (2026-08-15, 173 km — a deep Sumatra event), an **M6.1** 56 km NNE of Port-Olry, Vanuatu
+  (2026-08-16, 188 km), the shallow **M6.1** 58 km N of Ende (2026-08-14, 10 km) on the Flores
+  swarm, and an **M6.0** in the South Sandwich Islands region (2026-08-12, 10 km) ([[earthquakes]]).
 
 ## Largest events
 
-- The window's strongest is the **M6.8 "2026 Uto, Japan Earthquake"** (Kyushu, 2026-07-28, 10 km)
-  — a shallow crustal event that is now the **sole M6+** after the Vanuatu M6.0 aged off the
-  trailing edge; it heads a Kyushu string that also logged M5.6 and M5.4 shocks near Tsunagi and
-  Tatsugō ([[earthquakes]]).
-- Below it sits a band of **M5.8–M5.9s** — an M5.9 247 km NNE of Colonia, Micronesia, two Kermadec
-  Islands shocks (M5.9, M5.8), an M5.9 50 km WSW of Brisas Barra de Suchiate, Mexico, an M5.8 160 km
-  E of Ust'-Kamchatsk Staryy, Russia, an M5.8 191 km NW of Oula Xiuma, China and an M5.8 99 km SE of
-  Atka, Alaska — a broad spread across the western-Pacific and mid-ocean-ridge margins rather than
-  one dominant sequence, the carried Vanuatu M6.0 (07-24) now aged off the trailing edge
-  ([[earthquakes]]).
+- The window's strongest is the shallow **M7.7 68 km NNW of Ende, Indonesia** (2026-08-14, 10 km)
+  — a crustal event north of Flores that heads a large aftershock swarm (an M6.1, then M5.9 / M5.6
+  / M5.5 / M5.3 shocks near Ende and Labuan Bajo, all about 10 km deep) ([[earthquakes]]).
+- The window's second M7 is the deep **M7.4 5 km S of San José del Palmar, Colombia** (2026-08-10,
+  110 km) — an intraslab event beneath the northern Andes, well off the western-Pacific arcs that
+  dominate the rest of the window ([[earthquakes]]).
+- Below the two majors sit four M6+: the **M6.9** 15 km NNW of Pematangsiantar, Indonesia
+  (2026-08-15, 173 km deep), the **M6.1** 56 km NNE of Port-Olry, Vanuatu (2026-08-16, 188 km
+  deep), the shallow **M6.1** 58 km N of Ende (2026-08-14, 10 km) on the Flores swarm, and the
+  **M6.0** South Sandwich Islands region (2026-08-12, 10 km) ([[earthquakes]]).
 
 ## Where the activity clustered
 
-- The count spread widely this cycle: the **"south of Tonga" swarm led at 15 events** (mostly
-  shallow M4.8–M5.2), ahead of **Indonesia (11)** — the west-Papua / Abepura string — and
-  **Japan (10)**, concentrated in the Kyushu Uto M6.8 sequence. The **Kermadec Islands region (9)**,
-  **Philippines (8)**, **China (7)**, **Papua New Guinea (6)** and **Chile (5)** followed
+- **Indonesia dominated the count at 54 events**, more than five times the next country — driven by
+  the shallow Ende / Flores swarm (about 22 events north of Ende and around Labuan Bajo, capped by
+  the M7.7) plus the deep Pematangsiantar M6.9 and a small Banda Sea cluster. The **Philippines
+  (10)**, **Russia (6)**, **Vanuatu (5)**, **Papua New Guinea (5)** and **Japan (5)** followed
   ([[earthquakes]]).
-- The dominant feature stays the **south-of-Tonga swarm** (~24.5°S, 175°W), a dense shallow
-  cluster; the **Kyushu, Japan sequence** capped by the M6.8 Uto shock is the strongest. The
-  Vanuatu Sola swarm that led two cycles ago has now aged off the trailing edge, and the prior
-  fortnight's Puerto Madero / Chiapas sequence rolled off before it ([[earthquakes]]).
+- The dominant feature is the **Ende / Flores offshore swarm** — a dense shallow (10 km) cluster off
+  northern Flores capped by the M7.7 and its M6.1 — the strongest sequence in the window; the
+  Colombia M7.4 and the deep Sumatra M6.9 stand apart from it as isolated majors ([[earthquakes]]).
 
 ## Depth profile
 
-- The shallow proportion stayed high: **78 of the 138 events sit at ≤15 km**, including the whole
-  south-of-Tonga swarm and the Kyushu Uto sequence. The deep-focus list stayed on the Fiji slab —
-  the deepest recorded event is a **581.0 km** shock in the Fiji region, followed by **575.1 km**
-  and **544.4 km** foci south of the Fiji Islands ([[earthquakes]]).
+- The shallow proportion stayed high: **73 of the 128 events sit at ≤15 km**, including nearly the
+  whole Ende / Flores swarm. The deep-focus list ran on the Vanuatu and Fiji slabs — the deepest
+  recorded event is a **655.7 km** shock 173 km ENE of Sola, Vanuatu, followed by a **640.5 km**
+  focus 180 km NE of Sola and a **570.8 km** event east of Levuka, Fiji ([[earthquakes]]).
 
 ## Reading the week
 
-- The rolling count held near flat at **138 M4.5+ (66 M5+)**: the M5+ tally eased from 69 to 66 and
-  **M6+ fell from two to one** as the carried **Vanuatu M6.0** (07-24) aged off the seven-day
-  trailing edge, leaving the **M6.8 "2026 Uto, Japan Earthquake"** (2026-07-28) the sole major and
-  still the window's strongest event; M7+ stayed at zero. The shallow **south-of-Tonga swarm**
-  (15 events) stayed the dominant cluster and the **Kyushu, Japan sequence** the strongest, while the
-  deep-slab picture deepened to a **581.0 km** Fiji-region focus and 78 of 138 shocks were shallow
-  ≤15 km. azimuth records what the instruments measured — magnitude, location, depth, time — and
-  stops there, making no forecast of what the Kyushu or Tonga sequences do next ([[earthquakes]]).
+- The strong-event tally stepped up sharply: from 138 M4.5+ (66 M5+, 1 M6+, 0 M7+) on 08-01 to
+  **128 M4.5+ (51 M5+, 6 M6+, 2 M7+)** to 2026-08-16, as two majors entered — the shallow **M7.7
+  off Ende, Indonesia** (2026-08-14), now the window's strongest and the anchor of a dense Flores
+  aftershock swarm, and the deep **M7.4 in Colombia** (2026-08-10). Four more M6+ (the deep
+  Pematangsiantar M6.9 and Port-Olry M6.1, the shallow Ende M6.1 and the South Sandwich M6.0) fill
+  out the strong band. Indonesia carried the count at 54 on the Ende swarm; 73 of 128 shocks were
+  shallow ≤15 km and the deep-slab list reached a 655.7 km Vanuatu focus. azimuth records what the
+  instruments measured — magnitude, location, depth, time — and stops there, making no forecast of
+  what the Ende sequence does next ([[earthquakes]]).
 
 ## Changelog
 
+- 2026-08-16 — daily-ingest synthesis (2026-W33): absorbed the 2026-08-07 through 2026-08-16 USGS pulls after a curator gap; the rolling window to 2026-08-16 reads 128 M4.5+ (51 M5+, 6 M6+, 2 M7+ — from 138/66/1/0 on 08-01), a sharp step up in strong events. Two majors entered: a shallow M7.7 68 km NNW of Ende, Indonesia (2026-08-14, 10 km), now the window's strongest and the anchor of a ~22-event Flores aftershock swarm, and a deep M7.4 5 km S of San José del Palmar, Colombia (2026-08-10, 110 km). Four more M6+ — M6.9 Pematangsiantar Indonesia (deep, 08-15), M6.1 Port-Olry Vanuatu (deep, 08-16), M6.1 Ende (shallow, 08-14) and M6.0 South Sandwich Islands (08-12). Indonesia led the count at 54; deepest event a 655.7 km Sola, Vanuatu focus; 73 of 128 shocks shallow ≤15 km. Rewrote the at-a-glance, largest-events, clustering, depth and reading sections. Observed-only framing held ([[earthquakes]]).
 - 2026-06-18 — first Geophysical Weekly cycle: wrote the at-a-glance, largest-events,
   clustering, depth and reading sections from the live 2026-06-18 USGS ingest (111 M4.5+
   events, max M6.7 Palu; Philippines/Indonesia-led). Observed-only framing per the
