@@ -2,8 +2,8 @@
 title: Conflict Watch Weekly
 type: L2-brief
 theme: conflict-watch
-week: 2026-W32
-updated: 2026-08-08T09:00:00Z
+week: 2026-W33
+updated: 2026-08-16T09:00:00Z
 sources: [conflict-events-ucdp]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -16,7 +16,7 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 > events** — who, where, when, and the source's own fatality estimate — and never assigns
 > blame, takes a side, or predicts escalation: an event record is an observed fact, an opinion
 > about it is not surfaced (the editorial line). Every claim links to the L1 note it rests on.
-> Last pull: **2026-08-08** — a flat cycle: the 2026-08-07 and 2026-08-08 pulls (after the
+> Last pull: **2026-08-16** — the flat cycle held: the 2026-08-07 through 2026-08-16 pulls (after the
 > 2026-08-02 → 08-06 ingest outage) returned the UCDP published window, event count and fatality
 > totals byte-identical to the 2026-08-01 synthesis, so the 2026-07-30 catalog roll-forward
 > described below stands as the latest move.
@@ -81,6 +81,8 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 ## Changelog
 
+- 2026-08-16 — daily-ingest synthesis (2026-W33): absorbed the 2026-08-14 through 2026-08-16 ingests — an honest flat cycle. All three pulls returned the UCDP published window byte-identical to the 2026-08-13 synthesis apart from the retrieval timestamp: 2,000 events (API cap), summed deathsBest 6,006, window 2025-12-22 → 2026-07-08, violence split 1,247 state-based / 463 non-state / 290 one-sided, leaderboard Ukraine 451 / Colombia 197 / Nigeria 170 / Pakistan 162 / Mexico 158, fatality ranking Ukraine 962 / Nigeria 762 / Sudan 504 / Pakistan 481 / Somalia 476, 13 countries above 50 events. No catalog roll this cycle; figures held with no fabricated movement, `updated` advanced so the freshness gate records the latest L1 day was absorbed ([[conflict-events-ucdp]]).
+- 2026-08-13 — daily-ingest synthesis (2026-W33): absorbed the 2026-08-09 through 2026-08-13 ingests — an honest flat cycle. All five pulls returned the UCDP published window byte-identical to the 2026-08-08 synthesis apart from the retrieval timestamp: 2,000 events (API cap), summed deathsBest 6,006, window 2025-12-22 → 2026-07-08, violence split 1,247 state-based / 463 non-state / 290 one-sided, leaderboard Ukraine 451 / Colombia 197 / Nigeria 170 / Pakistan 162 / Mexico 158, fatality ranking Ukraine 962 / Nigeria 762 / Sudan 504 / Pakistan 481 / Somalia 476, 13 countries above 50 events. No catalog roll this cycle; figures held with no fabricated movement, `week` and `updated` advanced so the freshness gate records the latest L1 day was absorbed ([[conflict-events-ucdp]]).
 - 2026-08-08 — daily-ingest synthesis (2026-W32): absorbed the 2026-08-07 and 2026-08-08 ingests after the 2026-08-02 → 08-06 ingest outage — an honest flat cycle. Both pulls returned the UCDP published window byte-identical to the 2026-08-01 synthesis apart from the retrieval timestamp: 2,000 events (API cap), summed deathsBest 6,006, window 2025-12-22 → 2026-07-08, violence split 1,247 state-based / 463 non-state / 290 one-sided, leaderboard Ukraine 451 / Colombia 197 / Nigeria 170 / Pakistan 162 / Mexico 158, fatality ranking Ukraine 962 / Nigeria 762 / Sudan 504 / Pakistan 481 / Somalia 476, 13 countries above 50 events. No catalog roll this cycle; figures held with no fabricated movement, `week` and `updated` advanced so the freshness gate records the latest L1 day was absorbed ([[conflict-events-ucdp]]).
 - 2026-08-01 — daily-ingest flowback (2026-W31): an honest flat cycle. The 2026-07-31 and 2026-08-01 UCDP pulls returned the published window byte-identical to the 2026-07-30 synthesis apart from the retrieval timestamp — 2,000 events (API cap), summed deathsBest 6,006, window 2025-12-22 → 2026-07-08, violence split 1,247 state-based / 463 non-state / 290 one-sided, leaderboard Ukraine 451 / Colombia 197 / Nigeria 170 / Pakistan 162 / Mexico 158, fatality ranking Ukraine 962 / Nigeria 762 / Sudan 504 / Pakistan 481 / Somalia 476, 13 countries above 50 events. No catalog roll this cycle; figures held with no fabricated movement, `updated` advanced so the freshness gate records the latest L1 day was absorbed ([[conflict-events-ucdp]]).
 - 2026-07-30 — daily-ingest synthesis (2026-W31): absorbed the 07-26 through 07-30 pulls after a 5-day curator gap — a MAJOR catalog roll-forward, not a flat cycle. The UCDP published window advanced ~7 months from 2025-11-05 → 2025-12-31 to 2025-12-22 → 2026-07-08 (now reaching within weeks of the present). 2,000 events (API cap); summed deathsBest fell 15,012 → 6,006 as the high-fatality late-2025 Ukraine rows aged out; violence split 1,266/505/229 → 1,247/463/290 state-based/non-state/one-sided. Leaderboard turned over: Ukraine 451 (first, from 536), Colombia 197 (2nd), Nigeria 170 (3rd), Pakistan 162, Mexico 158 (from 2nd); Mali/Lebanon/Israel entered the top ten. Fatality ranking flattened: Ukraine 962 / Nigeria 762 / Sudan 504 / Pakistan 481 / Somalia 476 / Ethiopia 470 (from Ukraine 10,051 alone). 13 countries >50 events (from 11). Rewrote honest-scope, at-a-glance, move and reading sections; observed-only, no-position framing held ([[conflict-events-ucdp]]).
