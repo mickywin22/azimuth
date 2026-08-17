@@ -2,8 +2,8 @@
 title: Geophysical Weekly
 type: L2-brief
 theme: geophysical
-week: 2026-W33
-updated: 2026-08-16T09:00:00Z
+week: 2026-W34
+updated: 2026-08-17T09:00:00Z
 sources: [earthquakes]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -14,69 +14,82 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 > Synthesised from the week's L1 source notes under `../01 Sources/`. The `azimuth-curator`
 > fleet role evolves this single note in place each week. azimuth reports **observed**
 > seismicity from the USGS feed — what was recorded, never what will happen. Every claim
-> links to the L1 note it rests on. (This cycle absorbs the 2026-08-07 through 2026-08-16 ingest
-> after a curator gap, covering the rolling window to 2026-08-16.)
+> links to the L1 note it rests on. (This cycle absorbs the 2026-08-17 ingest, covering the
+> rolling window to 2026-08-17.)
 
 ## This week at a glance
 
-- The USGS feed recorded **128** magnitude-4.5-or-greater earthquakes in the rolling window
-  retrieved 2026-08-16, of which **51 were M5+**, **six reached M6+** and **two reached M7** — a
-  sharp step up in the strong-event tally from the 08-01 window (138 / 66 / 1 / 0) as two major
-  shocks entered: an **M7.7 off Ende, Indonesia** and an **M7.4 in Colombia** ([[earthquakes]]).
-- The window's headline is the shallow **M7.7 68 km NNW of Ende, Indonesia** (2026-08-14, 10 km) —
-  the strongest event recorded, capping a dense shallow offshore swarm north of Flores that also
-  logged an M6.1 and a string of M4.5–M5.9 shocks; the deep **M7.4 5 km S of San José del Palmar,
-  Colombia** (2026-08-10, 110 km) is the window's second major ([[earthquakes]]).
-- Below the two M7s sit four more M6+: an **M6.9** 15 km NNW of Pematangsiantar, Indonesia
-  (2026-08-15, 173 km — a deep Sumatra event), an **M6.1** 56 km NNE of Port-Olry, Vanuatu
-  (2026-08-16, 188 km), the shallow **M6.1** 58 km N of Ende (2026-08-14, 10 km) on the Flores
-  swarm, and an **M6.0** in the South Sandwich Islands region (2026-08-12, 10 km) ([[earthquakes]]).
+- The USGS feed recorded **137** magnitude-4.5-or-greater earthquakes in the rolling window
+  retrieved 2026-08-17, of which **57 were M5+**, **six reached M6+** and **two reached M7** —
+  the overall count rose from the 08-16 window (128 / 51 / 6 / 2), but the M6+ and M7+ tallies
+  held exactly steady: no fresh major entered, and the same six strong events carry the window
+  forward ([[earthquakes]]).
+- The window's headline remains the shallow **M7.7 68 km NNW of Ende, Indonesia** (2026-08-14,
+  10 km) — still the strongest event recorded, anchoring a Flores offshore swarm that has grown
+  to **57 events** (from 42) across the Ende, Ruteng and Labuan Bajo sub-clusters; the deep
+  **M7.4 5 km S of San José del Palmar, Colombia** (2026-08-10, 110 km) remains the window's
+  second major, now within about five hours of the rolling window's 7-day cutoff
+  ([[earthquakes]]).
+- Below the two M7s the same four M6+ carry over unchanged: an **M6.9** 15 km NNW of
+  Pematangsiantar, Indonesia (2026-08-15, 173 km — a deep Sumatra event), an **M6.1** 56 km NNE
+  of Port-Olry, Vanuatu (2026-08-16, 188 km), the shallow **M6.1** 58 km N of Ende (2026-08-14,
+  10 km) on the Flores swarm, and an **M6.0** in the South Sandwich Islands region (2026-08-12,
+  10 km) ([[earthquakes]]).
 
 ## Largest events
 
 - The window's strongest is the shallow **M7.7 68 km NNW of Ende, Indonesia** (2026-08-14, 10 km)
-  — a crustal event north of Flores that heads a large aftershock swarm (an M6.1, then M5.9 / M5.6
-  / M5.5 / M5.3 shocks near Ende and Labuan Bajo, all about 10 km deep) ([[earthquakes]]).
+  — a crustal event north of Flores that heads a swarm now sized at 57 events (up from 42), with
+  an M5.9, then M5.7 / M5.6 / M5.5 shocks logged across Ende, Ruteng and Labuan Bajo, most about
+  10 km deep ([[earthquakes]]).
 - The window's second M7 is the deep **M7.4 5 km S of San José del Palmar, Colombia** (2026-08-10,
   110 km) — an intraslab event beneath the northern Andes, well off the western-Pacific arcs that
-  dominate the rest of the window ([[earthquakes]]).
-- Below the two majors sit four M6+: the **M6.9** 15 km NNW of Pematangsiantar, Indonesia
-  (2026-08-15, 173 km deep), the **M6.1** 56 km NNE of Port-Olry, Vanuatu (2026-08-16, 188 km
-  deep), the shallow **M6.1** 58 km N of Ende (2026-08-14, 10 km) on the Flores swarm, and the
-  **M6.0** South Sandwich Islands region (2026-08-12, 10 km) ([[earthquakes]]).
+  dominate the rest of the window; it now sits only about five hours inside the rolling window's
+  7-day cutoff ([[earthquakes]]).
+- Below the two majors sit four M6+, unchanged from 08-16: the **M6.9** 15 km NNW of
+  Pematangsiantar, Indonesia (2026-08-15, 173 km deep), the **M6.1** 56 km NNE of Port-Olry,
+  Vanuatu (2026-08-16, 188 km deep), the shallow **M6.1** 58 km N of Ende (2026-08-14, 10 km) on
+  the Flores swarm, and the **M6.0** South Sandwich Islands region (2026-08-12, 10 km)
+  ([[earthquakes]]).
 
 ## Where the activity clustered
 
-- **Indonesia dominated the count at 54 events**, more than five times the next country — driven by
-  the shallow Ende / Flores swarm (about 22 events north of Ende and around Labuan Bajo, capped by
-  the M7.7) plus the deep Pematangsiantar M6.9 and a small Banda Sea cluster. The **Philippines
-  (10)**, **Russia (6)**, **Vanuatu (5)**, **Papua New Guinea (5)** and **Japan (5)** followed
-  ([[earthquakes]]).
-- The dominant feature is the **Ende / Flores offshore swarm** — a dense shallow (10 km) cluster off
-  northern Flores capped by the M7.7 and its M6.1 — the strongest sequence in the window; the
-  Colombia M7.4 and the deep Sumatra M6.9 stand apart from it as isolated majors ([[earthquakes]]).
+- **Indonesia dominated the count at 70 events** (from 54), more than eleven times the next
+  country — driven by the growing Ende / Ruteng / Labuan Bajo Flores swarm (57 events, from 42,
+  capped by the M7.7) plus the deep Pematangsiantar M6.9 and a small Banda Sea cluster. **Russia
+  (6)** and **Papua New Guinea (6, from 5)** followed, then **Vanuatu (5)** and **Japan (5)**;
+  the **Philippines** eased sharply to **(4)** from 10 ([[earthquakes]]).
+- The dominant feature remains the **Ende / Flores offshore swarm** — now a 57-event shallow
+  (mostly 10 km) cluster spanning Ende, Ruteng and Labuan Bajo, capped by the M7.7 and its M6.1 —
+  still the strongest sequence in the window; the Colombia M7.4 and the deep Sumatra M6.9 stand
+  apart from it as isolated majors ([[earthquakes]]).
 
 ## Depth profile
 
-- The shallow proportion stayed high: **73 of the 128 events sit at ≤15 km**, including nearly the
-  whole Ende / Flores swarm. The deep-focus list ran on the Vanuatu and Fiji slabs — the deepest
-  recorded event is a **655.7 km** shock 173 km ENE of Sola, Vanuatu, followed by a **640.5 km**
-  focus 180 km NE of Sola and a **570.8 km** event east of Levuka, Fiji ([[earthquakes]]).
+- The shallow proportion held high: **81 of the 137 events sit at ≤15 km** (from 73 of 128),
+  including nearly the whole Ende / Flores swarm. The deep-focus list still runs on the Vanuatu
+  and Fiji slabs — the deepest recorded event is unchanged, a **655.7 km** shock 173 km ENE of
+  Sola, Vanuatu, followed by a **640.5 km** focus 180 km NE of Sola and a **570.8 km** event east
+  of Levuka, Fiji; a fresh **564.4 km** focus 215 km ENE of Levuka, Fiji entered on today's pull
+  ([[earthquakes]]).
 
 ## Reading the week
 
-- The strong-event tally stepped up sharply: from 138 M4.5+ (66 M5+, 1 M6+, 0 M7+) on 08-01 to
-  **128 M4.5+ (51 M5+, 6 M6+, 2 M7+)** to 2026-08-16, as two majors entered — the shallow **M7.7
-  off Ende, Indonesia** (2026-08-14), now the window's strongest and the anchor of a dense Flores
-  aftershock swarm, and the deep **M7.4 in Colombia** (2026-08-10). Four more M6+ (the deep
-  Pematangsiantar M6.9 and Port-Olry M6.1, the shallow Ende M6.1 and the South Sandwich M6.0) fill
-  out the strong band. Indonesia carried the count at 54 on the Ende swarm; 73 of 128 shocks were
-  shallow ≤15 km and the deep-slab list reached a 655.7 km Vanuatu focus. azimuth records what the
-  instruments measured — magnitude, location, depth, time — and stops there, making no forecast of
-  what the Ende sequence does next ([[earthquakes]]).
+- The strong-event tally held steady in composition even as volume grew: **137 M4.5+ (57 M5+, 6
+  M6+, 2 M7+)** to 2026-08-17, up from 128 (51/6/2) on 08-16, but the M6+/M7+ line-up is
+  unchanged — the same shallow **M7.7 off Ende, Indonesia** (2026-08-14) and deep **M7.4 in
+  Colombia** (2026-08-10), plus the same four M6+ (Pematangsiantar, Port-Olry, Ende and South
+  Sandwich), with no fresh major on this pull. The Colombia M7.4 now sits only about five hours
+  inside the window's 7-day cutoff. The growth came from the Flores swarm, which expanded to 57
+  events (from 42) across Ende, Ruteng and Labuan Bajo, lifting Indonesia's count to 70 (from 54)
+  and its lead over the next country past elevenfold. 81 of 137 shocks were shallow ≤15 km (from
+  73 of 128) and the deep-slab list held at a 655.7 km Vanuatu focus. azimuth records what the
+  instruments measured — magnitude, location, depth, time — and stops there, making no forecast
+  of what the Ende sequence or the Colombia event's window position does next ([[earthquakes]]).
 
 ## Changelog
 
+- 2026-08-17 — daily-ingest synthesis (2026-W34): the rolling window to 2026-08-17 rose to 137 M4.5+ (57 M5+, 6 M6+, 2 M7+ — from 128/51/6/2 on 08-16); the M6+/M7+ composition held exactly steady (same two majors, same four M6+), no fresh major entered. The Ende/Ruteng/Labuan Bajo Flores swarm grew to 57 events (from 42: 25 Ende + 25 Ruteng + 7 Labuan Bajo), lifting Indonesia's count to 70 (from 54); the carried M7.4 Colombia (2026-08-10) now sits only about five hours inside the window's 7-day cutoff. Deepest event held at 655.7 km (Sola, Vanuatu); 81 of 137 shocks shallow ≤15 km (from 73/128). Updated the at-a-glance, largest-events, clustering, depth and reading sections. Observed-only framing held ([[earthquakes]]).
 - 2026-08-16 — daily-ingest synthesis (2026-W33): absorbed the 2026-08-07 through 2026-08-16 USGS pulls after a curator gap; the rolling window to 2026-08-16 reads 128 M4.5+ (51 M5+, 6 M6+, 2 M7+ — from 138/66/1/0 on 08-01), a sharp step up in strong events. Two majors entered: a shallow M7.7 68 km NNW of Ende, Indonesia (2026-08-14, 10 km), now the window's strongest and the anchor of a ~22-event Flores aftershock swarm, and a deep M7.4 5 km S of San José del Palmar, Colombia (2026-08-10, 110 km). Four more M6+ — M6.9 Pematangsiantar Indonesia (deep, 08-15), M6.1 Port-Olry Vanuatu (deep, 08-16), M6.1 Ende (shallow, 08-14) and M6.0 South Sandwich Islands (08-12). Indonesia led the count at 54; deepest event a 655.7 km Sola, Vanuatu focus; 73 of 128 shocks shallow ≤15 km. Rewrote the at-a-glance, largest-events, clustering, depth and reading sections. Observed-only framing held ([[earthquakes]]).
 - 2026-06-18 — first Geophysical Weekly cycle: wrote the at-a-glance, largest-events,
   clustering, depth and reading sections from the live 2026-06-18 USGS ingest (111 M4.5+
