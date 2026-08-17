@@ -577,7 +577,6 @@
       "theme": "shared",
       "themes": [
         "conflict-watch",
-        "cyber-watch",
         "geophysical",
         "humanitarian",
         "public-health"
@@ -2616,13 +2615,6 @@
       "target": "source:conflict-events-ucdp",
       "cross_theme": false,
       "rel": "named-in"
-    },
-    {
-      "source": "entity:indonesia",
-      "target": "brief:cyber-watch-weekly",
-      "cross_theme": true,
-      "rel": "mentioned-in",
-      "weight": 0
     },
     {
       "source": "entity:indonesia",
