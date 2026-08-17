@@ -2,8 +2,8 @@
 title: Conflict Watch Weekly
 type: L2-brief
 theme: conflict-watch
-week: 2026-W33
-updated: 2026-08-16T09:00:00Z
+week: 2026-W34
+updated: 2026-08-17T09:00:00Z
 sources: [conflict-events-ucdp]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -16,7 +16,7 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 > events** — who, where, when, and the source's own fatality estimate — and never assigns
 > blame, takes a side, or predicts escalation: an event record is an observed fact, an opinion
 > about it is not surfaced (the editorial line). Every claim links to the L1 note it rests on.
-> Last pull: **2026-08-16** — the flat cycle held: the 2026-08-07 through 2026-08-16 pulls (after the
+> Last pull: **2026-08-17** — the flat cycle held: the 2026-08-07 through 2026-08-17 pulls (after the
 > 2026-08-02 → 08-06 ingest outage) returned the UCDP published window, event count and fatality
 > totals byte-identical to the 2026-08-01 synthesis, so the 2026-07-30 catalog roll-forward
 > described below stands as the latest move.
@@ -25,14 +25,17 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 - The channel is the **UCDP** (Uppsala Conflict Data Program) georeferenced event feed — a
   research-grade dataset published with a verification lag, not a breaking-news wire. The
-  2026-08-08 pull still carries **2,000 events** — a rolling catalog capped at the API maximum. This
-  cycle the published window **rolled forward roughly seven months**: from the late-2025 slice
-  (2025-11-05 → 2025-12-31) that had held for weeks to **2025-12-22 → 2026-07-08**, so the catalog
-  now reaches to within weeks of the present. The brief describes the most recent *published*
-  conflict record, and says so ([[conflict-events-ucdp]]).
+  2026-08-17 pull still carries **2,000 events** — a rolling catalog capped at the API maximum. The
+  published window last **rolled forward roughly seven months** on 2026-07-30 — from the late-2025
+  slice (2025-11-05 → 2025-12-31) that had held for weeks to **2025-12-22 → 2026-07-08** — and the
+  2026-08-17 pull confirms the catalog still sits there, unmoved 18 days on. The brief describes the
+  most recent *published* conflict record, and says so ([[conflict-events-ucdp]]).
 
 ## This window at a glance
 
+- **2026-08-17 pull: flat week-on-week.** Every figure below is confirmed unchanged against the
+  2026-08-16 reading — event count, violence-type split, country leaderboard and fatality ranking
+  all held; no new event entered the published window today ([[conflict-events-ucdp]]).
 - The 2,000 recorded events carry a summed best-estimate of **6,006 fatalities** (UCDP's
   `deathsBest` field — the source's own estimate, reported as published), **down from 15,012** in
   the prior late-2025 window as the newer, lower-fatality-density 2026 events entered. By violence
@@ -66,6 +69,9 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
   463 non-state / 290 one-sided** (from 1,266 / 505 / 229). azimuth reports the new published
   composition as the observed fact; where the prior weeks recorded a stable window, this cycle
   records its roll-forward ([[conflict-events-ucdp]]).
+- **Confirmed still current at 2026-08-17.** No further roll has landed since 07-30: the daily
+  pulls through 2026-08-17 return this same window, split and leaderboard byte-for-byte
+  ([[conflict-events-ucdp]]).
 
 ## Reading the window
 
@@ -76,11 +82,12 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
   recorded events, the parties as UCDP names them, and the source's own fatality estimates — and
   stops there. Where UCDP extends, contracts or revises its published window, each cycle carries the
   new dataset composition as the observed fact; this cycle the dataset rolled its window forward
-  ~7 months into 2026, and that roll-forward is itself the reported observation
-  ([[conflict-events-ucdp]]).
+  ~7 months into 2026, and that roll-forward is itself the reported observation. The 2026-08-17
+  pull shows the same window still standing, unchanged ([[conflict-events-ucdp]]).
 
 ## Changelog
 
+- 2026-08-17 — daily-ingest synthesis (2026-W34): absorbed the 2026-08-17 ingest — an honest flat cycle. The pull returned the UCDP published window byte-identical to the 2026-08-16 reading apart from the retrieval timestamp: 2,000 events (API cap), summed deathsBest 6,006, window 2025-12-22 → 2026-07-08, violence split 1,247 state-based / 463 non-state / 290 one-sided, leaderboard Ukraine 451 / Colombia 197 / Nigeria 170 / Pakistan 162 / Mexico 158, fatality ranking Ukraine 962 / Nigeria 762 / Sudan 504 / Pakistan 481 / Somalia 476, 13 countries above 50 events — all held, 18 days on from the 2026-07-30 roll-forward. No catalog roll this cycle; figures held with no fabricated movement, `week` and `updated` advanced so the freshness gate records the latest L1 day was absorbed. Observed-only, no-position framing held ([[conflict-events-ucdp]]).
 - 2026-08-16 — daily-ingest synthesis (2026-W33): absorbed the 2026-08-14 through 2026-08-16 ingests — an honest flat cycle. All three pulls returned the UCDP published window byte-identical to the 2026-08-13 synthesis apart from the retrieval timestamp: 2,000 events (API cap), summed deathsBest 6,006, window 2025-12-22 → 2026-07-08, violence split 1,247 state-based / 463 non-state / 290 one-sided, leaderboard Ukraine 451 / Colombia 197 / Nigeria 170 / Pakistan 162 / Mexico 158, fatality ranking Ukraine 962 / Nigeria 762 / Sudan 504 / Pakistan 481 / Somalia 476, 13 countries above 50 events. No catalog roll this cycle; figures held with no fabricated movement, `updated` advanced so the freshness gate records the latest L1 day was absorbed ([[conflict-events-ucdp]]).
 - 2026-08-13 — daily-ingest synthesis (2026-W33): absorbed the 2026-08-09 through 2026-08-13 ingests — an honest flat cycle. All five pulls returned the UCDP published window byte-identical to the 2026-08-08 synthesis apart from the retrieval timestamp: 2,000 events (API cap), summed deathsBest 6,006, window 2025-12-22 → 2026-07-08, violence split 1,247 state-based / 463 non-state / 290 one-sided, leaderboard Ukraine 451 / Colombia 197 / Nigeria 170 / Pakistan 162 / Mexico 158, fatality ranking Ukraine 962 / Nigeria 762 / Sudan 504 / Pakistan 481 / Somalia 476, 13 countries above 50 events. No catalog roll this cycle; figures held with no fabricated movement, `week` and `updated` advanced so the freshness gate records the latest L1 day was absorbed ([[conflict-events-ucdp]]).
 - 2026-08-08 — daily-ingest synthesis (2026-W32): absorbed the 2026-08-07 and 2026-08-08 ingests after the 2026-08-02 → 08-06 ingest outage — an honest flat cycle. Both pulls returned the UCDP published window byte-identical to the 2026-08-01 synthesis apart from the retrieval timestamp: 2,000 events (API cap), summed deathsBest 6,006, window 2025-12-22 → 2026-07-08, violence split 1,247 state-based / 463 non-state / 290 one-sided, leaderboard Ukraine 451 / Colombia 197 / Nigeria 170 / Pakistan 162 / Mexico 158, fatality ranking Ukraine 962 / Nigeria 762 / Sudan 504 / Pakistan 481 / Somalia 476, 13 countries above 50 events. No catalog roll this cycle; figures held with no fabricated movement, `week` and `updated` advanced so the freshness gate records the latest L1 day was absorbed ([[conflict-events-ucdp]]).
