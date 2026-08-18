@@ -2,9 +2,9 @@
   "$note": "Captured snapshot of the COMPARED forecast/intelligence product for the azimuth benchmark (synthesis/benchmark.py). Quoted by product + capture date; NOT surfaced as an azimuth channel and NOT an L1 source. Refresh with pull_benchmark_foils.py.",
   "endpoint": "/api/forecast/v1/get-forecasts",
   "attribution": "WorldMonitor (api.worldmonitor.app) — model-generated forecast/assessment product",
-  "feed_generated_at": 1786950174452,
+  "feed_generated_at": 1787033012567,
   "feed_degraded": false,
-  "captured_at": "2026-08-17T07:14:06Z",
+  "captured_at": "2026-08-18T07:00:29Z",
   "n_forecasts_seen": 14,
   "topics": {
     "energy-supply": {
@@ -37,21 +37,21 @@
         "domain": "market",
         "region": "Eastern Mediterranean",
         "title": "Inflation and rates pressure from Eastern Mediterranean maritime disruption state",
-        "probability": 0.554,
-        "prior_probability": 0.56,
+        "probability": 0.581,
+        "prior_probability": 0.563,
         "confidence": 0.75,
         "time_horizon": "30d",
         "trend": "stable",
         "projections": {
-          "d30": 0.233,
-          "d7": 0.321,
-          "h24": 0.554
+          "d30": 0.244,
+          "d7": 0.337,
+          "h24": 0.581
         },
-        "scenario_short": "Eastern Mediterranean maritime disruption state is feeding inflation and rates pressure through shipping cost shock, with 46% pressure and 71% state confirmation. For now, the base case stays near 58% over the 30d....",
-        "perspective_strategic": "Eastern Mediterranean maritime disruption state is feeding inflation and rates pressure through shipping cost shock, with 46% pressure and 71% state confirmation is setting the strategic baseline, and the current 55% probability implies a live but not settled risk path.",
-        "perspective_contrarian": "The current 75% confidence level still leaves room for reversal. If that restraint persists, the forecast can move below the current 55% baseline. Actors prioritize containment and the system drifts toward stabilization unless new hard signals emerge.",
-        "actor_lens": "Commodity traders: Price whether stress in Eastern Mediterranean becomes durable over the 30d. Rebalance positions if the probability path moves away from 55%.",
-        "top_signal": "Eastern Mediterranean maritime disruption state is feeding inflation and rates pressure through shipping cost shock, with 46% pressure and 71% state confirmation"
+        "scenario_short": "Eastern Mediterranean maritime disruption state is feeding inflation and rates pressure through shipping cost shock, with 51% pressure and 71% state confirmation. For now, the base case stays near 61% over the 30d....",
+        "perspective_strategic": "Eastern Mediterranean maritime disruption state is feeding inflation and rates pressure through shipping cost shock, with 51% pressure and 71% state confirmation is setting the strategic baseline, and the current 58% probability implies a live but not settled risk path.",
+        "perspective_contrarian": "The current 75% confidence level still leaves room for reversal. If that restraint persists, the forecast can move below the current 58% baseline. Actors prioritize containment and the system drifts toward stabilization unless new hard signals emerge.",
+        "actor_lens": "Commodity traders: Price whether stress in Eastern Mediterranean becomes durable over the 30d. Rebalance positions if the probability path moves away from 58%.",
+        "top_signal": "Eastern Mediterranean maritime disruption state is feeding inflation and rates pressure through shipping cost shock, with 51% pressure and 71% state confirmation"
       },
       "absence_reason": null
     },
