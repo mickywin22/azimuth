@@ -3,7 +3,7 @@ title: Prediction Markets Weekly
 type: L2-brief
 theme: prediction-markets
 week: 2026-W34
-updated: 2026-08-17T09:00:00Z
+updated: 2026-08-20T09:00:00Z
 sources: [prediction-markets]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -18,60 +18,62 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 > **not** a forecast azimuth makes, and **not** an instruction to trade: odds are not
 > predictions, and nothing here is investment advice. azimuth reports the priced number and its
 > source, and takes no position on the underlying question. (This cycle absorbs the
-> 2026-08-17 daily ingest, extending the **no-rotation** run that began after the ninth
-> rotation landed on 08-01: Polymarket's "Will the U.S. invade Iran before 2027?" has now
-> remained the feed's sole live listing across eleven straight pulls, 2026-08-07 through
-> 2026-08-17, with the quoted yes price drifting from 0.185 on 08-07 to 0.165 by 08-15 and
-> holding flat there through 08-17, while cumulative volume rose from ~$57.49M to ~$58.65M
-> over the run.)
+> 2026-08-18 through 2026-08-20 daily ingest, extending the **no-rotation** run that began
+> after the ninth rotation landed on 08-01: Polymarket's "Will the U.S. invade Iran before
+> 2027?" has now remained the feed's sole live listing across fourteen straight pulls,
+> 2026-08-07 through 2026-08-20, with the quoted yes price drifting from 0.185 on 08-07 down
+> to 0.165 by 08-15–08-17 and then rebounding to 0.175 on 08-18, holding flat there through
+> 08-20, while cumulative volume rose from ~$57.49M to ~$59.07M over the run.)
 
 ## This week at a glance
 
-- The WorldMonitor prediction-market feed's single live listing **held steady** this cycle — an
-  extended **no-rotation** run, the first since the ninth rotation landed on the 08-01 pull:
+- The WorldMonitor prediction-market feed's single live listing **held steady** this cycle — the
+  no-rotation run first flagged after the ninth rotation on 08-01 now extends further:
   Polymarket's **"Will the U.S. invade Iran before 2027?"** remained the sole contract across all
-  eleven daily pulls, 2026-08-07 through 2026-08-17 ([[prediction-markets]]).
-- Across the run the quoted **yes price drifted from 0.185 (18.5% implied probability) on 08-07 to
-  0.165 (16.5%) on 08-17** — a 2.0-percentage-point decline over the full run — fluctuating between
-  0.155 and 0.185 along the way and holding flat at 0.165 for three straight pulls (08-15, 08-16,
-  08-17), unchanged day-on-day from 08-16. The venue's number is recorded as an observed fact;
-  azimuth takes no position on the underlying question ([[prediction-markets]]).
-- Cumulative traded volume rose across the run from **$57,492,676** (08-07) to **$58,651,476**
-  (08-17) — a **~$1.16M / ~2.0% increase** over the run, including a **~$46,591 (~0.08%)**
-  day-on-day rise from 08-16's $58,604,885 — continuing the steady growth this listing has shown
+  fourteen daily pulls, 2026-08-07 through 2026-08-20 ([[prediction-markets]]).
+- Across the run the quoted **yes price moved from 0.185 (18.5% implied probability) on 08-07 to
+  0.175 (17.5%) on 08-20** — a net 1.0-percentage-point decline over the full run — fluctuating
+  between 0.155 and 0.185 along the way, dipping to 0.165 for three pulls (08-15–08-17) and then
+  **rebounding 1.0 percentage point to 0.175 on 08-18**, where it has held flat for three straight
+  pulls (08-18, 08-19, 08-20), unchanged day-on-day from 08-19. The venue's number is recorded as
+  an observed fact; azimuth takes no position on the underlying question ([[prediction-markets]]).
+- Cumulative traded volume rose across the run from **$57,492,676** (08-07) to **$59,072,191**
+  (08-20) — a **~$1.58M / ~2.7% increase** over the run, including a **~$144,529 (~0.25%)**
+  day-on-day rise from 08-19's $58,927,662 — continuing the steady growth this listing has shown
   since its 07-31 debut, and still the **deepest book recorded** in the brief's run. Volume is
   reported as a measure of liquidity behind the quoted odds, not as a signal to act on
   ([[prediction-markets]]).
 
 ## The market
 
-- Polymarket's quoted **yes price of 0.165** (as of the 08-17 pull, unchanged from 08-16) is the
-  observed datum: traders are collectively paying about 16.5 cents for a contract that pays out
-  1.00 if the market's stated condition — a US invasion of Iran before 2027 — resolves true, which
-  by construction reads as a **16.5% implied probability** priced by the venue, down from **0.245
-  (24.5%)** on the ninth-rotation debut and from **0.185 (18.5%)** on the 08-07 pull at the start
-  of the run. The question is a geopolitical one; azimuth's report is not a call on it: it records
+- Polymarket's quoted **yes price of 0.175** (as of the 08-20 pull, unchanged from 08-19 and
+  08-18) is the observed datum: traders are collectively paying about 17.5 cents for a contract
+  that pays out 1.00 if the market's stated condition — a US invasion of Iran before 2027 —
+  resolves true, which by construction reads as a **17.5% implied probability** priced by the
+  venue, up from **0.165 (16.5%)** on the 08-17 pull, down from **0.245 (24.5%)** on the
+  ninth-rotation debut, and down slightly from **0.185 (18.5%)** on the 08-07 pull at the start of
+  the run. The question is a geopolitical one; azimuth's report is not a call on it: it records
   the venue's number and takes no position on the outcome or the market's resolution
   ([[prediction-markets]]).
-- The **$58,651,476 cumulative traded volume** recorded on the 08-17 pull is the liquidity behind
-  that price, up **~$46,591** from **$58,604,885** on the 08-16 pull and up from **$57,492,676** on
-  the 08-07 pull — a continuation of the steady book growth this listing has shown since it first
-  appeared on 07-31, and still the deepest book the brief has recorded. Volume is reported as a
-  measure of how much weight sits behind the quoted odds, not as a signal to act on
-  ([[prediction-markets]]).
+- The **$59,072,191 cumulative traded volume** recorded on the 08-20 pull is the liquidity behind
+  that price, up **~$144,529** from **$58,927,662** on the 08-19 pull and up **~$420,715** from
+  **$58,651,476** on the 08-17 pull — a continuation of the steady book growth this listing has
+  shown since it first appeared on 07-31, and still the deepest book the brief has recorded.
+  Volume is reported as a measure of how much weight sits behind the quoted odds, not as a signal
+  to act on ([[prediction-markets]]).
 
 ## Reading the week
 
 - An extended no-rotation run: the feed's single live contract is still Polymarket's "Will the
-  U.S. invade Iran before 2027?", and the venue's quoted price held at a **16.5% implied
-  probability** on 08-17 — unchanged from 08-16, down from 18.5% at the 08-07 start of the run —
-  while cumulative volume grew **~$1.16M** across the run to **$58,651,476**, the deepest book
-  yet recorded. azimuth states what was recorded and stops there: the odds are the market's, not
-  azimuth's, and the editorial line forbids reading them as either a forecast or a reason to
-  trade ([[prediction-markets]]).
+  U.S. invade Iran before 2027?", and the venue's quoted price sits at a **17.5% implied
+  probability** on 08-20 — up 1.0 percentage point from 16.5% on 08-17, and back to the level
+  last quoted on 08-13 — while cumulative volume grew **~$1.58M** across the full run to
+  **$59,072,191**, the deepest book yet recorded. azimuth states what was recorded and stops
+  there: the odds are the market's, not azimuth's, and the editorial line forbids reading them as
+  either a forecast or a reason to trade ([[prediction-markets]]).
 - **Breadth note (honest scope):** the live feed still lists exactly one market at a time. The
-  current listing has now held without rotating for eleven straight daily pulls (2026-08-07
-  through 2026-08-17) — the longest no-rotation stretch in the brief's run — following nine
+  current listing has now held without rotating for fourteen straight daily pulls (2026-08-07
+  through 2026-08-20) — the longest no-rotation stretch in the brief's run — following nine
   rotations recorded earlier (Greenland → Russia → Israel → US–Iran uranium → Iran–MOU →
   Iran-regime → Base-token → Fed-rate-cuts → US-invade-Iran). A week-on-week price move, when the
   listing holds like this, is a genuine within-listing comparison, though continuity is never
@@ -134,3 +136,4 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 - 2026-07-30 — daily-ingest synthesis (2026-W31): absorbed the 2026-07-26 through 2026-07-30 ingest after a five-day gap behind the live L1 — an eighth listing rotation. The "Will Base launch a token by December 31, 2026?" market (0.12 yes, ~$7.43M through 07-25) no longer appears; the 07-30 pull instead lists Polymarket's "Will no Fed rate cuts happen in 2026?" at a 0.891 yes price (89.1% implied probability) on $45,639,591 cumulative volume — the deepest book recorded in the brief's run, a US monetary-policy question after a crypto/tech one, resolving 2026-12-31. Rewrote the at-a-glance, market and reading sections around the new listing and extended the breadth note to eight straight rotations; because the question changed, price and volume are not week-on-week comparable. Venue-quoted price reported as an observed fact — no forecast, no investment framing, no position on the underlying question ([[prediction-markets]]).
 - 2026-08-01 — daily-ingest synthesis (2026-W31): absorbed the 2026-07-31 and 2026-08-01 ingests — a ninth listing rotation. The "Will no Fed rate cuts happen in 2026?" market (0.891 yes, ~$45.64M through 07-30) no longer appears; the 07-31 pull instead lists Polymarket's "Will the U.S. invade Iran before 2027?" at a 0.245 yes price (24.5% implied probability) on $50,904,761 cumulative volume, and the 08-01 pull holds the same listing with the book ticking up ~$0.6M to $51,530,245 — the deepest recorded in the brief's run, resolving end-2026. Rewrote the at-a-glance, market and reading sections around the new listing and extended the breadth note to nine straight rotations; because the question changed, price and volume are not week-on-week comparable. Venue-quoted price reported as an observed fact — no forecast, no investment framing, no position on the underlying question ([[prediction-markets]]).
 - 2026-08-13 — daily-ingest synthesis (2026-W33): absorbed the 2026-08-07 through 2026-08-13 ingest — no listing rotation, the first such week since the ninth rotation on 08-01. Polymarket's "Will the U.S. invade Iran before 2027?" remained the sole listed contract; yes price moved from 0.185 (18.5% implied probability) on 08-07 to 0.175 (17.5%) on 08-13 — a 1.0-percentage-point decline, fluctuating between 0.155 and 0.185 across the intervening daily pulls — while cumulative volume rose from $57,492,676 to $58,544,751 (~$1.05M / ~1.8% increase), still the deepest book recorded in the brief's run. Venue-quoted price reported as an observed fact — no forecast, no investment framing, no position on the underlying question ([[prediction-markets]]).
+- 2026-08-20 — daily-ingest synthesis (2026-W34): absorbed the 2026-08-18 through 2026-08-20 ingest — no listing rotation, extending the no-rotation run to fourteen straight pulls (2026-08-07 through 2026-08-20). Polymarket's "Will the U.S. invade Iran before 2027?" remained the sole listed contract; yes price rebounded from 0.165 (16.5% implied probability) on 08-17 to 0.175 (17.5%) on 08-18 — back to the 08-13 level — and held flat there for three straight pulls (08-18/08-19/08-20), unchanged day-on-day from 08-19; cumulative volume rose from $58,651,476 (08-17) to $59,072,191 (08-20) — a ~$420,715 / ~0.72% increase over the three days, including a ~$144,529 / ~0.25% day-on-day rise from 08-19's $58,927,662 — still the deepest book recorded in the brief's run. Venue-quoted price reported as an observed fact — no forecast, no investment framing, no position on the underlying question ([[prediction-markets]]).
