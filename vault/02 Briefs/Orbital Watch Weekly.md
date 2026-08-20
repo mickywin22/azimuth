@@ -3,7 +3,7 @@ title: Orbital Watch Weekly
 type: L2-brief
 theme: orbital-watch
 week: 2026-W34
-updated: 2026-08-17T09:00:00Z
+updated: 2026-08-20T09:00:00Z
 sources: [orbital-satellites]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -16,13 +16,15 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 > element sets** — a satellite's TLE-derived position, altitude, inclination and velocity are
 > observed public data (CelesTrak, from US Space Command releases) — and never speculates on
 > a satellite's mission or intent beyond the catalogue's own type label. Every claim links to
-> the L1 note it rests on. (Last pull: 2026-08-17 ingest — a flat cycle: roster and country/type
-> splits byte-identical to the 2026-08-01 synthesis, only the TLE epochs advanced.)
+> the L1 note it rests on. (Last pull: 2026-08-20 ingest — another flat cycle: roster and
+> country/type splits still byte-identical to the 2026-08-01 synthesis; TLE epochs advanced
+> to the 08-19/08-20 band, and the TERRASAR-X epoch that had stalled at day 222.5 through
+> 08-16/08-17 has since refreshed too.)
 
 ## This week at a glance
 
 - The CelesTrak channel tracks **98 catalogued satellites** in this pull (unchanged from
-  the 07-15 baseline through 08-17), carrying each object's live two-line element
+  the 07-15 baseline through 08-20), carrying each object's live two-line element
   set with updated epoch and drag-term values ([[orbital-satellites]]).
 - By operator country: the **US leads at 38 objects**, ahead of **China (30)**, the
   **EU (19)**, India (7), Turkey (3) and South Korea (1) — the catalogue's own attribution
@@ -30,11 +32,12 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 - By the catalogue's type label: **47 optical-imaging** objects, **34 military** and
   **17 SAR** (synthetic-aperture radar) — unchanged across every pull since the 07-15
   baseline; the feed's classification, not azimuth's ([[orbital-satellites]]).
-- TLE epochs in the 08-17 pull carry day-of-year values spanning **222.5 to 229.0**
-  (i.e. approximately 10–17 August 2026); the upper edge advanced one day from the
-  08-16 band's 228.0, while the 222.5 floor is one object (TERRASAR-X) whose recorded
-  epoch has stayed at day 222.5 across both the 08-16 and 08-17 pulls — every other
-  catalogued object carries a fresh 08-16/08-17 epoch ([[orbital-satellites]]).
+- TLE epochs in the 08-20 pull carry day-of-year values spanning **231.0 to 232.1**
+  (i.e. approximately 19–20 August 2026); the upper edge advanced roughly three days
+  from the 08-17 band's 229.0, tracking the three-day gap between pulls. The TERRASAR-X
+  epoch that had stalled at day 222.5 through the 08-16/08-17 pulls has since refreshed —
+  228.99 on 08-18, 230.50 on 08-19, 231.49 on 08-20 — so every catalogued object now
+  carries a fresh 08-19/08-20 epoch and no stragglers remain ([[orbital-satellites]]).
 
 ## Reading the week
 
@@ -42,9 +45,10 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
   (optical + SAR), and the US/China pair accounts for roughly 70% of the catalogue. azimuth
   records the element sets and the catalogue's own labels — position is public physics,
   purpose beyond the label is not claimed ([[orbital-satellites]]).
-- Over the 07-15 → 08-17 window the **object composition held constant at 98 entries**
+- Over the 07-15 → 08-20 window the **object composition held constant at 98 entries**
   (US 38 / CN 30 / EU 19 / IN 7 / TR 3 / KR 1); the feed recorded fresh TLE data on each
-  pull, with no additions or removals observed ([[orbital-satellites]]).
+  pull, with the one 08-17-era straggler (TERRASAR-X's stalled epoch) resolving by 08-18
+  and no additions or removals observed at any point ([[orbital-satellites]]).
 
 ## Changelog
 
@@ -63,3 +67,4 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 - 2026-07-23 — daily-ingest synthesis (2026-W30): honest near-flat cycle — roster held at 98 catalogued satellites, country split (US 38 / CN 30 / EU 19 / IN 7 / TR 3 / KR 1) and type split (47 optical / 34 military / 17 SAR) unchanged; TLE elements refreshed to the 07-23 epoch (day-of-year ~203, approx. 22 July); no additions or removals observed ([[orbital-satellites]]).
 - 2026-07-21 — daily-ingest synthesis (2026-W30): absorbed the 07-18 through 07-20 pulls; object set stable at 98 catalogued satellites, the country split (US 38 / CN 30 / EU 19 / IN 7 / TR 3 / KR 1) and type split (47 optical / 34 military / 17 SAR) unchanged; TLE elements refreshed each day, epochs advancing to near day-of-year 200–201 (19–20 July); no additions or removals observed ([[orbital-satellites]]).
 - 2026-07-18 — daily-ingest synthesis (2026-W29): 07-16 and 07-17 pulls both recorded 98 catalogued objects — object set stable, country split (US 38 / CN 30 / EU 19 / IN 7 / TR 3 / KR 1) and type split (47 optical / 34 military / 17 SAR) unchanged; TLE elements refreshed each day with updated epochs near day-of-year 197 ([[orbital-satellites]]).
+- 2026-08-20 — daily-ingest synthesis (2026-W34): flat cycle — roster held at 98 catalogued satellites, country split (US 38 / CN 30 / EU 19 / IN 7 / TR 3 / KR 1) and type split (47 optical / 34 military / 17 SAR) unchanged from 08-17; TLE epochs advanced to day-of-year 231.0–232.1 (approx. 19–20 August), the upper edge up roughly three days from the 08-17 band (229.0); the TERRASAR-X epoch that had stalled at day 222.5 through 08-16/08-17 refreshed by 08-18 (228.99) and continued advancing through 08-19 (230.50) and 08-20 (231.49), so no stragglers remain; no additions or removals observed. Observed-only framing held ([[orbital-satellites]]).
