@@ -3,7 +3,7 @@ title: Humanitarian Watch Weekly
 type: L2-brief
 theme: humanitarian
 week: 2026-W34
-updated: 2026-08-17T09:00:00Z
+updated: 2026-08-20T09:00:00Z
 sources: [displacement-flows]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -15,32 +15,32 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 > fleet role evolves this single note in place each cycle. azimuth reports **recorded
 > displacement statistics** — a refugee or IDP population count is an observed figure
 > published by UNHCR / UN OCHA — and never assigns cause-blame or projects flows. Every claim
-> links to the L1 note it rests on. Data as of the **2026-08-17T07:12:31Z** pull.
+> links to the L1 note it rests on. Data as of the **2026-08-20T07:01:59Z** pull.
 
 ## This week at a glance
 
 - The UNHCR/OCHA channel's current published year (**2025**) records a global forcibly
   displaced total of **106,175,975 people** (~106.2M): **64,239,352 internally displaced
   (IDPs)**, **28,461,306 refugees**, **8,998,097 asylum seekers** and **4,477,220 stateless**
-  — the source's own category totals, held flat on the 2026-08-17 pull, the opening day of
-  this week (2026-W34), and unchanged from the entire 2026-08-07 → 08-16 window absorbed the
-  prior cycle (2026-W33), reported as published ([[displacement-flows]]).
+  — the source's own category totals, held flat across every pull absorbed this week
+  (2026-08-17 through 08-20, 2026-W34) and unchanged from the entire 2026-08-07 → 08-16 window
+  absorbed the prior cycle (2026-W33), reported as published ([[displacement-flows]]).
 - The dataset still carries per-country figures for **212 countries/territories**. By
-  **internally displaced population**, the six largest recorded stocks on the 2026-08-17 pull
+  **internally displaced population**, the six largest recorded stocks on the 2026-08-20 pull
   remain **Sudan (9,139,309)**, **Colombia (7,157,716)**, **DR Congo (5,669,479)**, **Syria
   (5,542,227)**, **Yemen (4,795,983)** and **Ukraine (3,712,000)** — unchanged row-for-row from
-  the prior cycle, figures as the source publishes them ([[displacement-flows]]).
+  the prior cycle and every pull absorbed this week, figures as the source publishes them
+  ([[displacement-flows]]).
 - By **refugee stock**, the largest recorded populations are unchanged too: **Ukraine
   (5,224,131)**, **Syria (4,865,764)**, **Sudan (2,820,737)**, **Afghanistan (2,671,560)**,
   **South Sudan (2,386,499)** and **Myanmar (1,524,378)** — cross-border origin counts as the
   source publishes them ([[displacement-flows]]).
-- Week-on-week: the 2026-08-16 and 2026-08-17 pulls spanning the W33 → W34 boundary are
-  **byte-identical** across the full payload — global aggregates, all 212 country rows and both
-  rankings above moved by zero (the two pulls differ only in the `retrieved`/`fetchedAt`
-  timestamp). This is the first pull filed under 2026-W34, and the prior cycle (2026-08-07
-  through 08-16, W33) was itself fully flat, so there is no evidence of a revision across the
-  week boundary either — a fully flat day, reported honestly rather than manufactured
-  ([[displacement-flows]]).
+- Week-on-week: the 2026-08-17 through 2026-08-20 pulls — every day absorbed so far in W34 —
+  are **byte-identical** across the full payload — global aggregates, all 212 country rows and
+  both rankings above moved by zero (the pulls differ only in the `retrieved`/`fetchedAt`
+  timestamp). The prior cycle (2026-08-07 through 08-16, W33) was itself fully flat, so there
+  is no evidence of a revision across the W33 → W34 boundary or on any day of W34 absorbed so
+  far — a fully flat run, reported honestly rather than manufactured ([[displacement-flows]]).
 
 ## Honest scope — annual statistics, weekly heartbeat
 
@@ -48,8 +48,8 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
   periodic revisions — so week-on-week this brief typically holds flat and moves when the
   source revises or rolls the year. The weekly cycle records that heartbeat honestly: a flat
   week is the source being stable, not the brief being stale ([[displacement-flows]]).
-- The flat run first recorded from 2026-07-16 has now held through the 2026-08-17 pull — 32
-  days (2026-07-16 → 08-17) without a single revision to the 2025 reference-year aggregate
+- The flat run first recorded from 2026-07-16 has now held through the 2026-08-20 pull — 35
+  days (2026-07-16 → 08-20) without a single revision to the 2025 reference-year aggregate
   (106,175,975 total / 64,239,352 IDPs / 28,461,306 refugees / 8,998,097 asylum seekers /
   4,477,220 stateless), consistent with the annual-snapshot cadence and spanning the routine
   daily cadence, the 08-02–08-06 ingestion gap and the 2026-W33 → W34 week boundary
@@ -68,12 +68,12 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
   record a larger internal-displacement stock than any country's refugee count — internal
   displacement, not cross-border flight, is where the deepest populations sit. **Ukraine** carries
   the largest refugee stock at **5,224,131**, ahead of Syria (4,865,764) and Sudan (2,820,737).
-  These are recorded stocks as the source publishes them on the 2026-08-17 pull; no move since
+  These are recorded stocks as the source publishes them on the 2026-08-20 pull; no move since
   the prior published year or the prior cycle is implied ([[displacement-flows]]).
-- The global aggregate totals held flat across the full 2026-07-16 → 08-17 window — 32 days
+- The global aggregate totals held flat across the full 2026-07-16 → 08-20 window — 35 days
   of ingest cycles plus the 08-02–08-06 gap — consistent with the annual-snapshot cadence of
   UNHCR/OCHA publishing. The per-country detail rows above reflect the source as ingested on
-  2026-08-17, the latest L1 day absorbed this cycle ([[displacement-flows]]).
+  2026-08-20, the latest L1 day absorbed this cycle ([[displacement-flows]]).
 
 ## Changelog
 
@@ -93,3 +93,4 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
   from the live 2026-07-15 pull: 106.2M total forcibly displaced (64.2M IDP / 28.5M refugees
   / 9.0M asylum / 4.5M stateless), 212 reporting countries. Observed-only framing
   ([[displacement-flows]]).
+- 2026-08-20 — daily-ingest synthesis (2026-W34): absorbed the 2026-08-18 through 08-20 pulls — byte-identical to 08-17 across the full payload (106,175,975 total forcibly displaced: 64,239,352 IDPs / 28,461,306 refugees / 8,998,097 asylum / 4,477,220 stateless; 212 countries; per-country IDP and refugee rankings unchanged, Sudan IDP 9,139,309 / Ukraine refugees 5,224,131 lead). No source revision recorded; the flat run first recorded 2026-07-16 now spans 35 days through 08-20. `week`/`updated` and pull timestamp advanced to the 08-20 ingest. Observed-only, no-position framing held ([[displacement-flows]]).
