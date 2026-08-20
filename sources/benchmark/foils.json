@@ -2,32 +2,32 @@
   "$note": "Captured snapshot of the COMPARED forecast/intelligence product for the azimuth benchmark (synthesis/benchmark.py). Quoted by product + capture date; NOT surfaced as an azimuth channel and NOT an L1 source. Refresh with pull_benchmark_foils.py.",
   "endpoint": "/api/forecast/v1/get-forecasts",
   "attribution": "WorldMonitor (api.worldmonitor.app) — model-generated forecast/assessment product",
-  "feed_generated_at": 1787119389516,
+  "feed_generated_at": 1787209261807,
   "feed_degraded": false,
-  "captured_at": "2026-08-19T07:01:20Z",
+  "captured_at": "2026-08-20T07:02:07Z",
   "n_forecasts_seen": 14,
   "topics": {
     "energy-supply": {
       "foil": {
-        "id": "fc-market-3b03eb86",
+        "id": "fc-market-a1c26fe8",
         "domain": "market",
-        "region": "Middle East",
-        "title": "Oil price impact from Strait of Hormuz disruption",
-        "probability": 0.4,
-        "prior_probability": 0.4,
-        "confidence": 0.583,
+        "region": "Israel/Gaza",
+        "title": "Energy repricing risk from Israel/Gaza security escalation state",
+        "probability": 0.684,
+        "prior_probability": 0.684,
+        "confidence": 0.75,
         "time_horizon": "30d",
         "trend": "stable",
         "projections": {
-          "d30": 0.168,
-          "d7": 0.232,
-          "h24": 0.4
+          "h24": 0.684,
+          "d7": 0.397,
+          "d30": 0.287
         },
-        "scenario_short": "Strait of Hormuz risk: critical. For now, the base case stays near 44% over the 30d. Actors absorb the current evidence mix without a decisive break toward either shock or relief.",
-        "perspective_strategic": "Strait of Hormuz risk: critical is setting the strategic baseline, and the current 40% probability implies a live but not settled risk path.",
-        "perspective_contrarian": "The current 58% confidence level still leaves room for reversal. If that restraint persists, the forecast can move below the current 40% baseline. Actors prioritize containment and the system drifts toward stabilization unless new hard signals emerge.",
-        "actor_lens": "Commodity traders: Price whether stress in Middle East becomes durable over the 30d. Rebalance positions if the probability path moves away from 40%.",
-        "top_signal": "Strait of Hormuz risk: critical"
+        "scenario_short": "Israel/Gaza security escalation state is feeding energy repricing through gas supply stress, with 57% pressure and 75% state confirmation. For now, the base case stays near 71% over the 30d. Actors absorb the current...",
+        "perspective_strategic": "Israel/Gaza security escalation state is feeding energy repricing through gas supply stress, with 57% pressure and 75% state confirmation is setting the strategic baseline, and the current 68% probability implies a live but not settled risk path.",
+        "perspective_contrarian": "The current 75% confidence level still leaves room for reversal. If that restraint persists, the forecast can move below the current 68% baseline. Actors prioritize containment and the system drifts toward stabilization unless new hard signals emerge.",
+        "actor_lens": "Commodity traders: Price whether stress in Israel/Gaza becomes durable over the 30d. Rebalance positions if the probability path moves away from 68%.",
+        "top_signal": "Israel/Gaza security escalation state is feeding energy repricing through gas supply stress, with 57% pressure and 75% state confirmation"
       },
       "absence_reason": null
     },
@@ -37,21 +37,21 @@
         "domain": "supply_chain",
         "region": "Black Sea",
         "title": "Supply chain disruption risk from Black Sea maritime disruption state (market)",
-        "probability": 0.508,
-        "prior_probability": 0.508,
+        "probability": 0.592,
+        "prior_probability": 0.592,
         "confidence": 0.75,
         "time_horizon": "7d",
         "trend": "stable",
         "projections": {
-          "d30": 0.325,
-          "d7": 0.508,
-          "h24": 0.462
+          "h24": 0.539,
+          "d7": 0.592,
+          "d30": 0.379
         },
-        "scenario_short": "Black Sea maritime disruption continues to drive shipping cost shocks, with 63% freight pressure and 75% state confirmation, keeping supply chain risk elevated.",
-        "perspective_strategic": "Black Sea maritime disruption state (market) is disrupting freight and shipping flows through shipping cost shock, with 63% freight pressure and 75% state confirmation is setting the strategic baseline, and the current 51% probability implies a live but not settled risk path.",
-        "perspective_contrarian": "The current 75% confidence level still leaves room for reversal. If that restraint persists, the forecast can move below the 51% baseline to 43%, as actors prioritize containment and the system drifts toward stabilization unless new hard signals emerge.",
+        "scenario_short": "Supply chain disruption risk from Black Sea maritime disruption persists, with 54% freight pressure and 74% state confirmation, driven by gas supply stress and 6 urgent critical signals.",
+        "perspective_strategic": "The 54% freight pressure and 74% state confirmation indicate moderate disruption risk, but the 38% 30-day projection suggests near-term relief is likely.",
+        "perspective_contrarian": "The absence of directly matched headlines and the 54% 24-hour projection suggest that diplomatic or market interventions could ease disruption, despite high state confirmation.",
         "actor_lens": "Shipping operators: Keep critical flows through Black Sea functioning over the 7d. Adjust routing and contingency plans around Black Sea.",
-        "top_signal": "Black Sea maritime disruption state (market) is disrupting freight and shipping flows through shipping cost shock, with 63% freight pressure and 75% state confirmation"
+        "top_signal": "Black Sea maritime disruption state (market) is disrupting freight and shipping flows through gas supply stress, with 54% freight pressure and 74% state confirmation"
       },
       "absence_reason": null
     },
