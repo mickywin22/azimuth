@@ -370,6 +370,24 @@ Flags: `--json` (machine-readable verdict), `--history` (also run the C1c git-hi
 scan — informational, never blocks). **Layer:** Gate aggregator + flip runbook step 1 · See
 [security/public-flip-readiness.md](security/public-flip-readiness.md).
 
+### `check_okf_conformance.py` — OKF-conformance gate
+Proves the `vault/` bundle meets the Open Knowledge Format v0.1 **SPEC-minimal** bar (the
+buildable slice of [strategy/okf-and-knowledge-graph.md](strategy/okf-and-knowledge-graph.md)):
+a `type` on every concept matching its folder layer (the same folder→layer map `build_rdf.py`
+uses), the reserved `index.md` (bundle root + each layer folder, SPEC §6) and `log.md` (root,
+SPEC §7), and index-hygiene (an `index.md` is a listing, never a concept — no frontmatter).
+The wikilink→markdown-link Tier-2 clause and brief filename-style renames are documented out
+of scope, not silently skipped.
+
+```bash
+python scripts/check_okf_conformance.py            # human report, exit 0 iff conformant
+python scripts/check_okf_conformance.py --json     # machine-readable verdict
+python scripts/check_okf_conformance.py --vault DIR # explicit bundle root
+```
+This is the fleet-owned half of the Azimuth publish precondition: green here + the reserved
+files present == "the public bundle is OKF-conformant in frontmatter and filenames". **Layer:**
+Gate (CI + flip runbook).
+
 ### `seed_good_first_issues.py` — good-first-issues catalog
 Single source of truth for the newcomer task list: renders
 [`.github/GOOD_FIRST_ISSUES.md`](../.github/GOOD_FIRST_ISSUES.md) from the `ISSUES` table

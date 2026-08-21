@@ -46,6 +46,12 @@ REQUIRED_KEYS: tuple[str, ...] = (
 LOCKED_TYPE = "L2-brief"
 LOCKED_LICENSE = "CC-BY-4.0"  # locked owner decision: content = CC BY 4.0
 
+# Reserved OKF filenames (lowercased) — a bundle's directory-listing / history / landing
+# files, never concept notes. Every concept-glob over a layer folder skips these, so an
+# OKF ``index.md`` / ``log.md`` can sit beside the notes without being mis-ingested as one.
+# Single source of truth for the whole pipeline (site build, RDF export, indices, lint).
+RESERVED_FILES: frozenset[str] = frozenset({"readme.md", "index.md", "log.md"})
+
 _WEEK_RE = re.compile(r"^\d{4}-W\d{2}$")
 _UPDATED_RE = re.compile(r"^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$")
 _WIKILINK_RE = re.compile(r"\[\[([^\]]+?)\]\]")

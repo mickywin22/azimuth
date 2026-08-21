@@ -70,7 +70,13 @@ def _l1_note_count() -> int:
 def _brief_count() -> int:
     if not _BRIEFS.is_dir():
         return 0
-    return sum(1 for p in _BRIEFS.glob("*.md") if p.name.lower() != "readme.md")
+    # Skip the reserved OKF files (readme/index/log — see synthesis.lint.RESERVED_FILES);
+    # they are listings, not briefs, so they never count toward the L2 total.
+    return sum(
+        1
+        for p in _BRIEFS.glob("*.md")
+        if p.name.lower() not in {"readme.md", "index.md", "log.md"}
+    )
 
 
 def _surfaced_channels() -> int:

@@ -81,7 +81,7 @@ if str(_REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(_REPO_ROOT))
 
 from synthesis.cross_theme import REGIONS as _REGIONS  # noqa: E402
-from synthesis.lint import split_frontmatter  # noqa: E402
+from synthesis.lint import RESERVED_FILES, split_frontmatter  # noqa: E402
 from synthesis.site_build import (  # noqa: E402
     DEFAULT_REGISTRY,
     DEFAULT_VAULT,
@@ -398,7 +398,7 @@ def build_graph(
     briefs_dir = vault_dir / "02 Briefs"
     if briefs_dir.is_dir():
         for path in sorted(briefs_dir.glob("*.md")):
-            if path.name == "README.md":
+            if path.name.lower() in RESERVED_FILES:
                 continue
             fm, body = split_frontmatter(path.read_text(encoding="utf-8"))
             theme = (fm or {}).get("theme")

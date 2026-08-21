@@ -26,7 +26,7 @@ _REPO_ROOT = Path(__file__).resolve().parent.parent
 if str(_REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(_REPO_ROOT))
 
-from synthesis.lint import lint_brief  # noqa: E402
+from synthesis.lint import RESERVED_FILES, lint_brief  # noqa: E402
 
 
 def _changed_paths(diff_base: str) -> list[str] | None:
@@ -59,7 +59,9 @@ def main() -> int:
     if args.brief:
         briefs = [Path(b) if Path(b).is_absolute() else _REPO_ROOT / b for b in args.brief]
     else:
-        briefs = sorted(p for p in briefs_root.glob("*.md") if p.name.lower() != "readme.md")
+        briefs = sorted(
+            p for p in briefs_root.glob("*.md") if p.name.lower() not in RESERVED_FILES
+        )
 
     # The diff guard is a repo-level check (which paths the commit touched), enforced once.
     changed_paths = _changed_paths(args.diff_base) if args.diff_base else None

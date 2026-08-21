@@ -28,7 +28,7 @@ _REPO_ROOT = Path(__file__).resolve().parent.parent
 if str(_REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(_REPO_ROOT))
 
-from synthesis.lint import split_frontmatter  # noqa: E402
+from synthesis.lint import RESERVED_FILES, split_frontmatter  # noqa: E402
 
 _BRIEFS_DIR = _REPO_ROOT / "vault" / "02 Briefs"
 _REGISTRY = _REPO_ROOT / "sources" / "registry.json"
@@ -38,7 +38,7 @@ _INDEX = _BRIEFS_DIR / "README.md"
 def _briefs() -> list[dict[str, str]]:
     out: list[dict[str, str]] = []
     for path in sorted(_BRIEFS_DIR.glob("*.md")):
-        if path.name.lower() == "readme.md":
+        if path.name.lower() in RESERVED_FILES:
             continue
         fm, _ = split_frontmatter(path.read_text(encoding="utf-8"))
         fm = fm or {}

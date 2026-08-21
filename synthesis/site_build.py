@@ -54,7 +54,7 @@ if str(_REPO_ROOT) not in sys.path:
 
 from synthesis.answers import Answer, AnswerSet, build_answer_set  # noqa: E402
 from synthesis.benchmark import Benchmark, build_benchmark  # noqa: E402
-from synthesis.lint import split_frontmatter  # noqa: E402
+from synthesis.lint import RESERVED_FILES, split_frontmatter  # noqa: E402
 
 # A repo-local registry / vault path pair, overridable for tests.
 DEFAULT_VAULT = _REPO_ROOT / "vault"
@@ -160,7 +160,8 @@ def discover(vault_dir: Path, registry: dict[str, Any]) -> SiteModel:
             # source-of-truth markdown, but its public surface is the dedicated answers.html
             # (rendered live from the answer engine), so it is not also a generic brief card.
             if (
-                path.name in (README, DEMONSTRATOR_BRIEF, BENCHMARK_BRIEF)
+                path.name.lower() in RESERVED_FILES
+                or path.name in (DEMONSTRATOR_BRIEF, BENCHMARK_BRIEF)
                 or path.name in skip_briefs
             ):
                 continue

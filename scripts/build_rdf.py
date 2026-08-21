@@ -55,7 +55,7 @@ _REPO_ROOT = Path(__file__).resolve().parent.parent
 if str(_REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(_REPO_ROOT))
 
-from synthesis.lint import split_frontmatter  # noqa: E402
+from synthesis.lint import RESERVED_FILES, split_frontmatter  # noqa: E402
 from synthesis.site_build import (  # noqa: E402
     DEFAULT_REGISTRY,
     DEFAULT_VAULT,
@@ -351,7 +351,7 @@ def _discover_notes(vault_dir: Path, skip_keys: set[str], skip_briefs: set[str])
     briefs_dir = vault_dir / "02 Briefs"
     if briefs_dir.is_dir():
         for path in sorted(briefs_dir.glob("*.md")):
-            if path.name == README or path.name in skip_briefs:
+            if path.name.lower() in RESERVED_FILES or path.name in skip_briefs:
                 continue
             fm, _ = split_frontmatter(path.read_text(encoding="utf-8"))
             notes.append(_Note(_mint(path.stem), "L2-brief", fm or {}, f"02 Briefs/{path.name}"))
@@ -360,7 +360,7 @@ def _discover_notes(vault_dir: Path, skip_keys: set[str], skip_briefs: set[str])
     rules_dir = vault_dir / "00 Rules"
     if rules_dir.is_dir():
         for path in sorted(rules_dir.glob("*.md")):
-            if path.name == README:
+            if path.name.lower() in RESERVED_FILES:
                 continue
             fm, _ = split_frontmatter(path.read_text(encoding="utf-8"))
             notes.append(_Note(_mint(path.stem), "L3-rule", fm or {}, f"00 Rules/{path.name}"))
