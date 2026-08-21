@@ -33,10 +33,14 @@ if TYPE_CHECKING:
 
 logger = logging.getLogger("azimuth.ingest")
 
-# Frontmatter keys every L1 note carries (spec.md F1: source, endpoint, retrieved,
-# license). ``source_key`` + ``attribution`` are added so the note ↔ registry join stays
-# machine-checkable and the CC-BY / ToS attribution obligation travels with the data.
+# Frontmatter keys every L1 note carries. ``type`` is the OKF v0.1 concept class (SPEC §4/§5,
+# the one mandatory key) — every note under ``01 Sources`` is an ``L1-source``, matching the
+# folder->layer mapping the RDF exporter derives (build_rdf.py) and the conformance gate
+# enforces (check_okf_conformance.py). The rest are spec.md F1 (source, endpoint, retrieved,
+# license); ``source_key`` + ``attribution`` keep the note <-> registry join machine-checkable
+# and carry the CC-BY / ToS attribution obligation with the data.
 FRONTMATTER_KEYS: tuple[str, ...] = (
+    "type",
     "source",
     "source_key",
     "endpoint",
@@ -44,6 +48,9 @@ FRONTMATTER_KEYS: tuple[str, ...] = (
     "license",
     "attribution",
 )
+
+# The OKF concept class for every note in the L1 source layer (01 Sources -> L1-source).
+L1_TYPE = "L1-source"
 
 
 @runtime_checkable
@@ -120,6 +127,7 @@ def frontmatter_for(entry: SourceEntry, retrieved: datetime) -> dict[str, str]:
     the wire that makes ingest and the guardrail share one source of truth.
     """
     return {
+        "type": L1_TYPE,
         "source": entry.upstream_source or entry.key,
         "source_key": entry.key,
         "endpoint": entry.endpoint,

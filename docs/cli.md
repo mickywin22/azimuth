@@ -388,6 +388,23 @@ This is the fleet-owned half of the Azimuth publish precondition: green here + t
 files present == "the public bundle is OKF-conformant in frontmatter and filenames". **Layer:**
 Gate (CI + flip runbook).
 
+### `build_okf_reserved.py` — reserved OKF bundle files
+Generates the two filenames OKF v0.1 reserves — `index.md` (a machine-readable directory
+listing at the bundle root + each layer folder, SPEC §6) and `log.md` (a newest-first update
+history at the root, SPEC §7). Every file is derived **purely from committed data** (layer
+folders, dated `01 Sources/YYYY-MM-DD/` day dirs, note frontmatter) and never the wall clock —
+like `build_graph.py` / `build_brief_index.py`, so `--check` is deterministic and the daily
+ingest regenerates them in the same run it commits a new L1 day. `index.md` coexists with
+`README.md` (OKF consumers read `index.md`, humans read `README.md`); `check_okf_conformance.py`
+gates that these files exist and stay hygienic.
+
+```bash
+python scripts/build_okf_reserved.py            # write vault/index.md (x4) + vault/log.md
+python scripts/build_okf_reserved.py --check     # exit 1 if any reserved file is stale
+python scripts/build_okf_reserved.py --vault DIR # explicit bundle root
+```
+**Layer:** Generator (daily ingest + CI `--check`).
+
 ### `seed_good_first_issues.py` — good-first-issues catalog
 Single source of truth for the newcomer task list: renders
 [`.github/GOOD_FIRST_ISSUES.md`](../.github/GOOD_FIRST_ISSUES.md) from the `ISSUES` table

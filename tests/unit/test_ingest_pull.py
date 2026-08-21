@@ -74,6 +74,15 @@ def test_frontmatter_retrieved_is_utc_iso() -> None:
     assert fm["retrieved"] == "2026-06-10T09:30:00Z"
 
 
+def test_frontmatter_declares_okf_l1_type() -> None:
+    """Every L1 note carries type: L1-source (OKF SPEC §4/§5, the one mandatory key) so the
+    frontmatter agrees with the folder->layer class the RDF exporter + conformance gate use."""
+    fm = frontmatter_for(_entry(), FIXED)
+    assert fm["type"] == "L1-source"
+    note = render_note(_entry(), [{"v": 1}], FIXED)
+    assert 'type: "L1-source"' in note
+
+
 def test_note_carries_registry_license_verbatim() -> None:
     entry = _entry(license="US-Gov-public-domain")
     note = render_note(entry, [{"a": 1}], FIXED)
@@ -295,7 +304,7 @@ def test_note_frontmatter_is_parseable_block() -> None:
     match = re.match(r"^---\n(.*?)\n---\n", note, re.DOTALL)
     assert match is not None
     keys = {line.split(":", 1)[0] for line in match.group(1).splitlines()}
-    assert keys == {"source", "source_key", "endpoint", "retrieved", "license", "attribution"}
+    assert keys == {"type", "source", "source_key", "endpoint", "retrieved", "license", "attribution"}
 
 
 # --- run-health tolerance: `healthy` (commit-worthy) vs strict `ok` --------------------
