@@ -1030,6 +1030,7 @@
       "entity_kind": "region",
       "theme": "shared",
       "themes": [
+        "cyber-watch",
         "energy-supply",
         "humanitarian"
       ],
@@ -1305,7 +1306,7 @@
           "theme": "energy-supply",
           "source": "natural-gas-storage-eu",
           "day": "2026-08-20",
-          "text": "--- source: \"GIE AGSI+ (Gas Infrastructure Europe)\" source_key: \"natural-gas-storage-eu\" endpoint: \"/api/economic/v1/get-nat-gas-storage\" retrieved: \"2026-08-2\u2026"
+          "text": "--- type: \"L1-source\" source: \"GIE AGSI+ (Gas Infrastructure Europe)\" source_key: \"natural-gas-storage-eu\" endpoint: \"/api/economic/v1/get-nat-gas-storage\" retrieved: \"2026-08-2\u2026"
         },
         {
           "theme": "public-health",
@@ -1782,7 +1783,7 @@
           "theme": "energy-supply",
           "source": "crude-oil-inventories",
           "day": "2026-08-20",
-          "text": "--- source: \"U.S. EIA (Energy Information Administration)\" source_key: \"crude-oil-inventories\" endpoint: \"/api/economic/v1/get-crude-inventories\" retrieved: \"2026-08-20T07:01:59Z\" license\u2026"
+          "text": "--- type: \"L1-source\" source: \"U.S. EIA (Energy Information Administration)\" source_key: \"crude-oil-inventories\" endpoint: \"/api/economic/v1/get-crude-inventories\" retrieved: \"2026-08-20T07:01:59Z\" license\u2026"
         },
         {
           "theme": "energy-supply",
@@ -3095,6 +3096,13 @@
       "target": "source:displacement-flows",
       "cross_theme": false,
       "rel": "named-in"
+    },
+    {
+      "source": "entity:romania",
+      "target": "brief:cyber-watch-weekly",
+      "cross_theme": true,
+      "rel": "mentioned-in",
+      "weight": 0
     },
     {
       "source": "entity:romania",
