@@ -1,4 +1,5 @@
 ---
+type: "L1-source"
 source: "NASA EONET + GDACS (UN-coordinated disaster alerts)"
 source_key: "natural-events"
 endpoint: "/api/natural/v1/list-natural-events"

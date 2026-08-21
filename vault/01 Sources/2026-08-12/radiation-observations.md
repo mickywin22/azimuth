@@ -1,4 +1,5 @@
 ---
+type: "L1-source"
 source: "US EPA RadNet + Safecast (ambient radiation measurements)"
 source_key: "radiation-observations"
 endpoint: "/api/radiation/v1/list-radiation-observations"

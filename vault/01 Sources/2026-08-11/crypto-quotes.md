@@ -1,4 +1,5 @@
 ---
+type: "L1-source"
 source: "CoinGecko (cryptocurrency spot prices & market data)"
 source_key: "crypto-quotes"
 endpoint: "/api/market/v1/list-crypto-quotes"

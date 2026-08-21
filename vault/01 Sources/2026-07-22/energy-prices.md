@@ -1,4 +1,5 @@
 ---
+type: "L1-source"
 source: "WorldMonitor aggregated energy spot/forward feed"
 source_key: "energy-prices"
 endpoint: "/api/economic/v1/get-energy-prices"

@@ -1,4 +1,5 @@
 ---
+type: "L1-source"
 source: "CelesTrak TLE element sets (derived from US Space Command public catalog)"
 source_key: "orbital-satellites"
 endpoint: "/api/intelligence/v1/list-satellites"

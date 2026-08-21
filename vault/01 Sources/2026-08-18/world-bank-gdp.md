@@ -1,4 +1,5 @@
 ---
+type: "L1-source"
 source: "World Bank Open Data (GDP, current US$)"
 source_key: "world-bank-gdp"
 endpoint: "worldbank:NY.GDP.MKTP.CD"

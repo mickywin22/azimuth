@@ -1,4 +1,5 @@
 ---
+type: "L1-source"
 source: "Cloudflare Radar (internet outages & traffic anomalies)"
 source_key: "internet-outages"
 endpoint: "/api/infrastructure/v1/list-internet-outages"

@@ -1,4 +1,5 @@
 ---
+type: "L1-source"
 source: "USGS Earthquake Hazards Program"
 source_key: "earthquakes"
 endpoint: "/api/seismology/v1/list-earthquakes"

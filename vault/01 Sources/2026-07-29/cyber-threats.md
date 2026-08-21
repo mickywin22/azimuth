@@ -1,4 +1,5 @@
 ---
+type: "L1-source"
 source: "abuse.ch (URLhaus malware URLs + Feodo Tracker C2 indicators)"
 source_key: "cyber-threats"
 endpoint: "/api/cyber/v1/list-cyber-threats"

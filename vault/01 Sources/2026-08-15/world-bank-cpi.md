@@ -1,4 +1,5 @@
 ---
+type: "L1-source"
 source: "World Bank Open Data (inflation, consumer prices, annual %)"
 source_key: "world-bank-cpi"
 endpoint: "worldbank:FP.CPI.TOTL.ZG"

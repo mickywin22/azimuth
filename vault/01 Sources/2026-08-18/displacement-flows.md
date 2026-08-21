@@ -1,4 +1,5 @@
 ---
+type: "L1-source"
 source: "UNHCR Refugee Data + UN OCHA HAPI (refugee / asylum / IDP counts)"
 source_key: "displacement-flows"
 endpoint: "/api/displacement/v1/get-displacement-summary"

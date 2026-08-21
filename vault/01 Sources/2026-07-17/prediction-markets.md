@@ -1,4 +1,5 @@
 ---
+type: "L1-source"
 source: "Polymarket public odds"
 source_key: "prediction-markets"
 endpoint: "/api/prediction/v1/list-prediction-markets"

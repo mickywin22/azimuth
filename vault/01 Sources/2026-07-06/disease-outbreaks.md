@@ -1,4 +1,5 @@
 ---
+type: "L1-source"
 source: "WHO Disease Outbreak News + US CDC Health Alert Network"
 source_key: "disease-outbreaks"
 endpoint: "/api/health/v1/list-disease-outbreaks"

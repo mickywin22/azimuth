@@ -1,4 +1,5 @@
 ---
+type: "L1-source"
 source: "U.S. EIA (Energy Information Administration)"
 source_key: "crude-oil-inventories"
 endpoint: "/api/economic/v1/get-crude-inventories"

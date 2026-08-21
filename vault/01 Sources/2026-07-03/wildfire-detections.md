@@ -1,4 +1,5 @@
 ---
+type: "L1-source"
 source: "NASA FIRMS (VIIRS active-fire / thermal-anomaly detections)"
 source_key: "wildfire-detections"
 endpoint: "/api/wildfire/v1/list-fire-detections"

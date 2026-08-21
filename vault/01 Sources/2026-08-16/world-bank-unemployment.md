@@ -1,4 +1,5 @@
 ---
+type: "L1-source"
 source: "World Bank Open Data (unemployment, % of labor force, modeled ILO)"
 source_key: "world-bank-unemployment"
 endpoint: "worldbank:SL.UEM.TOTL.ZS"

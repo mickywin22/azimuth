@@ -1,4 +1,5 @@
 ---
+type: "L1-source"
 source: "NGA (US National Geospatial-Intelligence Agency) Broadcast/Navigational Warnings"
 source_key: "maritime-navwarnings"
 endpoint: "/api/maritime/v1/list-navigational-warnings"
