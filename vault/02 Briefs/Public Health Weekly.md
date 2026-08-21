@@ -3,7 +3,7 @@ title: Public Health Weekly
 type: L2-brief
 theme: public-health
 week: 2026-W34
-updated: 2026-08-17T09:00:00Z
+updated: 2026-08-20T09:00:00Z
 sources: [disease-outbreaks]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -15,48 +15,55 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 > fleet role evolves this single note in place each cycle. azimuth reports **recorded disease
 > outbreak notifications** — the disease, the place, the case count and the alert level as the
 > reporting body published them — never a health prediction, never advice. Every claim links
-> to the L1 note it rests on. (Updated from the 2026-08-17 ingest.)
+> to the L1 note it rests on. (Updated from the 2026-08-20 ingest.)
 
 ## This week at a glance
 
-- The WHO / CDC outbreak channel carries **156 active outbreak signals** on the 2026-08-17
-  pull — **115 watch / 41 alert**, with **no warning-level entry** on the feed's own alert
-  bands. The count is unchanged from 08-16 — the first fully flat 24-hour cycle since the slate
-  eased from the 08-01 count of 161 ([[disease-outbreaks]]).
-- **Measles still dominates the slate by entry count**, holding at **68 of the 156 entries** for
-  a second straight day (from 75 of 161 on 08-01). azimuth records each notification in the alert
+- The WHO / CDC outbreak channel carries **154 active outbreak signals** on the 2026-08-20
+  pull — **114 watch / 40 alert**, with **no warning-level entry** on the feed's own alert
+  bands. The count eased two from 156 across the 08-18 → 08-20 span (10 notifications departed
+  against 7 arrivals), still down from the 08-01 count of 161 ([[disease-outbreaks]]).
+- **Measles still dominates the slate by entry count** at **63 of the 154 entries** (eased from
+  68 on 08-17 and 75 of 161 on 08-01), while **diphtheria rose to 12 entries** (from 9) on fresh
+  Karachi and Minna (Nigeria) notifications. azimuth records each notification in the alert
   band the reporting body assigned it ([[disease-outbreaks]]).
 - The **highest single-entry case count remains the 58,000-case Chicken Pox notification in Gaza
-  City (watch)**, unchanged since 08-16 and still topping the feed's carried measles leaders.
-  Behind it the measles ranks hold at identical figures: **Guatemala City** alert entries at
-  **27,145** and **21,700**, **Bangladesh 16,408 (alert)**, **Mongolia 15,475 (watch)**,
-  **Bangladesh 14,841 (watch)** and **13,907 (alert)**, **Mexico 11,771 (watch)** / **11,748
-  (alert)** and **Dhaka 11,549 (watch)** ([[disease-outbreaks]]).
-- The **United States measles entry holds at 2,465 cases (watch)** for a second day (unchanged
-  from 08-16; 2,318 on 08-01), its own source summary still recording the 2026 US case total
-  above the full-year 2025 total. azimuth records the notification and the reporting body's
-  figure and attaches no assessment of trajectory ([[disease-outbreaks]]).
+  City (watch)**, unchanged across the span and still topping the feed's carried measles leaders.
+  Behind it the measles ranks hold, with **one fresh entrant**: **Guatemala City** alert entries
+  at **27,145** and **21,700**, then a new **Bangladesh 17,800 (alert)** — its source summary
+  reporting the country's 2026 measles death toll passing 900 — ahead of the carried **Bangladesh
+  16,408 (alert)**, **Mongolia 15,475 (watch)**, **Bangladesh 14,841 (watch)** and **13,907
+  (alert)**, and **Mexico 11,771 (watch)** / **11,748 (alert)** ([[disease-outbreaks]]).
+- The **United States measles national notifications are led by a 2,318-case (watch) entry**,
+  its source summary still recording the 2026 US case total above the full-year 2025 total,
+  alongside a carried 2,030-case (watch) entry; the separate weekly-tally entry that read 2,465
+  on 08-17 now records **94 new infections for the latest week (mostly Pennsylvania)**. azimuth
+  records the notifications and the reporting body's figures and attaches no assessment of
+  trajectory ([[disease-outbreaks]]).
 
 ## Reading the week
 
-- The slate held at **156 signals** on 08-17, unchanged from 08-16 and still down from 161 on
-  08-01; **no warning-level notification present**, the feed's highest band is "alert" at
-  **41 entries**, with 115 in the lower "watch" band ([[disease-outbreaks]]).
-- The case-count ranking is unchanged from 08-16: the **58,000-case Chicken Pox notification in
-  Gaza City (watch)** still sits above the carried Guatemala City measles pair (27,145 / 21,700
-  alert) and the Bangladesh measles 16,408 (alert) entry. Measles still leads the slate by entry
-  count (68 of 156); the **US measles entry holds at 2,465 cases (watch)**, its source note still
-  recording the 2026 US total above all of 2025. azimuth records each figure as the reporting
-  body published it and attaches no assessment of trajectory ([[disease-outbreaks]]).
+- The slate eased to **154 signals** on 08-20, two below the 156 of 08-17 and still down from 161
+  on 08-01; **no warning-level notification present**, the feed's highest band is "alert" at
+  **40 entries**, with 114 in the lower "watch" band ([[disease-outbreaks]]).
+- The case-count ranking held at the top with one new entrant: the **58,000-case Chicken Pox
+  notification in Gaza City (watch)** still sits above the carried Guatemala City measles pair
+  (27,145 / 21,700 alert), now followed by a fresh **Bangladesh measles 17,800 (alert)** entry
+  ahead of the carried Bangladesh 16,408 (alert). Measles still leads the slate by entry count
+  (63 of 154); the **US measles national notifications are led by a 2,318-case (watch)** entry,
+  its source note recording the 2026 US total above all of 2025. azimuth records each figure as
+  the reporting body published it and attaches no assessment of trajectory ([[disease-outbreaks]]).
 - azimuth records the notifications as the reporting bodies published them — disease, location,
   case count, alert level — and attaches no assessment of risk, spread or response. A measles-led
-  slate of 156 signals with no warning-level entry, topped by a Gaza City chickenpox notification,
-  is what the WHO/CDC channel carried on both the 2026-08-16 and 2026-08-17 pulls — zero adds,
-  zero departures and zero case-count changes across all 156 matched entries between the two;
-  nothing beyond that is inferred ([[disease-outbreaks]]).
+  slate of 154 signals with no warning-level entry, topped by a Gaza City chickenpox notification,
+  is what the WHO/CDC channel carried on the 2026-08-20 pull — a modest churn across the 08-18 →
+  08-20 span (10 notifications out, 7 in, led by the fresh Bangladesh 17,800-case measles alert),
+  not the fully flat cycle of the 08-16/08-17 hold; nothing beyond that is inferred
+  ([[disease-outbreaks]]).
 
 ## Changelog
 
+- 2026-08-20 — daily-ingest synthesis (2026-W34): absorbed the 2026-08-18 through 08-20 pulls; the slate eased to 154 active signals (114 watch / 40 alert; no warning-level entry) from 156 on 08-17, a modest churn of 10 departures against 7 arrivals. Measles eased to 63 of 154 (from 68); diphtheria rose to 12 (from 9) on fresh Karachi and Minna (Nigeria) entries. The 58,000-case Gaza City Chicken Pox notification (watch) still tops the feed; a fresh Bangladesh measles 17,800 (alert) entered the case-count leaders (source summary: 2026 measles death toll passing 900), ahead of the carried Guatemala City 27,145/21,700 (alert) and Bangladesh 16,408 (alert). US measles national notifications led by 2,318 (watch, 2026 US total above all of 2025); the weekly-tally entry that read 2,465 on 08-17 now records 94 new infections (mostly Pennsylvania). Updated the at-a-glance and reading sections. Observed-only framing held ([[disease-outbreaks]]).
 - 2026-08-17 — daily-ingest synthesis (2026-W34): the 08-17 pull matched 08-16 exactly — 156 active signals (115 watch / 41 alert; no warning-level entry), measles unchanged at 68 of 156, the 58,000-case Chicken Pox notification in Gaza City (watch) still the highest single entry, and US measles holding at 2,465 (watch). Zero additions, zero departures and zero case-count changes across all 156 matched entries — the first fully flat 24-hour cycle in the tracked series. Updated the at-a-glance and reading sections to record the hold. Observed-only framing held ([[disease-outbreaks]]).
 - 2026-08-16 — daily-ingest synthesis (2026-W33): absorbed the 2026-08-07 through 2026-08-16 pulls after a curator gap. The 08-16 feed carries 156 active signals (115 watch / 41 alert; no warning-level entry), easing from 161 on 08-01; measles leads 68 of 156 (from 75). New top single-entry case count: a 58,000-case Chicken Pox notification in Gaza City (watch), now the feed's highest, above the carried Guatemala City measles 27,145 (alert) and 21,700 (alert); a fresh Bangladesh measles 16,408 (alert) also entered. Mongolia 15,475 (watch), Bangladesh 14,841 (watch) / 13,907 (alert), Mexico 11,771 (watch) / 11,748 (alert) and Dhaka 11,549 (watch) held; US measles rose to 2,465 (watch, source note: 2026 US total surpasses all of 2025). Updated the at-a-glance and reading sections; observed-only framing, no health advice ([[disease-outbreaks]]).
 - 2026-08-01 — daily-ingest synthesis (2026-W31): absorbed the 2026-07-31 and 2026-08-01 pulls. The 08-01 feed carries 161 active signals (117 watch / 44 alert; no warning-level entry), easing from 165 on 07-30; measles leads 75 of 161 (from 78). The top case-count ranks all carried — Guatemala City measles 27,145 (alert) and 21,700 (alert), Mongolia 15,475 (watch), Bangladesh 14,841 (watch) and 13,907 (alert), Mexico 11,771 (watch) / 11,748 (alert), Dhaka 11,549 (watch) — as did the US measles 2,318 (watch, source note: 2026 US total surpasses all of 2025). Two-day churn minor and confined to small entries: five low-case notifications departed (measles Ghaziabad 129 / Uganda 12 / Colombia 6, Diphtheria Inchiri 19, a zero-case alert) against one zero-case arrival. Updated the at-a-glance and reading sections; observed-only framing, no health advice ([[disease-outbreaks]]).
