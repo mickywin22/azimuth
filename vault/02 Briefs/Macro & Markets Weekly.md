@@ -3,7 +3,7 @@ title: Macro & Markets Weekly
 type: L2-brief
 theme: macro-markets
 week: 2026-W34
-updated: 2026-08-17T09:00:00Z
+updated: 2026-08-20T09:00:00Z
 sources: [crypto-quotes, world-bank-gdp, world-bank-cpi, world-bank-unemployment, world-bank-indicators]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
