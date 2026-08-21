@@ -1,0 +1,3427 @@
+{
+  "generated": "azimuth vault/ OKF bundle -> RDF concept projection (Vault-LD OKF profile)",
+  "spec_url": "https://github.com/The-Knowledge-Graph-Guys/vault-ld/blob/main/SPEC.md",
+  "ontology_iri": "https://mickywin22.github.io/azimuth/ontology",
+  "data_base": "https://mickywin22.github.io/azimuth/data/",
+  "counts": {
+    "subjects": 1166,
+    "data_triples": 9390,
+    "schema_triples": 75,
+    "classes": 3,
+    "properties": 10,
+    "concepts_shown": 41,
+    "restsOn_edges": 68,
+    "bridges": 23
+  },
+  "census": [
+    {
+      "class": "L1-source",
+      "label": "L1 source note",
+      "comment": "A dated, raw open-data source note \u2014 Layer 1 (raw source Claude reads, never edits).",
+      "subjects": 1149,
+      "concepts": 24
+    },
+    {
+      "class": "L2-brief",
+      "label": "L2 brief",
+      "comment": "A weekly synthesis brief \u2014 Layer 2 (Claude-owned synthesis evolved over L1 sources).",
+      "subjects": 15,
+      "concepts": 15
+    },
+    {
+      "class": "L3-rule",
+      "label": "L3 rule",
+      "comment": "An editorial / synthesis-contract rule \u2014 Layer 3 (the doctrine the curator writes inside).",
+      "subjects": 2,
+      "concepts": 2
+    }
+  ],
+  "properties": [
+    {
+      "id": "upstreamSource",
+      "label": "upstream source",
+      "comment": "The named upstream open-data provider the L1 note pulls from.",
+      "kind": "datatype",
+      "domain": "L1-source",
+      "range": "string"
+    },
+    {
+      "id": "sourceKey",
+      "label": "source key",
+      "comment": "The sources/registry.json key identifying the WorldMonitor subset.",
+      "kind": "datatype",
+      "domain": "L1-source",
+      "range": "string"
+    },
+    {
+      "id": "endpoint",
+      "label": "endpoint",
+      "comment": "The WorldMonitor API path the L1 note was retrieved from.",
+      "kind": "datatype",
+      "domain": "L1-source",
+      "range": "string"
+    },
+    {
+      "id": "retrieved",
+      "label": "retrieved at",
+      "comment": "UTC timestamp the L1 note was pulled from the upstream feed.",
+      "kind": "datatype",
+      "domain": "L1-source",
+      "range": "dateTime"
+    },
+    {
+      "id": "license",
+      "label": "license",
+      "comment": "The content licence the note is published under.",
+      "kind": "datatype",
+      "domain": "",
+      "range": "string"
+    },
+    {
+      "id": "attribution",
+      "label": "attribution",
+      "comment": "Human-readable upstream credit line for the note.",
+      "kind": "datatype",
+      "domain": "",
+      "range": "string"
+    },
+    {
+      "id": "theme",
+      "label": "theme",
+      "comment": "The registry theme / channel the brief synthesises.",
+      "kind": "datatype",
+      "domain": "L2-brief",
+      "range": "string"
+    },
+    {
+      "id": "week",
+      "label": "week",
+      "comment": "The ISO week the brief covers (YYYY-Www).",
+      "kind": "datatype",
+      "domain": "L2-brief",
+      "range": "string"
+    },
+    {
+      "id": "updated",
+      "label": "updated at",
+      "comment": "UTC timestamp the brief was last evolved.",
+      "kind": "datatype",
+      "domain": "L2-brief",
+      "range": "dateTime"
+    },
+    {
+      "id": "restsOn",
+      "label": "rests on",
+      "comment": "Links an L2 brief to the L1 source note(s) its claims rest on.",
+      "kind": "object",
+      "domain": "L2-brief",
+      "range": "L1-source"
+    }
+  ],
+  "concepts": [
+    {
+      "id": "brief:benchmark-facts-vs-forecast-vs-intelligence",
+      "class": "L2-brief",
+      "label": "Benchmark \u2014 Facts vs Forecast vs Intelligence",
+      "path": "02 Briefs/Benchmark.md",
+      "page": "briefs/benchmark-facts-vs-forecast-vs-intelligence.html",
+      "facts": [
+        {
+          "pred": "title",
+          "label": "title",
+          "value": "Benchmark \u2014 Facts vs Forecast vs Intelligence",
+          "datatype": "string"
+        },
+        {
+          "pred": "theme",
+          "label": "theme",
+          "value": "cross-theme",
+          "datatype": "string"
+        },
+        {
+          "pred": "week",
+          "label": "week",
+          "value": "2026-W34",
+          "datatype": "string"
+        },
+        {
+          "pred": "updated",
+          "label": "updated at",
+          "value": "2026-08-21T04:00:00Z",
+          "datatype": "dateTime"
+        },
+        {
+          "pred": "license",
+          "label": "license",
+          "value": "CC-BY-4.0",
+          "datatype": "string"
+        },
+        {
+          "pred": "attribution",
+          "label": "attribution",
+          "value": "azimuth (HemySphere doctrine demonstrator) \u2014 see CREDITS.md for upstream sources; the forecast/intelligence columns quote WorldMonitor as the COMPARED product, not an azimuth channel",
+          "datatype": "string"
+        }
+      ],
+      "edges": [
+        {
+          "pred": "restsOn",
+          "label": "rests on",
+          "dir": "out",
+          "target": "key:crude-oil-inventories",
+          "targetLabel": "crude-oil-inventories",
+          "targetClass": "L1-source"
+        },
+        {
+          "pred": "restsOn",
+          "label": "rests on",
+          "dir": "out",
+          "target": "key:earthquakes",
+          "targetLabel": "earthquakes",
+          "targetClass": "L1-source"
+        },
+        {
+          "pred": "restsOn",
+          "label": "rests on",
+          "dir": "out",
+          "target": "key:energy-prices",
+          "targetLabel": "energy-prices",
+          "targetClass": "L1-source"
+        },
+        {
+          "pred": "restsOn",
+          "label": "rests on",
+          "dir": "out",
+          "target": "key:natural-gas-storage-eu",
+          "targetLabel": "natural-gas-storage-eu",
+          "targetClass": "L1-source"
+        }
+      ]
+    },
+    {
+      "id": "brief:climate-signals-weekly",
+      "class": "L2-brief",
+      "label": "Climate Signals Weekly",
+      "path": "02 Briefs/Climate Signals Weekly.md",
+      "page": "briefs/climate-signals-weekly.html",
+      "facts": [
+        {
+          "pred": "title",
+          "label": "title",
+          "value": "Climate Signals Weekly",
+          "datatype": "string"
+        },
+        {
+          "pred": "theme",
+          "label": "theme",
+          "value": "climate-signals",
+          "datatype": "string"
+        },
+        {
+          "pred": "week",
+          "label": "week",
+          "value": "2026-W34",
+          "datatype": "string"
+        },
+        {
+          "pred": "updated",
+          "label": "updated at",
+          "value": "2026-08-20T09:00:00Z",
+          "datatype": "dateTime"
+        },
+        {
+          "pred": "license",
+          "label": "license",
+          "value": "CC-BY-4.0",
+          "datatype": "string"
+        },
+        {
+          "pred": "attribution",
+          "label": "attribution",
+          "value": "azimuth (HemySphere doctrine demonstrator) \u2014 see CREDITS.md for upstream sources",
+          "datatype": "string"
+        }
+      ],
+      "edges": [
+        {
+          "pred": "restsOn",
+          "label": "rests on",
+          "dir": "out",
+          "target": "key:climate-anomalies",
+          "targetLabel": "climate-anomalies",
+          "targetClass": "L1-source"
+        },
+        {
+          "pred": "restsOn",
+          "label": "rests on",
+          "dir": "out",
+          "target": "key:co2-monitoring",
+          "targetLabel": "co2-monitoring",
+          "targetClass": "L1-source"
+        },
+        {
+          "pred": "restsOn",
+          "label": "rests on",
+          "dir": "out",
+          "target": "key:sea-ice-extent",
+          "targetLabel": "sea-ice-extent",
+          "targetClass": "L1-source"
+        }
+      ]
+    },
+    {
+      "id": "brief:conflict-watch-weekly",
+      "class": "L2-brief",
+      "label": "Conflict Watch Weekly",
+      "path": "02 Briefs/Conflict Watch Weekly.md",
+      "page": "briefs/conflict-watch-weekly.html",
+      "facts": [
+        {
+          "pred": "title",
+          "label": "title",
+          "value": "Conflict Watch Weekly",
+          "datatype": "string"
+        },
+        {
+          "pred": "theme",
+          "label": "theme",
+          "value": "conflict-watch",
+          "datatype": "string"
+        },
+        {
+          "pred": "week",
+          "label": "week",
+          "value": "2026-W34",
+          "datatype": "string"
+        },
+        {
+          "pred": "updated",
+          "label": "updated at",
+          "value": "2026-08-20T09:00:00Z",
+          "datatype": "dateTime"
+        },
+        {
+          "pred": "license",
+          "label": "license",
+          "value": "CC-BY-4.0",
+          "datatype": "string"
+        },
+        {
+          "pred": "attribution",
+          "label": "attribution",
+          "value": "azimuth (HemySphere doctrine demonstrator) \u2014 see CREDITS.md for upstream sources",
+          "datatype": "string"
+        }
+      ],
+      "edges": [
+        {
+          "pred": "restsOn",
+          "label": "rests on",
+          "dir": "out",
+          "target": "key:conflict-events-ucdp",
+          "targetLabel": "conflict-events-ucdp",
+          "targetClass": "L1-source"
+        }
+      ]
+    },
+    {
+      "id": "brief:cyber-watch-weekly",
+      "class": "L2-brief",
+      "label": "Cyber Watch Weekly",
+      "path": "02 Briefs/Cyber Watch Weekly.md",
+      "page": "briefs/cyber-watch-weekly.html",
+      "facts": [
+        {
+          "pred": "title",
+          "label": "title",
+          "value": "Cyber Watch Weekly",
+          "datatype": "string"
+        },
+        {
+          "pred": "theme",
+          "label": "theme",
+          "value": "cyber-watch",
+          "datatype": "string"
+        },
+        {
+          "pred": "week",
+          "label": "week",
+          "value": "2026-W34",
+          "datatype": "string"
+        },
+        {
+          "pred": "updated",
+          "label": "updated at",
+          "value": "2026-08-20T09:00:00Z",
+          "datatype": "dateTime"
+        },
+        {
+          "pred": "license",
+          "label": "license",
+          "value": "CC-BY-4.0",
+          "datatype": "string"
+        },
+        {
+          "pred": "attribution",
+          "label": "attribution",
+          "value": "azimuth (HemySphere doctrine demonstrator) \u2014 see CREDITS.md for upstream sources",
+          "datatype": "string"
+        }
+      ],
+      "edges": [
+        {
+          "pred": "restsOn",
+          "label": "rests on",
+          "dir": "out",
+          "target": "key:cyber-threats",
+          "targetLabel": "cyber-threats",
+          "targetClass": "L1-source"
+        }
+      ]
+    },
+    {
+      "id": "brief:energy-supply-weekly",
+      "class": "L2-brief",
+      "label": "Energy Supply Weekly",
+      "path": "02 Briefs/Energy Supply Weekly.md",
+      "page": "briefs/energy-supply-weekly.html",
+      "facts": [
+        {
+          "pred": "title",
+          "label": "title",
+          "value": "Energy Supply Weekly",
+          "datatype": "string"
+        },
+        {
+          "pred": "theme",
+          "label": "theme",
+          "value": "energy-supply",
+          "datatype": "string"
+        },
+        {
+          "pred": "week",
+          "label": "week",
+          "value": "2026-W34",
+          "datatype": "string"
+        },
+        {
+          "pred": "updated",
+          "label": "updated at",
+          "value": "2026-08-20T09:00:00Z",
+          "datatype": "dateTime"
+        },
+        {
+          "pred": "license",
+          "label": "license",
+          "value": "CC-BY-4.0",
+          "datatype": "string"
+        },
+        {
+          "pred": "attribution",
+          "label": "attribution",
+          "value": "azimuth (HemySphere doctrine demonstrator) \u2014 see CREDITS.md for upstream sources",
+          "datatype": "string"
+        }
+      ],
+      "edges": [
+        {
+          "pred": "restsOn",
+          "label": "rests on",
+          "dir": "out",
+          "target": "key:natural-gas-storage-eu",
+          "targetLabel": "natural-gas-storage-eu",
+          "targetClass": "L1-source"
+        },
+        {
+          "pred": "restsOn",
+          "label": "rests on",
+          "dir": "out",
+          "target": "key:crude-oil-inventories",
+          "targetLabel": "crude-oil-inventories",
+          "targetClass": "L1-source"
+        },
+        {
+          "pred": "restsOn",
+          "label": "rests on",
+          "dir": "out",
+          "target": "key:fuel-prices",
+          "targetLabel": "fuel-prices",
+          "targetClass": "L1-source"
+        },
+        {
+          "pred": "restsOn",
+          "label": "rests on",
+          "dir": "out",
+          "target": "key:energy-prices",
+          "targetLabel": "energy-prices",
+          "targetClass": "L1-source"
+        }
+      ]
+    },
+    {
+      "id": "brief:environmental-hazards-weekly",
+      "class": "L2-brief",
+      "label": "Environmental Hazards Weekly",
+      "path": "02 Briefs/Environmental Hazards Weekly.md",
+      "page": "briefs/environmental-hazards-weekly.html",
+      "facts": [
+        {
+          "pred": "title",
+          "label": "title",
+          "value": "Environmental Hazards Weekly",
+          "datatype": "string"
+        },
+        {
+          "pred": "theme",
+          "label": "theme",
+          "value": "environmental-hazards",
+          "datatype": "string"
+        },
+        {
+          "pred": "week",
+          "label": "week",
+          "value": "2026-W34",
+          "datatype": "string"
+        },
+        {
+          "pred": "updated",
+          "label": "updated at",
+          "value": "2026-08-20T09:00:00Z",
+          "datatype": "dateTime"
+        },
+        {
+          "pred": "license",
+          "label": "license",
+          "value": "CC-BY-4.0",
+          "datatype": "string"
+        },
+        {
+          "pred": "attribution",
+          "label": "attribution",
+          "value": "azimuth (HemySphere doctrine demonstrator) \u2014 see CREDITS.md for upstream sources",
+          "datatype": "string"
+        }
+      ],
+      "edges": [
+        {
+          "pred": "restsOn",
+          "label": "rests on",
+          "dir": "out",
+          "target": "key:wildfire-detections",
+          "targetLabel": "wildfire-detections",
+          "targetClass": "L1-source"
+        },
+        {
+          "pred": "restsOn",
+          "label": "rests on",
+          "dir": "out",
+          "target": "key:thermal-escalations",
+          "targetLabel": "thermal-escalations",
+          "targetClass": "L1-source"
+        },
+        {
+          "pred": "restsOn",
+          "label": "rests on",
+          "dir": "out",
+          "target": "key:natural-events",
+          "targetLabel": "natural-events",
+          "targetClass": "L1-source"
+        },
+        {
+          "pred": "restsOn",
+          "label": "rests on",
+          "dir": "out",
+          "target": "key:radiation-observations",
+          "targetLabel": "radiation-observations",
+          "targetClass": "L1-source"
+        }
+      ]
+    },
+    {
+      "id": "brief:geophysical-weekly",
+      "class": "L2-brief",
+      "label": "Geophysical Weekly",
+      "path": "02 Briefs/Geophysical Weekly.md",
+      "page": "briefs/geophysical-weekly.html",
+      "facts": [
+        {
+          "pred": "title",
+          "label": "title",
+          "value": "Geophysical Weekly",
+          "datatype": "string"
+        },
+        {
+          "pred": "theme",
+          "label": "theme",
+          "value": "geophysical",
+          "datatype": "string"
+        },
+        {
+          "pred": "week",
+          "label": "week",
+          "value": "2026-W34",
+          "datatype": "string"
+        },
+        {
+          "pred": "updated",
+          "label": "updated at",
+          "value": "2026-08-20T09:00:00Z",
+          "datatype": "dateTime"
+        },
+        {
+          "pred": "license",
+          "label": "license",
+          "value": "CC-BY-4.0",
+          "datatype": "string"
+        },
+        {
+          "pred": "attribution",
+          "label": "attribution",
+          "value": "azimuth (HemySphere doctrine demonstrator) \u2014 see CREDITS.md for upstream sources",
+          "datatype": "string"
+        }
+      ],
+      "edges": [
+        {
+          "pred": "restsOn",
+          "label": "rests on",
+          "dir": "out",
+          "target": "key:earthquakes",
+          "targetLabel": "earthquakes",
+          "targetClass": "L1-source"
+        }
+      ]
+    },
+    {
+      "id": "brief:humanitarian-watch-weekly",
+      "class": "L2-brief",
+      "label": "Humanitarian Watch Weekly",
+      "path": "02 Briefs/Humanitarian Watch Weekly.md",
+      "page": "briefs/humanitarian-watch-weekly.html",
+      "facts": [
+        {
+          "pred": "title",
+          "label": "title",
+          "value": "Humanitarian Watch Weekly",
+          "datatype": "string"
+        },
+        {
+          "pred": "theme",
+          "label": "theme",
+          "value": "humanitarian",
+          "datatype": "string"
+        },
+        {
+          "pred": "week",
+          "label": "week",
+          "value": "2026-W34",
+          "datatype": "string"
+        },
+        {
+          "pred": "updated",
+          "label": "updated at",
+          "value": "2026-08-20T09:00:00Z",
+          "datatype": "dateTime"
+        },
+        {
+          "pred": "license",
+          "label": "license",
+          "value": "CC-BY-4.0",
+          "datatype": "string"
+        },
+        {
+          "pred": "attribution",
+          "label": "attribution",
+          "value": "azimuth (HemySphere doctrine demonstrator) \u2014 see CREDITS.md for upstream sources",
+          "datatype": "string"
+        }
+      ],
+      "edges": [
+        {
+          "pred": "restsOn",
+          "label": "rests on",
+          "dir": "out",
+          "target": "key:displacement-flows",
+          "targetLabel": "displacement-flows",
+          "targetClass": "L1-source"
+        }
+      ]
+    },
+    {
+      "id": "brief:infrastructure-watch-weekly",
+      "class": "L2-brief",
+      "label": "Infrastructure Watch Weekly",
+      "path": "02 Briefs/Infrastructure Watch Weekly.md",
+      "page": "briefs/infrastructure-watch-weekly.html",
+      "facts": [
+        {
+          "pred": "title",
+          "label": "title",
+          "value": "Infrastructure Watch Weekly",
+          "datatype": "string"
+        },
+        {
+          "pred": "theme",
+          "label": "theme",
+          "value": "infrastructure-watch",
+          "datatype": "string"
+        },
+        {
+          "pred": "week",
+          "label": "week",
+          "value": "2026-W34",
+          "datatype": "string"
+        },
+        {
+          "pred": "updated",
+          "label": "updated at",
+          "value": "2026-08-20T09:00:00Z",
+          "datatype": "dateTime"
+        },
+        {
+          "pred": "license",
+          "label": "license",
+          "value": "CC-BY-4.0",
+          "datatype": "string"
+        },
+        {
+          "pred": "attribution",
+          "label": "attribution",
+          "value": "azimuth (HemySphere doctrine demonstrator) \u2014 see CREDITS.md for upstream sources",
+          "datatype": "string"
+        }
+      ],
+      "edges": [
+        {
+          "pred": "restsOn",
+          "label": "rests on",
+          "dir": "out",
+          "target": "key:internet-outages",
+          "targetLabel": "internet-outages",
+          "targetClass": "L1-source"
+        }
+      ]
+    },
+    {
+      "id": "brief:macro-markets-weekly",
+      "class": "L2-brief",
+      "label": "Macro & Markets Weekly",
+      "path": "02 Briefs/Macro & Markets Weekly.md",
+      "page": "briefs/macro-markets-weekly.html",
+      "facts": [
+        {
+          "pred": "title",
+          "label": "title",
+          "value": "Macro & Markets Weekly",
+          "datatype": "string"
+        },
+        {
+          "pred": "theme",
+          "label": "theme",
+          "value": "macro-markets",
+          "datatype": "string"
+        },
+        {
+          "pred": "week",
+          "label": "week",
+          "value": "2026-W34",
+          "datatype": "string"
+        },
+        {
+          "pred": "updated",
+          "label": "updated at",
+          "value": "2026-08-20T09:00:00Z",
+          "datatype": "dateTime"
+        },
+        {
+          "pred": "license",
+          "label": "license",
+          "value": "CC-BY-4.0",
+          "datatype": "string"
+        },
+        {
+          "pred": "attribution",
+          "label": "attribution",
+          "value": "azimuth (HemySphere doctrine demonstrator) \u2014 see CREDITS.md for upstream sources",
+          "datatype": "string"
+        }
+      ],
+      "edges": [
+        {
+          "pred": "restsOn",
+          "label": "rests on",
+          "dir": "out",
+          "target": "key:crypto-quotes",
+          "targetLabel": "crypto-quotes",
+          "targetClass": "L1-source"
+        },
+        {
+          "pred": "restsOn",
+          "label": "rests on",
+          "dir": "out",
+          "target": "key:world-bank-gdp",
+          "targetLabel": "world-bank-gdp",
+          "targetClass": "L1-source"
+        },
+        {
+          "pred": "restsOn",
+          "label": "rests on",
+          "dir": "out",
+          "target": "key:world-bank-cpi",
+          "targetLabel": "world-bank-cpi",
+          "targetClass": "L1-source"
+        },
+        {
+          "pred": "restsOn",
+          "label": "rests on",
+          "dir": "out",
+          "target": "key:world-bank-unemployment",
+          "targetLabel": "world-bank-unemployment",
+          "targetClass": "L1-source"
+        },
+        {
+          "pred": "restsOn",
+          "label": "rests on",
+          "dir": "out",
+          "target": "key:world-bank-indicators",
+          "targetLabel": "world-bank-indicators",
+          "targetClass": "L1-source"
+        }
+      ]
+    },
+    {
+      "id": "brief:orbital-watch-weekly",
+      "class": "L2-brief",
+      "label": "Orbital Watch Weekly",
+      "path": "02 Briefs/Orbital Watch Weekly.md",
+      "page": "briefs/orbital-watch-weekly.html",
+      "facts": [
+        {
+          "pred": "title",
+          "label": "title",
+          "value": "Orbital Watch Weekly",
+          "datatype": "string"
+        },
+        {
+          "pred": "theme",
+          "label": "theme",
+          "value": "orbital-watch",
+          "datatype": "string"
+        },
+        {
+          "pred": "week",
+          "label": "week",
+          "value": "2026-W34",
+          "datatype": "string"
+        },
+        {
+          "pred": "updated",
+          "label": "updated at",
+          "value": "2026-08-20T09:00:00Z",
+          "datatype": "dateTime"
+        },
+        {
+          "pred": "license",
+          "label": "license",
+          "value": "CC-BY-4.0",
+          "datatype": "string"
+        },
+        {
+          "pred": "attribution",
+          "label": "attribution",
+          "value": "azimuth (HemySphere doctrine demonstrator) \u2014 see CREDITS.md for upstream sources",
+          "datatype": "string"
+        }
+      ],
+      "edges": [
+        {
+          "pred": "restsOn",
+          "label": "rests on",
+          "dir": "out",
+          "target": "key:orbital-satellites",
+          "targetLabel": "orbital-satellites",
+          "targetClass": "L1-source"
+        }
+      ]
+    },
+    {
+      "id": "brief:prediction-markets-weekly",
+      "class": "L2-brief",
+      "label": "Prediction Markets Weekly",
+      "path": "02 Briefs/Prediction Markets Weekly.md",
+      "page": "briefs/prediction-markets-weekly.html",
+      "facts": [
+        {
+          "pred": "title",
+          "label": "title",
+          "value": "Prediction Markets Weekly",
+          "datatype": "string"
+        },
+        {
+          "pred": "theme",
+          "label": "theme",
+          "value": "prediction-markets",
+          "datatype": "string"
+        },
+        {
+          "pred": "week",
+          "label": "week",
+          "value": "2026-W34",
+          "datatype": "string"
+        },
+        {
+          "pred": "updated",
+          "label": "updated at",
+          "value": "2026-08-20T09:00:00Z",
+          "datatype": "dateTime"
+        },
+        {
+          "pred": "license",
+          "label": "license",
+          "value": "CC-BY-4.0",
+          "datatype": "string"
+        },
+        {
+          "pred": "attribution",
+          "label": "attribution",
+          "value": "azimuth (HemySphere doctrine demonstrator) \u2014 see CREDITS.md for upstream sources",
+          "datatype": "string"
+        }
+      ],
+      "edges": [
+        {
+          "pred": "restsOn",
+          "label": "rests on",
+          "dir": "out",
+          "target": "key:prediction-markets",
+          "targetLabel": "prediction-markets",
+          "targetClass": "L1-source"
+        }
+      ]
+    },
+    {
+      "id": "brief:public-health-weekly",
+      "class": "L2-brief",
+      "label": "Public Health Weekly",
+      "path": "02 Briefs/Public Health Weekly.md",
+      "page": "briefs/public-health-weekly.html",
+      "facts": [
+        {
+          "pred": "title",
+          "label": "title",
+          "value": "Public Health Weekly",
+          "datatype": "string"
+        },
+        {
+          "pred": "theme",
+          "label": "theme",
+          "value": "public-health",
+          "datatype": "string"
+        },
+        {
+          "pred": "week",
+          "label": "week",
+          "value": "2026-W34",
+          "datatype": "string"
+        },
+        {
+          "pred": "updated",
+          "label": "updated at",
+          "value": "2026-08-20T09:00:00Z",
+          "datatype": "dateTime"
+        },
+        {
+          "pred": "license",
+          "label": "license",
+          "value": "CC-BY-4.0",
+          "datatype": "string"
+        },
+        {
+          "pred": "attribution",
+          "label": "attribution",
+          "value": "azimuth (HemySphere doctrine demonstrator) \u2014 see CREDITS.md for upstream sources",
+          "datatype": "string"
+        }
+      ],
+      "edges": [
+        {
+          "pred": "restsOn",
+          "label": "rests on",
+          "dir": "out",
+          "target": "key:disease-outbreaks",
+          "targetLabel": "disease-outbreaks",
+          "targetClass": "L1-source"
+        }
+      ]
+    },
+    {
+      "id": "brief:top5-answers",
+      "class": "L2-brief",
+      "label": "Top5 Answers",
+      "path": "02 Briefs/Top5 Answers.md",
+      "page": "briefs/top5-answers.html",
+      "facts": [
+        {
+          "pred": "title",
+          "label": "title",
+          "value": "Top5 Answers",
+          "datatype": "string"
+        },
+        {
+          "pred": "theme",
+          "label": "theme",
+          "value": "cross-theme",
+          "datatype": "string"
+        },
+        {
+          "pred": "week",
+          "label": "week",
+          "value": "2026-W34",
+          "datatype": "string"
+        },
+        {
+          "pred": "updated",
+          "label": "updated at",
+          "value": "2026-08-20T04:00:00Z",
+          "datatype": "dateTime"
+        },
+        {
+          "pred": "license",
+          "label": "license",
+          "value": "CC-BY-4.0",
+          "datatype": "string"
+        },
+        {
+          "pred": "attribution",
+          "label": "attribution",
+          "value": "azimuth (HemySphere doctrine demonstrator) \u2014 see CREDITS.md for upstream sources",
+          "datatype": "string"
+        }
+      ],
+      "edges": [
+        {
+          "pred": "restsOn",
+          "label": "rests on",
+          "dir": "out",
+          "target": "key:co2-monitoring",
+          "targetLabel": "co2-monitoring",
+          "targetClass": "L1-source"
+        },
+        {
+          "pred": "restsOn",
+          "label": "rests on",
+          "dir": "out",
+          "target": "key:conflict-events-ucdp",
+          "targetLabel": "conflict-events-ucdp",
+          "targetClass": "L1-source"
+        },
+        {
+          "pred": "restsOn",
+          "label": "rests on",
+          "dir": "out",
+          "target": "key:crude-oil-inventories",
+          "targetLabel": "crude-oil-inventories",
+          "targetClass": "L1-source"
+        },
+        {
+          "pred": "restsOn",
+          "label": "rests on",
+          "dir": "out",
+          "target": "key:crypto-quotes",
+          "targetLabel": "crypto-quotes",
+          "targetClass": "L1-source"
+        },
+        {
+          "pred": "restsOn",
+          "label": "rests on",
+          "dir": "out",
+          "target": "key:disease-outbreaks",
+          "targetLabel": "disease-outbreaks",
+          "targetClass": "L1-source"
+        },
+        {
+          "pred": "restsOn",
+          "label": "rests on",
+          "dir": "out",
+          "target": "key:displacement-flows",
+          "targetLabel": "displacement-flows",
+          "targetClass": "L1-source"
+        },
+        {
+          "pred": "restsOn",
+          "label": "rests on",
+          "dir": "out",
+          "target": "key:earthquakes",
+          "targetLabel": "earthquakes",
+          "targetClass": "L1-source"
+        },
+        {
+          "pred": "restsOn",
+          "label": "rests on",
+          "dir": "out",
+          "target": "key:energy-prices",
+          "targetLabel": "energy-prices",
+          "targetClass": "L1-source"
+        },
+        {
+          "pred": "restsOn",
+          "label": "rests on",
+          "dir": "out",
+          "target": "key:fuel-prices",
+          "targetLabel": "fuel-prices",
+          "targetClass": "L1-source"
+        },
+        {
+          "pred": "restsOn",
+          "label": "rests on",
+          "dir": "out",
+          "target": "key:natural-events",
+          "targetLabel": "natural-events",
+          "targetClass": "L1-source"
+        },
+        {
+          "pred": "restsOn",
+          "label": "rests on",
+          "dir": "out",
+          "target": "key:natural-gas-storage-eu",
+          "targetLabel": "natural-gas-storage-eu",
+          "targetClass": "L1-source"
+        },
+        {
+          "pred": "restsOn",
+          "label": "rests on",
+          "dir": "out",
+          "target": "key:radiation-observations",
+          "targetLabel": "radiation-observations",
+          "targetClass": "L1-source"
+        },
+        {
+          "pred": "restsOn",
+          "label": "rests on",
+          "dir": "out",
+          "target": "key:thermal-escalations",
+          "targetLabel": "thermal-escalations",
+          "targetClass": "L1-source"
+        },
+        {
+          "pred": "restsOn",
+          "label": "rests on",
+          "dir": "out",
+          "target": "key:wildfire-detections",
+          "targetLabel": "wildfire-detections",
+          "targetClass": "L1-source"
+        },
+        {
+          "pred": "restsOn",
+          "label": "rests on",
+          "dir": "out",
+          "target": "key:world-bank-cpi",
+          "targetLabel": "world-bank-cpi",
+          "targetClass": "L1-source"
+        },
+        {
+          "pred": "restsOn",
+          "label": "rests on",
+          "dir": "out",
+          "target": "key:world-bank-gdp",
+          "targetLabel": "world-bank-gdp",
+          "targetClass": "L1-source"
+        },
+        {
+          "pred": "restsOn",
+          "label": "rests on",
+          "dir": "out",
+          "target": "key:world-bank-unemployment",
+          "targetLabel": "world-bank-unemployment",
+          "targetClass": "L1-source"
+        }
+      ]
+    },
+    {
+      "id": "brief:world-watch-weekly",
+      "class": "L2-brief",
+      "label": "World Watch Weekly",
+      "path": "02 Briefs/World Watch Weekly.md",
+      "page": "briefs/world-watch-weekly.html",
+      "facts": [
+        {
+          "pred": "title",
+          "label": "title",
+          "value": "World Watch Weekly",
+          "datatype": "string"
+        },
+        {
+          "pred": "theme",
+          "label": "theme",
+          "value": "cross-theme",
+          "datatype": "string"
+        },
+        {
+          "pred": "week",
+          "label": "week",
+          "value": "2026-W34",
+          "datatype": "string"
+        },
+        {
+          "pred": "updated",
+          "label": "updated at",
+          "value": "2026-08-20T04:00:00Z",
+          "datatype": "dateTime"
+        },
+        {
+          "pred": "license",
+          "label": "license",
+          "value": "CC-BY-4.0",
+          "datatype": "string"
+        },
+        {
+          "pred": "attribution",
+          "label": "attribution",
+          "value": "azimuth (HemySphere doctrine demonstrator) \u2014 see CREDITS.md for upstream sources",
+          "datatype": "string"
+        }
+      ],
+      "edges": [
+        {
+          "pred": "restsOn",
+          "label": "rests on",
+          "dir": "out",
+          "target": "key:climate-anomalies",
+          "targetLabel": "climate-anomalies",
+          "targetClass": "L1-source"
+        },
+        {
+          "pred": "restsOn",
+          "label": "rests on",
+          "dir": "out",
+          "target": "key:co2-monitoring",
+          "targetLabel": "co2-monitoring",
+          "targetClass": "L1-source"
+        },
+        {
+          "pred": "restsOn",
+          "label": "rests on",
+          "dir": "out",
+          "target": "key:conflict-events-ucdp",
+          "targetLabel": "conflict-events-ucdp",
+          "targetClass": "L1-source"
+        },
+        {
+          "pred": "restsOn",
+          "label": "rests on",
+          "dir": "out",
+          "target": "key:crude-oil-inventories",
+          "targetLabel": "crude-oil-inventories",
+          "targetClass": "L1-source"
+        },
+        {
+          "pred": "restsOn",
+          "label": "rests on",
+          "dir": "out",
+          "target": "key:crypto-quotes",
+          "targetLabel": "crypto-quotes",
+          "targetClass": "L1-source"
+        },
+        {
+          "pred": "restsOn",
+          "label": "rests on",
+          "dir": "out",
+          "target": "key:cyber-threats",
+          "targetLabel": "cyber-threats",
+          "targetClass": "L1-source"
+        },
+        {
+          "pred": "restsOn",
+          "label": "rests on",
+          "dir": "out",
+          "target": "key:disease-outbreaks",
+          "targetLabel": "disease-outbreaks",
+          "targetClass": "L1-source"
+        },
+        {
+          "pred": "restsOn",
+          "label": "rests on",
+          "dir": "out",
+          "target": "key:displacement-flows",
+          "targetLabel": "displacement-flows",
+          "targetClass": "L1-source"
+        },
+        {
+          "pred": "restsOn",
+          "label": "rests on",
+          "dir": "out",
+          "target": "key:earthquakes",
+          "targetLabel": "earthquakes",
+          "targetClass": "L1-source"
+        },
+        {
+          "pred": "restsOn",
+          "label": "rests on",
+          "dir": "out",
+          "target": "key:energy-prices",
+          "targetLabel": "energy-prices",
+          "targetClass": "L1-source"
+        },
+        {
+          "pred": "restsOn",
+          "label": "rests on",
+          "dir": "out",
+          "target": "key:fuel-prices",
+          "targetLabel": "fuel-prices",
+          "targetClass": "L1-source"
+        },
+        {
+          "pred": "restsOn",
+          "label": "rests on",
+          "dir": "out",
+          "target": "key:internet-outages",
+          "targetLabel": "internet-outages",
+          "targetClass": "L1-source"
+        },
+        {
+          "pred": "restsOn",
+          "label": "rests on",
+          "dir": "out",
+          "target": "key:natural-events",
+          "targetLabel": "natural-events",
+          "targetClass": "L1-source"
+        },
+        {
+          "pred": "restsOn",
+          "label": "rests on",
+          "dir": "out",
+          "target": "key:natural-gas-storage-eu",
+          "targetLabel": "natural-gas-storage-eu",
+          "targetClass": "L1-source"
+        },
+        {
+          "pred": "restsOn",
+          "label": "rests on",
+          "dir": "out",
+          "target": "key:orbital-satellites",
+          "targetLabel": "orbital-satellites",
+          "targetClass": "L1-source"
+        },
+        {
+          "pred": "restsOn",
+          "label": "rests on",
+          "dir": "out",
+          "target": "key:prediction-markets",
+          "targetLabel": "prediction-markets",
+          "targetClass": "L1-source"
+        },
+        {
+          "pred": "restsOn",
+          "label": "rests on",
+          "dir": "out",
+          "target": "key:radiation-observations",
+          "targetLabel": "radiation-observations",
+          "targetClass": "L1-source"
+        },
+        {
+          "pred": "restsOn",
+          "label": "rests on",
+          "dir": "out",
+          "target": "key:sea-ice-extent",
+          "targetLabel": "sea-ice-extent",
+          "targetClass": "L1-source"
+        },
+        {
+          "pred": "restsOn",
+          "label": "rests on",
+          "dir": "out",
+          "target": "key:thermal-escalations",
+          "targetLabel": "thermal-escalations",
+          "targetClass": "L1-source"
+        },
+        {
+          "pred": "restsOn",
+          "label": "rests on",
+          "dir": "out",
+          "target": "key:wildfire-detections",
+          "targetLabel": "wildfire-detections",
+          "targetClass": "L1-source"
+        },
+        {
+          "pred": "restsOn",
+          "label": "rests on",
+          "dir": "out",
+          "target": "key:world-bank-cpi",
+          "targetLabel": "world-bank-cpi",
+          "targetClass": "L1-source"
+        },
+        {
+          "pred": "restsOn",
+          "label": "rests on",
+          "dir": "out",
+          "target": "key:world-bank-gdp",
+          "targetLabel": "world-bank-gdp",
+          "targetClass": "L1-source"
+        },
+        {
+          "pred": "restsOn",
+          "label": "rests on",
+          "dir": "out",
+          "target": "key:world-bank-unemployment",
+          "targetLabel": "world-bank-unemployment",
+          "targetClass": "L1-source"
+        }
+      ]
+    },
+    {
+      "id": "key:climate-anomalies",
+      "class": "L1-source",
+      "label": "climate-anomalies",
+      "path": "01 Sources/2026-08-21/climate-anomalies.md",
+      "page": "sources/2026-08-21/climate-anomalies.html",
+      "facts": [
+        {
+          "pred": "source",
+          "label": "upstream source",
+          "value": "NOAA / NASA reanalysis regional temperature & precipitation anomalies",
+          "datatype": "string"
+        },
+        {
+          "pred": "source_key",
+          "label": "source key",
+          "value": "climate-anomalies",
+          "datatype": "string"
+        },
+        {
+          "pred": "endpoint",
+          "label": "endpoint",
+          "value": "/api/climate/v1/list-climate-anomalies",
+          "datatype": "string"
+        },
+        {
+          "pred": "retrieved",
+          "label": "retrieved at",
+          "value": "2026-08-21T07:03:47Z",
+          "datatype": "dateTime"
+        },
+        {
+          "pred": "license",
+          "label": "license",
+          "value": "US-Gov-public-domain",
+          "datatype": "string"
+        },
+        {
+          "pred": "attribution",
+          "label": "attribution",
+          "value": "Data: NOAA/NASA reanalysis via WorldMonitor (api.worldmonitor.app)",
+          "datatype": "string"
+        }
+      ],
+      "series": {
+        "instances": 54,
+        "first": "2026-06-24",
+        "last": "2026-08-21"
+      },
+      "edges": [
+        {
+          "pred": "restsOn",
+          "label": "feeds",
+          "dir": "in",
+          "target": "brief:climate-signals-weekly",
+          "targetLabel": "Climate Signals Weekly",
+          "targetClass": "L2-brief"
+        },
+        {
+          "pred": "restsOn",
+          "label": "feeds",
+          "dir": "in",
+          "target": "brief:world-watch-weekly",
+          "targetLabel": "World Watch Weekly",
+          "targetClass": "L2-brief"
+        }
+      ]
+    },
+    {
+      "id": "key:co2-monitoring",
+      "class": "L1-source",
+      "label": "co2-monitoring",
+      "path": "01 Sources/2026-08-21/co2-monitoring.md",
+      "page": "sources/2026-08-21/co2-monitoring.html",
+      "facts": [
+        {
+          "pred": "source",
+          "label": "upstream source",
+          "value": "NOAA Global Monitoring Laboratory (atmospheric CO2 record)",
+          "datatype": "string"
+        },
+        {
+          "pred": "source_key",
+          "label": "source key",
+          "value": "co2-monitoring",
+          "datatype": "string"
+        },
+        {
+          "pred": "endpoint",
+          "label": "endpoint",
+          "value": "/api/climate/v1/get-co2-monitoring",
+          "datatype": "string"
+        },
+        {
+          "pred": "retrieved",
+          "label": "retrieved at",
+          "value": "2026-08-21T07:03:47Z",
+          "datatype": "dateTime"
+        },
+        {
+          "pred": "license",
+          "label": "license",
+          "value": "US-Gov-public-domain",
+          "datatype": "string"
+        },
+        {
+          "pred": "attribution",
+          "label": "attribution",
+          "value": "Data: NOAA Global Monitoring Laboratory via WorldMonitor (api.worldmonitor.app)",
+          "datatype": "string"
+        }
+      ],
+      "series": {
+        "instances": 54,
+        "first": "2026-06-24",
+        "last": "2026-08-21"
+      },
+      "edges": [
+        {
+          "pred": "restsOn",
+          "label": "feeds",
+          "dir": "in",
+          "target": "brief:climate-signals-weekly",
+          "targetLabel": "Climate Signals Weekly",
+          "targetClass": "L2-brief"
+        },
+        {
+          "pred": "restsOn",
+          "label": "feeds",
+          "dir": "in",
+          "target": "brief:top5-answers",
+          "targetLabel": "Top5 Answers",
+          "targetClass": "L2-brief"
+        },
+        {
+          "pred": "restsOn",
+          "label": "feeds",
+          "dir": "in",
+          "target": "brief:world-watch-weekly",
+          "targetLabel": "World Watch Weekly",
+          "targetClass": "L2-brief"
+        }
+      ]
+    },
+    {
+      "id": "key:conflict-events-ucdp",
+      "class": "L1-source",
+      "label": "conflict-events-ucdp",
+      "path": "01 Sources/2026-08-21/conflict-events-ucdp.md",
+      "page": "sources/2026-08-21/conflict-events-ucdp.html",
+      "facts": [
+        {
+          "pred": "source",
+          "label": "upstream source",
+          "value": "UCDP (Uppsala Conflict Data Program \u2014 Georeferenced Event Dataset)",
+          "datatype": "string"
+        },
+        {
+          "pred": "source_key",
+          "label": "source key",
+          "value": "conflict-events-ucdp",
+          "datatype": "string"
+        },
+        {
+          "pred": "endpoint",
+          "label": "endpoint",
+          "value": "/api/conflict/v1/list-ucdp-events",
+          "datatype": "string"
+        },
+        {
+          "pred": "retrieved",
+          "label": "retrieved at",
+          "value": "2026-08-21T07:03:47Z",
+          "datatype": "dateTime"
+        },
+        {
+          "pred": "license",
+          "label": "license",
+          "value": "CC-BY-4.0",
+          "datatype": "string"
+        },
+        {
+          "pred": "attribution",
+          "label": "attribution",
+          "value": "Data: UCDP (Uppsala Conflict Data Program) via WorldMonitor (api.worldmonitor.app)",
+          "datatype": "string"
+        }
+      ],
+      "series": {
+        "instances": 53,
+        "first": "2026-06-25",
+        "last": "2026-08-21"
+      },
+      "edges": [
+        {
+          "pred": "restsOn",
+          "label": "feeds",
+          "dir": "in",
+          "target": "brief:conflict-watch-weekly",
+          "targetLabel": "Conflict Watch Weekly",
+          "targetClass": "L2-brief"
+        },
+        {
+          "pred": "restsOn",
+          "label": "feeds",
+          "dir": "in",
+          "target": "brief:top5-answers",
+          "targetLabel": "Top5 Answers",
+          "targetClass": "L2-brief"
+        },
+        {
+          "pred": "restsOn",
+          "label": "feeds",
+          "dir": "in",
+          "target": "brief:world-watch-weekly",
+          "targetLabel": "World Watch Weekly",
+          "targetClass": "L2-brief"
+        }
+      ]
+    },
+    {
+      "id": "key:crude-oil-inventories",
+      "class": "L1-source",
+      "label": "crude-oil-inventories",
+      "path": "01 Sources/2026-08-21/crude-oil-inventories.md",
+      "page": "sources/2026-08-21/crude-oil-inventories.html",
+      "facts": [
+        {
+          "pred": "source",
+          "label": "upstream source",
+          "value": "U.S. EIA (Energy Information Administration)",
+          "datatype": "string"
+        },
+        {
+          "pred": "source_key",
+          "label": "source key",
+          "value": "crude-oil-inventories",
+          "datatype": "string"
+        },
+        {
+          "pred": "endpoint",
+          "label": "endpoint",
+          "value": "/api/economic/v1/get-crude-inventories",
+          "datatype": "string"
+        },
+        {
+          "pred": "retrieved",
+          "label": "retrieved at",
+          "value": "2026-08-21T07:03:47Z",
+          "datatype": "dateTime"
+        },
+        {
+          "pred": "license",
+          "label": "license",
+          "value": "US-Gov-public-domain",
+          "datatype": "string"
+        },
+        {
+          "pred": "attribution",
+          "label": "attribution",
+          "value": "Data: U.S. EIA via WorldMonitor (api.worldmonitor.app)",
+          "datatype": "string"
+        }
+      ],
+      "series": {
+        "instances": 58,
+        "first": "2026-06-15",
+        "last": "2026-08-21"
+      },
+      "edges": [
+        {
+          "pred": "restsOn",
+          "label": "feeds",
+          "dir": "in",
+          "target": "brief:benchmark-facts-vs-forecast-vs-intelligence",
+          "targetLabel": "Benchmark \u2014 Facts vs Forecast vs Intelligence",
+          "targetClass": "L2-brief"
+        },
+        {
+          "pred": "restsOn",
+          "label": "feeds",
+          "dir": "in",
+          "target": "brief:energy-supply-weekly",
+          "targetLabel": "Energy Supply Weekly",
+          "targetClass": "L2-brief"
+        },
+        {
+          "pred": "restsOn",
+          "label": "feeds",
+          "dir": "in",
+          "target": "brief:top5-answers",
+          "targetLabel": "Top5 Answers",
+          "targetClass": "L2-brief"
+        },
+        {
+          "pred": "restsOn",
+          "label": "feeds",
+          "dir": "in",
+          "target": "brief:world-watch-weekly",
+          "targetLabel": "World Watch Weekly",
+          "targetClass": "L2-brief"
+        }
+      ]
+    },
+    {
+      "id": "key:crypto-quotes",
+      "class": "L1-source",
+      "label": "crypto-quotes",
+      "path": "01 Sources/2026-08-21/crypto-quotes.md",
+      "page": "sources/2026-08-21/crypto-quotes.html",
+      "facts": [
+        {
+          "pred": "source",
+          "label": "upstream source",
+          "value": "CoinGecko (cryptocurrency spot prices & market data)",
+          "datatype": "string"
+        },
+        {
+          "pred": "source_key",
+          "label": "source key",
+          "value": "crypto-quotes",
+          "datatype": "string"
+        },
+        {
+          "pred": "endpoint",
+          "label": "endpoint",
+          "value": "/api/market/v1/list-crypto-quotes",
+          "datatype": "string"
+        },
+        {
+          "pred": "retrieved",
+          "label": "retrieved at",
+          "value": "2026-08-21T07:03:47Z",
+          "datatype": "dateTime"
+        },
+        {
+          "pred": "license",
+          "label": "license",
+          "value": "API-ToS-derived",
+          "datatype": "string"
+        },
+        {
+          "pred": "attribution",
+          "label": "attribution",
+          "value": "Data: CoinGecko via WorldMonitor (api.worldmonitor.app)",
+          "datatype": "string"
+        }
+      ],
+      "series": {
+        "instances": 53,
+        "first": "2026-06-25",
+        "last": "2026-08-21"
+      },
+      "edges": [
+        {
+          "pred": "restsOn",
+          "label": "feeds",
+          "dir": "in",
+          "target": "brief:macro-markets-weekly",
+          "targetLabel": "Macro & Markets Weekly",
+          "targetClass": "L2-brief"
+        },
+        {
+          "pred": "restsOn",
+          "label": "feeds",
+          "dir": "in",
+          "target": "brief:top5-answers",
+          "targetLabel": "Top5 Answers",
+          "targetClass": "L2-brief"
+        },
+        {
+          "pred": "restsOn",
+          "label": "feeds",
+          "dir": "in",
+          "target": "brief:world-watch-weekly",
+          "targetLabel": "World Watch Weekly",
+          "targetClass": "L2-brief"
+        }
+      ]
+    },
+    {
+      "id": "key:cyber-threats",
+      "class": "L1-source",
+      "label": "cyber-threats",
+      "path": "01 Sources/2026-08-21/cyber-threats.md",
+      "page": "sources/2026-08-21/cyber-threats.html",
+      "facts": [
+        {
+          "pred": "source",
+          "label": "upstream source",
+          "value": "abuse.ch (URLhaus malware URLs + Feodo Tracker C2 indicators)",
+          "datatype": "string"
+        },
+        {
+          "pred": "source_key",
+          "label": "source key",
+          "value": "cyber-threats",
+          "datatype": "string"
+        },
+        {
+          "pred": "endpoint",
+          "label": "endpoint",
+          "value": "/api/cyber/v1/list-cyber-threats",
+          "datatype": "string"
+        },
+        {
+          "pred": "retrieved",
+          "label": "retrieved at",
+          "value": "2026-08-21T07:03:47Z",
+          "datatype": "dateTime"
+        },
+        {
+          "pred": "license",
+          "label": "license",
+          "value": "CC0-1.0",
+          "datatype": "string"
+        },
+        {
+          "pred": "attribution",
+          "label": "attribution",
+          "value": "Data: abuse.ch (URLhaus + Feodo Tracker, CC0) via WorldMonitor (api.worldmonitor.app)",
+          "datatype": "string"
+        }
+      ],
+      "series": {
+        "instances": 53,
+        "first": "2026-06-25",
+        "last": "2026-08-21"
+      },
+      "edges": [
+        {
+          "pred": "restsOn",
+          "label": "feeds",
+          "dir": "in",
+          "target": "brief:cyber-watch-weekly",
+          "targetLabel": "Cyber Watch Weekly",
+          "targetClass": "L2-brief"
+        },
+        {
+          "pred": "restsOn",
+          "label": "feeds",
+          "dir": "in",
+          "target": "brief:world-watch-weekly",
+          "targetLabel": "World Watch Weekly",
+          "targetClass": "L2-brief"
+        }
+      ]
+    },
+    {
+      "id": "key:disease-outbreaks",
+      "class": "L1-source",
+      "label": "disease-outbreaks",
+      "path": "01 Sources/2026-08-21/disease-outbreaks.md",
+      "page": "sources/2026-08-21/disease-outbreaks.html",
+      "facts": [
+        {
+          "pred": "source",
+          "label": "upstream source",
+          "value": "WHO Disease Outbreak News + US CDC Health Alert Network",
+          "datatype": "string"
+        },
+        {
+          "pred": "source_key",
+          "label": "source key",
+          "value": "disease-outbreaks",
+          "datatype": "string"
+        },
+        {
+          "pred": "endpoint",
+          "label": "endpoint",
+          "value": "/api/health/v1/list-disease-outbreaks",
+          "datatype": "string"
+        },
+        {
+          "pred": "retrieved",
+          "label": "retrieved at",
+          "value": "2026-08-21T07:03:47Z",
+          "datatype": "dateTime"
+        },
+        {
+          "pred": "license",
+          "label": "license",
+          "value": "US-Gov-public-domain",
+          "datatype": "string"
+        },
+        {
+          "pred": "attribution",
+          "label": "attribution",
+          "value": "Data: WHO Disease Outbreak News + US CDC HAN via WorldMonitor (api.worldmonitor.app)",
+          "datatype": "string"
+        }
+      ],
+      "series": {
+        "instances": 53,
+        "first": "2026-06-25",
+        "last": "2026-08-21"
+      },
+      "edges": [
+        {
+          "pred": "restsOn",
+          "label": "feeds",
+          "dir": "in",
+          "target": "brief:public-health-weekly",
+          "targetLabel": "Public Health Weekly",
+          "targetClass": "L2-brief"
+        },
+        {
+          "pred": "restsOn",
+          "label": "feeds",
+          "dir": "in",
+          "target": "brief:top5-answers",
+          "targetLabel": "Top5 Answers",
+          "targetClass": "L2-brief"
+        },
+        {
+          "pred": "restsOn",
+          "label": "feeds",
+          "dir": "in",
+          "target": "brief:world-watch-weekly",
+          "targetLabel": "World Watch Weekly",
+          "targetClass": "L2-brief"
+        }
+      ]
+    },
+    {
+      "id": "key:displacement-flows",
+      "class": "L1-source",
+      "label": "displacement-flows",
+      "path": "01 Sources/2026-08-21/displacement-flows.md",
+      "page": "sources/2026-08-21/displacement-flows.html",
+      "facts": [
+        {
+          "pred": "source",
+          "label": "upstream source",
+          "value": "UNHCR Refugee Data + UN OCHA HAPI (refugee / asylum / IDP counts)",
+          "datatype": "string"
+        },
+        {
+          "pred": "source_key",
+          "label": "source key",
+          "value": "displacement-flows",
+          "datatype": "string"
+        },
+        {
+          "pred": "endpoint",
+          "label": "endpoint",
+          "value": "/api/displacement/v1/get-displacement-summary",
+          "datatype": "string"
+        },
+        {
+          "pred": "retrieved",
+          "label": "retrieved at",
+          "value": "2026-08-21T07:03:47Z",
+          "datatype": "dateTime"
+        },
+        {
+          "pred": "license",
+          "label": "license",
+          "value": "CC-BY-4.0",
+          "datatype": "string"
+        },
+        {
+          "pred": "attribution",
+          "label": "attribution",
+          "value": "Data: UNHCR + UN OCHA HAPI via WorldMonitor (api.worldmonitor.app)",
+          "datatype": "string"
+        }
+      ],
+      "series": {
+        "instances": 53,
+        "first": "2026-06-25",
+        "last": "2026-08-21"
+      },
+      "edges": [
+        {
+          "pred": "restsOn",
+          "label": "feeds",
+          "dir": "in",
+          "target": "brief:humanitarian-watch-weekly",
+          "targetLabel": "Humanitarian Watch Weekly",
+          "targetClass": "L2-brief"
+        },
+        {
+          "pred": "restsOn",
+          "label": "feeds",
+          "dir": "in",
+          "target": "brief:top5-answers",
+          "targetLabel": "Top5 Answers",
+          "targetClass": "L2-brief"
+        },
+        {
+          "pred": "restsOn",
+          "label": "feeds",
+          "dir": "in",
+          "target": "brief:world-watch-weekly",
+          "targetLabel": "World Watch Weekly",
+          "targetClass": "L2-brief"
+        }
+      ]
+    },
+    {
+      "id": "key:earthquakes",
+      "class": "L1-source",
+      "label": "earthquakes",
+      "path": "01 Sources/2026-08-21/earthquakes.md",
+      "page": "sources/2026-08-21/earthquakes.html",
+      "facts": [
+        {
+          "pred": "source",
+          "label": "upstream source",
+          "value": "USGS Earthquake Hazards Program",
+          "datatype": "string"
+        },
+        {
+          "pred": "source_key",
+          "label": "source key",
+          "value": "earthquakes",
+          "datatype": "string"
+        },
+        {
+          "pred": "endpoint",
+          "label": "endpoint",
+          "value": "/api/seismology/v1/list-earthquakes",
+          "datatype": "string"
+        },
+        {
+          "pred": "retrieved",
+          "label": "retrieved at",
+          "value": "2026-08-21T07:03:47Z",
+          "datatype": "dateTime"
+        },
+        {
+          "pred": "license",
+          "label": "license",
+          "value": "US-Gov-public-domain",
+          "datatype": "string"
+        },
+        {
+          "pred": "attribution",
+          "label": "attribution",
+          "value": "Data: USGS via WorldMonitor (api.worldmonitor.app)",
+          "datatype": "string"
+        }
+      ],
+      "series": {
+        "instances": 57,
+        "first": "2026-06-16",
+        "last": "2026-08-21"
+      },
+      "edges": [
+        {
+          "pred": "restsOn",
+          "label": "feeds",
+          "dir": "in",
+          "target": "brief:benchmark-facts-vs-forecast-vs-intelligence",
+          "targetLabel": "Benchmark \u2014 Facts vs Forecast vs Intelligence",
+          "targetClass": "L2-brief"
+        },
+        {
+          "pred": "restsOn",
+          "label": "feeds",
+          "dir": "in",
+          "target": "brief:geophysical-weekly",
+          "targetLabel": "Geophysical Weekly",
+          "targetClass": "L2-brief"
+        },
+        {
+          "pred": "restsOn",
+          "label": "feeds",
+          "dir": "in",
+          "target": "brief:top5-answers",
+          "targetLabel": "Top5 Answers",
+          "targetClass": "L2-brief"
+        },
+        {
+          "pred": "restsOn",
+          "label": "feeds",
+          "dir": "in",
+          "target": "brief:world-watch-weekly",
+          "targetLabel": "World Watch Weekly",
+          "targetClass": "L2-brief"
+        }
+      ]
+    },
+    {
+      "id": "key:energy-prices",
+      "class": "L1-source",
+      "label": "energy-prices",
+      "path": "01 Sources/2026-08-21/energy-prices.md",
+      "page": "sources/2026-08-21/energy-prices.html",
+      "facts": [
+        {
+          "pred": "source",
+          "label": "upstream source",
+          "value": "WorldMonitor aggregated energy spot/forward feed",
+          "datatype": "string"
+        },
+        {
+          "pred": "source_key",
+          "label": "source key",
+          "value": "energy-prices",
+          "datatype": "string"
+        },
+        {
+          "pred": "endpoint",
+          "label": "endpoint",
+          "value": "/api/economic/v1/get-energy-prices",
+          "datatype": "string"
+        },
+        {
+          "pred": "retrieved",
+          "label": "retrieved at",
+          "value": "2026-08-21T07:03:47Z",
+          "datatype": "dateTime"
+        },
+        {
+          "pred": "license",
+          "label": "license",
+          "value": "API-ToS-derived",
+          "datatype": "string"
+        },
+        {
+          "pred": "attribution",
+          "label": "attribution",
+          "value": "Data: WorldMonitor energy-price feed (api.worldmonitor.app)",
+          "datatype": "string"
+        }
+      ],
+      "series": {
+        "instances": 58,
+        "first": "2026-06-15",
+        "last": "2026-08-21"
+      },
+      "edges": [
+        {
+          "pred": "restsOn",
+          "label": "feeds",
+          "dir": "in",
+          "target": "brief:benchmark-facts-vs-forecast-vs-intelligence",
+          "targetLabel": "Benchmark \u2014 Facts vs Forecast vs Intelligence",
+          "targetClass": "L2-brief"
+        },
+        {
+          "pred": "restsOn",
+          "label": "feeds",
+          "dir": "in",
+          "target": "brief:energy-supply-weekly",
+          "targetLabel": "Energy Supply Weekly",
+          "targetClass": "L2-brief"
+        },
+        {
+          "pred": "restsOn",
+          "label": "feeds",
+          "dir": "in",
+          "target": "brief:top5-answers",
+          "targetLabel": "Top5 Answers",
+          "targetClass": "L2-brief"
+        },
+        {
+          "pred": "restsOn",
+          "label": "feeds",
+          "dir": "in",
+          "target": "brief:world-watch-weekly",
+          "targetLabel": "World Watch Weekly",
+          "targetClass": "L2-brief"
+        }
+      ]
+    },
+    {
+      "id": "key:fuel-prices",
+      "class": "L1-source",
+      "label": "fuel-prices",
+      "path": "01 Sources/2026-08-21/fuel-prices.md",
+      "page": "sources/2026-08-21/fuel-prices.html",
+      "facts": [
+        {
+          "pred": "source",
+          "label": "upstream source",
+          "value": "WorldMonitor aggregated fuel-price feed",
+          "datatype": "string"
+        },
+        {
+          "pred": "source_key",
+          "label": "source key",
+          "value": "fuel-prices",
+          "datatype": "string"
+        },
+        {
+          "pred": "endpoint",
+          "label": "endpoint",
+          "value": "/api/economic/v1/list-fuel-prices",
+          "datatype": "string"
+        },
+        {
+          "pred": "retrieved",
+          "label": "retrieved at",
+          "value": "2026-08-21T07:03:47Z",
+          "datatype": "dateTime"
+        },
+        {
+          "pred": "license",
+          "label": "license",
+          "value": "API-ToS-derived",
+          "datatype": "string"
+        },
+        {
+          "pred": "attribution",
+          "label": "attribution",
+          "value": "Data: WorldMonitor fuel-price feed (api.worldmonitor.app)",
+          "datatype": "string"
+        }
+      ],
+      "series": {
+        "instances": 58,
+        "first": "2026-06-15",
+        "last": "2026-08-21"
+      },
+      "edges": [
+        {
+          "pred": "restsOn",
+          "label": "feeds",
+          "dir": "in",
+          "target": "brief:energy-supply-weekly",
+          "targetLabel": "Energy Supply Weekly",
+          "targetClass": "L2-brief"
+        },
+        {
+          "pred": "restsOn",
+          "label": "feeds",
+          "dir": "in",
+          "target": "brief:top5-answers",
+          "targetLabel": "Top5 Answers",
+          "targetClass": "L2-brief"
+        },
+        {
+          "pred": "restsOn",
+          "label": "feeds",
+          "dir": "in",
+          "target": "brief:world-watch-weekly",
+          "targetLabel": "World Watch Weekly",
+          "targetClass": "L2-brief"
+        }
+      ]
+    },
+    {
+      "id": "key:internet-outages",
+      "class": "L1-source",
+      "label": "internet-outages",
+      "path": "01 Sources/2026-08-21/internet-outages.md",
+      "page": "sources/2026-08-21/internet-outages.html",
+      "facts": [
+        {
+          "pred": "source",
+          "label": "upstream source",
+          "value": "Cloudflare Radar (internet outages & traffic anomalies)",
+          "datatype": "string"
+        },
+        {
+          "pred": "source_key",
+          "label": "source key",
+          "value": "internet-outages",
+          "datatype": "string"
+        },
+        {
+          "pred": "endpoint",
+          "label": "endpoint",
+          "value": "/api/infrastructure/v1/list-internet-outages",
+          "datatype": "string"
+        },
+        {
+          "pred": "retrieved",
+          "label": "retrieved at",
+          "value": "2026-08-21T07:03:47Z",
+          "datatype": "dateTime"
+        },
+        {
+          "pred": "license",
+          "label": "license",
+          "value": "API-ToS-derived",
+          "datatype": "string"
+        },
+        {
+          "pred": "attribution",
+          "label": "attribution",
+          "value": "Data: Cloudflare Radar via WorldMonitor (api.worldmonitor.app)",
+          "datatype": "string"
+        }
+      ],
+      "series": {
+        "instances": 53,
+        "first": "2026-06-25",
+        "last": "2026-08-21"
+      },
+      "edges": [
+        {
+          "pred": "restsOn",
+          "label": "feeds",
+          "dir": "in",
+          "target": "brief:infrastructure-watch-weekly",
+          "targetLabel": "Infrastructure Watch Weekly",
+          "targetClass": "L2-brief"
+        },
+        {
+          "pred": "restsOn",
+          "label": "feeds",
+          "dir": "in",
+          "target": "brief:world-watch-weekly",
+          "targetLabel": "World Watch Weekly",
+          "targetClass": "L2-brief"
+        }
+      ]
+    },
+    {
+      "id": "key:natural-events",
+      "class": "L1-source",
+      "label": "natural-events",
+      "path": "01 Sources/2026-08-21/natural-events.md",
+      "page": "sources/2026-08-21/natural-events.html",
+      "facts": [
+        {
+          "pred": "source",
+          "label": "upstream source",
+          "value": "NASA EONET + GDACS (UN-coordinated disaster alerts)",
+          "datatype": "string"
+        },
+        {
+          "pred": "source_key",
+          "label": "source key",
+          "value": "natural-events",
+          "datatype": "string"
+        },
+        {
+          "pred": "endpoint",
+          "label": "endpoint",
+          "value": "/api/natural/v1/list-natural-events",
+          "datatype": "string"
+        },
+        {
+          "pred": "retrieved",
+          "label": "retrieved at",
+          "value": "2026-08-21T07:03:47Z",
+          "datatype": "dateTime"
+        },
+        {
+          "pred": "license",
+          "label": "license",
+          "value": "US-Gov-public-domain",
+          "datatype": "string"
+        },
+        {
+          "pred": "attribution",
+          "label": "attribution",
+          "value": "Data: NASA EONET + GDACS via WorldMonitor (api.worldmonitor.app)",
+          "datatype": "string"
+        }
+      ],
+      "series": {
+        "instances": 53,
+        "first": "2026-06-25",
+        "last": "2026-08-21"
+      },
+      "edges": [
+        {
+          "pred": "restsOn",
+          "label": "feeds",
+          "dir": "in",
+          "target": "brief:environmental-hazards-weekly",
+          "targetLabel": "Environmental Hazards Weekly",
+          "targetClass": "L2-brief"
+        },
+        {
+          "pred": "restsOn",
+          "label": "feeds",
+          "dir": "in",
+          "target": "brief:top5-answers",
+          "targetLabel": "Top5 Answers",
+          "targetClass": "L2-brief"
+        },
+        {
+          "pred": "restsOn",
+          "label": "feeds",
+          "dir": "in",
+          "target": "brief:world-watch-weekly",
+          "targetLabel": "World Watch Weekly",
+          "targetClass": "L2-brief"
+        }
+      ]
+    },
+    {
+      "id": "key:natural-gas-storage-eu",
+      "class": "L1-source",
+      "label": "natural-gas-storage-eu",
+      "path": "01 Sources/2026-08-21/natural-gas-storage-eu.md",
+      "page": "sources/2026-08-21/natural-gas-storage-eu.html",
+      "facts": [
+        {
+          "pred": "source",
+          "label": "upstream source",
+          "value": "GIE AGSI+ (Gas Infrastructure Europe)",
+          "datatype": "string"
+        },
+        {
+          "pred": "source_key",
+          "label": "source key",
+          "value": "natural-gas-storage-eu",
+          "datatype": "string"
+        },
+        {
+          "pred": "endpoint",
+          "label": "endpoint",
+          "value": "/api/economic/v1/get-nat-gas-storage",
+          "datatype": "string"
+        },
+        {
+          "pred": "retrieved",
+          "label": "retrieved at",
+          "value": "2026-08-21T07:03:47Z",
+          "datatype": "dateTime"
+        },
+        {
+          "pred": "license",
+          "label": "license",
+          "value": "CC-BY-4.0",
+          "datatype": "string"
+        },
+        {
+          "pred": "attribution",
+          "label": "attribution",
+          "value": "Data: GIE AGSI+ via WorldMonitor (api.worldmonitor.app)",
+          "datatype": "string"
+        }
+      ],
+      "series": {
+        "instances": 58,
+        "first": "2026-06-15",
+        "last": "2026-08-21"
+      },
+      "edges": [
+        {
+          "pred": "restsOn",
+          "label": "feeds",
+          "dir": "in",
+          "target": "brief:benchmark-facts-vs-forecast-vs-intelligence",
+          "targetLabel": "Benchmark \u2014 Facts vs Forecast vs Intelligence",
+          "targetClass": "L2-brief"
+        },
+        {
+          "pred": "restsOn",
+          "label": "feeds",
+          "dir": "in",
+          "target": "brief:energy-supply-weekly",
+          "targetLabel": "Energy Supply Weekly",
+          "targetClass": "L2-brief"
+        },
+        {
+          "pred": "restsOn",
+          "label": "feeds",
+          "dir": "in",
+          "target": "brief:top5-answers",
+          "targetLabel": "Top5 Answers",
+          "targetClass": "L2-brief"
+        },
+        {
+          "pred": "restsOn",
+          "label": "feeds",
+          "dir": "in",
+          "target": "brief:world-watch-weekly",
+          "targetLabel": "World Watch Weekly",
+          "targetClass": "L2-brief"
+        }
+      ]
+    },
+    {
+      "id": "key:orbital-satellites",
+      "class": "L1-source",
+      "label": "orbital-satellites",
+      "path": "01 Sources/2026-08-21/orbital-satellites.md",
+      "page": "sources/2026-08-21/orbital-satellites.html",
+      "facts": [
+        {
+          "pred": "source",
+          "label": "upstream source",
+          "value": "CelesTrak TLE element sets (derived from US Space Command public catalog)",
+          "datatype": "string"
+        },
+        {
+          "pred": "source_key",
+          "label": "source key",
+          "value": "orbital-satellites",
+          "datatype": "string"
+        },
+        {
+          "pred": "endpoint",
+          "label": "endpoint",
+          "value": "/api/intelligence/v1/list-satellites",
+          "datatype": "string"
+        },
+        {
+          "pred": "retrieved",
+          "label": "retrieved at",
+          "value": "2026-08-21T07:03:47Z",
+          "datatype": "dateTime"
+        },
+        {
+          "pred": "license",
+          "label": "license",
+          "value": "US-Gov-public-domain",
+          "datatype": "string"
+        },
+        {
+          "pred": "attribution",
+          "label": "attribution",
+          "value": "Data: CelesTrak TLE (US Space Command public catalog) via WorldMonitor (api.worldmonitor.app)",
+          "datatype": "string"
+        }
+      ],
+      "series": {
+        "instances": 53,
+        "first": "2026-06-25",
+        "last": "2026-08-21"
+      },
+      "edges": [
+        {
+          "pred": "restsOn",
+          "label": "feeds",
+          "dir": "in",
+          "target": "brief:orbital-watch-weekly",
+          "targetLabel": "Orbital Watch Weekly",
+          "targetClass": "L2-brief"
+        },
+        {
+          "pred": "restsOn",
+          "label": "feeds",
+          "dir": "in",
+          "target": "brief:world-watch-weekly",
+          "targetLabel": "World Watch Weekly",
+          "targetClass": "L2-brief"
+        }
+      ]
+    },
+    {
+      "id": "key:prediction-markets",
+      "class": "L1-source",
+      "label": "prediction-markets",
+      "path": "01 Sources/2026-08-21/prediction-markets.md",
+      "page": "sources/2026-08-21/prediction-markets.html",
+      "facts": [
+        {
+          "pred": "source",
+          "label": "upstream source",
+          "value": "Polymarket public odds",
+          "datatype": "string"
+        },
+        {
+          "pred": "source_key",
+          "label": "source key",
+          "value": "prediction-markets",
+          "datatype": "string"
+        },
+        {
+          "pred": "endpoint",
+          "label": "endpoint",
+          "value": "/api/prediction/v1/list-prediction-markets",
+          "datatype": "string"
+        },
+        {
+          "pred": "retrieved",
+          "label": "retrieved at",
+          "value": "2026-08-21T07:03:47Z",
+          "datatype": "dateTime"
+        },
+        {
+          "pred": "license",
+          "label": "license",
+          "value": "API-ToS-derived",
+          "datatype": "string"
+        },
+        {
+          "pred": "attribution",
+          "label": "attribution",
+          "value": "Data: Polymarket via WorldMonitor (api.worldmonitor.app)",
+          "datatype": "string"
+        }
+      ],
+      "series": {
+        "instances": 56,
+        "first": "2026-06-18",
+        "last": "2026-08-21"
+      },
+      "edges": [
+        {
+          "pred": "restsOn",
+          "label": "feeds",
+          "dir": "in",
+          "target": "brief:prediction-markets-weekly",
+          "targetLabel": "Prediction Markets Weekly",
+          "targetClass": "L2-brief"
+        },
+        {
+          "pred": "restsOn",
+          "label": "feeds",
+          "dir": "in",
+          "target": "brief:world-watch-weekly",
+          "targetLabel": "World Watch Weekly",
+          "targetClass": "L2-brief"
+        }
+      ]
+    },
+    {
+      "id": "key:radiation-observations",
+      "class": "L1-source",
+      "label": "radiation-observations",
+      "path": "01 Sources/2026-08-21/radiation-observations.md",
+      "page": "sources/2026-08-21/radiation-observations.html",
+      "facts": [
+        {
+          "pred": "source",
+          "label": "upstream source",
+          "value": "US EPA RadNet + Safecast (ambient radiation measurements)",
+          "datatype": "string"
+        },
+        {
+          "pred": "source_key",
+          "label": "source key",
+          "value": "radiation-observations",
+          "datatype": "string"
+        },
+        {
+          "pred": "endpoint",
+          "label": "endpoint",
+          "value": "/api/radiation/v1/list-radiation-observations",
+          "datatype": "string"
+        },
+        {
+          "pred": "retrieved",
+          "label": "retrieved at",
+          "value": "2026-08-21T07:03:47Z",
+          "datatype": "dateTime"
+        },
+        {
+          "pred": "license",
+          "label": "license",
+          "value": "US-Gov-public-domain",
+          "datatype": "string"
+        },
+        {
+          "pred": "attribution",
+          "label": "attribution",
+          "value": "Data: US EPA RadNet (public domain) + Safecast (CC0) via WorldMonitor (api.worldmonitor.app)",
+          "datatype": "string"
+        }
+      ],
+      "series": {
+        "instances": 53,
+        "first": "2026-06-25",
+        "last": "2026-08-21"
+      },
+      "edges": [
+        {
+          "pred": "restsOn",
+          "label": "feeds",
+          "dir": "in",
+          "target": "brief:environmental-hazards-weekly",
+          "targetLabel": "Environmental Hazards Weekly",
+          "targetClass": "L2-brief"
+        },
+        {
+          "pred": "restsOn",
+          "label": "feeds",
+          "dir": "in",
+          "target": "brief:top5-answers",
+          "targetLabel": "Top5 Answers",
+          "targetClass": "L2-brief"
+        },
+        {
+          "pred": "restsOn",
+          "label": "feeds",
+          "dir": "in",
+          "target": "brief:world-watch-weekly",
+          "targetLabel": "World Watch Weekly",
+          "targetClass": "L2-brief"
+        }
+      ]
+    },
+    {
+      "id": "key:sea-ice-extent",
+      "class": "L1-source",
+      "label": "sea-ice-extent",
+      "path": "01 Sources/2026-08-21/sea-ice-extent.md",
+      "page": "sources/2026-08-21/sea-ice-extent.html",
+      "facts": [
+        {
+          "pred": "source",
+          "label": "upstream source",
+          "value": "NSIDC / NOAA@NSIDC Sea Ice Index (satellite-passive-microwave sea-ice extent)",
+          "datatype": "string"
+        },
+        {
+          "pred": "source_key",
+          "label": "source key",
+          "value": "sea-ice-extent",
+          "datatype": "string"
+        },
+        {
+          "pred": "endpoint",
+          "label": "endpoint",
+          "value": "/api/climate/v1/get-ocean-ice-data",
+          "datatype": "string"
+        },
+        {
+          "pred": "retrieved",
+          "label": "retrieved at",
+          "value": "2026-08-21T07:03:47Z",
+          "datatype": "dateTime"
+        },
+        {
+          "pred": "license",
+          "label": "license",
+          "value": "US-Gov-public-domain",
+          "datatype": "string"
+        },
+        {
+          "pred": "attribution",
+          "label": "attribution",
+          "value": "Data: NSIDC Sea Ice Index via WorldMonitor (api.worldmonitor.app)",
+          "datatype": "string"
+        }
+      ],
+      "series": {
+        "instances": 54,
+        "first": "2026-06-24",
+        "last": "2026-08-21"
+      },
+      "edges": [
+        {
+          "pred": "restsOn",
+          "label": "feeds",
+          "dir": "in",
+          "target": "brief:climate-signals-weekly",
+          "targetLabel": "Climate Signals Weekly",
+          "targetClass": "L2-brief"
+        },
+        {
+          "pred": "restsOn",
+          "label": "feeds",
+          "dir": "in",
+          "target": "brief:world-watch-weekly",
+          "targetLabel": "World Watch Weekly",
+          "targetClass": "L2-brief"
+        }
+      ]
+    },
+    {
+      "id": "key:thermal-escalations",
+      "class": "L1-source",
+      "label": "thermal-escalations",
+      "path": "01 Sources/2026-08-21/thermal-escalations.md",
+      "page": "sources/2026-08-21/thermal-escalations.html",
+      "facts": [
+        {
+          "pred": "source",
+          "label": "upstream source",
+          "value": "NASA FIRMS (VIIRS thermal anomalies, clustered into escalation signals)",
+          "datatype": "string"
+        },
+        {
+          "pred": "source_key",
+          "label": "source key",
+          "value": "thermal-escalations",
+          "datatype": "string"
+        },
+        {
+          "pred": "endpoint",
+          "label": "endpoint",
+          "value": "/api/thermal/v1/list-thermal-escalations",
+          "datatype": "string"
+        },
+        {
+          "pred": "retrieved",
+          "label": "retrieved at",
+          "value": "2026-08-21T07:03:47Z",
+          "datatype": "dateTime"
+        },
+        {
+          "pred": "license",
+          "label": "license",
+          "value": "US-Gov-public-domain",
+          "datatype": "string"
+        },
+        {
+          "pred": "attribution",
+          "label": "attribution",
+          "value": "Data: NASA FIRMS via WorldMonitor (api.worldmonitor.app)",
+          "datatype": "string"
+        }
+      ],
+      "series": {
+        "instances": 53,
+        "first": "2026-06-25",
+        "last": "2026-08-21"
+      },
+      "edges": [
+        {
+          "pred": "restsOn",
+          "label": "feeds",
+          "dir": "in",
+          "target": "brief:environmental-hazards-weekly",
+          "targetLabel": "Environmental Hazards Weekly",
+          "targetClass": "L2-brief"
+        },
+        {
+          "pred": "restsOn",
+          "label": "feeds",
+          "dir": "in",
+          "target": "brief:top5-answers",
+          "targetLabel": "Top5 Answers",
+          "targetClass": "L2-brief"
+        },
+        {
+          "pred": "restsOn",
+          "label": "feeds",
+          "dir": "in",
+          "target": "brief:world-watch-weekly",
+          "targetLabel": "World Watch Weekly",
+          "targetClass": "L2-brief"
+        }
+      ]
+    },
+    {
+      "id": "key:wildfire-detections",
+      "class": "L1-source",
+      "label": "wildfire-detections",
+      "path": "01 Sources/2026-08-21/wildfire-detections.md",
+      "page": "sources/2026-08-21/wildfire-detections.html",
+      "facts": [
+        {
+          "pred": "source",
+          "label": "upstream source",
+          "value": "NASA FIRMS (VIIRS active-fire / thermal-anomaly detections)",
+          "datatype": "string"
+        },
+        {
+          "pred": "source_key",
+          "label": "source key",
+          "value": "wildfire-detections",
+          "datatype": "string"
+        },
+        {
+          "pred": "endpoint",
+          "label": "endpoint",
+          "value": "/api/wildfire/v1/list-fire-detections",
+          "datatype": "string"
+        },
+        {
+          "pred": "retrieved",
+          "label": "retrieved at",
+          "value": "2026-08-21T07:03:47Z",
+          "datatype": "dateTime"
+        },
+        {
+          "pred": "license",
+          "label": "license",
+          "value": "US-Gov-public-domain",
+          "datatype": "string"
+        },
+        {
+          "pred": "attribution",
+          "label": "attribution",
+          "value": "Data: NASA FIRMS via WorldMonitor (api.worldmonitor.app)",
+          "datatype": "string"
+        }
+      ],
+      "series": {
+        "instances": 53,
+        "first": "2026-06-25",
+        "last": "2026-08-21"
+      },
+      "edges": [
+        {
+          "pred": "restsOn",
+          "label": "feeds",
+          "dir": "in",
+          "target": "brief:environmental-hazards-weekly",
+          "targetLabel": "Environmental Hazards Weekly",
+          "targetClass": "L2-brief"
+        },
+        {
+          "pred": "restsOn",
+          "label": "feeds",
+          "dir": "in",
+          "target": "brief:top5-answers",
+          "targetLabel": "Top5 Answers",
+          "targetClass": "L2-brief"
+        },
+        {
+          "pred": "restsOn",
+          "label": "feeds",
+          "dir": "in",
+          "target": "brief:world-watch-weekly",
+          "targetLabel": "World Watch Weekly",
+          "targetClass": "L2-brief"
+        }
+      ]
+    },
+    {
+      "id": "key:world-bank-cpi",
+      "class": "L1-source",
+      "label": "world-bank-cpi",
+      "path": "01 Sources/2026-08-21/world-bank-cpi.md",
+      "page": "sources/2026-08-21/world-bank-cpi.html",
+      "facts": [
+        {
+          "pred": "source",
+          "label": "upstream source",
+          "value": "World Bank Open Data (inflation, consumer prices, annual %)",
+          "datatype": "string"
+        },
+        {
+          "pred": "source_key",
+          "label": "source key",
+          "value": "world-bank-cpi",
+          "datatype": "string"
+        },
+        {
+          "pred": "endpoint",
+          "label": "endpoint",
+          "value": "worldbank:FP.CPI.TOTL.ZG",
+          "datatype": "string"
+        },
+        {
+          "pred": "retrieved",
+          "label": "retrieved at",
+          "value": "2026-08-21T07:03:47Z",
+          "datatype": "dateTime"
+        },
+        {
+          "pred": "license",
+          "label": "license",
+          "value": "CC-BY-4.0",
+          "datatype": "string"
+        },
+        {
+          "pred": "attribution",
+          "label": "attribution",
+          "value": "Data: World Bank Open Data (api.worldbank.org)",
+          "datatype": "string"
+        }
+      ],
+      "series": {
+        "instances": 7,
+        "first": "2026-08-14",
+        "last": "2026-08-21"
+      },
+      "edges": [
+        {
+          "pred": "restsOn",
+          "label": "feeds",
+          "dir": "in",
+          "target": "brief:macro-markets-weekly",
+          "targetLabel": "Macro & Markets Weekly",
+          "targetClass": "L2-brief"
+        },
+        {
+          "pred": "restsOn",
+          "label": "feeds",
+          "dir": "in",
+          "target": "brief:top5-answers",
+          "targetLabel": "Top5 Answers",
+          "targetClass": "L2-brief"
+        },
+        {
+          "pred": "restsOn",
+          "label": "feeds",
+          "dir": "in",
+          "target": "brief:world-watch-weekly",
+          "targetLabel": "World Watch Weekly",
+          "targetClass": "L2-brief"
+        }
+      ]
+    },
+    {
+      "id": "key:world-bank-gdp",
+      "class": "L1-source",
+      "label": "world-bank-gdp",
+      "path": "01 Sources/2026-08-21/world-bank-gdp.md",
+      "page": "sources/2026-08-21/world-bank-gdp.html",
+      "facts": [
+        {
+          "pred": "source",
+          "label": "upstream source",
+          "value": "World Bank Open Data (GDP, current US$)",
+          "datatype": "string"
+        },
+        {
+          "pred": "source_key",
+          "label": "source key",
+          "value": "world-bank-gdp",
+          "datatype": "string"
+        },
+        {
+          "pred": "endpoint",
+          "label": "endpoint",
+          "value": "worldbank:NY.GDP.MKTP.CD",
+          "datatype": "string"
+        },
+        {
+          "pred": "retrieved",
+          "label": "retrieved at",
+          "value": "2026-08-21T07:03:47Z",
+          "datatype": "dateTime"
+        },
+        {
+          "pred": "license",
+          "label": "license",
+          "value": "CC-BY-4.0",
+          "datatype": "string"
+        },
+        {
+          "pred": "attribution",
+          "label": "attribution",
+          "value": "Data: World Bank Open Data (api.worldbank.org)",
+          "datatype": "string"
+        }
+      ],
+      "series": {
+        "instances": 7,
+        "first": "2026-08-14",
+        "last": "2026-08-21"
+      },
+      "edges": [
+        {
+          "pred": "restsOn",
+          "label": "feeds",
+          "dir": "in",
+          "target": "brief:macro-markets-weekly",
+          "targetLabel": "Macro & Markets Weekly",
+          "targetClass": "L2-brief"
+        },
+        {
+          "pred": "restsOn",
+          "label": "feeds",
+          "dir": "in",
+          "target": "brief:top5-answers",
+          "targetLabel": "Top5 Answers",
+          "targetClass": "L2-brief"
+        },
+        {
+          "pred": "restsOn",
+          "label": "feeds",
+          "dir": "in",
+          "target": "brief:world-watch-weekly",
+          "targetLabel": "World Watch Weekly",
+          "targetClass": "L2-brief"
+        }
+      ]
+    },
+    {
+      "id": "key:world-bank-indicators",
+      "class": "L1-source",
+      "label": "world-bank-indicators",
+      "path": "01 Sources/2026-08-01/world-bank-indicators.md",
+      "page": "sources/2026-08-01/world-bank-indicators.html",
+      "facts": [
+        {
+          "pred": "source",
+          "label": "upstream source",
+          "value": "World Bank Open Data (development indicators)",
+          "datatype": "string"
+        },
+        {
+          "pred": "source_key",
+          "label": "source key",
+          "value": "world-bank-indicators",
+          "datatype": "string"
+        },
+        {
+          "pred": "endpoint",
+          "label": "endpoint",
+          "value": "/api/economic/v1/list-world-bank-indicators",
+          "datatype": "string"
+        },
+        {
+          "pred": "retrieved",
+          "label": "retrieved at",
+          "value": "2026-08-01T08:31:55Z",
+          "datatype": "dateTime"
+        },
+        {
+          "pred": "license",
+          "label": "license",
+          "value": "CC-BY-4.0",
+          "datatype": "string"
+        },
+        {
+          "pred": "attribution",
+          "label": "attribution",
+          "value": "Data: World Bank Open Data via WorldMonitor (api.worldmonitor.app)",
+          "datatype": "string"
+        }
+      ],
+      "series": {
+        "instances": 38,
+        "first": "2026-06-25",
+        "last": "2026-08-01"
+      },
+      "edges": [
+        {
+          "pred": "restsOn",
+          "label": "feeds",
+          "dir": "in",
+          "target": "brief:macro-markets-weekly",
+          "targetLabel": "Macro & Markets Weekly",
+          "targetClass": "L2-brief"
+        }
+      ]
+    },
+    {
+      "id": "key:world-bank-unemployment",
+      "class": "L1-source",
+      "label": "world-bank-unemployment",
+      "path": "01 Sources/2026-08-21/world-bank-unemployment.md",
+      "page": "sources/2026-08-21/world-bank-unemployment.html",
+      "facts": [
+        {
+          "pred": "source",
+          "label": "upstream source",
+          "value": "World Bank Open Data (unemployment, % of labor force, modeled ILO)",
+          "datatype": "string"
+        },
+        {
+          "pred": "source_key",
+          "label": "source key",
+          "value": "world-bank-unemployment",
+          "datatype": "string"
+        },
+        {
+          "pred": "endpoint",
+          "label": "endpoint",
+          "value": "worldbank:SL.UEM.TOTL.ZS",
+          "datatype": "string"
+        },
+        {
+          "pred": "retrieved",
+          "label": "retrieved at",
+          "value": "2026-08-21T07:03:47Z",
+          "datatype": "dateTime"
+        },
+        {
+          "pred": "license",
+          "label": "license",
+          "value": "CC-BY-4.0",
+          "datatype": "string"
+        },
+        {
+          "pred": "attribution",
+          "label": "attribution",
+          "value": "Data: World Bank Open Data (api.worldbank.org)",
+          "datatype": "string"
+        }
+      ],
+      "series": {
+        "instances": 7,
+        "first": "2026-08-14",
+        "last": "2026-08-21"
+      },
+      "edges": [
+        {
+          "pred": "restsOn",
+          "label": "feeds",
+          "dir": "in",
+          "target": "brief:macro-markets-weekly",
+          "targetLabel": "Macro & Markets Weekly",
+          "targetClass": "L2-brief"
+        },
+        {
+          "pred": "restsOn",
+          "label": "feeds",
+          "dir": "in",
+          "target": "brief:top5-answers",
+          "targetLabel": "Top5 Answers",
+          "targetClass": "L2-brief"
+        },
+        {
+          "pred": "restsOn",
+          "label": "feeds",
+          "dir": "in",
+          "target": "brief:world-watch-weekly",
+          "targetLabel": "World Watch Weekly",
+          "targetClass": "L2-brief"
+        }
+      ]
+    },
+    {
+      "id": "rule:editorial",
+      "class": "L3-rule",
+      "label": "editorial",
+      "path": "00 Rules/editorial.md",
+      "page": "",
+      "facts": [
+        {
+          "pred": "title",
+          "label": "title",
+          "value": "Editorial Line",
+          "datatype": "string"
+        },
+        {
+          "pred": "license",
+          "label": "license",
+          "value": "CC-BY-4.0",
+          "datatype": "string"
+        },
+        {
+          "pred": "attribution",
+          "label": "attribution",
+          "value": "azimuth (HemySphere doctrine demonstrator)",
+          "datatype": "string"
+        }
+      ],
+      "edges": []
+    },
+    {
+      "id": "rule:synthesis-contract",
+      "class": "L3-rule",
+      "label": "synthesis-contract",
+      "path": "00 Rules/synthesis-contract.md",
+      "page": "",
+      "facts": [
+        {
+          "pred": "title",
+          "label": "title",
+          "value": "Synthesis Contract",
+          "datatype": "string"
+        },
+        {
+          "pred": "license",
+          "label": "license",
+          "value": "CC-BY-4.0",
+          "datatype": "string"
+        },
+        {
+          "pred": "attribution",
+          "label": "attribution",
+          "value": "azimuth (HemySphere doctrine demonstrator)",
+          "datatype": "string"
+        }
+      ],
+      "edges": []
+    }
+  ],
+  "bridges": [
+    {
+      "id": "key:climate-anomalies",
+      "label": "climate-anomalies",
+      "briefs": [
+        "Climate Signals Weekly",
+        "World Watch Weekly"
+      ]
+    },
+    {
+      "id": "key:co2-monitoring",
+      "label": "co2-monitoring",
+      "briefs": [
+        "Climate Signals Weekly",
+        "Top5 Answers",
+        "World Watch Weekly"
+      ]
+    },
+    {
+      "id": "key:conflict-events-ucdp",
+      "label": "conflict-events-ucdp",
+      "briefs": [
+        "Conflict Watch Weekly",
+        "Top5 Answers",
+        "World Watch Weekly"
+      ]
+    },
+    {
+      "id": "key:crude-oil-inventories",
+      "label": "crude-oil-inventories",
+      "briefs": [
+        "Benchmark \u2014 Facts vs Forecast vs Intelligence",
+        "Energy Supply Weekly",
+        "Top5 Answers",
+        "World Watch Weekly"
+      ]
+    },
+    {
+      "id": "key:crypto-quotes",
+      "label": "crypto-quotes",
+      "briefs": [
+        "Macro & Markets Weekly",
+        "Top5 Answers",
+        "World Watch Weekly"
+      ]
+    },
+    {
+      "id": "key:cyber-threats",
+      "label": "cyber-threats",
+      "briefs": [
+        "Cyber Watch Weekly",
+        "World Watch Weekly"
+      ]
+    },
+    {
+      "id": "key:disease-outbreaks",
+      "label": "disease-outbreaks",
+      "briefs": [
+        "Public Health Weekly",
+        "Top5 Answers",
+        "World Watch Weekly"
+      ]
+    },
+    {
+      "id": "key:displacement-flows",
+      "label": "displacement-flows",
+      "briefs": [
+        "Humanitarian Watch Weekly",
+        "Top5 Answers",
+        "World Watch Weekly"
+      ]
+    },
+    {
+      "id": "key:earthquakes",
+      "label": "earthquakes",
+      "briefs": [
+        "Benchmark \u2014 Facts vs Forecast vs Intelligence",
+        "Geophysical Weekly",
+        "Top5 Answers",
+        "World Watch Weekly"
+      ]
+    },
+    {
+      "id": "key:energy-prices",
+      "label": "energy-prices",
+      "briefs": [
+        "Benchmark \u2014 Facts vs Forecast vs Intelligence",
+        "Energy Supply Weekly",
+        "Top5 Answers",
+        "World Watch Weekly"
+      ]
+    },
+    {
+      "id": "key:fuel-prices",
+      "label": "fuel-prices",
+      "briefs": [
+        "Energy Supply Weekly",
+        "Top5 Answers",
+        "World Watch Weekly"
+      ]
+    },
+    {
+      "id": "key:internet-outages",
+      "label": "internet-outages",
+      "briefs": [
+        "Infrastructure Watch Weekly",
+        "World Watch Weekly"
+      ]
+    },
+    {
+      "id": "key:natural-events",
+      "label": "natural-events",
+      "briefs": [
+        "Environmental Hazards Weekly",
+        "Top5 Answers",
+        "World Watch Weekly"
+      ]
+    },
+    {
+      "id": "key:natural-gas-storage-eu",
+      "label": "natural-gas-storage-eu",
+      "briefs": [
+        "Benchmark \u2014 Facts vs Forecast vs Intelligence",
+        "Energy Supply Weekly",
+        "Top5 Answers",
+        "World Watch Weekly"
+      ]
+    },
+    {
+      "id": "key:orbital-satellites",
+      "label": "orbital-satellites",
+      "briefs": [
+        "Orbital Watch Weekly",
+        "World Watch Weekly"
+      ]
+    },
+    {
+      "id": "key:prediction-markets",
+      "label": "prediction-markets",
+      "briefs": [
+        "Prediction Markets Weekly",
+        "World Watch Weekly"
+      ]
+    },
+    {
+      "id": "key:radiation-observations",
+      "label": "radiation-observations",
+      "briefs": [
+        "Environmental Hazards Weekly",
+        "Top5 Answers",
+        "World Watch Weekly"
+      ]
+    },
+    {
+      "id": "key:sea-ice-extent",
+      "label": "sea-ice-extent",
+      "briefs": [
+        "Climate Signals Weekly",
+        "World Watch Weekly"
+      ]
+    },
+    {
+      "id": "key:thermal-escalations",
+      "label": "thermal-escalations",
+      "briefs": [
+        "Environmental Hazards Weekly",
+        "Top5 Answers",
+        "World Watch Weekly"
+      ]
+    },
+    {
+      "id": "key:wildfire-detections",
+      "label": "wildfire-detections",
+      "briefs": [
+        "Environmental Hazards Weekly",
+        "Top5 Answers",
+        "World Watch Weekly"
+      ]
+    },
+    {
+      "id": "key:world-bank-cpi",
+      "label": "world-bank-cpi",
+      "briefs": [
+        "Macro & Markets Weekly",
+        "Top5 Answers",
+        "World Watch Weekly"
+      ]
+    },
+    {
+      "id": "key:world-bank-gdp",
+      "label": "world-bank-gdp",
+      "briefs": [
+        "Macro & Markets Weekly",
+        "Top5 Answers",
+        "World Watch Weekly"
+      ]
+    },
+    {
+      "id": "key:world-bank-unemployment",
+      "label": "world-bank-unemployment",
+      "briefs": [
+        "Macro & Markets Weekly",
+        "Top5 Answers",
+        "World Watch Weekly"
+      ]
+    }
+  ]
+}
