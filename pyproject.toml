@@ -138,6 +138,9 @@ strict = true
 warn_return_any = true
 warn_unused_configs = true
 disallow_untyped_defs = true
+# scripts/ has no __init__.py (each file is a runnable tool); this lets a sibling script
+# resolve another by bare name (e.g. build_linked_data.py reuses build_rdf.py's helpers).
+mypy_path = "scripts"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

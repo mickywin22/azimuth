@@ -255,6 +255,7 @@ _PAGE_TEMPLATE = """<!DOCTYPE html>
     <a href="{root}answers.html">Ask the data</a>
     <a href="{root}benchmark.html">Benchmark</a>
     <a href="{root}graph.html">Knowledge graph</a>
+    <a href="{root}linked-data.html">Linked data</a>
     <a href="{root}index.html">Briefs</a>
     <a href="{root}index.html#sources">Sources</a>
     <a href="{root}autonomy.html">Autonomy</a>
@@ -574,6 +575,24 @@ def _render_index(
   more than one theme &mdash; trace two channels and the page quotes the literal L1 source
   lines that join them. The cross-channel link a static feed cannot draw.</p>
 </a>
+<a class="demo-cta linked-data-cta" href="linked-data.html">
+  <span class="demo-kind">Linked data</span>
+  <h2>Browse the typed RDF graph &rarr;</h2>
+  <p>The whole bundle lifted into <strong>W3C RDF</strong><span id="ld-cta-stats"></span>: every
+  note a typed subject, every field a typed predicate. Walk the three OKF layer classes, open a
+  concept to read its actual triples, and follow the <em>rests-on</em> edges &mdash; the same
+  concept level Emi navigates itself at. Standards-native semantics a plain feed has no words for.</p>
+</a>
+<script>
+// Progressive enhancement only: fill in the live RDF size from linked-data.json.
+fetch("linked-data.json").then(function(r){{return r.json()}}).then(function(d){{
+  var c = d.counts;
+  document.getElementById("ld-cta-stats").textContent =
+    " — " + c.subjects.toLocaleString() + " subjects, " +
+    (c.schema_triples + c.data_triples).toLocaleString() + " triples, " +
+    c.bridges + " cross-brief bridges";
+}}).catch(function(){{}});
+</script>
 <script>
 // Progressive enhancement only: fill in the live graph size from the published
 // graph.json. The card reads fine without it (fetch can fail on file:// previews).

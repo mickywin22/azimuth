@@ -55,6 +55,8 @@ site/*
 !site/graph.html
 !site/autonomy.json
 !site/autonomy.html
+!site/linked-data.json
+!site/linked-data.html
 _site/
 
 # Logs
