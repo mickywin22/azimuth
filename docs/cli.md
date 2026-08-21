@@ -260,6 +260,20 @@ python scripts/smoke_ui.py --no-build # smoke the already-built ./site
 ```
 **Layer:** Gate (acceptance).
 
+### `smoke_linked_data.py` — live linked-data explorer smoke
+A live Playwright smoke of the RDF concept explorer (`site/linked-data.html`). Serves the
+built site and opens it in a real Chromium to prove what the token-presence unit tests can't
+reach: the stat tiles + **ontology panel** render (3 classes, 10 typed properties), filtering
+by an OKF layer class narrows the concept list, opening a concept renders its **typed triples**
++ `rests-on` edges, clicking an edge **traverses** to the linked concept (the graph is
+walkable), and the cross-brief bridges + mobile layout render. Screenshots are banked to
+`_smoke/` (overview + concept + mobile copied into `docs/proof/`).
+
+```bash
+python scripts/smoke_linked_data.py   # smoke the already-built ./site/linked-data.html
+```
+**Layer:** Gate (acceptance).
+
 ---
 
 ## Gates — CI, pre-commit & public-flip
@@ -406,6 +420,24 @@ python scripts/check_okf_conformance.py --vault DIR # explicit bundle root
 This is the fleet-owned half of the Azimuth publish precondition: green here + the reserved
 files present == "the public bundle is OKF-conformant in frontmatter and filenames". **Layer:**
 Gate (CI + flip runbook).
+
+### `check_explorable.py` — concept-level done-test (Career publish precondition)
+The one-command roll-up that proves azimuth stands at the **explorable-RDF concept level** —
+the Azimuth half of Career's publish double-gate (*Emi v3 working AND Azimuth at concept
+level*). Exit 0 iff all six clauses are green: **C1** OKF-conformant frontmatter + filenames
+(via `check_okf_conformance`), **C2** the explorer is committed (`site/linked-data.html` +
+`.json`, the served surface), **C3** it is in sync with the live vault
+(`build_linked_data --check`), **C4** it carries the concept model (3 classes · 10 typed
+properties · ≥1 walkable `rests-on` edge · ≥1 cross-brief bridge, census internally
+consistent), **C5** it is discoverable from the site nav, **C6** the Vault-LD context ships so
+the graph is self-describing. Azimuth-repo-scoped by design — it never asserts Emi v3's own
+half nor touches the Career track's state.
+
+```bash
+python scripts/check_explorable.py            # human report, exit 0 iff at concept level
+python scripts/check_explorable.py --json      # machine-readable verdict
+```
+**Layer:** Gate (done-test / decision surface).
 
 ### `build_okf_reserved.py` — reserved OKF bundle files
 Generates the two filenames OKF v0.1 reserves — `index.md` (a machine-readable directory

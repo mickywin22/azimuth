@@ -28,10 +28,10 @@ jobs:
         run: uv pip install --system -e ".[dev]"
 
       - name: Ruff lint
-        run: ruff check guardrail/ ingest/ tests/ synthesis/ scripts/check_synthesis.py scripts/build_brief_index.py scripts/check_synthesis_freshness.py scripts/build_graph.py scripts/build_rdf.py scripts/build_autonomy.py scripts/query_graph.py scripts/check_ingest_liveness.py scripts/scan_secrets.py scripts/check_doc_links.py scripts/check_doc_orphans.py scripts/seed_good_first_issues.py scripts/check_hero_gif.py scripts/check_okf_conformance.py scripts/build_okf_reserved.py scripts/build_linked_data.py
+        run: ruff check guardrail/ ingest/ tests/ synthesis/ scripts/check_synthesis.py scripts/build_brief_index.py scripts/check_synthesis_freshness.py scripts/build_graph.py scripts/build_rdf.py scripts/build_autonomy.py scripts/query_graph.py scripts/check_ingest_liveness.py scripts/scan_secrets.py scripts/check_doc_links.py scripts/check_doc_orphans.py scripts/seed_good_first_issues.py scripts/check_hero_gif.py scripts/check_okf_conformance.py scripts/build_okf_reserved.py scripts/build_linked_data.py scripts/check_explorable.py
 
       - name: Ruff format check
-        run: ruff format --check guardrail/ ingest/ tests/ synthesis/ scripts/check_synthesis.py scripts/build_brief_index.py scripts/check_synthesis_freshness.py scripts/build_graph.py scripts/build_rdf.py scripts/build_autonomy.py scripts/query_graph.py scripts/check_ingest_liveness.py scripts/scan_secrets.py scripts/check_doc_links.py scripts/check_doc_orphans.py scripts/seed_good_first_issues.py scripts/check_hero_gif.py scripts/check_okf_conformance.py scripts/build_okf_reserved.py scripts/build_linked_data.py
+        run: ruff format --check guardrail/ ingest/ tests/ synthesis/ scripts/check_synthesis.py scripts/build_brief_index.py scripts/check_synthesis_freshness.py scripts/build_graph.py scripts/build_rdf.py scripts/build_autonomy.py scripts/query_graph.py scripts/check_ingest_liveness.py scripts/scan_secrets.py scripts/check_doc_links.py scripts/check_doc_orphans.py scripts/seed_good_first_issues.py scripts/check_hero_gif.py scripts/check_okf_conformance.py scripts/build_okf_reserved.py scripts/build_linked_data.py scripts/check_explorable.py
 
   source-guardrail:
     name: Source Guardrail
@@ -149,7 +149,7 @@ jobs:
         run: uv pip install --system -e ".[dev,ld]"
 
       - name: mypy
-        run: mypy guardrail/ ingest/ synthesis/ scripts/check_synthesis.py scripts/build_brief_index.py scripts/check_synthesis_freshness.py scripts/build_graph.py scripts/build_rdf.py scripts/query_graph.py scripts/check_ingest_liveness.py scripts/scan_secrets.py scripts/check_doc_links.py scripts/check_doc_orphans.py scripts/build_autonomy.py scripts/seed_good_first_issues.py scripts/check_hero_gif.py scripts/check_okf_conformance.py scripts/build_okf_reserved.py scripts/build_linked_data.py
+        run: mypy guardrail/ ingest/ synthesis/ scripts/check_synthesis.py scripts/build_brief_index.py scripts/check_synthesis_freshness.py scripts/build_graph.py scripts/build_rdf.py scripts/query_graph.py scripts/check_ingest_liveness.py scripts/scan_secrets.py scripts/check_doc_links.py scripts/check_doc_orphans.py scripts/build_autonomy.py scripts/seed_good_first_issues.py scripts/check_hero_gif.py scripts/check_okf_conformance.py scripts/build_okf_reserved.py scripts/build_linked_data.py scripts/check_explorable.py
 
   test:
     name: Test

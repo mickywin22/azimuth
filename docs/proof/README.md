@@ -112,3 +112,21 @@ vanish on a `git clean`.
 | Living-graph crop | `landing-hero-graph.png` | Tighter crop of the graph-as-hero centrepiece for a 2-up / carousel first frame. |
 | Story mode | `graph-story.png` | Story mode, **STORY 1 OF 3** ("Energy meets the ground it sits on") driving a live cross-source Trace — the v2 body's "one-click story mode / shows its work" bullet. LinkedIn 2-up second frame. |
 | Phone front door | `landing-mobile-nav.png` | The front door at a 390 px phone viewport with the hamburger nav — phone-audience alt. |
+
+# Linked-data explorer proof (Azimuth KR1 — explorable RDF concept surface)
+
+`linked-data.html` is the **explorable** face of the RDF graph: where `build_rdf.py` emits the
+raw `schema.ttl`/`data.ttl` and `graph.html` draws the link *topology*, this page lets a visitor
+walk the **typed concept model** — browse the ontology (3 OKF layer classes + 10 typed
+properties), filter by class, open a concept to read its actual triples, and traverse the
+`rests-on` edges + cross-brief bridges. It is the "same concept level as Emi v3" half of KR1 and
+the precondition of Career's publish double-gate (proven green by `scripts/check_explorable.py`).
+
+These screenshots are the banked browser-render proof, regenerated any time by
+`python scripts/smoke_linked_data.py` (real Chromium; copy the shots from `_smoke/` here):
+
+| Shot | File | What it shows |
+|------|------|---------------|
+| Overview + ontology | `linked-data-overview.png` | The hero + the six RDF stat tiles (subjects · triples · classes · properties · rests-on edges · bridges) + the open **ontology panel** — the self-describing schema layer: the 3 layer classes with live subject/concept counts and the 10 typed properties as a `domain → range` table. |
+| Concept detail + traversal | `linked-data-concept.png` | The `L2-brief` class filter applied (41 concepts → 15 briefs), a concept opened on the right with its **typed triples** (`az:theme`, `az:updated` as `dateTime`, …) and its `rests-on` edges — each edge a live button that traverses to the linked L1 source concept. |
+| Mobile | `linked-data-mobile.png` | The explorer at a 390 px phone viewport (Michael's primary device): the two-column layout collapses to one and the nav folds behind the burger. |
