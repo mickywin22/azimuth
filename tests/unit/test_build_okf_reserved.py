@@ -43,13 +43,33 @@ def _write(root: Path, rel: str, text: str) -> Path:
 
 def _make_bundle(root: Path) -> None:
     """A minimal bundle: 2 dated L1 days, 2 briefs (one themed), 1 rule."""
-    _write(root, "00 Rules/editorial.md", "---\ntitle: Editorial Line\ntype: L3-rule\n---\n\n# Editorial\n")
+    _write(
+        root,
+        "00 Rules/editorial.md",
+        "---\ntitle: Editorial Line\ntype: L3-rule\n---\n\n# Editorial\n",
+    )
     _write(root, "00 Rules/README.md", "# Rules readme\n")
     for day in ("2026-01-01", "2026-01-02"):
-        _write(root, f"01 Sources/{day}/quakes.md", '---\ntype: "L1-source"\nsource_key: "quakes"\n---\n\n# Quakes\n')
-        _write(root, f"01 Sources/{day}/energy.md", '---\ntype: "L1-source"\nsource_key: "energy"\n---\n\n# Energy\n')
-    _write(root, "02 Briefs/Energy Supply Weekly.md", "---\ntitle: Energy Supply Weekly\ntype: L2-brief\ntheme: energy-supply\n---\n\n# Energy\n")
-    _write(root, "02 Briefs/Geophysical Weekly.md", "---\ntitle: Geophysical Weekly\ntype: L2-brief\ntheme: geophysical\n---\n\n# Geo\n")
+        _write(
+            root,
+            f"01 Sources/{day}/quakes.md",
+            '---\ntype: "L1-source"\nsource_key: "quakes"\n---\n\n# Quakes\n',
+        )
+        _write(
+            root,
+            f"01 Sources/{day}/energy.md",
+            '---\ntype: "L1-source"\nsource_key: "energy"\n---\n\n# Energy\n',
+        )
+    _write(
+        root,
+        "02 Briefs/Energy Supply Weekly.md",
+        "---\ntitle: Energy Supply Weekly\ntype: L2-brief\ntheme: energy-supply\n---\n\n# Energy\n",
+    )
+    _write(
+        root,
+        "02 Briefs/Geophysical Weekly.md",
+        "---\ntitle: Geophysical Weekly\ntype: L2-brief\ntheme: geophysical\n---\n\n# Geo\n",
+    )
     _write(root, "02 Briefs/README.md", "# Briefs readme\n")
     _write(root, "README.md", "# azimuth (human landing page)\n")
 
@@ -92,7 +112,11 @@ def test_check_is_red_after_a_new_ingest_day(tmp_path: Path) -> None:
     """A genuinely new L1 day must move log.md + the sources index — the ingest-drift case."""
     _make_bundle(tmp_path)
     okfr.main(["--vault", str(tmp_path)])
-    _write(tmp_path, "01 Sources/2026-01-03/quakes.md", '---\ntype: "L1-source"\nsource_key: "quakes"\n---\n\n# Q\n')
+    _write(
+        tmp_path,
+        "01 Sources/2026-01-03/quakes.md",
+        '---\ntype: "L1-source"\nsource_key: "quakes"\n---\n\n# Q\n',
+    )
     assert okfr.main(["--check", "--vault", str(tmp_path)]) == 1
     okfr.main(["--vault", str(tmp_path)])  # regenerate
     assert okfr.main(["--check", "--vault", str(tmp_path)]) == 0

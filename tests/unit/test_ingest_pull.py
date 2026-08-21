@@ -304,7 +304,15 @@ def test_note_frontmatter_is_parseable_block() -> None:
     match = re.match(r"^---\n(.*?)\n---\n", note, re.DOTALL)
     assert match is not None
     keys = {line.split(":", 1)[0] for line in match.group(1).splitlines()}
-    assert keys == {"type", "source", "source_key", "endpoint", "retrieved", "license", "attribution"}
+    assert keys == {
+        "type",
+        "source",
+        "source_key",
+        "endpoint",
+        "retrieved",
+        "license",
+        "attribution",
+    }
 
 
 # --- run-health tolerance: `healthy` (commit-worthy) vs strict `ok` --------------------
