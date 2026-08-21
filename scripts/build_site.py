@@ -27,6 +27,7 @@ if str(_REPO_ROOT) not in sys.path:
 
 from scripts.build_autonomy import build as build_autonomy  # noqa: E402
 from scripts.build_graph import build as build_graph  # noqa: E402
+from scripts.build_linked_data import build as build_linked_data  # noqa: E402
 from synthesis.site_build import build_site  # noqa: E402
 
 
@@ -62,6 +63,15 @@ def main(argv: list[str] | None = None) -> int:
     # shields.io badges, which read /autonomy.json) resolve after the Pages flip.
     build_autonomy(out_dir)
     print("Built autonomy counters: autonomy.json + autonomy.html.")
+
+    # The linked-data explorer (linked-data.json + linked-data.html) — the typed-RDF
+    # concept surface over the same bundle. Emitted beside the .ttl the Pages build writes
+    # (scripts/build_rdf.py --out _site), so schema.ttl / data.ttl resolve from its links.
+    ld = build_linked_data(out_dir)
+    print(
+        f"Built linked-data explorer: {ld['counts']['concepts_shown']} concepts, "
+        f"{ld['counts']['restsOn_edges']} rests-on edges, {ld['counts']['bridges']} bridges."
+    )
 
     if args.serve:
         handler = functools.partial(http.server.SimpleHTTPRequestHandler, directory=str(out_dir))

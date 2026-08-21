@@ -56,6 +56,7 @@ for _p in (str(_REPO_ROOT), str(_SCRIPTS)):
         sys.path.insert(0, _p)
 
 import build_rdf  # noqa: E402  (sibling script; reuse its stdlib RDF-projection helpers)
+
 from synthesis.site_build import (  # noqa: E402
     DEFAULT_REGISTRY,
     DEFAULT_VAULT,
@@ -645,12 +646,7 @@ if(location.hash && byId.has(location.hash.slice(1))) select(location.hash.slice
 
 def _json_for_script(data: Any) -> str:
     """``json.dumps`` hardened for inline ``<script>`` embedding (mirrors build_graph)."""
-    return (
-        json.dumps(data)
-        .replace("<", "\\u003c")
-        .replace(">", "\\u003e")
-        .replace("&", "\\u0026")
-    )
+    return json.dumps(data).replace("<", "\\u003c").replace(">", "\\u003e").replace("&", "\\u0026")
 
 
 def render_html(projection: dict[str, Any]) -> str:

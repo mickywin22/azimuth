@@ -94,6 +94,25 @@ python scripts/build_rdf.py --check           # build + validate in-memory, writ
 ```
 **Layer:** Site (linked-data export) · the `linked-data` CI job runs `--check`. See
 [linked-data.md](linked-data.md).
+
+### `build_linked_data.py` — the explorable RDF concept surface
+Builds the human-navigable face of the RDF graph (`site/linked-data.json` + the visual
+`site/linked-data.html`). Where `build_rdf.py` emits the raw Turtle and `build_graph.py` draws
+the link *topology*, this projects the bundle into a typed-concept model — the ontology (3
+classes, 10 properties), every note as a typed subject, and the `rests-on` edges + cross-brief
+bridges — and renders a self-contained dark explorer you browse by OKF layer class, opening a
+concept to read its typed triples. The projection **reuses `build_rdf.py`'s own stdlib helpers**,
+so it is faithful to `schema.ttl`/`data.ttl` by construction with **no rdflib dependency** — it
+runs on the daily ingest path and is committed + `--check`-guarded like the knowledge graph.
+
+```bash
+python scripts/build_linked_data.py           # write site/linked-data.json + linked-data.html
+python scripts/build_linked_data.py --out DIR # write into DIR (the Pages build uses _site)
+python scripts/build_linked_data.py --check   # exit 1 if the committed explorer is stale (CI guard)
+```
+**Layer:** Site · CI asserts the committed explorer is in sync. See
+[linked-data.md](linked-data.md).
+
 ### `build_autonomy.py` — the autonomy counters
 Builds the "proof it runs itself" counters (`site/autonomy.json` + the visual
 `site/autonomy.html`): days operating, daily L1 ingests committed, L1 source notes, L2

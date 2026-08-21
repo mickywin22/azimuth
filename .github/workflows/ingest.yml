@@ -68,7 +68,7 @@ jobs:
       # on main daily instead of reddening for ~6 days out of every 7. (L2 brief *narrative*
       # stays weekly — that is the curator's job, gated by the synthesis-freshness --overdue
       # tolerance, not regenerated here.)
-      - name: Regenerate deterministic artifacts (knowledge graph + brief index + autonomy + OKF reserved)
+      - name: Regenerate deterministic artifacts (knowledge graph + brief index + autonomy + OKF reserved + linked-data)
         run: |
           python scripts/build_graph.py
           python scripts/build_brief_index.py
@@ -77,6 +77,10 @@ jobs:
           # new ingest day moves them -- regenerate here so build_okf_reserved.py --check
           # (CI) stays green the day after every pull instead of reddening on drift.
           python scripts/build_okf_reserved.py
+          # The linked-data explorer projects the RDF over the same L1/L2 notes, so a new
+          # day moves its counts + latest-source concepts -- regenerate so
+          # build_linked_data.py --check (CI) stays green after every pull.
+          python scripts/build_linked_data.py
 
       - name: Commit new L1 notes + refreshed benchmark + re-derived artifacts
         run: |
@@ -85,13 +89,14 @@ jobs:
           git add "vault/01 Sources/" "sources/benchmark/foils.json" "vault/02 Briefs/Benchmark.md" \
                   "vault/02 Briefs/README.md" "site/graph.json" "site/graph.html" \
                   "site/autonomy.json" "site/autonomy.html" \
+                  "site/linked-data.json" "site/linked-data.html" \
                   "vault/index.md" "vault/log.md" "vault/00 Rules/index.md" \
                   "vault/02 Briefs/index.md"
           if git diff --cached --quiet; then
             echo "No new or changed L1 notes / benchmark / derived artifacts — nothing to commit."
           else
             DAY="$(date -u +%F)"
-            git commit -m "chore(ingest): daily L1 pull + benchmark + graph/index/autonomy refresh ${DAY} (WorldMonitor)"
+            git commit -m "chore(ingest): daily L1 pull + benchmark + graph/index/autonomy/linked-data refresh ${DAY} (WorldMonitor)"
             git push
           fi
 

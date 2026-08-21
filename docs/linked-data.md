@@ -24,6 +24,28 @@ untouched OKF bundle plus one composed context is already valid linked data.
 | `azimuth.context.jsonld` | `vault/ontology/azimuth.context.jsonld` (source, committed) | The **azimuth domain ontology** context: its namespace (`az:`) and the term definition for every azimuth frontmatter key (`retrieved → az:retrieved` typed `xsd:dateTime`, `sources → az:restsOn`, …). |
 | `schema.ttl` | `site/schema.ttl` (generated, beside the site) | The **ontology / definitions** layer — the three layer classes and the typed properties (`rdfs:domain` / `rdfs:range` / labels / comments). |
 | `data.ttl` | `site/data.ttl` (generated, beside the site) | The **instance** layer — every surfaced L1 source note, L2 brief and L3 rule as a typed subject, its frontmatter facts as triples, each note's true bundle path as a `vld:path` literal (so the export is a faithful roundtrip face, SPEC §5.4 step 7). |
+| `linked-data.json` + `linked-data.html` | `site/linked-data.json` + `site/linked-data.html` (committed, `--check`-guarded) | The **explorable** face of the graph — a human-navigable concept explorer over the same typed model. See "The explorer" below. |
+
+## The explorer — from queryable to explorable
+
+The `.ttl` above make the bundle **queryable** (any SPARQL engine can consume them; the
+vault-side bench proves 8 typed queries green). What they do not give a human visitor is a way
+to *walk* the graph. [`scripts/build_linked_data.py`](cli.md) closes that: it projects the same
+typed model into `site/linked-data.json` and renders a self-contained dark explorer
+(`site/linked-data.html`, linked from every page's nav) where you browse the **ontology** (the 3
+layer classes + 10 typed properties, itself queryable RDF), walk each OKF class, open a concept
+to read its **typed triples**, and traverse the `az:restsOn` edges (brief ⇄ its L1 sources) and
+the cross-brief bridges. This is the *concept* layer above the
+[knowledge-graph topology](cli.md) — the same concept level Emi's own vault self-navigation
+surface stands at.
+
+**Faithful by construction.** The projection reuses `build_rdf.py`'s own stdlib helpers (the
+ontology `_CLASSES`/`_PROPS`, the committed-context term map, the bundle walk, the
+latest-source-per-key resolver), so it sees exactly the subjects, classes, predicates and
+`restsOn` edges the RDF exporter emits — with **no rdflib dependency**, so it runs on the daily
+ingest path and is committed + `--check`-guarded like the knowledge graph.
+`tests/unit/test_build_linked_data.py` pins its class census, property set and `restsOn` triple
+total against `build_rdf`'s actual rdflib graph, so the two faces can never diverge.
 
 The exporter — [`scripts/build_rdf.py`](cli.md) — is a **conforming Vault-LD exporter** (SPEC
 §5.4): it reads the mapping from the *committed context* (not from hard-coded knowledge), decides

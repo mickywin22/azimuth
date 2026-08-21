@@ -51,6 +51,12 @@ repos:
         language: system
         pass_filenames: false
         files: ^(vault/01 Sources/|vault/02 Briefs/|sources/registry\.json|scripts/build_graph\.py)
+      - id: linked-data-sync
+        name: Linked-data explorer in sync with vault
+        entry: python scripts/build_linked_data.py --check
+        language: system
+        pass_filenames: false
+        files: ^(vault/00 Rules/|vault/01 Sources/|vault/02 Briefs/|sources/registry\.json|scripts/build_linked_data\.py|scripts/build_rdf\.py|vault/context\.jsonld|vault/ontology/)
       - id: good-first-issues-sync
         name: Good-first-issues catalog in sync with the seeder
         entry: python scripts/seed_good_first_issues.py --check
