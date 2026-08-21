@@ -3,7 +3,7 @@ title: Cyber Watch Weekly
 type: L2-brief
 theme: cyber-watch
 week: 2026-W34
-updated: 2026-08-17T09:00:00Z
+updated: 2026-08-20T09:00:00Z
 sources: [cyber-threats]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -16,21 +16,21 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 > threat indicators** — an IOC is an observed fact (a host, an IP, a first-seen timestamp,
 > a severity as the tracker scored it) — and never attributes intent, names a victim, or
 > predicts an attack. Every claim links to the L1 note it rests on. (First cycle written
-> from the 2026-07-15 ingest; current cutoff: 2026-08-17T07:12:31Z.)
+> from the 2026-07-15 ingest; current cutoff: the 2026-08-20 pull.)
 
 ## This week at a glance
 
 - The abuse.ch / AbuseIPDB channel again surfaced **one critical-severity indicator on the
-  2026-08-17 pull** — the one-indicator critical tier the feed has shown on every pull this run
+  2026-08-20 pull** — the one-indicator critical tier the feed has shown on every pull this run
   ([[cyber-threats]]).
-- **2026-08-17 pull:** one malware-host IP geolocated to **Colombia** (CO),
-  `170.239.205.222`, AbuseIPDB confidence score 100, criticality CRITICAL, no malware family
-  tagged; feed pagination totalCount **1,023** ([[cyber-threats]]).
-- The surfaced indicator **rotated day-over-day** into the new week — `46.163.144.31`
-  (08-16, RU) → `170.239.205.222` (08-17, CO) — each a single critical malware-host at
-  AbuseIPDB score 100. totalCount **rose** from **995** (08-16) to **1,023** (08-17), a net
-  +28 — the daily add/retire churn of the curated critical slot, not a directional trend
-  ([[cyber-threats]]).
+- **2026-08-20 pull:** one malware-host IP geolocated to **Romania** (RO),
+  `80.94.95.242`, AbuseIPDB confidence score 100, criticality CRITICAL, no malware family
+  tagged; feed pagination totalCount **984** ([[cyber-threats]]).
+- The surfaced indicator **rotated every day** across 08-17 → 08-20 — `170.239.205.222`
+  (08-17, CO) → `195.178.110.232` (08-18, NL) → `69.5.169.180` (08-19, DE) → `80.94.95.242`
+  (08-20, RO) — each a single critical malware-host at AbuseIPDB score 100. totalCount **eased**
+  from **1,023** (08-17) to **984** (08-20), a net -39 — the daily add/retire churn of the
+  curated critical slot, not a directional trend ([[cyber-threats]]).
 
 ## Honest scope
 
@@ -45,23 +45,25 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 ## Reading the week
 
-- The 2026-08-17 indicator is a CYBER_THREAT_TYPE_MALWARE_HOST entry sourced from AbuseIPDB at
+- The 2026-08-20 indicator is a CYBER_THREAT_TYPE_MALWARE_HOST entry sourced from AbuseIPDB at
   maximum confidence (score:100, CRITICALITY_LEVEL_CRITICAL); the malwareFamily field is empty,
   so no specific malware family was tagged by the tracker at pull time ([[cyber-threats]]).
-- The surfaced IP rotated day-over-day — `46.163.144.31` (08-16, RU) → `170.239.205.222`
-  (08-17, CO) — each carrying the same CRITICAL severity and score:100 tag as assigned by the
-  upstream tracker. The origin geolocation moved RU → CO; this is a geolocation of the
-  indicator IP, not an actor attribution ([[cyber-threats]]).
-- The feed's pagination totalCount moved 995 (08-16) → 1,023 (08-17), a net +28 day-over-day
-  rise — the add/retire churn of the curated feed, not a directional build. The single-slot
-  surface against a ~1,000-count feed remains the known honest-scope posture of the WorldMonitor
-  curated channel ([[cyber-threats]]).
+- The surfaced IP rotated on every pull — `170.239.205.222` (08-17, CO) → `195.178.110.232`
+  (08-18, NL) → `69.5.169.180` (08-19, DE) → `80.94.95.242` (08-20, RO) — each carrying the same
+  CRITICAL severity and score:100 tag as assigned by the upstream tracker. The origin geolocation
+  moved CO → NL → DE → RO; this is a geolocation of the indicator IP, not an actor attribution
+  ([[cyber-threats]]).
+- The feed's pagination totalCount eased 1,023 (08-17) → 996 (08-18) → 988 (08-19) → 984 (08-20),
+  a net -39 over the three pulls — the add/retire churn of the curated feed, not a directional
+  build. The single-slot surface against a ~1,000-count feed remains the known honest-scope
+  posture of the WorldMonitor curated channel ([[cyber-threats]]).
 - azimuth records the indicator, its type, severity and geolocation exactly as the tracker
   scored them, and infers no actor, victim or campaign behind the one listed host
   ([[cyber-threats]]).
 
 ## Changelog
 
+- 2026-08-20 — daily-ingest synthesis (2026-W34): absorbed the 2026-08-18 through 08-20 abuse.ch pulls; the surfaced critical malware-host rotated every day — 195.178.110.232 (08-18, NL), 69.5.169.180 (08-19, DE), 80.94.95.242 (08-20, RO) — after 170.239.205.222 (08-17, CO), each AbuseIPDB score 100, CRITICAL, no malware family; totalCount eased 1,023 → 996 → 988 → 984 (net -39); origin geolocation CO → NL → DE → RO (geolocation, not attribution). One-indicator critical tier held. Observed-only framing held ([[cyber-threats]]).
 - 2026-08-17 — daily-ingest synthesis (2026-W34): surfaced indicator rotated to 170.239.205.222 (CO, AbuseIPDB score 100, CRITICAL, no malware family); prior slot held 46.163.144.31 (08-16, RU); totalCount rose from 995 (08-16) to 1,023 (08-17), a net +28; origin country shifted RU → CO (geolocation, not attribution). One-indicator critical tier held. Observed-only framing held ([[cyber-threats]]).
 - 2026-08-16 — daily-ingest synthesis (2026-W33): absorbed the 2026-08-14 through 2026-08-16 abuse.ch pulls; the surfaced critical malware-host rotated every day — 82.102.18.116 (08-14, FR), 66.132.186.251 (08-15, US), 46.163.144.31 (08-16, RU) — after 77.239.124.108 (08-13, NL), each AbuseIPDB score 100, CRITICAL, no malware family; totalCount moved 920 → 960 → 887 → 995 (net +75, swinging both directions); origin geolocation NL → FR → US → RU (geolocation, not attribution). One-indicator critical tier held. Observed-only framing held ([[cyber-threats]]).
 - 2026-08-01 — daily-ingest flowback (2026-W31): surfaced indicator rotated to 103.191.14.210 (ID, AbuseIPDB score 100, CRITICAL, no malware family); prior slot held 103.213.238.91 (07-30, BD); totalCount eased from 1,022 (07-30) to 959 (08-01), a net -63 two-day retirement partly giving back the prior five-day re-expansion; origin country shifted BD → ID (geolocation, not attribution). One-indicator critical tier held ([[cyber-threats]]).
