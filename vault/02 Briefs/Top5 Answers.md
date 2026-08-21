@@ -3,7 +3,7 @@ title: Top5 Answers
 type: L2-brief
 theme: cross-theme
 week: 2026-W34
-updated: 2026-08-17T04:00:00Z
+updated: 2026-08-20T04:00:00Z
 sources: [co2-monitoring, conflict-events-ucdp, crude-oil-inventories, crypto-quotes, disease-outbreaks, displacement-flows, earthquakes, energy-prices, fuel-prices, natural-events, natural-gas-storage-eu, radiation-observations, thermal-escalations, wildfire-detections, world-bank-cpi, world-bank-gdp, world-bank-unemployment]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -19,22 +19,22 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 - **Verdict — the data leans well-supplied, not fragile.** Storage is filling and spot crude eased, while the multi-week US crude draw is the single signal to watch; azimuth states what the feeds show, not a safety call ([[natural-gas-storage-eu]], [[crude-oil-inventories]], [[energy-prices]])
 - **EU gas storage is building** — 3,153 Bcf as of 2026-08-07, +36 Bcf week-on-week, extending the injection run to 8 straight weeks ([[natural-gas-storage-eu]])
-- **US crude inventories built** +11,308 (EIA week of 2026-08-07) to 723,104 ([[crude-oil-inventories]])
-- **Spot crude eased** this week — WTI $78.94/bbl (-6.6), Brent $87.86/bbl (-4.1) on the reported week-on-week change, so the price tape is not signalling scarcity ([[energy-prices]])
+- **US crude inventories drew down** -863 (EIA week of 2026-08-14) to 722,241 ([[crude-oil-inventories]])
+- **Spot crude eased** this week — WTI $84.05/bbl (+6.5), Brent $92.51/bbl (+5.3) on the reported week-on-week change, so the price tape is not signalling scarcity ([[energy-prices]])
 
 ## Q2 — Did supply or demand move energy prices this week?
 
 > **Channels:** US crude inventories + Energy prices · **Serves:** Economist / market analyst — separating a supply story from a demand story without a paywalled terminal.
 
-- **Verdict — supply drove the tape.** A build and a lower price line up: a coherent supply-loosening week ([[crude-oil-inventories]], [[energy-prices]])
-- **Supply side:** US crude stocks loosened — +11,308 week of 2026-08-07. A draw normally argues for FIRMER prices ([[crude-oil-inventories]])
-- **Price side:** WTI $78.94/bbl fell (-6.6 reported w/w) — the actual tape, against what the inventory draw implied ([[energy-prices]])
+- **Verdict — supply drove the tape.** A drawdown and a higher price line up: a coherent supply-tightening week ([[crude-oil-inventories]], [[energy-prices]])
+- **Supply side:** US crude stocks tightened — -863 week of 2026-08-14. A draw normally argues for FIRMER prices ([[crude-oil-inventories]])
+- **Price side:** WTI $84.05/bbl rose (+6.5 reported w/w) — the actual tape, against what the inventory draw implied ([[energy-prices]])
 
 ## Q3 — Did any major earthquake this week put energy infrastructure or population centres at risk?
 
 > **Channels:** Geophysical + Energy supply · **Serves:** Risk & humanitarian desk — a fast, non-alarmist read of whether a seismic week actually touched the energy map.
 
-- **Largest recorded event:** M7.7 68 km NNW of Ende, Indonesia — one of 57 events at or above M5 USGS logged this week ([[earthquakes]])
+- **Largest recorded event:** M7.7 68 km NNW of Ende, Indonesia — one of 61 events at or above M5 USGS logged this week ([[earthquakes]])
 - **No observed reach into energy infrastructure.** The week's quakes cluster away from the physical energy-supply core (US crude inventories, EU gas storage) and from the fuel-reporting countries — the data shows seismicity and the energy balances did not intersect this week ([[earthquakes]], [[crude-oil-inventories]])
 - azimuth reports what USGS RECORDED, never what may happen next — a sourced 'no significant overlap' is the honest, efficient answer when that is what the week's data shows ([[earthquakes]])
 
@@ -42,7 +42,7 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 > **Channels:** Energy + Climate signals · **Serves:** Journalist / newsroom editor — the lede plus its connective tissue, ranked by a transparent rule, not vibes.
 
-- **Biggest move: WTI Crude Oil, -7.7% week-on-week** — the largest swing across the quantitative energy series this week ([[energy-prices]])
+- **Biggest move: WTI Crude Oil, +8.4% week-on-week** — the largest swing across the quantitative energy series this week ([[energy-prices]])
 - **What it connects to:** the move sits inside the inventories-vs-price loop — US crude drew down while spot prices eased, so the headline swing reflects demand-side repricing rippling from the spot tape into the physical balances and on to pump prices ([[crude-oil-inventories]], [[energy-prices]], [[fuel-prices]])
 - **The slow-moving record:** atmospheric CO2 stands at 427.8 ppm (Mauna Loa, 2.83 ppm/yr) — not a weekly 'shift' but the baseline every energy story is told against; the demonstrator flags it as a different time-scale, not the week's headline ([[co2-monitoring]])
 
@@ -50,7 +50,7 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 > **Channels:** Energy supply + Geophysical + Climate signals · **Serves:** Researcher / analyst — the cross-channel graph for one subject, every edge clickable to its L1 note.
 
-- **Commodity spine — crude oil ties three feeds together:** the physical balance (+11,308 EIA stocks, 2026-08-07); the spot price (WTI $78.94/bbl); the pump (downstream fuel-price panel). One commodity, traced from the ground to the pump across separate L1 feeds ([[crude-oil-inventories]], [[energy-prices]], [[fuel-prices]])
+- **Commodity spine — crude oil ties three feeds together:** the physical balance (-863 EIA stocks, 2026-08-14); the spot price (WTI $84.05/bbl); the pump (downstream fuel-price panel). One commodity, traced from the ground to the pump across separate L1 feeds ([[crude-oil-inventories]], [[energy-prices]], [[fuel-prices]])
 - **Papua New Guinea** surfaces under 3 channels this week (conflict-watch + Geophysical + humanitarian) — a co-occurrence in the open data, reported as a link, not a cause ([[conflict-events-ucdp]], [[displacement-flows]], [[earthquakes]])
 - **United Kingdom** surfaces under 4 channels this week (Energy supply + humanitarian + macro-markets + public-health) — a co-occurrence in the open data, reported as a link, not a cause ([[crude-oil-inventories]], [[crypto-quotes]], [[disease-outbreaks]], [[displacement-flows]], [[energy-prices]], [[fuel-prices]], [[natural-gas-storage-eu]], [[world-bank-cpi]], [[world-bank-gdp]], [[world-bank-unemployment]])
 - **United States** surfaces under 6 channels this week (conflict-watch + Energy supply + environmental-hazards + humanitarian + macro-markets + public-health) — a co-occurrence in the open data, reported as a link, not a cause ([[conflict-events-ucdp]], [[crude-oil-inventories]], [[crypto-quotes]], [[disease-outbreaks]], [[displacement-flows]], [[energy-prices]], [[fuel-prices]], [[natural-events]], [[natural-gas-storage-eu]], [[radiation-observations]], [[thermal-escalations]], [[wildfire-detections]], [[world-bank-cpi]], [[world-bank-gdp]], [[world-bank-unemployment]])
@@ -78,3 +78,4 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 - 2026-07-30 — regenerated TOP5 demonstrator answers from the 2026-07-30 live bundle (2026-W31); 5 cross-channel answers, every claim L1-sourced.
 - 2026-08-01 — regenerated TOP5 demonstrator answers from the 2026-08-01 live bundle (2026-W31); 5 cross-channel answers, every claim L1-sourced.
 - 2026-08-17 — regenerated TOP5 demonstrator answers from the 2026-08-17 live bundle (2026-W34); 5 cross-channel answers, every claim L1-sourced.
+- 2026-08-20 — regenerated TOP5 demonstrator answers from the 2026-08-20 live bundle (2026-W34); 5 cross-channel answers, every claim L1-sourced.
