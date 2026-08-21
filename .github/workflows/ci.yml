@@ -28,10 +28,10 @@ jobs:
         run: uv pip install --system -e ".[dev]"
 
       - name: Ruff lint
-        run: ruff check guardrail/ ingest/ tests/ synthesis/ scripts/check_synthesis.py scripts/build_brief_index.py scripts/check_synthesis_freshness.py scripts/build_graph.py scripts/build_rdf.py scripts/build_autonomy.py scripts/query_graph.py scripts/check_ingest_liveness.py scripts/scan_secrets.py scripts/check_doc_links.py scripts/check_doc_orphans.py scripts/seed_good_first_issues.py scripts/check_hero_gif.py
+        run: ruff check guardrail/ ingest/ tests/ synthesis/ scripts/check_synthesis.py scripts/build_brief_index.py scripts/check_synthesis_freshness.py scripts/build_graph.py scripts/build_rdf.py scripts/build_autonomy.py scripts/query_graph.py scripts/check_ingest_liveness.py scripts/scan_secrets.py scripts/check_doc_links.py scripts/check_doc_orphans.py scripts/seed_good_first_issues.py scripts/check_hero_gif.py scripts/check_okf_conformance.py scripts/build_okf_reserved.py
 
       - name: Ruff format check
-        run: ruff format --check guardrail/ ingest/ tests/ synthesis/ scripts/check_synthesis.py scripts/build_brief_index.py scripts/check_synthesis_freshness.py scripts/build_graph.py scripts/build_rdf.py scripts/build_autonomy.py scripts/query_graph.py scripts/check_ingest_liveness.py scripts/scan_secrets.py scripts/check_doc_links.py scripts/check_doc_orphans.py scripts/seed_good_first_issues.py scripts/check_hero_gif.py
+        run: ruff format --check guardrail/ ingest/ tests/ synthesis/ scripts/check_synthesis.py scripts/build_brief_index.py scripts/check_synthesis_freshness.py scripts/build_graph.py scripts/build_rdf.py scripts/build_autonomy.py scripts/query_graph.py scripts/check_ingest_liveness.py scripts/scan_secrets.py scripts/check_doc_links.py scripts/check_doc_orphans.py scripts/seed_good_first_issues.py scripts/check_hero_gif.py scripts/check_okf_conformance.py scripts/build_okf_reserved.py
 
   source-guardrail:
     name: Source Guardrail
@@ -83,6 +83,21 @@ jobs:
       - name: Autonomy counters in sync
         run: python scripts/build_autonomy.py --check
 
+      # Pure-stdlib gate: the vault/ bundle meets the Open Knowledge Format v0.1
+      # SPEC-minimal bar -- a type on every concept matching its folder layer, and the
+      # reserved index.md (root + each layer) / log.md present + hygienic. This is the
+      # fleet-owned half of the Azimuth publish precondition ("OKF-conformant in
+      # frontmatter and filenames"); it can never silently rot post-flip.
+      - name: OKF conformance
+        run: python scripts/check_okf_conformance.py
+
+      # Companion: the reserved index.md / log.md files are regenerable from committed
+      # data, so this fails if they drift from what build_okf_reserved.py would produce
+      # (e.g. a new ingest day landed but the daily regen did not run). The daily ingest
+      # workflow regenerates them in the same run it commits a new L1 day.
+      - name: OKF reserved files in sync
+        run: python scripts/build_okf_reserved.py --check
+
       # The good-first-issues catalog is generated from the ISSUES list in the seeder;
       # this fails if .github/GOOD_FIRST_ISSUES.md drifts from what flip-time seeding
       # would create, so the contributor on-ramp can never rot.
@@ -127,7 +142,7 @@ jobs:
         run: uv pip install --system -e ".[dev,ld]"
 
       - name: mypy
-        run: mypy guardrail/ ingest/ synthesis/ scripts/check_synthesis.py scripts/build_brief_index.py scripts/check_synthesis_freshness.py scripts/build_graph.py scripts/build_rdf.py scripts/query_graph.py scripts/check_ingest_liveness.py scripts/scan_secrets.py scripts/check_doc_links.py scripts/check_doc_orphans.py scripts/build_autonomy.py scripts/seed_good_first_issues.py scripts/check_hero_gif.py
+        run: mypy guardrail/ ingest/ synthesis/ scripts/check_synthesis.py scripts/build_brief_index.py scripts/check_synthesis_freshness.py scripts/build_graph.py scripts/build_rdf.py scripts/query_graph.py scripts/check_ingest_liveness.py scripts/scan_secrets.py scripts/check_doc_links.py scripts/check_doc_orphans.py scripts/build_autonomy.py scripts/seed_good_first_issues.py scripts/check_hero_gif.py scripts/check_okf_conformance.py scripts/build_okf_reserved.py
 
   test:
     name: Test

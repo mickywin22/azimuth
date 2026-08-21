@@ -57,6 +57,18 @@ repos:
         language: system
         pass_filenames: false
         files: ^(scripts/seed_good_first_issues\.py|\.github/GOOD_FIRST_ISSUES\.md)$
+      - id: okf-conformance
+        name: OKF v0.1 conformance (type on every concept + reserved files)
+        entry: python scripts/check_okf_conformance.py
+        language: system
+        pass_filenames: false
+        files: ^(vault/00 Rules/|vault/01 Sources/|vault/02 Briefs/|scripts/check_okf_conformance\.py)
+      - id: okf-reserved-sync
+        name: OKF reserved index.md / log.md in sync with the bundle
+        entry: python scripts/build_okf_reserved.py --check
+        language: system
+        pass_filenames: false
+        files: ^(vault/00 Rules/|vault/01 Sources/|vault/02 Briefs/|vault/index\.md|vault/log\.md|scripts/build_okf_reserved\.py)
       - id: doc-links
         name: Documentation links resolve (no dead relative Markdown links)
         entry: python scripts/check_doc_links.py

@@ -5,8 +5,9 @@
 # guards. Reuse: copy this file, point it at your own vault, adjust the clauses.
 
 [notes]
-# the brief index is a machine-generated directory listing, not an L2 note
-exclude = ["README.md"]
+# machine-generated directory listings, not L2 concept notes: README.md (human landing
+# page) + the reserved OKF v0.1 files index.md (SPEC 6 listing) and log.md (SPEC 7 history).
+exclude = ["README.md", "index.md", "log.md"]
 
 [frontmatter]
 required = ["title", "type", "license", "updated"]
