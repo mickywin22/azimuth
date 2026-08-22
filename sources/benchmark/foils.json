@@ -2,9 +2,9 @@
   "$note": "Captured snapshot of the COMPARED forecast/intelligence product for the azimuth benchmark (synthesis/benchmark.py). Quoted by product + capture date; NOT surfaced as an azimuth channel and NOT an L1 source. Refresh with pull_benchmark_foils.py.",
   "endpoint": "/api/forecast/v1/get-forecasts",
   "attribution": "WorldMonitor (api.worldmonitor.app) — model-generated forecast/assessment product",
-  "feed_generated_at": 1787295727985,
+  "feed_generated_at": 1787378473768,
   "feed_degraded": false,
-  "captured_at": "2026-08-21T07:03:53Z",
+  "captured_at": "2026-08-22T06:56:11Z",
   "n_forecasts_seen": 14,
   "topics": {
     "energy-supply": {
@@ -19,9 +19,9 @@
         "time_horizon": "30d",
         "trend": "stable",
         "projections": {
-          "h24": 0.4,
+          "d30": 0.168,
           "d7": 0.232,
-          "d30": 0.168
+          "h24": 0.4
         },
         "scenario_short": "Strait of Hormuz risk: critical. For now, the base case stays near 44% over the 30d. Actors absorb the current evidence mix without a decisive break toward either shock or relief.",
         "perspective_strategic": "Strait of Hormuz risk: critical is setting the strategic baseline, and the current 40% probability implies a live but not settled risk path.",
@@ -38,20 +38,20 @@
         "region": "Black Sea",
         "title": "Sovereign risk repricing from Black Sea maritime disruption state",
         "probability": 0.674,
-        "prior_probability": 0.679,
+        "prior_probability": 0.683,
         "confidence": 0.75,
         "time_horizon": "30d",
         "trend": "stable",
         "projections": {
-          "h24": 0.674,
+          "d30": 0.283,
           "d7": 0.391,
-          "d30": 0.283
+          "h24": 0.674
         },
-        "scenario_short": "Sovereign risk repricing from Black Sea maritime disruption is likely at 67% probability, driven by 79% pressure and 74% state confirmation, with 7 urgent critical signals but only 1 headline (Reuters on war-hit...",
-        "perspective_strategic": "Black Sea maritime disruption state is keeping sovereign risk elevated through sovereign stress, with 79% pressure and 74% state confirmation is setting the strategic baseline, and the current 67% probability implies a live but not settled risk path.",
-        "perspective_contrarian": "If the 75% confidence level weakens due to a surprise grain deal or a drop in maritime insurance rates, the forecast could fall below 67%, as the 30-day projection of 28% suggests eventual de-escalation.",
+        "scenario_short": "Black Sea maritime disruption state is keeping sovereign risk elevated through sovereign stress, with 78% pressure and 73% state confirmation. For now, the base case stays near 69% over the 30d. Actors absorb the...",
+        "perspective_strategic": "Black Sea maritime disruption state is keeping sovereign risk elevated through sovereign stress, with 78% pressure and 73% state confirmation is setting the strategic baseline, and the current 67% probability implies a live but not settled risk path.",
+        "perspective_contrarian": "No directly matched headlines are currently attached to Black Sea. If that restraint persists, the forecast can move below the current 67% baseline. Actors prioritize containment and the system drifts toward stabilization unless new hard signals emerge.",
         "actor_lens": "Commodity traders: Price whether stress in Black Sea becomes durable over the 30d. Rebalance positions if the probability path moves away from 67%.",
-        "top_signal": "Black Sea maritime disruption state is keeping sovereign risk elevated through sovereign stress, with 79% pressure and 74% state confirmation"
+        "top_signal": "Black Sea maritime disruption state is keeping sovereign risk elevated through sovereign stress, with 78% pressure and 73% state confirmation"
       },
       "absence_reason": null
     },

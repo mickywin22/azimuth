@@ -161,161 +161,161 @@
       "label": "GIE AGSI+ (Gas Infrastructure Europe)",
       "kind": "source",
       "theme": "energy-supply",
-      "url": "sources/2026-08-21/natural-gas-storage-eu.html"
+      "url": "sources/2026-08-22/natural-gas-storage-eu.html"
     },
     {
       "id": "source:crude-oil-inventories",
       "label": "U.S. EIA (Energy Information Administration)",
       "kind": "source",
       "theme": "energy-supply",
-      "url": "sources/2026-08-21/crude-oil-inventories.html"
+      "url": "sources/2026-08-22/crude-oil-inventories.html"
     },
     {
       "id": "source:fuel-prices",
       "label": "WorldMonitor aggregated fuel-price feed",
       "kind": "source",
       "theme": "energy-supply",
-      "url": "sources/2026-08-21/fuel-prices.html"
+      "url": "sources/2026-08-22/fuel-prices.html"
     },
     {
       "id": "source:energy-prices",
       "label": "WorldMonitor aggregated energy spot/forward feed",
       "kind": "source",
       "theme": "energy-supply",
-      "url": "sources/2026-08-21/energy-prices.html"
+      "url": "sources/2026-08-22/energy-prices.html"
     },
     {
       "id": "source:earthquakes",
       "label": "USGS Earthquake Hazards Program",
       "kind": "source",
       "theme": "geophysical",
-      "url": "sources/2026-08-21/earthquakes.html"
+      "url": "sources/2026-08-22/earthquakes.html"
     },
     {
       "id": "source:climate-anomalies",
       "label": "NOAA / NASA reanalysis regional temperature & precipitation anomalies",
       "kind": "source",
       "theme": "climate-signals",
-      "url": "sources/2026-08-21/climate-anomalies.html"
+      "url": "sources/2026-08-22/climate-anomalies.html"
     },
     {
       "id": "source:co2-monitoring",
       "label": "NOAA Global Monitoring Laboratory (atmospheric CO2 record)",
       "kind": "source",
       "theme": "climate-signals",
-      "url": "sources/2026-08-21/co2-monitoring.html"
+      "url": "sources/2026-08-22/co2-monitoring.html"
     },
     {
       "id": "source:sea-ice-extent",
       "label": "NSIDC / NOAA@NSIDC Sea Ice Index (satellite-passive-microwave sea-ice extent)",
       "kind": "source",
       "theme": "climate-signals",
-      "url": "sources/2026-08-21/sea-ice-extent.html"
+      "url": "sources/2026-08-22/sea-ice-extent.html"
     },
     {
       "id": "source:prediction-markets",
       "label": "Polymarket public odds",
       "kind": "source",
       "theme": "prediction-markets",
-      "url": "sources/2026-08-21/prediction-markets.html"
+      "url": "sources/2026-08-22/prediction-markets.html"
     },
     {
       "id": "source:wildfire-detections",
       "label": "NASA FIRMS (VIIRS active-fire / thermal-anomaly detections)",
       "kind": "source",
       "theme": "environmental-hazards",
-      "url": "sources/2026-08-21/wildfire-detections.html"
+      "url": "sources/2026-08-22/wildfire-detections.html"
     },
     {
       "id": "source:thermal-escalations",
       "label": "NASA FIRMS (VIIRS thermal anomalies, clustered into escalation signals)",
       "kind": "source",
       "theme": "environmental-hazards",
-      "url": "sources/2026-08-21/thermal-escalations.html"
+      "url": "sources/2026-08-22/thermal-escalations.html"
     },
     {
       "id": "source:natural-events",
       "label": "NASA EONET + GDACS (UN-coordinated disaster alerts)",
       "kind": "source",
       "theme": "environmental-hazards",
-      "url": "sources/2026-08-21/natural-events.html"
+      "url": "sources/2026-08-22/natural-events.html"
     },
     {
       "id": "source:radiation-observations",
       "label": "US EPA RadNet + Safecast (ambient radiation measurements)",
       "kind": "source",
       "theme": "environmental-hazards",
-      "url": "sources/2026-08-21/radiation-observations.html"
+      "url": "sources/2026-08-22/radiation-observations.html"
     },
     {
       "id": "source:conflict-events-ucdp",
       "label": "UCDP (Uppsala Conflict Data Program \u2014 Georeferenced Event Dataset)",
       "kind": "source",
       "theme": "conflict-watch",
-      "url": "sources/2026-08-21/conflict-events-ucdp.html"
+      "url": "sources/2026-08-22/conflict-events-ucdp.html"
     },
     {
       "id": "source:cyber-threats",
       "label": "abuse.ch (URLhaus malware URLs + Feodo Tracker C2 indicators)",
       "kind": "source",
       "theme": "cyber-watch",
-      "url": "sources/2026-08-21/cyber-threats.html"
+      "url": "sources/2026-08-22/cyber-threats.html"
     },
     {
       "id": "source:disease-outbreaks",
       "label": "WHO Disease Outbreak News + US CDC Health Alert Network",
       "kind": "source",
       "theme": "public-health",
-      "url": "sources/2026-08-21/disease-outbreaks.html"
+      "url": "sources/2026-08-22/disease-outbreaks.html"
     },
     {
       "id": "source:crypto-quotes",
       "label": "CoinGecko (cryptocurrency spot prices & market data)",
       "kind": "source",
       "theme": "macro-markets",
-      "url": "sources/2026-08-21/crypto-quotes.html"
+      "url": "sources/2026-08-22/crypto-quotes.html"
     },
     {
       "id": "source:world-bank-gdp",
       "label": "World Bank Open Data (GDP, current US$)",
       "kind": "source",
       "theme": "macro-markets",
-      "url": "sources/2026-08-21/world-bank-gdp.html"
+      "url": "sources/2026-08-22/world-bank-gdp.html"
     },
     {
       "id": "source:world-bank-cpi",
       "label": "World Bank Open Data (inflation, consumer prices, annual %)",
       "kind": "source",
       "theme": "macro-markets",
-      "url": "sources/2026-08-21/world-bank-cpi.html"
+      "url": "sources/2026-08-22/world-bank-cpi.html"
     },
     {
       "id": "source:world-bank-unemployment",
       "label": "World Bank Open Data (unemployment, % of labor force, modeled ILO)",
       "kind": "source",
       "theme": "macro-markets",
-      "url": "sources/2026-08-21/world-bank-unemployment.html"
+      "url": "sources/2026-08-22/world-bank-unemployment.html"
     },
     {
       "id": "source:orbital-satellites",
       "label": "CelesTrak TLE element sets (derived from US Space Command public catalog)",
       "kind": "source",
       "theme": "orbital-watch",
-      "url": "sources/2026-08-21/orbital-satellites.html"
+      "url": "sources/2026-08-22/orbital-satellites.html"
     },
     {
       "id": "source:displacement-flows",
       "label": "UNHCR Refugee Data + UN OCHA HAPI (refugee / asylum / IDP counts)",
       "kind": "source",
       "theme": "humanitarian",
-      "url": "sources/2026-08-21/displacement-flows.html"
+      "url": "sources/2026-08-22/displacement-flows.html"
     },
     {
       "id": "source:internet-outages",
       "label": "Cloudflare Radar (internet outages & traffic anomalies)",
       "kind": "source",
       "theme": "infrastructure-watch",
-      "url": "sources/2026-08-21/internet-outages.html"
+      "url": "sources/2026-08-22/internet-outages.html"
     },
     {
       "id": "entity:papua-new-guinea",
@@ -332,19 +332,19 @@
         {
           "theme": "conflict-watch",
           "source": "conflict-events-ucdp",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u202670\", \"sideB\": \"XXX770\", \"sourceOriginal\": \"\", \"violenceType\": \"UCDP_VIOLENCE_TYPE_STATE_BASED\"}, {\"country\": \"Papua New Guinea\", \"dateEnd\": 1784160000000, \"dateStart\": 1784160000000, \"deathsBest\": 1, \"deathsHigh\": 1, \"deathsLow\": 1, \"id\u2026"
         },
         {
           "theme": "geophysical",
           "source": "earthquakes",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u20265.3709, \"longitude\": 153.5631}, \"magnitude\": 5.1, \"occurredAt\": 1787250319502, \"place\": \"183 km SE of Kokopo, Papua New Guinea\", \"source\": \"usgs\", \"sourceUrl\": \"https://earthquake.usgs.gov/earthquakes/eventpage/us6000tm8j\"}, {\"depthKm\":\u2026"
         },
         {
           "theme": "humanitarian",
           "source": "displacement-flows",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026, \"code\": \"PNG\", \"hostAsylumSeekers\": 3121, \"hostRefugees\": 7727, \"hostTotal\": 10848, \"idps\": 70124, \"name\": \"Papua New Guinea\", \"refugees\": 644, \"stateless\": 0, \"totalDisplaced\": 71995}, {\"asylumSeekers\": 899, \"code\": \"HUN\", \"hostAsylu\u2026"
         }
       ]
@@ -365,31 +365,31 @@
         {
           "theme": "energy-supply",
           "source": "fuel-prices",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026\": 1.6215, \"observedAt\": \"2026-08-10\", \"source\": \"gov.uk/desnz\", \"usdPrice\": 2.195, \"wowPct\": 1.58}, \"name\": \"United Kingdom\"}] | | fetchedAt | 2026-08-18T06:03:17.827Z | | cheapestGasoline | MY | | cheapestDiesel | MY | | mostExpensi\u2026"
         },
         {
           "theme": "humanitarian",
           "source": "displacement-flows",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026efugees\": 581072, \"hostTotal\": 725819, \"idps\": 0, \"location\": {\"latitude\": 55.4, \"longitude\": -3.4}, \"name\": \"United Kingdom of Great Britain and Northern Ireland\", \"refugees\": 517, \"stateless\": 0, \"totalDisplaced\": 1013}, {\"asylumSee\u2026"
         },
         {
           "theme": "macro-markets",
           "source": "world-bank-cpi",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026182294 | | Japan | JPN | Inflation, consumer prices (annual %) | FP.CPI.TOTL.ZG | 2025 | 3.17253034260248 | | United Kingdom | GBR | Inflation, consumer prices (annual %) | FP.CPI.TOTL.ZG | 2025 | 3.88306881626 | | United States | USA\u2026"
         },
         {
           "theme": "macro-markets",
           "source": "world-bank-gdp",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026| 2025 | 3956067115771.63 | | Japan | JPN | GDP (current US$) | NY.GDP.MKTP.CD | 2025 | 4435162999976.94 | | United Kingdom | GBR | GDP (current US$) | NY.GDP.MKTP.CD | 2025 | 4002587541846.01 | | United States | USA | GDP (current U\u2026"
         },
         {
           "theme": "public-health",
           "source": "disease-outbreaks",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026ary\": \"A four-case measles outbreak in Tenerife is believed to have originated from a child visiting from the United Kingdom.\"}, {\"alertLevel\": \"alert\", \"cases\": 1, \"countryCode\": \"US\", \"disease\": \"Measles\", \"id\": \"thinkglobalhealth-j\u2026"
         }
       ]
@@ -412,43 +412,43 @@
         {
           "theme": "conflict-watch",
           "source": "conflict-events-ucdp",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u202626.9492, \"longitude\": 56.2691}, \"sideA\": \"Government of Iran\", \"sideB\": \"Government of Israel, Government of United States of America\", \"sourceOriginal\": \"Hormozgan University of Medical Sciences\", \"violenceType\": \"UCDP_VIOLENCE_TYP\u2026"
         },
         {
           "theme": "energy-supply",
           "source": "fuel-prices",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026ice\": 1.0583, \"observedAt\": \"2026-08-10\", \"source\": \"eia.gov\", \"usdPrice\": 1.0583, \"wowPct\": -1.79}, \"name\": \"United States\"}, {\"code\": \"AT\", \"currency\": \"EUR\", \"diesel\": {\"grade\": \"Diesel\", \"localPrice\": 1.965, \"observedAt\": \"2026-0\u2026"
         },
         {
           "theme": "environmental-hazards",
           "source": "radiation-observations",
-          "day": "2026-08-21",
-          "text": "\u2026utingSources\": [\"RADIATION_SOURCE_EPA_RADNET\"], \"convertedFromCpm\": false, \"corroborated\": false, \"country\": \"United States\", \"delta\": -1.3, \"freshness\": \"RADIATION_FRESHNESS_LIVE\", \"id\": \"epa:CA:SAN%20FRANCISCO:1787290680000\", \"loca\u2026"
+          "day": "2026-08-22",
+          "text": "\u2026utingSources\": [\"RADIATION_SOURCE_EPA_RADNET\"], \"convertedFromCpm\": false, \"corroborated\": false, \"country\": \"United States\", \"delta\": -1.3, \"freshness\": \"RADIATION_FRESHNESS_LIVE\", \"id\": \"epa:CA:SAN%20FRANCISCO:1787377380000\", \"loca\u2026"
         },
         {
           "theme": "humanitarian",
           "source": "displacement-flows",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026ugees\": 457647, \"hostTotal\": 4176592, \"idps\": 0, \"location\": {\"latitude\": 37.1, \"longitude\": -95.7}, \"name\": \"United States of America\", \"refugees\": 3667, \"stateless\": 0, \"totalDisplaced\": 7446}, {\"asylumSeekers\": 56176, \"code\": \"NGA\u2026"
         },
         {
           "theme": "macro-markets",
           "source": "world-bank-cpi",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026| | United Kingdom | GBR | Inflation, consumer prices (annual %) | FP.CPI.TOTL.ZG | 2025 | 3.88306881626 | | United States | USA | Inflation, consumer prices (annual %) | FP.CPI.TOTL.ZG | 2024 | 2.94952520485207 |"
         },
         {
           "theme": "macro-markets",
           "source": "world-bank-gdp",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u20264435162999976.94 | | United Kingdom | GBR | GDP (current US$) | NY.GDP.MKTP.CD | 2025 | 4002587541846.01 | | United States | USA | GDP (current US$) | NY.GDP.MKTP.CD | 2025 | 30769700000000 |"
         },
         {
           "theme": "public-health",
           "source": "disease-outbreaks",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026asles\", \"id\": \"thinkglobalhealth-ma7rpb-1786060800000\", \"lat\": 39.96693039, \"lng\": -97.55609894, \"location\": \"United States\", \"publishedAt\": 1786060800000, \"sourceName\": \"ThinkGlobalHealth\", \"sourceUrl\": \"https://www.cidrap.umn.edu/m\u2026"
         }
       ]
@@ -467,13 +467,13 @@
         {
           "theme": "energy-supply",
           "source": "fuel-prices",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026, \"observedAt\": \"2026-08-10\", \"source\": \"energy.ec.europa.eu\", \"usdPrice\": 2.6508, \"wowPct\": -3.12}, \"name\": \"Netherlands\"}, {\"code\": \"PL\", \"currency\": \"EUR\", \"diesel\": {\"grade\": \"Diesel\", \"localPrice\": 1.8638, \"observedAt\": \"2026-\u2026"
         },
         {
           "theme": "humanitarian",
           "source": "displacement-flows",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026, \"code\": \"NLD\", \"hostAsylumSeekers\": 49662, \"hostRefugees\": 283935, \"hostTotal\": 333597, \"idps\": 0, \"name\": \"Netherlands (Kingdom of the)\", \"refugees\": 159, \"stateless\": 0, \"totalDisplaced\": 338}, {\"asylumSeekers\": 288050, \"code\":\u2026"
         }
       ]
@@ -494,19 +494,19 @@
         {
           "theme": "conflict-watch",
           "source": "conflict-events-ucdp",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026Military Administration, Vadym Filashkin,)\", \"violenceType\": \"UCDP_VIOLENCE_TYPE_STATE_BASED\"}, {\"country\": \"Philippines\", \"dateEnd\": 1785283200000, \"dateStart\": 1785283200000, \"deathsBest\": 2, \"deathsHigh\": 2, \"deathsLow\": 2, \"id\u2026"
         },
         {
           "theme": "geophysical",
           "source": "earthquakes",
-          "day": "2026-08-21",
-          "text": "\u202623, \"longitude\": 126.6639}, \"magnitude\": 4.8, \"occurredAt\": 1787159974166, \"place\": \"74 km SE of Pondaguitan, Philippines\", \"source\": \"usgs\", \"sourceUrl\": \"https://earthquake.usgs.gov/earthquakes/eventpage/us6000tlyi\"}, {\"depthKm\":\u2026"
+          "day": "2026-08-22",
+          "text": "\u2026: 9.3981, \"longitude\": 125.5805}, \"magnitude\": 5, \"occurredAt\": 1787373848744, \"place\": \"6 km S of Kitcharao, Philippines\", \"source\": \"usgs\", \"sourceUrl\": \"https://earthquake.usgs.gov/earthquakes/eventpage/us6000tmr2\"}, {\"depthKm\":\u2026"
         },
         {
           "theme": "humanitarian",
           "source": "displacement-flows",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u202688, \"code\": \"PHL\", \"hostAsylumSeekers\": 942, \"hostRefugees\": 1032, \"hostTotal\": 1974, \"idps\": 43500, \"name\": \"Philippines\", \"refugees\": 807, \"stateless\": 0, \"totalDisplaced\": 50395}, {\"asylumSeekers\": 630, \"code\": \"KOR\", \"hostAsylu\u2026"
         }
       ]
@@ -526,19 +526,19 @@
         {
           "theme": "energy-supply",
           "source": "fuel-prices",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026e | | prevFetchedAt | 2026-08-11T06:04:55.079Z | | sourceCount | 6 | | totalSources | 7 | | failedSources | [\"New Zealand\"] | | countryCount | 32 | | allSourcesFresh | false |"
         },
         {
           "theme": "geophysical",
           "source": "earthquakes",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u20268.907, \"longitude\": 175.3138}, \"magnitude\": 4.6, \"occurredAt\": 1786943921824, \"place\": \"43 km WNW of Turangi, New Zealand\", \"source\": \"usgs\", \"sourceUrl\": \"https://earthquake.usgs.gov/earthquakes/eventpage/usd0015ebp\"}, {\"depthKm\":\u2026"
         },
         {
           "theme": "humanitarian",
           "source": "displacement-flows",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026\": 43, \"code\": \"NZL\", \"hostAsylumSeekers\": 4584, \"hostRefugees\": 2148, \"hostTotal\": 6732, \"idps\": 0, \"name\": \"New Zealand\", \"refugees\": 58, \"stateless\": 0, \"totalDisplaced\": 101}, {\"asylumSeekers\": 2398, \"code\": \"PRY\", \"hostAsylumS\u2026"
         }
       ]
@@ -558,13 +558,13 @@
         {
           "theme": "climate-signals",
           "source": "climate-anomalies",
-          "day": "2026-08-21",
-          "text": "\u2026ecipDelta\": 0, \"severity\": \"ANOMALY_SEVERITY_NORMAL\", \"tempDelta\": 0.5, \"type\": \"ANOMALY_TYPE_WARM\", \"zone\": \"California\"}, {\"location\": {\"latitude\": -3.4, \"longitude\": -60}, \"period\": \"2026-08-15 to 2026-08-21\", \"precipDelta\": -3\u2026"
+          "day": "2026-08-22",
+          "text": "\u2026ecipDelta\": 0, \"severity\": \"ANOMALY_SEVERITY_NORMAL\", \"tempDelta\": 1.1, \"type\": \"ANOMALY_TYPE_WARM\", \"zone\": \"California\"}, {\"location\": {\"latitude\": -3.4, \"longitude\": -60}, \"period\": \"2026-08-16 to 2026-08-22\", \"precipDelta\": -2\u2026"
         },
         {
           "theme": "public-health",
           "source": "disease-outbreaks",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026s-exposure-in-northern-virginia-amid-outbreak-in-buckingham-county-689057a3\", \"summary\": \"Los Angeles County, California confirmed a measles case passing through the Los Angeles International Airport, bringing the county's total t\u2026"
         }
       ]
@@ -585,25 +585,25 @@
         {
           "theme": "conflict-watch",
           "source": "conflict-events-ucdp",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026\"sourceOriginal\": \"Peruvian media; witnesses\", \"violenceType\": \"UCDP_VIOLENCE_TYPE_ONE_SIDED\"}, {\"country\": \"Indonesia\", \"dateEnd\": 1785369600000, \"dateStart\": 1784851200000, \"deathsBest\": 3, \"deathsHigh\": 3, \"deathsLow\": 3, \"id\u2026"
         },
         {
           "theme": "geophysical",
           "source": "earthquakes",
-          "day": "2026-08-21",
-          "text": "\u20268.3786, \"longitude\": 120.5112}, \"magnitude\": 4.6, \"occurredAt\": 1787279587261, \"place\": \"26 km NNE of Ruteng, Indonesia\", \"source\": \"usgs\", \"sourceUrl\": \"https://earthquake.usgs.gov/earthquakes/eventpage/us6000tmd2\"}, {\"depthKm\":\u2026"
+          "day": "2026-08-22",
+          "text": "\u2026-8.2301, \"longitude\": 121.4575}, \"magnitude\": 4.7, \"occurredAt\": 1787377511914, \"place\": \"71 km NNW of Ende, Indonesia\", \"source\": \"usgs\", \"sourceUrl\": \"https://earthquake.usgs.gov/earthquakes/eventpage/us6000tmr7\"}, {\"depthKm\":\u2026"
         },
         {
           "theme": "humanitarian",
           "source": "displacement-flows",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u20268205, \"code\": \"IDN\", \"hostAsylumSeekers\": 4697, \"hostRefugees\": 7374, \"hostTotal\": 12071, \"idps\": 0, \"name\": \"Indonesia\", \"refugees\": 9215, \"stateless\": 0, \"totalDisplaced\": 17420}, {\"asylumSeekers\": 8342, \"code\": \"SLE\", \"hostAsy\u2026"
         },
         {
           "theme": "public-health",
           "source": "disease-outbreaks",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026\"Measles\", \"id\": \"thinkglobalhealth-zd9td6-1782518400000\", \"lat\": -2.635799885, \"lng\": 120.9375, \"location\": \"Indonesia\", \"publishedAt\": 1782518400000, \"sourceName\": \"ThinkGlobalHealth\", \"sourceUrl\": \"https://rri.co.id/jambi/regi\u2026"
         }
       ]
@@ -625,13 +625,13 @@
         {
           "theme": "conflict-watch",
           "source": "conflict-events-ucdp",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026\", \"sideB\": \"SCEF\", \"sourceOriginal\": \"AAPP\", \"violenceType\": \"UCDP_VIOLENCE_TYPE_STATE_BASED\"}, {\"country\": \"Venezuela\", \"dateEnd\": 1784678400000, \"dateStart\": 1784678400000, \"deathsBest\": 1, \"deathsHigh\": 1, \"deathsLow\": 1, \"id\u2026"
         },
         {
           "theme": "humanitarian",
           "source": "displacement-flows",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026tRefugees\": 14333, \"hostTotal\": 15910, \"idps\": 0, \"location\": {\"latitude\": 6.4, \"longitude\": -66.6}, \"name\": \"Venezuela (Bolivarian Republic of)\", \"refugees\": 417010, \"stateless\": 0, \"totalDisplaced\": 1598166}, {\"asylumSeekers\":\u2026"
         }
       ]
@@ -652,25 +652,25 @@
         {
           "theme": "conflict-watch",
           "source": "conflict-events-ucdp",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026: \"CPP\", \"sourceOriginal\": \"Philippine army\", \"violenceType\": \"UCDP_VIOLENCE_TYPE_STATE_BASED\"}, {\"country\": \"Argentina\", \"dateEnd\": 1766448000000, \"dateStart\": 1766448000000, \"deathsBest\": 3, \"deathsHigh\": 3, \"deathsLow\": 3, \"id\u2026"
         },
         {
           "theme": "geophysical",
           "source": "earthquakes",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026e\": -67.1154}, \"magnitude\": 4.7, \"occurredAt\": 1787195346998, \"place\": \"81 km W of San Antonio de los Cobres, Argentina\", \"source\": \"usgs\", \"sourceUrl\": \"https://earthquake.usgs.gov/earthquakes/eventpage/us6000tm1m\"}, {\"depthKm\":\u2026"
         },
         {
           "theme": "humanitarian",
           "source": "displacement-flows",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u20264621, \"code\": \"ARG\", \"hostAsylumSeekers\": 3941, \"hostRefugees\": 4941, \"hostTotal\": 8882, \"idps\": 0, \"name\": \"Argentina\", \"refugees\": 542, \"stateless\": 0, \"totalDisplaced\": 5163}, {\"asylumSeekers\": 3725, \"code\": \"LBR\", \"hostAsylu\u2026"
         },
         {
           "theme": "public-health",
           "source": "disease-outbreaks",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026ough\", \"id\": \"thinkglobalhealth-gt58fx-1781049600000\", \"lat\": -35.37643814, \"lng\": -64.16773224, \"location\": \"Argentina\", \"publishedAt\": 1781049600000, \"sourceName\": \"ThinkGlobalHealth\", \"sourceUrl\": \"https://www.ellitoral.com/sa\u2026"
         }
       ]
@@ -690,19 +690,19 @@
         {
           "theme": "climate-signals",
           "source": "climate-anomalies",
-          "day": "2026-08-21",
-          "text": "\u2026ipDelta\": 5.6, \"severity\": \"ANOMALY_SEVERITY_NORMAL\", \"tempDelta\": 0.2, \"type\": \"ANOMALY_TYPE_WARM\", \"zone\": \"Australia\"}, {\"location\": {\"latitude\": 38, \"longitude\": 20}, \"period\": \"2026-08-15 to 2026-08-21\", \"precipDelta\": -0.1,\u2026"
+          "day": "2026-08-22",
+          "text": "\u2026ipDelta\": 5.6, \"severity\": \"ANOMALY_SEVERITY_NORMAL\", \"tempDelta\": 0.2, \"type\": \"ANOMALY_TYPE_WARM\", \"zone\": \"Australia\"}, {\"location\": {\"latitude\": 38, \"longitude\": 20}, \"period\": \"2026-08-16 to 2026-08-22\", \"precipDelta\": -0.1,\u2026"
         },
         {
           "theme": "humanitarian",
           "source": "displacement-flows",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u20261, \"code\": \"AUS\", \"hostAsylumSeekers\": 82925, \"hostRefugees\": 33415, \"hostTotal\": 116340, \"idps\": 0, \"name\": \"Australia\", \"refugees\": 41, \"stateless\": 0, \"totalDisplaced\": 72}, {\"asylumSeekers\": 290, \"code\": \"BGR\", \"hostAsylumSee\u2026"
         },
         {
           "theme": "public-health",
           "source": "disease-outbreaks",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026ame\": \"ThinkGlobalHealth\", \"sourceUrl\": \"https://news.ssbcrack.com/diphtheria-outbreak-spreads-across-western-australia-prompting-health-warnings/\", \"summary\": \"A new case of diphtheria has been reported in Perth, bringing Austra\u2026"
         }
       ]
@@ -720,7 +720,7 @@
         {
           "theme": "energy-supply",
           "source": "energy-prices",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026er edit by hand. | field | value | | --- | --- | | prices | [{\"change\": 6.5, \"commodity\": \"wti\", \"name\": \"WTI Crude Oil\", \"price\": \"84.05\", \"priceAt\": 1786665600000, \"unit\": \"$/barrel\"}, {\"change\": 5.3, \"commodity\": \"brent\", \"nam\u2026"
         }
       ]
@@ -740,19 +740,19 @@
         {
           "theme": "energy-supply",
           "source": "fuel-prices",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u20266, \"observedAt\": \"2026-08-10\", \"source\": \"energy.ec.europa.eu\", \"usdPrice\": 2.1946, \"wowPct\": -4.1}, \"name\": \"Portugal\"}, {\"code\": \"RO\", \"currency\": \"EUR\", \"diesel\": {\"grade\": \"Diesel\", \"localPrice\": 2.0128, \"observedAt\": \"2026-\u2026"
         },
         {
           "theme": "humanitarian",
           "source": "displacement-flows",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026376, \"code\": \"PRT\", \"hostAsylumSeekers\": 8595, \"hostRefugees\": 70349, \"hostTotal\": 78944, \"idps\": 0, \"name\": \"Portugal\", \"refugees\": 109, \"stateless\": 0, \"totalDisplaced\": 485}, {\"asylumSeekers\": 1227, \"code\": \"PNG\", \"hostAsylum\u2026"
         },
         {
           "theme": "public-health",
           "source": "disease-outbreaks",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026easles\", \"id\": \"thinkglobalhealth-d0wddz-1779667200000\", \"lat\": 39.6009903, \"lng\": -8.062740326, \"location\": \"Portugal\", \"publishedAt\": 1779667200000, \"sourceName\": \"ThinkGlobalHealth\", \"sourceUrl\": \"https://www.dn.pt/sociedade/\u2026"
         }
       ]
@@ -771,13 +771,13 @@
         {
           "theme": "energy-supply",
           "source": "fuel-prices",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026, \"observedAt\": \"2026-08-10\", \"source\": \"energy.ec.europa.eu\", \"usdPrice\": 1.9689, \"wowPct\": -3.17}, \"name\": \"Slovakia\"}, {\"code\": \"SI\", \"currency\": \"EUR\", \"diesel\": {\"grade\": \"Diesel\", \"localPrice\": 1.8776, \"observedAt\": \"2026-\u2026"
         },
         {
           "theme": "humanitarian",
           "source": "displacement-flows",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u202691, \"code\": \"SVK\", \"hostAsylumSeekers\": 16, \"hostRefugees\": 140885, \"hostTotal\": 140901, \"idps\": 0, \"name\": \"Slovakia\", \"refugees\": 625, \"stateless\": 0, \"totalDisplaced\": 716}, {\"asylumSeekers\": 2575, \"code\": \"ZAF\", \"hostAsylum\u2026"
         }
       ]
@@ -795,7 +795,7 @@
         {
           "theme": "energy-supply",
           "source": "fuel-prices",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026\"2026-08-13\", \"source\": \"data.gov.my\", \"usdPrice\": 1.1019, \"wowPct\": -1.34}, \"flag\": \"\ud83c\uddf2\ud83c\uddfe\", \"fxRate\": 0.2465, \"gasoline\": {\"grade\": \"RON95\", \"localPrice\": 3.62, \"observedAt\": \"2026-08-13\", \"source\": \"data.gov.my\", \"usdPrice\": 0.8\u2026"
         }
       ]
@@ -816,31 +816,31 @@
         {
           "theme": "conflict-watch",
           "source": "conflict-events-ucdp",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026\": \"XXX100\", \"sourceOriginal\": \"Quhbo Pereira\", \"violenceType\": \"UCDP_VIOLENCE_TYPE_NON_STATE\"}, {\"country\": \"Germany\", \"dateEnd\": 1785024000000, \"dateStart\": 1785024000000, \"deathsBest\": 1, \"deathsHigh\": 1, \"deathsLow\": 1, \"id\u2026"
         },
         {
           "theme": "energy-supply",
           "source": "fuel-prices",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026, \"observedAt\": \"2026-08-10\", \"source\": \"energy.ec.europa.eu\", \"usdPrice\": 2.4805, \"wowPct\": -1.63}, \"name\": \"Germany\"}, {\"code\": \"GR\", \"currency\": \"EUR\", \"diesel\": {\"grade\": \"Diesel\", \"localPrice\": 1.986, \"observedAt\": \"2026-0\u2026"
         },
         {
           "theme": "humanitarian",
           "source": "displacement-flows",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026ugees\": 2655191, \"hostTotal\": 2952694, \"idps\": 0, \"location\": {\"latitude\": 51.2, \"longitude\": 10.4}, \"name\": \"Germany\", \"refugees\": 327, \"stateless\": 0, \"totalDisplaced\": 953}, {\"asylumSeekers\": 148616, \"code\": \"ETH\", \"hostAsyl\u2026"
         },
         {
           "theme": "macro-markets",
           "source": "world-bank-cpi",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u20265403 | | France | FRA | Inflation, consumer prices (annual %) | FP.CPI.TOTL.ZG | 2025 | 0.943770212469976 | | Germany | DEU | Inflation, consumer prices (annual %) | FP.CPI.TOTL.ZG | 2025 | 2.17178770949721 | | India | IND | In\u2026"
         },
         {
           "theme": "macro-markets",
           "source": "world-bank-gdp",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026| 2025 | 19498039388042.6 | | France | FRA | GDP (current US$) | NY.GDP.MKTP.CD | 2025 | 3366315927447.33 | | Germany | DEU | GDP (current US$) | NY.GDP.MKTP.CD | 2025 | 5050922925047.05 | | India | IND | GDP (current US$) | NY\u2026"
         }
       ]
@@ -859,13 +859,13 @@
         {
           "theme": "energy-supply",
           "source": "fuel-prices",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026, \"observedAt\": \"2026-08-10\", \"source\": \"energy.ec.europa.eu\", \"usdPrice\": 1.9921, \"wowPct\": -6.13}, \"name\": \"Austria\"}, {\"code\": \"BE\", \"currency\": \"EUR\", \"diesel\": {\"grade\": \"Diesel\", \"localPrice\": 2.1568, \"observedAt\": \"2026-\u2026"
         },
         {
           "theme": "humanitarian",
           "source": "displacement-flows",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026, \"code\": \"AUT\", \"hostAsylumSeekers\": 22014, \"hostRefugees\": 286651, \"hostTotal\": 308665, \"idps\": 0, \"name\": \"Austria\", \"refugees\": 33, \"stateless\": 0, \"totalDisplaced\": 49}, {\"asylumSeekers\": 269315, \"code\": \"NIC\", \"hostAsylum\u2026"
         }
       ]
@@ -884,13 +884,13 @@
         {
           "theme": "energy-supply",
           "source": "fuel-prices",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026, \"observedAt\": \"2026-08-10\", \"source\": \"energy.ec.europa.eu\", \"usdPrice\": 2.0996, \"wowPct\": -3.41}, \"name\": \"Belgium\"}, {\"code\": \"BG\", \"currency\": \"EUR\", \"diesel\": {\"grade\": \"Diesel\", \"localPrice\": 1.7426, \"observedAt\": \"2026-\u2026"
         },
         {
           "theme": "humanitarian",
           "source": "displacement-flows",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026, \"code\": \"BEL\", \"hostAsylumSeekers\": 58725, \"hostRefugees\": 186393, \"hostTotal\": 245118, \"idps\": 0, \"name\": \"Belgium\", \"refugees\": 113, \"stateless\": 0, \"totalDisplaced\": 182}, {\"asylumSeekers\": 3695, \"code\": \"SRB\", \"hostAsylum\u2026"
         }
       ]
@@ -909,13 +909,13 @@
         {
           "theme": "energy-supply",
           "source": "fuel-prices",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u20261, \"observedAt\": \"2026-08-10\", \"source\": \"energy.ec.europa.eu\", \"usdPrice\": 2.1264, \"wowPct\": 1.34}, \"name\": \"Ireland\"}, {\"code\": \"IT\", \"currency\": \"EUR\", \"diesel\": {\"grade\": \"Diesel\", \"localPrice\": 2.0808, \"observedAt\": \"2026-\u2026"
         },
         {
           "theme": "humanitarian",
           "source": "displacement-flows",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026: 0, \"location\": {\"latitude\": 55.4, \"longitude\": -3.4}, \"name\": \"United Kingdom of Great Britain and Northern Ireland\", \"refugees\": 517, \"stateless\": 0, \"totalDisplaced\": 1013}, {\"asylumSeekers\": 168464, \"code\": \"HND\", \"hostAsy\u2026"
         }
       ]
@@ -937,37 +937,31 @@
         {
           "theme": "climate-signals",
           "source": "climate-anomalies",
-          "day": "2026-08-21",
-          "text": "\u2026pDelta\": -0.5, \"severity\": \"ANOMALY_SEVERITY_NORMAL\", \"tempDelta\": 0.8, \"type\": \"ANOMALY_TYPE_WARM\", \"zone\": \"Ukraine\"}, {\"location\": {\"latitude\": 51, \"longitude\": 10}, \"period\": \"2026-08-15 to 2026-08-21\", \"precipDelta\": 1.6,\u2026"
+          "day": "2026-08-22",
+          "text": "\u2026pDelta\": -0.5, \"severity\": \"ANOMALY_SEVERITY_NORMAL\", \"tempDelta\": 1.4, \"type\": \"ANOMALY_TYPE_WARM\", \"zone\": \"Ukraine\"}, {\"location\": {\"latitude\": 51, \"longitude\": 10}, \"period\": \"2026-08-16 to 2026-08-22\", \"precipDelta\": 2, \"s\u2026"
         },
         {
           "theme": "conflict-watch",
           "source": "conflict-events-ucdp",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026as\", \"sourceOriginal\": \"Wafa correspondents\", \"violenceType\": \"UCDP_VIOLENCE_TYPE_STATE_BASED\"}, {\"country\": \"Ukraine\", \"dateEnd\": 1785456000000, \"dateStart\": 1785456000000, \"deathsBest\": 2, \"deathsHigh\": 20, \"deathsLow\": 2, \"i\u2026"
         },
         {
           "theme": "environmental-hazards",
-          "source": "thermal-escalations",
-          "day": "2026-08-21",
-          "text": "\u2026_LOW\", \"context\": \"THERMAL_CONTEXT_CONFLICT_ADJACENT\", \"countDelta\": 18, \"countryCode\": \"UA\", \"countryName\": \"Ukraine\", \"firstDetectedAt\": \"2026-08-21T00:01:00.000Z\", \"frpDelta\": 153.6, \"id\": \"ua:51-5-28-5:2026082106\", \"lastDet\u2026"
-        },
-        {
-          "theme": "environmental-hazards",
           "source": "wildfire-detections",
-          "day": "2026-08-21",
-          "text": "\u2026: \"active\", \"location\": {\"latitude\": 51.41159, \"longitude\": 28.74708}, \"possibleExplosion\": false, \"region\": \"Ukraine\", \"satellite\": \"N21\", \"source\": \"firms\"}, {\"brightness\": 367, \"confidence\": \"FIRE_CONFIDENCE_HIGH\", \"dayNight\u2026"
+          "day": "2026-08-22",
+          "text": "\u2026: \"active\", \"location\": {\"latitude\": 47.25913, \"longitude\": 33.63364}, \"possibleExplosion\": false, \"region\": \"Ukraine\", \"satellite\": \"N21\", \"source\": \"firms\"}, {\"brightness\": 353.85, \"confidence\": \"FIRE_CONFIDENCE_NOMINAL\", \"da\u2026"
         },
         {
           "theme": "humanitarian",
           "source": "displacement-flows",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026ugees\": 2370, \"hostTotal\": 2813, \"idps\": 3712000, \"location\": {\"latitude\": 48.4, \"longitude\": 31.2}, \"name\": \"Ukraine\", \"refugees\": 5224131, \"stateless\": 0, \"totalDisplaced\": 8962714}, {\"asylumSeekers\": 303273, \"code\": \"COL\", \"\u2026"
         },
         {
           "theme": "infrastructure-watch",
           "source": "internet-outages",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026stan\"}, {\"categories\": [\"Cloudflare Radar\", \"POWER OUTAGE\", \"REGIONAL\"], \"cause\": \"POWER_OUTAGE\", \"country\": \"Ukraine\", \"description\": \"A Ukrainian drone strike on energy infrastructure caused a power outage and Internet disrup\u2026"
         }
       ]
@@ -986,13 +980,13 @@
         {
           "theme": "geophysical",
           "source": "earthquakes",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026: -20.324, \"longitude\": 169.1514}, \"magnitude\": 5, \"occurredAt\": 1787185224938, \"place\": \"87 km S of Isangel, Vanuatu\", \"source\": \"usgs\", \"sourceUrl\": \"https://earthquake.usgs.gov/earthquakes/eventpage/us6000tm16\"}, {\"depthKm\":\u2026"
         },
         {
           "theme": "humanitarian",
           "source": "displacement-flows",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026mSeekers\": 961, \"code\": \"VUT\", \"hostAsylumSeekers\": 7, \"hostRefugees\": 0, \"hostTotal\": 7, \"idps\": 0, \"name\": \"Vanuatu\", \"refugees\": 13, \"stateless\": 0, \"totalDisplaced\": 974}, {\"asylumSeekers\": 351, \"code\": \"GNQ\", \"hostAsylumSe\u2026"
         }
       ]
@@ -1013,19 +1007,19 @@
         {
           "theme": "climate-signals",
           "source": "climate-anomalies",
-          "day": "2026-08-21",
-          "text": "\u2026ipDelta\": 4.9, \"severity\": \"ANOMALY_SEVERITY_NORMAL\", \"tempDelta\": 0.9, \"type\": \"ANOMALY_TYPE_WARM\", \"zone\": \"Myanmar\"}, {\"location\": {\"latitude\": 4, \"longitude\": 22}, \"period\": \"2026-08-15 to 2026-08-21\", \"precipDelta\": -0.7,\u2026"
+          "day": "2026-08-22",
+          "text": "\u2026ipDelta\": 4.2, \"severity\": \"ANOMALY_SEVERITY_NORMAL\", \"tempDelta\": 0.8, \"type\": \"ANOMALY_TYPE_WARM\", \"zone\": \"Myanmar\"}, {\"location\": {\"latitude\": 4, \"longitude\": 22}, \"period\": \"2026-08-16 to 2026-08-22\", \"precipDelta\": -1.8,\u2026"
         },
         {
           "theme": "conflict-watch",
           "source": "conflict-events-ucdp",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026ilians\", \"sourceOriginal\": \"Local sources; IS\", \"violenceType\": \"UCDP_VIOLENCE_TYPE_ONE_SIDED\"}, {\"country\": \"Myanmar (Burma)\", \"dateEnd\": 1785456000000, \"dateStart\": 1785456000000, \"deathsBest\": 1, \"deathsHigh\": 1, \"deathsLow\"\u2026"
         },
         {
           "theme": "humanitarian",
           "source": "displacement-flows",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026ostRefugees\": 0, \"hostTotal\": 0, \"idps\": 3628840, \"location\": {\"latitude\": 19.8, \"longitude\": 96.7}, \"name\": \"Myanmar\", \"refugees\": 1524378, \"stateless\": 0, \"totalDisplaced\": 5221042}, {\"asylumSeekers\": 25860, \"code\": \"YEM\", \"h\u2026"
         }
       ]
@@ -1045,13 +1039,13 @@
         {
           "theme": "energy-supply",
           "source": "fuel-prices",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026, \"observedAt\": \"2026-08-10\", \"source\": \"energy.ec.europa.eu\", \"usdPrice\": 2.0732, \"wowPct\": -0.39}, \"name\": \"Romania\"}, {\"code\": \"SK\", \"currency\": \"EUR\", \"diesel\": {\"grade\": \"Diesel\", \"localPrice\": 1.833, \"observedAt\": \"2026-0\u2026"
         },
         {
           "theme": "humanitarian",
           "source": "displacement-flows",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u202677, \"code\": \"ROU\", \"hostAsylumSeekers\": 316, \"hostRefugees\": 206671, \"hostTotal\": 206987, \"idps\": 0, \"name\": \"Romania\", \"refugees\": 3130, \"stateless\": 0, \"totalDisplaced\": 11007}, {\"asylumSeekers\": 88310, \"code\": \"RUS\", \"hostAs\u2026"
         }
       ]
@@ -1070,13 +1064,13 @@
         {
           "theme": "energy-supply",
           "source": "fuel-prices",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u20265, \"observedAt\": \"2026-08-10\", \"source\": \"energy.ec.europa.eu\", \"usdPrice\": 1.9504, \"wowPct\": -0.1}, \"name\": \"Croatia\"}, {\"code\": \"CY\", \"currency\": \"EUR\", \"diesel\": {\"grade\": \"Diesel\", \"localPrice\": 1.7833, \"observedAt\": \"2026-\u2026"
         },
         {
           "theme": "humanitarian",
           "source": "displacement-flows",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026: 43, \"code\": \"HRV\", \"hostAsylumSeekers\": 434, \"hostRefugees\": 29748, \"hostTotal\": 30182, \"idps\": 0, \"name\": \"Croatia\", \"refugees\": 17207, \"stateless\": 0, \"totalDisplaced\": 17250}, {\"asylumSeekers\": 7643, \"code\": \"ALB\", \"hostAs\u2026"
         }
       ]
@@ -1095,13 +1089,13 @@
         {
           "theme": "energy-supply",
           "source": "fuel-prices",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026, \"observedAt\": \"2026-08-10\", \"source\": \"energy.ec.europa.eu\", \"usdPrice\": 1.8307, \"wowPct\": -3.75}, \"name\": \"Hungary\"}, {\"code\": \"IE\", \"currency\": \"EUR\", \"diesel\": {\"grade\": \"Diesel\", \"localPrice\": 1.9006, \"observedAt\": \"2026-\u2026"
         },
         {
           "theme": "humanitarian",
           "source": "displacement-flows",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026: 899, \"code\": \"HUN\", \"hostAsylumSeekers\": 42, \"hostRefugees\": 71332, \"hostTotal\": 71374, \"idps\": 0, \"name\": \"Hungary\", \"refugees\": 2055, \"stateless\": 0, \"totalDisplaced\": 2954}, {\"asylumSeekers\": 10, \"code\": \"CYP\", \"hostAsylum\u2026"
         }
       ]
@@ -1120,13 +1114,13 @@
         {
           "theme": "energy-supply",
           "source": "fuel-prices",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u20268, \"observedAt\": \"2026-08-10\", \"source\": \"energy.ec.europa.eu\", \"usdPrice\": 2.691, \"wowPct\": -5.21}, \"name\": \"Denmark\"}, {\"code\": \"EE\", \"currency\": \"EUR\", \"diesel\": {\"grade\": \"Diesel\", \"localPrice\": 1.825, \"observedAt\": \"2026-0\u2026"
         },
         {
           "theme": "humanitarian",
           "source": "displacement-flows",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u202650, \"code\": \"DNK\", \"hostAsylumSeekers\": 2738, \"hostRefugees\": 95007, \"hostTotal\": 97745, \"idps\": 0, \"name\": \"Denmark\", \"refugees\": 21, \"stateless\": 0, \"totalDisplaced\": 71}, {\"asylumSeekers\": 546, \"code\": \"ZMB\", \"hostAsylumSee\u2026"
         }
       ]
@@ -1145,13 +1139,13 @@
         {
           "theme": "energy-supply",
           "source": "fuel-prices",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026, \"observedAt\": \"2026-08-10\", \"source\": \"energy.ec.europa.eu\", \"usdPrice\": 2.5061, \"wowPct\": -1.18}, \"name\": \"Finland\"}, {\"code\": \"FR\", \"currency\": \"EUR\", \"diesel\": {\"grade\": \"Diesel\", \"localPrice\": 2.169, \"observedAt\": \"2026-0\u2026"
         },
         {
           "theme": "humanitarian",
           "source": "displacement-flows",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u20265, \"code\": \"FIN\", \"hostAsylumSeekers\": 1879, \"hostRefugees\": 102544, \"hostTotal\": 104423, \"idps\": 0, \"name\": \"Finland\", \"refugees\": 5, \"stateless\": 0, \"totalDisplaced\": 20}, {\"asylumSeekers\": 56626, \"code\": \"GIN\", \"hostAsylumSe\u2026"
         }
       ]
@@ -1171,25 +1165,25 @@
         {
           "theme": "energy-supply",
           "source": "fuel-prices",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026, \"observedAt\": \"2026-08-10\", \"source\": \"energy.ec.europa.eu\", \"usdPrice\": 2.3313, \"wowPct\": -2.26}, \"name\": \"France\"}, {\"code\": \"DE\", \"currency\": \"EUR\", \"diesel\": {\"grade\": \"Diesel\", \"localPrice\": 2.149, \"observedAt\": \"2026-0\u2026"
         },
         {
           "theme": "humanitarian",
           "source": "displacement-flows",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026Refugees\": 788419, \"hostTotal\": 873646, \"idps\": 0, \"location\": {\"latitude\": 46.2, \"longitude\": 2.2}, \"name\": \"France\", \"refugees\": 166, \"stateless\": 0, \"totalDisplaced\": 621}, {\"asylumSeekers\": 7773, \"code\": \"KEN\", \"hostAsylum\u2026"
         },
         {
           "theme": "macro-markets",
           "source": "world-bank-cpi",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026--- | | China | CHN | Inflation, consumer prices (annual %) | FP.CPI.TOTL.ZG | 2025 | 0.0595646916565403 | | France | FRA | Inflation, consumer prices (annual %) | FP.CPI.TOTL.ZG | 2025 | 0.943770212469976 | | Germany | DEU |\u2026"
         },
         {
           "theme": "macro-markets",
           "source": "world-bank-gdp",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026-- | --- | --- | --- | --- | | China | CHN | GDP (current US$) | NY.GDP.MKTP.CD | 2025 | 19498039388042.6 | | France | FRA | GDP (current US$) | NY.GDP.MKTP.CD | 2025 | 3366315927447.33 | | Germany | DEU | GDP (current US$) |\u2026"
         }
       ]
@@ -1208,13 +1202,13 @@
         {
           "theme": "energy-supply",
           "source": "fuel-prices",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026, \"observedAt\": \"2026-08-10\", \"source\": \"energy.ec.europa.eu\", \"usdPrice\": 2.2918, \"wowPct\": -1.74}, \"name\": \"Greece\"}, {\"code\": \"HU\", \"currency\": \"EUR\", \"diesel\": {\"grade\": \"Diesel\", \"localPrice\": 1.8121, \"observedAt\": \"2026-\u2026"
         },
         {
           "theme": "humanitarian",
           "source": "displacement-flows",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026, \"code\": \"GRC\", \"hostAsylumSeekers\": 31928, \"hostRefugees\": 134563, \"hostTotal\": 166491, \"idps\": 0, \"name\": \"Greece\", \"refugees\": 94, \"stateless\": 0, \"totalDisplaced\": 215}, {\"asylumSeekers\": 3022, \"code\": \"MDA\", \"hostAsylumS\u2026"
         }
       ]
@@ -1233,13 +1227,13 @@
         {
           "theme": "energy-supply",
           "source": "fuel-prices",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026, \"observedAt\": \"2026-08-10\", \"source\": \"energy.ec.europa.eu\", \"usdPrice\": 1.9634, \"wowPct\": -3.16}, \"name\": \"Poland\"}, {\"code\": \"PT\", \"currency\": \"EUR\", \"diesel\": {\"grade\": \"Diesel\", \"localPrice\": 1.975, \"observedAt\": \"2026-0\u2026"
         },
         {
           "theme": "humanitarian",
           "source": "displacement-flows",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026\"code\": \"POL\", \"hostAsylumSeekers\": 13848, \"hostRefugees\": 990469, \"hostTotal\": 1004317, \"idps\": 0, \"name\": \"Poland\", \"refugees\": 1368, \"stateless\": 0, \"totalDisplaced\": 1775}, {\"asylumSeekers\": 23629, \"code\": \"MLI\", \"hostAsy\u2026"
         }
       ]
@@ -1261,31 +1255,31 @@
         {
           "theme": "conflict-watch",
           "source": "conflict-events-ucdp",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026Faso\", \"sideB\": \"JNIM\", \"sourceOriginal\": \"\", \"violenceType\": \"UCDP_VIOLENCE_TYPE_STATE_BASED\"}, {\"country\": \"Mexico\", \"dateEnd\": 1785456000000, \"dateStart\": 1785456000000, \"deathsBest\": 1, \"deathsHigh\": 1, \"deathsLow\": 1, \"id\u2026"
         },
         {
           "theme": "energy-supply",
           "source": "fuel-prices",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026e\": 23.6863, \"observedAt\": \"2026-08-18\", \"source\": \"cre.gob.mx\", \"usdPrice\": 1.388, \"wowPct\": 0.35}, \"name\": \"Mexico\"}, {\"code\": \"US\", \"currency\": \"USD\", \"diesel\": {\"grade\": \"Diesel\", \"localPrice\": 1.3888, \"observedAt\": \"2026-\u2026"
         },
         {
           "theme": "geophysical",
           "source": "earthquakes",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u20261, \"longitude\": -94.3016}, \"magnitude\": 4.6, \"occurredAt\": 1787169989427, \"place\": \"28 km NE of Ni\u00f1os H\u00e9roes, Mexico\", \"source\": \"usgs\", \"sourceUrl\": \"https://earthquake.usgs.gov/earthquakes/eventpage/us6000tlzp\"}, {\"depthKm\":\u2026"
         },
         {
           "theme": "humanitarian",
           "source": "displacement-flows",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026e\": \"MEX\", \"hostAsylumSeekers\": 173532, \"hostRefugees\": 152002, \"hostTotal\": 325534, \"idps\": 262411, \"name\": \"Mexico\", \"refugees\": 41307, \"stateless\": 0, \"totalDisplaced\": 540528}, {\"asylumSeekers\": 1646, \"code\": \"KHM\", \"hostA\u2026"
         },
         {
           "theme": "public-health",
           "source": "disease-outbreaks",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026asles\", \"id\": \"thinkglobalhealth-m7ynal-1781913600000\", \"lat\": 23.95046043, \"lng\": -102.5328903, \"location\": \"Mexico\", \"publishedAt\": 1781913600000, \"sourceName\": \"ThinkGlobalHealth\", \"sourceUrl\": \"https://oem.com.mx/elsoldeme\u2026"
         }
       ]
@@ -1306,19 +1300,19 @@
         {
           "theme": "climate-signals",
           "source": "climate-anomalies",
-          "day": "2026-08-21",
-          "text": "\u2026ipDelta\": 1.6, \"severity\": \"ANOMALY_SEVERITY_NORMAL\", \"tempDelta\": 1.5, \"type\": \"ANOMALY_TYPE_WARM\", \"zone\": \"Europe\"}, {\"location\": {\"latitude\": 39, \"longitude\": 127}, \"period\": \"2026-08-15 to 2026-08-21\", \"precipDelta\": 0.8,\u2026"
+          "day": "2026-08-22",
+          "text": "\u2026precipDelta\": 2, \"severity\": \"ANOMALY_SEVERITY_NORMAL\", \"tempDelta\": 0, \"type\": \"ANOMALY_TYPE_COLD\", \"zone\": \"Europe\"}, {\"location\": {\"latitude\": 39, \"longitude\": 127}, \"period\": \"2026-08-16 to 2026-08-22\", \"precipDelta\": 2.8,\u2026"
         },
         {
           "theme": "energy-supply",
           "source": "natural-gas-storage-eu",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "--- type: \"L1-source\" source: \"GIE AGSI+ (Gas Infrastructure Europe)\" source_key: \"natural-gas-storage-eu\" endpoint: \"/api/economic/v1/get-nat-gas-storage\" retrieved: \"2026-08-2\u2026"
         },
         {
           "theme": "public-health",
           "source": "disease-outbreaks",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026ews Today\", \"sourceUrl\": \"https://outbreaknewstoday.com/sustained-heat-raises-infectious-disease-risks-across-europe-ecdc-warns-741/?utm_source=rss&#038;utm_medium=rss&#038;utm_campaign=sustained-heat-raises-infectious-disease\u2026"
         }
       ]
@@ -1340,31 +1334,31 @@
         {
           "theme": "conflict-watch",
           "source": "conflict-events-ucdp",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026Low\": 2, \"id\": \"636109\", \"location\": {\"latitude\": 48.238428, \"longitude\": 37.043469}, \"sideA\": \"Government of Russia (Soviet Union)\", \"sideB\": \"Government of Ukraine\", \"sourceOriginal\": \"General Staff of the Armed Forces of Uk\u2026"
         },
         {
           "theme": "environmental-hazards",
           "source": "thermal-escalations",
-          "day": "2026-08-21",
-          "text": "\u2026GH\", \"context\": \"THERMAL_CONTEXT_CONFLICT_ADJACENT\", \"countDelta\": 15.1, \"countryCode\": \"RU\", \"countryName\": \"Russia\", \"firstDetectedAt\": \"2026-08-21T02:32:00.000Z\", \"frpDelta\": 568.7, \"id\": \"ru:65-0-110-5:2026082106\", \"lastDe\u2026"
+          "day": "2026-08-22",
+          "text": "\u2026GH\", \"context\": \"THERMAL_CONTEXT_CONFLICT_ADJACENT\", \"countDelta\": 61.6, \"countryCode\": \"RU\", \"countryName\": \"Russia\", \"firstDetectedAt\": \"2026-08-22T02:13:00.000Z\", \"frpDelta\": 2680.4, \"id\": \"ru:65-0-110-0:2026082206\", \"lastD\u2026"
         },
         {
           "theme": "environmental-hazards",
           "source": "wildfire-detections",
-          "day": "2026-08-21",
-          "text": "\u2026\"active\", \"location\": {\"latitude\": 61.34693, \"longitude\": 112.80352}, \"possibleExplosion\": false, \"region\": \"Russia\", \"satellite\": \"N21\", \"source\": \"firms\"}, {\"brightness\": 354.56, \"confidence\": \"FIRE_CONFIDENCE_NOMINAL\", \"da\u2026"
+          "day": "2026-08-22",
+          "text": "\u2026\"active\", \"location\": {\"latitude\": 65.03664, \"longitude\": 109.76865}, \"possibleExplosion\": false, \"region\": \"Russia\", \"satellite\": \"N21\", \"source\": \"firms\"}, {\"brightness\": 367, \"confidence\": \"FIRE_CONFIDENCE_HIGH\", \"dayNight\u2026"
         },
         {
           "theme": "geophysical",
           "source": "earthquakes",
-          "day": "2026-08-21",
-          "text": "\u2026\"longitude\": 155.8633}, \"magnitude\": 5.4, \"occurredAt\": 1787162837251, \"place\": \"134 km S of Severo-Kuril\u2019sk, Russia\", \"source\": \"usgs\", \"sourceUrl\": \"https://earthquake.usgs.gov/earthquakes/eventpage/us6000tlyv\"}, {\"depthKm\":\u2026"
+          "day": "2026-08-22",
+          "text": "\u2026192, \"longitude\": 146.7826}, \"magnitude\": 4.5, \"occurredAt\": 1787308737051, \"place\": \"237 km NNW of Kuril\u2019sk, Russia\", \"source\": \"usgs\", \"sourceUrl\": \"https://earthquake.usgs.gov/earthquakes/eventpage/us6000tmf2\"}, {\"depthKm\":\u2026"
         },
         {
           "theme": "public-health",
           "source": "disease-outbreaks",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026easles\", \"id\": \"thinkglobalhealth-1zgeph-1785369600000\", \"lat\": 61.94614029, \"lng\": 93.57769012, \"location\": \"Russia\", \"publishedAt\": 1785369600000, \"sourceName\": \"ThinkGlobalHealth\", \"sourceUrl\": \"https://altapress.ru/story/d\u2026"
         }
       ]
@@ -1384,14 +1378,8 @@
         {
           "theme": "conflict-watch",
           "source": "conflict-events-ucdp",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026ry; Ukrainian President Volodymyr Zelenskiy\", \"violenceType\": \"UCDP_VIOLENCE_TYPE_STATE_BASED\"}, {\"country\": \"Turkey\", \"dateEnd\": 1785110400000, \"dateStart\": 1784937600000, \"deathsBest\": 3, \"deathsHigh\": 3, \"deathsLow\": 3, \"id\u2026"
-        },
-        {
-          "theme": "environmental-hazards",
-          "source": "wildfire-detections",
-          "day": "2026-08-21",
-          "text": "\u2026\": \"active\", \"location\": {\"latitude\": 37.1623, \"longitude\": 40.33404}, \"possibleExplosion\": false, \"region\": \"Turkey\", \"satellite\": \"N\", \"source\": \"firms\"}, {\"brightness\": 347.83, \"confidence\": \"FIRE_CONFIDENCE_NOMINAL\", \"dayN\u2026"
         }
       ]
     },
@@ -1410,13 +1398,13 @@
         {
           "theme": "climate-signals",
           "source": "climate-anomalies",
-          "day": "2026-08-21",
-          "text": "\u2026ipDelta\": 0.3, \"severity\": \"ANOMALY_SEVERITY_NORMAL\", \"tempDelta\": 0.4, \"type\": \"ANOMALY_TYPE_WARM\", \"zone\": \"Taiwan Strait\"}, {\"location\": {\"latitude\": 19.8, \"longitude\": 96.7}, \"period\": \"2026-08-15 to 2026-08-21\", \"precipDe\u2026"
+          "day": "2026-08-22",
+          "text": "\u2026pDelta\": 6.1, \"severity\": \"ANOMALY_SEVERITY_MODERATE\", \"tempDelta\": 0.3, \"type\": \"ANOMALY_TYPE_WET\", \"zone\": \"Taiwan Strait\"}, {\"location\": {\"latitude\": 19.8, \"longitude\": 96.7}, \"period\": \"2026-08-16 to 2026-08-22\", \"precipDe\u2026"
         },
         {
           "theme": "geophysical",
           "source": "earthquakes",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u202624.4732, \"longitude\": 122.2931}, \"magnitude\": 4.9, \"occurredAt\": 1786793415368, \"place\": \"63 km ESE of Yilan, Taiwan\", \"source\": \"usgs\", \"sourceUrl\": \"https://earthquake.usgs.gov/earthquakes/eventpage/us6000tl0a\"}, {\"depthKm\":\u2026"
         }
       ]
@@ -1437,25 +1425,25 @@
         {
           "theme": "conflict-watch",
           "source": "conflict-events-ucdp",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026i)\", \"sideB\": \"JNIM\", \"sourceOriginal\": \"JNIM\", \"violenceType\": \"UCDP_VIOLENCE_TYPE_NON_STATE\"}, {\"country\": \"Brazil\", \"dateEnd\": 1785456000000, \"dateStart\": 1785456000000, \"deathsBest\": 1, \"deathsHigh\": 1, \"deathsLow\": 1, \"id\u2026"
         },
         {
           "theme": "energy-supply",
           "source": "fuel-prices",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026e\": 6.3055, \"observedAt\": \"2026-08-14\", \"source\": \"gov.br/anp\", \"usdPrice\": 1.2119, \"wowPct\": -5.4}, \"name\": \"Brazil\"}, {\"code\": \"GB\", \"currency\": \"GBP\", \"diesel\": {\"grade\": \"B7\", \"localPrice\": 1.8197, \"observedAt\": \"2026-08-1\u2026"
         },
         {
           "theme": "humanitarian",
           "source": "displacement-flows",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026\"code\": \"BRA\", \"hostAsylumSeekers\": 119651, \"hostRefugees\": 278966, \"hostTotal\": 398617, \"idps\": 0, \"name\": \"Brazil\", \"refugees\": 6306, \"stateless\": 0, \"totalDisplaced\": 72978}, {\"asylumSeekers\": 158, \"code\": \"CZE\", \"hostAsyl\u2026"
         },
         {
           "theme": "public-health",
           "source": "disease-outbreaks",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u20266/08/03/sobe-para-16-o-numero-de-casos-de-sarampo-em-sp-maioria-foi-registrada-na-capital.ghtml\", \"summary\": \"Brazil has reported 16 measles cases in 2026, with 13 in S\u00e3o Paulo. \"}, {\"alertLevel\": \"watch\", \"cases\": 15, \"countr\u2026"
         }
       ]
@@ -1474,13 +1462,13 @@
         {
           "theme": "energy-supply",
           "source": "fuel-prices",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026, \"observedAt\": \"2026-08-10\", \"source\": \"energy.ec.europa.eu\", \"usdPrice\": 1.5135, \"wowPct\": -9.75}, \"name\": \"Sweden\"}, {\"code\": \"BR\", \"currency\": \"BRL\", \"diesel\": {\"grade\": \"Diesel\", \"localPrice\": 6.268, \"observedAt\": \"2026-0\u2026"
         },
         {
           "theme": "humanitarian",
           "source": "displacement-flows",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u20265, \"code\": \"SWE\", \"hostAsylumSeekers\": 4661, \"hostRefugees\": 144116, \"hostTotal\": 148777, \"idps\": 0, \"name\": \"Sweden\", \"refugees\": 128, \"stateless\": 0, \"totalDisplaced\": 323}, {\"asylumSeekers\": 91, \"code\": \"SVK\", \"hostAsylumSe\u2026"
         }
       ]
@@ -1498,7 +1486,7 @@
         {
           "theme": "energy-supply",
           "source": "fuel-prices",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026nsform; never edit by hand. | field | value | | --- | --- | | countries | [{\"code\": \"MY\", \"currency\": \"MYR\", \"diesel\": {\"grade\": \"Euro5\", \"localPrice\": 4.47, \"observedAt\": \"2026-08-13\", \"source\": \"data.gov.my\", \"usdPrice\": 1.1\u2026"
         }
       ]
@@ -1528,19 +1516,19 @@
         {
           "theme": "energy-supply",
           "source": "fuel-prices",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u20266, \"observedAt\": \"2026-08-10\", \"source\": \"energy.ec.europa.eu\", \"usdPrice\": 2.3064, \"wowPct\": 0.27}, \"name\": \"Italy\"}, {\"code\": \"LV\", \"currency\": \"EUR\", \"diesel\": {\"grade\": \"Diesel\", \"localPrice\": 1.898, \"observedAt\": \"2026-0\u2026"
         },
         {
           "theme": "humanitarian",
           "source": "displacement-flows",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026\"code\": \"ITA\", \"hostAsylumSeekers\": 234144, \"hostRefugees\": 192914, \"hostTotal\": 427058, \"idps\": 0, \"name\": \"Italy\", \"refugees\": 266, \"stateless\": 0, \"totalDisplaced\": 841}, {\"asylumSeekers\": 66672, \"code\": \"BRA\", \"hostAsylu\u2026"
         },
         {
           "theme": "public-health",
           "source": "disease-outbreaks",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026ountryCode\": \"IT\", \"disease\": \"Influenza\", \"id\": \"who-2m4597-1775829104000\", \"lat\": 0, \"lng\": 0, \"location\": \"Italy\", \"publishedAt\": 1775829104000, \"sourceName\": \"WHO\", \"sourceUrl\": \"https://www.who.int/2026-DON597\", \"summary\u2026"
         }
       ]
@@ -1561,25 +1549,25 @@
         {
           "theme": "energy-supply",
           "source": "fuel-prices",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u202629, \"observedAt\": \"2026-08-10\", \"source\": \"energy.ec.europa.eu\", \"usdPrice\": 1.9711, \"wowPct\": 1.2}, \"name\": \"Spain\"}, {\"code\": \"SE\", \"currency\": \"EUR\", \"diesel\": {\"grade\": \"Diesel\", \"localPrice\": 1.6802, \"observedAt\": \"2026-\u2026"
         },
         {
           "theme": "geophysical",
           "source": "earthquakes",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u20267.1061, \"longitude\": -3.6598}, \"magnitude\": 4.7, \"occurredAt\": 1787049583915, \"place\": \"1 km WSW of Alhend\u00edn, Spain\", \"source\": \"usgs\", \"sourceUrl\": \"https://earthquake.usgs.gov/earthquakes/eventpage/us6000tlmq\"}, {\"depthKm\":\u2026"
         },
         {
           "theme": "humanitarian",
           "source": "displacement-flows",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026\"code\": \"ESP\", \"hostAsylumSeekers\": 248715, \"hostRefugees\": 511079, \"hostTotal\": 759794, \"idps\": 0, \"name\": \"Spain\", \"refugees\": 186, \"stateless\": 0, \"totalDisplaced\": 899}, {\"asylumSeekers\": 138420, \"code\": \"GTM\", \"hostAsyl\u2026"
         },
         {
           "theme": "public-health",
           "source": "disease-outbreaks",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026asles\", \"id\": \"thinkglobalhealth-na3ec3-1786320000000\", \"lat\": 40.22682953, \"lng\": -3.649569988, \"location\": \"Spain\", \"publishedAt\": 1786320000000, \"sourceName\": \"ThinkGlobalHealth\", \"sourceUrl\": \"https://www.lavanguardia.com\u2026"
         }
       ]
@@ -1600,31 +1588,31 @@
         {
           "theme": "environmental-hazards",
           "source": "radiation-observations",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026ributingSources\": [\"RADIATION_SOURCE_SAFECAST\"], \"convertedFromCpm\": true, \"corroborated\": false, \"country\": \"Japan\", \"delta\": 5.7, \"freshness\": \"RADIATION_FRESHNESS_HISTORICAL\", \"id\": \"safecast:jp-fukushima:276622389\", \"loca\u2026"
         },
         {
           "theme": "geophysical",
           "source": "earthquakes",
-          "day": "2026-08-21",
-          "text": "\u2026e\": 26.4848, \"longitude\": 127.7859}, \"magnitude\": 4.7, \"occurredAt\": 1787270480430, \"place\": \"6 km W of Onna, Japan\", \"source\": \"usgs\", \"sourceUrl\": \"https://earthquake.usgs.gov/earthquakes/eventpage/us6000tmc4\"}, {\"depthKm\":\u2026"
+          "day": "2026-08-22",
+          "text": "\u202627, \"longitude\": 126.8077}, \"magnitude\": 4.7, \"occurredAt\": 1787335520972, \"place\": \"195 km SE of Miyakojima, Japan\", \"source\": \"usgs\", \"sourceUrl\": \"https://earthquake.usgs.gov/earthquakes/eventpage/us6000tmm3\"}, {\"depthKm\":\u2026"
         },
         {
           "theme": "humanitarian",
           "source": "displacement-flows",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u202691, \"code\": \"JPN\", \"hostAsylumSeekers\": 22647, \"hostRefugees\": 42450, \"hostTotal\": 65097, \"idps\": 0, \"name\": \"Japan\", \"refugees\": 56, \"stateless\": 0, \"totalDisplaced\": 147}, {\"asylumSeekers\": 16726, \"code\": \"PSE\", \"hostAsylum\u2026"
         },
         {
           "theme": "macro-markets",
           "source": "world-bank-cpi",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026949721 | | India | IND | Inflation, consumer prices (annual %) | FP.CPI.TOTL.ZG | 2025 | 2.39884954182294 | | Japan | JPN | Inflation, consumer prices (annual %) | FP.CPI.TOTL.ZG | 2025 | 3.17253034260248 | | United Kingdom |\u2026"
         },
         {
           "theme": "macro-markets",
           "source": "world-bank-gdp",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026| 2025 | 5050922925047.05 | | India | IND | GDP (current US$) | NY.GDP.MKTP.CD | 2025 | 3956067115771.63 | | Japan | JPN | GDP (current US$) | NY.GDP.MKTP.CD | 2025 | 4435162999976.94 | | United Kingdom | GBR | GDP (current\u2026"
         }
       ]
@@ -1645,25 +1633,25 @@
         {
           "theme": "geophysical",
           "source": "earthquakes",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u20268058, \"longitude\": 95.4454}, \"magnitude\": 5.2, \"occurredAt\": 1787219387975, \"place\": \"270 km SSE of Dunhuang, China\", \"source\": \"usgs\", \"sourceUrl\": \"https://earthquake.usgs.gov/earthquakes/eventpage/us6000tm2y\"}, {\"depthKm\":\u2026"
         },
         {
           "theme": "humanitarian",
           "source": "displacement-flows",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026hostRefugees\": 230, \"hostTotal\": 712, \"idps\": 0, \"location\": {\"latitude\": 35.9, \"longitude\": 104.2}, \"name\": \"China\", \"refugees\": 153962, \"stateless\": 0, \"totalDisplaced\": 253678}, {\"asylumSeekers\": 108289, \"code\": \"SLV\", \"ho\u2026"
         },
         {
           "theme": "macro-markets",
           "source": "world-bank-cpi",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026hand. | country | iso3 | indicator | indicator_code | date | value | | --- | --- | --- | --- | --- | --- | | China | CHN | Inflation, consumer prices (annual %) | FP.CPI.TOTL.ZG | 2025 | 0.0595646916565403 | | France | FRA |\u2026"
         },
         {
           "theme": "macro-markets",
           "source": "world-bank-gdp",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026hand. | country | iso3 | indicator | indicator_code | date | value | | --- | --- | --- | --- | --- | --- | | China | CHN | GDP (current US$) | NY.GDP.MKTP.CD | 2025 | 19498039388042.6 | | France | FRA | GDP (current US$) | N\u2026"
         }
       ]
@@ -1682,13 +1670,13 @@
         {
           "theme": "geophysical",
           "source": "earthquakes",
-          "day": "2026-08-21",
-          "text": "\u2026187, \"longitude\": -70.4642}, \"magnitude\": 4.7, \"occurredAt\": 1787201571796, \"place\": \"85 km S of Antofagasta, Chile\", \"source\": \"usgs\", \"sourceUrl\": \"https://earthquake.usgs.gov/earthquakes/eventpage/us6000tm25\"}, {\"depthKm\":\u2026"
+          "day": "2026-08-22",
+          "text": "\u2026ongitude\": -68.8817}, \"magnitude\": 4.7, \"occurredAt\": 1787351163081, \"place\": \"147 km NE of Diego de Almagro, Chile\", \"source\": \"usgs\", \"sourceUrl\": \"https://earthquake.usgs.gov/earthquakes/eventpage/us6000tmnz\"}, {\"depthKm\":\u2026"
         },
         {
           "theme": "humanitarian",
           "source": "displacement-flows",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u20263057, \"code\": \"CHL\", \"hostAsylumSeekers\": 9561, \"hostRefugees\": 2631, \"hostTotal\": 12192, \"idps\": 0, \"name\": \"Chile\", \"refugees\": 5358, \"stateless\": 0, \"totalDisplaced\": 28415}, {\"asylumSeekers\": 704, \"code\": \"TTO\", \"hostAsyl\u2026"
         }
       ]
@@ -1710,32 +1698,32 @@
         {
           "theme": "conflict-watch",
           "source": "conflict-events-ucdp",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026\"Civilians\", \"sourceOriginal\": \"Eyewitnesses\", \"violenceType\": \"UCDP_VIOLENCE_TYPE_ONE_SIDED\"}, {\"country\": \"India\", \"dateEnd\": 1785456000000, \"dateStart\": 1785456000000, \"deathsBest\": 2, \"deathsHigh\": 2, \"deathsLow\": 2, \"id\u2026"
         },
         {
           "theme": "humanitarian",
           "source": "displacement-flows",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026tRefugees\": 238643, \"hostTotal\": 253718, \"idps\": 0, \"location\": {\"latitude\": 20.6, \"longitude\": 79}, \"name\": \"India\", \"refugees\": 42610, \"stateless\": 0, \"totalDisplaced\": 223731}, {\"asylumSeekers\": 99716, \"code\": \"CHN\", \"host\u2026"
         },
         {
           "theme": "macro-markets",
           "source": "world-bank-cpi",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u20269976 | | Germany | DEU | Inflation, consumer prices (annual %) | FP.CPI.TOTL.ZG | 2025 | 2.17178770949721 | | India | IND | Inflation, consumer prices (annual %) | FP.CPI.TOTL.ZG | 2025 | 2.39884954182294 | | Japan | JPN | In\u2026"
         },
         {
           "theme": "macro-markets",
           "source": "world-bank-gdp",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u20262025 | 3366315927447.33 | | Germany | DEU | GDP (current US$) | NY.GDP.MKTP.CD | 2025 | 5050922925047.05 | | India | IND | GDP (current US$) | NY.GDP.MKTP.CD | 2025 | 3956067115771.63 | | Japan | JPN | GDP (current US$) | NY\u2026"
         },
         {
           "theme": "public-health",
           "source": "disease-outbreaks",
-          "day": "2026-08-21",
-          "text": "\u2026ublishedAt\": 1779494400000, \"sourceName\": \"ThinkGlobalHealth\", \"sourceUrl\": \"https://newsable.asianetnews.com/india/hepatitis-a-cases-rising-among-children-in-shimla-11-hospitalized-articleshow-yi9as1m\", \"summary\": \"A hospita\u2026"
+          "day": "2026-08-22",
+          "text": "\u2026, \"countryCode\": \"IN\", \"disease\": \"Nipah\", \"id\": \"who-2m44q7-1782410400000\", \"lat\": 0, \"lng\": 0, \"location\": \"India\", \"publishedAt\": 1782410400000, \"sourceName\": \"WHO\", \"sourceUrl\": \"https://www.who.int/2026-DON609\", \"summary\u2026"
         }
       ]
     },
@@ -1753,13 +1741,13 @@
         {
           "theme": "geophysical",
           "source": "earthquakes",
-          "day": "2026-08-21",
-          "text": "\u20265.9165, \"longitude\": -172.7309}, \"magnitude\": 4.7, \"occurredAt\": 1787130439758, \"place\": \"114 km E of Hihifo, Tonga\", \"source\": \"usgs\", \"sourceUrl\": \"https://earthquake.usgs.gov/earthquakes/eventpage/us6000tluh\"}, {\"depthKm\":\u2026"
+          "day": "2026-08-22",
+          "text": "\u202619.6881, \"longitude\": -175.596}, \"magnitude\": 4.6, \"occurredAt\": 1787330736096, \"place\": \"130 km W of Pangai, Tonga\", \"source\": \"usgs\", \"sourceUrl\": \"https://earthquake.usgs.gov/earthquakes/eventpage/us6000tmlh\"}, {\"depthKm\":\u2026"
         },
         {
           "theme": "humanitarian",
           "source": "displacement-flows",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026Seekers\": 1324, \"code\": \"TON\", \"hostAsylumSeekers\": 0, \"hostRefugees\": 0, \"hostTotal\": 0, \"idps\": 0, \"name\": \"Tonga\", \"refugees\": 65, \"stateless\": 0, \"totalDisplaced\": 1389}, {\"asylumSeekers\": 402, \"code\": \"GAB\", \"hostAsylumS\u2026"
         }
       ]
@@ -1777,7 +1765,7 @@
         {
           "theme": "energy-supply",
           "source": "energy-prices",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026TI Crude Oil\", \"price\": \"84.05\", \"priceAt\": 1786665600000, \"unit\": \"$/barrel\"}, {\"change\": 5.3, \"commodity\": \"brent\", \"name\": \"Brent Crude Oil\", \"price\": \"92.51\", \"priceAt\": 1786665600000, \"unit\": \"$/barrel\"}] |"
         }
       ]
@@ -1795,13 +1783,13 @@
         {
           "theme": "energy-supply",
           "source": "crude-oil-inventories",
-          "day": "2026-08-21",
-          "text": "--- type: \"L1-source\" source: \"U.S. EIA (Energy Information Administration)\" source_key: \"crude-oil-inventories\" endpoint: \"/api/economic/v1/get-crude-inventories\" retrieved: \"2026-08-21T07:03:47Z\" license\u2026"
+          "day": "2026-08-22",
+          "text": "--- type: \"L1-source\" source: \"U.S. EIA (Energy Information Administration)\" source_key: \"crude-oil-inventories\" endpoint: \"/api/economic/v1/get-crude-inventories\" retrieved: \"2026-08-22T06:56:07Z\" license\u2026"
         },
         {
           "theme": "energy-supply",
           "source": "energy-prices",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026er edit by hand. | field | value | | --- | --- | | prices | [{\"change\": 6.5, \"commodity\": \"wti\", \"name\": \"WTI Crude Oil\", \"price\": \"84.05\", \"priceAt\": 1786665600000, \"unit\": \"$/barrel\"}, {\"change\": 5.3, \"commodity\": \"brent\",\u2026"
         }
       ]
@@ -1822,25 +1810,25 @@
         {
           "theme": "conflict-watch",
           "source": "conflict-events-ucdp",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026deB\": \"XXX100\", \"sourceOriginal\": \"El Heraldo\", \"violenceType\": \"UCDP_VIOLENCE_TYPE_NON_STATE\"}, {\"country\": \"Iran\", \"dateEnd\": 1785456000000, \"dateStart\": 1785456000000, \"deathsBest\": 3, \"deathsHigh\": 3, \"deathsLow\": 3, \"id\u2026"
         },
         {
           "theme": "environmental-hazards",
           "source": "wildfire-detections",
-          "day": "2026-08-21",
-          "text": "\u2026: \"active\", \"location\": {\"latitude\": 35.62941, \"longitude\": 44.00644}, \"possibleExplosion\": false, \"region\": \"Iran\", \"satellite\": \"N\", \"source\": \"firms\"}, {\"brightness\": 354.1, \"confidence\": \"FIRE_CONFIDENCE_NOMINAL\", \"dayNi\u2026"
+          "day": "2026-08-22",
+          "text": "\u2026: \"active\", \"location\": {\"latitude\": 35.63026, \"longitude\": 44.00726}, \"possibleExplosion\": false, \"region\": \"Iran\", \"satellite\": \"N20\", \"source\": \"firms\"}, {\"brightness\": 354.37, \"confidence\": \"FIRE_CONFIDENCE_NOMINAL\", \"da\u2026"
         },
         {
           "theme": "humanitarian",
           "source": "displacement-flows",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026efugees\": 770514, \"hostTotal\": 770514, \"idps\": 0, \"location\": {\"latitude\": 32.4, \"longitude\": 53.7}, \"name\": \"Iran (Islamic Rep. of)\", \"refugees\": 157912, \"stateless\": 0, \"totalDisplaced\": 207175}, {\"asylumSeekers\": 713, \"co\u2026"
         },
         {
           "theme": "prediction-markets",
           "source": "prediction-markets",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026ld | value | | --- | --- | | markets | [{\"category\": \"\", \"closesAt\": 1798675200000, \"id\": \"will-the-us-invade-iran-before-2027\", \"source\": \"MARKET_SOURCE_POLYMARKET\", \"title\": \"Will the U.S. invade Iran before 2027?\", \"url\":\u2026"
         }
       ]
@@ -1859,13 +1847,13 @@
         {
           "theme": "geophysical",
           "source": "earthquakes",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u20267.7971, \"longitude\": -178.6517}, \"magnitude\": 4.8, \"occurredAt\": 1787228856440, \"place\": \"217 km E of Levuka, Fiji\", \"source\": \"usgs\", \"sourceUrl\": \"https://earthquake.usgs.gov/earthquakes/eventpage/us6000tm3t\"}, {\"depthKm\":\u2026"
         },
         {
           "theme": "humanitarian",
           "source": "displacement-flows",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026kers\": 2058, \"code\": \"FJI\", \"hostAsylumSeekers\": 31, \"hostRefugees\": 15, \"hostTotal\": 46, \"idps\": 0, \"name\": \"Fiji\", \"refugees\": 343, \"stateless\": 0, \"totalDisplaced\": 2401}, {\"asylumSeekers\": 760, \"code\": \"BHS\", \"hostAsylum\u2026"
         }
       ]
@@ -1887,25 +1875,25 @@
         {
           "theme": "conflict-watch",
           "source": "conflict-events-ucdp",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026)\", \"sideB\": \"ULA\", \"sourceOriginal\": \"AAPP\", \"violenceType\": \"UCDP_VIOLENCE_TYPE_STATE_BASED\"}, {\"country\": \"Peru\", \"dateEnd\": 1784851200000, \"dateStart\": 1784851200000, \"deathsBest\": 3, \"deathsHigh\": 3, \"deathsLow\": 3, \"id\u2026"
         },
         {
           "theme": "geophysical",
           "source": "earthquakes",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026-14.6414, \"longitude\": -73.5236}, \"magnitude\": 6.7, \"occurredAt\": 1787248818626, \"place\": \"31 km NW of Aniso, Peru\", \"source\": \"usgs\", \"sourceUrl\": \"https://earthquake.usgs.gov/earthquakes/eventpage/us6000tm81\"}, {\"depthKm\":\u2026"
         },
         {
           "theme": "humanitarian",
           "source": "displacement-flows",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u20260, \"code\": \"PER\", \"hostAsylumSeekers\": 556770, \"hostRefugees\": 6788, \"hostTotal\": 563558, \"idps\": 0, \"name\": \"Peru\", \"refugees\": 7885, \"stateless\": 0, \"totalDisplaced\": 121785}, {\"asylumSeekers\": 8798, \"code\": \"LBN\", \"hostAs\u2026"
         },
         {
           "theme": "public-health",
           "source": "disease-outbreaks",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026acna\", \"publishedAt\": 1785974400000, \"sourceName\": \"ThinkGlobalHealth\", \"sourceUrl\": \"https://www.infobae.com/peru/2026/08/05/tras-20-anos-sin-contagios-tacna-tiene-nueve-casos-de-sarampion-y-miles-de-ninos-sin-vacunas-aun-h\u2026"
         }
       ]
@@ -1923,7 +1911,7 @@
         {
           "theme": "energy-supply",
           "source": "energy-prices",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026atim transform; never edit by hand. | field | value | | --- | --- | | prices | [{\"change\": 6.5, \"commodity\": \"wti\", \"name\": \"WTI Crude Oil\", \"price\": \"84.05\", \"priceAt\": 1786665600000, \"unit\": \"$/barrel\"}, {\"change\": 5.3, \"\u2026"
         }
       ]
@@ -1941,7 +1929,7 @@
         {
           "theme": "public-health",
           "source": "disease-outbreaks",
-          "day": "2026-08-21",
+          "day": "2026-08-22",
           "text": "\u2026ountryCode\": \"BD\", \"disease\": \"Measles\", \"id\": \"thinkglobalhealth-12f2cl-1786838400000\", \"lat\": 23.84322929, \"lng\": 90.26850128, \"location\": \"Bangladesh\", \"publishedAt\": 1786838400000, \"sourceName\": \"ThinkGlobalHealth\", \"so\u2026"
         }
       ]
@@ -1957,18 +1945,6 @@
       ]
     },
     {
-      "id": "event:us6000tkt2",
-      "label": "M7.7 \u00b7 Ende, Indonesia",
-      "kind": "entity",
-      "entity_kind": "event",
-      "theme": "geophysical",
-      "themes": [
-        "geophysical"
-      ],
-      "magnitude": 7.7,
-      "url": "sources/2026-08-21/earthquakes.html"
-    },
-    {
       "id": "event:us6000tkyk",
       "label": "M6.9 \u00b7 Pematangsiantar, Indonesia",
       "kind": "entity",
@@ -1978,7 +1954,7 @@
         "geophysical"
       ],
       "magnitude": 6.9,
-      "url": "sources/2026-08-21/earthquakes.html"
+      "url": "sources/2026-08-22/earthquakes.html"
     },
     {
       "id": "event:us6000tm81",
@@ -1990,7 +1966,7 @@
         "geophysical"
       ],
       "magnitude": 6.7,
-      "url": "sources/2026-08-21/earthquakes.html"
+      "url": "sources/2026-08-22/earthquakes.html"
     },
     {
       "id": "event:us6000tl4w",
@@ -2002,31 +1978,43 @@
         "geophysical"
       ],
       "magnitude": 6.1,
-      "url": "sources/2026-08-21/earthquakes.html"
+      "url": "sources/2026-08-22/earthquakes.html"
     },
     {
-      "id": "event:us6000tkuc",
-      "label": "M6.1 \u00b7 Ende, Indonesia",
+      "id": "event:us6000tm0u",
+      "label": "M5.8 \u00b7 Ruteng, Indonesia",
       "kind": "entity",
       "entity_kind": "event",
       "theme": "geophysical",
       "themes": [
         "geophysical"
       ],
-      "magnitude": 6.1,
-      "url": "sources/2026-08-21/earthquakes.html"
+      "magnitude": 5.8,
+      "url": "sources/2026-08-22/earthquakes.html"
     },
     {
-      "id": "event:us6000tkta",
-      "label": "M5.9 \u00b7 Labuan Bajo, Indonesia",
+      "id": "event:usd0015edq",
+      "label": "M5.8 \u00b7 Petropavlovsk-Kamchatsky, Russia",
       "kind": "entity",
       "entity_kind": "event",
       "theme": "geophysical",
       "themes": [
         "geophysical"
       ],
-      "magnitude": 5.9,
-      "url": "sources/2026-08-21/earthquakes.html"
+      "magnitude": 5.8,
+      "url": "sources/2026-08-22/earthquakes.html"
+    },
+    {
+      "id": "event:us6000tmlu",
+      "label": "M5.7 \u00b7 Labuan, Indonesia",
+      "kind": "entity",
+      "entity_kind": "event",
+      "theme": "geophysical",
+      "themes": [
+        "geophysical"
+      ],
+      "magnitude": 5.7,
+      "url": "sources/2026-08-22/earthquakes.html"
     }
   ],
   "edges": [
@@ -3031,13 +3019,7 @@
       "target": "brief:environmental-hazards-weekly",
       "cross_theme": true,
       "rel": "mentioned-in",
-      "weight": 2
-    },
-    {
-      "source": "entity:ukraine",
-      "target": "source:thermal-escalations",
-      "cross_theme": false,
-      "rel": "named-in"
+      "weight": 1
     },
     {
       "source": "entity:ukraine",
@@ -3577,13 +3559,7 @@
       "target": "brief:environmental-hazards-weekly",
       "cross_theme": true,
       "rel": "mentioned-in",
-      "weight": 1
-    },
-    {
-      "source": "entity:turkey",
-      "target": "source:wildfire-detections",
-      "cross_theme": false,
-      "rel": "named-in"
+      "weight": 0
     },
     {
       "source": "entity:turkey",
@@ -4262,18 +4238,6 @@
       "weight": 0
     },
     {
-      "source": "event:us6000tkt2",
-      "target": "brief:geophysical-weekly",
-      "cross_theme": false,
-      "rel": "reported-in"
-    },
-    {
-      "source": "event:us6000tkt2",
-      "target": "entity:indonesia",
-      "cross_theme": false,
-      "rel": "located-in"
-    },
-    {
       "source": "event:us6000tkyk",
       "target": "brief:geophysical-weekly",
       "cross_theme": false,
@@ -4310,25 +4274,37 @@
       "rel": "located-in"
     },
     {
-      "source": "event:us6000tkuc",
+      "source": "event:us6000tm0u",
       "target": "brief:geophysical-weekly",
       "cross_theme": false,
       "rel": "reported-in"
     },
     {
-      "source": "event:us6000tkuc",
+      "source": "event:us6000tm0u",
       "target": "entity:indonesia",
       "cross_theme": false,
       "rel": "located-in"
     },
     {
-      "source": "event:us6000tkta",
+      "source": "event:usd0015edq",
       "target": "brief:geophysical-weekly",
       "cross_theme": false,
       "rel": "reported-in"
     },
     {
-      "source": "event:us6000tkta",
+      "source": "event:usd0015edq",
+      "target": "entity:russia",
+      "cross_theme": false,
+      "rel": "located-in"
+    },
+    {
+      "source": "event:us6000tmlu",
+      "target": "brief:geophysical-weekly",
+      "cross_theme": false,
+      "rel": "reported-in"
+    },
+    {
+      "source": "event:us6000tmlu",
       "target": "entity:indonesia",
       "cross_theme": false,
       "rel": "located-in"
