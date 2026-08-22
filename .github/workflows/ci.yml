@@ -105,6 +105,18 @@ jobs:
       - name: OKF reserved files in sync
         run: python scripts/build_okf_reserved.py --check
 
+      # The concept-level roll-up: the vault/ bundle is OKF-conformant AND the explorable RDF
+      # surface (site/linked-data.html + .json) is committed, in sync, discoverable, and carries
+      # the concept model (3 OKF classes / 10 typed properties / walkable rests-on edges /
+      # cross-brief bridges). This is the fleet-owned Azimuth precondition of Career's publish
+      # double-gate ("azimuth at the same concept level as Emi v3"); gating on it here means the
+      # precondition can never silently drop below concept level on main -- the exact durability
+      # the KR1 stop_when asks for. Its C1/C3 clauses re-assert the OKF / in-sync gates above;
+      # C2/C4/C5/C6 (explorer committed, concept-level shape, nav discoverable, RDF substrate)
+      # are enforced here and nowhere else.
+      - name: Explorable-RDF concept level (Career publish precondition)
+        run: python scripts/check_explorable.py
+
       # The good-first-issues catalog is generated from the ISSUES list in the seeder;
       # this fails if .github/GOOD_FIRST_ISSUES.md drifts from what flip-time seeding
       # would create, so the contributor on-ramp can never rot.

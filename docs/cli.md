@@ -437,7 +437,7 @@ half nor touches the Career track's state.
 python scripts/check_explorable.py            # human report, exit 0 iff at concept level
 python scripts/check_explorable.py --json      # machine-readable verdict
 ```
-**Layer:** Gate (done-test / decision surface).
+**Layer:** Gate (CI — the *Explorable-RDF concept level* step in `ci.yml` — + local done-test / decision surface), so the precondition can never silently drop below concept level on `main`.
 
 ### `build_okf_reserved.py` — reserved OKF bundle files
 Generates the two filenames OKF v0.1 reserves — `index.md` (a machine-readable directory
