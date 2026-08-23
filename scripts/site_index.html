@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Azimuth — The Open Brief</title>
+<style>
+  body{font-family:-apple-system,"Segoe UI",Roboto,sans-serif;background:#0e1116;color:#e8eaee;
+       margin:0;padding:32px 20px;display:flex;flex-direction:column;align-items:center;min-height:100vh;box-sizing:border-box}
+  h1{margin:0 0 4px;font-size:28px}
+  p.sub{color:#8b93a2;margin:0 0 28px;font-size:15px;text-align:center}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;width:100%;max-width:860px}
+  a.card{display:block;background:#161b23;border:1px solid #232a35;border-radius:10px;padding:16px 18px;
+         text-decoration:none;color:#e8eaee;transition:border-color .15s}
+  a.card:hover{border-color:#4a9eff}
+  .card b{font-size:16px}
+  .card span{display:block;color:#8b93a2;font-size:13px;margin-top:4px}
+  footer{margin-top:auto;padding-top:28px;color:#5b6270;font-size:12px}
+</style>
+</head>
+<body>
+<h1>Azimuth</h1>
+<p class="sub">The Open Brief — a small, trustworthy, continuously self-updating brief on open data.</p>
+<div class="grid">
+  <a class="card" href="graph.html"><b>Knowledge Graph</b><span>Explore entities, themes and their connections</span></a>
+  <a class="card" href="linked-data.html"><b>Linked-Data Explorer</b><span>Concept surface over the published bundle</span></a>
+  <a class="card" href="briefs/world-watch-weekly.html"><b>World Watch</b><span>Weekly brief</span></a>
+  <a class="card" href="briefs/public-health-weekly.html"><b>Public Health</b><span>Weekly brief</span></a>
+  <a class="card" href="briefs/prediction-markets-weekly.html"><b>Prediction Markets</b><span>Weekly brief</span></a>
+  <a class="card" href="autonomy.html"><b>Autonomy</b><span>How this site maintains itself</span></a>
+</div>
+<footer>Built and maintained autonomously · emi-factory.dev</footer>
+</body>
+</html>

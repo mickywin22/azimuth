@@ -17,6 +17,7 @@ from __future__ import annotations
 import argparse
 import functools
 import http.server
+import shutil
 import socketserver
 import sys
 from pathlib import Path
@@ -38,7 +39,14 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--port", type=int, default=8099, help="serve port (default: 8099)")
     args = parser.parse_args(argv)
 
-    out_dir = (_REPO_ROOT / args.out).resolve()
+    final_dir = (_REPO_ROOT / args.out).resolve()
+    # Build into a sibling temp dir and swap in only on FULL success (2026-08-23): build_site()
+    # clears its output dir first, so a build that dies mid-run used to leave the LIVE site gutted
+    # to a bare directory listing (the :8791 server kept serving the emptied folder for hours).
+    # With the temp+swap, a dead build changes nothing -- the site serves yesterday, never nothing.
+    out_dir = final_dir.with_name(final_dir.name + ".tmp")
+    if out_dir.exists():
+        shutil.rmtree(out_dir, ignore_errors=True)
     model = build_site(out_dir)
     n_pages = len(model.briefs) + len(model.sources) + len(model.rules) + 1
     print(
@@ -72,6 +80,36 @@ def main(argv: list[str] | None = None) -> int:
         f"Built linked-data explorer: {ld['counts']['concepts_shown']} concepts, "
         f"{ld['counts']['restsOn_edges']} rests-on edges, {ld['counts']['bridges']} bridges."
     )
+
+    # The static landing page is authored, not generated -- carry it into every build so the
+    # site root never serves a directory listing again (scripts/site_index.html is the source).
+    landing = _REPO_ROOT / "scripts" / "site_index.html"
+    if landing.exists():
+        shutil.copy2(landing, out_dir / "index.html")
+        print("Copied landing page: index.html.")
+
+    # Atomic-ish swap: rename final -> .old, tmp -> final. The :8791 http.server holds the
+    # directory as a path string (not a handle), so the swap is transparent to it. If Windows
+    # refuses the rename (a pinned handle), fall back to copy-into-place -- still strictly
+    # after a fully successful build, so the failure mode is "stale files linger", never "gutted".
+    old_dir = final_dir.with_name(final_dir.name + ".old")
+    if old_dir.exists():
+        shutil.rmtree(old_dir, ignore_errors=True)
+    try:
+        if final_dir.exists():
+            final_dir.rename(old_dir)
+        out_dir.rename(final_dir)
+        shutil.rmtree(old_dir, ignore_errors=True)
+    except OSError:
+        for item in out_dir.iterdir():
+            dest = final_dir / item.name
+            if item.is_dir():
+                shutil.copytree(item, dest, dirs_exist_ok=True)
+            else:
+                shutil.copy2(item, dest)
+        shutil.rmtree(out_dir, ignore_errors=True)
+    out_dir = final_dir
+    print(f"Site swapped live at {final_dir}.")
 
     if args.serve:
         handler = functools.partial(http.server.SimpleHTTPRequestHandler, directory=str(out_dir))
