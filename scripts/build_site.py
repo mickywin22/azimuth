@@ -17,10 +17,42 @@ from __future__ import annotations
 import argparse
 import functools
 import http.server
+import os
 import shutil
 import socketserver
 import sys
+import threading
 from pathlib import Path
+
+# Default wall-clock ceiling for a full build (seconds). A healthy build is ~seconds;
+# anything past this is a hang. 2026-08-23: a build hung for HOURS (pid alive, ~1 CPU-min)
+# and -- before the temp+swap below -- left the live site gutted. This self-watchdog is the
+# belt to the watcher's braces: even a direct/manual `python build_site.py` can never wedge
+# forever. --serve runs are exempt (serve_forever is meant to block).
+_DEFAULT_BUILD_TIMEOUT_S = 600
+
+
+def _arm_watchdog(timeout_s: int) -> None:
+    """Hard-exit the process if the build has not finished within ``timeout_s``.
+
+    Uses os._exit from a daemon Timer so it fires even if the main thread is blocked in
+    an un-interruptible C call (the classic "pid alive, ~0 CPU" hang). Exit code 2 lets the
+    watcher log a killed build and, critically, keeps the temp+swap below from running -- so a
+    timed-out build never touches the live site/ dir.
+    """
+    if timeout_s <= 0:
+        return
+
+    def _kill() -> None:  # pragma: no cover - fires only on a real hang
+        sys.stderr.write(
+            f"build_site.py: BUILD TIMEOUT after {timeout_s}s -- hard-exiting (site/ left untouched)\n"
+        )
+        sys.stderr.flush()
+        os._exit(2)
+
+    t = threading.Timer(timeout_s, _kill)
+    t.daemon = True
+    t.start()
 
 _REPO_ROOT = Path(__file__).resolve().parent.parent
 if str(_REPO_ROOT) not in sys.path:
@@ -37,7 +69,21 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--out", default="site", help="output directory (default: site)")
     parser.add_argument("--serve", action="store_true", help="serve after building")
     parser.add_argument("--port", type=int, default=8099, help="serve port (default: 8099)")
+    parser.add_argument(
+        "--timeout",
+        type=int,
+        default=_DEFAULT_BUILD_TIMEOUT_S,
+        help=(
+            "hard wall-clock ceiling in seconds for the build phase; the process self-kills "
+            f"past it so a hang can't wedge (default: {_DEFAULT_BUILD_TIMEOUT_S}; 0 disables)"
+        ),
+    )
     args = parser.parse_args(argv)
+
+    # Arm the self-watchdog for the BUILD phase only. --serve deliberately blocks forever, so
+    # don't let the timer nuke a healthy long-running preview server.
+    if not args.serve:
+        _arm_watchdog(args.timeout)
 
     final_dir = (_REPO_ROOT / args.out).resolve()
     # Build into a sibling temp dir and swap in only on FULL success (2026-08-23): build_site()
