@@ -2,9 +2,9 @@
   "$note": "Captured snapshot of the COMPARED forecast/intelligence product for the azimuth benchmark (synthesis/benchmark.py). Quoted by product + capture date; NOT surfaced as an azimuth channel and NOT an L1 source. Refresh with pull_benchmark_foils.py.",
   "endpoint": "/api/forecast/v1/get-forecasts",
   "attribution": "WorldMonitor (api.worldmonitor.app) — model-generated forecast/assessment product",
-  "feed_generated_at": 1787850116129,
+  "feed_generated_at": 1787940282220,
   "feed_degraded": false,
-  "captured_at": "2026-08-27T17:35:37Z",
+  "captured_at": "2026-08-28T18:36:32Z",
   "n_forecasts_seen": 14,
   "topics": {
     "energy-supply": {
@@ -23,35 +23,35 @@
           "d7": 0.493,
           "h24": 0.85
         },
-        "scenario_short": "China's 2026 annual GDP growth will likely fall between 4.0% and 5.0%, supported by Polymarket pricing at 88% and headlines indicating China's growing influence in global oil markets (Reuters: 'OPEC+ loses oil market...",
-        "perspective_strategic": "Polymarket at 88% and stable 85% forecast indicate markets price high confidence in China hitting the 4.0-5.0% band, with no strong counter-pressure from current evidence.",
-        "perspective_contrarian": "The 67% confidence level and absence of directly matched Asia-Pacific reporting beyond two headlines leave room for reversal if new data (e.g., weaker Q1 2026 figures) emerges, potentially dropping probability below 75%.",
+        "scenario_short": "China's 2026 GDP growth will likely fall between 4.0% and 5.0%, supported by signals of US-China trade cooperation and energy deals (Polymarket: 89%; CNOOC sees potential for US-China energy cooperation - Reuters).",
+        "perspective_strategic": "The 89% polymarket signal and CNOOC's cooperation statement indicate markets are pricing in a stable growth outcome, with trade détente as the key anchor.",
+        "perspective_contrarian": "The SCMP report of a 'trade truce extension almost certain' could be premature if US domestic political pressure derails the deal, pulling the probability below 85%.",
         "actor_lens": "Commodity traders: Price whether stress in Asia-Pacific becomes durable over the 30d. Rebalance positions if the probability path moves away from 85%.",
-        "top_signal": "polymarket: 88%"
+        "top_signal": "polymarket: 89%"
       },
       "absence_reason": null
     },
     "supply-chain-inflation": {
       "foil": {
-        "id": "fc-market-2b10db4d",
+        "id": "fc-market-8d21b764",
         "domain": "market",
-        "region": "Black Sea",
-        "title": "Sovereign risk repricing from Black Sea maritime disruption state",
-        "probability": 0.67,
-        "prior_probability": 0.67,
+        "region": "Eastern Mediterranean",
+        "title": "Inflation and rates pressure from Eastern Mediterranean maritime disruption state",
+        "probability": 0.564,
+        "prior_probability": 0.588,
         "confidence": 0.75,
         "time_horizon": "30d",
         "trend": "stable",
         "projections": {
-          "d30": 0.281,
-          "d7": 0.389,
-          "h24": 0.67
+          "d30": 0.237,
+          "d7": 0.327,
+          "h24": 0.564
         },
-        "scenario_short": "Black Sea maritime disruption state is keeping sovereign risk elevated through risk off rotation, with 78% pressure and 72% state confirmation. For now, the base case stays near 70% over the 30d. Actors absorb the...",
-        "perspective_strategic": "Black Sea maritime disruption state is keeping sovereign risk elevated through risk off rotation, with 78% pressure and 72% state confirmation is setting the strategic baseline, and the current 67% probability implies a live but not settled risk path.",
-        "perspective_contrarian": "The current 75% confidence level still leaves room for reversal. If that restraint persists, the forecast can move below the current 67% baseline. Actors prioritize containment and the system drifts toward stabilization unless new hard signals emerge.",
-        "actor_lens": "Commodity traders: Price whether stress in Black Sea becomes durable over the 30d. Rebalance positions if the probability path moves away from 67%.",
-        "top_signal": "Black Sea maritime disruption state is keeping sovereign risk elevated through risk off rotation, with 78% pressure and 72% state confirmation"
+        "scenario_short": "Eastern Mediterranean maritime disruption state is feeding inflation and rates pressure through shipping cost shock, with 45% pressure and 68% state confirmation. For now, the base case stays near 59% over the 30d....",
+        "perspective_strategic": "Eastern Mediterranean maritime disruption state is feeding inflation and rates pressure through shipping cost shock, with 45% pressure and 68% state confirmation is setting the strategic baseline, and the current 56% probability implies a live but not settled risk path.",
+        "perspective_contrarian": "The current 75% confidence level still leaves room for reversal. If that restraint persists, the forecast can move below the current 56% baseline. Actors prioritize containment and the system drifts toward stabilization unless new hard signals emerge.",
+        "actor_lens": "Commodity traders: Price whether stress in Eastern Mediterranean becomes durable over the 30d. Rebalance positions if the probability path moves away from 56%.",
+        "top_signal": "Eastern Mediterranean maritime disruption state is feeding inflation and rates pressure through shipping cost shock, with 45% pressure and 68% state confirmation"
       },
       "absence_reason": null
     },
