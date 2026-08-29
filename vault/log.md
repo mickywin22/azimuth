@@ -2,6 +2,9 @@
 
 Chronological update history of the bundle, newest first. Generated from the L1 ingest cadence by `scripts/build_okf_reserved.py`; the L2 briefs carry their own per-brief `## Changelog`.
 
+## 2026-08-29
+- L1 ingest — 24 source note(s): climate-anomalies, co2-monitoring, conflict-events-ucdp, crude-oil-inventories, crypto-quotes, cyber-threats, disease-outbreaks, displacement-flows, earthquakes, energy-prices, fuel-prices, internet-outages, maritime-navwarnings, natural-events, natural-gas-storage-eu, orbital-satellites, prediction-markets, radiation-observations, sea-ice-extent, thermal-escalations, wildfire-detections, world-bank-cpi, world-bank-gdp, world-bank-unemployment
+
 ## 2026-08-28
 - L1 ingest — 24 source note(s): climate-anomalies, co2-monitoring, conflict-events-ucdp, crude-oil-inventories, crypto-quotes, cyber-threats, disease-outbreaks, displacement-flows, earthquakes, energy-prices, fuel-prices, internet-outages, maritime-navwarnings, natural-events, natural-gas-storage-eu, orbital-satellites, prediction-markets, radiation-observations, sea-ice-extent, thermal-escalations, wildfire-detections, world-bank-cpi, world-bank-gdp, world-bank-unemployment
 
