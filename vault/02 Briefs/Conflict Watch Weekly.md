@@ -2,8 +2,8 @@
 title: Conflict Watch Weekly
 type: L2-brief
 theme: conflict-watch
-week: 2026-W34
-updated: 2026-08-20T09:00:00Z
+week: 2026-W36
+updated: 2026-08-31T20:56:00Z
 sources: [conflict-events-ucdp]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -16,79 +16,84 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 > events** — who, where, when, and the source's own fatality estimate — and never assigns
 > blame, takes a side, or predicts escalation: an event record is an observed fact, an opinion
 > about it is not surfaced (the editorial line). Every claim links to the L1 note it rests on.
-> Last pull: **2026-08-20** — the flat cycle held: the 2026-08-18 through 2026-08-20 pulls
-> returned the UCDP published window, event count and fatality totals byte-identical to the
-> 2026-08-17 synthesis, so the 2026-07-30 catalog roll-forward described below stands as the
-> latest move — now 21 days (three weeks) unmoved ([[conflict-events-ucdp]]).
+> Last pull: **2026-08-31** — after an 11-day curator gap (last synthesis 2026-08-20), the
+> published window moved again: UCDP's coverage advanced roughly a month, from
+> **2025-12-22 → 2026-06-30** to **2025-12-22 → 2026-07-31**. Summed best-estimate fatalities
+> edged from 6,006 to **6,022** as the newly-published July events entered
+> ([[conflict-events-ucdp]]).
 
 ## Honest scope — a lagged research dataset, not a live wire
 
 - The channel is the **UCDP** (Uppsala Conflict Data Program) georeferenced event feed — a
   research-grade dataset published with a verification lag, not a breaking-news wire. The
-  2026-08-20 pull still carries **2,000 events** — a rolling catalog capped at the API maximum. The
-  published window last **rolled forward roughly seven months** on 2026-07-30 — from the late-2025
-  slice (2025-11-05 → 2025-12-31) that had held for weeks to **2025-12-22 → 2026-07-08** — and the
-  2026-08-20 pull confirms the catalog still sits there, unmoved 21 days on (three weeks). The brief
+  2026-08-31 pull still carries **2,000 events** — a rolling catalog capped at the API maximum. The
+  published window **rolled forward roughly seven months** on 2026-07-30 — from the late-2025
+  slice (2025-11-05 → 2025-12-31) that had held for weeks to a 2025-12-22-anchored window that,
+  through the flat 2026-08-20 reading, had reached **2025-12-22 → 2026-06-30**. After an 11-day
+  curator gap, the 2026-08-31 pull shows the window advancing again — a smaller, roughly one-month
+  roll to **2025-12-22 → 2026-07-31**, the coverage lag closing in on the present. The brief
   describes the most recent *published* conflict record, and says so ([[conflict-events-ucdp]]).
 
 ## This window at a glance
 
-- **2026-08-20 pull: flat, three weeks unmoved.** Every figure below is confirmed unchanged against
-  the 2026-08-17 synthesis — and, pull by pull, across 2026-08-18 and 2026-08-19 too — event count,
-  violence-type split, country leaderboard and fatality ranking all held; no new event entered the
-  published window across the 2026-08-18 → 2026-08-20 span ([[conflict-events-ucdp]]).
-- The 2,000 recorded events carry a summed best-estimate of **6,006 fatalities** (UCDP's
-  `deathsBest` field — the source's own estimate, reported as published), **down from 15,012** in
-  the prior late-2025 window as the newer, lower-fatality-density 2026 events entered. By violence
-  type: **1,247 state-based** events, **463 non-state** and **290 one-sided**
-  ([[conflict-events-ucdp]]).
-- **Ukraine leads the event count at 451**, the Russia–Ukraine state-based dyad still dominant.
-  **Colombia follows at 197** and **Nigeria at 170**, then **Pakistan (162)** and **Mexico (158)**;
-  **Ethiopia (88)**, **Mali (74)**, **Lebanon (72)**, **Israel (62)** and **Sudan (59)** complete
-  the top ten — a markedly different leaderboard from the prior window (Ukraine / Mexico / Pakistan)
-  as the catalog advanced into 2026 ([[conflict-events-ucdp]]).
-- **Ukraine also records the highest summed deathsBest at 962** — the fatality estimate still
-  concentrated on the Russia–Ukraine dyad — ahead of **Nigeria (762)**, **Sudan (504)**,
-  **Pakistan (481)**, **Somalia (476)** and **Ethiopia (470)**. The fatality ranking is far flatter
-  than the prior window, where Ukraine alone carried 10,051 of 15,012 ([[conflict-events-ucdp]]).
-- The spread widened: **13 countries each record more than 50 events** across the window (from 11),
-  a long tail now running through Sudan (59), Israel (62), Lebanon (72) and Mali (74)
-  ([[conflict-events-ucdp]]).
+- **2026-08-31 pull: the window moved for the first time since 2026-07-30.** After an 11-day
+  curator gap (no synthesis 2026-08-21 → 2026-08-30), the 2026-08-31 pull shows UCDP's published
+  window advancing roughly one month, from **2025-12-22 → 2026-06-30** to **2025-12-22 →
+  2026-07-31** — coverage now reaching through July ([[conflict-events-ucdp]]).
+- The 2,000 recorded events (still the API's rolling cap) carry a summed best-estimate of
+  **6,022 fatalities** (UCDP's `deathsBest` field — the source's own estimate, reported as
+  published), up slightly from **6,006** in the prior 2026-08-20 reading as the newly-published
+  July events entered ([[conflict-events-ucdp]]).
+- **Ukraine leads the event count at 455** (from 451), the Russia–Ukraine state-based dyad still
+  dominant. **Pakistan climbs to second at 197** (from 162), overtaking **Colombia (179, from
+  197)** and **Nigeria (133, from 170)**; **Mexico (122)**, **Mali (118)**, **Israel (91)** and
+  **DR Congo (75)** round out a reshuffled top eight — Israel and DR Congo are new entrants this
+  cycle ([[conflict-events-ucdp]]).
+- **Ukraine also records the highest summed deathsBest at 1,059** (from 962) — the fatality
+  estimate still concentrated on the Russia–Ukraine dyad — ahead of **Pakistan (768, from 481,
+  also climbing to second)**, **Nigeria (723, eased from 762 but still holding a top-three spot)**,
+  **Sudan (576, from 504)**, **Somalia (441, from 476)**, **Ethiopia (316, from 470)**, **Colombia
+  (219)** and **DR Congo (208)** ([[conflict-events-ucdp]]).
+- The violence-type split and the "countries above 50 events" count were not part of this cycle's
+  published figures; the last-confirmed 2026-08-20 values (1,247 state-based / 463 non-state / 290
+  one-sided; 13 countries above 50 events) are carried here as historical context only, not
+  restated as current ([[conflict-events-ucdp]]).
 
-## Move since prior reading (2026-07-25 → 2026-07-30)
+## Move since prior reading (2026-08-20 → 2026-08-31)
 
-- The 07-30 pull is a **major catalog roll-forward**, not a flat cycle: the published window
-  advanced from **2025-11-05 → 2025-12-31** to **2025-12-22 → 2026-07-08**, dropping most of the
-  late-2025 slice and adding six months of 2026 events. Total events stay at the 2,000 API cap,
-  but summed deathsBest fell from **15,012 to 6,006** as the high-fatality late-2025 Ukraine rows
-  aged out of the window ([[conflict-events-ucdp]]).
-- The country leaderboard turned over: Ukraine remains first but eased from 536 to **451 events**;
-  Mexico fell from second (317) to fifth (158); **Colombia (197)** and **Nigeria (170)** rose into
-  second and third, and **Mali, Lebanon and Israel** entered the top ten — the composition tracking
-  the catalog's advance into 2026 ([[conflict-events-ucdp]]).
-- The violence-type split shifted toward one-sided and away from non-state: **1,247 state-based /
-  463 non-state / 290 one-sided** (from 1,266 / 505 / 229). azimuth reports the new published
-  composition as the observed fact; where the prior weeks recorded a stable window, this cycle
-  records its roll-forward ([[conflict-events-ucdp]]).
-- **Confirmed still current at 2026-08-20.** No further roll has landed since 07-30: the daily
-  pulls through 2026-08-20 return this same window, split and leaderboard byte-for-byte — 21 days
-  (three weeks) with zero movement ([[conflict-events-ucdp]]).
+- The 2026-08-31 pull is a **catalog roll-forward**, not a flat cycle: after an 11-day curator gap
+  (no synthesis 2026-08-21 → 2026-08-30), the published window advanced from **2025-12-22 →
+  2026-06-30** to **2025-12-22 → 2026-07-31** — a roughly one-month catch-up, smaller than the
+  07-30 seven-month roll but the first move since. Total events hold at the 2,000 API cap; summed
+  deathsBest rose from **6,006 to 6,022** as the newly-published July rows entered
+  ([[conflict-events-ucdp]]).
+- The country leaderboard reshuffled again: Ukraine stays first on both measures — events 451→455,
+  summed deathsBest 962→1,059. **Pakistan is the biggest mover**, climbing to second on both event
+  count (162→197) and summed fatalities (481→768), overtaking Colombia and Nigeria on events.
+  **Israel (91 events)** and **DR Congo (75 events)** enter the top eight by event count; Nigeria's
+  summed fatalities eased slightly (762→723) but it keeps a top-three spot
+  ([[conflict-events-ucdp]]).
+- No violence-type split or 50-events-threshold count was re-published this cycle; those last
+  moved on 07-30 and held flat through 08-20 (1,247 state-based / 463 non-state / 290 one-sided; 13
+  countries above 50 events) — carried here as the last-confirmed reading, not restated as current
+  ([[conflict-events-ucdp]]).
 
 ## Reading the window
 
-- Read as a record, not a forecast: the newly-published window shows the Russia–Ukraine
-  state-based dyad still leading both event count (Ukraine 451) and fatality estimate (Ukraine
-  962), but with a far flatter fatality distribution than the prior late-2025 slice — Nigeria
-  (762), Sudan (504), Pakistan (481) and Somalia (476) now sit close behind. azimuth reports the
-  recorded events, the parties as UCDP names them, and the source's own fatality estimates — and
-  stops there. Where UCDP extends, contracts or revises its published window, each cycle carries the
-  new dataset composition as the observed fact; this cycle the dataset rolled its window forward
-  ~7 months into 2026, and that roll-forward is itself the reported observation. The 2026-08-20
-  pull shows the same window still standing, unchanged — three weeks now since that roll-forward
+- Read as a record, not a forecast: the newly-advanced window shows the Russia–Ukraine
+  state-based dyad still leading both event count (Ukraine 455) and fatality estimate (Ukraine
+  1,059), with Pakistan now the clearest mover into second place on both measures (197 events, 768
+  deathsBest) — Nigeria, Sudan, Somalia, Ethiopia, Colombia and DR Congo round out a still-flat
+  fatality distribution behind them. azimuth reports the recorded events, the parties as UCDP names
+  them, and the source's own fatality estimates — and stops there. Where UCDP extends, contracts or
+  revises its published window, each cycle carries the new dataset composition as the observed
+  fact; this cycle the dataset advanced roughly a month further into 2026 (June end → July end),
+  closing part of the coverage lag, and that advance is itself the reported observation
   ([[conflict-events-ucdp]]).
 
 ## Changelog
 
+- 2026-08-31 — daily-ingest synthesis (2026-W36): absorbed the 2026-08-21 through 2026-08-31 ingests after an 11-day curator gap; UCDP's published window advanced roughly one month, from 2025-12-22 → 2026-06-30 to 2025-12-22 → 2026-07-31 (2,000 events, API cap held), summed deathsBest rose 6,006 → 6,022. Leaderboard reshuffled: Ukraine stays first by events (451→455) and deathsBest (962→1,059); Pakistan is the biggest mover, climbing to second on both events (162→197) and deathsBest (481→768); Israel (91 events) and DR Congo (75 events) enter the top eight by events; Nigeria's summed fatalities eased (762→723) but it holds a top-three spot. Violence-type split and >50-events count not re-published this cycle — last-confirmed 08-20 values noted as historical, not restated as current. Observed-only, no-position framing held ([[conflict-events-ucdp]]).
 - 2026-08-20 — daily-ingest synthesis (2026-W34): absorbed the 2026-08-18 through 2026-08-20 ingests — an honest flat cycle. All three pulls returned the UCDP published window byte-identical to the 2026-08-17 synthesis apart from the retrieval timestamp: 2,000 events (API cap), summed deathsBest 6,006, window 2025-12-22 → 2026-07-08, violence split 1,247 state-based / 463 non-state / 290 one-sided, leaderboard Ukraine 451 / Colombia 197 / Nigeria 170 / Pakistan 162 / Mexico 158, fatality ranking Ukraine 962 / Nigeria 762 / Sudan 504 / Pakistan 481 / Somalia 476, 13 countries above 50 events — all held, 21 days (three weeks) on from the 2026-07-30 roll-forward. No catalog roll this cycle; figures held with no fabricated movement, `updated` advanced so the freshness gate records the latest L1 day was absorbed. Observed-only, no-position framing held ([[conflict-events-ucdp]]).
 - 2026-08-17 — daily-ingest synthesis (2026-W34): absorbed the 2026-08-17 ingest — an honest flat cycle. The pull returned the UCDP published window byte-identical to the 2026-08-16 reading apart from the retrieval timestamp: 2,000 events (API cap), summed deathsBest 6,006, window 2025-12-22 → 2026-07-08, violence split 1,247 state-based / 463 non-state / 290 one-sided, leaderboard Ukraine 451 / Colombia 197 / Nigeria 170 / Pakistan 162 / Mexico 158, fatality ranking Ukraine 962 / Nigeria 762 / Sudan 504 / Pakistan 481 / Somalia 476, 13 countries above 50 events — all held, 18 days on from the 2026-07-30 roll-forward. No catalog roll this cycle; figures held with no fabricated movement, `week` and `updated` advanced so the freshness gate records the latest L1 day was absorbed. Observed-only, no-position framing held ([[conflict-events-ucdp]]).
 - 2026-08-16 — daily-ingest synthesis (2026-W33): absorbed the 2026-08-14 through 2026-08-16 ingests — an honest flat cycle. All three pulls returned the UCDP published window byte-identical to the 2026-08-13 synthesis apart from the retrieval timestamp: 2,000 events (API cap), summed deathsBest 6,006, window 2025-12-22 → 2026-07-08, violence split 1,247 state-based / 463 non-state / 290 one-sided, leaderboard Ukraine 451 / Colombia 197 / Nigeria 170 / Pakistan 162 / Mexico 158, fatality ranking Ukraine 962 / Nigeria 762 / Sudan 504 / Pakistan 481 / Somalia 476, 13 countries above 50 events. No catalog roll this cycle; figures held with no fabricated movement, `updated` advanced so the freshness gate records the latest L1 day was absorbed ([[conflict-events-ucdp]]).
