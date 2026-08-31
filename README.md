@@ -13,7 +13,7 @@ Public demonstrator of the HemySphere L1/L2/L3 vault doctrine, fed by Worldmonit
 
 **Live site: <https://azimuth.emi-factory.dev>** — [weekly briefs](https://azimuth.emi-factory.dev/) · [Ask the World Data](https://azimuth.emi-factory.dev/answers.html) · [knowledge graph](https://azimuth.emi-factory.dev/graph.html) · [facts-vs-forecast benchmark](https://azimuth.emi-factory.dev/benchmark.html) · [autonomy counters](https://azimuth.emi-factory.dev/autonomy.html)
 
-> **Status — engine live, awaiting public flip.** The pipeline runs end-to-end: a daily
+> **Status — live and public.** The pipeline runs end-to-end: a daily
 > GitHub Actions job pulls the WorldMonitor subsets into dated **L1 source notes**, a weekly
 > synthesis cycle evolves the per-theme **L2 briefs**, and a small **L3 rule set** (editorial
 > line, attribution, source guardrail) governs both — all enforced by CI. The runtime is
