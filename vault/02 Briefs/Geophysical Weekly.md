@@ -2,8 +2,8 @@
 title: Geophysical Weekly
 type: L2-brief
 theme: geophysical
-week: 2026-W34
-updated: 2026-08-20T09:00:00Z
+week: 2026-W36
+updated: 2026-08-31T20:43:00Z
 sources: [earthquakes]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -14,8 +14,8 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 > Synthesised from the week's L1 source notes under `../01 Sources/`. The `azimuth-curator`
 > fleet role evolves this single note in place each week. azimuth reports **observed**
 > seismicity from the USGS feed — what was recorded, never what will happen. Every claim
-> links to the L1 note it rests on. (This cycle absorbs the 2026-08-18 through 2026-08-20
-> ingests, covering the rolling window to 2026-08-20.)
+> links to the L1 note it rests on. (This cycle absorbs the 2026-08-21 through 2026-08-31
+> ingests after an 11-day curator gap, covering the rolling window 2026-08-24 to 2026-08-31.)
 
 ## This week at a glance
 
