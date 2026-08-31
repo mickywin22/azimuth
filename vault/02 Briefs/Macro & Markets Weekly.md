@@ -2,8 +2,8 @@
 title: Macro & Markets Weekly
 type: L2-brief
 theme: macro-markets
-week: 2026-W34
-updated: 2026-08-20T09:00:00Z
+week: 2026-W36
+updated: 2026-08-31T20:56:00Z
 sources: [crypto-quotes, world-bank-gdp, world-bank-cpi, world-bank-unemployment, world-bank-indicators]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -16,37 +16,33 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 > market prices as observed facts** — a quote is what a market printed, recorded with its
 > change and its source — under the `no-investment-framing` caution: nothing here is advice,
 > a target, or a forecast. Every claim links to the L1 note it rests on.
-> Last updated from the 2026-08-17 pull.
+> Last updated from the 2026-08-31 pull, absorbing the 2026-08-21 through 2026-08-31 ingests
+> after an 11-day curator gap behind the live L1.
 
 ## This week at a glance
 
-- The CoinGecko-fed crypto channel quotes **10 major assets** on the 2026-08-17 pull. The panel
-  **turned fully green — all 10 assets up on the day**, reversing the 08-16 fully-red print.
-  **Bitcoin rose to $63,540 (+0.9% on the day)** and **Ethereum to $1,903.83 (+1.4%)**. Ethereum
-  was the largest gainer at **+1.4%**; BNB and Cardano were the smallest movers at **+0.1%** each
-  ([[crypto-quotes]]).
-- Across the 2026-08-07 → 2026-08-17 window the panel recovered off the 08-01 lows to an **08-10
-  high (BTC $65,166, +0.8%; ETH $1,923.59)**, then rolled back over — a fully-red 08-14 (BTC
-  $62,950), a one-day steadying on 08-15 (BTC $63,030, 3 of 10 up), and a fully-red 08-16 (BTC
-  $63,026) — before **rebounding fully green on 08-17 (BTC $63,540, +0.9%, all ten up)**. Bitcoin
-  is now **+$514 (+0.8%) week-on-week versus the 08-16 close** and net roughly flat to slightly up
-  over the whole window (~$63,043 on 08-01 → $63,540 on 08-17) after round-tripping through the
-  mid-week high and the 08-16 low ([[crypto-quotes]]).
-- The full quoted panel as of the 2026-08-17 pull: BTC $63,540 (+0.9%) · ETH $1,903.83
-  (+1.4%) · BNB $605.60 (+0.1%) · SOL $75.79 (+0.6%) · XRP $1.005 (+0.5%) · ADA
-  $0.1767 (+0.1%) · DOGE $0.0703 (+1.1%) · TRX $0.3324 (+0.5%) · AVAX $6.37
-  (+0.7%) · LINK $9.48 (+0.9%) — venue-quoted prices and day-changes as published, with
-  intraday sparkline series carried in the L1 note ([[crypto-quotes]]).
-- **The World Bank Open Data direct channel** carries 2025 reference-year macro indicators for
-  seven major economies — **annual data, unchanged since the 2026-08-16 pull** (no fresh World
-  Bank note was ingested on 2026-08-17). **GDP (current US$, 2025):** United States **$30.77T**,
-  China **$19.50T**, Germany **$5.05T**, Japan **$4.44T**, United Kingdom **$4.00T**, India
-  **$3.96T**, France **$3.37T** ([[world-bank-gdp]]). **CPI inflation (annual %, 2025):** United
-  Kingdom **3.88%**, Japan **3.17%**, India **2.40%**, Germany **2.17%**, France **0.94%**, China
-  **0.06%** — with the United States carried at its **2024** print of **2.95%** (no 2025 US
-  figure published yet) ([[world-bank-cpi]]). **Unemployment (%, 2025):** France **7.54%**,
-  United Kingdom **4.75%**, China **4.62%**, India **4.22%**, United States **4.20%**, Germany
-  **3.71%**, Japan **2.45%** ([[world-bank-unemployment]]).
+- The CoinGecko-fed crypto channel's **2026-08-31 pull** — the first synthesised print since
+  2026-08-20, an 11-day curator gap now absorbed in one pass — shows the five most-tracked
+  majors **all printing a negative 24h change**: **Bitcoin $77,999 (-0.9% on the day)**,
+  **Ethereum $2,449 (-0.67%)**, **BNB $686 (-1.55%)**, **Solana $102.71 (-3.44%)**, and **XRP
+  $1.37 (-2.38%)**. Solana was the softest of the five on the day (-3.44%), BNB the mildest
+  (-1.55%) ([[crypto-quotes]]).
+- Across the 2026-08-20 → 2026-08-31 gap the same five assets are all **meaningfully higher**
+  than where they started, even after the 08-31 pullback: Bitcoin ran from **$69,807 (+7.9% on
+  08-20)** to **$77,999** (net **+~11.7%** over the window), Ethereum from **$2,261 (+17.7%)**
+  to **$2,449** (**+~8.3%**), BNB from **$629 (+3.9%)** to **$686** (**+~9.1%**), Solana from
+  **$85.82 (+10.4%)** to **$102.71** — the steepest net gainer of the five at **+~19.7%** — and
+  XRP from **$1.11 (+10.4%)** to **$1.37**, the largest net mover at **+~23.4%**. The picture is
+  a rally that ran hard across the gap and cooled into month-end: every one of the five closed
+  08-31 lower on the day even as all five sit well above their 08-20 print ([[crypto-quotes]]).
+- **The World Bank Open Data direct channel** carries 2025 reference-year macro indicators —
+  **annual data, held flat across the whole 08-20 → 08-31 gap** (no new reference year has
+  published). This cycle's pull carries **five reporting economies**: China, Germany, Japan,
+  India, France. **GDP (current US$, 2025):** China **$19.50T**, Germany **$5.05T**, Japan
+  **$4.44T**, India **$3.96T**, France **$3.37T** ([[world-bank-gdp]]). **CPI inflation (annual
+  %, 2025):** Japan **3.17%**, Germany **2.17%**, India **2.40%**, France **0.94%**, China
+  **0.06%** ([[world-bank-cpi]]). **Unemployment (%, 2025):** France **7.54%**, China **4.62%**,
+  India **4.22%**, Germany **3.71%**, Japan **2.45%** ([[world-bank-unemployment]]).
 
 ## Honest scope — two live channels now
 
@@ -60,27 +56,28 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 ## Reading the week
 
-- The 08-07 → 08-17 pulls trace a recover-then-roll-back-then-rebound arc off the 08-01 lows.
-  Bitcoin climbed from its 08-01 $63,043 print to an 08-10 high of $65,166 (+0.8% that day) as the
-  panel turned broadly green (nine of ten up on 08-08); it then gave the gain back — a fully-red
-  08-14 ($62,950), a one-day steadying on 08-15 ($63,030, three of ten up), and a fully-red 08-16
-  ($63,026, −0.1%, all ten down, Avalanche the largest faller at −5.7%) — before turning fully
-  green again on 08-17 ($63,540, +0.9%, all ten up, Ethereum the largest gainer at +1.4%). Over
-  the whole window Bitcoin now sits modestly above where it began, having round-tripped through
-  both the mid-week high and the 08-16 low. These are the venue's numbers, not azimuth's view: no
-  target, no direction call, no investment framing — the caution is the contract, not a disclaimer
-  ([[crypto-quotes]]).
-- The World Bank Open Data direct channel, surfaced this cycle, prints its 2025 reference-year
-  figures stable across its first three ingest days observed (08-14 → 08-16); no fresh World Bank
-  note landed on 08-17, so the read carries forward unchanged. Read as recorded national accounts,
-  not a forecast: the United States carries the largest 2025 output at $30.77T (China second at
-  $19.50T), the United Kingdom the highest 2025 consumer-price inflation of the seven at 3.88%
-  (China the lowest at 0.06%), and France the highest 2025 unemployment at 7.54% (Japan the lowest
-  at 2.45%). azimuth reports the World Bank's published values and attaches no projection
-  ([[world-bank-gdp]], [[world-bank-cpi]], [[world-bank-unemployment]]).
+- The 2026-08-20 → 2026-08-31 gap (11 days behind the live L1, absorbed here in one pass) traces
+  a rally that ran hard, then cooled into month-end. Bitcoin printed +7.9% on 08-20 at $69,807 and
+  by 08-31 had reached $77,999 — net **+~11.7%** over the window — but the 08-31 print itself is
+  −0.9% on the day. The same shape repeats across the panel: Ethereum +~8.3% net ($2,261 →
+  $2,449, −0.67% on 08-31), BNB +~9.1% net ($629 → $686, −1.55%), Solana +~19.7% net ($85.82 →
+  $102.71, −3.44%, the steepest net mover), and XRP +~23.4% net ($1.11 → $1.37, −2.38%). Every one
+  of the five closed 08-31 lower than its prior close, even though all five sit well above where
+  the window opened — a rally cooling into month-end, not a reversal. These are the venue's
+  numbers, not azimuth's view: no target, no direction call, no investment framing — the caution
+  is the contract, not a disclaimer ([[crypto-quotes]]).
+- The World Bank Open Data direct channel again prints its 2025 reference-year figures unchanged
+  across the whole 08-20 → 08-31 gap — annual national-accounts data does not move day to day, so
+  a flat read is expected, not stale. This cycle's pull carries five reporting economies. Read as
+  recorded national accounts, not a forecast: China carries the largest 2025 output of the five at
+  $19.50T (France the smallest at $3.37T), Japan the highest 2025 consumer-price inflation of the
+  five at 3.17% (China the lowest at 0.06%), and France the highest 2025 unemployment at 7.54%
+  (Japan the lowest at 2.45%). azimuth reports the World Bank's published values and attaches no
+  projection ([[world-bank-gdp]], [[world-bank-cpi]], [[world-bank-unemployment]]).
 
 ## Changelog
 
+- 2026-08-31 — daily-ingest synthesis (2026-W36): absorbed the 2026-08-21 through 2026-08-31 ingests after an 11-day curator gap; crypto-quotes rallied hard across the gap then cooled into month-end — BTC $69,807 (08-20, +7.9%) to $77,999 (08-31, −0.9% on the day, net +~11.7% over the window), ETH $2,261 to $2,449 (−0.67%, net +~8.3%), BNB $629 to $686 (−1.55%, net +~9.1%), SOL $85.82 to $102.71 (−3.44%, net +~19.7%, steepest net mover), XRP $1.11 to $1.37 (−2.38%, net +~23.4%, largest net mover) — every one of the five closed 08-31 lower on the day even as all five sit well above their 08-20 print; World Bank 2025 annual figures (GDP/CPI/unemployment) held flat across the gap for the five reporting economies this cycle's pull carries (China, Germany, Japan, India, France). Observed-only framing held throughout — prices and indicators reported as printed, no buy/sell/target language, no direction call. ([[crypto-quotes]], [[world-bank-gdp]], [[world-bank-cpi]], [[world-bank-unemployment]]).
 - 2026-08-17 — daily-ingest synthesis (2026-W34): crypto-quotes rebounded to a fully green panel (10 of 10 up) after the 08-16 fully-red print — BTC $63,540 (+0.9% on the day; +$514 / +0.8% week-on-week vs the 08-16 close of $63,026), ETH $1,903.83 (+1.4%), Ethereum the largest gainer, BNB and Cardano the smallest movers (+0.1% each); World Bank indicators held at their last-known 2025 annual values, no fresh 08-17 World Bank note ([[crypto-quotes]]).
 - 2026-08-16 — daily-ingest synthesis (2026-W33): absorbed the 2026-08-14 through 2026-08-16 pulls. crypto-quotes rolled back over after the mid-window recovery — a fully-red 08-14 (BTC $62,950), a one-day steadying on 08-15 (BTC $63,030, 3 of 10 up), then a fully-red 08-16: BTC $63,026 (−0.1%), ETH $1,879.17 (−0.2%), Avalanche the largest faller (−5.7%), no gainer; over the window Bitcoin ends roughly flat (~$63,043 on 08-01 → $63,026 on 08-16). NEW: the World Bank Open Data direct channel landed (first L1 2026-08-14) and is briefed for the first time — 2025 reference-year GDP (US $30.77T / China $19.50T lead), CPI inflation (UK 3.88% high, China 0.06% low; US carried at its 2024 2.95% print) and unemployment (France 7.54% high, Japan 2.45% low) for seven major economies, held flat 08-14→08-16; it replaces the parameter-gated world-bank-indicators endpoint as the live macro-indicator source. Updated frontmatter sources, at-a-glance, honest-scope and reading sections ([[crypto-quotes]], [[world-bank-gdp]], [[world-bank-cpi]], [[world-bank-unemployment]]).
 - 2026-07-15 — first Macro & Markets Weekly cycle (2026-W29): theme un-held (the hold was
