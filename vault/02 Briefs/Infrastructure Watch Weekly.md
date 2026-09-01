@@ -3,7 +3,7 @@ title: Infrastructure Watch Weekly
 type: L2-brief
 theme: infrastructure-watch
 week: 2026-W36
-updated: 2026-08-31T20:56:00Z
+updated: 2026-09-02T10:14:00Z
 sources: [internet-outages]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -16,28 +16,24 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 > infrastructure disruption events** — an internet outage is an observed network measurement
 > (Cloudflare Radar), with the cause category the source itself assigns — and takes no
 > position on any actor involved. Every claim links to the L1 note it rests on. This cycle
-> absorbs the 2026-08-21 through 2026-08-31 pulls after an 11-day curator gap, across which
-> the active set turned over from 7 to 12 outages as a run of Iraq exam-shutdown events, one
-> Nepal flooding event and one Botswana nationwide power outage entered while Kenya's carried
-> event aged out.
-> (Pull date of current cycle: 2026-08-31.)
+> absorbs the 2026-09-01 pull (adjacent to 08-31), across which the active set grew from 12 to
+> 14 outages as two more Iraq government-directed disruptions entered — extending the country's
+> exam-shutdown run — with no event ageing out.
+> (Pull date of current cycle: 2026-09-01.)
 
 ## This week at a glance
 
-- The Cloudflare Radar channel records **12 active internet outages**: **4 nationwide** and
-  **8 regional** in scope. By the source's own cause category: **6 power-outage**,
-  **4 government-directed** and **2 natural-disaster** — government-directed events return
-  for the first time since the 08-17 brief's zero reading, all four of them in Iraq
+- The Cloudflare Radar channel records **14 active internet outages**: **4 nationwide** and
+  **10 regional** in scope. By the source's own cause category: **6 government-directed**,
+  **6 power-outage** and **2 natural-disaster** — government-directed events (all in Iraq) now
+  tie power-outage as the joint-largest cause category ([[internet-outages]]).
+- **Nine countries hold the 14 events, and Iraq alone carries 6 of them** — the Iraq
+  concentration deepened this cycle, with the other eight countries carrying one apiece
   ([[internet-outages]]).
-- **Nine countries hold the 12 events, and Iraq alone carries 4 of them** — a concentration
-  the 08-20 set didn't have, where each of the 7 holding countries carried exactly 1
-  ([[internet-outages]]).
-- The active set **moved from 7 to 12** across the 2026-08-21 to 2026-08-31 gap: **six new
-  events entered** — Iraq's four-event exam-shutdown run (cf-1652, cf-1653, cf-1655,
-  cf-1656), Nepal's flooding event (cf-1654) and Botswana's nationwide power outage
-  (cf-1651) — while **Kenya's cf-1641 aged out**; the other six 08-20 events (Tajikistan,
-  Ukraine, Colombia, Gabon, Georgia, Cuba) carried through unchanged; the nationwide count
-  held steady at 4 and power-grid failure stayed the single dominant cause
+- The active set **grew from 12 to 14** across the adjacent 08-31 → 09-01 pull: **two new events
+  entered** — both Iraq government-directed disruptions (cf-1657, cf-1658), extending the
+  exam-shutdown run — while **no event aged out**; severity split 10 MAJOR / 4 TOTAL (from
+  8 MAJOR / 4 TOTAL), with one event (cf-1658) still open-ended at the 09-01 pull
   ([[internet-outages]]).
 
 ## Honest scope
@@ -107,6 +103,7 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 ## Changelog
 
+- 2026-09-02 — daily-ingest synthesis (2026-W36): absorbed the 2026-09-01 ingest (adjacent to 08-31); active set grew from 12 to 14 outages (4 nationwide / 10 regional; cause split now 6 government-directed / 6 power-outage / 2 natural-disaster; severity 10 MAJOR / 4 TOTAL, from 8/4) as two more Iraq government-directed disruptions (cf-1657, cf-1658) entered — extending the exam-shutdown run — with no event ageing out; Iraq now carries 6 of the 14 events across nine holding countries, and one event (cf-1658) is still open-ended at the pull. Rewrote the intro and at-a-glance around the two new entries. Observed-only framing held, no political or safety side taken on the Iraq government-directed events ([[internet-outages]]).
 - 2026-08-31 — daily-ingest synthesis (2026-W36): absorbed the 2026-08-21 through 2026-08-31 ingests after an 11-day curator gap; active set moved from 7 to 12 outages (4 nationwide / 8 regional; 6 power-outage, 4 government-directed, 2 natural-disaster) as four Iraq exam-shutdown events (cf-1652/cf-1653/cf-1655/cf-1656), one Nepal flooding event (cf-1654) and one Botswana nationwide power outage (cf-1651) entered while Kenya's cf-1641 aged out; government-directed events return for the first time since the 08-17 brief's zero reading, all four in Iraq; the six other 08-20 events (Tajikistan, Ukraine, Colombia, Gabon, Georgia, Cuba) carried unchanged; at-a-glance and reading rewritten accordingly. Observed-only framing held, no political or safety side taken on the Iraq government-directed events ([[internet-outages]]).
 - 2026-08-17 — daily-ingest synthesis (2026-W34): absorbed the window to 2026-08-17 after a 16-day curator gap; active set moved from 6 to 7 outages (4 nationwide / 3 regional; 6 power-outage, 1 natural-disaster, 0 government-directed) as near-total turnover replaced five of the six 08-01 events — Cuba's cf-1632/cf-1637, Iraq's cf-1631/cf-1634 and Ukraine's cf-1633 all aged out — with six new entrants (Tajikistan cf-1649, Ukraine cf-1647, Colombia cf-1645, Gabon cf-1646, Georgia cf-1644, Cuba cf-1643); only Kenya's cf-1641 (detected 2026-07-29) carried forward unchanged; first natural-disaster reading since the Venezuela event cleared on 2026-07-23, and the first zero-government-directed reading on record; at-a-glance and reading rewritten accordingly. Observed-only framing held ([[internet-outages]]).
 - 2026-08-01 — daily-ingest synthesis (2026-W31): absorbed the 2026-07-31 and 2026-08-01 pulls; active set expanded from 5 to 6 outages (4 nationwide / 2 regional; 4 power-outage, 2 government-directed; Cuba 2, Iraq 2, Kenya 1, Ukraine 1) as a new Kenya nationwide total-severity POWER OUTAGE (cf-1641, detected 2026-07-29, a national grid failure dropping internet traffic across the Coast and Central regions) entered; the five carried events (Cuba cf-1637/cf-1632, Iraq cf-1631/cf-1634, Ukraine cf-1633) held unchanged; at-a-glance and reading updated accordingly ([[internet-outages]]).
