@@ -3,7 +3,7 @@ title: Top5 Answers
 type: L2-brief
 theme: cross-theme
 week: 2026-W36
-updated: 2026-08-31T04:00:00Z
+updated: 2026-09-01T04:00:00Z
 sources: [co2-monitoring, conflict-events-ucdp, crude-oil-inventories, crypto-quotes, disease-outbreaks, displacement-flows, earthquakes, energy-prices, fuel-prices, natural-events, natural-gas-storage-eu, radiation-observations, thermal-escalations, wildfire-detections, world-bank-cpi, world-bank-gdp, world-bank-unemployment]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -34,7 +34,7 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 > **Channels:** Geophysical + Energy supply · **Serves:** Risk & humanitarian desk — a fast, non-alarmist read of whether a seismic week actually touched the energy map.
 
-- **Largest recorded event:** M6 145 km N of Caluula, Somalia — one of 26 events at or above M5 USGS logged this week ([[earthquakes]])
+- **Largest recorded event:** M6 145 km N of Caluula, Somalia — one of 24 events at or above M5 USGS logged this week ([[earthquakes]])
 - **No observed reach into energy infrastructure.** The week's quakes cluster away from the physical energy-supply core (US crude inventories, EU gas storage) and from the fuel-reporting countries — the data shows seismicity and the energy balances did not intersect this week ([[earthquakes]], [[crude-oil-inventories]])
 - azimuth reports what USGS RECORDED, never what may happen next — a sourced 'no significant overlap' is the honest, efficient answer when that is what the week's data shows ([[earthquakes]])
 
@@ -80,3 +80,4 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 - 2026-08-17 — regenerated TOP5 demonstrator answers from the 2026-08-17 live bundle (2026-W34); 5 cross-channel answers, every claim L1-sourced.
 - 2026-08-20 — regenerated TOP5 demonstrator answers from the 2026-08-20 live bundle (2026-W34); 5 cross-channel answers, every claim L1-sourced.
 - 2026-08-31 — regenerated TOP5 demonstrator answers from the 2026-08-31 live bundle (2026-W36); 5 cross-channel answers, every claim L1-sourced.
+- 2026-09-01 — regenerated TOP5 demonstrator answers from the 2026-09-01 live bundle (2026-W36); 5 cross-channel answers, every claim L1-sourced.
