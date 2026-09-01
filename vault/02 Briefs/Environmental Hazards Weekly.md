@@ -3,7 +3,7 @@ title: Environmental Hazards Weekly
 type: L2-brief
 theme: environmental-hazards
 week: 2026-W36
-updated: 2026-08-31T20:56:00Z
+updated: 2026-09-02T09:44:00Z
 sources: [wildfire-detections, thermal-escalations, natural-events, radiation-observations]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -16,43 +16,43 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 > environmental hazards — active-fire detections, clustered thermal anomalies, disaster
 > alerts and ambient-radiation readings — what the instruments recorded, never what will
 > happen, and never a position on any conflict the data sits near. Every claim links to the
-> L1 note it rests on. (This cycle absorbs the 2026-08-21 through 2026-08-31 ingests after
-> an 11-day curator gap. The wildfire note renders the top 250 detections by fire radiative
-> power, with the cap stated in the note caption, so the active-fire figures below describe
-> that strongest-fires subset rather than the full detection set — [[wildfire-detections]].)
+> L1 note it rests on. (This cycle absorbs the 2026-09-01 ingest. The wildfire note renders the
+> top 250 detections by fire radiative power, with the cap stated in the note caption, so the
+> active-fire figures below describe that strongest-fires subset rather than the full detection
+> set — [[wildfire-detections]].)
 
 ## This week at a glance
 
-- The NASA FIRMS VIIRS feed's **top-250-by-FRP cap held flat at 250 detections** on both the
-  08-20 and 08-31 pulls; the feed's own per-detection region field attributes the strongest-fire
-  sample to **Russia 246 of 250** on 08-31 (from 247 of 250 on 08-20) — exact counts, not
-  eyeballed from coordinates. Detection count stayed capped/flat, but intensity jumped hard: the
-  top-5 fire-radiative-power values rose from **~117 / 117 / 117 / 96 / 96 MW** (08-20) to
-  **~768 / 711 / 710 / 633 / 627 MW** (08-31), and the single strongest 08-31 detection carried an
-  emergency flag in Russia (Siberia, ~64.3N 112.4E) ([[wildfire-detections]]).
+- The NASA FIRMS VIIRS feed's **top-250-by-FRP cap held flat at 250 detections**; the feed's own
+  per-detection region field attributes the entire strongest-fire sample to **Russia 250 of 250**
+  (from 246 of 250 on 08-31) — exact counts, not eyeballed from coordinates, and every one of the
+  250 carried an **emergency flag** this pull. Intensity climbed again: the top-3 fire-radiative-
+  power values rose to **~871 / 799 / 740 MW** (from ~768 / 711 / 710 on 08-31), the strongest
+  detection at ~64.4N 114.7E in Siberia, against an upstream full detection set of **46,885**
+  ([[wildfire-detections]]).
 - The FIRMS thermal-escalation feed again clustered the window into **12 signals**, all 12
-  `conflict_adjacent` and all 12 `THERMAL_RELEVANCE_HIGH` on both pulls, but the status mix
-  flipped: 08-20 was **all 12 `THERMAL_STATUS_SPIKE`**, and the 08-31 pull moved to **all 12
-  `THERMAL_STATUS_PERSISTENT`** — the escalation clusters shifted from spiking to a sustained,
-  persistent heat signature over the cycle ([[thermal-escalations]]).
-- The GDACS / NASA EONET disaster feed's active-event count **rose from 1 to 3** across the
-  08-20 → 08-31 window: the single 08-20 entry was a Category-3 tropical cyclone in the Central
-  Pacific basin; the 08-31 pull carries a Category-4 tropical cyclone in the East Pacific basin, a
-  tropical storm in the Central Pacific, and a tropical-cyclone warning — reported as the observed
-  feed state ([[natural-events]]).
-- Radiation stayed clean across both pulls: **0 anomalies, 0 elevated readings, 0 spikes** on
-  08-20 and again on 08-31, across the EPA RadNet stations and Safecast ([[radiation-observations]]).
+  `conflict_adjacent`, all 12 `THERMAL_RELEVANCE_HIGH` and all 12 attributed to **Russia**, but the
+  status mix **flipped back to all 12 `THERMAL_STATUS_SPIKE`** (from all-12 `PERSISTENT` on 08-31)
+  — a re-spiking heat signature, the sharpest cluster at a z-score of **15.3** and the largest at
+  ~49,633 MW total FRP ([[thermal-escalations]]).
+- The GDACS / NASA EONET disaster feed's active-event count **jumped from 3 to 25**: 11 Sea and
+  Lake Ice tracks, 7 severe-storm entries, 4 tropical cyclones — headlined by **Category-4 Major
+  Hurricane Karina (East Pacific)**, with Tropical Storms Edouard (Atlantic), Marie (East Pacific)
+  and Lowell (Central Pacific) — a Hong Kong tropical-cyclone warning, and 2 US wildfires (Oregon,
+  Texas) — reported as the observed feed state ([[natural-events]]).
+- Radiation stayed clean: **0 anomalies, 0 elevated readings, 0 spikes** across 4 EPA RadNet
+  stations and 1 Safecast reading (1 low-confidence, 0 conflicting) ([[radiation-observations]]).
 
 ## Active fire — where the detections clustered
 
 - The top-250-by-FRP sample attributes — by each detection's own `region` field, deterministically
-  tallied — as **Russia 246 of 250** on the 08-31 pull, down slightly from **Russia 247 of 250** on
-  08-20. The detection count itself stayed capped/flat at 250 on both pulls, but the intensity
-  signal moved sharply: the top-5 FRP values rose from **~117 / 117 / 117 / 96 / 96 MW** (08-20) to
-  **~768 / 711 / 710 / 633 / 627 MW** (08-31) — roughly a six-fold jump at the top of the
-  distribution. The single strongest 08-31 detection carried an emergency flag, located in Russia
-  (Siberia, ~64.3N 112.4E). The Siberian fire season continues to drive the dominant signal across
-  Siberia and the Far East ([[wildfire-detections]]).
+  tallied — as **Russia 250 of 250** on the 09-01 pull, up from **Russia 246 of 250** on 08-31, so
+  the strongest-fire sample is now entirely Siberian/Far-East Russian. The detection count itself
+  stayed capped/flat at 250, and the intensity signal climbed further: the top-3 FRP values rose to
+  **~871 / 799 / 740 MW** (from ~768 / 711 / 710 on 08-31), with **all 250 detections carrying an
+  emergency flag** and the strongest at ~64.4N 114.7E. The upstream full detection set stands at
+  **46,885** — far larger than the capped subset — as the Siberian fire season drives the dominant
+  signal ([[wildfire-detections]]).
 - azimuth caps this L1 note to the top 250 detections by FRP — the strongest, most energetic
   fires — because the endpoint returns a full detection set that dwarfs the capped subset and
   ignores limit parameters; the cap is recorded in the note's own caption so the truncation is
@@ -61,14 +61,15 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 ## Thermal escalations — the clustered signal
 
-- The feed again clustered the window into **12 thermal-escalation signals** on the 08-31 pull,
-  matching the 08-20 count. All 12 clusters carried `conflict_adjacent` and all 12
-  `THERMAL_RELEVANCE_HIGH` on both pulls — that composition held steady across the cycle. What
-  moved was the status mix: the 08-20 pull was **all 12 `THERMAL_STATUS_SPIKE`** (spikeCount 12,
-  persistentCount 0), and the 08-31 pull flipped to **all 12 `THERMAL_STATUS_PERSISTENT`**
-  (persistentCount 12, spikeCount 0) — the escalation clusters moved from spiking to a sustained,
-  persistent heat signature ([[thermal-escalations]]).
-- azimuth reports that spike-to-persistent status shift as the observed feed output and takes no
+- The feed again clustered the window into **12 thermal-escalation signals** on the 09-01 pull,
+  matching the 08-31 count. All 12 clusters carried `conflict_adjacent`, all 12
+  `THERMAL_RELEVANCE_HIGH` and all 12 an explicit **`countryName` of Russia** this pull — that
+  composition held steady. What moved was the status mix: the 08-31 pull had been **all 12
+  `THERMAL_STATUS_PERSISTENT`**, and the 09-01 pull **flipped back to all 12
+  `THERMAL_STATUS_SPIKE`** (spikeCount 12, persistentCount 0) — the escalation clusters returned to
+  a spiking signature, the sharpest at a **z-score of 15.3** and the largest at ~**49,633 MW total
+  FRP** ([[thermal-escalations]]).
+- azimuth reports that persistent-to-spike status shift as the observed feed output and takes no
   position on it — a thermal cluster is a measured radiance aggregate, and the L2 line stops at
   what was detected, when, and how the signal classified, not what it implies about the ground
   situation. The clusters stayed 12/12 conflict-adjacent and 12/12 high-relevance throughout, only
@@ -76,39 +77,40 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 ## Disaster alerts and radiation
 
-- The GDACS/EONET disaster slate's active-event count **rose from 1 to 3** between the 08-20 and
-  08-31 pulls. The 08-20 pull carried a single active event: a Category-3 tropical cyclone in the
-  Central Pacific basin. The 08-31 pull carries three active entries: a Category-4 tropical
-  cyclone in the East Pacific basin, a tropical storm in the Central Pacific basin, and a
-  tropical-cyclone warning; azimuth records the count and category shift as the observed feed
-  state ([[natural-events]]).
-- Radiation stayed clean on both pulls: **0 anomalies, 0 elevated readings, 0 spikes** on 08-20,
-  and again **0 anomalies, 0 elevated readings, 0 spikes** on the 08-31 pull, across the EPA
-  RadNet stations and Safecast ([[radiation-observations]]).
+- The GDACS/EONET disaster slate's active-event count **jumped from 3 to 25** between the 08-31 and
+  09-01 pulls. The 09-01 slate carries 11 Sea and Lake Ice tracks, 7 severe-storm entries, 4
+  tropical cyclones — **Category-4 Major Hurricane Karina (East Pacific)** the headline, with
+  Tropical Storms Edouard (Atlantic), Marie (East Pacific) and Lowell (Central Pacific) — a Hong
+  Kong tropical-cyclone warning, and 2 US wildfire events (Ruggs, Oregon; Harris, Texas). azimuth
+  records the count and category slate as the observed feed state, taking no position on any of it
+  ([[natural-events]]).
+- Radiation stayed clean: **0 anomalies, 0 elevated readings, 0 spikes** across 4 EPA RadNet
+  stations and 1 Safecast reading (1 low-confidence, 0 conflicting) on the 09-01 pull
+  ([[radiation-observations]]).
 
 ## Reading the week
 
-- The 2026-08-21 through 2026-08-31 window shows the strongest-fire sample holding its Russia-led
-  shape while intensity moved sharply: the top-250-by-FRP cap held flat at 250 detections on both
-  the 08-20 and 08-31 pulls, Russia's share eased only slightly (247 of 250 → 246 of 250), but the
-  top-5 FRP values jumped from **~117 / 117 / 117 / 96 / 96 MW** to **~768 / 711 / 710 / 633 / 627
-  MW**, with the single strongest 08-31 detection carrying an emergency flag in Russia (Siberia,
-  ~64.3N 112.4E) ([[wildfire-detections]]). The thermal-escalation picture held its 12-cluster,
-  12/12-conflict-adjacent, 12/12-high-relevance shape across the cycle but flipped classification —
-  from **all-12 `THERMAL_STATUS_SPIKE`** on 08-20 to **all-12 `THERMAL_STATUS_PERSISTENT`** on
-  08-31 — moving from a spiking to a sustained, persistent heat signature
-  ([[thermal-escalations]]). The disaster slate's active-event count **rose from 1 to 3**: the
-  single 08-20 entry (a Category-3 tropical cyclone, Central Pacific basin) gave way to three
-  08-31 entries (a Category-4 tropical cyclone in the East Pacific basin, a tropical storm in the
-  Central Pacific, and a tropical-cyclone warning) ([[natural-events]]). The radiation picture
-  stayed clean throughout: 0 anomalies, 0 elevated readings and 0 spikes on both the 08-20 and
-  08-31 pulls ([[radiation-observations]]). azimuth records the detections, the cluster statuses,
+- The 2026-09-01 pull shows the strongest-fire sample tightening to an all-Russia shape while
+  intensity climbed again: the top-250-by-FRP cap held flat at 250 detections, Russia's share rose
+  to **250 of 250** (from 246), the top-3 FRP values rose to **~871 / 799 / 740 MW** (from
+  ~768 / 711 / 710), and **all 250 detections carried an emergency flag**, the strongest at ~64.4N
+  114.7E against an upstream set of 46,885 ([[wildfire-detections]]). The thermal-escalation
+  picture held its 12-cluster, 12/12-conflict-adjacent, 12/12-high-relevance, 12/12-Russia shape but
+  flipped classification back — from **all-12 `THERMAL_STATUS_PERSISTENT`** on 08-31 to **all-12
+  `THERMAL_STATUS_SPIKE`** on 09-01 (sharpest z 15.3, largest ~49,633 MW total FRP), a re-spiking
+  heat signature ([[thermal-escalations]]). The disaster slate's active-event count **jumped from 3
+  to 25**: 11 Sea and Lake Ice tracks, 7 severe storms, 4 tropical cyclones led by Category-4 Major
+  Hurricane Karina (East Pacific) with Tropical Storms Edouard/Marie/Lowell, a Hong Kong
+  tropical-cyclone warning and 2 US wildfires ([[natural-events]]). The radiation picture stayed
+  clean: 0 anomalies, 0 elevated readings and 0 spikes across 4 EPA RadNet stations and 1 Safecast
+  reading ([[radiation-observations]]). azimuth records the detections, the cluster statuses,
   the alert categories and the sensor values, links each to its L1 note, and stops there — what
   the satellites and stations measured, not what may follow ([[wildfire-detections]],
   [[thermal-escalations]], [[natural-events]], [[radiation-observations]]).
 
 ## Changelog
 
+- 2026-09-02 — daily-ingest synthesis (2026-W36): absorbed the 2026-09-01 ingest. Active-fire top-250 cap held flat at 250, Russia's share rose 246 → 250 of 250 (all 250 emergency-flagged), top-3 FRP ~871 / 799 / 740 MW (from ~768 / 711 / 710), strongest at ~64.4N 114.7E, upstream full set 46,885. Thermal clusters held 12/12 conflict-adjacent, 12/12 high-relevance and 12/12 Russia but flipped status back from all-12 PERSISTENT (08-31) to all-12 SPIKE (09-01), sharpest z 15.3, largest ~49,633 MW total FRP. Natural events jumped 3 → 25: 11 Sea and Lake Ice, 7 severe storms, 4 tropical cyclones (Cat-4 Major Hurricane Karina EP the headline, TS Edouard/Marie/Lowell), a Hong Kong TC warning, 2 US wildfires (Oregon, Texas). Radiation stayed clean: 0 anomalies / 0 elevated / 0 spikes across 4 EPA + 1 Safecast reading. Rewrote the intro, at-a-glance, active-fire, thermal, disaster/radiation and reading sections. Observed-only + editorial framing held ([[wildfire-detections]], [[thermal-escalations]], [[natural-events]], [[radiation-observations]]).
 - 2026-08-31 — daily-ingest synthesis (2026-W36): absorbed the 2026-08-21 through 2026-08-31 ingests after an 11-day curator gap; active-fire top-250 cap held flat at 250 detections on both 08-20 and 08-31, Russia's share easing slightly (247 of 250 → 246 of 250), while top-5 FRP jumped ~117/117/117/96/96 MW → ~768/711/710/633/627 MW, the strongest 08-31 detection carrying an emergency flag in Russia (Siberia, ~64.3N 112.4E). Thermal clusters held 12/12 conflict-adjacent and 12/12 high-relevance but flipped status from all-12 SPIKE (08-20) to all-12 PERSISTENT (08-31). Natural events rose from 1 to 3 active entries: a Category-3 tropical cyclone (Central Pacific) gave way to a Category-4 tropical cyclone (East Pacific), a tropical storm (Central Pacific) and a tropical-cyclone warning. Radiation stayed clean both pulls: 0 anomalies, 0 elevated, 0 spikes. Observed-only framing held; editorial line held ([[wildfire-detections]], [[thermal-escalations]], [[natural-events]], [[radiation-observations]]).
 - 2026-08-20 — daily-ingest synthesis (2026-W34): absorbed the 2026-08-18 through 08-20 ingests. Active-fire top-250 held Russia 247 / Ukraine 3 (0 unattributed, Iran leaving) as the full endpoint eased to 3,297 (from 4,147); max FRP in the capped set eased to 117.37 MW (from 182.18), 0 explosion flags. Thermal clusters re-heated from the 8-SPIKE/2-ELEVATED/1-PERSISTENT/1-NORMAL mix back to all-12-SPIKE, conflict_adjacent and high-relevance both back to 12/12 (from 11/12 and 8/12) as the British Columbia wildland cluster dropped off; no country field on the clusters this pull; largest cluster ~540.6 MW / 58 obs (from ~684.6 MW / 50 obs), sharpest z-score eased to 8.03 (from 11.39). Natural events contracted sharply from 19 to 1 — Major Hurricane Lala (re-graded up from Tropical Storm) the sole entry as the 13 Sea and Lake Ice tracks and five other storms dropped off the 08-20 pull. Radiation cleared its anomaly pair: anomalyCount 0 (from 2) as Philadelphia and Houston returned to normal, 11 readings 27.0–74.3 nSv/h. Observed-only framing held ([[wildfire-detections]], [[thermal-escalations]], [[natural-events]], [[radiation-observations]]).
 - 2026-08-17 — daily-ingest synthesis (2026-W34): refreshed from the live 2026-08-17 ingest (also
