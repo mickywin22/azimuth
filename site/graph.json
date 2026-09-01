@@ -1138,6 +1138,7 @@
       "entity_kind": "region",
       "theme": "shared",
       "themes": [
+        "cyber-watch",
         "energy-supply",
         "humanitarian",
         "macro-markets"
@@ -3220,6 +3221,13 @@
       "target": "source:displacement-flows",
       "cross_theme": false,
       "rel": "named-in"
+    },
+    {
+      "source": "entity:france",
+      "target": "brief:cyber-watch-weekly",
+      "cross_theme": true,
+      "rel": "mentioned-in",
+      "weight": 0
     },
     {
       "source": "entity:france",
