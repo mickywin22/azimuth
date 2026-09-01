@@ -5,7 +5,7 @@ Machine-readable directory listing for this OKF v0.1 Knowledge Bundle (Markdown 
 ## Layers
 
 - [00 Rules/](00%20Rules/index.md) — L3 doctrine — the rules synthesis is held to (2 concept(s))
-- [01 Sources/](01%20Sources/index.md) — L1 verbatim source pulls — machine-written, one dated folder per ingest (1442 notes across 69 ingest days)
+- [01 Sources/](01%20Sources/index.md) — L1 verbatim source pulls — machine-written, one dated folder per ingest (1466 notes across 70 ingest days)
 - [02 Briefs/](02%20Briefs/index.md) — L2 synthesised briefs — the claims azimuth makes from the open data (15 concept(s))
 
 ## Bundle files
