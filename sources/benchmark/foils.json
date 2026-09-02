@@ -2,9 +2,9 @@
   "$note": "Captured snapshot of the COMPARED forecast/intelligence product for the azimuth benchmark (synthesis/benchmark.py). Quoted by product + capture date; NOT surfaced as an azimuth channel and NOT an L1 source. Refresh with pull_benchmark_foils.py.",
   "endpoint": "/api/forecast/v1/get-forecasts",
   "attribution": "WorldMonitor (api.worldmonitor.app) — model-generated forecast/assessment product",
-  "feed_generated_at": 1788260452249,
+  "feed_generated_at": 1788346895970,
   "feed_degraded": false,
-  "captured_at": "2026-09-01T11:34:00Z",
+  "captured_at": "2026-09-02T11:11:28Z",
   "n_forecasts_seen": 14,
   "topics": {
     "energy-supply": {
@@ -33,25 +33,25 @@
     },
     "supply-chain-inflation": {
       "foil": {
-        "id": "fc-supply_chain-92835b82",
-        "domain": "supply_chain",
+        "id": "fc-market-2b10db4d",
+        "domain": "market",
         "region": "Black Sea",
-        "title": "GPS interference in Black Sea shipping zone",
-        "probability": 0.5,
-        "prior_probability": 0.5,
-        "confidence": 0.25,
-        "time_horizon": "7d",
+        "title": "Sovereign risk repricing from Black Sea maritime disruption state",
+        "probability": 0.669,
+        "prior_probability": 0.656,
+        "confidence": 0.75,
+        "time_horizon": "30d",
         "trend": "stable",
         "projections": {
-          "d30": 0.32,
-          "d7": 0.5,
-          "h24": 0.455
+          "d30": 0.281,
+          "d7": 0.388,
+          "h24": 0.669
         },
-        "scenario_short": "211 jamming hexes in Black Sea. For now, the base case stays near 52% over the 7d. Actors absorb the current evidence mix without a decisive break toward either shock or relief.",
-        "perspective_strategic": "211 jamming hexes in Black Sea is setting the strategic baseline, and the current 50% probability implies a live but not settled risk path.",
-        "perspective_contrarian": "No directly matched headlines are currently attached to Black Sea. If that restraint persists, the forecast can move below the current 50% baseline. Actors prioritize containment and the system drifts toward stabilization unless new hard signals emerge.",
-        "actor_lens": "Shipping operators: Keep critical flows through Black Sea functioning over the 7d. Adjust routing and contingency plans around Black Sea.",
-        "top_signal": "211 jamming hexes in Black Sea"
+        "scenario_short": "Black Sea maritime disruption state is keeping sovereign risk elevated through risk off rotation, with 75% pressure and 71% state confirmation. For now, the base case stays near 70% over the 30d. Actors absorb the...",
+        "perspective_strategic": "Black Sea maritime disruption state is keeping sovereign risk elevated through risk off rotation, with 75% pressure and 71% state confirmation is setting the strategic baseline, and the current 67% probability implies a live but not settled risk path.",
+        "perspective_contrarian": "The current 75% confidence level still leaves room for reversal. If that restraint persists, the forecast can move below the current 67% baseline. Actors prioritize containment and the system drifts toward stabilization unless new hard signals emerge.",
+        "actor_lens": "Commodity traders: Price whether stress in Black Sea becomes durable over the 30d. Rebalance positions if the probability path moves away from 67%.",
+        "top_signal": "Black Sea maritime disruption state is keeping sovereign risk elevated through risk off rotation, with 75% pressure and 71% state confirmation"
       },
       "absence_reason": null
     },
