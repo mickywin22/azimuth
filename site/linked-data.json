@@ -4,8 +4,8 @@
   "ontology_iri": "https://mickywin22.github.io/azimuth/ontology",
   "data_base": "https://mickywin22.github.io/azimuth/data/",
   "counts": {
-    "subjects": 1465,
-    "data_triples": 11782,
+    "subjects": 1488,
+    "data_triples": 11966,
     "schema_triples": 75,
     "classes": 3,
     "properties": 10,
@@ -18,7 +18,7 @@
       "class": "L1-source",
       "label": "L1 source note",
       "comment": "A dated, raw open-data source note \u2014 Layer 1 (raw source Claude reads, never edits).",
-      "subjects": 1448,
+      "subjects": 1471,
       "concepts": 24
     },
     {
@@ -147,7 +147,7 @@
         {
           "pred": "updated",
           "label": "updated at",
-          "value": "2026-09-03T04:00:00Z",
+          "value": "2026-09-04T04:00:00Z",
           "datatype": "dateTime"
         },
         {
@@ -1372,8 +1372,8 @@
       "id": "key:climate-anomalies",
       "class": "L1-source",
       "label": "climate-anomalies",
-      "path": "01 Sources/2026-09-03/climate-anomalies.md",
-      "page": "sources/2026-09-03/climate-anomalies.html",
+      "path": "01 Sources/2026-09-04/climate-anomalies.md",
+      "page": "sources/2026-09-04/climate-anomalies.html",
       "facts": [
         {
           "pred": "source",
@@ -1396,7 +1396,7 @@
         {
           "pred": "retrieved",
           "label": "retrieved at",
-          "value": "2026-09-03T11:07:43Z",
+          "value": "2026-09-04T11:11:02Z",
           "datatype": "dateTime"
         },
         {
@@ -1413,9 +1413,9 @@
         }
       ],
       "series": {
-        "instances": 67,
+        "instances": 68,
         "first": "2026-06-24",
-        "last": "2026-09-03"
+        "last": "2026-09-04"
       },
       "edges": [
         {
@@ -1440,8 +1440,8 @@
       "id": "key:co2-monitoring",
       "class": "L1-source",
       "label": "co2-monitoring",
-      "path": "01 Sources/2026-09-03/co2-monitoring.md",
-      "page": "sources/2026-09-03/co2-monitoring.html",
+      "path": "01 Sources/2026-09-04/co2-monitoring.md",
+      "page": "sources/2026-09-04/co2-monitoring.html",
       "facts": [
         {
           "pred": "source",
@@ -1464,7 +1464,7 @@
         {
           "pred": "retrieved",
           "label": "retrieved at",
-          "value": "2026-09-03T11:07:43Z",
+          "value": "2026-09-04T11:11:02Z",
           "datatype": "dateTime"
         },
         {
@@ -1481,9 +1481,9 @@
         }
       ],
       "series": {
-        "instances": 67,
+        "instances": 68,
         "first": "2026-06-24",
-        "last": "2026-09-03"
+        "last": "2026-09-04"
       },
       "edges": [
         {
@@ -1516,8 +1516,8 @@
       "id": "key:conflict-events-ucdp",
       "class": "L1-source",
       "label": "conflict-events-ucdp",
-      "path": "01 Sources/2026-09-03/conflict-events-ucdp.md",
-      "page": "sources/2026-09-03/conflict-events-ucdp.html",
+      "path": "01 Sources/2026-09-04/conflict-events-ucdp.md",
+      "page": "sources/2026-09-04/conflict-events-ucdp.html",
       "facts": [
         {
           "pred": "source",
@@ -1540,7 +1540,7 @@
         {
           "pred": "retrieved",
           "label": "retrieved at",
-          "value": "2026-09-03T11:07:43Z",
+          "value": "2026-09-04T11:11:02Z",
           "datatype": "dateTime"
         },
         {
@@ -1557,9 +1557,9 @@
         }
       ],
       "series": {
-        "instances": 66,
+        "instances": 67,
         "first": "2026-06-25",
-        "last": "2026-09-03"
+        "last": "2026-09-04"
       },
       "edges": [
         {
@@ -1592,8 +1592,8 @@
       "id": "key:crude-oil-inventories",
       "class": "L1-source",
       "label": "crude-oil-inventories",
-      "path": "01 Sources/2026-09-03/crude-oil-inventories.md",
-      "page": "sources/2026-09-03/crude-oil-inventories.html",
+      "path": "01 Sources/2026-09-04/crude-oil-inventories.md",
+      "page": "sources/2026-09-04/crude-oil-inventories.html",
       "facts": [
         {
           "pred": "source",
@@ -1616,7 +1616,7 @@
         {
           "pred": "retrieved",
           "label": "retrieved at",
-          "value": "2026-09-03T11:07:43Z",
+          "value": "2026-09-04T11:11:02Z",
           "datatype": "dateTime"
         },
         {
@@ -1633,9 +1633,9 @@
         }
       ],
       "series": {
-        "instances": 71,
+        "instances": 72,
         "first": "2026-06-15",
-        "last": "2026-09-03"
+        "last": "2026-09-04"
       },
       "edges": [
         {
@@ -1676,8 +1676,8 @@
       "id": "key:crypto-quotes",
       "class": "L1-source",
       "label": "crypto-quotes",
-      "path": "01 Sources/2026-09-03/crypto-quotes.md",
-      "page": "sources/2026-09-03/crypto-quotes.html",
+      "path": "01 Sources/2026-09-04/crypto-quotes.md",
+      "page": "sources/2026-09-04/crypto-quotes.html",
       "facts": [
         {
           "pred": "source",
@@ -1700,7 +1700,7 @@
         {
           "pred": "retrieved",
           "label": "retrieved at",
-          "value": "2026-09-03T11:07:43Z",
+          "value": "2026-09-04T11:11:02Z",
           "datatype": "dateTime"
         },
         {
@@ -1717,9 +1717,9 @@
         }
       ],
       "series": {
-        "instances": 66,
+        "instances": 67,
         "first": "2026-06-25",
-        "last": "2026-09-03"
+        "last": "2026-09-04"
       },
       "edges": [
         {
@@ -1752,8 +1752,8 @@
       "id": "key:cyber-threats",
       "class": "L1-source",
       "label": "cyber-threats",
-      "path": "01 Sources/2026-09-03/cyber-threats.md",
-      "page": "sources/2026-09-03/cyber-threats.html",
+      "path": "01 Sources/2026-09-04/cyber-threats.md",
+      "page": "sources/2026-09-04/cyber-threats.html",
       "facts": [
         {
           "pred": "source",
@@ -1776,7 +1776,7 @@
         {
           "pred": "retrieved",
           "label": "retrieved at",
-          "value": "2026-09-03T11:07:43Z",
+          "value": "2026-09-04T11:11:02Z",
           "datatype": "dateTime"
         },
         {
@@ -1793,9 +1793,9 @@
         }
       ],
       "series": {
-        "instances": 66,
+        "instances": 67,
         "first": "2026-06-25",
-        "last": "2026-09-03"
+        "last": "2026-09-04"
       },
       "edges": [
         {
@@ -1820,8 +1820,8 @@
       "id": "key:disease-outbreaks",
       "class": "L1-source",
       "label": "disease-outbreaks",
-      "path": "01 Sources/2026-09-03/disease-outbreaks.md",
-      "page": "sources/2026-09-03/disease-outbreaks.html",
+      "path": "01 Sources/2026-09-04/disease-outbreaks.md",
+      "page": "sources/2026-09-04/disease-outbreaks.html",
       "facts": [
         {
           "pred": "source",
@@ -1844,7 +1844,7 @@
         {
           "pred": "retrieved",
           "label": "retrieved at",
-          "value": "2026-09-03T11:07:43Z",
+          "value": "2026-09-04T11:11:02Z",
           "datatype": "dateTime"
         },
         {
@@ -1861,9 +1861,9 @@
         }
       ],
       "series": {
-        "instances": 66,
+        "instances": 67,
         "first": "2026-06-25",
-        "last": "2026-09-03"
+        "last": "2026-09-04"
       },
       "edges": [
         {
@@ -1896,8 +1896,8 @@
       "id": "key:displacement-flows",
       "class": "L1-source",
       "label": "displacement-flows",
-      "path": "01 Sources/2026-09-03/displacement-flows.md",
-      "page": "sources/2026-09-03/displacement-flows.html",
+      "path": "01 Sources/2026-09-04/displacement-flows.md",
+      "page": "sources/2026-09-04/displacement-flows.html",
       "facts": [
         {
           "pred": "source",
@@ -1920,7 +1920,7 @@
         {
           "pred": "retrieved",
           "label": "retrieved at",
-          "value": "2026-09-03T11:07:43Z",
+          "value": "2026-09-04T11:11:02Z",
           "datatype": "dateTime"
         },
         {
@@ -1937,9 +1937,9 @@
         }
       ],
       "series": {
-        "instances": 66,
+        "instances": 67,
         "first": "2026-06-25",
-        "last": "2026-09-03"
+        "last": "2026-09-04"
       },
       "edges": [
         {
@@ -1972,8 +1972,8 @@
       "id": "key:earthquakes",
       "class": "L1-source",
       "label": "earthquakes",
-      "path": "01 Sources/2026-09-03/earthquakes.md",
-      "page": "sources/2026-09-03/earthquakes.html",
+      "path": "01 Sources/2026-09-04/earthquakes.md",
+      "page": "sources/2026-09-04/earthquakes.html",
       "facts": [
         {
           "pred": "source",
@@ -1996,7 +1996,7 @@
         {
           "pred": "retrieved",
           "label": "retrieved at",
-          "value": "2026-09-03T11:07:43Z",
+          "value": "2026-09-04T11:11:02Z",
           "datatype": "dateTime"
         },
         {
@@ -2013,9 +2013,9 @@
         }
       ],
       "series": {
-        "instances": 70,
+        "instances": 71,
         "first": "2026-06-16",
-        "last": "2026-09-03"
+        "last": "2026-09-04"
       },
       "edges": [
         {
@@ -2056,8 +2056,8 @@
       "id": "key:energy-prices",
       "class": "L1-source",
       "label": "energy-prices",
-      "path": "01 Sources/2026-09-03/energy-prices.md",
-      "page": "sources/2026-09-03/energy-prices.html",
+      "path": "01 Sources/2026-09-04/energy-prices.md",
+      "page": "sources/2026-09-04/energy-prices.html",
       "facts": [
         {
           "pred": "source",
@@ -2080,7 +2080,7 @@
         {
           "pred": "retrieved",
           "label": "retrieved at",
-          "value": "2026-09-03T11:07:43Z",
+          "value": "2026-09-04T11:11:02Z",
           "datatype": "dateTime"
         },
         {
@@ -2097,9 +2097,9 @@
         }
       ],
       "series": {
-        "instances": 71,
+        "instances": 72,
         "first": "2026-06-15",
-        "last": "2026-09-03"
+        "last": "2026-09-04"
       },
       "edges": [
         {
@@ -2140,8 +2140,8 @@
       "id": "key:fuel-prices",
       "class": "L1-source",
       "label": "fuel-prices",
-      "path": "01 Sources/2026-09-03/fuel-prices.md",
-      "page": "sources/2026-09-03/fuel-prices.html",
+      "path": "01 Sources/2026-09-04/fuel-prices.md",
+      "page": "sources/2026-09-04/fuel-prices.html",
       "facts": [
         {
           "pred": "source",
@@ -2164,7 +2164,7 @@
         {
           "pred": "retrieved",
           "label": "retrieved at",
-          "value": "2026-09-03T11:07:43Z",
+          "value": "2026-09-04T11:11:02Z",
           "datatype": "dateTime"
         },
         {
@@ -2181,9 +2181,9 @@
         }
       ],
       "series": {
-        "instances": 71,
+        "instances": 72,
         "first": "2026-06-15",
-        "last": "2026-09-03"
+        "last": "2026-09-04"
       },
       "edges": [
         {
@@ -2216,8 +2216,8 @@
       "id": "key:internet-outages",
       "class": "L1-source",
       "label": "internet-outages",
-      "path": "01 Sources/2026-09-03/internet-outages.md",
-      "page": "sources/2026-09-03/internet-outages.html",
+      "path": "01 Sources/2026-09-04/internet-outages.md",
+      "page": "sources/2026-09-04/internet-outages.html",
       "facts": [
         {
           "pred": "source",
@@ -2240,7 +2240,7 @@
         {
           "pred": "retrieved",
           "label": "retrieved at",
-          "value": "2026-09-03T11:07:43Z",
+          "value": "2026-09-04T11:11:02Z",
           "datatype": "dateTime"
         },
         {
@@ -2257,9 +2257,9 @@
         }
       ],
       "series": {
-        "instances": 66,
+        "instances": 67,
         "first": "2026-06-25",
-        "last": "2026-09-03"
+        "last": "2026-09-04"
       },
       "edges": [
         {
@@ -2284,8 +2284,8 @@
       "id": "key:natural-events",
       "class": "L1-source",
       "label": "natural-events",
-      "path": "01 Sources/2026-09-03/natural-events.md",
-      "page": "sources/2026-09-03/natural-events.html",
+      "path": "01 Sources/2026-09-04/natural-events.md",
+      "page": "sources/2026-09-04/natural-events.html",
       "facts": [
         {
           "pred": "source",
@@ -2308,7 +2308,7 @@
         {
           "pred": "retrieved",
           "label": "retrieved at",
-          "value": "2026-09-03T11:07:43Z",
+          "value": "2026-09-04T11:11:02Z",
           "datatype": "dateTime"
         },
         {
@@ -2325,9 +2325,9 @@
         }
       ],
       "series": {
-        "instances": 66,
+        "instances": 67,
         "first": "2026-06-25",
-        "last": "2026-09-03"
+        "last": "2026-09-04"
       },
       "edges": [
         {
@@ -2360,8 +2360,8 @@
       "id": "key:natural-gas-storage-eu",
       "class": "L1-source",
       "label": "natural-gas-storage-eu",
-      "path": "01 Sources/2026-09-03/natural-gas-storage-eu.md",
-      "page": "sources/2026-09-03/natural-gas-storage-eu.html",
+      "path": "01 Sources/2026-09-04/natural-gas-storage-eu.md",
+      "page": "sources/2026-09-04/natural-gas-storage-eu.html",
       "facts": [
         {
           "pred": "source",
@@ -2384,7 +2384,7 @@
         {
           "pred": "retrieved",
           "label": "retrieved at",
-          "value": "2026-09-03T11:07:43Z",
+          "value": "2026-09-04T11:11:02Z",
           "datatype": "dateTime"
         },
         {
@@ -2401,9 +2401,9 @@
         }
       ],
       "series": {
-        "instances": 71,
+        "instances": 72,
         "first": "2026-06-15",
-        "last": "2026-09-03"
+        "last": "2026-09-04"
       },
       "edges": [
         {
@@ -2444,8 +2444,8 @@
       "id": "key:orbital-satellites",
       "class": "L1-source",
       "label": "orbital-satellites",
-      "path": "01 Sources/2026-09-03/orbital-satellites.md",
-      "page": "sources/2026-09-03/orbital-satellites.html",
+      "path": "01 Sources/2026-09-04/orbital-satellites.md",
+      "page": "sources/2026-09-04/orbital-satellites.html",
       "facts": [
         {
           "pred": "source",
@@ -2468,7 +2468,7 @@
         {
           "pred": "retrieved",
           "label": "retrieved at",
-          "value": "2026-09-03T11:07:43Z",
+          "value": "2026-09-04T11:11:02Z",
           "datatype": "dateTime"
         },
         {
@@ -2485,9 +2485,9 @@
         }
       ],
       "series": {
-        "instances": 66,
+        "instances": 67,
         "first": "2026-06-25",
-        "last": "2026-09-03"
+        "last": "2026-09-04"
       },
       "edges": [
         {
@@ -2512,8 +2512,8 @@
       "id": "key:prediction-markets",
       "class": "L1-source",
       "label": "prediction-markets",
-      "path": "01 Sources/2026-09-03/prediction-markets.md",
-      "page": "sources/2026-09-03/prediction-markets.html",
+      "path": "01 Sources/2026-09-04/prediction-markets.md",
+      "page": "sources/2026-09-04/prediction-markets.html",
       "facts": [
         {
           "pred": "source",
@@ -2536,7 +2536,7 @@
         {
           "pred": "retrieved",
           "label": "retrieved at",
-          "value": "2026-09-03T11:07:43Z",
+          "value": "2026-09-04T11:11:02Z",
           "datatype": "dateTime"
         },
         {
@@ -2553,9 +2553,9 @@
         }
       ],
       "series": {
-        "instances": 69,
+        "instances": 70,
         "first": "2026-06-18",
-        "last": "2026-09-03"
+        "last": "2026-09-04"
       },
       "edges": [
         {
@@ -2580,8 +2580,8 @@
       "id": "key:radiation-observations",
       "class": "L1-source",
       "label": "radiation-observations",
-      "path": "01 Sources/2026-09-03/radiation-observations.md",
-      "page": "sources/2026-09-03/radiation-observations.html",
+      "path": "01 Sources/2026-09-04/radiation-observations.md",
+      "page": "sources/2026-09-04/radiation-observations.html",
       "facts": [
         {
           "pred": "source",
@@ -2604,7 +2604,7 @@
         {
           "pred": "retrieved",
           "label": "retrieved at",
-          "value": "2026-09-03T11:07:43Z",
+          "value": "2026-09-04T11:11:02Z",
           "datatype": "dateTime"
         },
         {
@@ -2621,9 +2621,9 @@
         }
       ],
       "series": {
-        "instances": 66,
+        "instances": 67,
         "first": "2026-06-25",
-        "last": "2026-09-03"
+        "last": "2026-09-04"
       },
       "edges": [
         {
@@ -2656,8 +2656,8 @@
       "id": "key:sea-ice-extent",
       "class": "L1-source",
       "label": "sea-ice-extent",
-      "path": "01 Sources/2026-09-03/sea-ice-extent.md",
-      "page": "sources/2026-09-03/sea-ice-extent.html",
+      "path": "01 Sources/2026-09-04/sea-ice-extent.md",
+      "page": "sources/2026-09-04/sea-ice-extent.html",
       "facts": [
         {
           "pred": "source",
@@ -2680,7 +2680,7 @@
         {
           "pred": "retrieved",
           "label": "retrieved at",
-          "value": "2026-09-03T11:07:43Z",
+          "value": "2026-09-04T11:11:02Z",
           "datatype": "dateTime"
         },
         {
@@ -2697,9 +2697,9 @@
         }
       ],
       "series": {
-        "instances": 67,
+        "instances": 68,
         "first": "2026-06-24",
-        "last": "2026-09-03"
+        "last": "2026-09-04"
       },
       "edges": [
         {
@@ -2724,8 +2724,8 @@
       "id": "key:thermal-escalations",
       "class": "L1-source",
       "label": "thermal-escalations",
-      "path": "01 Sources/2026-09-03/thermal-escalations.md",
-      "page": "sources/2026-09-03/thermal-escalations.html",
+      "path": "01 Sources/2026-09-04/thermal-escalations.md",
+      "page": "sources/2026-09-04/thermal-escalations.html",
       "facts": [
         {
           "pred": "source",
@@ -2748,7 +2748,7 @@
         {
           "pred": "retrieved",
           "label": "retrieved at",
-          "value": "2026-09-03T11:07:43Z",
+          "value": "2026-09-04T11:11:02Z",
           "datatype": "dateTime"
         },
         {
@@ -2765,9 +2765,9 @@
         }
       ],
       "series": {
-        "instances": 66,
+        "instances": 67,
         "first": "2026-06-25",
-        "last": "2026-09-03"
+        "last": "2026-09-04"
       },
       "edges": [
         {
@@ -2800,8 +2800,8 @@
       "id": "key:wildfire-detections",
       "class": "L1-source",
       "label": "wildfire-detections",
-      "path": "01 Sources/2026-09-03/wildfire-detections.md",
-      "page": "sources/2026-09-03/wildfire-detections.html",
+      "path": "01 Sources/2026-09-04/wildfire-detections.md",
+      "page": "sources/2026-09-04/wildfire-detections.html",
       "facts": [
         {
           "pred": "source",
@@ -2824,7 +2824,7 @@
         {
           "pred": "retrieved",
           "label": "retrieved at",
-          "value": "2026-09-03T11:07:43Z",
+          "value": "2026-09-04T11:11:02Z",
           "datatype": "dateTime"
         },
         {
@@ -2841,9 +2841,9 @@
         }
       ],
       "series": {
-        "instances": 66,
+        "instances": 67,
         "first": "2026-06-25",
-        "last": "2026-09-03"
+        "last": "2026-09-04"
       },
       "edges": [
         {
@@ -2876,8 +2876,8 @@
       "id": "key:world-bank-cpi",
       "class": "L1-source",
       "label": "world-bank-cpi",
-      "path": "01 Sources/2026-09-03/world-bank-cpi.md",
-      "page": "sources/2026-09-03/world-bank-cpi.html",
+      "path": "01 Sources/2026-09-04/world-bank-cpi.md",
+      "page": "sources/2026-09-04/world-bank-cpi.html",
       "facts": [
         {
           "pred": "source",
@@ -2900,7 +2900,7 @@
         {
           "pred": "retrieved",
           "label": "retrieved at",
-          "value": "2026-09-03T11:07:43Z",
+          "value": "2026-09-04T11:11:02Z",
           "datatype": "dateTime"
         },
         {
@@ -2917,9 +2917,9 @@
         }
       ],
       "series": {
-        "instances": 20,
+        "instances": 21,
         "first": "2026-08-14",
-        "last": "2026-09-03"
+        "last": "2026-09-04"
       },
       "edges": [
         {
@@ -2952,8 +2952,8 @@
       "id": "key:world-bank-gdp",
       "class": "L1-source",
       "label": "world-bank-gdp",
-      "path": "01 Sources/2026-09-03/world-bank-gdp.md",
-      "page": "sources/2026-09-03/world-bank-gdp.html",
+      "path": "01 Sources/2026-09-04/world-bank-gdp.md",
+      "page": "sources/2026-09-04/world-bank-gdp.html",
       "facts": [
         {
           "pred": "source",
@@ -2976,7 +2976,7 @@
         {
           "pred": "retrieved",
           "label": "retrieved at",
-          "value": "2026-09-03T11:07:43Z",
+          "value": "2026-09-04T11:11:02Z",
           "datatype": "dateTime"
         },
         {
@@ -2993,9 +2993,9 @@
         }
       ],
       "series": {
-        "instances": 20,
+        "instances": 21,
         "first": "2026-08-14",
-        "last": "2026-09-03"
+        "last": "2026-09-04"
       },
       "edges": [
         {
@@ -3088,8 +3088,8 @@
       "id": "key:world-bank-unemployment",
       "class": "L1-source",
       "label": "world-bank-unemployment",
-      "path": "01 Sources/2026-09-03/world-bank-unemployment.md",
-      "page": "sources/2026-09-03/world-bank-unemployment.html",
+      "path": "01 Sources/2026-09-04/world-bank-unemployment.md",
+      "page": "sources/2026-09-04/world-bank-unemployment.html",
       "facts": [
         {
           "pred": "source",
@@ -3112,7 +3112,7 @@
         {
           "pred": "retrieved",
           "label": "retrieved at",
-          "value": "2026-09-03T11:07:43Z",
+          "value": "2026-09-04T11:11:02Z",
           "datatype": "dateTime"
         },
         {
@@ -3129,9 +3129,9 @@
         }
       ],
       "series": {
-        "instances": 20,
+        "instances": 21,
         "first": "2026-08-14",
-        "last": "2026-09-03"
+        "last": "2026-09-04"
       },
       "edges": [
         {

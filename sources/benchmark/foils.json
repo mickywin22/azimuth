@@ -2,56 +2,56 @@
   "$note": "Captured snapshot of the COMPARED forecast/intelligence product for the azimuth benchmark (synthesis/benchmark.py). Quoted by product + capture date; NOT surfaced as an azimuth channel and NOT an L1 source. Refresh with pull_benchmark_foils.py.",
   "endpoint": "/api/forecast/v1/get-forecasts",
   "attribution": "WorldMonitor (api.worldmonitor.app) — model-generated forecast/assessment product",
-  "feed_generated_at": 1788433334791,
+  "feed_generated_at": 1788519642455,
   "feed_degraded": false,
-  "captured_at": "2026-09-03T11:08:01Z",
-  "n_forecasts_seen": 14,
+  "captured_at": "2026-09-04T11:11:12Z",
+  "n_forecasts_seen": 15,
   "topics": {
     "energy-supply": {
       "foil": {
-        "id": "fc-market-3b03eb86",
+        "id": "fc-market-ebd1063c",
         "domain": "market",
-        "region": "Middle East",
-        "title": "Oil price impact from Strait of Hormuz disruption",
-        "probability": 0.4,
-        "prior_probability": 0.4,
-        "confidence": 0.583,
+        "region": "Asia-Pacific",
+        "title": "Will China’s 2026 annual GDP growth (Y/Y) be between 4.0% and 5.0%?",
+        "probability": 0.85,
+        "prior_probability": 0.85,
+        "confidence": 0.667,
         "time_horizon": "30d",
         "trend": "stable",
         "projections": {
-          "d30": 0.168,
-          "d7": 0.232,
-          "h24": 0.4
+          "d30": 0.357,
+          "d7": 0.493,
+          "h24": 0.85
         },
-        "scenario_short": "Strait of Hormuz risk: critical. For now, the base case stays near 44% over the 30d. Actors absorb the current evidence mix without a decisive break toward either shock or relief.",
-        "perspective_strategic": "Strait of Hormuz risk: critical is setting the strategic baseline, and the current 40% probability implies a live but not settled risk path.",
-        "perspective_contrarian": "The current 58% confidence level still leaves room for reversal. If that restraint persists, the forecast can move below the current 40% baseline. Actors prioritize containment and the system drifts toward stabilization unless new hard signals emerge.",
-        "actor_lens": "Commodity traders: Price whether stress in Middle East becomes durable over the 30d. Rebalance positions if the probability path moves away from 40%.",
-        "top_signal": "Strait of Hormuz risk: critical"
+        "scenario_short": "China's 2026 GDP growth will likely fall between 4.0% and 5.0%, supported by polymarket pricing at 90% and signals of China's energy market influence, though US drone tariffs (Taiwan News) introduce trade friction risk.",
+        "perspective_strategic": "Polymarket at 90% signals strong market consensus for the 4.0-5.0% range, but the 30d projection declining to 36% suggests fading confidence over time, warranting monitoring of trade and energy headlines.",
+        "perspective_contrarian": "The 67% confidence level and polymarket's 90% not being strongly disputed leave room for reversal; if US drone tariffs escalate into broader trade conflict or China's energy dominance triggers OPEC retaliation, GDP could undershoot the 4.0% floor.",
+        "actor_lens": "Commodity traders: Price whether stress in Asia-Pacific becomes durable over the 30d. Rebalance positions if the probability path moves away from 85%.",
+        "top_signal": "polymarket: 90%"
       },
       "absence_reason": null
     },
     "supply-chain-inflation": {
       "foil": {
-        "id": "fc-market-2b10db4d",
+        "id": "fc-market-e25dc44e",
         "domain": "market",
         "region": "Black Sea",
-        "title": "Sovereign risk repricing from Black Sea maritime disruption state",
-        "probability": 0.63,
-        "prior_probability": 0.634,
+        "title": "Inflation and rates pressure from Black Sea maritime disruption state",
+        "probability": 0.588,
+        "prior_probability": 0.617,
         "confidence": 0.75,
         "time_horizon": "30d",
         "trend": "stable",
         "projections": {
-          "d30": 0.265,
-          "d7": 0.365,
-          "h24": 0.63
+          "d30": 0.247,
+          "d7": 0.341,
+          "h24": 0.588
         },
-        "scenario_short": "Black Sea maritime disruption state is keeping sovereign risk elevated through sovereign stress, with 72% pressure and 70% state confirmation. For now, the base case stays near 66% over the 30d. Actors absorb the...",
-        "perspective_strategic": "Black Sea maritime disruption state is keeping sovereign risk elevated through sovereign stress, with 72% pressure and 70% state confirmation is setting the strategic baseline, and the current 63% probability implies a live but not settled risk path.",
-        "perspective_contrarian": "The current 75% confidence level still leaves room for reversal. If that restraint persists, the forecast can move below the current 63% baseline. Actors prioritize containment and the system drifts toward stabilization unless new hard signals emerge.",
-        "actor_lens": "Commodity traders: Price whether stress in Black Sea becomes durable over the 30d. Rebalance positions if the probability path moves away from 63%.",
-        "top_signal": "Black Sea maritime disruption state is keeping sovereign risk elevated through sovereign stress, with 72% pressure and 70% state confirmation"
+        "scenario_short": "Black Sea maritime disruption state is feeding inflation and rates pressure through shipping cost shock, with 51% pressure and 73% state confirmation. For now, the base case stays near 62% over the 30d. Actors absorb...",
+        "perspective_strategic": "Black Sea maritime disruption state is feeding inflation and rates pressure through shipping cost shock, with 51% pressure and 73% state confirmation is setting the strategic baseline, and the current 59% probability implies a live but not settled risk path.",
+        "perspective_contrarian": "The current 75% confidence level still leaves room for reversal. If that restraint persists, the forecast can move below the current 59% baseline. Actors prioritize containment and the system drifts toward stabilization unless new hard signals emerge.",
+        "actor_lens": "Commodity traders: Price whether stress in Black Sea becomes durable over the 30d. Rebalance positions if the probability path moves away from 59%.",
+        "top_signal": "Black Sea maritime disruption state is feeding inflation and rates pressure through shipping cost shock, with 51% pressure and 73% state confirmation"
       },
       "absence_reason": null
     },

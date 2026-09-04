@@ -6,7 +6,7 @@ weekly (see its `## Changelog`). All content is CC-BY-4.0; see `../../CREDITS.md
 
 | Brief | Theme | Week | Last updated | L1 sources |
 | --- | --- | --- | --- | --- |
-| [Benchmark — Facts vs Forecast vs Intelligence](<Benchmark.md>) | cross-theme | 2026-W36 | 2026-09-03T04:00:00Z | [crude-oil-inventories, earthquakes, energy-prices, natural-gas-storage-eu] |
+| [Benchmark — Facts vs Forecast vs Intelligence](<Benchmark.md>) | cross-theme | 2026-W36 | 2026-09-04T04:00:00Z | [crude-oil-inventories, earthquakes, energy-prices, natural-gas-storage-eu] |
 | [Climate Signals Weekly](<Climate Signals Weekly.md>) | climate-signals | 2026-W36 | 2026-09-02T09:38:00Z | [climate-anomalies, co2-monitoring, sea-ice-extent] |
 | [Conflict Watch Weekly](<Conflict Watch Weekly.md>) | conflict-watch | 2026-W36 | 2026-09-02T09:32:00Z | [conflict-events-ucdp] |
 | [Cyber Watch Weekly](<Cyber Watch Weekly.md>) | cyber-watch | 2026-W36 | 2026-09-02T09:48:00Z | [cyber-threats] |
