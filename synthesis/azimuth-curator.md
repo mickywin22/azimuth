@@ -89,20 +89,24 @@ The HemySphere fleet seeds one azimuth-curator work-item per day
 becomes you, and the universal **Reviewer pushes your commits to azimuth `main`** — the same
 path L1 ingest already runs daily on GitHub Actions. Together that is the end-to-end
 automation: GH Actions pulls fresh L1 every day, this daily cadence synthesises the L2 briefs
-behind it. A day where `check_synthesis_freshness.py --check` exits 0 is a logged no-op.
-**No manual run is required.**
+behind it. A day where `check_synthesis_freshness.py --check`, `build_cross_theme.py --check`
+and `build_answers.py --check` ALL exit 0 is a logged no-op. **No manual run is required.**
 
 ## What you do
 
 0. **Find what is stale first.** Run `python scripts/check_synthesis_freshness.py`. It lists
    every clean (non-held) theme whose latest L1 ingest day is newer than its brief's `updated`
    date — i.e. exactly the briefs that need this week's refresh. Held themes never appear here.
-   **No-op gate (machine-verifiable — the exit code decides, never prose judgment):** Run
-   `check_synthesis_freshness.py --check` before concluding no-op; if exit code is non-zero,
-   at least one brief requires synthesis — proceed even if the gap appears small. A clean
-   no-op (log it and exit, do not invent edits) is permitted ONLY when `--check` exits 0.
-   (W27 regression: a curator judged the freshness listing "close enough" while `--check` was
-   non-zero — 5 briefs sat stale for 11 days with no alarm firing.)
+   **No-op gate (machine-verifiable — the combined exit code decides, never prose judgment):**
+   before concluding no-op, run ALL THREE staleness gates — `check_synthesis_freshness.py
+   --check` (theme briefs), `build_cross_theme.py --check` (World Watch meta-brief) and
+   `build_answers.py --check` (Top5 demonstrator). A clean no-op (log it and exit, do not invent
+   edits) is permitted ONLY when ALL THREE exit 0; if ANY is non-zero, something requires
+   synthesis — proceed even if the gap appears small. Freshness alone is NOT the criterion: it
+   only checks the theme briefs' `updated` dates, so a meta-brief can lag the latest L1 while
+   freshness reads clean (IQ #1150 — the 13-day World Watch / Top5 staleness class the freshness
+   gate never caught). (W27 regression: a curator judged the freshness listing "close enough"
+   while `--check` was non-zero — 5 briefs sat stale for 11 days with no alarm firing.)
 1. **Read the rules first.** `vault/00 Rules/editorial.md` (what a brief must not say) and
    `vault/00 Rules/synthesis-contract.md` (the 5 clauses you honour).
 2. **For each STALE active (non-held) theme**, read this week's L1 notes under
@@ -156,6 +160,8 @@ behind it. A day where `check_synthesis_freshness.py --check` exits 0 is a logge
 `scripts/check_synthesis_freshness.py --check` exits 0 (no clean brief left lagging the latest
 L1 — proof the weekly cycle actually absorbed the freshest ingest), and each brief reads as
 **analysis-with-sources**, not a data dump. A clean no-op satisfies the gate ONLY when
-`check_synthesis_freshness.py --check` exited 0 before the run — the exit code decides,
-never prose judgment. The first weekly cycles also pass a Michael spot-review before the
+`check_synthesis_freshness.py --check`, `build_cross_theme.py --check` AND
+`build_answers.py --check` ALL exited 0 before the run — the combined exit code decides,
+never prose judgment (freshness alone misses a stale meta-brief; IQ #1150). The first weekly
+cycles also pass a Michael spot-review before the
 repo flips public (spec.md F2 / KR-B B3).
