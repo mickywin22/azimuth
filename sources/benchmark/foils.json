@@ -2,32 +2,32 @@
   "$note": "Captured snapshot of the COMPARED forecast/intelligence product for the azimuth benchmark (synthesis/benchmark.py). Quoted by product + capture date; NOT surfaced as an azimuth channel and NOT an L1 source. Refresh with pull_benchmark_foils.py.",
   "endpoint": "/api/forecast/v1/get-forecasts",
   "attribution": "WorldMonitor (api.worldmonitor.app) — model-generated forecast/assessment product",
-  "feed_generated_at": 1788782535385,
+  "feed_generated_at": 1788865251213,
   "feed_degraded": false,
-  "captured_at": "2026-09-07T12:21:45Z",
+  "captured_at": "2026-09-08T11:11:10Z",
   "n_forecasts_seen": 14,
   "topics": {
     "energy-supply": {
       "foil": {
-        "id": "fc-market-3b03eb86",
+        "id": "fc-market-b7617c97",
         "domain": "market",
         "region": "Middle East",
-        "title": "Oil price impact from Strait of Hormuz disruption",
-        "probability": 0.4,
-        "prior_probability": 0.4,
-        "confidence": 0.583,
+        "title": "Sovereign risk repricing from Middle East security escalation state",
+        "probability": 0.693,
+        "prior_probability": 0.693,
+        "confidence": 0.75,
         "time_horizon": "30d",
         "trend": "stable",
         "projections": {
-          "d30": 0.168,
-          "d7": 0.232,
-          "h24": 0.4
+          "d30": 0.291,
+          "d7": 0.402,
+          "h24": 0.693
         },
-        "scenario_short": "Strait of Hormuz risk: critical. For now, the base case stays near 44% over the 30d. Actors absorb the current evidence mix without a decisive break toward either shock or relief.",
-        "perspective_strategic": "Strait of Hormuz risk: critical is setting the strategic baseline, and the current 40% probability implies a live but not settled risk path.",
-        "perspective_contrarian": "The current 58% confidence level still leaves room for reversal. If that restraint persists, the forecast can move below the current 40% baseline. Actors prioritize containment and the system drifts toward stabilization unless new hard signals emerge.",
-        "actor_lens": "Commodity traders: Price whether stress in Middle East becomes durable over the 30d. Rebalance positions if the probability path moves away from 40%.",
-        "top_signal": "Strait of Hormuz risk: critical"
+        "scenario_short": "Sovereign risk repricing in the Middle East persists over the next 30 days as security escalation state (77% pressure, 71% state confirmation) keeps sovereign stress elevated, with oil prices climbing toward $100 and...",
+        "perspective_strategic": "Middle East security escalation state is keeping sovereign risk elevated through sovereign stress, with 77% pressure and 71% state confirmation is setting the strategic baseline, and the current 69% probability implies a live but not settled risk path.",
+        "perspective_contrarian": "The 75% confidence level leaves room for reversal; if the restraint persists and no new hard signals",
+        "actor_lens": "Commodity traders: Price whether stress in Middle East becomes durable over the 30d. Rebalance positions if the probability path moves away from 69%.",
+        "top_signal": "Middle East security escalation state is keeping sovereign risk elevated through sovereign stress, with 77% pressure and 71% state confirmation"
       },
       "absence_reason": null
     },
@@ -37,21 +37,21 @@
         "domain": "market",
         "region": "Black Sea",
         "title": "Sovereign risk repricing from Black Sea maritime disruption state",
-        "probability": 0.665,
-        "prior_probability": 0.683,
+        "probability": 0.663,
+        "prior_probability": 0.665,
         "confidence": 0.75,
         "time_horizon": "30d",
         "trend": "stable",
         "projections": {
-          "d30": 0.279,
-          "d7": 0.386,
-          "h24": 0.665
+          "d30": 0.278,
+          "d7": 0.385,
+          "h24": 0.663
         },
-        "scenario_short": "Black Sea maritime disruption state is keeping sovereign risk elevated through risk off rotation, with 77% pressure and 74% state confirmation. For now, the base case stays near 70% over the 30d. Actors absorb the...",
-        "perspective_strategic": "Black Sea maritime disruption state is keeping sovereign risk elevated through risk off rotation, with 77% pressure and 74% state confirmation is setting the strategic baseline, and the current 67% probability implies a live but not settled risk path.",
-        "perspective_contrarian": "The current 75% confidence level still leaves room for reversal. If that restraint persists, the forecast can move below the current 67% baseline. Actors prioritize containment and the system drifts toward stabilization unless new hard signals emerge.",
-        "actor_lens": "Commodity traders: Price whether stress in Black Sea becomes durable over the 30d. Rebalance positions if the probability path moves away from 67%.",
-        "top_signal": "Black Sea maritime disruption state is keeping sovereign risk elevated through risk off rotation, with 77% pressure and 74% state confirmation"
+        "scenario_short": "Black Sea maritime disruption state is keeping sovereign risk elevated through risk off rotation, with 77% pressure and 72% state confirmation. For now, the base case stays near 69% over the 30d. Actors absorb the...",
+        "perspective_strategic": "Black Sea maritime disruption state is keeping sovereign risk elevated through risk off rotation, with 77% pressure and 72% state confirmation is setting the strategic baseline, and the current 66% probability implies a live but not settled risk path.",
+        "perspective_contrarian": "The current 75% confidence level still leaves room for reversal. If that restraint persists, the forecast can move below the current 66% baseline. Actors prioritize containment and the system drifts toward stabilization unless new hard signals emerge.",
+        "actor_lens": "Commodity traders: Price whether stress in Black Sea becomes durable over the 30d. Rebalance positions if the probability path moves away from 66%.",
+        "top_signal": "Black Sea maritime disruption state is keeping sovereign risk elevated through risk off rotation, with 77% pressure and 72% state confirmation"
       },
       "absence_reason": null
     },
