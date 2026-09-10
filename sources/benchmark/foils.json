@@ -2,56 +2,56 @@
   "$note": "Captured snapshot of the COMPARED forecast/intelligence product for the azimuth benchmark (synthesis/benchmark.py). Quoted by product + capture date; NOT surfaced as an azimuth channel and NOT an L1 source. Refresh with pull_benchmark_foils.py.",
   "endpoint": "/api/forecast/v1/get-forecasts",
   "attribution": "WorldMonitor (api.worldmonitor.app) — model-generated forecast/assessment product",
-  "feed_generated_at": 1788951862907,
+  "feed_generated_at": 1789038168353,
   "feed_degraded": false,
-  "captured_at": "2026-09-09T11:15:10Z",
-  "n_forecasts_seen": 14,
+  "captured_at": "2026-09-10T11:11:43Z",
+  "n_forecasts_seen": 15,
   "topics": {
     "energy-supply": {
       "foil": {
-        "id": "fc-market-3b03eb86",
+        "id": "fc-market-ebd1063c",
         "domain": "market",
-        "region": "Middle East",
-        "title": "Oil price impact from Strait of Hormuz disruption",
-        "probability": 0.4,
-        "prior_probability": 0.4,
-        "confidence": 0.583,
+        "region": "Asia-Pacific",
+        "title": "Will China’s 2026 annual GDP growth (Y/Y) be between 4.0% and 5.0%?",
+        "probability": 0.85,
+        "prior_probability": 0.85,
+        "confidence": 0.667,
         "time_horizon": "30d",
         "trend": "stable",
         "projections": {
-          "d30": 0.168,
-          "d7": 0.232,
-          "h24": 0.4
+          "h24": 0.85,
+          "d7": 0.493,
+          "d30": 0.357
         },
-        "scenario_short": "Strait of Hormuz risk: critical. For now, the base case stays near 44% over the 30d. Actors absorb the current evidence mix without a decisive break toward either shock or relief.",
-        "perspective_strategic": "Strait of Hormuz risk: critical is setting the strategic baseline, and the current 40% probability implies a live but not settled risk path.",
-        "perspective_contrarian": "The current 58% confidence level still leaves room for reversal. If that restraint persists, the forecast can move below the current 40% baseline. Actors prioritize containment and the system drifts toward stabilization unless new hard signals emerge.",
-        "actor_lens": "Commodity traders: Price whether stress in Middle East becomes durable over the 30d. Rebalance positions if the probability path moves away from 40%.",
-        "top_signal": "Strait of Hormuz risk: critical"
+        "scenario_short": "China's 2026 annual GDP growth will likely fall between 4.0% and 5.0%, supported by China's role in stabilizing oil markets during the Iran war disruption, as reported by CNBC, and by prediction market pricing at 90%.",
+        "perspective_strategic": "The 90% polymarket signal and CNBC's report on China's oil market intervention indicate that Beijing's economic management is currently viewed as resilient, but the stalled Power of Siberia 2 talks suggest underlying friction with Russia that could weigh on growth.",
+        "perspective_contrarian": "The 67% confidence level and the 30d projection declining to 36% suggest that the current 85% probability may be overconfident; a decisive market repricing or new negative headlines could reverse the stable path.",
+        "actor_lens": "Commodity traders: Price whether stress in Asia-Pacific becomes durable over the 30d. Rebalance positions if the probability path moves away from 85%.",
+        "top_signal": "polymarket: 90%"
       },
       "absence_reason": null
     },
     "supply-chain-inflation": {
       "foil": {
-        "id": "fc-supply_chain-091bde59",
-        "domain": "supply_chain",
+        "id": "fc-market-8d21b764",
+        "domain": "market",
         "region": "Eastern Mediterranean",
-        "title": "GPS interference in Eastern Mediterranean shipping zone",
-        "probability": 0.5,
-        "prior_probability": 0.5,
-        "confidence": 0.417,
-        "time_horizon": "7d",
+        "title": "Inflation and rates pressure from Eastern Mediterranean maritime disruption state",
+        "probability": 0.608,
+        "prior_probability": 0.608,
+        "confidence": 0.75,
+        "time_horizon": "30d",
         "trend": "stable",
         "projections": {
-          "d30": 0.32,
-          "d7": 0.5,
-          "h24": 0.455
+          "h24": 0.608,
+          "d7": 0.353,
+          "d30": 0.255
         },
-        "scenario_short": "33 jamming hexes in Eastern Mediterranean. For now, the base case stays near 53% over the 7d. Actors absorb the current evidence mix without a decisive break toward either shock or relief.",
-        "perspective_strategic": "33 jamming hexes in Eastern Mediterranean is setting the strategic baseline, and the current 50% probability implies a live but not settled risk path.",
-        "perspective_contrarian": "Confidence is only 42%, implying thin source diversity or mixed calibration. If that restraint persists, the forecast can move below the current 50% baseline. Actors prioritize containment and the system drifts toward stabilization unless new hard signals emerge.",
-        "actor_lens": "Shipping operators: Keep critical flows through Eastern Mediterranean functioning over the 7d. Adjust routing and contingency plans around Eastern Mediterranean.",
-        "top_signal": "33 jamming hexes in Eastern Mediterranean"
+        "scenario_short": "Eastern Mediterranean maritime disruption state is feeding inflation and rates pressure through shipping cost shock, with 51% pressure and 75% state confirmation. For now, the base case stays near 64% over the 30d....",
+        "perspective_strategic": "Eastern Mediterranean maritime disruption state is feeding inflation and rates pressure through shipping cost shock, with 51% pressure and 75% state confirmation is setting the strategic baseline, and the current 61% probability implies a live but not settled risk path.",
+        "perspective_contrarian": "The current 75% confidence level still leaves room for reversal. If that restraint persists, the forecast can move below the current 61% baseline. Actors prioritize containment and the system drifts toward stabilization unless new hard signals emerge.",
+        "actor_lens": "Commodity traders: Price whether stress in Eastern Mediterranean becomes durable over the 30d. Rebalance positions if the probability path moves away from 61%.",
+        "top_signal": "Eastern Mediterranean maritime disruption state is feeding inflation and rates pressure through shipping cost shock, with 51% pressure and 75% state confirmation"
       },
       "absence_reason": null
     },
