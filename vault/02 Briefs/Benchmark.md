@@ -3,7 +3,7 @@ title: Benchmark — Facts vs Forecast vs Intelligence
 type: L2-brief
 theme: cross-theme
 week: 2026-W37
-updated: 2026-09-10T04:00:00Z
+updated: 2026-09-11T04:00:00Z
 sources: [crude-oil-inventories, earthquakes, energy-prices, natural-gas-storage-eu]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources; the forecast/intelligence columns quote WorldMonitor as the COMPARED product, not an azimuth channel
@@ -11,7 +11,7 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 # Benchmark — azimuth vs a forecast vs an intelligence feed
 
-> *Why not just read a forecast or an intelligence feed?* Here is the same world-topic through three columns: **azimuth** (observed facts from the live bundle, every claim linked to its L1 source), a **FORECAST** product (a model probability), and an **INTELLIGENCE** product (an analyst assessment). It is a fair contrast, not a strawman: azimuth wins on provenance, neutrality and reproducibility; a forecast / intel feed legitimately wins on **forward-looking coverage** — it predicts, azimuth reports what already happened. The forecast / intelligence columns quote WorldMonitor as the *compared product* (captured 2026-09-10T11:11:43Z), deliberately NOT a clickable L1 link — because that is exactly the difference.
+> *Why not just read a forecast or an intelligence feed?* Here is the same world-topic through three columns: **azimuth** (observed facts from the live bundle, every claim linked to its L1 source), a **FORECAST** product (a model probability), and an **INTELLIGENCE** product (an analyst assessment). It is a fair contrast, not a strawman: azimuth wins on provenance, neutrality and reproducibility; a forecast / intel feed legitimately wins on **forward-looking coverage** — it predicts, azimuth reports what already happened. The forecast / intelligence columns quote WorldMonitor as the *compared product* (captured 2026-09-11T11:13:56Z), deliberately NOT a clickable L1 link — because that is exactly the difference.
 
 ## EU / global energy supply security
 
@@ -19,9 +19,9 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 ### azimuth — observed facts (EU gas storage + US crude inventories + Energy prices)
 
-- EU gas storage stands at 3,214 Bcf (+30 Bcf w/w) as of 2026-08-28 — an observed reading ([[natural-gas-storage-eu]])
-- US crude inventories drew down -7,572 to 711,064 Mb (EIA week of 2026-08-28) — an observed reading ([[crude-oil-inventories]])
-- Spot crude as reported: WTI $84.62/bbl (-3.1 w/w), Brent $89.73/bbl (-4.7 w/w) — the observed price tape ([[energy-prices]])
+- EU gas storage stands at 3,254 Bcf (+40 Bcf w/w) as of 2026-09-04 — an observed reading ([[natural-gas-storage-eu]])
+- US crude inventories drew down -1,635 to 709,429 Mb (EIA week of 2026-09-04) — an observed reading ([[crude-oil-inventories]])
+- Spot crude as reported: WTI $91.18/bbl (+7.8 w/w), Brent $99.09/bbl (+10.4 w/w) — the observed price tape ([[energy-prices]])
 
 ### FORECAST product — model projection (compared)
 
@@ -29,15 +29,15 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 >
 > Probability path: h24=85%, d7=49%, d30=36%
 >
-> — *WorldMonitor forecast feed (model projection), captured 2026-09-10T11:11:43Z*
+> — *WorldMonitor forecast feed (model projection), captured 2026-09-11T11:13:56Z*
 
 ### INTELLIGENCE product — analyst assessment (compared)
 
-> The 90% polymarket signal and CNBC's report on China's oil market intervention indicate that Beijing's economic management is currently viewed as resilient, but the stalled Power of Siberia 2 talks suggest underlying friction with Russia that could weigh on growth.
+> The polymarket 90% signal and stable 85% forecast indicate markets currently price a likely 4-5% growth band, despite the headwind of Hormuz-linked oil price increases (Nikkei Asia), suggesting policy officials are expected to successfully insulate growth targets.
 >
 > Actor lens: Commodity traders: Price whether stress in Asia-Pacific becomes durable over the 30d. Rebalance positions if the probability path moves away from 85%.
 >
-> — *WorldMonitor intelligence assessment (analyst judgement), captured 2026-09-10T11:11:43Z*
+> — *WorldMonitor intelligence assessment (analyst judgement), captured 2026-09-11T11:13:56Z*
 
 ### Scorecard
 
@@ -60,24 +60,24 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 ### azimuth — observed facts (Energy prices + US crude inventories)
 
-- WTI crude as reported: $84.62/bbl (-3.1 w/w) — the observed energy-cost input to inflation, not a forecast of it ([[energy-prices]])
-- US crude stocks -7,572 (week of 2026-08-28) — the observed physical balance behind the cost line, every figure clickable ([[crude-oil-inventories]])
+- WTI crude as reported: $91.18/bbl (+7.8 w/w) — the observed energy-cost input to inflation, not a forecast of it ([[energy-prices]])
+- US crude stocks -1,635 (week of 2026-09-04) — the observed physical balance behind the cost line, every figure clickable ([[crude-oil-inventories]])
 
 ### FORECAST product — model projection (compared)
 
-> Assigns a **61% probability** over 30d that “Inflation and rates pressure from Eastern Mediterranean maritime disruption state” — confidence 75%, trend stable.
+> Assigns a **66% probability** over 30d that “Sovereign risk repricing from Black Sea maritime disruption state” — confidence 75%, trend stable.
 >
-> Probability path: h24=61%, d7=35%, d30=26%
+> Probability path: h24=66%, d7=38%, d30=28%
 >
-> — *WorldMonitor forecast feed (model projection), captured 2026-09-10T11:11:43Z*
+> — *WorldMonitor forecast feed (model projection), captured 2026-09-11T11:13:56Z*
 
 ### INTELLIGENCE product — analyst assessment (compared)
 
-> Eastern Mediterranean maritime disruption state is feeding inflation and rates pressure through shipping cost shock, with 51% pressure and 75% state confirmation is setting the strategic baseline, and the current 61% probability implies a live but not settled risk path.
+> Black Sea maritime disruption state is keeping sovereign risk elevated through risk off rotation, with 73% pressure and 73% state confirmation is setting the strategic baseline, and the current 66% probability implies a live but not settled risk path.
 >
-> Actor lens: Commodity traders: Price whether stress in Eastern Mediterranean becomes durable over the 30d. Rebalance positions if the probability path moves away from 61%.
+> Actor lens: Commodity traders: Price whether stress in Black Sea becomes durable over the 30d. Rebalance positions if the probability path moves away from 66%.
 >
-> — *WorldMonitor intelligence assessment (analyst judgement), captured 2026-09-10T11:11:43Z*
+> — *WorldMonitor intelligence assessment (analyst judgement), captured 2026-09-11T11:13:56Z*
 
 ### Scorecard
 
@@ -100,7 +100,7 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 ### azimuth — observed facts (Geophysical)
 
-- Largest recorded event this week: M6.3 84 km SSW of Nikolski, Alaska — one of 42 events at or above M5 USGS logged, an observed record ([[earthquakes]])
+- Largest recorded event this week: M5.6 93 km SE of Kirakira, Solomon Islands — one of 34 events at or above M5 USGS logged, an observed record ([[earthquakes]])
 - azimuth reports what USGS RECORDED, never what may happen next — a sourced, neutral record of seismicity, regenerable from the open USGS feed ([[earthquakes]])
 
 ### FORECAST product — model projection (compared)
@@ -206,3 +206,4 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 - 2026-09-08 — regenerated the facts-vs-forecast-vs-intelligence benchmark from the 2026-09-08 live bundle (2026-W37); 3 head-to-head topics, every azimuth claim L1-sourced, foil snapshot quoted as the compared product.
 - 2026-09-09 — regenerated the facts-vs-forecast-vs-intelligence benchmark from the 2026-09-09 live bundle (2026-W37); 3 head-to-head topics, every azimuth claim L1-sourced, foil snapshot quoted as the compared product.
 - 2026-09-10 — regenerated the facts-vs-forecast-vs-intelligence benchmark from the 2026-09-10 live bundle (2026-W37); 3 head-to-head topics, every azimuth claim L1-sourced, foil snapshot quoted as the compared product.
+- 2026-09-11 — regenerated the facts-vs-forecast-vs-intelligence benchmark from the 2026-09-11 live bundle (2026-W37); 3 head-to-head topics, every azimuth claim L1-sourced, foil snapshot quoted as the compared product.
