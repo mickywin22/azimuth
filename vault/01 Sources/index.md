@@ -2,6 +2,7 @@
 
 Machine-written verbatim transforms of the WorldMonitor API, one dated folder per daily ingest (`YYYY-MM-DD/<source_key>.md`); never hand-edited. Newest first.
 
+- [2026-09-14/](2026-09-14/) — 23 source note(s)
 - [2026-09-13/](2026-09-13/) — 24 source note(s)
 - [2026-09-12/](2026-09-12/) — 24 source note(s)
 - [2026-09-11/](2026-09-11/) — 21 source note(s)
