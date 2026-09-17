@@ -3,7 +3,7 @@ title: Benchmark — Facts vs Forecast vs Intelligence
 type: L2-brief
 theme: cross-theme
 week: 2026-W38
-updated: 2026-09-16T04:00:00Z
+updated: 2026-09-17T04:00:00Z
 sources: [crude-oil-inventories, earthquakes, energy-prices, natural-gas-storage-eu]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources; the forecast/intelligence columns quote WorldMonitor as the COMPARED product, not an azimuth channel
@@ -11,7 +11,7 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 # Benchmark — azimuth vs a forecast vs an intelligence feed
 
-> *Why not just read a forecast or an intelligence feed?* Here is the same world-topic through three columns: **azimuth** (observed facts from the live bundle, every claim linked to its L1 source), a **FORECAST** product (a model probability), and an **INTELLIGENCE** product (an analyst assessment). It is a fair contrast, not a strawman: azimuth wins on provenance, neutrality and reproducibility; a forecast / intel feed legitimately wins on **forward-looking coverage** — it predicts, azimuth reports what already happened. The forecast / intelligence columns quote WorldMonitor as the *compared product* (captured 2026-09-16T11:24:57Z), deliberately NOT a clickable L1 link — because that is exactly the difference.
+> *Why not just read a forecast or an intelligence feed?* Here is the same world-topic through three columns: **azimuth** (observed facts from the live bundle, every claim linked to its L1 source), a **FORECAST** product (a model probability), and an **INTELLIGENCE** product (an analyst assessment). It is a fair contrast, not a strawman: azimuth wins on provenance, neutrality and reproducibility; a forecast / intel feed legitimately wins on **forward-looking coverage** — it predicts, azimuth reports what already happened. The forecast / intelligence columns quote WorldMonitor as the *compared product* (captured 2026-09-17T11:34:18Z), deliberately NOT a clickable L1 link — because that is exactly the difference.
 
 ## EU / global energy supply security
 
@@ -20,8 +20,8 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 ### azimuth — observed facts (EU gas storage + US crude inventories + Energy prices)
 
 - EU gas storage stands at 3,254 Bcf (+40 Bcf w/w) as of 2026-09-04 — an observed reading ([[natural-gas-storage-eu]])
-- US crude inventories drew down -1,635 to 709,429 Mb (EIA week of 2026-09-04) — an observed reading ([[crude-oil-inventories]])
-- Spot crude as reported: WTI $91.18/bbl (+7.8 w/w), Brent $99.09/bbl (+10.4 w/w) — the observed price tape ([[energy-prices]])
+- US crude inventories drew down -1,043 to 708,386 Mb (EIA week of 2026-09-11) — an observed reading ([[crude-oil-inventories]])
+- Spot crude as reported: WTI $99.08/bbl (+8.7 w/w), Brent $111.83/bbl (+12.9 w/w) — the observed price tape ([[energy-prices]])
 
 ### FORECAST product — model projection (compared)
 
@@ -29,7 +29,7 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 >
 > Probability path: d30=17%, d7=23%, h24=40%
 >
-> — *WorldMonitor forecast feed (model projection), captured 2026-09-16T11:24:57Z*
+> — *WorldMonitor forecast feed (model projection), captured 2026-09-17T11:34:18Z*
 
 ### INTELLIGENCE product — analyst assessment (compared)
 
@@ -37,7 +37,7 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 >
 > Actor lens: Commodity traders: Price whether stress in Middle East becomes durable over the 30d. Rebalance positions if the probability path moves away from 40%.
 >
-> — *WorldMonitor intelligence assessment (analyst judgement), captured 2026-09-16T11:24:57Z*
+> — *WorldMonitor intelligence assessment (analyst judgement), captured 2026-09-17T11:34:18Z*
 
 ### Scorecard
 
@@ -60,24 +60,24 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 ### azimuth — observed facts (Energy prices + US crude inventories)
 
-- WTI crude as reported: $91.18/bbl (+7.8 w/w) — the observed energy-cost input to inflation, not a forecast of it ([[energy-prices]])
-- US crude stocks -1,635 (week of 2026-09-04) — the observed physical balance behind the cost line, every figure clickable ([[crude-oil-inventories]])
+- WTI crude as reported: $99.08/bbl (+8.7 w/w) — the observed energy-cost input to inflation, not a forecast of it ([[energy-prices]])
+- US crude stocks -1,043 (week of 2026-09-11) — the observed physical balance behind the cost line, every figure clickable ([[crude-oil-inventories]])
 
 ### FORECAST product — model projection (compared)
 
-> Assigns a **50% probability** over 7d that “GPS interference in Eastern Mediterranean shipping zone” — confidence 25%, trend stable.
+> Assigns a **2% probability** over 7d that “GPS interference in Red Sea shipping zone” — confidence 42%, trend stable.
 >
-> Probability path: d30=32%, d7=50%, h24=46%
+> Probability path: d30=1%, d7=2%, h24=2%
 >
-> — *WorldMonitor forecast feed (model projection), captured 2026-09-16T11:24:57Z*
+> — *WorldMonitor forecast feed (model projection), captured 2026-09-17T11:34:18Z*
 
 ### INTELLIGENCE product — analyst assessment (compared)
 
-> 73 jamming hexes in Eastern Mediterranean is setting the strategic baseline, and the current 50% probability implies a live but not settled risk path.
+> 3 jamming hexes in Red Sea is setting the strategic baseline, and the current 2% probability implies a live but not settled risk path.
 >
-> Actor lens: Shipping operators: Keep critical flows through Eastern Mediterranean functioning over the 7d. Adjust routing and contingency plans around Eastern Mediterranean.
+> Actor lens: Shipping operators: Keep critical flows through Red Sea functioning over the 7d. Adjust routing and contingency plans around Red Sea.
 >
-> — *WorldMonitor intelligence assessment (analyst judgement), captured 2026-09-16T11:24:57Z*
+> — *WorldMonitor intelligence assessment (analyst judgement), captured 2026-09-17T11:34:18Z*
 
 ### Scorecard
 
@@ -100,7 +100,7 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 ### azimuth — observed facts (Geophysical)
 
-- Largest recorded event this week: M6.5 126 km NNE of Teluknaga, Indonesia — one of 24 events at or above M5 USGS logged, an observed record ([[earthquakes]])
+- Largest recorded event this week: M6.5 126 km NNE of Teluknaga, Indonesia — one of 27 events at or above M5 USGS logged, an observed record ([[earthquakes]])
 - azimuth reports what USGS RECORDED, never what may happen next — a sourced, neutral record of seismicity, regenerable from the open USGS feed ([[earthquakes]])
 
 ### FORECAST product — model projection (compared)
@@ -212,3 +212,4 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 - 2026-09-14 — regenerated the facts-vs-forecast-vs-intelligence benchmark from the 2026-09-14 live bundle (2026-W38); 3 head-to-head topics, every azimuth claim L1-sourced, foil snapshot quoted as the compared product.
 - 2026-09-15 — regenerated the facts-vs-forecast-vs-intelligence benchmark from the 2026-09-15 live bundle (2026-W38); 3 head-to-head topics, every azimuth claim L1-sourced, foil snapshot quoted as the compared product.
 - 2026-09-16 — regenerated the facts-vs-forecast-vs-intelligence benchmark from the 2026-09-16 live bundle (2026-W38); 3 head-to-head topics, every azimuth claim L1-sourced, foil snapshot quoted as the compared product.
+- 2026-09-17 — regenerated the facts-vs-forecast-vs-intelligence benchmark from the 2026-09-17 live bundle (2026-W38); 3 head-to-head topics, every azimuth claim L1-sourced, foil snapshot quoted as the compared product.

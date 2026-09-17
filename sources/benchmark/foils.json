@@ -2,9 +2,9 @@
   "$note": "Captured snapshot of the COMPARED forecast/intelligence product for the azimuth benchmark (synthesis/benchmark.py). Quoted by product + capture date; NOT surfaced as an azimuth channel and NOT an L1 source. Refresh with pull_benchmark_foils.py.",
   "endpoint": "/api/forecast/v1/get-forecasts",
   "attribution": "WorldMonitor (api.worldmonitor.app) — model-generated forecast/assessment product",
-  "feed_generated_at": 1789556529682,
+  "feed_generated_at": 1789643083910,
   "feed_degraded": false,
-  "captured_at": "2026-09-16T11:24:57Z",
+  "captured_at": "2026-09-17T11:34:18Z",
   "n_forecasts_seen": 14,
   "topics": {
     "energy-supply": {
@@ -33,25 +33,25 @@
     },
     "supply-chain-inflation": {
       "foil": {
-        "id": "fc-supply_chain-091bde59",
+        "id": "fc-supply_chain-3d410811",
         "domain": "supply_chain",
-        "region": "Eastern Mediterranean",
-        "title": "GPS interference in Eastern Mediterranean shipping zone",
-        "probability": 0.5,
-        "prior_probability": 0.5,
-        "confidence": 0.25,
+        "region": "Red Sea",
+        "title": "GPS interference in Red Sea shipping zone",
+        "probability": 0.018,
+        "prior_probability": 0.018,
+        "confidence": 0.417,
         "time_horizon": "7d",
         "trend": "stable",
         "projections": {
-          "d30": 0.32,
-          "d7": 0.5,
-          "h24": 0.455
+          "d30": 0.012,
+          "d7": 0.018,
+          "h24": 0.016
         },
-        "scenario_short": "73 jamming hexes in Eastern Mediterranean. For now, the base case stays near 52% over the 7d. Actors absorb the current evidence mix without a decisive break toward either shock or relief.",
-        "perspective_strategic": "73 jamming hexes in Eastern Mediterranean is setting the strategic baseline, and the current 50% probability implies a live but not settled risk path.",
-        "perspective_contrarian": "No directly matched headlines are currently attached to Eastern Mediterranean. If that restraint persists, the forecast can move below the current 50% baseline. Actors prioritize containment and the system drifts toward stabilization unless new hard signals emerge.",
-        "actor_lens": "Shipping operators: Keep critical flows through Eastern Mediterranean functioning over the 7d. Adjust routing and contingency plans around Eastern Mediterranean.",
-        "top_signal": "73 jamming hexes in Eastern Mediterranean"
+        "scenario_short": "3 jamming hexes in Red Sea. For now, the base case stays near 5% over the 7d. Actors absorb the current evidence mix without a decisive break toward either shock or relief.",
+        "perspective_strategic": "3 jamming hexes in Red Sea is setting the strategic baseline, and the current 2% probability implies a live but not settled risk path.",
+        "perspective_contrarian": "Confidence is only 42%, implying thin source diversity or mixed calibration. If that restraint persists, the forecast can move below the current 2% baseline. Actors prioritize containment and the system drifts toward stabilization unless new hard signals emerge.",
+        "actor_lens": "Shipping operators: Keep critical flows through Red Sea functioning over the 7d. Adjust routing and contingency plans around Red Sea.",
+        "top_signal": "3 jamming hexes in Red Sea"
       },
       "absence_reason": null
     },
