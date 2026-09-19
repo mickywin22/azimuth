@@ -2,56 +2,56 @@
   "$note": "Captured snapshot of the COMPARED forecast/intelligence product for the azimuth benchmark (synthesis/benchmark.py). Quoted by product + capture date; NOT surfaced as an azimuth channel and NOT an L1 source. Refresh with pull_benchmark_foils.py.",
   "endpoint": "/api/forecast/v1/get-forecasts",
   "attribution": "WorldMonitor (api.worldmonitor.app) — model-generated forecast/assessment product",
-  "feed_generated_at": 1789729444861,
+  "feed_generated_at": 1789812161596,
   "feed_degraded": false,
-  "captured_at": "2026-09-18T11:06:57Z",
+  "captured_at": "2026-09-19T10:51:26Z",
   "n_forecasts_seen": 14,
   "topics": {
     "energy-supply": {
       "foil": {
-        "id": "fc-market-ebd1063c",
+        "id": "fc-market-3b03eb86",
         "domain": "market",
-        "region": "Asia-Pacific",
-        "title": "Will China’s 2026 annual GDP growth (Y/Y) be between 4.0% and 5.0%?",
-        "probability": 0.85,
-        "prior_probability": 0.85,
-        "confidence": 0.667,
+        "region": "Middle East",
+        "title": "Oil price impact from Strait of Hormuz disruption",
+        "probability": 0.4,
+        "prior_probability": 0.4,
+        "confidence": 0.583,
         "time_horizon": "30d",
         "trend": "stable",
         "projections": {
-          "d30": 0.357,
-          "d7": 0.493,
-          "h24": 0.85
+          "d30": 0.168,
+          "d7": 0.232,
+          "h24": 0.4
         },
-        "scenario_short": "China's 2026 GDP growth will likely fall within the 4.0%-5.0% range, supported by a Polymarket probability of 90% and stable regional headlines, though cascading risks from US tariffs on Russian oil and Japan's rate...",
-        "perspective_strategic": "The 90% Polymarket signal and stable Asia-Pacific headline count indicate market confidence in China hitting the 4.0%-5.0% target, but the 30d projection decline to 36% suggests fading conviction over time.",
-        "perspective_contrarian": "The 67% confidence level and 30d projection drop to 36% suggest the 90% Polymarket may overprice certainty, as cascading risks from Myanmar (13%) and cyber linkages (13%) could disrupt growth assumptions.",
-        "actor_lens": "Commodity traders: Price whether stress in Asia-Pacific becomes durable over the 30d. Rebalance positions if the probability path moves away from 85%.",
-        "top_signal": "polymarket: 90%"
+        "scenario_short": "Strait of Hormuz risk: critical. For now, the base case stays near 44% over the 30d. Actors absorb the current evidence mix without a decisive break toward either shock or relief.",
+        "perspective_strategic": "Strait of Hormuz risk: critical is setting the strategic baseline, and the current 40% probability implies a live but not settled risk path.",
+        "perspective_contrarian": "The current 58% confidence level still leaves room for reversal. If that restraint persists, the forecast can move below the current 40% baseline. Actors prioritize containment and the system drifts toward stabilization unless new hard signals emerge.",
+        "actor_lens": "Commodity traders: Price whether stress in Middle East becomes durable over the 30d. Rebalance positions if the probability path moves away from 40%.",
+        "top_signal": "Strait of Hormuz risk: critical"
       },
       "absence_reason": null
     },
     "supply-chain-inflation": {
       "foil": {
-        "id": "fc-supply_chain-091bde59",
-        "domain": "supply_chain",
-        "region": "Eastern Mediterranean",
-        "title": "GPS interference in Eastern Mediterranean shipping zone",
-        "probability": 0.5,
-        "prior_probability": 0.5,
-        "confidence": 0.417,
-        "time_horizon": "7d",
+        "id": "fc-market-bdde5f65",
+        "domain": "market",
+        "region": "Red Sea",
+        "title": "Sovereign risk repricing from Red Sea maritime disruption state",
+        "probability": 0.553,
+        "prior_probability": 0.553,
+        "confidence": 0.75,
+        "time_horizon": "30d",
         "trend": "stable",
         "projections": {
-          "d30": 0.32,
-          "d7": 0.5,
-          "h24": 0.455
+          "d30": 0.232,
+          "d7": 0.321,
+          "h24": 0.553
         },
-        "scenario_short": "49 jamming hexes in Eastern Mediterranean. For now, the base case stays near 53% over the 7d. Actors absorb the current evidence mix without a decisive break toward either shock or relief.",
-        "perspective_strategic": "49 jamming hexes in Eastern Mediterranean is setting the strategic baseline, and the current 50% probability implies a live but not settled risk path.",
-        "perspective_contrarian": "Confidence is only 42%, implying thin source diversity or mixed calibration. If that restraint persists, the forecast can move below the current 50% baseline. Actors prioritize containment and the system drifts toward stabilization unless new hard signals emerge.",
-        "actor_lens": "Shipping operators: Keep critical flows through Eastern Mediterranean functioning over the 7d. Adjust routing and contingency plans around Eastern Mediterranean.",
-        "top_signal": "49 jamming hexes in Eastern Mediterranean"
+        "scenario_short": "Red Sea maritime disruption state is keeping sovereign risk elevated through sovereign stress, with 76% pressure and 71% state confirmation. For now, the base case stays near 58% over the 30d. Actors absorb the...",
+        "perspective_strategic": "Red Sea maritime disruption state is keeping sovereign risk elevated through sovereign stress, with 76% pressure and 71% state confirmation is setting the strategic baseline, and the current 55% probability implies a live but not settled risk path.",
+        "perspective_contrarian": "The current 75% confidence level still leaves room for reversal. If that restraint persists, the forecast can move below the current 55% baseline. Actors prioritize containment and the system drifts toward stabilization unless new hard signals emerge.",
+        "actor_lens": "Commodity traders: Price whether stress in Red Sea becomes durable over the 30d. Rebalance positions if the probability path moves away from 55%.",
+        "top_signal": "Red Sea maritime disruption state is keeping sovereign risk elevated through sovereign stress, with 76% pressure and 71% state confirmation"
       },
       "absence_reason": null
     },
