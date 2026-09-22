@@ -2,8 +2,8 @@
 title: Cyber Watch Weekly
 type: L2-brief
 theme: cyber-watch
-week: 2026-W36
-updated: 2026-09-02T09:48:00Z
+week: 2026-W39
+updated: 2026-09-23T09:48:00Z
 sources: [cyber-threats]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -15,54 +15,55 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 > fleet role evolves this single note in place each cycle. azimuth reports **recorded cyber
 > threat indicators** — an IOC is an observed fact (a host, an IP, a first-seen timestamp,
 > a severity as the tracker scored it) — and never attributes intent, names a victim, or
-> predicts an attack. Every claim links to the L1 note it rests on. (First cycle written
-> from the 2026-07-15 ingest; current cutoff: the 2026-09-01 pull, an adjacent-day
-> advance on the 2026-08-31 reading — so this cycle is a true one-day rotation, not a
-> gap-bridged bookend comparison.)
+> predicts an attack. Every claim links to the L1 note it rests on. (Cutoff: the 2026-09-22 pull,
+> absorbed after a 20-day curator gap — and a **major channel widening**. The feed no longer
+> surfaces a single critical indicator per pull; it now returns the full top-severity band, **500
+> critical malware-host indicators** on this page (pagination `totalCount` **1,024**). This is the
+> honest-scope widening the brief flagged from the first cycle finally arriving — the brief now
+> reads the distribution, not one rotating host.)
 
 ## This week at a glance
 
-- The abuse.ch / AbuseIPDB channel surfaced **exactly one active critical-severity
-  indicator on both the 08-31 and 09-01 adjacent pulls** — the one-indicator critical tier
-  holding flat while the surfaced host **rotated country** ([[cyber-threats]]).
-- **2026-08-31 pull:** one malware-host IP geolocated to **Romania** (RO), criticality
-  CRITICAL, no malware family tagged; feed pagination totalCount **1,006** ([[cyber-threats]]).
-- **2026-09-01 pull:** one malware-host IP `85.217.140.43` geolocated to **France** (FR),
-  AbuseIPDB confidence score 100, criticality CRITICAL, no malware family attributed; feed
-  pagination totalCount **985** (down 21 from 1,006) — same severity and type as 08-31, the
-  geolocation rotating RO → FR ([[cyber-threats]]).
-- This is an **adjacent-day comparison** (08-31 → 09-01, no curator gap), so azimuth reads it
-  as a genuine one-day rotation of the surfaced host rather than a gap-bridged bookend
-  ([[cyber-threats]]).
+- The abuse.ch / AbuseIPDB channel surfaced **500 active critical-severity indicators** on the
+  2026-09-22 pull — every one scored **CRITICAL** (AbuseIPDB confidence 100), every one typed
+  **MALWARE_HOST**, and none carrying a tagged malware family; feed pagination reads `nextCursor`
+  500 of `totalCount` **1,024**, so this page is the first ~half of the full set ([[cyber-threats]]).
+- By indicator-IP geolocation the set concentrates in the **United States (114)**, then the
+  **Netherlands (44)**, **China (39)**, the **United Kingdom (24)** and **Germany (22)** — the
+  familiar hosting-heavy geographies where malware infrastructure is registered, not a map of
+  actors ([[cyber-threats]]).
+- The tail spreads across **South Korea (20), India (18), Hong Kong (17), France (16) and
+  Singapore (14)** and dozens more countries at single digits — a broad, hosting-provider-shaped
+  distribution rather than a single origin ([[cyber-threats]]).
 
 ## Honest scope
 
-- **This brief reports what the feed lists — currently a one-indicator critical tier.** The
-  upstream trackers (URLhaus, Feodo Tracker, AbuseIPDB) publish far larger raw sets; the
-  WorldMonitor channel curates to the top severity band. As the channel widens, this brief
-  widens with it — the same honest-scope posture applied since the first cycle
-  ([[cyber-threats]]).
-- **Country field is geolocation of the indicator IP, not attribution of an actor.** The
-  source records only an IP address and its geolocation; azimuth makes no inference beyond
-  that ([[cyber-threats]]).
+- **This brief now reports the full surfaced critical band — 500 indicators — where prior cycles
+  saw a one-indicator tier.** The WorldMonitor channel widened from a single top host per pull to
+  the whole critical severity page; the brief widens with it exactly as the honest-scope posture
+  promised from the first cycle ([[cyber-threats]]).
+- **Country is geolocation of the indicator IP, not attribution of an actor.** The source records
+  an IP, its geolocation and a severity score; azimuth reports the distribution of hosting
+  geographies and makes no inference about who operates them or whom they target ([[cyber-threats]]).
 
 ## Reading the week
 
-- The 2026-09-01 indicator is a CYBER_THREAT_TYPE_MALWARE_HOST entry, IP `85.217.140.43`,
-  sourced from AbuseIPDB at maximum confidence (score:100, CRITICALITY_LEVEL_CRITICAL); the
-  malwareFamily field is empty, so no specific malware family was tagged by the tracker at pull
-  time ([[cyber-threats]]).
-- Against the 2026-08-31 reading (one CRITICAL IP host, Romania) the 09-01 pull holds the same
-  severity and type but **rotates the geolocation RO → FR** — a true one-day rotation this time,
-  since the two pulls are adjacent days with no curator gap between them ([[cyber-threats]]).
-- The country field is geolocation of the indicator IP, not attribution of an actor; azimuth
-  infers no actor, victim or campaign behind the listed host ([[cyber-threats]]).
-- azimuth records the indicator, its type, severity and geolocation exactly as the tracker
-  scored them, notes the totalCount easing 1,006 → 985, and makes no trend claim from a
-  single-indicator surfaced tier ([[cyber-threats]]).
+- Every one of the 500 surfaced indicators is a CYBER_THREAT_TYPE_MALWARE_HOST entry from
+  AbuseIPDB at maximum confidence (score:100, CRITICALITY_LEVEL_CRITICAL) with an empty
+  malwareFamily field — so the feed scores criticality and host type but tags no specific family
+  on this page ([[cyber-threats]]).
+- The geolocation distribution is hosting-shaped: the US leads at 114, then the Netherlands (44),
+  China (39), the UK (24) and Germany (22) — jurisdictions with large commercial hosting estates
+  where flagged IPs are registered, which is a fact about infrastructure geography, not about
+  attribution ([[cyber-threats]]).
+- azimuth records each indicator's type, severity and geolocation exactly as the tracker scored
+  them, notes the page carries 500 of a `totalCount` of 1,024, and makes no trend claim comparing
+  this widened set to the prior one-indicator tier — the two are different feed shapes, not a
+  measured rise ([[cyber-threats]]).
 
 ## Changelog
 
+- 2026-09-23 — daily-ingest synthesis (2026-W39): absorbed the 2026-09-22 ingest after a 20-day curator gap — a major channel widening. The feed no longer surfaces one critical indicator per pull; it now returns the full top-severity band, 500 critical MALWARE_HOST indicators on this page (all AbuseIPDB score 100, no malware family), pagination nextCursor 500 of totalCount 1,024. By indicator-IP geolocation the set concentrates in the US (114), Netherlands (44), China (39), UK (24), Germany (22), then South Korea (20), India (18), Hong Kong (17), France (16), Singapore (14) — a hosting-provider-shaped distribution, not attribution. Rewrote the intro, at-a-glance, honest-scope and reading sections around the widened set; made no trend claim between the widened set and the prior one-indicator tier (different feed shapes). Observed-only framing held; editorial line held ([[cyber-threats]]).
 - 2026-09-02 — daily-ingest synthesis (2026-W36): absorbed the 2026-09-01 ingest, an adjacent-day advance on the 08-31 reading. The surfaced critical tier held at one active indicator but rotated country: IP 85.217.140.43 geolocated to France (FR), MALWARE_HOST, AbuseIPDB score 100, CRITICAL, no malware family — vs Romania (RO) on 08-31. Feed pagination totalCount eased 1,006 → 985. Because 08-31 → 09-01 are adjacent days (no curator gap), azimuth reads this as a genuine one-day host rotation rather than a gap-bridged bookend. Updated the intro, at-a-glance and reading sections. Observed-only framing held; editorial line held ([[cyber-threats]]).
 - 2026-08-31 — daily-ingest synthesis (2026-W36): absorbed the 2026-08-21 through 2026-08-31 ingests after an 11-day curator gap; the 2026-08-31 pull lists the same read as the 2026-08-20 bookend — one active critical-severity indicator, type IP address, geolocated to Romania (RO), no malware family attributed — held flat across the gap. No daily 08-21→08-30 pulls were absorbed this cycle, so azimuth compares only the two bookend pulls and draws no rotation or trend inference from n=2. Observed-only framing held; editorial line held ([[cyber-threats]]).
 - 2026-08-20 — daily-ingest synthesis (2026-W34): absorbed the 2026-08-18 through 08-20 abuse.ch pulls; the surfaced critical malware-host rotated every day — 195.178.110.232 (08-18, NL), 69.5.169.180 (08-19, DE), 80.94.95.242 (08-20, RO) — after 170.239.205.222 (08-17, CO), each AbuseIPDB score 100, CRITICAL, no malware family; totalCount eased 1,023 → 996 → 988 → 984 (net -39); origin geolocation CO → NL → DE → RO (geolocation, not attribution). One-indicator critical tier held. Observed-only framing held ([[cyber-threats]]).
