@@ -2,8 +2,8 @@
 title: Orbital Watch Weekly
 type: L2-brief
 theme: orbital-watch
-week: 2026-W36
-updated: 2026-09-02T10:02:00Z
+week: 2026-W39
+updated: 2026-09-23T10:02:00Z
 sources: [orbital-satellites]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -16,42 +16,41 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 > element sets** — a satellite's TLE-derived position, altitude, inclination and velocity are
 > observed public data (CelesTrak, from US Space Command releases) — and never speculates on
 > a satellite's mission or intent beyond the catalogue's own type label. Every claim links to
-> the L1 note it rests on. (Last pull: 2026-09-01 ingest — the tracked catalogue rose from 75
-> back to 98 objects (+23), reversing the prior cycle's drop as the US-attributed / military-
-> labelled entries returned; the composition shift is reported below as observed counts only.)
+> the L1 note it rests on. (Last pull: 2026-09-22 ingest, absorbed after a 20-day curator gap —
+> the tracked catalogue **held flat at 98 objects** with the same operator-country and type
+> composition it carried on 09-01 (US 38 / CN 30 / EU 19; optical 47 / military 34 / SAR 17). The
+> TLE epochs and drag terms advanced to the current pull, but the catalogue counts are unchanged —
+> an honest flat cycle, reported as observed counts only.)
 
 ## This week at a glance
 
-- The CelesTrak channel tracks **98 catalogued satellites** in the 09-01 pull, up from **75**
-  in the 08-31 pull (+23 added, 0 removed) — **fully reversing** the prior cycle's 98 → 75 drop,
-  each object carrying its live two-line element set with updated epoch and drag-term values
+- The CelesTrak channel tracks **98 catalogued satellites** in the 09-22 pull — **unchanged** from
+  the 98 in the 09-01 pull (0 added, 0 removed); each object carries a live two-line element set
+  whose epoch and drag terms advanced to the current pull, but the object count held
   ([[orbital-satellites]]).
-- By operator country the 09-01 pull records: **the US back in the lead at 38 objects** (from 16),
-  ahead of **China (30)** and the **EU (19)**, with India (7), Turkey (3) and South Korea (1)
-  unchanged — the catalogue's own attribution field, reported as published. Almost the entire
-  +23 is US-attributed (**22 of the 23 new entries**, one EU), restoring the pre-drop US 38
+- By operator country the 09-22 pull records: **the US in the lead at 38 objects**, ahead of
+  **China (30)** and the **EU (19)**, with India (7), Turkey (3) and South Korea (1) — identical to
+  the 09-01 composition, the catalogue's own attribution field reported as published
   ([[orbital-satellites]]).
-- By the catalogue's type label the 09-01 pull records **47 optical-imaging** objects (held
-  steady), **17 SAR** (synthetic-aperture radar, up one from 16), and **34 military** (up from 12
-  on 08-31) — the returning batch is dominated by a US **PRAETORIAN SDA** constellation string
-  plus SAR-LUPE 2 and SAPPHIRE, all military/SAR-labelled; the feed's classification, not azimuth's
-  ([[orbital-satellites]]).
+- By the catalogue's type label the 09-22 pull records **47 optical-imaging** objects, **34
+  military** and **17 SAR** (synthetic-aperture radar) — held steady across all three type bands
+  from 09-01; the feed's classification, not azimuth's ([[orbital-satellites]]).
 
 ## Reading the week
 
-- The 09-01 pull absorbed a step change that **reverses last cycle's drop**: the tracked
-  catalogue rose from 75 back to 98 objects (+23), concentrated almost entirely in the
-  US-attributed count (16 → 38, +22) and the "military"-labelled type (12 → 34, +22) — the same
-  entries that left on 08-31 returning. azimuth reports the catalogue's own counts and labels as
-  published — no inference is drawn about why entries left or re-entered the feed, or what any
-  object does ([[orbital-satellites]]).
-- With the US count restored, **the US again leads the tracked catalogue at 38 objects**, ahead of
-  China (30) and the EU (19); the optical-imaging count held steady at 47 while SAR firmed by one
-  (16 → 17). The returning batch is a US PRAETORIAN SDA constellation string plus SAR-LUPE 2 and
-  SAPPHIRE. These are observed catalogue composition counts, not a capability or intent comparison
-  between operators ([[orbital-satellites]]).
+- The 09-22 pull is an **honest flat cycle**: the tracked catalogue held at 98 objects with the
+  same operator-country split (US 38 / CN 30 / EU 19) and type split (optical 47 / military 34 /
+  SAR 17) it carried on 09-01. Only the TLE epochs and drag terms advanced with the fresh pull.
+  azimuth reports the catalogue's own counts and labels as published — no movement is invented where
+  the feed shows none ([[orbital-satellites]]).
+- With the composition unchanged, **the US leads the tracked catalogue at 38 objects**, ahead of
+  China (30) and the EU (19), and optical imaging stays the largest type band at 47. These are
+  observed catalogue composition counts, not a capability or intent comparison between operators
+  ([[orbital-satellites]]).
 
 ## Changelog
+
+- 2026-09-23 — daily-ingest synthesis (2026-W39): absorbed the 2026-09-22 ingest after a 20-day curator gap — an honest flat cycle. The tracked catalogue held at 98 objects with the same composition it carried on 09-01: US 38 / China 30 / EU 19 / India 7 / Turkey 3 / South Korea 1 by operator country, optical 47 / military 34 / SAR 17 by type. Only the TLE epochs and drag terms advanced with the fresh pull; the object counts are unchanged, so no movement is reported where the feed shows none. Updated the intro, at-a-glance and reading sections and advanced week/updated so the freshness gate records the latest L1 day was absorbed. Observed-only framing held; no mission or intent inference ([[orbital-satellites]]).
 
 - 2026-09-02 — daily-ingest synthesis (2026-W36): absorbed the 2026-09-01 ingest; the tracked catalogue rose from 75 back to 98 objects (+23 added, 0 removed), fully reversing the prior cycle's 98 → 75 drop — almost entirely on the US-attributed count (16 → 38, +22 of the 23 new entries) and the "military"-labelled type (12 → 34); the US again leads the catalogue at 38 (ahead of China 30, EU 19); optical held steady at 47, SAR firmed 16 → 17. The returning batch is a US PRAETORIAN SDA constellation string plus SAR-LUPE 2 and SAPPHIRE. Rewrote the intro, at-a-glance and reading sections around the reversal. Observed-only framing held; editorial line held ([[orbital-satellites]]).
 - 2026-08-31 — daily-ingest synthesis (2026-W36): absorbed the 2026-08-21 through 2026-08-31 ingests after an 11-day curator gap; the tracked catalogue fell from 98 to 75 objects, almost entirely on the US-attributed count (38 → 16) and the "military"-labelled type (34 → 12); China now leads the tracked catalogue at 30 (ahead of EU 18, US 16); optical held steady at 47, SAR eased 17 → 16. Observed-only framing held; editorial line held ([[orbital-satellites]]).
