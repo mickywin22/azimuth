@@ -350,6 +350,7 @@
       "theme": "shared",
       "themes": [
         "conflict-watch",
+        "cyber-watch",
         "energy-supply",
         "humanitarian",
         "macro-markets"
@@ -395,6 +396,7 @@
       "theme": "shared",
       "themes": [
         "conflict-watch",
+        "cyber-watch",
         "energy-supply",
         "environmental-hazards",
         "humanitarian",
@@ -453,6 +455,7 @@
       "entity_kind": "region",
       "theme": "shared",
       "themes": [
+        "cyber-watch",
         "energy-supply",
         "environmental-hazards",
         "humanitarian"
@@ -820,6 +823,7 @@
       "entity_kind": "region",
       "theme": "shared",
       "themes": [
+        "cyber-watch",
         "energy-supply",
         "environmental-hazards",
         "humanitarian",
@@ -1726,6 +1730,7 @@
       "entity_kind": "region",
       "theme": "shared",
       "themes": [
+        "cyber-watch",
         "environmental-hazards",
         "geophysical",
         "humanitarian",
@@ -1805,6 +1810,7 @@
       "theme": "shared",
       "themes": [
         "conflict-watch",
+        "cyber-watch",
         "environmental-hazards",
         "humanitarian",
         "macro-markets",
@@ -2391,6 +2397,13 @@
     },
     {
       "source": "entity:united-kingdom",
+      "target": "brief:cyber-watch-weekly",
+      "cross_theme": true,
+      "rel": "mentioned-in",
+      "weight": 0
+    },
+    {
+      "source": "entity:united-kingdom",
       "target": "brief:energy-supply-weekly",
       "cross_theme": true,
       "rel": "mentioned-in",
@@ -2452,6 +2465,13 @@
       "target": "source:conflict-events-ucdp",
       "cross_theme": false,
       "rel": "named-in"
+    },
+    {
+      "source": "entity:united-states",
+      "target": "brief:cyber-watch-weekly",
+      "cross_theme": true,
+      "rel": "mentioned-in",
+      "weight": 0
     },
     {
       "source": "entity:united-states",
@@ -2529,6 +2549,13 @@
       "target": "source:disease-outbreaks",
       "cross_theme": false,
       "rel": "named-in"
+    },
+    {
+      "source": "entity:netherlands",
+      "target": "brief:cyber-watch-weekly",
+      "cross_theme": true,
+      "rel": "mentioned-in",
+      "weight": 0
     },
     {
       "source": "entity:netherlands",
@@ -2986,6 +3013,13 @@
       "target": "source:fuel-prices",
       "cross_theme": false,
       "rel": "named-in"
+    },
+    {
+      "source": "entity:germany",
+      "target": "brief:cyber-watch-weekly",
+      "cross_theme": true,
+      "rel": "mentioned-in",
+      "weight": 0
     },
     {
       "source": "entity:germany",
@@ -4193,6 +4227,13 @@
     },
     {
       "source": "entity:china",
+      "target": "brief:cyber-watch-weekly",
+      "cross_theme": true,
+      "rel": "mentioned-in",
+      "weight": 0
+    },
+    {
+      "source": "entity:china",
       "target": "brief:environmental-hazards-weekly",
       "cross_theme": true,
       "rel": "mentioned-in",
@@ -4313,6 +4354,13 @@
       "target": "source:conflict-events-ucdp",
       "cross_theme": false,
       "rel": "named-in"
+    },
+    {
+      "source": "entity:india",
+      "target": "brief:cyber-watch-weekly",
+      "cross_theme": true,
+      "rel": "mentioned-in",
+      "weight": 0
     },
     {
       "source": "entity:india",
