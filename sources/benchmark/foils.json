@@ -2,41 +2,41 @@
   "$note": "Captured snapshot of the COMPARED forecast/intelligence product for the azimuth benchmark (synthesis/benchmark.py). Quoted by product + capture date; NOT surfaced as an azimuth channel and NOT an L1 source. Refresh with pull_benchmark_foils.py.",
   "endpoint": "/api/forecast/v1/get-forecasts",
   "attribution": "WorldMonitor (api.worldmonitor.app) — model-generated forecast/assessment product",
-  "feed_generated_at": 1790074981810,
+  "feed_generated_at": 1790161291167,
   "feed_degraded": false,
-  "captured_at": "2026-09-22T11:29:22Z",
-  "n_forecasts_seen": 14,
+  "captured_at": "2026-09-23T11:27:37Z",
+  "n_forecasts_seen": 15,
   "topics": {
     "energy-supply": {
       "foil": {
-        "id": "fc-market-3b03eb86",
+        "id": "fc-market-a0ccb1d9",
         "domain": "market",
-        "region": "Middle East",
-        "title": "Oil price impact from Strait of Hormuz disruption",
-        "probability": 0.4,
-        "prior_probability": 0.4,
-        "confidence": 0.583,
+        "region": "Americas",
+        "title": "US x China tariff agreement by December 31?",
+        "probability": 0.85,
+        "prior_probability": 0.85,
+        "confidence": 0.667,
         "time_horizon": "30d",
         "trend": "stable",
         "projections": {
-          "d30": 0.168,
-          "d7": 0.232,
-          "h24": 0.4
+          "d30": 0.357,
+          "d7": 0.493,
+          "h24": 0.85
         },
-        "scenario_short": "Strait of Hormuz risk: critical. For now, the base case stays near 44% over the 30d. Actors absorb the current evidence mix without a decisive break toward either shock or relief.",
-        "perspective_strategic": "Strait of Hormuz risk: critical is setting the strategic baseline, and the current 40% probability implies a live but not settled risk path.",
-        "perspective_contrarian": "The current 58% confidence level still leaves room for reversal. If that restraint persists, the forecast can move below the current 40% baseline. Actors prioritize containment and the system drifts toward stabilization unless new hard signals emerge.",
-        "actor_lens": "Commodity traders: Price whether stress in Middle East becomes durable over the 30d. Rebalance positions if the probability path moves away from 40%.",
-        "top_signal": "Strait of Hormuz risk: critical"
+        "scenario_short": "A US-China tariff agreement by December 31 is highly likely, with Polymarket pricing at 89% and 11 related headlines, including a US-Denmark-Greenland agreement and Trump's UN speech on oil prices.",
+        "perspective_strategic": "Polymarket's 89% pricing is not strongly disputing the internal estimate, indicating market consensus for a tariff agreement, supported by 11 headlines mentioning Americas.",
+        "perspective_contrarian": "The 67% confidence level and the risk of prediction markets moving away from 89% could reverse the path, as noted in the key unknowns.",
+        "actor_lens": "Commodity traders: Price whether stress in Americas becomes durable over the 30d. Rebalance positions if the probability path moves away from 85%.",
+        "top_signal": "polymarket: 89%"
       },
       "absence_reason": null
     },
     "supply-chain-inflation": {
       "foil": {
-        "id": "fc-supply_chain-92835b82",
+        "id": "fc-supply_chain-1dc07164",
         "domain": "supply_chain",
-        "region": "Black Sea",
-        "title": "GPS interference in Black Sea shipping zone",
+        "region": "Persian Gulf",
+        "title": "GPS interference in Persian Gulf shipping zone",
         "probability": 0.5,
         "prior_probability": 0.5,
         "confidence": 0.25,
@@ -47,11 +47,11 @@
           "d7": 0.5,
           "h24": 0.455
         },
-        "scenario_short": "205 jamming hexes in Black Sea. For now, the base case stays near 52% over the 7d. Actors absorb the current evidence mix without a decisive break toward either shock or relief.",
-        "perspective_strategic": "205 jamming hexes in Black Sea is setting the strategic baseline, and the current 50% probability implies a live but not settled risk path.",
-        "perspective_contrarian": "No directly matched headlines are currently attached to Black Sea. If that restraint persists, the forecast can move below the current 50% baseline. Actors prioritize containment and the system drifts toward stabilization unless new hard signals emerge.",
-        "actor_lens": "Shipping operators: Keep critical flows through Black Sea functioning over the 7d. Adjust routing and contingency plans around Black Sea.",
-        "top_signal": "205 jamming hexes in Black Sea"
+        "scenario_short": "105 jamming hexes in Persian Gulf. For now, the base case stays near 52% over the 7d. Actors absorb the current evidence mix without a decisive break toward either shock or relief.",
+        "perspective_strategic": "105 jamming hexes in Persian Gulf is setting the strategic baseline, and the current 50% probability implies a live but not settled risk path.",
+        "perspective_contrarian": "No directly matched headlines are currently attached to Persian Gulf. If that restraint persists, the forecast can move below the current 50% baseline. Actors prioritize containment and the system drifts toward stabilization unless new hard signals emerge.",
+        "actor_lens": "Shipping operators: Keep critical flows through Persian Gulf functioning over the 7d. Adjust routing and contingency plans around Persian Gulf.",
+        "top_signal": "105 jamming hexes in Persian Gulf"
       },
       "absence_reason": null
     },

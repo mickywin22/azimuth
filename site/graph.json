@@ -161,161 +161,161 @@
       "label": "GIE AGSI+ (Gas Infrastructure Europe)",
       "kind": "source",
       "theme": "energy-supply",
-      "url": "sources/2026-09-22/natural-gas-storage-eu.html"
+      "url": "sources/2026-09-23/natural-gas-storage-eu.html"
     },
     {
       "id": "source:crude-oil-inventories",
       "label": "U.S. EIA (Energy Information Administration)",
       "kind": "source",
       "theme": "energy-supply",
-      "url": "sources/2026-09-22/crude-oil-inventories.html"
+      "url": "sources/2026-09-23/crude-oil-inventories.html"
     },
     {
       "id": "source:fuel-prices",
       "label": "WorldMonitor aggregated fuel-price feed",
       "kind": "source",
       "theme": "energy-supply",
-      "url": "sources/2026-09-22/fuel-prices.html"
+      "url": "sources/2026-09-23/fuel-prices.html"
     },
     {
       "id": "source:energy-prices",
       "label": "WorldMonitor aggregated energy spot/forward feed",
       "kind": "source",
       "theme": "energy-supply",
-      "url": "sources/2026-09-22/energy-prices.html"
+      "url": "sources/2026-09-23/energy-prices.html"
     },
     {
       "id": "source:earthquakes",
       "label": "USGS Earthquake Hazards Program",
       "kind": "source",
       "theme": "geophysical",
-      "url": "sources/2026-09-22/earthquakes.html"
+      "url": "sources/2026-09-23/earthquakes.html"
     },
     {
       "id": "source:climate-anomalies",
       "label": "NOAA / NASA reanalysis regional temperature & precipitation anomalies",
       "kind": "source",
       "theme": "climate-signals",
-      "url": "sources/2026-09-22/climate-anomalies.html"
+      "url": "sources/2026-09-23/climate-anomalies.html"
     },
     {
       "id": "source:co2-monitoring",
       "label": "NOAA Global Monitoring Laboratory (atmospheric CO2 record)",
       "kind": "source",
       "theme": "climate-signals",
-      "url": "sources/2026-09-22/co2-monitoring.html"
+      "url": "sources/2026-09-23/co2-monitoring.html"
     },
     {
       "id": "source:sea-ice-extent",
       "label": "NSIDC / NOAA@NSIDC Sea Ice Index (satellite-passive-microwave sea-ice extent)",
       "kind": "source",
       "theme": "climate-signals",
-      "url": "sources/2026-09-22/sea-ice-extent.html"
+      "url": "sources/2026-09-23/sea-ice-extent.html"
     },
     {
       "id": "source:prediction-markets",
       "label": "Polymarket public odds",
       "kind": "source",
       "theme": "prediction-markets",
-      "url": "sources/2026-09-22/prediction-markets.html"
+      "url": "sources/2026-09-23/prediction-markets.html"
     },
     {
       "id": "source:wildfire-detections",
       "label": "NASA FIRMS (VIIRS active-fire / thermal-anomaly detections)",
       "kind": "source",
       "theme": "environmental-hazards",
-      "url": "sources/2026-09-22/wildfire-detections.html"
+      "url": "sources/2026-09-23/wildfire-detections.html"
     },
     {
       "id": "source:thermal-escalations",
       "label": "NASA FIRMS (VIIRS thermal anomalies, clustered into escalation signals)",
       "kind": "source",
       "theme": "environmental-hazards",
-      "url": "sources/2026-09-22/thermal-escalations.html"
+      "url": "sources/2026-09-23/thermal-escalations.html"
     },
     {
       "id": "source:natural-events",
       "label": "NASA EONET + GDACS (UN-coordinated disaster alerts)",
       "kind": "source",
       "theme": "environmental-hazards",
-      "url": "sources/2026-09-22/natural-events.html"
+      "url": "sources/2026-09-23/natural-events.html"
     },
     {
       "id": "source:radiation-observations",
       "label": "US EPA RadNet + Safecast (ambient radiation measurements)",
       "kind": "source",
       "theme": "environmental-hazards",
-      "url": "sources/2026-09-22/radiation-observations.html"
+      "url": "sources/2026-09-23/radiation-observations.html"
     },
     {
       "id": "source:conflict-events-ucdp",
       "label": "UCDP (Uppsala Conflict Data Program \u2014 Georeferenced Event Dataset)",
       "kind": "source",
       "theme": "conflict-watch",
-      "url": "sources/2026-09-22/conflict-events-ucdp.html"
+      "url": "sources/2026-09-23/conflict-events-ucdp.html"
     },
     {
       "id": "source:cyber-threats",
       "label": "abuse.ch (URLhaus malware URLs + Feodo Tracker C2 indicators)",
       "kind": "source",
       "theme": "cyber-watch",
-      "url": "sources/2026-09-22/cyber-threats.html"
+      "url": "sources/2026-09-23/cyber-threats.html"
     },
     {
       "id": "source:disease-outbreaks",
       "label": "WHO Disease Outbreak News + US CDC Health Alert Network",
       "kind": "source",
       "theme": "public-health",
-      "url": "sources/2026-09-22/disease-outbreaks.html"
+      "url": "sources/2026-09-23/disease-outbreaks.html"
     },
     {
       "id": "source:crypto-quotes",
       "label": "CoinGecko (cryptocurrency spot prices & market data)",
       "kind": "source",
       "theme": "macro-markets",
-      "url": "sources/2026-09-22/crypto-quotes.html"
+      "url": "sources/2026-09-23/crypto-quotes.html"
     },
     {
       "id": "source:world-bank-gdp",
       "label": "World Bank Open Data (GDP, current US$)",
       "kind": "source",
       "theme": "macro-markets",
-      "url": "sources/2026-09-22/world-bank-gdp.html"
+      "url": "sources/2026-09-23/world-bank-gdp.html"
     },
     {
       "id": "source:world-bank-cpi",
       "label": "World Bank Open Data (inflation, consumer prices, annual %)",
       "kind": "source",
       "theme": "macro-markets",
-      "url": "sources/2026-09-22/world-bank-cpi.html"
+      "url": "sources/2026-09-23/world-bank-cpi.html"
     },
     {
       "id": "source:world-bank-unemployment",
       "label": "World Bank Open Data (unemployment, % of labor force, modeled ILO)",
       "kind": "source",
       "theme": "macro-markets",
-      "url": "sources/2026-09-22/world-bank-unemployment.html"
+      "url": "sources/2026-09-23/world-bank-unemployment.html"
     },
     {
       "id": "source:orbital-satellites",
       "label": "CelesTrak TLE element sets (derived from US Space Command public catalog)",
       "kind": "source",
       "theme": "orbital-watch",
-      "url": "sources/2026-09-22/orbital-satellites.html"
+      "url": "sources/2026-09-23/orbital-satellites.html"
     },
     {
       "id": "source:displacement-flows",
       "label": "UNHCR Refugee Data + UN OCHA HAPI (refugee / asylum / IDP counts)",
       "kind": "source",
       "theme": "humanitarian",
-      "url": "sources/2026-09-22/displacement-flows.html"
+      "url": "sources/2026-09-23/displacement-flows.html"
     },
     {
       "id": "source:internet-outages",
       "label": "Cloudflare Radar (internet outages & traffic anomalies)",
       "kind": "source",
       "theme": "infrastructure-watch",
-      "url": "sources/2026-09-22/internet-outages.html"
+      "url": "sources/2026-09-23/internet-outages.html"
     },
     {
       "id": "entity:papua-new-guinea",
@@ -331,13 +331,13 @@
         {
           "theme": "geophysical",
           "source": "earthquakes",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u20267711, \"longitude\": 146.2041}, \"magnitude\": 5.4, \"occurredAt\": 1789908353415, \"place\": \"68 km NNE of Kainantu, Papua New Guinea\", \"source\": \"usgs\", \"sourceUrl\": \"https://earthquake.usgs.gov/earthquakes/eventpage/us7000tirh\"}, {\"depthKm\":\u2026"
         },
         {
           "theme": "humanitarian",
           "source": "displacement-flows",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026, \"code\": \"PNG\", \"hostAsylumSeekers\": 3121, \"hostRefugees\": 7727, \"hostTotal\": 10848, \"idps\": 70124, \"name\": \"Papua New Guinea\", \"refugees\": 644, \"stateless\": 0, \"totalDisplaced\": 71995}, {\"asylumSeekers\": 899, \"code\": \"HUN\", \"hostAsylu\u2026"
         }
       ]
@@ -359,31 +359,31 @@
         {
           "theme": "conflict-watch",
           "source": "conflict-events-ucdp",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026\"sideB\": \"Civilians\", \"sourceOriginal\": \"Two sources from the Yemeni coast guard and two military officials; United Kingdom Maritime Trade Operations (UKMTO); British maritime security company Ambrey; Ministry of Transport in the int\u2026"
         },
         {
           "theme": "energy-supply",
           "source": "fuel-prices",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026: 1.6814, \"observedAt\": \"2026-09-14\", \"source\": \"gov.uk/desnz\", \"usdPrice\": 2.2494, \"wowPct\": 1.34}, \"name\": \"United Kingdom\"}] | | fetchedAt | 2026-09-22T06:04:41.043Z | | cheapestGasoline | MY | | cheapestDiesel | MY | | mostExpensi\u2026"
         },
         {
           "theme": "humanitarian",
           "source": "displacement-flows",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026efugees\": 581072, \"hostTotal\": 725819, \"idps\": 0, \"location\": {\"latitude\": 55.4, \"longitude\": -3.4}, \"name\": \"United Kingdom of Great Britain and Northern Ireland\", \"refugees\": 517, \"stateless\": 0, \"totalDisplaced\": 1013}, {\"asylumSee\u2026"
         },
         {
           "theme": "macro-markets",
           "source": "world-bank-cpi",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026182294 | | Japan | JPN | Inflation, consumer prices (annual %) | FP.CPI.TOTL.ZG | 2025 | 3.17253034260248 | | United Kingdom | GBR | Inflation, consumer prices (annual %) | FP.CPI.TOTL.ZG | 2025 | 3.88306881626 | | United States | USA\u2026"
         },
         {
           "theme": "macro-markets",
           "source": "world-bank-gdp",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026| 2025 | 3956067115771.63 | | Japan | JPN | GDP (current US$) | NY.GDP.MKTP.CD | 2025 | 4435162999976.94 | | United Kingdom | GBR | GDP (current US$) | NY.GDP.MKTP.CD | 2025 | 4002587541846.01 | | United States | USA | GDP (current U\u2026"
         }
       ]
@@ -407,43 +407,43 @@
         {
           "theme": "conflict-watch",
           "source": "conflict-events-ucdp",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u202627.1884, \"longitude\": 56.2768}, \"sideA\": \"Government of Iran\", \"sideB\": \"Government of Israel, Government of United States of America\", \"sourceOriginal\": \"IRGC\", \"violenceType\": \"UCDP_VIOLENCE_TYPE_STATE_BASED\"}, {\"country\": \"Ukrain\u2026"
         },
         {
           "theme": "energy-supply",
           "source": "fuel-prices",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026alPrice\": 1.141, \"observedAt\": \"2026-09-14\", \"source\": \"eia.gov\", \"usdPrice\": 1.141, \"wowPct\": 3.9}, \"name\": \"United States\"}, {\"code\": \"AT\", \"currency\": \"EUR\", \"diesel\": {\"grade\": \"Diesel\", \"localPrice\": 2.197, \"observedAt\": \"2026-0\u2026"
         },
         {
           "theme": "environmental-hazards",
           "source": "radiation-observations",
-          "day": "2026-09-22",
-          "text": "\u2026utingSources\": [\"RADIATION_SOURCE_EPA_RADNET\"], \"convertedFromCpm\": false, \"corroborated\": false, \"country\": \"United States\", \"delta\": 17.3, \"freshness\": \"RADIATION_FRESHNESS_LIVE\", \"id\": \"epa:PA:PHILADELPHIA:1790072700000\", \"locatio\u2026"
+          "day": "2026-09-23",
+          "text": "\u2026utingSources\": [\"RADIATION_SOURCE_EPA_RADNET\"], \"convertedFromCpm\": false, \"corroborated\": false, \"country\": \"United States\", \"delta\": -0.4, \"freshness\": \"RADIATION_FRESHNESS_LIVE\", \"id\": \"epa:MA:BOSTON:1790160000000\", \"location\": {\"\u2026"
         },
         {
           "theme": "humanitarian",
           "source": "displacement-flows",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026ugees\": 457647, \"hostTotal\": 4176592, \"idps\": 0, \"location\": {\"latitude\": 37.1, \"longitude\": -95.7}, \"name\": \"United States of America\", \"refugees\": 3667, \"stateless\": 0, \"totalDisplaced\": 7446}, {\"asylumSeekers\": 56176, \"code\": \"NGA\u2026"
         },
         {
           "theme": "macro-markets",
           "source": "world-bank-cpi",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026| | United Kingdom | GBR | Inflation, consumer prices (annual %) | FP.CPI.TOTL.ZG | 2025 | 3.88306881626 | | United States | USA | Inflation, consumer prices (annual %) | FP.CPI.TOTL.ZG | 2024 | 2.94952520485207 |"
         },
         {
           "theme": "macro-markets",
           "source": "world-bank-gdp",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u20264435162999976.94 | | United Kingdom | GBR | GDP (current US$) | NY.GDP.MKTP.CD | 2025 | 4002587541846.01 | | United States | USA | GDP (current US$) | NY.GDP.MKTP.CD | 2025 | 30769700000000 |"
         },
         {
           "theme": "public-health",
           "source": "disease-outbreaks",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026easles\", \"id\": \"thinkglobalhealth-2y73kr-1787702400000\", \"lat\": 40.93009949, \"lng\": -77.4756012, \"location\": \"United States\", \"publishedAt\": 1787702400000, \"sourceName\": \"ThinkGlobalHealth\", \"sourceUrl\": \"https://www.pa.gov/agencies/\u2026"
         }
       ]
@@ -464,19 +464,19 @@
         {
           "theme": "energy-supply",
           "source": "fuel-prices",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026, \"observedAt\": \"2026-09-14\", \"source\": \"energy.ec.europa.eu\", \"usdPrice\": 2.7917, \"wowPct\": -2.15}, \"name\": \"Netherlands\"}, {\"code\": \"PL\", \"currency\": \"EUR\", \"diesel\": {\"grade\": \"Diesel\", \"localPrice\": 2.0051, \"observedAt\": \"2026-\u2026"
         },
         {
           "theme": "environmental-hazards",
           "source": "natural-events",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026Czech Republic, Germany, Denmark, Spain, France, Croatia, Hungary, Ireland, Italy, Liechtenstein, Luxembourg, Netherlands, Poland, Romania, Serbia, Sweden, Slovenia, Slovakia, San Marino, Ukraine, \", \"closed\": false, \"conePolygon\":\u2026"
         },
         {
           "theme": "humanitarian",
           "source": "displacement-flows",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026, \"code\": \"NLD\", \"hostAsylumSeekers\": 49662, \"hostRefugees\": 283935, \"hostTotal\": 333597, \"idps\": 0, \"name\": \"Netherlands (Kingdom of the)\", \"refugees\": 159, \"stateless\": 0, \"totalDisplaced\": 338}, {\"asylumSeekers\": 288050, \"code\":\u2026"
         }
       ]
@@ -497,19 +497,19 @@
         {
           "theme": "conflict-watch",
           "source": "conflict-events-ucdp",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026neral Staff of the Armed Forces of Ukraine)\", \"violenceType\": \"UCDP_VIOLENCE_TYPE_STATE_BASED\"}, {\"country\": \"Philippines\", \"dateEnd\": 1787961600000, \"dateStart\": 1787961600000, \"deathsBest\": 2, \"deathsHigh\": 2, \"deathsLow\": 2, \"id\u2026"
         },
         {
           "theme": "geophysical",
           "source": "earthquakes",
-          "day": "2026-09-22",
-          "text": "\u2026.0957, \"longitude\": 124.2096}, \"magnitude\": 4.6, \"occurredAt\": 1790059689705, \"place\": \"19 km ENE of Nailong, Philippines\", \"source\": \"usgs\", \"sourceUrl\": \"https://earthquake.usgs.gov/earthquakes/eventpage/us7000tj3v\"}, {\"depthKm\":\u2026"
+          "day": "2026-09-23",
+          "text": "\u2026\": 9.6886, \"longitude\": 126.5291}, \"magnitude\": 4.6, \"occurredAt\": 1790109283296, \"place\": \"46 km E of Union, Philippines\", \"source\": \"usgs\", \"sourceUrl\": \"https://earthquake.usgs.gov/earthquakes/eventpage/us6000twys\"}, {\"depthKm\":\u2026"
         },
         {
           "theme": "humanitarian",
           "source": "displacement-flows",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u202688, \"code\": \"PHL\", \"hostAsylumSeekers\": 942, \"hostRefugees\": 1032, \"hostTotal\": 1974, \"idps\": 43500, \"name\": \"Philippines\", \"refugees\": 807, \"stateless\": 0, \"totalDisplaced\": 50395}, {\"asylumSeekers\": 630, \"code\": \"KOR\", \"hostAsylu\u2026"
         }
       ]
@@ -529,19 +529,19 @@
         {
           "theme": "energy-supply",
           "source": "fuel-prices",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026r\", \"localPrice\": 3.0598, \"observedAt\": \"11/09/2026\", \"source\": \"mbie.govt.nz\", \"usdPrice\": 1.7569}, \"name\": \"New Zealand\"}, {\"code\": \"GB\", \"currency\": \"GBP\", \"diesel\": {\"grade\": \"B7\", \"localPrice\": 1.9072, \"observedAt\": \"2026-09-1\u2026"
         },
         {
           "theme": "geophysical",
           "source": "earthquakes",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u202656, \"longitude\": 177.7978}, \"magnitude\": 4.7, \"occurredAt\": 1789964920661, \"place\": \"156 km NNW of Hicks Bay, New Zealand\", \"source\": \"usgs\", \"sourceUrl\": \"https://earthquake.usgs.gov/earthquakes/eventpage/us7000tivi\"}, {\"depthKm\":\u2026"
         },
         {
           "theme": "humanitarian",
           "source": "displacement-flows",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026\": 43, \"code\": \"NZL\", \"hostAsylumSeekers\": 4584, \"hostRefugees\": 2148, \"hostTotal\": 6732, \"idps\": 0, \"name\": \"New Zealand\", \"refugees\": 58, \"stateless\": 0, \"totalDisplaced\": 101}, {\"asylumSeekers\": 2398, \"code\": \"PRY\", \"hostAsylumS\u2026"
         }
       ]
@@ -561,13 +561,13 @@
         {
           "theme": "climate-signals",
           "source": "climate-anomalies",
-          "day": "2026-09-22",
-          "text": "\u2026Delta\": -0.1, \"severity\": \"ANOMALY_SEVERITY_NORMAL\", \"tempDelta\": -2.2, \"type\": \"ANOMALY_TYPE_COLD\", \"zone\": \"California\"}, {\"location\": {\"latitude\": -3.4, \"longitude\": -60}, \"period\": \"2026-09-16 to 2026-09-22\", \"precipDelta\": -3\u2026"
+          "day": "2026-09-23",
+          "text": "\u2026ipDelta\": -0.1, \"severity\": \"ANOMALY_SEVERITY_NORMAL\", \"tempDelta\": -2, \"type\": \"ANOMALY_TYPE_COLD\", \"zone\": \"California\"}, {\"location\": {\"latitude\": -3.4, \"longitude\": -60}, \"period\": \"2026-09-17 to 2026-09-23\", \"precipDelta\": -4\u2026"
         },
         {
           "theme": "public-health",
           "source": "disease-outbreaks",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026: 0, \"countryCode\": \"\", \"disease\": \"H5n1\", \"id\": \"cdc-8gjayh-1732299180000\", \"lat\": 0, \"lng\": 0, \"location\": \"California\", \"publishedAt\": 1732299180000, \"sourceName\": \"CDC\", \"sourceUrl\": \"https://tools.cdc.gov/api/embed/downloader\u2026"
         }
       ]
@@ -588,25 +588,25 @@
         {
           "theme": "conflict-watch",
           "source": "conflict-events-ucdp",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026\"sideB\": \"XXX70\", \"sourceOriginal\": \"Milenio\", \"violenceType\": \"UCDP_VIOLENCE_TYPE_NON_STATE\"}, {\"country\": \"Indonesia\", \"dateEnd\": 1787875200000, \"dateStart\": 1787788800000, \"deathsBest\": 1, \"deathsHigh\": 1, \"deathsLow\": 1, \"id\u2026"
         },
         {
           "theme": "geophysical",
           "source": "earthquakes",
-          "day": "2026-09-22",
-          "text": "\u2026-6.3408, \"longitude\": 128.6303}, \"magnitude\": 4.6, \"occurredAt\": 1790073019045, \"place\": \"296 km S of Ambon, Indonesia\", \"source\": \"usgs\", \"sourceUrl\": \"https://earthquake.usgs.gov/earthquakes/eventpage/us7000tj4v\"}, {\"depthKm\":\u2026"
+          "day": "2026-09-23",
+          "text": "\u2026-8.1454, \"longitude\": 120.808}, \"magnitude\": 4.5, \"occurredAt\": 1790128963755, \"place\": \"63 km NE of Ruteng, Indonesia\", \"source\": \"usgs\", \"sourceUrl\": \"https://earthquake.usgs.gov/earthquakes/eventpage/us6000tx08\"}, {\"depthKm\":\u2026"
         },
         {
           "theme": "humanitarian",
           "source": "displacement-flows",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u20268205, \"code\": \"IDN\", \"hostAsylumSeekers\": 4697, \"hostRefugees\": 7374, \"hostTotal\": 12071, \"idps\": 0, \"name\": \"Indonesia\", \"refugees\": 9215, \"stateless\": 0, \"totalDisplaced\": 17420}, {\"asylumSeekers\": 8342, \"code\": \"SLE\", \"hostAsy\u2026"
         },
         {
           "theme": "public-health",
           "source": "disease-outbreaks",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026\"Measles\", \"id\": \"thinkglobalhealth-zd9td6-1782518400000\", \"lat\": -2.635799885, \"lng\": 120.9375, \"location\": \"Indonesia\", \"publishedAt\": 1782518400000, \"sourceName\": \"ThinkGlobalHealth\", \"sourceUrl\": \"https://rri.co.id/jambi/regi\u2026"
         }
       ]
@@ -628,19 +628,13 @@
         {
           "theme": "conflict-watch",
           "source": "conflict-events-ucdp",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026eB\": \"Civilians\", \"sourceOriginal\": \"resident\", \"violenceType\": \"UCDP_VIOLENCE_TYPE_ONE_SIDED\"}, {\"country\": \"Venezuela\", \"dateEnd\": 1788134400000, \"dateStart\": 1788134400000, \"deathsBest\": 1, \"deathsHigh\": 1, \"deathsLow\": 1, \"id\u2026"
-        },
-        {
-          "theme": "geophysical",
-          "source": "earthquakes",
-          "day": "2026-09-22",
-          "text": "\u202610.6842, \"longitude\": -69.2782}, \"magnitude\": 4.5, \"occurredAt\": 1789522637171, \"place\": \"45 km NNW of Duaca, Venezuela\", \"source\": \"usgs\", \"sourceUrl\": \"https://earthquake.usgs.gov/earthquakes/eventpage/us7000thrm\"}, {\"depthKm\":\u2026"
         },
         {
           "theme": "humanitarian",
           "source": "displacement-flows",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026tRefugees\": 14333, \"hostTotal\": 15910, \"idps\": 0, \"location\": {\"latitude\": 6.4, \"longitude\": -66.6}, \"name\": \"Venezuela (Bolivarian Republic of)\", \"refugees\": 417010, \"stateless\": 0, \"totalDisplaced\": 1598166}, {\"asylumSeekers\":\u2026"
         }
       ]
@@ -661,25 +655,25 @@
         {
           "theme": "conflict-watch",
           "source": "conflict-events-ucdp",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026: \"CPP\", \"sourceOriginal\": \"Philippine army\", \"violenceType\": \"UCDP_VIOLENCE_TYPE_STATE_BASED\"}, {\"country\": \"Argentina\", \"dateEnd\": 1766448000000, \"dateStart\": 1766448000000, \"deathsBest\": 3, \"deathsHigh\": 3, \"deathsLow\": 3, \"id\u2026"
         },
         {
           "theme": "geophysical",
           "source": "earthquakes",
-          "day": "2026-09-22",
-          "text": "\u20265.9869, \"longitude\": -66.6117}, \"magnitude\": 5.3, \"occurredAt\": 1789894074457, \"place\": \"64 km W of Cafayate, Argentina\", \"source\": \"usgs\", \"sourceUrl\": \"https://earthquake.usgs.gov/earthquakes/eventpage/us7000tiq2\"}, {\"depthKm\":\u2026"
+          "day": "2026-09-23",
+          "text": "\u20268.7298, \"longitude\": -67.2912}, \"magnitude\": 5.3, \"occurredAt\": 1790155274600, \"place\": \"51 km WSW of Arauco, Argentina\", \"source\": \"usgs\", \"sourceUrl\": \"https://earthquake.usgs.gov/earthquakes/eventpage/us6000tx29\"}, {\"depthKm\":\u2026"
         },
         {
           "theme": "humanitarian",
           "source": "displacement-flows",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u20264621, \"code\": \"ARG\", \"hostAsylumSeekers\": 3941, \"hostRefugees\": 4941, \"hostTotal\": 8882, \"idps\": 0, \"name\": \"Argentina\", \"refugees\": 542, \"stateless\": 0, \"totalDisplaced\": 5163}, {\"asylumSeekers\": 3725, \"code\": \"LBR\", \"hostAsylu\u2026"
         },
         {
           "theme": "public-health",
           "source": "disease-outbreaks",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026irus\", \"id\": \"thinkglobalhealth-6fjrik-1788048000000\", \"lat\": -35.37643814, \"lng\": -64.16773224, \"location\": \"Argentina\", \"publishedAt\": 1788048000000, \"sourceName\": \"ThinkGlobalHealth\", \"sourceUrl\": \"https://barilochedigital.com\u2026"
         }
       ]
@@ -699,19 +693,19 @@
         {
           "theme": "climate-signals",
           "source": "climate-anomalies",
-          "day": "2026-09-22",
-          "text": "\u2026cipDelta\": -0.3, \"severity\": \"ANOMALY_SEVERITY_NORMAL\", \"tempDelta\": 1, \"type\": \"ANOMALY_TYPE_WARM\", \"zone\": \"Australia\"}, {\"location\": {\"latitude\": 70, \"longitude\": 0}, \"period\": \"2026-09-16 to 2026-09-22\", \"precipDelta\": -0.7,\u2026"
+          "day": "2026-09-23",
+          "text": "\u2026pDelta\": -0.3, \"severity\": \"ANOMALY_SEVERITY_NORMAL\", \"tempDelta\": 1.9, \"type\": \"ANOMALY_TYPE_WARM\", \"zone\": \"Australia\"}, {\"location\": {\"latitude\": 70, \"longitude\": 0}, \"period\": \"2026-09-17 to 2026-09-23\", \"precipDelta\": -0.4,\u2026"
         },
         {
           "theme": "humanitarian",
           "source": "displacement-flows",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u20261, \"code\": \"AUS\", \"hostAsylumSeekers\": 82925, \"hostRefugees\": 33415, \"hostTotal\": 116340, \"idps\": 0, \"name\": \"Australia\", \"refugees\": 41, \"stateless\": 0, \"totalDisplaced\": 72}, {\"asylumSeekers\": 290, \"code\": \"BGR\", \"hostAsylumSee\u2026"
         },
         {
           "theme": "public-health",
           "source": "disease-outbreaks",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026theria\", \"id\": \"thinkglobalhealth-alfzyk-1788048000000\", \"lat\": -25.73497009, \"lng\": 134.489563, \"location\": \"Australia\", \"publishedAt\": 1788048000000, \"sourceName\": \"ThinkGlobalHealth\", \"sourceUrl\": \"https://www.abc.net.au/news/\u2026"
         }
       ]
@@ -729,7 +723,7 @@
         {
           "theme": "energy-supply",
           "source": "energy-prices",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026er edit by hand. | field | value | | --- | --- | | prices | [{\"change\": 8.7, \"commodity\": \"wti\", \"name\": \"WTI Crude Oil\", \"price\": \"99.08\", \"priceAt\": 1789084800000, \"unit\": \"$/barrel\"}, {\"change\": 12.9, \"commodity\": \"brent\", \"na\u2026"
         }
       ]
@@ -749,19 +743,19 @@
         {
           "theme": "energy-supply",
           "source": "fuel-prices",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u20262, \"observedAt\": \"2026-09-14\", \"source\": \"energy.ec.europa.eu\", \"usdPrice\": 2.377, \"wowPct\": -1.84}, \"name\": \"Portugal\"}, {\"code\": \"RO\", \"currency\": \"EUR\", \"diesel\": {\"grade\": \"Diesel\", \"localPrice\": 1.9997, \"observedAt\": \"2026-\u2026"
         },
         {
           "theme": "humanitarian",
           "source": "displacement-flows",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026376, \"code\": \"PRT\", \"hostAsylumSeekers\": 8595, \"hostRefugees\": 70349, \"hostTotal\": 78944, \"idps\": 0, \"name\": \"Portugal\", \"refugees\": 109, \"stateless\": 0, \"totalDisplaced\": 485}, {\"asylumSeekers\": 1227, \"code\": \"PNG\", \"hostAsylum\u2026"
         },
         {
           "theme": "infrastructure-watch",
           "source": "internet-outages",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026dflare Radar\", \"CYBERATTACK\", \"NETWORK\", \"MEO-RESIDENCIAL\", \"MEO-MOVEL\"], \"cause\": \"CYBERATTACK\", \"country\": \"Portugal\", \"description\": \"Traffic disruptions observed on MEO (AS3243) in Portugal\", \"detectedAt\": 1789403400000, \"en\u2026"
         }
       ]
@@ -781,19 +775,19 @@
         {
           "theme": "energy-supply",
           "source": "fuel-prices",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u20268, \"observedAt\": \"2026-09-14\", \"source\": \"energy.ec.europa.eu\", \"usdPrice\": 2.0741, \"wowPct\": 1.05}, \"name\": \"Slovakia\"}, {\"code\": \"SI\", \"currency\": \"EUR\", \"diesel\": {\"grade\": \"Diesel\", \"localPrice\": 1.8539, \"observedAt\": \"2026-\u2026"
         },
         {
           "theme": "environmental-hazards",
           "source": "natural-events",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026, Hungary, Ireland, Italy, Liechtenstein, Luxembourg, Netherlands, Poland, Romania, Serbia, Sweden, Slovenia, Slovakia, San Marino, Ukraine, \", \"closed\": false, \"conePolygon\": [], \"date\": 1766275200000, \"description\": \"Drought i\u2026"
         },
         {
           "theme": "humanitarian",
           "source": "displacement-flows",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u202691, \"code\": \"SVK\", \"hostAsylumSeekers\": 16, \"hostRefugees\": 140885, \"hostTotal\": 140901, \"idps\": 0, \"name\": \"Slovakia\", \"refugees\": 625, \"stateless\": 0, \"totalDisplaced\": 716}, {\"asylumSeekers\": 2575, \"code\": \"ZAF\", \"hostAsylum\u2026"
         }
       ]
@@ -811,7 +805,7 @@
         {
           "theme": "energy-supply",
           "source": "fuel-prices",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026\"2026-09-17\", \"source\": \"data.gov.my\", \"usdPrice\": 1.2933, \"wowPct\": 7.03}, \"flag\": \"\ud83c\uddf2\ud83c\uddfe\", \"fxRate\": 0.2454, \"gasoline\": {\"grade\": \"RON95\", \"localPrice\": 4.37, \"observedAt\": \"2026-09-17\", \"source\": \"data.gov.my\", \"usdPrice\": 1.0\u2026"
         }
       ]
@@ -833,31 +827,31 @@
         {
           "theme": "energy-supply",
           "source": "fuel-prices",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u202657, \"observedAt\": \"2026-09-14\", \"source\": \"energy.ec.europa.eu\", \"usdPrice\": 2.704, \"wowPct\": 0.26}, \"name\": \"Germany\"}, {\"code\": \"GR\", \"currency\": \"EUR\", \"diesel\": {\"grade\": \"Diesel\", \"localPrice\": 2.122, \"observedAt\": \"2026-0\u2026"
         },
         {
           "theme": "environmental-hazards",
           "source": "natural-events",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026\"categoryTitle\": \"Drought in Austria, Bosnia and Herzegovina, Belgium, Belarus, Switzerland, Czech Republic, Germany, Denmark, Spain, France, Croatia, Hungary, Ireland, Italy, Liechtenstein, Luxembourg, Netherlands, Poland, Ro\u2026"
         },
         {
           "theme": "humanitarian",
           "source": "displacement-flows",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026ugees\": 2655191, \"hostTotal\": 2952694, \"idps\": 0, \"location\": {\"latitude\": 51.2, \"longitude\": 10.4}, \"name\": \"Germany\", \"refugees\": 327, \"stateless\": 0, \"totalDisplaced\": 953}, {\"asylumSeekers\": 148616, \"code\": \"ETH\", \"hostAsyl\u2026"
         },
         {
           "theme": "macro-markets",
           "source": "world-bank-cpi",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u20265403 | | France | FRA | Inflation, consumer prices (annual %) | FP.CPI.TOTL.ZG | 2025 | 0.943770212469976 | | Germany | DEU | Inflation, consumer prices (annual %) | FP.CPI.TOTL.ZG | 2025 | 2.17178770949721 | | India | IND | In\u2026"
         },
         {
           "theme": "macro-markets",
           "source": "world-bank-gdp",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026| 2025 | 19498039388042.6 | | France | FRA | GDP (current US$) | NY.GDP.MKTP.CD | 2025 | 3366315927447.33 | | Germany | DEU | GDP (current US$) | NY.GDP.MKTP.CD | 2025 | 5050922925047.05 | | India | IND | GDP (current US$) | NY\u2026"
         }
       ]
@@ -877,19 +871,19 @@
         {
           "theme": "energy-supply",
           "source": "fuel-prices",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026, \"observedAt\": \"2026-09-14\", \"source\": \"energy.ec.europa.eu\", \"usdPrice\": 2.1728, \"wowPct\": -1.78}, \"name\": \"Austria\"}, {\"code\": \"BE\", \"currency\": \"EUR\", \"diesel\": {\"grade\": \"Diesel\", \"localPrice\": 2.2904, \"observedAt\": \"2026-\u2026"
         },
         {
           "theme": "environmental-hazards",
           "source": "natural-events",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026Ethiopia, Kenya, Sudan, Somalia, South Sudan, Uganda\"}, {\"category\": \"drought\", \"categoryTitle\": \"Drought in Austria, Bosnia and Herzegovina, Belgium, Belarus, Switzerland, Czech Republic, Germany, Denmark, Spain, France, Croa\u2026"
         },
         {
           "theme": "humanitarian",
           "source": "displacement-flows",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026, \"code\": \"AUT\", \"hostAsylumSeekers\": 22014, \"hostRefugees\": 286651, \"hostTotal\": 308665, \"idps\": 0, \"name\": \"Austria\", \"refugees\": 33, \"stateless\": 0, \"totalDisplaced\": 49}, {\"asylumSeekers\": 269315, \"code\": \"NIC\", \"hostAsylum\u2026"
         }
       ]
@@ -909,19 +903,19 @@
         {
           "theme": "energy-supply",
           "source": "fuel-prices",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u20264, \"observedAt\": \"2026-09-14\", \"source\": \"energy.ec.europa.eu\", \"usdPrice\": 2.2673, \"wowPct\": 1.11}, \"name\": \"Belgium\"}, {\"code\": \"BG\", \"currency\": \"EUR\", \"diesel\": {\"grade\": \"Diesel\", \"localPrice\": 1.8563, \"observedAt\": \"2026-\u2026"
         },
         {
           "theme": "environmental-hazards",
           "source": "natural-events",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026South Sudan, Uganda\"}, {\"category\": \"drought\", \"categoryTitle\": \"Drought in Austria, Bosnia and Herzegovina, Belgium, Belarus, Switzerland, Czech Republic, Germany, Denmark, Spain, France, Croatia, Hungary, Ireland, Italy, Lie\u2026"
         },
         {
           "theme": "humanitarian",
           "source": "displacement-flows",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026, \"code\": \"BEL\", \"hostAsylumSeekers\": 58725, \"hostRefugees\": 186393, \"hostTotal\": 245118, \"idps\": 0, \"name\": \"Belgium\", \"refugees\": 113, \"stateless\": 0, \"totalDisplaced\": 182}, {\"asylumSeekers\": 3695, \"code\": \"SRB\", \"hostAsylum\u2026"
         }
       ]
@@ -941,19 +935,19 @@
         {
           "theme": "energy-supply",
           "source": "fuel-prices",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u202642, \"observedAt\": \"2026-09-14\", \"source\": \"energy.ec.europa.eu\", \"usdPrice\": 2.173, \"wowPct\": 1.27}, \"name\": \"Ireland\"}, {\"code\": \"IT\", \"currency\": \"EUR\", \"diesel\": {\"grade\": \"Diesel\", \"localPrice\": 2.1907, \"observedAt\": \"2026-\u2026"
         },
         {
           "theme": "environmental-hazards",
           "source": "natural-events",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026erzegovina, Belgium, Belarus, Switzerland, Czech Republic, Germany, Denmark, Spain, France, Croatia, Hungary, Ireland, Italy, Liechtenstein, Luxembourg, Netherlands, Poland, Romania, Serbia, Sweden, Slovenia, Slovakia, San Mari\u2026"
         },
         {
           "theme": "humanitarian",
           "source": "displacement-flows",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026: 0, \"location\": {\"latitude\": 55.4, \"longitude\": -3.4}, \"name\": \"United Kingdom of Great Britain and Northern Ireland\", \"refugees\": 517, \"stateless\": 0, \"totalDisplaced\": 1013}, {\"asylumSeekers\": 168464, \"code\": \"HND\", \"hostAsy\u2026"
         }
       ]
@@ -975,31 +969,31 @@
         {
           "theme": "climate-signals",
           "source": "climate-anomalies",
-          "day": "2026-09-22",
-          "text": "\u2026pDelta\": -0.4, \"severity\": \"ANOMALY_SEVERITY_NORMAL\", \"tempDelta\": 0.7, \"type\": \"ANOMALY_TYPE_WARM\", \"zone\": \"Ukraine\"}, {\"location\": {\"latitude\": 51, \"longitude\": 10}, \"period\": \"2026-09-16 to 2026-09-22\", \"precipDelta\": -0.1,\u2026"
+          "day": "2026-09-23",
+          "text": "\u2026ecipDelta\": 2.9, \"severity\": \"ANOMALY_SEVERITY_NORMAL\", \"tempDelta\": 0, \"type\": \"ANOMALY_TYPE_COLD\", \"zone\": \"Ukraine\"}, {\"location\": {\"latitude\": 51, \"longitude\": 10}, \"period\": \"2026-09-17 to 2026-09-23\", \"precipDelta\": -0.7,\u2026"
         },
         {
           "theme": "conflict-watch",
           "source": "conflict-events-ucdp",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026XXX70\", \"sourceOriginal\": \"El Sol de Acapulco\", \"violenceType\": \"UCDP_VIOLENCE_TYPE_NON_STATE\"}, {\"country\": \"Ukraine\", \"dateEnd\": 1788134400000, \"dateStart\": 1788134400000, \"deathsBest\": 3, \"deathsHigh\": 3, \"deathsLow\": 1, \"id\u2026"
         },
         {
           "theme": "environmental-hazards",
           "source": "natural-events",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026aly, Liechtenstein, Luxembourg, Netherlands, Poland, Romania, Serbia, Sweden, Slovenia, Slovakia, San Marino, Ukraine, \", \"closed\": false, \"conePolygon\": [], \"date\": 1766275200000, \"description\": \"Drought in Austria, Bosnia and\u2026"
         },
         {
           "theme": "environmental-hazards",
           "source": "wildfire-detections",
-          "day": "2026-09-22",
-          "text": "\u2026: \"active\", \"location\": {\"latitude\": 44.35194, \"longitude\": 23.05696}, \"possibleExplosion\": false, \"region\": \"Ukraine\", \"satellite\": \"N21\", \"source\": \"firms\"}, {\"brightness\": 367, \"confidence\": \"FIRE_CONFIDENCE_HIGH\", \"dayNight\u2026"
+          "day": "2026-09-23",
+          "text": "\u2026: \"active\", \"location\": {\"latitude\": 44.12638, \"longitude\": 22.59879}, \"possibleExplosion\": false, \"region\": \"Ukraine\", \"satellite\": \"N21\", \"source\": \"firms\"}, {\"brightness\": 367, \"confidence\": \"FIRE_CONFIDENCE_HIGH\", \"dayNight\u2026"
         },
         {
           "theme": "humanitarian",
           "source": "displacement-flows",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026ugees\": 2370, \"hostTotal\": 2813, \"idps\": 3712000, \"location\": {\"latitude\": 48.4, \"longitude\": 31.2}, \"name\": \"Ukraine\", \"refugees\": 5224131, \"stateless\": 0, \"totalDisplaced\": 8962714}, {\"asylumSeekers\": 303273, \"code\": \"COL\", \"\u2026"
         }
       ]
@@ -1018,13 +1012,13 @@
         {
           "theme": "geophysical",
           "source": "earthquakes",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u202613.0681, \"longitude\": 167.0585}, \"magnitude\": 4.6, \"occurredAt\": 1789739876067, \"place\": \"104 km NNW of Sola, Vanuatu\", \"source\": \"usgs\", \"sourceUrl\": \"https://earthquake.usgs.gov/earthquakes/eventpage/us7000tib5\"}, {\"depthKm\":\u2026"
         },
         {
           "theme": "humanitarian",
           "source": "displacement-flows",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026mSeekers\": 961, \"code\": \"VUT\", \"hostAsylumSeekers\": 7, \"hostRefugees\": 0, \"hostTotal\": 7, \"idps\": 0, \"name\": \"Vanuatu\", \"refugees\": 13, \"stateless\": 0, \"totalDisplaced\": 974}, {\"asylumSeekers\": 351, \"code\": \"GNQ\", \"hostAsylumSe\u2026"
         }
       ]
@@ -1045,13 +1039,13 @@
         {
           "theme": "conflict-watch",
           "source": "conflict-events-ucdp",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026eB\": \"Civilians\", \"sourceOriginal\": \"Kal Akal\", \"violenceType\": \"UCDP_VIOLENCE_TYPE_ONE_SIDED\"}, {\"country\": \"Myanmar (Burma)\", \"dateEnd\": 1788048000000, \"dateStart\": 1788048000000, \"deathsBest\": 0, \"deathsHigh\": 8, \"deathsLow\"\u2026"
         },
         {
           "theme": "humanitarian",
           "source": "displacement-flows",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026ostRefugees\": 0, \"hostTotal\": 0, \"idps\": 3628840, \"location\": {\"latitude\": 19.8, \"longitude\": 96.7}, \"name\": \"Myanmar\", \"refugees\": 1524378, \"stateless\": 0, \"totalDisplaced\": 5221042}, {\"asylumSeekers\": 25860, \"code\": \"YEM\", \"h\u2026"
         }
       ]
@@ -1072,19 +1066,19 @@
         {
           "theme": "energy-supply",
           "source": "fuel-prices",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u20268, \"observedAt\": \"2026-09-14\", \"source\": \"energy.ec.europa.eu\", \"usdPrice\": 2.1668, \"wowPct\": 1.16}, \"name\": \"Romania\"}, {\"code\": \"SK\", \"currency\": \"EUR\", \"diesel\": {\"grade\": \"Diesel\", \"localPrice\": 1.924, \"observedAt\": \"2026-0\u2026"
         },
         {
           "theme": "environmental-hazards",
           "source": "natural-events",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026ny, Denmark, Spain, France, Croatia, Hungary, Ireland, Italy, Liechtenstein, Luxembourg, Netherlands, Poland, Romania, Serbia, Sweden, Slovenia, Slovakia, San Marino, Ukraine, \", \"closed\": false, \"conePolygon\": [], \"date\": 1766\u2026"
         },
         {
           "theme": "humanitarian",
           "source": "displacement-flows",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u202677, \"code\": \"ROU\", \"hostAsylumSeekers\": 316, \"hostRefugees\": 206671, \"hostTotal\": 206987, \"idps\": 0, \"name\": \"Romania\", \"refugees\": 3130, \"stateless\": 0, \"totalDisplaced\": 11007}, {\"asylumSeekers\": 88310, \"code\": \"RUS\", \"hostAs\u2026"
         }
       ]
@@ -1104,19 +1098,19 @@
         {
           "theme": "energy-supply",
           "source": "fuel-prices",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026, \"observedAt\": \"2026-09-14\", \"source\": \"energy.ec.europa.eu\", \"usdPrice\": 1.9915, \"wowPct\": -0.56}, \"name\": \"Croatia\"}, {\"code\": \"CY\", \"currency\": \"EUR\", \"diesel\": {\"grade\": \"Diesel\", \"localPrice\": 1.9151, \"observedAt\": \"2026-\u2026"
         },
         {
           "theme": "environmental-hazards",
           "source": "natural-events",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026tria, Bosnia and Herzegovina, Belgium, Belarus, Switzerland, Czech Republic, Germany, Denmark, Spain, France, Croatia, Hungary, Ireland, Italy, Liechtenstein, Luxembourg, Netherlands, Poland, Romania, Serbia, Sweden, Slovenia,\u2026"
         },
         {
           "theme": "humanitarian",
           "source": "displacement-flows",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026: 43, \"code\": \"HRV\", \"hostAsylumSeekers\": 434, \"hostRefugees\": 29748, \"hostTotal\": 30182, \"idps\": 0, \"name\": \"Croatia\", \"refugees\": 17207, \"stateless\": 0, \"totalDisplaced\": 17250}, {\"asylumSeekers\": 7643, \"code\": \"ALB\", \"hostAs\u2026"
         }
       ]
@@ -1136,19 +1130,19 @@
         {
           "theme": "energy-supply",
           "source": "fuel-prices",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u202639, \"observedAt\": \"2026-09-14\", \"source\": \"energy.ec.europa.eu\", \"usdPrice\": 1.9662, \"wowPct\": 3.4}, \"name\": \"Hungary\"}, {\"code\": \"IE\", \"currency\": \"EUR\", \"diesel\": {\"grade\": \"Diesel\", \"localPrice\": 1.9893, \"observedAt\": \"2026-\u2026"
         },
         {
           "theme": "environmental-hazards",
           "source": "natural-events",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026nia and Herzegovina, Belgium, Belarus, Switzerland, Czech Republic, Germany, Denmark, Spain, France, Croatia, Hungary, Ireland, Italy, Liechtenstein, Luxembourg, Netherlands, Poland, Romania, Serbia, Sweden, Slovenia, Slovakia,\u2026"
         },
         {
           "theme": "humanitarian",
           "source": "displacement-flows",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026: 899, \"code\": \"HUN\", \"hostAsylumSeekers\": 42, \"hostRefugees\": 71332, \"hostTotal\": 71374, \"idps\": 0, \"name\": \"Hungary\", \"refugees\": 2055, \"stateless\": 0, \"totalDisplaced\": 2954}, {\"asylumSeekers\": 10, \"code\": \"CYP\", \"hostAsylum\u2026"
         }
       ]
@@ -1168,19 +1162,19 @@
         {
           "theme": "energy-supply",
           "source": "fuel-prices",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026, \"observedAt\": \"2026-09-14\", \"source\": \"energy.ec.europa.eu\", \"usdPrice\": 2.9419, \"wowPct\": -3.38}, \"name\": \"Denmark\"}, {\"code\": \"EE\", \"currency\": \"EUR\", \"diesel\": {\"grade\": \"Diesel\", \"localPrice\": 2.065, \"observedAt\": \"2026-0\u2026"
         },
         {
           "theme": "environmental-hazards",
           "source": "natural-events",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026yTitle\": \"Drought in Austria, Bosnia and Herzegovina, Belgium, Belarus, Switzerland, Czech Republic, Germany, Denmark, Spain, France, Croatia, Hungary, Ireland, Italy, Liechtenstein, Luxembourg, Netherlands, Poland, Romania, Se\u2026"
         },
         {
           "theme": "humanitarian",
           "source": "displacement-flows",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u202650, \"code\": \"DNK\", \"hostAsylumSeekers\": 2738, \"hostRefugees\": 95007, \"hostTotal\": 97745, \"idps\": 0, \"name\": \"Denmark\", \"refugees\": 21, \"stateless\": 0, \"totalDisplaced\": 71}, {\"asylumSeekers\": 546, \"code\": \"ZMB\", \"hostAsylumSee\u2026"
         }
       ]
@@ -1199,13 +1193,13 @@
         {
           "theme": "energy-supply",
           "source": "fuel-prices",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026, \"observedAt\": \"2026-09-14\", \"source\": \"energy.ec.europa.eu\", \"usdPrice\": 2.6578, \"wowPct\": -1.12}, \"name\": \"Finland\"}, {\"code\": \"FR\", \"currency\": \"EUR\", \"diesel\": {\"grade\": \"Diesel\", \"localPrice\": 2.2907, \"observedAt\": \"2026-\u2026"
         },
         {
           "theme": "humanitarian",
           "source": "displacement-flows",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u20265, \"code\": \"FIN\", \"hostAsylumSeekers\": 1879, \"hostRefugees\": 102544, \"hostTotal\": 104423, \"idps\": 0, \"name\": \"Finland\", \"refugees\": 5, \"stateless\": 0, \"totalDisplaced\": 20}, {\"asylumSeekers\": 56626, \"code\": \"GIN\", \"hostAsylumSe\u2026"
         }
       ]
@@ -1228,37 +1222,37 @@
         {
           "theme": "conflict-watch",
           "source": "conflict-events-ucdp",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026Mayos\", \"sourceOriginal\": \"Vivo En Marte on X\", \"violenceType\": \"UCDP_VIOLENCE_TYPE_NON_STATE\"}, {\"country\": \"France\", \"dateEnd\": 1788048000000, \"dateStart\": 1788048000000, \"deathsBest\": 1, \"deathsHigh\": 1, \"deathsLow\": 1, \"id\u2026"
         },
         {
           "theme": "energy-supply",
           "source": "fuel-prices",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u20263, \"observedAt\": \"2026-09-14\", \"source\": \"energy.ec.europa.eu\", \"usdPrice\": 2.4921, \"wowPct\": 1.85}, \"name\": \"France\"}, {\"code\": \"DE\", \"currency\": \"EUR\", \"diesel\": {\"grade\": \"Diesel\", \"localPrice\": 2.426, \"observedAt\": \"2026-0\u2026"
         },
         {
           "theme": "environmental-hazards",
           "source": "natural-events",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026t in Austria, Bosnia and Herzegovina, Belgium, Belarus, Switzerland, Czech Republic, Germany, Denmark, Spain, France, Croatia, Hungary, Ireland, Italy, Liechtenstein, Luxembourg, Netherlands, Poland, Romania, Serbia, Sweden, S\u2026"
         },
         {
           "theme": "humanitarian",
           "source": "displacement-flows",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026Refugees\": 788419, \"hostTotal\": 873646, \"idps\": 0, \"location\": {\"latitude\": 46.2, \"longitude\": 2.2}, \"name\": \"France\", \"refugees\": 166, \"stateless\": 0, \"totalDisplaced\": 621}, {\"asylumSeekers\": 7773, \"code\": \"KEN\", \"hostAsylum\u2026"
         },
         {
           "theme": "macro-markets",
           "source": "world-bank-cpi",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026--- | | China | CHN | Inflation, consumer prices (annual %) | FP.CPI.TOTL.ZG | 2025 | 0.0595646916565403 | | France | FRA | Inflation, consumer prices (annual %) | FP.CPI.TOTL.ZG | 2025 | 0.943770212469976 | | Germany | DEU |\u2026"
         },
         {
           "theme": "macro-markets",
           "source": "world-bank-gdp",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026-- | --- | --- | --- | --- | | China | CHN | GDP (current US$) | NY.GDP.MKTP.CD | 2025 | 19498039388042.6 | | France | FRA | GDP (current US$) | NY.GDP.MKTP.CD | 2025 | 3366315927447.33 | | Germany | DEU | GDP (current US$) |\u2026"
         }
       ]
@@ -1277,13 +1271,13 @@
         {
           "theme": "energy-supply",
           "source": "fuel-prices",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u20268, \"observedAt\": \"2026-09-14\", \"source\": \"energy.ec.europa.eu\", \"usdPrice\": 2.4757, \"wowPct\": 2.23}, \"name\": \"Greece\"}, {\"code\": \"HU\", \"currency\": \"EUR\", \"diesel\": {\"grade\": \"Diesel\", \"localPrice\": 1.919, \"observedAt\": \"2026-0\u2026"
         },
         {
           "theme": "humanitarian",
           "source": "displacement-flows",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026, \"code\": \"GRC\", \"hostAsylumSeekers\": 31928, \"hostRefugees\": 134563, \"hostTotal\": 166491, \"idps\": 0, \"name\": \"Greece\", \"refugees\": 94, \"stateless\": 0, \"totalDisplaced\": 215}, {\"asylumSeekers\": 3022, \"code\": \"MDA\", \"hostAsylumS\u2026"
         }
       ]
@@ -1303,19 +1297,19 @@
         {
           "theme": "energy-supply",
           "source": "fuel-prices",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u202618, \"observedAt\": \"2026-09-14\", \"source\": \"energy.ec.europa.eu\", \"usdPrice\": 2.09, \"wowPct\": -0.29}, \"name\": \"Poland\"}, {\"code\": \"PT\", \"currency\": \"EUR\", \"diesel\": {\"grade\": \"Diesel\", \"localPrice\": 2.152, \"observedAt\": \"2026-0\u2026"
         },
         {
           "theme": "environmental-hazards",
           "source": "natural-events",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026c, Germany, Denmark, Spain, France, Croatia, Hungary, Ireland, Italy, Liechtenstein, Luxembourg, Netherlands, Poland, Romania, Serbia, Sweden, Slovenia, Slovakia, San Marino, Ukraine, \", \"closed\": false, \"conePolygon\": [], \"da\u2026"
         },
         {
           "theme": "humanitarian",
           "source": "displacement-flows",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026\"code\": \"POL\", \"hostAsylumSeekers\": 13848, \"hostRefugees\": 990469, \"hostTotal\": 1004317, \"idps\": 0, \"name\": \"Poland\", \"refugees\": 1368, \"stateless\": 0, \"totalDisplaced\": 1775}, {\"asylumSeekers\": 23629, \"code\": \"MLI\", \"hostAsy\u2026"
         }
       ]
@@ -1338,31 +1332,31 @@
         {
           "theme": "conflict-watch",
           "source": "conflict-events-ucdp",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026sourceOriginal\": \"provincial police command\", \"violenceType\": \"UCDP_VIOLENCE_TYPE_STATE_BASED\"}, {\"country\": \"Mexico\", \"dateEnd\": 1788134400000, \"dateStart\": 1788134400000, \"deathsBest\": 1, \"deathsHigh\": 1, \"deathsLow\": 1, \"id\u2026"
         },
         {
           "theme": "energy-supply",
           "source": "fuel-prices",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026: 23.6853, \"observedAt\": \"2026-09-22\", \"source\": \"cre.gob.mx\", \"usdPrice\": 1.3761, \"wowPct\": -1.16}, \"name\": \"Mexico\"}, {\"code\": \"US\", \"currency\": \"USD\", \"diesel\": {\"grade\": \"Diesel\", \"localPrice\": 1.6603, \"observedAt\": \"2026-\u2026"
         },
         {
           "theme": "environmental-hazards",
           "source": "natural-events",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026ght\", \"categoryTitle\": \"Drought in The Bahamas, Belize, Cuba, Dominican Republic, Guatemala, Honduras, Haiti, Mexico, Nicaragua, El Salvador\", \"closed\": false, \"conePolygon\": [], \"date\": 1776729600000, \"description\": \"Drought\u2026"
         },
         {
           "theme": "geophysical",
           "source": "earthquakes",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026-93.5556}, \"magnitude\": 4.6, \"occurredAt\": 1789737169370, \"place\": \"125 km SSW of La Esperanza (El Zapotal), Mexico\", \"source\": \"usgs\", \"sourceUrl\": \"https://earthquake.usgs.gov/earthquakes/eventpage/us7000tiaq\"}, {\"depthKm\":\u2026"
         },
         {
           "theme": "humanitarian",
           "source": "displacement-flows",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026e\": \"MEX\", \"hostAsylumSeekers\": 173532, \"hostRefugees\": 152002, \"hostTotal\": 325534, \"idps\": 262411, \"name\": \"Mexico\", \"refugees\": 41307, \"stateless\": 0, \"totalDisplaced\": 540528}, {\"asylumSeekers\": 1646, \"code\": \"KHM\", \"hostA\u2026"
         }
       ]
@@ -1377,33 +1371,26 @@
         "climate-signals",
         "conflict-watch",
         "energy-supply",
-        "environmental-hazards",
-        "public-health"
+        "environmental-hazards"
       ],
       "evidence": [
         {
           "theme": "climate-signals",
           "source": "climate-anomalies",
-          "day": "2026-09-22",
-          "text": "\u2026pDelta\": -0.1, \"severity\": \"ANOMALY_SEVERITY_NORMAL\", \"tempDelta\": 0.5, \"type\": \"ANOMALY_TYPE_WARM\", \"zone\": \"Europe\"}, {\"location\": {\"latitude\": 39, \"longitude\": 127}, \"period\": \"2026-09-16 to 2026-09-22\", \"precipDelta\": -3.8\u2026"
+          "day": "2026-09-23",
+          "text": "\u2026Delta\": -0.7, \"severity\": \"ANOMALY_SEVERITY_NORMAL\", \"tempDelta\": -0.2, \"type\": \"ANOMALY_TYPE_COLD\", \"zone\": \"Europe\"}, {\"location\": {\"latitude\": 39, \"longitude\": 127}, \"period\": \"2026-09-17 to 2026-09-23\", \"precipDelta\": -3.8\u2026"
         },
         {
           "theme": "conflict-watch",
           "source": "conflict-events-ucdp",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u20267}, \"sideA\": \"Government of Afghanistan\", \"sideB\": \"Forces of Juma Khan Fateh\", \"sourceOriginal\": \"Radio Free Europe/Radio Liberty's Tajik service Ozodi\", \"violenceType\": \"UCDP_VIOLENCE_TYPE_STATE_BASED\"}, {\"country\": \"Sudan\",\u2026"
         },
         {
           "theme": "energy-supply",
           "source": "natural-gas-storage-eu",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "--- type: \"L1-source\" source: \"GIE AGSI+ (Gas Infrastructure Europe)\" source_key: \"natural-gas-storage-eu\" endpoint: \"/api/economic/v1/get-nat-gas-storage\" retrieved: \"2026-09-2\u2026"
-        },
-        {
-          "theme": "public-health",
-          "source": "disease-outbreaks",
-          "day": "2026-09-22",
-          "text": "\u2026ews Today\", \"sourceUrl\": \"https://outbreaknewstoday.com/sustained-heat-raises-infectious-disease-risks-across-europe-ecdc-warns-741/?utm_source=rss&#038;utm_medium=rss&#038;utm_campaign=sustained-heat-raises-infectious-disease\u2026"
         }
       ]
     },
@@ -1424,31 +1411,31 @@
         {
           "theme": "conflict-watch",
           "source": "conflict-events-ucdp",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026Low\": 1, \"id\": \"640727\", \"location\": {\"latitude\": 48.268307, \"longitude\": 38.370347}, \"sideA\": \"Government of Russia (Soviet Union)\", \"sideB\": \"Government of Ukraine\", \"sourceOriginal\": \"Russo-Ukrainian Warspotting\", \"violence\u2026"
         },
         {
           "theme": "environmental-hazards",
           "source": "thermal-escalations",
-          "day": "2026-09-22",
-          "text": "\u2026H\", \"context\": \"THERMAL_CONTEXT_CONFLICT_ADJACENT\", \"countDelta\": 513.3, \"countryCode\": \"RU\", \"countryName\": \"Russia\", \"firstDetectedAt\": \"2026-09-21T17:32:00.000Z\", \"frpDelta\": 4324, \"id\": \"ru:65-5-110-5:2026092209\", \"lastDet\u2026"
+          "day": "2026-09-23",
+          "text": "\u2026H\", \"context\": \"THERMAL_CONTEXT_CONFLICT_ADJACENT\", \"countDelta\": 246.3, \"countryCode\": \"RU\", \"countryName\": \"Russia\", \"firstDetectedAt\": \"2026-09-22T17:58:00.000Z\", \"frpDelta\": 5027.1, \"id\": \"ru:63-5-109-0:2026092309\", \"lastD\u2026"
         },
         {
           "theme": "environmental-hazards",
           "source": "wildfire-detections",
-          "day": "2026-09-22",
-          "text": "\u2026: \"active\", \"location\": {\"latitude\": 60.42537, \"longitude\": 96.49603}, \"possibleExplosion\": false, \"region\": \"Russia\", \"satellite\": \"N21\", \"source\": \"firms\"}, {\"brightness\": 367, \"confidence\": \"FIRE_CONFIDENCE_HIGH\", \"dayNight\u2026"
+          "day": "2026-09-23",
+          "text": "\u2026\"active\", \"location\": {\"latitude\": 63.84057, \"longitude\": 106.73029}, \"possibleExplosion\": false, \"region\": \"Russia\", \"satellite\": \"N20\", \"source\": \"firms\"}, {\"brightness\": 367, \"confidence\": \"FIRE_CONFIDENCE_HIGH\", \"dayNight\u2026"
         },
         {
           "theme": "geophysical",
           "source": "earthquakes",
-          "day": "2026-09-22",
-          "text": "\u20266006, \"longitude\": 146.5756}, \"magnitude\": 4.6, \"occurredAt\": 1789946737454, \"place\": \"25 km SSW of Shikotan, Russia\", \"source\": \"usgs\", \"sourceUrl\": \"https://earthquake.usgs.gov/earthquakes/eventpage/us7000tiu3\"}, {\"depthKm\":\u2026"
+          "day": "2026-09-23",
+          "text": "\u2026\"longitude\": 156.4937}, \"magnitude\": 4.6, \"occurredAt\": 1790085375091, \"place\": \"37 km SE of Severo-Kuril\u2019sk, Russia\", \"source\": \"usgs\", \"sourceUrl\": \"https://earthquake.usgs.gov/earthquakes/eventpage/us7000tj5n\"}, {\"depthKm\":\u2026"
         },
         {
           "theme": "public-health",
           "source": "disease-outbreaks",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026ourceName\": \"ThinkGlobalHealth\", \"sourceUrl\": \"https://72.ru/text/health/2026/08/20/76597530\", \"summary\": \"In Russia's Tyumen region, 36 people contracted measles during the first six months of 2026.\"}, {\"alertLevel\": \"watch\",\u2026"
         }
       ]
@@ -1469,19 +1456,19 @@
         {
           "theme": "conflict-watch",
           "source": "conflict-events-ucdp",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026Rusos\", \"sourceOriginal\": \"El Sol de Acapulco\", \"violenceType\": \"UCDP_VIOLENCE_TYPE_NON_STATE\"}, {\"country\": \"Turkey\", \"dateEnd\": 1766966400000, \"dateStart\": 1766966400000, \"deathsBest\": 9, \"deathsHigh\": 9, \"deathsLow\": 9, \"id\u2026"
         },
         {
           "theme": "environmental-hazards",
           "source": "wildfire-detections",
-          "day": "2026-09-22",
-          "text": "\u2026: \"active\", \"location\": {\"latitude\": 37.25564, \"longitude\": 42.26459}, \"possibleExplosion\": false, \"region\": \"Turkey\", \"satellite\": \"N21\", \"source\": \"firms\"}, {\"brightness\": 367, \"confidence\": \"FIRE_CONFIDENCE_HIGH\", \"dayNight\u2026"
+          "day": "2026-09-23",
+          "text": "\u2026: \"active\", \"location\": {\"latitude\": 36.84542, \"longitude\": 42.40765}, \"possibleExplosion\": false, \"region\": \"Turkey\", \"satellite\": \"N\", \"source\": \"firms\"}, {\"brightness\": 367, \"confidence\": \"FIRE_CONFIDENCE_HIGH\", \"dayNight\":\u2026"
         },
         {
           "theme": "geophysical",
           "source": "earthquakes",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026.8136, \"longitude\": 36.2994}, \"magnitude\": 4.9, \"occurredAt\": 1789952524529, \"place\": \"26 km SE of Saimbeyli, Turkey\", \"source\": \"usgs\", \"sourceUrl\": \"https://earthquake.usgs.gov/earthquakes/eventpage/us7000tiui\"}, {\"depthKm\":\u2026"
         }
       ]
@@ -1502,25 +1489,25 @@
         {
           "theme": "conflict-watch",
           "source": "conflict-events-ucdp",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026alestinian health officials and medics; IDF\", \"violenceType\": \"UCDP_VIOLENCE_TYPE_STATE_BASED\"}, {\"country\": \"Brazil\", \"dateEnd\": 1788134400000, \"dateStart\": 1788134400000, \"deathsBest\": 1, \"deathsHigh\": 1, \"deathsLow\": 1, \"id\u2026"
         },
         {
           "theme": "energy-supply",
           "source": "fuel-prices",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026lar\", \"localPrice\": 6.6136, \"observedAt\": \"2026-09-18\", \"source\": \"gov.br/anp\", \"usdPrice\": 1.2943}, \"name\": \"Brazil\"}, {\"code\": \"NZ\", \"currency\": \"NZD\", \"diesel\": {\"grade\": \"Diesel\", \"localPrice\": 2.7484, \"observedAt\": \"11/09\u2026"
         },
         {
           "theme": "humanitarian",
           "source": "displacement-flows",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026\"code\": \"BRA\", \"hostAsylumSeekers\": 119651, \"hostRefugees\": 278966, \"hostTotal\": 398617, \"idps\": 0, \"name\": \"Brazil\", \"refugees\": 6306, \"stateless\": 0, \"totalDisplaced\": 72978}, {\"asylumSeekers\": 158, \"code\": \"CZE\", \"hostAsyl\u2026"
         },
         {
           "theme": "public-health",
           "source": "disease-outbreaks",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026\", \"disease\": \"Measles\", \"id\": \"thinkglobalhealth-ke69qf-1788134400000\", \"lat\": -22, \"lng\": -49, \"location\": \"Brazil\", \"publishedAt\": 1788134400000, \"sourceName\": \"ThinkGlobalHealth\", \"sourceUrl\": \"https://g1.globo.com/sp/sao-\u2026"
         }
       ]
@@ -1541,25 +1528,25 @@
         {
           "theme": "energy-supply",
           "source": "fuel-prices",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026, \"observedAt\": \"2026-09-14\", \"source\": \"energy.ec.europa.eu\", \"usdPrice\": 1.7365, \"wowPct\": -5.47}, \"name\": \"Sweden\"}, {\"code\": \"BR\", \"currency\": \"BRL\", \"diesel\": {\"grade\": \"Diesel\", \"localPrice\": 7.19, \"observedAt\": \"2026-09\u2026"
         },
         {
           "theme": "environmental-hazards",
           "source": "natural-events",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026n, France, Croatia, Hungary, Ireland, Italy, Liechtenstein, Luxembourg, Netherlands, Poland, Romania, Serbia, Sweden, Slovenia, Slovakia, San Marino, Ukraine, \", \"closed\": false, \"conePolygon\": [], \"date\": 1766275200000, \"desc\u2026"
         },
         {
           "theme": "humanitarian",
           "source": "displacement-flows",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u20265, \"code\": \"SWE\", \"hostAsylumSeekers\": 4661, \"hostRefugees\": 144116, \"hostTotal\": 148777, \"idps\": 0, \"name\": \"Sweden\", \"refugees\": 128, \"stateless\": 0, \"totalDisplaced\": 323}, {\"asylumSeekers\": 91, \"code\": \"SVK\", \"hostAsylumSe\u2026"
         },
         {
           "theme": "public-health",
           "source": "disease-outbreaks",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026easles\", \"id\": \"thinkglobalhealth-3p3vqc-1787184000000\", \"lat\": 62.78990173, \"lng\": 16.73974991, \"location\": \"Sweden\", \"publishedAt\": 1787184000000, \"sourceName\": \"ThinkGlobalHealth\", \"sourceUrl\": \"https://belta.by/world/view/\u2026"
         }
       ]
@@ -1577,7 +1564,7 @@
         {
           "theme": "energy-supply",
           "source": "fuel-prices",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026nsform; never edit by hand. | field | value | | --- | --- | | countries | [{\"code\": \"MY\", \"currency\": \"MYR\", \"diesel\": {\"grade\": \"Euro5\", \"localPrice\": 5.27, \"observedAt\": \"2026-09-17\", \"source\": \"data.gov.my\", \"usdPrice\": 1.2\u2026"
         }
       ]
@@ -1608,25 +1595,25 @@
         {
           "theme": "energy-supply",
           "source": "fuel-prices",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u20261, \"observedAt\": \"2026-09-14\", \"source\": \"energy.ec.europa.eu\", \"usdPrice\": 2.3909, \"wowPct\": 1.56}, \"name\": \"Italy\"}, {\"code\": \"LV\", \"currency\": \"EUR\", \"diesel\": {\"grade\": \"Diesel\", \"localPrice\": 2.0962, \"observedAt\": \"2026-\u2026"
         },
         {
           "theme": "environmental-hazards",
           "source": "natural-events",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026a, Belgium, Belarus, Switzerland, Czech Republic, Germany, Denmark, Spain, France, Croatia, Hungary, Ireland, Italy, Liechtenstein, Luxembourg, Netherlands, Poland, Romania, Serbia, Sweden, Slovenia, Slovakia, San Marino, Ukr\u2026"
         },
         {
           "theme": "humanitarian",
           "source": "displacement-flows",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026\"code\": \"ITA\", \"hostAsylumSeekers\": 234144, \"hostRefugees\": 192914, \"hostTotal\": 427058, \"idps\": 0, \"name\": \"Italy\", \"refugees\": 266, \"stateless\": 0, \"totalDisplaced\": 841}, {\"asylumSeekers\": 66672, \"code\": \"BRA\", \"hostAsylu\u2026"
         },
         {
           "theme": "public-health",
           "source": "disease-outbreaks",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026parents for potential involuntary manslaughter by omission after their child died from diphtheria in Palermo, Italy, as the child had not received the mandatory vaccination. \"}, {\"alertLevel\": \"alert\", \"cases\": 2595, \"country\u2026"
         }
       ]
@@ -1649,31 +1636,31 @@
         {
           "theme": "conflict-watch",
           "source": "conflict-events-ucdp",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026: \"XXX100\", \"sourceOriginal\": \"seguimiento.co\", \"violenceType\": \"UCDP_VIOLENCE_TYPE_NON_STATE\"}, {\"country\": \"Spain\", \"dateEnd\": 1786838400000, \"dateStart\": 1786838400000, \"deathsBest\": 3, \"deathsHigh\": 3, \"deathsLow\": 3, \"id\u2026"
         },
         {
           "theme": "energy-supply",
           "source": "fuel-prices",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u20269, \"observedAt\": \"2026-09-14\", \"source\": \"energy.ec.europa.eu\", \"usdPrice\": 2.1417, \"wowPct\": 1.93}, \"name\": \"Spain\"}, {\"code\": \"SE\", \"currency\": \"EUR\", \"diesel\": {\"grade\": \"Diesel\", \"localPrice\": 1.9809, \"observedAt\": \"2026-\u2026"
         },
         {
           "theme": "environmental-hazards",
           "source": "natural-events",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026\"Drought in Austria, Bosnia and Herzegovina, Belgium, Belarus, Switzerland, Czech Republic, Germany, Denmark, Spain, France, Croatia, Hungary, Ireland, Italy, Liechtenstein, Luxembourg, Netherlands, Poland, Romania, Serbia, S\u2026"
         },
         {
           "theme": "humanitarian",
           "source": "displacement-flows",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026\"code\": \"ESP\", \"hostAsylumSeekers\": 248715, \"hostRefugees\": 511079, \"hostTotal\": 759794, \"idps\": 0, \"name\": \"Spain\", \"refugees\": 186, \"stateless\": 0, \"totalDisplaced\": 899}, {\"asylumSeekers\": 138420, \"code\": \"GTM\", \"hostAsyl\u2026"
         },
         {
           "theme": "public-health",
           "source": "disease-outbreaks",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026asles\", \"id\": \"thinkglobalhealth-na3ec3-1786320000000\", \"lat\": 40.22682953, \"lng\": -3.649569988, \"location\": \"Spain\", \"publishedAt\": 1786320000000, \"sourceName\": \"ThinkGlobalHealth\", \"sourceUrl\": \"https://www.lavanguardia.com\u2026"
         }
       ]
@@ -1694,31 +1681,31 @@
         {
           "theme": "environmental-hazards",
           "source": "radiation-observations",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026ributingSources\": [\"RADIATION_SOURCE_SAFECAST\"], \"convertedFromCpm\": true, \"corroborated\": false, \"country\": \"Japan\", \"delta\": 5.7, \"freshness\": \"RADIATION_FRESHNESS_HISTORICAL\", \"id\": \"safecast:jp-fukushima:276622389\", \"loca\u2026"
         },
         {
           "theme": "geophysical",
           "source": "earthquakes",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u202629.0367, \"longitude\": 128.8944}, \"magnitude\": 5.1, \"occurredAt\": 1790073982312, \"place\": \"88 km NNW of Uken, Japan\", \"source\": \"usgs\", \"sourceUrl\": \"https://earthquake.usgs.gov/earthquakes/eventpage/us7000tj4y\"}, {\"depthKm\":\u2026"
         },
         {
           "theme": "humanitarian",
           "source": "displacement-flows",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u202691, \"code\": \"JPN\", \"hostAsylumSeekers\": 22647, \"hostRefugees\": 42450, \"hostTotal\": 65097, \"idps\": 0, \"name\": \"Japan\", \"refugees\": 56, \"stateless\": 0, \"totalDisplaced\": 147}, {\"asylumSeekers\": 16726, \"code\": \"PSE\", \"hostAsylum\u2026"
         },
         {
           "theme": "macro-markets",
           "source": "world-bank-cpi",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026949721 | | India | IND | Inflation, consumer prices (annual %) | FP.CPI.TOTL.ZG | 2025 | 2.39884954182294 | | Japan | JPN | Inflation, consumer prices (annual %) | FP.CPI.TOTL.ZG | 2025 | 3.17253034260248 | | United Kingdom |\u2026"
         },
         {
           "theme": "macro-markets",
           "source": "world-bank-gdp",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026| 2025 | 5050922925047.05 | | India | IND | GDP (current US$) | NY.GDP.MKTP.CD | 2025 | 3956067115771.63 | | Japan | JPN | GDP (current US$) | NY.GDP.MKTP.CD | 2025 | 4435162999976.94 | | United Kingdom | GBR | GDP (current\u2026"
         }
       ]
@@ -1741,31 +1728,31 @@
         {
           "theme": "environmental-hazards",
           "source": "natural-events",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u20261&episodeid=16&eventtype=FL\", \"title\": \"\ud83d\udfe0 Flood in India\"}, {\"category\": \"floods\", \"categoryTitle\": \"Flood in China\", \"closed\": false, \"conePolygon\": [], \"date\": 1785459600000, \"description\": \"Flood in China - Magnitude 0 \",\u2026"
         },
         {
           "theme": "geophysical",
           "source": "earthquakes",
-          "day": "2026-09-22",
-          "text": "\u2026e\": 41.1968, \"longitude\": 83.518}, \"magnitude\": 4.5, \"occurredAt\": 1789833234494, \"place\": \"75 km SE of Kuqa, China\", \"source\": \"usgs\", \"sourceUrl\": \"https://earthquake.usgs.gov/earthquakes/eventpage/us7000tikb\"}, {\"depthKm\":\u2026"
+          "day": "2026-09-23",
+          "text": "\u2026e\": 41.7997, \"longitude\": 82.3165}, \"magnitude\": 4.5, \"occurredAt\": 1790093349440, \"place\": \"51 km W of Kuqa, China\", \"source\": \"usgs\", \"sourceUrl\": \"https://earthquake.usgs.gov/earthquakes/eventpage/us6000twwy\"}, {\"depthKm\":\u2026"
         },
         {
           "theme": "humanitarian",
           "source": "displacement-flows",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026hostRefugees\": 230, \"hostTotal\": 712, \"idps\": 0, \"location\": {\"latitude\": 35.9, \"longitude\": 104.2}, \"name\": \"China\", \"refugees\": 153962, \"stateless\": 0, \"totalDisplaced\": 253678}, {\"asylumSeekers\": 108289, \"code\": \"SLV\", \"ho\u2026"
         },
         {
           "theme": "macro-markets",
           "source": "world-bank-cpi",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026hand. | country | iso3 | indicator | indicator_code | date | value | | --- | --- | --- | --- | --- | --- | | China | CHN | Inflation, consumer prices (annual %) | FP.CPI.TOTL.ZG | 2025 | 0.0595646916565403 | | France | FRA |\u2026"
         },
         {
           "theme": "macro-markets",
           "source": "world-bank-gdp",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026hand. | country | iso3 | indicator | indicator_code | date | value | | --- | --- | --- | --- | --- | --- | | China | CHN | GDP (current US$) | NY.GDP.MKTP.CD | 2025 | 19498039388042.6 | | France | FRA | GDP (current US$) | N\u2026"
         }
       ]
@@ -1785,19 +1772,19 @@
         {
           "theme": "conflict-watch",
           "source": "conflict-events-ucdp",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026Mayos\", \"sourceOriginal\": \"El Sol de Sinaloa\", \"violenceType\": \"UCDP_VIOLENCE_TYPE_NON_STATE\"}, {\"country\": \"Chile\", \"dateEnd\": 1786752000000, \"dateStart\": 1786752000000, \"deathsBest\": 1, \"deathsHigh\": 1, \"deathsLow\": 1, \"id\u2026"
         },
         {
           "theme": "geophysical",
           "source": "earthquakes",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u202621.2643, \"longitude\": -68.9887}, \"magnitude\": 4.7, \"occurredAt\": 1789993025292, \"place\": \"76 km W of Ollag\u00fce, Chile\", \"source\": \"usgs\", \"sourceUrl\": \"https://earthquake.usgs.gov/earthquakes/eventpage/us7000tixg\"}, {\"depthKm\":\u2026"
         },
         {
           "theme": "humanitarian",
           "source": "displacement-flows",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u20263057, \"code\": \"CHL\", \"hostAsylumSeekers\": 9561, \"hostRefugees\": 2631, \"hostTotal\": 12192, \"idps\": 0, \"name\": \"Chile\", \"refugees\": 5358, \"stateless\": 0, \"totalDisplaced\": 28415}, {\"asylumSeekers\": 704, \"code\": \"TTO\", \"hostAsyl\u2026"
         }
       ]
@@ -1821,37 +1808,37 @@
         {
           "theme": "conflict-watch",
           "source": "conflict-events-ucdp",
-          "day": "2026-09-22",
-          "text": "\u20262T11:29:14Z. Verbatim transform; never edit by hand. | field | value | | --- | --- | | events | [{\"country\": \"India\", \"dateEnd\": 1788134400000, \"dateStart\": 1788134400000, \"deathsBest\": 3, \"deathsHigh\": 3, \"deathsLow\": 2, \"id\u2026"
+          "day": "2026-09-23",
+          "text": "\u20263T11:27:27Z. Verbatim transform; never edit by hand. | field | value | | --- | --- | | events | [{\"country\": \"India\", \"dateEnd\": 1788134400000, \"dateStart\": 1788134400000, \"deathsBest\": 3, \"deathsHigh\": 3, \"deathsLow\": 2, \"id\u2026"
         },
         {
           "theme": "environmental-hazards",
           "source": "natural-events",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026episodeid=1&eventtype=VO\", \"title\": \"\ud83d\udfe0 Eruption Krakatau\"}, {\"category\": \"floods\", \"categoryTitle\": \"Flood in India\", \"closed\": false, \"conePolygon\": [], \"date\": 1786237200000, \"description\": \"Flood in India - Magnitude 0 \",\u2026"
         },
         {
           "theme": "humanitarian",
           "source": "displacement-flows",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026tRefugees\": 238643, \"hostTotal\": 253718, \"idps\": 0, \"location\": {\"latitude\": 20.6, \"longitude\": 79}, \"name\": \"India\", \"refugees\": 42610, \"stateless\": 0, \"totalDisplaced\": 223731}, {\"asylumSeekers\": 99716, \"code\": \"CHN\", \"host\u2026"
         },
         {
           "theme": "macro-markets",
           "source": "world-bank-cpi",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u20269976 | | Germany | DEU | Inflation, consumer prices (annual %) | FP.CPI.TOTL.ZG | 2025 | 2.17178770949721 | | India | IND | Inflation, consumer prices (annual %) | FP.CPI.TOTL.ZG | 2025 | 2.39884954182294 | | Japan | JPN | In\u2026"
         },
         {
           "theme": "macro-markets",
           "source": "world-bank-gdp",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u20262025 | 3366315927447.33 | | Germany | DEU | GDP (current US$) | NY.GDP.MKTP.CD | 2025 | 5050922925047.05 | | India | IND | GDP (current US$) | NY.GDP.MKTP.CD | 2025 | 3956067115771.63 | | Japan | JPN | GDP (current US$) | NY\u2026"
         },
         {
           "theme": "public-health",
           "source": "disease-outbreaks",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026, \"countryCode\": \"IN\", \"disease\": \"Nipah\", \"id\": \"who-2m44q7-1782410400000\", \"lat\": 0, \"lng\": 0, \"location\": \"India\", \"publishedAt\": 1782410400000, \"sourceName\": \"WHO\", \"sourceUrl\": \"https://www.who.int/2026-DON609\", \"summary\u2026"
         }
       ]
@@ -1870,13 +1857,13 @@
         {
           "theme": "geophysical",
           "source": "earthquakes",
-          "day": "2026-09-22",
-          "text": "\u20265.8682, \"longitude\": -174.8169}, \"magnitude\": 5.2, \"occurredAt\": 1789909245292, \"place\": \"109 km W of Hihifo, Tonga\", \"source\": \"usgs\", \"sourceUrl\": \"https://earthquake.usgs.gov/earthquakes/eventpage/us7000tirq\"}, {\"depthKm\":\u2026"
+          "day": "2026-09-23",
+          "text": "\u2026-20.9839, \"longitude\": -175.461}, \"magnitude\": 4.8, \"occurredAt\": 1790107910722, \"place\": \"26 km NW of Houma, Tonga\", \"source\": \"usgs\", \"sourceUrl\": \"https://earthquake.usgs.gov/earthquakes/eventpage/us6000twyf\"}, {\"depthKm\":\u2026"
         },
         {
           "theme": "humanitarian",
           "source": "displacement-flows",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026Seekers\": 1324, \"code\": \"TON\", \"hostAsylumSeekers\": 0, \"hostRefugees\": 0, \"hostTotal\": 0, \"idps\": 0, \"name\": \"Tonga\", \"refugees\": 65, \"stateless\": 0, \"totalDisplaced\": 1389}, {\"asylumSeekers\": 402, \"code\": \"GAB\", \"hostAsylumS\u2026"
         }
       ]
@@ -1894,7 +1881,7 @@
         {
           "theme": "energy-supply",
           "source": "energy-prices",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026I Crude Oil\", \"price\": \"99.08\", \"priceAt\": 1789084800000, \"unit\": \"$/barrel\"}, {\"change\": 12.9, \"commodity\": \"brent\", \"name\": \"Brent Crude Oil\", \"price\": \"111.83\", \"priceAt\": 1789084800000, \"unit\": \"$/barrel\"}] |"
         }
       ]
@@ -1912,13 +1899,13 @@
         {
           "theme": "energy-supply",
           "source": "crude-oil-inventories",
-          "day": "2026-09-22",
-          "text": "--- type: \"L1-source\" source: \"U.S. EIA (Energy Information Administration)\" source_key: \"crude-oil-inventories\" endpoint: \"/api/economic/v1/get-crude-inventories\" retrieved: \"2026-09-22T11:29:14Z\" license\u2026"
+          "day": "2026-09-23",
+          "text": "--- type: \"L1-source\" source: \"U.S. EIA (Energy Information Administration)\" source_key: \"crude-oil-inventories\" endpoint: \"/api/economic/v1/get-crude-inventories\" retrieved: \"2026-09-23T11:27:27Z\" license\u2026"
         },
         {
           "theme": "energy-supply",
           "source": "energy-prices",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026er edit by hand. | field | value | | --- | --- | | prices | [{\"change\": 8.7, \"commodity\": \"wti\", \"name\": \"WTI Crude Oil\", \"price\": \"99.08\", \"priceAt\": 1789084800000, \"unit\": \"$/barrel\"}, {\"change\": 12.9, \"commodity\": \"brent\",\u2026"
         }
       ]
@@ -1939,31 +1926,31 @@
         {
           "theme": "conflict-watch",
           "source": "conflict-events-ucdp",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026Council\", \"sourceOriginal\": \"military media\", \"violenceType\": \"UCDP_VIOLENCE_TYPE_STATE_BASED\"}, {\"country\": \"Iran\", \"dateEnd\": 1788134400000, \"dateStart\": 1788134400000, \"deathsBest\": 2, \"deathsHigh\": 2, \"deathsLow\": 2, \"id\u2026"
         },
         {
           "theme": "environmental-hazards",
           "source": "thermal-escalations",
-          "day": "2026-09-22",
-          "text": "\u2026GH\", \"context\": \"THERMAL_CONTEXT_CONFLICT_ADJACENT\", \"countDelta\": 69.4, \"countryCode\": \"IR\", \"countryName\": \"Iran\", \"firstDetectedAt\": \"2026-09-21T09:26:00.000Z\", \"frpDelta\": 1344.1, \"id\": \"ir:30-5-47-5:2026092209\", \"lastDe\u2026"
+          "day": "2026-09-23",
+          "text": "\u2026IGH\", \"context\": \"THERMAL_CONTEXT_CONFLICT_ADJACENT\", \"countDelta\": 147, \"countryCode\": \"IR\", \"countryName\": \"Iran\", \"firstDetectedAt\": \"2026-09-22T09:07:00.000Z\", \"frpDelta\": 1935.6, \"id\": \"ir:30-5-47-5:2026092309\", \"lastDe\u2026"
         },
         {
           "theme": "environmental-hazards",
           "source": "wildfire-detections",
-          "day": "2026-09-22",
-          "text": "\u2026: \"active\", \"location\": {\"latitude\": 29.02334, \"longitude\": 47.98606}, \"possibleExplosion\": false, \"region\": \"Iran\", \"satellite\": \"N21\", \"source\": \"firms\"}, {\"brightness\": 367, \"confidence\": \"FIRE_CONFIDENCE_HIGH\", \"dayNight\u2026"
+          "day": "2026-09-23",
+          "text": "\u2026: \"active\", \"location\": {\"latitude\": 30.75387, \"longitude\": 48.28046}, \"possibleExplosion\": false, \"region\": \"Iran\", \"satellite\": \"N21\", \"source\": \"firms\"}, {\"brightness\": 367, \"confidence\": \"FIRE_CONFIDENCE_HIGH\", \"dayNight\u2026"
         },
         {
           "theme": "humanitarian",
           "source": "displacement-flows",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026efugees\": 770514, \"hostTotal\": 770514, \"idps\": 0, \"location\": {\"latitude\": 32.4, \"longitude\": 53.7}, \"name\": \"Iran (Islamic Rep. of)\", \"refugees\": 157912, \"stateless\": 0, \"totalDisplaced\": 207175}, {\"asylumSeekers\": 713, \"co\u2026"
         },
         {
           "theme": "prediction-markets",
           "source": "prediction-markets",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026ld | value | | --- | --- | | markets | [{\"category\": \"\", \"closesAt\": 1798779540000, \"id\": \"will-the-us-invade-iran-before-2027\", \"source\": \"MARKET_SOURCE_POLYMARKET\", \"title\": \"Will the U.S. invade Iran before 2027?\", \"url\":\u2026"
         }
       ]
@@ -1982,13 +1969,13 @@
         {
           "theme": "geophysical",
           "source": "earthquakes",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026on\": {\"latitude\": -21.9479, \"longitude\": -179.3724}, \"magnitude\": 4.7, \"occurredAt\": 1789713749274, \"place\": \"Fiji region\", \"source\": \"usgs\", \"sourceUrl\": \"https://earthquake.usgs.gov/earthquakes/eventpage/us7000ti83\"}, {\"de\u2026"
         },
         {
           "theme": "humanitarian",
           "source": "displacement-flows",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026kers\": 2058, \"code\": \"FJI\", \"hostAsylumSeekers\": 31, \"hostRefugees\": 15, \"hostTotal\": 46, \"idps\": 0, \"name\": \"Fiji\", \"refugees\": 343, \"stateless\": 0, \"totalDisplaced\": 2401}, {\"asylumSeekers\": 760, \"code\": \"BHS\", \"hostAsylum\u2026"
         }
       ]
@@ -2009,19 +1996,19 @@
         {
           "theme": "geophysical",
           "source": "earthquakes",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026.397, \"longitude\": -78.8646}, \"magnitude\": 4.5, \"occurredAt\": 1789963104483, \"place\": \"4 km W of Victor Raul, Peru\", \"source\": \"usgs\", \"sourceUrl\": \"https://earthquake.usgs.gov/earthquakes/eventpage/us7000tivb\"}, {\"depthKm\":\u2026"
         },
         {
           "theme": "humanitarian",
           "source": "displacement-flows",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u20260, \"code\": \"PER\", \"hostAsylumSeekers\": 556770, \"hostRefugees\": 6788, \"hostTotal\": 563558, \"idps\": 0, \"name\": \"Peru\", \"refugees\": 7885, \"stateless\": 0, \"totalDisplaced\": 121785}, {\"asylumSeekers\": 8798, \"code\": \"LBN\", \"hostAs\u2026"
         },
         {
           "theme": "public-health",
           "source": "disease-outbreaks",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026sles\", \"id\": \"thinkglobalhealth-mi9aw9-1787443200000\", \"lat\": -9.163760185, \"lng\": -75.87563324, \"location\": \"Peru\", \"publishedAt\": 1787443200000, \"sourceName\": \"ThinkGlobalHealth\", \"sourceUrl\": \"https://peru21.pe/peru/casos\u2026"
         }
       ]
@@ -2039,7 +2026,7 @@
         {
           "theme": "energy-supply",
           "source": "energy-prices",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026atim transform; never edit by hand. | field | value | | --- | --- | | prices | [{\"change\": 8.7, \"commodity\": \"wti\", \"name\": \"WTI Crude Oil\", \"price\": \"99.08\", \"priceAt\": 1789084800000, \"unit\": \"$/barrel\"}, {\"change\": 12.9,\u2026"
         }
       ]
@@ -2057,7 +2044,7 @@
         {
           "theme": "public-health",
           "source": "disease-outbreaks",
-          "day": "2026-09-22",
+          "day": "2026-09-23",
           "text": "\u2026tryCode\": \"SN\", \"disease\": \"Diphtheria\", \"id\": \"thinkglobalhealth-n84dzs-1788739200000\", \"lat\": 14.36697006, \"lng\": -14.46765041, \"location\": \"Senegal\", \"publishedAt\": 1788739200000, \"sourceName\": \"ThinkGlobalHealth\", \"sour\u2026"
         }
       ]
@@ -2082,7 +2069,7 @@
         "geophysical"
       ],
       "magnitude": 6.5,
-      "url": "sources/2026-09-22/earthquakes.html"
+      "url": "sources/2026-09-23/earthquakes.html"
     },
     {
       "id": "event:us7000tiqc",
@@ -2094,7 +2081,7 @@
         "geophysical"
       ],
       "magnitude": 6.4,
-      "url": "sources/2026-09-22/earthquakes.html"
+      "url": "sources/2026-09-23/earthquakes.html"
     },
     {
       "id": "event:us7000tit5",
@@ -2106,7 +2093,7 @@
         "geophysical"
       ],
       "magnitude": 5.7,
-      "url": "sources/2026-09-22/earthquakes.html"
+      "url": "sources/2026-09-23/earthquakes.html"
     },
     {
       "id": "event:us7000tiur",
@@ -2118,7 +2105,7 @@
         "geophysical"
       ],
       "magnitude": 5.5,
-      "url": "sources/2026-09-22/earthquakes.html"
+      "url": "sources/2026-09-23/earthquakes.html"
     },
     {
       "id": "event:us7000tigd",
@@ -2130,7 +2117,7 @@
         "geophysical"
       ],
       "magnitude": 5.5,
-      "url": "sources/2026-09-22/earthquakes.html"
+      "url": "sources/2026-09-23/earthquakes.html"
     },
     {
       "id": "event:us7000tirh",
@@ -2142,7 +2129,7 @@
         "geophysical"
       ],
       "magnitude": 5.4,
-      "url": "sources/2026-09-22/earthquakes.html"
+      "url": "sources/2026-09-23/earthquakes.html"
     }
   ],
   "edges": [
@@ -2791,13 +2778,7 @@
       "target": "brief:geophysical-weekly",
       "cross_theme": true,
       "rel": "mentioned-in",
-      "weight": 1
-    },
-    {
-      "source": "entity:venezuela",
-      "target": "source:earthquakes",
-      "cross_theme": false,
-      "rel": "named-in"
+      "weight": 0
     },
     {
       "source": "entity:venezuela",
@@ -3788,19 +3769,6 @@
       "cross_theme": true,
       "rel": "mentioned-in",
       "weight": 0
-    },
-    {
-      "source": "entity:europe",
-      "target": "brief:public-health-weekly",
-      "cross_theme": true,
-      "rel": "mentioned-in",
-      "weight": 1
-    },
-    {
-      "source": "entity:europe",
-      "target": "source:disease-outbreaks",
-      "cross_theme": false,
-      "rel": "named-in"
     },
     {
       "source": "entity:russia",
