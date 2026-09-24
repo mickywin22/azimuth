@@ -1,0 +1,18 @@
+---
+type: "L1-source"
+source: "U.S. EIA (Energy Information Administration)"
+source_key: "crude-oil-inventories"
+endpoint: "/api/economic/v1/get-crude-inventories"
+retrieved: "2026-09-24T11:38:19Z"
+license: "US-Gov-public-domain"
+attribution: "Data: U.S. EIA via WorldMonitor (api.worldmonitor.app)"
+---
+
+# U.S. EIA (Energy Information Administration)
+
+> L1 source pull — `crude-oil-inventories` from `/api/economic/v1/get-crude-inventories` at 2026-09-24T11:38:19Z. Verbatim transform; never edit by hand.
+
+| field | value |
+| --- | --- |
+| weeks | [{"period": "2026-09-18", "stocksMb": 710950, "weeklyChangeMb": 2564}, {"period": "2026-09-11", "stocksMb": 708386, "weeklyChangeMb": -1043}, {"period": "2026-09-04", "stocksMb": 709429, "weeklyChangeMb": -1635}, {"period": "2026-08-28", "stocksMb": 711064, "weeklyChangeMb": -7572}, {"period": "2026-08-21", "stocksMb": 718636, "weeklyChangeMb": -3605}, {"period": "2026-08-14", "stocksMb": 722241, "weeklyChangeMb": -863}, {"period": "2026-08-07", "stocksMb": 723104, "weeklyChangeMb": 11308}, {"period": "2026-07-31", "stocksMb": 711796, "weeklyChangeMb": -362}] |
+| latestPeriod | 2026-09-18 |
