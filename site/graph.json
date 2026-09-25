@@ -580,6 +580,7 @@
       "theme": "shared",
       "themes": [
         "conflict-watch",
+        "cyber-watch",
         "geophysical",
         "humanitarian",
         "public-health"
@@ -1402,6 +1403,7 @@
       "theme": "shared",
       "themes": [
         "conflict-watch",
+        "cyber-watch",
         "environmental-hazards",
         "geophysical",
         "prediction-markets",
@@ -1481,6 +1483,7 @@
       "theme": "shared",
       "themes": [
         "conflict-watch",
+        "cyber-watch",
         "energy-supply",
         "humanitarian",
         "public-health"
@@ -2723,6 +2726,13 @@
     },
     {
       "source": "entity:indonesia",
+      "target": "brief:cyber-watch-weekly",
+      "cross_theme": true,
+      "rel": "mentioned-in",
+      "weight": 0
+    },
+    {
+      "source": "entity:indonesia",
       "target": "brief:geophysical-weekly",
       "cross_theme": true,
       "rel": "mentioned-in",
@@ -3792,6 +3802,13 @@
     },
     {
       "source": "entity:russia",
+      "target": "brief:cyber-watch-weekly",
+      "cross_theme": true,
+      "rel": "mentioned-in",
+      "weight": 0
+    },
+    {
+      "source": "entity:russia",
       "target": "brief:environmental-hazards-weekly",
       "cross_theme": true,
       "rel": "mentioned-in",
@@ -3900,6 +3917,13 @@
       "target": "source:conflict-events-ucdp",
       "cross_theme": false,
       "rel": "named-in"
+    },
+    {
+      "source": "entity:brazil",
+      "target": "brief:cyber-watch-weekly",
+      "cross_theme": true,
+      "rel": "mentioned-in",
+      "weight": 0
     },
     {
       "source": "entity:brazil",
