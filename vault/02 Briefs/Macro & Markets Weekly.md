@@ -3,7 +3,7 @@ title: Macro & Markets Weekly
 type: L2-brief
 theme: macro-markets
 week: 2026-W39
-updated: 2026-09-23T09:58:00Z
+updated: 2026-09-24T12:00:00Z
 sources: [crypto-quotes, world-bank-gdp, world-bank-cpi, world-bank-unemployment, world-bank-indicators]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -16,30 +16,32 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 > market prices as observed facts** — a quote is what a market printed, recorded with its
 > change and its source — under the `no-investment-framing` caution: nothing here is advice,
 > a target, or a forecast. Every claim links to the L1 note it rests on.
-> Last updated from the 2026-09-22 pull, absorbed after a 20-day curator gap — so this cycle reads a
-> gap move on crypto (a broad rally off the 09-02 levels) rather than a day-over-day print, and the
-> World Bank Open Data channel **widened from five reporting economies to seven** (the US and UK now
-> published alongside China, Germany, Japan, India and France).
+> Last updated from the 2026-09-24 pull, a clean day-over-day print against 2026-09-23: the
+> crypto channel swept **fully red — all ten tracked assets down on the day**, led by Avalanche
+> (-8.06%) and XRP (-6.75%), while the World Bank Open Data channel (GDP/CPI/unemployment, seven
+> reporting economies) **held byte-identical** to 09-23, as expected for annual reference-year
+> data that does not move day to day.
 
 ## This week at a glance
 
-- The CoinGecko-fed crypto channel's **2026-09-22 pull** printed **broadly higher across the 20-day
-  gap**: **Bitcoin $86,029** (up from $77,971 at 09-02), **Ethereum $2,743.97** (from $2,455),
-  **BNB $786.66** (from $686), **Solana $117.14** (from $102.18), and **XRP $1.53** (from $1.38) —
-  the five majors all up roughly 10-15% off the prior levels ([[crypto-quotes]]).
-- Across the wider ten-asset panel the same broad rise holds: **ADA $0.2458**, **DOGE $0.0981**,
-  **TRX $0.3461**, **AVAX $10.93** and **LINK $12.95** — this pull carries no per-asset 24h change
-  field, so azimuth reads the level move over the gap rather than a day-over-day percentage
+- The CoinGecko-fed crypto channel's **2026-09-24 pull** printed **fully red — 10 of 10 tracked
+  assets down on the day** against the 09-23 print: **Bitcoin $83,502** (-2.36%, from $85,587),
+  **Ethereum $2,648.15** (-2.70%, from $2,724.52), **BNB $769.20** (-1.59%, from $781.86),
+  **Solana $113.29** (-2.90%, from $116.79), and **XRP $1.47** (-6.75%, from $1.58) — XRP the
+  second-steepest faller of the panel ([[crypto-quotes]]).
+- Across the wider ten-asset panel the red sweep holds: **ADA $0.236121** (-5.72%), **DOGE
+  $0.092726** (-6.50%), **TRX $0.339154** (-1.08%, the panel's mildest faller), **AVAX $10.17**
+  (-8.06%, the panel's steepest faller) and **LINK $12.22** (-3.95%) — every one of the ten assets
+  closed 09-24 below its 09-23 print, the API's own 24h `change` field reported as printed
   ([[crypto-quotes]]).
-- **The World Bank Open Data direct channel widened to seven reporting economies** this pull (the US
-  and UK now published alongside China, Germany, Japan, India and France); the annual
-  reference-year figures are otherwise unchanged. **GDP (current US$, 2025):** United States
-  **$30.77T**, China **$19.50T**, Germany **$5.05T**, Japan **$4.44T**, United Kingdom **$4.00T**,
-  India **$3.96T**, France **$3.37T** ([[world-bank-gdp]]). **CPI inflation (annual %, 2025):** UK
-  **3.88%**, Japan **3.17%**, US **2.95%** (2024), India **2.40%**, Germany **2.17%**, France
-  **0.94%**, China **0.06%** ([[world-bank-cpi]]). **Unemployment (%, 2025):** France **7.54%**, UK
-  **4.75%**, China **4.62%**, India **4.22%**, US **4.20%**, Germany **3.71%**, Japan **2.45%**
-  ([[world-bank-unemployment]]).
+- **The World Bank Open Data direct channel held byte-identical to 09-23** across all seven
+  reporting economies — only the `retrieved` timestamp advanced. **GDP (current US$, 2025):**
+  United States **$30.77T**, China **$19.50T**, Germany **$5.05T**, Japan **$4.44T**, United
+  Kingdom **$4.00T**, India **$3.96T**, France **$3.37T** ([[world-bank-gdp]]). **CPI inflation
+  (annual %, 2025):** UK **3.88%**, Japan **3.17%**, US **2.95%** (2024), India **2.40%**, Germany
+  **2.17%**, France **0.94%**, China **0.06%** ([[world-bank-cpi]]). **Unemployment (%, 2025):**
+  France **7.54%**, UK **4.75%**, China **4.62%**, India **4.22%**, US **4.20%**, Germany
+  **3.71%**, Japan **2.45%** ([[world-bank-unemployment]]).
 
 ## Honest scope — two live channels now
 
@@ -53,24 +55,25 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 ## Reading the week
 
-- The 2026-09-22 pull reads a **broad crypto rally across the 20-day gap**: Bitcoin rose to $86,029
-  (from $77,971), Ethereum to $2,743.97 (from $2,455), Solana to $117.14 (from $102.18), BNB to
-  $786.66 (from $686) and XRP to $1.53 (from $1.38) — the five majors all up roughly 10-15% off the
-  prior levels, with the smaller majors (ADA, DOGE, TRX, AVAX, LINK) higher too. This pull carries
-  no per-asset 24h change field, so azimuth reads the level move over the gap, not a day-over-day
-  percentage. These are the venue's numbers, not azimuth's view: no target, no direction call, no
-  investment framing — the caution is the contract, not a disclaimer ([[crypto-quotes]]).
-- The World Bank Open Data direct channel **widened to seven reporting economies** on the 09-22 pull
-  (US and UK now published) while the annual reference-year figures themselves are unchanged —
-  national-accounts data does not move day to day, so a stable read is expected. Read as recorded
-  national accounts, not a forecast: the United States carries the largest 2025 output at $30.77T
-  (France the smallest of the seven at $3.37T), the UK the highest 2025 consumer-price inflation at
-  3.88% (China the lowest at 0.06%), and France the highest 2025 unemployment at 7.54% (Japan the
-  lowest at 2.45%). azimuth reports the World Bank's published values and attaches no projection
+- The 2026-09-24 pull reads a **clean day-over-day sweep lower**: Bitcoin fell to $83,502 (-2.36%,
+  from $85,587), Ethereum to $2,648.15 (-2.70%, from $2,724.52), Solana to $113.29 (-2.90%, from
+  $116.79), BNB to $769.20 (-1.59%, from $781.86) and XRP to $1.47 (-6.75%, from $1.58) — all ten
+  tracked assets closed lower on the day, led by Avalanche (-8.06%, to $10.17) and XRP (-6.75%) at
+  one end and TRX (-1.08%, to $0.339154) at the other. These are the venue's numbers, not azimuth's
+  view: no target, no direction call, no investment framing — the caution is the contract, not a
+  disclaimer ([[crypto-quotes]]).
+- The World Bank Open Data direct channel **held byte-identical to 09-23** across all seven
+  reporting economies — the annual reference-year figures do not move day to day, so a stable read
+  is expected and this cycle delivered one. Read as recorded national accounts, not a forecast: the
+  United States carries the largest 2025 output at $30.77T (France the smallest of the seven at
+  $3.37T), the UK the highest 2025 consumer-price inflation at 3.88% (China the lowest at 0.06%),
+  and France the highest 2025 unemployment at 7.54% (Japan the lowest at 2.45%). azimuth reports the
+  World Bank's published values and attaches no projection
   ([[world-bank-gdp]], [[world-bank-cpi]], [[world-bank-unemployment]]).
 
 ## Changelog
 
+- 2026-09-24 — daily-ingest synthesis (2026-W39): day-over-day print vs 2026-09-23. The crypto panel swept fully red — 10 of 10 tracked assets down on the day: Bitcoin $83,502 (-2.36%, from $85,587), Ethereum $2,648.15 (-2.70%, from $2,724.52), BNB $769.20 (-1.59%, from $781.86), Solana $113.29 (-2.90%, from $116.79), XRP $1.47 (-6.75%, from $1.58), ADA $0.236121 (-5.72%), DOGE $0.092726 (-6.50%), TRX $0.339154 (-1.08%, the panel's mildest faller), Avalanche $10.17 (-8.06%, the panel's steepest faller), Chainlink $12.22 (-3.95%). The World Bank Open Data direct channel (GDP/CPI/unemployment, seven reporting economies) held byte-identical to 09-23 — only the `retrieved` timestamp advanced, as expected for annual reference-year data. Rewrote the intro, at-a-glance and reading sections. no-investment-framing caution held ([[crypto-quotes]], [[world-bank-gdp]], [[world-bank-cpi]], [[world-bank-unemployment]]).
 - 2026-09-23 — daily-ingest synthesis (2026-W39): absorbed the 2026-09-22 ingest after a 20-day curator gap. The crypto panel rallied broadly across the gap — Bitcoin $86,029 (from $77,971), Ethereum $2,743.97 (from $2,455), BNB $786.66, Solana $117.14, XRP $1.53, all five majors up ~10-15%, the smaller majors (ADA, DOGE, TRX, AVAX, LINK) higher too; this pull carries no 24h change field, so the move is read as a gap level change, not day-over-day. The World Bank Open Data direct channel widened from five to seven reporting economies (US and UK now published): GDP 2025 US $30.77T > China $19.50T > Germany $5.05T > Japan $4.44T > UK $4.00T > India $3.96T > France $3.37T; CPI 2025 UK 3.88% highest, China 0.06% lowest; unemployment 2025 France 7.54% highest, Japan 2.45% lowest. Rewrote the intro, at-a-glance, honest-scope and reading sections. no-investment-framing caution held ([[crypto-quotes]], [[world-bank-gdp]], [[world-bank-cpi]], [[world-bank-unemployment]]).
 
 - 2026-09-02 — daily-ingest synthesis (2026-W36): absorbed the 2026-09-01 ingest, an adjacent-day advance on 08-31. After the gap rally cooled into month-end, the crypto panel printed near-flat and mixed: BTC $77,971 (−0.60%, from $77,999), ETH $2,455 (+0.18%, from $2,449), BNB $686 (−0.17%), SOL $102.18 (−1.61%, from $102.71), XRP $1.38 (+0.20%); across the ten-asset panel LINK strongest +1.31%, TRX softest −1.70%, none beyond ~1.7% either way — a sideways low-volatility session, not a fresh leg or reversal. World Bank 2025 annual figures (GDP/CPI/unemployment) held byte-identical to 08-31 for the five reporting economies (China, Germany, Japan, India, France). Reframed the intro, at-a-glance and reading sections around the quiet adjacent-day print. Observed-only framing held — prices and indicators reported as printed, no buy/sell/target language. ([[crypto-quotes]], [[world-bank-gdp]], [[world-bank-cpi]], [[world-bank-unemployment]]).
