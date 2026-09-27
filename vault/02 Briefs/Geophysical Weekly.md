@@ -3,7 +3,7 @@ title: Geophysical Weekly
 type: L2-brief
 theme: geophysical
 week: 2026-W39
-updated: 2026-09-24T12:00:00Z
+updated: 2026-09-28T00:00:00Z
 sources: [earthquakes]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -14,75 +14,80 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 > Synthesised from the week's L1 source notes under `../01 Sources/`. The `azimuth-curator`
 > fleet role evolves this single note in place each week. azimuth reports **observed**
 > seismicity from the USGS feed — what was recorded, never what will happen. Every claim
-> links to the L1 note it rests on. (This cycle absorbs the 2026-09-24 pull, a routine
-> day-on-day refresh: 101 M4.5+ (32 M5+, 2 M6+, 0 M7+), eased from 108 (36/2/0) on 2026-09-23.
-> The same two M6+ carried unchanged for a second straight cycle — an M6.5 169 km W of Nikolski,
-> Alaska (98 km) and an M6.4 49 km NNE of Kainantu, Papua New Guinea (104 km) — while a fresh
-> M5.7 entered 180 km NW of Hihifo, Tonga.)
+> links to the L1 note it rests on. (This cycle absorbs the 2026-09-27 pull, the sharpest
+> day-on-day jump since the brief began: 123 M4.5+ (43 M5+, 1 M6+, 0 M7+), up from 101 (32/2/0)
+> on 2026-09-24. The jump is a fresh 25-event offshore swarm near Tadine, New Caledonia, capped
+> by a new M6.6 (10 km) — the window's sole M6+, replacing the carried M6.5 169 km W of Nikolski,
+> Alaska and M6.4 49 km NNE of Kainantu, Papua New Guinea, both of which aged past the seven-day
+> trailing edge this cycle.)
 
 ## This week at a glance
 
-- The USGS feed recorded **101** magnitude-4.5-or-greater earthquakes in the rolling window
-  retrieved 2026-09-24, of which **32 were M5+**, **two reached M6+** and **none reached M7** —
-  eased from **108 (36/2/0)** on 2026-09-23 as the window's older tail (mostly Colombia and
-  Papua New Guinea shocks) aged off ([[earthquakes]]).
-- The window's two M6+ carried unchanged for a second straight cycle: an **M6.5 169 km W of
-  Nikolski, Alaska** (98 km, Aleutian margin) and an **M6.4 49 km NNE of Kainantu, Papua New
-  Guinea** (104 km) — still the window's strongest and second-strongest events
-  ([[earthquakes]]).
-- **Indonesia stays first, up to 17** (from 16) on fresh Komodo/Ternate/Abepura activity;
-  **Japan holds second but eased to 14** (from 15); Colombia's Sipí cluster decayed to **5**
-  (from 7) as two of its shocks aged off, tying Tonga and Russia at 5 each; Papua New Guinea
-  nearly cleared out to **2** (from 4) as its Kimbe and Madang shocks aged off, leaving only the
-  carried Kainantu pair ([[earthquakes]]).
+- The USGS feed recorded **123** magnitude-4.5-or-greater earthquakes in the rolling window
+  retrieved 2026-09-27, of which **43 were M5+**, **one reached M6+** and **none reached M7** —
+  up sharply from **101 (32/2/0)** on 2026-09-24, driven largely by a fresh 25-event swarm off
+  Tadine, New Caledonia entering the window ([[earthquakes]]).
+- The window's M6+ tally halved from two to one as both carried majors aged past the seven-day
+  trailing edge: the **M6.5 169 km W of Nikolski, Alaska** and the **M6.4 49 km NNE of Kainantu,
+  Papua New Guinea** both dropped out, replaced by a fresh **M6.6 80 km ENE of Tadine, New
+  Caledonia** (10 km) — the new sole M6+ and the window's strongest event ([[earthquakes]]).
+- **New Caledonia debuts first at 25** on the fresh Tadine swarm; **Indonesia holds second but
+  eased to 15** (from 17); **Japan fell sharply to 8** (from 14); **Papua New Guinea rebuilt to
+  6** (from 2) on a fresh Kokopo cluster even as the carried Kainantu M6.4 aged off, leaving only
+  a M5.4 companion; Colombia held at **5**, Turkey held at **2** ([[earthquakes]]).
 
 ## Largest events
 
-- The window's two M6+ events carried unchanged for a second straight cycle: an **M6.5**, 98 km
-  deep, **169 km W of Nikolski, Alaska** on the Aleutian margin remains the window's strongest,
-  and an **M6.4 49 km NNE of Kainantu, Papua New Guinea** (104 km) the second-strongest, still
-  anchoring a small PNG cluster on the same highland trend ([[earthquakes]]).
-- Below the two M6+: a fresh **M5.7 entered 180 km NW of Hihifo, Tonga** (10 km), joining the
-  carried **M5.7 south of Africa** (10 km) as the window's joint-third-strongest — the first time
-  two M5.7s have sat side by side this cycle ([[earthquakes]]).
-- The rest of the top tier held from the prior day: an **M5.5** 35 km NNE of Ruteng, Indonesia
-  (10 km, the residual Flores-trend shock), an **M5.5** in the Kermadec Islands region (94 km) and
-  the carried **M5.4** Kainantu companion on the PNG highland trend ([[earthquakes]]).
+- A fresh **M6.6**, 10 km deep, **80 km ENE of Tadine, New Caledonia** is the window's new
+  strongest event and sole M6+, anchoring the 25-event Tadine offshore swarm; it replaces the
+  carried **M6.5 169 km W of Nikolski, Alaska** and **M6.4 49 km NNE of Kainantu, Papua New
+  Guinea**, both of which aged past the seven-day trailing edge this cycle ([[earthquakes]]).
+- Next-strongest: the carried **M5.7 south of Africa** (10 km), holding for a third straight
+  cycle, and the **M5.7 180 km NW of Hihifo, Tonga** (10 km, fresh on 2026-09-24, now carried),
+  joined by a fresh **M5.6 74 km ESE of Kokopo, Papua New Guinea** (58 km) ([[earthquakes]]).
+- The rest of the top tier: an **M5.5 61 km ENE of Tadine, New Caledonia** (10 km, part of the
+  Tadine swarm) and the carried **M5.5 35 km NNE of Ruteng, Indonesia** (10 km, the residual
+  Flores-trend shock, unchanged); the once-M6.4 Kainantu pairing is now a single **M5.4 68 km NNE
+  of Kainantu, Papua New Guinea** (116 km) ([[earthquakes]]).
 
 ## Where the activity clustered
 
-- **Indonesia stays first, rising slightly to 17** (from 16) on continued Flores/Halmahera
-  activity plus fresh Komodo, Ternate and Abepura entries; **Japan holds second but eased to 14**
-  (from 15); Colombia's Sipí cluster (all sub-M5) decayed to **5** (from 7) as two of its shocks
-  aged off the trailing edge, now tied with Tonga and Russia at 5 each ([[earthquakes]]).
-- Papua New Guinea nearly cleared out — **2** events (from 4) as the Kimbe and Madang shocks aged
-  off, leaving only the carried Kainantu M6.4/M5.4 pair; Turkey ticked up to **2** (from 1) as a
-  fresh M5.3 struck 15 km SSW of Hilvan, joining the carried Saimbeyli M4.9 ([[earthquakes]]).
+- **New Caledonia debuts first with 25 events**, all on the fresh Tadine offshore trend (M4.7–
+  M6.6, almost entirely 10 km shallow) — the cycle's dominant new cluster; **Indonesia holds
+  second but eased to 15** (from 17) on residual Flores/Ternate/Abepura/Ruteng activity;
+  **Japan fell sharply to 8** (from 14) as the prior string decayed ([[earthquakes]]).
+- **Papua New Guinea rebuilt to 6** (from 2) on a fresh Kokopo cluster (M4.9–M5.6) even as the
+  carried M6.4 Kainantu shock aged off, leaving a single M5.4 companion; Colombia held at **5**
+  (unchanged) on its Sipí/Roncesvalles/San Antonio shocks; Turkey held at **2** — the carried
+  M5.3 15 km SSW of Hilvan and M4.9 Saimbeyli ([[earthquakes]]).
 
 ## Depth profile
 
-- The shallow proportion held essentially flat: **54 of the 101 events sit at ≤15 km** (from 58 of
-  108, both close to half). The deep-focus anchor was unchanged: the deepest recorded event is
-  still the **548.4 km** focus beneath the Fiji region (the same carried event), even as a fresh
-  **528.3 km** shock entered further south of the Fiji Islands and a fresh M5 struck the Mariana
-  Islands region at 306.0 km ([[earthquakes]]).
+- The shallow proportion rose: **79 of the 123 events sit at ≤15 km** (from 54 of 101), pulled up
+  by the near-entirely-shallow Tadine, New Caledonia swarm. The deep-focus anchor shifted: the
+  previously carried **548.4 km** focus beneath the Fiji region aged off, leaving the **528.3 km**
+  focus south of the Fiji Islands (fresh on 2026-09-24) the new deepest, with a fresh **513.3 km**
+  shock 280 km WNW of Houma, Tonga close behind and the carried M5 at 306.0 km in the Mariana
+  Islands region still present ([[earthquakes]]).
 
 ## Reading the week
 
-- Volume and the strong-event tally eased modestly: **101 M4.5+ (32 M5+, 2 M6+, 0 M7+)** to
-  2026-09-24, down from 108 (36/2/0) on 2026-09-23, as the window's older tail — mostly Colombia
-  and Papua New Guinea shocks — aged off. The same two M6+ carried unchanged for a second straight
-  cycle: an **M6.5 169 km W of Nikolski, Alaska** (98 km) and an **M6.4 49 km NNE of Kainantu,
-  Papua New Guinea** (104 km); a fresh M5.7 entered 180 km NW of Hihifo, Tonga, joining the carried
-  M5.7 south of Africa as joint-third-strongest. Indonesia stays first at 17 (from 16), Japan
-  second at 14 (from 15), and Colombia's Sipí cluster decayed to 5 (from 7) as Papua New Guinea
-  nearly cleared out to 2. 54 of 101 shocks were shallow ≤15 km (from 58 of 108) and the deepest
-  focus held at 548.4 km under the Fiji region. azimuth records what the instruments measured —
-  magnitude, location, depth, time — and stops there, making no forecast of what comes next
-  ([[earthquakes]]).
+- Volume and the strong-event tally both rose sharply: **123 M4.5+ (43 M5+, 1 M6+, 0 M7+)** to
+  2026-09-27, up from 101 (32/2/0) on 2026-09-24, driven by a fresh 25-event swarm off Tadine, New
+  Caledonia capped by a new **M6.6** (10 km) — the window's sole M6+, as the carried **M6.5**
+  Nikolski, Alaska and **M6.4** Kainantu, Papua New Guinea both aged past the seven-day trailing
+  edge. The carried M5.7 south of Africa held a third straight cycle and the M5.7 Hihifo, Tonga
+  (fresh on 09-24) also carried on; a fresh M5.6 entered near Kokopo, Papua New Guinea. New
+  Caledonia debuted first at 25, Indonesia eased to second at 15 (from 17), Japan fell to 8 (from
+  14), and Papua New Guinea rebuilt to 6 (from 2) on the Kokopo cluster even as its carried M6.4
+  Kainantu shock aged off. 79 of 123 shocks were shallow ≤15 km (from 54 of 101) and the deepest
+  focus shifted to 528.3 km south of the Fiji Islands as the previously carried 548.4 km Fiji
+  focus aged off. azimuth records what the instruments measured — magnitude, location, depth,
+  time — and stops there, making no forecast of what comes next ([[earthquakes]]).
 
 ## Changelog
 
+- 2026-09-28 — daily-ingest synthesis (2026-W39): absorbed the 2026-09-27 pull, the sharpest day-on-day jump since the brief began. The rolling window to 2026-09-27 rose to 123 M4.5+ (43 M5+, 1 M6+, 0 M7+ — from 101/32/2/0 on 09-24) on a fresh 25-event swarm off Tadine, New Caledonia capped by a new M6.6 (10 km), the window's new sole M6+ as the carried M6.5 169 km W of Nikolski, Alaska (98 km) and M6.4 49 km NNE of Kainantu, PNG (104 km) both aged past the seven-day trailing edge. The carried M5.7 south of Africa held a third straight cycle and the M5.7 180 km NW of Hihifo, Tonga (fresh on 09-24) also carried on; a fresh M5.6 entered near Kokopo, PNG. New Caledonia debuted first at 25, Indonesia eased to second at 15 (from 17), Japan fell to 8 (from 14), Papua New Guinea rebuilt to 6 (from 2) on the Kokopo cluster, Colombia held at 5, Turkey held at 2. 79 of 123 shocks shallow ≤15 km (from 54/101); deepest focus shifted to 528.3 km south of the Fiji Islands as the carried 548.4 km Fiji focus aged off. Rewrote the intro, at-a-glance, largest-events, clustering, depth and reading sections. Observed-only framing held ([[earthquakes]]).
 - 2026-09-24 — daily-ingest synthesis (2026-W39): absorbed the 2026-09-24 pull, a routine day-on-day refresh. The rolling window to 2026-09-24 eased to 101 M4.5+ (32 M5+, 2 M6+, 0 M7+ — from 108/36/2/0 on 2026-09-23) as the window's older tail (mostly Colombia and Papua New Guinea shocks) aged off. Both M6+ carried unchanged for a second straight cycle — the M6.5 169 km W of Nikolski, Alaska (98 km) and the M6.4 49 km NNE of Kainantu, PNG (104 km) — while a fresh M5.7 entered 180 km NW of Hihifo, Tonga, joining the carried M5.7 south of Africa as joint-third-strongest. Indonesia stays first, rising slightly to 17 (from 16) on fresh Komodo/Ternate/Abepura activity; Japan holds second but eased to 14 (from 15); Colombia's Sipí cluster decayed to 5 (from 7); Papua New Guinea nearly cleared out to 2 (from 4) as its Kimbe and Madang shocks aged off; Turkey ticked up to 2 (from 1) on a fresh Hilvan M5.3. 54 of 101 shocks shallow ≤15 km (from 58/108); deepest focus held at 548.4 km under the Fiji region. Rewrote the intro, at-a-glance, largest-events, clustering, depth and reading sections. Observed-only framing held ([[earthquakes]]).
 
 - 2026-09-23 — daily-ingest synthesis (2026-W39): absorbed the 2026-09-22 ingest after a 20-day
