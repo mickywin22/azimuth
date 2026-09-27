@@ -1476,6 +1476,7 @@
       "theme": "shared",
       "themes": [
         "climate-signals",
+        "cyber-watch",
         "environmental-hazards"
       ],
       "evidence": [
@@ -3901,6 +3902,13 @@
       "target": "source:climate-anomalies",
       "cross_theme": false,
       "rel": "named-in"
+    },
+    {
+      "source": "entity:taiwan",
+      "target": "brief:cyber-watch-weekly",
+      "cross_theme": true,
+      "rel": "mentioned-in",
+      "weight": 0
     },
     {
       "source": "entity:taiwan",
