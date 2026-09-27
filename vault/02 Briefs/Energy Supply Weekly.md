@@ -3,7 +3,7 @@ title: Energy Supply Weekly
 type: L2-brief
 theme: energy-supply
 week: 2026-W39
-updated: 2026-09-24T12:00:00Z
+updated: 2026-09-28T00:00:00Z
 sources: [natural-gas-storage-eu, crude-oil-inventories, fuel-prices, energy-prices]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -14,76 +14,79 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 > Synthesised from the week's L1 source notes under `../01 Sources/`. The `azimuth-curator`
 > fleet role evolves this single note in place each week — it deepens this brief and appends
 > a dated `## Changelog` line rather than forking a new file. Every claim links to the L1
-> note it rests on. (The 2026-09-24 pull is a two-feed movement cycle on the oil side — and it splits the
-> chain. Spot crude rallied a **second large leg** to **WTI $103.54/barrel (+4.5%)** and
-> **Brent $124.15/barrel (+11%)**, up from $99.08 / $111.83, Brent over **$120 for the first
-> time** since the brief began and the Brent–WTI spread widening hard to **~$20.6** from ~$12.8.
-> But US crude inventories **turned to a build** — +2.6 Mb to **710.95 million barrels** for the
-> week ending 2026-09-18, the first build after five straight draws — so the rising screen now
-> meets a **loosening** stock, reversing last cycle's rising-screen-into-tightening-stock read.
-> EU gas storage held at **3,298 Bcf** (week ending 2026-09-11, twenty-two straight builds) and
-> the road-fuel panel held its 2026-09-14 observations (German diesel **€2.426/L**, E5 petrol
-> **€2.357/L**) — both carried unchanged this cycle.)
+> note it rests on. (The 2026-09-27 pull is a single-feed gas-side movement cycle — only EU gas
+> storage advanced to a fresh reporting week; the rest of the panel held. EU gas storage **rose
+> to 3,351 Bcf** (from 3,298 Bcf) for the week ending 2026-09-18, **+53 Bcf w/w** — the
+> **twenty-third straight build** and the largest single-week add of the current run, up from
+> +44 Bcf last cycle. US crude inventories **held at 710.95 million barrels** (week ending
+> 2026-09-18, +2.6 Mb) — no fresh reporting week landed. Spot crude **held** at **WTI
+> $103.54/barrel (+4.5%)** and **Brent $124.15/barrel (+11%)**, unchanged from last cycle, and
+> the road-fuel panel also held its 2026-09-14 observations (German diesel **€2.426/L**, E5
+> petrol **€2.357/L**) — all three carried unchanged this cycle.)
 
 ## This week at a glance
 
-- Spot crude **rallied a second large leg**: **WTI $103.54/barrel (+4.5%)** and **Brent
-  $124.15/barrel (+11%)**, up from the carried $99.08 / $111.83 — Brent over **$120 for the
-  first time** since the brief began, its larger gain widening the Brent–WTI spread to **~$20.6**
-  from ~$12.8, while US crude inventories **turned to a build** for the week ending 2026-09-18
-  (+2.6 Mb to **710.95 Mb**), so the rising screen now meets a **loosening** stock — a reversal
-  of last cycle's rising-screen-into-tightening-stock read ([[energy-prices]], [[crude-oil-inventories]]).
-- European gas storage **held at 3,298 Bcf** (week ending 2026-09-11, the twenty-second straight
-  build, +44 Bcf) — the storage feed carried no fresh reporting week this cycle, so the +30 / +40
-  / +44 Bcf re-accelerating refill run stands unchanged ([[natural-gas-storage-eu]]).
+- European gas storage **advanced to a fresh reporting week**: **3,351 Bcf** for the week ending
+  2026-09-18, **+53 Bcf w/w** — up from the carried 3,298 Bcf (week ending 2026-09-11) — the
+  **twenty-third straight build** and the largest single-week add of the current run,
+  accelerating further from +44 Bcf ([[natural-gas-storage-eu]]).
+- The oil side **held on both counts**: US crude inventories stayed at **710.95 million barrels**
+  (week ending 2026-09-18, +2.6 Mb, no fresh reporting week) and spot crude stayed at **WTI
+  $103.54/barrel (+4.5%)** and **Brent $124.15/barrel (+11%)**, both unchanged from last cycle
+  ([[crude-oil-inventories]], [[energy-prices]]).
 - The road-fuel panel **held its 2026-09-14 observations** — **German diesel €2.426/L** and **E5
   petrol €2.357/L**, unchanged this cycle (no fresh pump week). Malaysia remains the cheapest panel
   market, Denmark stays the most-expensive petrol, and Finland the most-expensive diesel
-  ([[fuel-prices]], [[energy-prices]]).
+  ([[fuel-prices]]).
 
 ## Storage and inventories
 
-- US commercial crude inventories **turned to a build** — +2.6 Mb to **710.95 million barrels**
-  for the week ending 2026-09-18, the first build after five straight draws (−7.6 / −1.6 / −1.0 Mb
-  through 09-11) and the first since the one-week 08-07 +11.3 Mb build. The drawdown run that ran
-  since 08-14 has ended; the stock ticked back up ([[crude-oil-inventories]]).
-- EU gas storage **held at 3,298 Bcf** for the week ending 2026-09-11 (+44 Bcf, the twenty-second
-  straight build) — no fresh reporting week landed this cycle, so the re-accelerating +30 / +40 /
-  +44 Bcf run stands as carried ([[natural-gas-storage-eu]]).
-- The two stockpiles **stopped diverging**: after the widest direction-split the brief had carried
-  (gas building twenty-two straight while crude drew five straight), crude has now turned back to a
-  build (+2.6 Mb to 710.95 Mb) while gas holds — both stockpiles are loosening/refilling rather
-  than pulling apart ([[natural-gas-storage-eu]], [[crude-oil-inventories]]).
+- EU gas storage **advanced a fresh reporting week** to **3,351 Bcf** for the week ending
+  2026-09-18 (+53 Bcf, the twenty-third straight build) — up from the 3,298 Bcf (+44 Bcf) carried
+  last cycle, the largest weekly add of the refill run so far ([[natural-gas-storage-eu]]).
+- US commercial crude inventories **held at 710.95 million barrels** for the week ending
+  2026-09-18 (+2.6 Mb) — no fresh reporting week landed this cycle, so the first-build-after-
+  five-straight-draws read stands as carried ([[crude-oil-inventories]]).
+- The two stockpiles **diverged again in pace, not direction**: gas kept building and accelerated
+  to its twenty-third straight add, while crude's single build from last cycle sat still with no
+  new week — both stocks remain in build/loosening mode, but gas is now the only side still
+  moving ([[natural-gas-storage-eu]], [[crude-oil-inventories]]).
 
 ## Prices
 
-- Both crude benchmarks **jumped a second large leg**: the energy-prices feed reads **WTI at
-  $103.54/barrel (+4.5%)** and **Brent at $124.15/barrel (+11%)**, up from the $99.08 / $111.83
-  held last cycle — Brent over **$120 for the first time** since the brief began, and its far
-  larger percentage gain widened the Brent–WTI spread to **~$20.6** from ~$12.8
-  ([[energy-prices]], [[crude-oil-inventories]]).
+- Both crude benchmarks **held**: the energy-prices feed repeats **WTI at $103.54/barrel (+4.5%)**
+  and **Brent at $124.15/barrel (+11%)**, unchanged from the figures carried last cycle — Brent
+  still over $120, the Brent–WTI spread still at ~$20.6 ([[energy-prices]]).
 - The road-fuel panel **held its 2026-09-14 observations** (no fresh pump week): German diesel
   **€2.426/L** and E5 petrol **€2.357/L**, carried unchanged. Malaysia stayed the cheapest market,
   Denmark the most-expensive petrol, and Finland the most-expensive diesel ([[fuel-prices]]).
-- The pump-vs-screen picture **split this cycle**: the spot screen rallied a second leg (WTI +4.5%
-  / Brent +11%) while the pump panel held on its 2026-09-14 readings, so the downstream now lags a
-  still-climbing upstream — the tax-and-margin-damped pump has yet to absorb the fresh screen leg
-  ([[fuel-prices]], [[energy-prices]]).
+- The pump-vs-screen gap **held in place**: the spot screen and the pump panel both sat on last
+  cycle's readings, so the lag between the elevated screen (WTI +4.5% / Brent +11%) and the
+  tax-and-margin-damped pump neither widened nor closed this cycle ([[fuel-prices]],
+  [[energy-prices]]).
 
 ## Reading the week
 
-- A two-feed oil-side movement cycle that **splits the chain**. Spot crude rallied a second large
-  leg (WTI $103.54 +4.5% / Brent $124.15 +11%, Brent over $120 for the first time, spread widening
-  to ~$20.6), but US crude inventories **turned to a build** — +2.6 Mb to 710.95 Mb for the week
-  ending 2026-09-18, the first build after five straight draws. EU gas storage (3,298 Bcf, week
-  ending 2026-09-11) and the road-fuel panel (2026-09-14 observations) both held, no fresh week on
-  either. The read of the cycle is a **breaking of the tight-stock/rising-price coupling**: the
-  screen keeps climbing while the physical crude stock loosens for the first time in five weeks,
-  and the held pump now lags the still-rising screen ([[crude-oil-inventories]], [[energy-prices]],
-  [[natural-gas-storage-eu]], [[fuel-prices]]).
+- A single-feed gas-side movement cycle. EU gas storage advanced a fresh reporting week — 3,351
+  Bcf for the week ending 2026-09-18 (+53 Bcf, the twenty-third straight build and the largest
+  weekly add of the run so far, accelerating from +44 Bcf). US crude inventories (710.95 million
+  barrels, week ending 2026-09-18), spot crude (WTI $103.54 / Brent $124.15) and the road-fuel
+  panel (2026-09-14 observations) all carried no fresh reporting week and were held. The read of
+  the cycle: the refill side of the market keeps accelerating on its own schedule while the
+  drawdown/price side of the chain sits idle — gas is the only feed still moving this cycle
+  ([[natural-gas-storage-eu]], [[crude-oil-inventories]], [[energy-prices]], [[fuel-prices]]).
 
 ## Changelog
 
+- 2026-09-28 — daily-ingest synthesis (2026-W39): absorbed the 2026-09-27 pull — a single-feed
+  gas-side movement cycle. EU gas storage advanced a fresh reporting week to 3,351 Bcf for the
+  week ending 2026-09-18 (+53 Bcf w/w, the twenty-third straight build, the largest weekly add of
+  the run, up from +44 Bcf). US crude inventories (710.95 million barrels, week ending
+  2026-09-18, +2.6 Mb), spot crude (WTI $103.54 +4.5% / Brent $124.15 +11%) and the road-fuel
+  panel (2026-09-14 observations: German diesel €2.426/L, E5 €2.357/L) all carried no fresh
+  reporting week and were held from the 2026-09-24 synthesis. Rewrote the intro, at-a-glance,
+  storage, price and reading sections around the gas-only advance — the refill side accelerating
+  alone while the rest of the chain sits idle ([[natural-gas-storage-eu]]).
 - 2026-09-24 — daily-ingest synthesis (2026-W39): absorbed the 2026-09-24 pull — a two-feed
   oil-side movement cycle that split the chain. US crude inventories turned to a build — +2.6 Mb
   to 710.95 Mb for the week ending 2026-09-18, the first build after five straight draws. Spot
