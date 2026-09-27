@@ -3,7 +3,7 @@ title: Orbital Watch Weekly
 type: L2-brief
 theme: orbital-watch
 week: 2026-W39
-updated: 2026-09-24T12:00:00Z
+updated: 2026-09-28T00:00:00Z
 sources: [orbital-satellites]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -16,33 +16,37 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 > element sets** — a satellite's TLE-derived position, altitude, inclination and velocity are
 > observed public data (CelesTrak, from US Space Command releases) — and never speculates on
 > a satellite's mission or intent beyond the catalogue's own type label. Every claim links to
-> the L1 note it rests on. (Last pull: 2026-09-24 ingest, a clean day-over-day read against
-> 2026-09-23 — the tracked catalogue **held flat at 98 objects** with the same operator-country
-> and type composition it carried the day before (US 38 / CN 30 / EU 19; optical 47 / military
-> 34 / SAR 17). The TLE epochs advanced roughly a day with the fresh pull, but the catalogue
-> counts are unchanged — an honest flat cycle, reported as observed counts only.)
+> the L1 note it rests on. (Last pull: 2026-09-27 ingest, bridging the 09-25 and 09-26 gap days
+> against the 2026-09-24 baseline — the tracked catalogue **held flat at 98 objects** across all
+> three days, with the same operator-country and type composition it carried on 09-24 (US 38 /
+> CN 30 / EU 19; optical 47 / military 34 / SAR 17). The TLE epochs advanced roughly three days
+> with the fresh pull, but the catalogue counts are unchanged — an honest flat cycle, reported as
+> observed counts only.)
 
 ## This week at a glance
 
-- The CelesTrak channel tracks **98 catalogued satellites** in the 09-24 pull — **unchanged** from
-  the 98 in the 09-23 pull (0 added, 0 removed); each object carries a live two-line element set
-  whose epoch advanced to the current pull, but the object count held ([[orbital-satellites]]).
-- By operator country the 09-24 pull records: **the US in the lead at 38 objects**, ahead of
+- The CelesTrak channel tracks **98 catalogued satellites** in the 09-27 pull — **unchanged** from
+  the 98 in the 09-24 pull (0 added, 0 removed), and the 09-25/09-26 pulls in between record the
+  same 98; each object carries a live two-line element set whose epoch advanced to the current
+  pull, but the object count held ([[orbital-satellites]]).
+- By operator country the 09-27 pull records: **the US in the lead at 38 objects**, ahead of
   **China (30)** and the **EU (19)**, with India (7), Turkey (3) and South Korea (1) — identical to
-  the 09-23 composition, the catalogue's own attribution field reported as published
+  the 09-24 composition, the catalogue's own attribution field reported as published
   ([[orbital-satellites]]).
-- By the catalogue's type label the 09-24 pull records **47 optical-imaging** objects, **34
+- By the catalogue's type label the 09-27 pull records **47 optical-imaging** objects, **34
   military** and **17 SAR** (synthetic-aperture radar) — held steady across all three type bands
-  from 09-23; the feed's classification, not azimuth's ([[orbital-satellites]]).
+  from 09-24; the feed's classification, not azimuth's ([[orbital-satellites]]).
 
 ## Reading the week
 
-- The 09-24 pull is an **honest flat cycle**: the tracked catalogue held at 98 objects with the
+- The 09-27 pull is an **honest flat cycle**: the tracked catalogue held at 98 objects with the
   same operator-country split (US 38 / CN 30 / EU 19) and type split (optical 47 / military 34 /
-  SAR 17) it carried on 09-23. Only the TLE epochs advanced with the fresh pull — the tracked band
-  moved from day-of-year 265.2–266.0 (approx. 22–23 September) on 09-23 to 265.3–267.2 (approx.
-  22–24 September) on 09-24. azimuth reports the catalogue's own counts and labels as published —
-  no movement is invented where the feed shows none ([[orbital-satellites]]).
+  SAR 17) it carried on 09-24, and the intervening 09-25/09-26 pulls confirm the same composition
+  bridged the gap without a transient move. Only the TLE epochs advanced with the fresh pull — the
+  tracked band moved from day-of-year 265.3–267.2 (approx. 22–24 September) on 09-24 to roughly
+  266.5–270.4 (approx. 23–27 September) on 09-27, with TERRASAR-X again the single lagging floor
+  epoch, a recurring pattern from earlier cycles. azimuth reports the catalogue's own counts and
+  labels as published — no movement is invented where the feed shows none ([[orbital-satellites]]).
 - With the composition unchanged, **the US leads the tracked catalogue at 38 objects**, ahead of
   China (30) and the EU (19), and optical imaging stays the largest type band at 47. These are
   observed catalogue composition counts, not a capability or intent comparison between operators
@@ -50,6 +54,7 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 ## Changelog
 
+- 2026-09-28 — daily-ingest synthesis (2026-W39): absorbed the 2026-09-27 pull, bridging the 09-25 and 09-26 gap days — an honest flat cycle. The tracked catalogue held at 98 objects across 09-25, 09-26 and 09-27, with the same composition it carried on 2026-09-24: US 38 / China 30 / EU 19 / India 7 / Turkey 3 / South Korea 1 by operator country, optical 47 / military 34 / SAR 17 by type. Only the TLE epochs advanced with the fresh pull, from day-of-year 265.3–267.2 (approx. 22–24 September) to roughly 266.5–270.4 (approx. 23–27 September), with TERRASAR-X again the single lagging floor epoch; object counts are unchanged, so no movement is reported where the feed shows none. Updated the intro, at-a-glance and reading sections and advanced `updated`. Observed-only framing held; no mission or intent inference ([[orbital-satellites]]).
 - 2026-09-24 — daily-ingest synthesis (2026-W39): day-over-day print vs 2026-09-23 — an honest flat cycle. The tracked catalogue held at 98 objects with the same composition as 09-23: US 38 / China 30 / EU 19 / India 7 / Turkey 3 / South Korea 1 by operator country, optical 47 / military 34 / SAR 17 by type. Only the TLE epochs advanced with the fresh pull, from day-of-year 265.2–266.0 (approx. 22–23 September) to 265.3–267.2 (approx. 22–24 September); object counts are unchanged, so no movement is reported where the feed shows none. Updated the intro, at-a-glance and reading sections and advanced `week`/`updated`. Observed-only framing held; no mission or intent inference ([[orbital-satellites]]).
 - 2026-09-23 — daily-ingest synthesis (2026-W39): absorbed the 2026-09-22 ingest after a 20-day curator gap — an honest flat cycle. The tracked catalogue held at 98 objects with the same composition it carried on 09-01: US 38 / China 30 / EU 19 / India 7 / Turkey 3 / South Korea 1 by operator country, optical 47 / military 34 / SAR 17 by type. Only the TLE epochs and drag terms advanced with the fresh pull; the object counts are unchanged, so no movement is reported where the feed shows none. Updated the intro, at-a-glance and reading sections and advanced week/updated so the freshness gate records the latest L1 day was absorbed. Observed-only framing held; no mission or intent inference ([[orbital-satellites]]).
 
