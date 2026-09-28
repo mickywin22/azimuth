@@ -2,8 +2,8 @@
 title: Benchmark — Facts vs Forecast vs Intelligence
 type: L2-brief
 theme: cross-theme
-week: 2026-W39
-updated: 2026-09-27T04:00:00Z
+week: 2026-W40
+updated: 2026-09-28T04:00:00Z
 sources: [crude-oil-inventories, earthquakes, energy-prices, natural-gas-storage-eu]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources; the forecast/intelligence columns quote WorldMonitor as the COMPARED product, not an azimuth channel
@@ -11,7 +11,7 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 # Benchmark — azimuth vs a forecast vs an intelligence feed
 
-> *Why not just read a forecast or an intelligence feed?* Here is the same world-topic through three columns: **azimuth** (observed facts from the live bundle, every claim linked to its L1 source), a **FORECAST** product (a model probability), and an **INTELLIGENCE** product (an analyst assessment). It is a fair contrast, not a strawman: azimuth wins on provenance, neutrality and reproducibility; a forecast / intel feed legitimately wins on **forward-looking coverage** — it predicts, azimuth reports what already happened. The forecast / intelligence columns quote WorldMonitor as the *compared product* (captured 2026-09-27T11:56:32Z), deliberately NOT a clickable L1 link — because that is exactly the difference.
+> *Why not just read a forecast or an intelligence feed?* Here is the same world-topic through three columns: **azimuth** (observed facts from the live bundle, every claim linked to its L1 source), a **FORECAST** product (a model probability), and an **INTELLIGENCE** product (an analyst assessment). It is a fair contrast, not a strawman: azimuth wins on provenance, neutrality and reproducibility; a forecast / intel feed legitimately wins on **forward-looking coverage** — it predicts, azimuth reports what already happened. The forecast / intelligence columns quote WorldMonitor as the *compared product* (captured 2026-09-28T13:45:59Z), deliberately NOT a clickable L1 link — because that is exactly the difference.
 
 ## EU / global energy supply security
 
@@ -21,23 +21,23 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 - EU gas storage stands at 3,351 Bcf (+53 Bcf w/w) as of 2026-09-18 — an observed reading ([[natural-gas-storage-eu]])
 - US crude inventories built +2,564 to 710,950 Mb (EIA week of 2026-09-18) — an observed reading ([[crude-oil-inventories]])
-- Spot crude as reported: Brent $124.15/bbl (+11.0 w/w) — the observed price tape ([[energy-prices]])
+- Spot crude as reported: WTI $103.54/bbl (+4.5 w/w), Brent $124.15/bbl (+11.0 w/w) — the observed price tape ([[energy-prices]])
 
 ### FORECAST product — model projection (compared)
 
-> Assigns a **64% probability** over 30d that “Inflation and rates pressure from Eastern Mediterranean maritime disruption state” — confidence 75%, trend stable.
+> Assigns a **40% probability** over 30d that “Oil price impact from Strait of Hormuz disruption” — confidence 58%, trend stable.
 >
-> Probability path: d30=27%, d7=37%, h24=64%
+> Probability path: d30=17%, d7=23%, h24=40%
 >
-> — *WorldMonitor forecast feed (model projection), captured 2026-09-27T11:56:32Z*
+> — *WorldMonitor forecast feed (model projection), captured 2026-09-28T13:45:59Z*
 
 ### INTELLIGENCE product — analyst assessment (compared)
 
-> The 50% energy supply shock pressure and 72% state confirmation indicate a moderate inflation risk, but the 30d projection dropping to 27% suggests the disruption may not be sustained.
+> Strait of Hormuz risk: critical is setting the strategic baseline, and the current 40% probability implies a live but not settled risk path.
 >
-> Actor lens: Commodity traders: Price whether stress in Eastern Mediterranean becomes durable over the 30d. Rebalance positions if the probability path moves away from 64%.
+> Actor lens: Commodity traders: Price whether stress in Middle East becomes durable over the 30d. Rebalance positions if the probability path moves away from 40%.
 >
-> — *WorldMonitor intelligence assessment (analyst judgement), captured 2026-09-27T11:56:32Z*
+> — *WorldMonitor intelligence assessment (analyst judgement), captured 2026-09-28T13:45:59Z*
 
 ### Scorecard
 
@@ -58,25 +58,26 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 > **Head-to-head question:** Is a shipping/supply-chain shock feeding inflation pressure?
 
-### azimuth — observed facts (US crude inventories)
+### azimuth — observed facts (Energy prices + US crude inventories)
 
+- WTI crude as reported: $103.54/bbl (+4.5 w/w) — the observed energy-cost input to inflation, not a forecast of it ([[energy-prices]])
 - US crude stocks +2,564 (week of 2026-09-18) — the observed physical balance behind the cost line, every figure clickable ([[crude-oil-inventories]])
 
 ### FORECAST product — model projection (compared)
 
-> Assigns a **64% probability** over 30d that “Inflation and rates pressure from Eastern Mediterranean maritime disruption state” — confidence 75%, trend stable.
+> Assigns a **50% probability** over 7d that “GPS interference in Eastern Mediterranean shipping zone” — confidence 42%, trend stable.
 >
-> Probability path: d30=27%, d7=37%, h24=64%
+> Probability path: d30=32%, d7=50%, h24=46%
 >
-> — *WorldMonitor forecast feed (model projection), captured 2026-09-27T11:56:32Z*
+> — *WorldMonitor forecast feed (model projection), captured 2026-09-28T13:45:59Z*
 
 ### INTELLIGENCE product — analyst assessment (compared)
 
-> The 50% energy supply shock pressure and 72% state confirmation indicate a moderate inflation risk, but the 30d projection dropping to 27% suggests the disruption may not be sustained.
+> 90 jamming hexes in Eastern Mediterranean is setting the strategic baseline, and the current 50% probability implies a live but not settled risk path.
 >
-> Actor lens: Commodity traders: Price whether stress in Eastern Mediterranean becomes durable over the 30d. Rebalance positions if the probability path moves away from 64%.
+> Actor lens: Shipping operators: Keep critical flows through Eastern Mediterranean functioning over the 7d. Adjust routing and contingency plans around Eastern Mediterranean.
 >
-> — *WorldMonitor intelligence assessment (analyst judgement), captured 2026-09-27T11:56:32Z*
+> — *WorldMonitor intelligence assessment (analyst judgement), captured 2026-09-28T13:45:59Z*
 
 ### Scorecard
 
@@ -222,3 +223,4 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 - 2026-09-25 — regenerated the facts-vs-forecast-vs-intelligence benchmark from the 2026-09-25 live bundle (2026-W39); 3 head-to-head topics, every azimuth claim L1-sourced, foil snapshot quoted as the compared product.
 - 2026-09-26 — regenerated the facts-vs-forecast-vs-intelligence benchmark from the 2026-09-26 live bundle (2026-W39); 3 head-to-head topics, every azimuth claim L1-sourced, foil snapshot quoted as the compared product.
 - 2026-09-27 — regenerated the facts-vs-forecast-vs-intelligence benchmark from the 2026-09-27 live bundle (2026-W39); 3 head-to-head topics, every azimuth claim L1-sourced, foil snapshot quoted as the compared product.
+- 2026-09-28 — regenerated the facts-vs-forecast-vs-intelligence benchmark from the 2026-09-28 live bundle (2026-W40); 3 head-to-head topics, every azimuth claim L1-sourced, foil snapshot quoted as the compared product.
