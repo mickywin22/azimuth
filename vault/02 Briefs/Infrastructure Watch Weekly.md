@@ -2,8 +2,8 @@
 title: Infrastructure Watch Weekly
 type: L2-brief
 theme: infrastructure-watch
-week: 2026-W39
-updated: 2026-09-28T00:00:00Z
+week: 2026-W40
+updated: 2026-09-30T00:00:00Z
 sources: [internet-outages]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -16,27 +16,27 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 > infrastructure disruption events** — an internet outage is an observed network measurement
 > (Cloudflare Radar), with the cause category the source itself assigns — and takes no
 > position on any actor involved. Every claim links to the L1 note it rests on. This cycle
-> absorbs the 2026-09-24 pull, a clean day-over-day read against 09-23: the active set **eased
-> from 17 to 16 outages** as one Iraq "exam shutdown" event (detected 2026-08-27) aged out of the
-> rolling window — no new event entered. **Iraq still dominates the set with 11 of the 16
-> events**, alongside two Portugal cyberattack disruptions, a multi-day Cuba nationwide blackout,
-> a Honduras grid failure and a Nepal flooding outage.
-> (Pull date of current cycle: 2026-09-24.)
+> absorbs the 2026-09-29 pull: the active set now carries **13 outages**, with the Nepal
+> natural-disaster event and part of the Iraq exam-shutdown run aged off the rolling window since
+> the last content sync — no new cause category entered. **Iraq still dominates the set with 9 of
+> the 13 events** (all government-directed "exam shutdown" suspensions, the special round that
+> started 2026-09-26 running through 2026-10-10), alongside two Portugal cyberattack disruptions, a
+> multi-day Cuba nationwide blackout and a Honduras grid failure.
+> (Pull date of current cycle: 2026-09-29.)
 
 ## This week at a glance
 
-- The Cloudflare Radar channel records **16 active internet outages** on 09-24, down from 17 on
-  09-23 — **2 nationwide**, **2 network-level** and **12 regional** in scope. By the source's own
-  cause category: **11 government-directed**, **2 power-outage**, **2 cyberattack** and **1
-  natural-disaster** — government-directed still the largest category, one fewer than 09-23
+- The Cloudflare Radar channel records **13 active internet outages** on 09-29 — **2 nationwide**,
+  **2 network-level** and **9 regional** in scope. By the source's own cause category: **9
+  government-directed**, **2 power-outage** and **2 cyberattack** — government-directed still the
+  largest category; the single natural-disaster entry the brief last carried has aged off
   ([[internet-outages]]).
-- **Five countries hold the 16 events, and Iraq alone carries 11 of them** — one Iraq event
-  (cf-1653, detected 2026-08-27) aged off the rolling window between 09-23 and 09-24 with no
-  replacement; Portugal still carries 2, and Cuba, Honduras and Nepal one apiece
-  ([[internet-outages]]).
-- The composition **held steady day-over-day apart from the single window edge**: no new outage
-  was detected 09-23→09-24; severity now splits **12 MAJOR / 2 TOTAL / 2 PARTIAL**, down one MAJOR
-  from 09-23's 13/2/2 ([[internet-outages]]).
+- **Four countries hold the 13 events, and Iraq alone carries 9 of them** — all government-directed
+  exam-shutdown suspensions; Portugal carries 2 cyberattack disruptions, and Cuba and Honduras one
+  apiece. Nepal's flooding outage is no longer in the window ([[internet-outages]]).
+- The composition **stays anchored on the Iraq exam-shutdown pattern**: the Iraq events rolled to
+  fresh detection rows for the special round that started 2026-09-26 (running through 2026-10-10);
+  severity splits **9 MAJOR / 2 TOTAL / 2 PARTIAL** ([[internet-outages]]).
 
 ## Honest scope
 
@@ -48,12 +48,12 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 ## Reading the week
 
-- **Iraq dominates the set with 11 government-directed events**, all the source's recurring "exam
+- **Iraq dominates the set with 9 government-directed events**, all the source's recurring "exam
   shutdown" pattern — short (roughly 30-to-90-minute) regional internet suspensions in the early
-  hours, recorded across 2026-08-29 → 2026-09-10 in the current window; the earliest-held Iraq
-  event (cf-1653, 2026-08-27) aged out of the rolling window on this pull, one fewer than the 12
-  Iraq held on 09-23. azimuth records the cause label the source assigns and takes no position on
-  the practice ([[internet-outages]]).
+  hours, now the special round that started 2026-09-26 and runs through 2026-10-10 in the current
+  window; the older exam-shutdown rows aged out as this round's fresh detections entered. azimuth
+  records the cause label the source assigns and takes no position on the practice
+  ([[internet-outages]]).
 - **Portugal holds two cyberattack-labelled events** — traffic disruptions observed on MEO
   (AS3243) on 2026-09-13 and 2026-09-14, both partial-severity and short (~45-105 minutes) — the
   first cyberattack-cause readings the brief has carried, the source's own category
@@ -64,18 +64,18 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 - **Honduras holds a nationwide total-severity power outage** (2026-09-10, ~1.5 hours) that the
   source attributes to a failure in Central America's regional power-interconnection system dropping
   internet traffic across multiple providers ([[internet-outages]]).
-- **Nepal holds one regional major-severity natural-disaster event** (2026-08-28, ~1h45m) the
-  source attributes to regional flooding disrupting power supply across the Kathmandu Valley and
-  central Nepal — the set's only natural-disaster entry this cycle ([[internet-outages]]).
-- Day-over-day the set is stable at its core: the same five countries (Iraq, Portugal, Cuba,
-  Honduras, Nepal) and the same anchor events carry from 09-23 to 09-24, with the single change
-  being one Iraq exam-shutdown event (cf-1653, 2026-08-27) ageing off the rolling window — no new
-  outage was detected in the 09-23→09-24 window ([[internet-outages]]).
+- **Nepal's flooding outage has aged off**: the regional natural-disaster event the brief carried
+  earlier (2026-08-28) is no longer in the rolling window, leaving no natural-disaster entry this
+  cycle ([[internet-outages]]).
+- The set stays stable at its core: four countries (Iraq, Portugal, Cuba, Honduras) and the same
+  anchor events carry, with the change being the Iraq exam-shutdown run rolling to fresh detection
+  rows for the 2026-09-26 → 10-10 special round as the older rows aged off ([[internet-outages]]).
 - azimuth reports the measurements and the source's cause labels, and stops there
   ([[internet-outages]]).
 
 ## Changelog
 
+- 2026-09-30 — daily-ingest synthesis (2026-W40): absorbed the 2026-09-29 pull. The active set now carries 13 outages (from the 16 last content-synced on 09-24): the Nepal flooding natural-disaster event and part of the Iraq exam-shutdown run aged off the rolling window, and no new cause category entered. Iraq dominates with 9 government-directed exam-shutdown events (the special round that started 2026-09-26, running through 2026-10-10 — the Iraq rows rolled to fresh detections); Portugal carries 2 cyberattack disruptions on MEO/AS3243, Cuba a nationwide blackout and Honduras a Central-America-interconnection grid failure. Cause split 9 government-directed / 2 power-outage / 2 cyberattack; severity 9 MAJOR / 2 TOTAL / 2 PARTIAL; scope 9 regional / 2 nationwide / 2 network; four countries (from five, Nepal off). Chokepoint-status channel still unsurfaced. Rewrote the intro, at-a-glance and reading sections. Observed-only framing held; no position on any actor ([[internet-outages]]).
 - 2026-09-24 — daily-ingest synthesis (2026-W39): day-over-day print vs 2026-09-23. The active set eased from 17 to 16 outages as one Iraq "exam shutdown" event (cf-1653, detected 2026-08-27) aged out of the rolling window — no new outage entered. Iraq still dominates with 11 of the 16 events (down from 12), all government-directed; Portugal (2 cyberattack), Cuba (1 nationwide blackout), Honduras (1 grid failure) and Nepal (1 natural-disaster) carried unchanged. Cause split 11 government-directed / 2 power-outage / 2 cyberattack / 1 natural-disaster; severity 12 MAJOR / 2 TOTAL / 2 PARTIAL (down one MAJOR); scope 12 regional / 2 nationwide / 2 network. Chokepoint-status channel still unsurfaced. Rewrote the intro, at-a-glance and reading sections. Observed-only framing held; no position on any actor ([[internet-outages]]).
 - 2026-09-23 — daily-ingest synthesis (2026-W39): absorbed the 2026-09-22 ingest after a 20-day curator gap — the active set grew to 18 outages and its composition turned over almost entirely. Iraq now dominates with 13 government-directed "exam shutdown" events (2026-08-26 → 09-10); Portugal carries 2 cyberattack disruptions on MEO/AS3243 (the first cyberattack-cause readings in the brief), Cuba a multi-day nationwide blackout (09-18 → 09-21), Honduras a Central-America-interconnection grid failure and Nepal a flooding outage. Cause split 13 government-directed / 2 power-outage / 2 cyberattack / 1 natural-disaster; severity 14 MAJOR / 2 TOTAL / 2 PARTIAL; scope 14 regional / 2 nationwide / 2 network. The prior per-country set (Tajikistan, Ukraine, Colombia, Gabon, Georgia, earlier Cuba) all aged off. Chokepoint-status channel still unsurfaced (no note in the 09-22 ingest). Rewrote the intro, at-a-glance, honest-scope and reading sections. Observed-only framing held; no position on any actor ([[internet-outages]]).
 
