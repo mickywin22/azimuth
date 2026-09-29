@@ -2,8 +2,8 @@
 title: Environmental Hazards Weekly
 type: L2-brief
 theme: environmental-hazards
-week: 2026-W39
-updated: 2026-09-28T00:00:00Z
+week: 2026-W40
+updated: 2026-09-30T00:00:00Z
 sources: [wildfire-detections, thermal-escalations, natural-events, radiation-observations]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -16,111 +16,112 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 > environmental hazards — active-fire detections, clustered thermal anomalies, disaster
 > alerts and ambient-radiation readings — what the instruments recorded, never what will
 > happen, and never a position on any conflict the data sits near. Every claim links to the
-> L1 note it rests on. (This cycle absorbs the 2026-09-27 pull, three days on from 09-24. The
-> wildfire note renders the top 250 detections by fire radiative power out of 7,578 rows the
-> endpoint returned this pull — up sharply from 500 on 09-24 — with the cap stated in the note
+> L1 note it rests on. (This cycle absorbs the 2026-09-29 pull, two days on from 09-27. The
+> wildfire note renders the top 250 detections by fire radiative power out of 9,372 rows the
+> endpoint returned this pull — up from 7,578 on 09-27 — with the cap stated in the note
 > caption, so the active-fire figures below describe that strongest-fires subset rather than
 > the full detection set — [[wildfire-detections]]. This cycle the strongest-fire sample's
-> **country lead flipped as Iran overtook Russia**, the thermal-cluster country split
-> **extended its Iran majority and gained a first Israel/Gaza cluster**, the disaster slate held
-> its event count but **severe storms rose while floods cleared**, and EPA RadNet again
-> returned zero US stations, leaving the carried Fukushima reading unchanged.)
+> **country lead flipped back as Russia retook it from Iran and Saudi Arabia surged**, the
+> thermal-cluster country split **extended its Iran majority as the Russia and Israel/Gaza clusters
+> eased**, the disaster slate **grew as severe storms rose and floods re-entered**, and — the
+> cycle's clearest move — **EPA RadNet came back online with ten US stations** after weeks of
+> returning none, adding to the carried Fukushima reading.)
 
 ## This week at a glance
 
 - The NASA FIRMS VIIRS feed's **top-250-by-FRP cap held at 250 detections**, now out of
-  **7,578 rows** the endpoint returned this pull (up sharply from 500 on 09-24); the
-  strongest-fire sample's country split **flipped leader**: **Iran 136 / Russia 74 / Turkey 21 /
-  Syria 8 / Saudi Arabia 7 / Ukraine 4** (from Russia 119 / Iran 110 / Turkey 11 / Saudi
-  Arabia 8 / Ukraine 2), every one of the 250 still carrying an **emergency flag** and 0
-  possible-explosion flags. Intensity firmed at the top: the top-3 fire-radiative-power values
-  rose to **~147.7 / 96.3 / 96.3 MW** (from ~88 / 79 / 74), the strongest now at ~36.8N 42.3E in
-  Turkey ([[wildfire-detections]]).
+  **9,372 rows** the endpoint returned this pull (up from 7,578 on 09-27); the strongest-fire
+  sample's country split **flipped leader back**: **Russia 98 / Iran 93 / Saudi Arabia 40 /
+  Ukraine 7 / Turkey 7 / Syria 5** (from Iran 136 / Russia 74 / Turkey 21 / Syria 8 / Saudi
+  Arabia 7 / Ukraine 4), every one of the 250 still carrying an **emergency flag** and 0
+  possible-explosion flags. Intensity firmed further at the top: the top-3 fire-radiative-power
+  values rose to **~192.7 / 161.8 / 143.3 MW** (from ~147.7 / 96.3 / 96.3), the strongest two now
+  at ~48.4N 36.0E in Ukraine and the third at ~23.5N 53.3E in Saudi Arabia ([[wildfire-detections]]).
 - The FIRMS thermal-escalation feed again clustered the window into **12 signals**, all 12
   `conflict_adjacent`, all 12 `THERMAL_RELEVANCE_HIGH` and all 12 `THERMAL_STATUS_PERSISTENT`
-  (0 spike), but the country attribution **extended its Iran majority and gained a new
-  entrant** — **9 Iran / 2 Russia / 1 Israel/Gaza** (from 8 Iran / 4 Russia) — while the
-  sharpest z-score rose to **14.64** (from 3.21) even as the largest cluster's total FRP eased
-  to **~1,805 MW** (from ~2,868) ([[thermal-escalations]]).
-- The GDACS / NASA EONET disaster feed holds **29 active events** (unchanged from 09-24) but
-  reshuffled composition: **severe storms rose to 13** (from 9) as Major Hurricane Polo eased
-  to **Category 3** (from Category 5, windKt 105), Sea and Lake Ice eased to **10** (from 12),
-  the 5 multi-country droughts and 1 volcano (Krakatau) held, and the **2 floods cleared**
-  ([[natural-events]]).
-- Radiation held at **1 reading** (unchanged from 09-24): EPA RadNet again returned **zero** US
-  stations, leaving the same carried Safecast Fukushima reading at 74.3 nSv/h, still NORMAL;
-  0 anomalies, 0 elevated, 0 spikes ([[radiation-observations]]).
+  (0 spike), but the country attribution **extended its Iran majority as the other entrants
+  eased** — **11 Iran / 1 Russia** (from 9 Iran / 2 Russia / 1 Israel/Gaza) — while the sharpest
+  z-score eased to **4.66** (from 14.64) and the largest cluster's total FRP eased to
+  **~1,734 MW** (from ~1,805) ([[thermal-escalations]]).
+- The GDACS / NASA EONET disaster feed **grew to 33 active events** (from 29 on 09-27):
+  **severe storms rose to 15** (from 13) as Hurricane Polo eased further to **Category 1**
+  (windKt 65, from Category 3) and fresh Tropical Storms Hanna and Rachel opened, Sea and Lake Ice
+  firmed to **11** (from 10), the 5 multi-country droughts and 1 volcano (Krakatau) held, and the
+  **2 floods re-entered** the slate ([[natural-events]]).
+- Radiation **moved sharply to 11 readings** (from 1): **EPA RadNet came back online with 10 US
+  stations** (from zero for weeks) — ambient background from 27 nSv/h (Seattle) to 71 nSv/h
+  (Boston) — alongside the carried Safecast Fukushima reading at 74.3 nSv/h; the feed scored
+  **1 anomaly and 1 elevated**, 0 spikes across the eleven ([[radiation-observations]]).
 
 ## Active fire — where the detections clustered
 
 - The top-250-by-FRP sample attributes — by each detection's own `region` field, deterministically
-  tallied — as **Iran 136 / Russia 74 / Turkey 21 / Syria 8 / Saudi Arabia 7 / Ukraine 4** on the
-  09-27 pull, flipping the 09-24 split of Russia 119 / Iran 110 / Turkey 11 / Saudi Arabia 8 /
-  Ukraine 2: Iran gained 26 detections to take the lead, Russia lost 45, Turkey nearly doubled
-  (11 → 21), Syria re-entered the sample at 8 (absent on 09-24), and Ukraine roughly doubled
-  (2 → 4) while Saudi Arabia held close to flat (8 → 7). The detection count stayed capped at 250,
-  all 250 still carried an emergency flag and 0 carried a possible-explosion flag, while
-  intensity firmed at the top — the top-3 FRP values rose to **~147.7 / 96.3 / 96.3 MW** (from
-  ~88 / 79 / 74), the strongest at ~36.8N 42.3E in Turkey, the second and third both at ~50.5N
-  74.5E in Russia ([[wildfire-detections]]).
+  tallied — as **Russia 98 / Iran 93 / Saudi Arabia 40 / Ukraine 7 / Turkey 7 / Syria 5** on the
+  09-29 pull, flipping back the 09-27 split of Iran 136 / Russia 74 / Turkey 21 / Syria 8 / Saudi
+  Arabia 7 / Ukraine 4: Russia gained 24 detections to retake the lead, Iran lost 43, Saudi Arabia
+  surged from 7 to 40, Turkey collapsed (21 → 7), Ukraine firmed (4 → 7) and Syria eased (8 → 5).
+  The detection count stayed capped at 250, all 250 still carried an emergency flag and 0 carried a
+  possible-explosion flag, while intensity firmed further at the top — the top-3 FRP values rose to
+  **~192.7 / 161.8 / 143.3 MW** (from ~147.7 / 96.3 / 96.3), the strongest two at ~48.4N 36.0E in
+  Ukraine and the third at ~23.5N 53.3E in Saudi Arabia ([[wildfire-detections]]).
 - azimuth caps this L1 note to the top 250 detections by FRP — the strongest, most energetic
   fires — because the endpoint returns the full set and ignores limit parameters; the cap is
   recorded in the note's own caption so the truncation is never silent. The endpoint's full set
-  jumped to **7,578 rows** on the 09-27 pull (from 500 on 09-24), and the country split and FRP
+  grew to **9,372 rows** on the 09-29 pull (from 7,578 on 09-27), and the country split and FRP
   figures above are exact for that capped top-250 subset, not necessarily representative of the
-  full 7,578 ([[wildfire-detections]]).
+  full 9,372 ([[wildfire-detections]]).
 
 ## Thermal escalations — the clustered signal
 
-- The feed again clustered the window into **12 thermal-escalation signals** on the 09-27 pull.
+- The feed again clustered the window into **12 thermal-escalation signals** on the 09-29 pull.
   All 12 clusters carried `conflict_adjacent` and all 12 `THERMAL_RELEVANCE_HIGH`, and the status
   mix held **all 12 `THERMAL_STATUS_PERSISTENT`** (persistentCount 12, spikeCount 0), but the
-  country attribution **extended its Iran majority and added a first-time entrant** — **9 Iran /
-  2 Russia / 1 Israel/Gaza**, from 8 Iran / 4 Russia the prior pull. Intensity moved in opposite
-  directions across the two signals: the sharpest z-score rose to **14.64** (from 3.21 — the Iran
-  cluster at 30.2N 47.4E, 103 observations) even as the largest cluster's total FRP eased to
-  **~1,805 MW / 44 observations** (from ~2,868 MW — a Russia cluster at 68.5N 80.0E)
+  country attribution **extended its Iran majority as the other entrants eased** — **11 Iran /
+  1 Russia**, from 9 Iran / 2 Russia / 1 Israel/Gaza the prior pull (the Israel/Gaza cluster and one
+  Russia cluster aged out). Intensity eased across both signals: the sharpest z-score fell to
+  **4.66** (from 14.64) and the largest cluster's total FRP eased to **~1,734 MW** (from ~1,805)
   ([[thermal-escalations]]).
-- azimuth reports the Iran/Russia/Israel-Gaza split and the all-persistent status as the observed
-  feed output and takes no position on it — a thermal cluster is a measured radiance aggregate, and
-  the L2 line stops at what was detected, when, and how the signal classified, not what it implies
-  about the ground situation. The clusters stayed 12/12 conflict-adjacent and 12/12 high-relevance
+- azimuth reports the Iran/Russia split and the all-persistent status as the observed feed output
+  and takes no position on it — a thermal cluster is a measured radiance aggregate, and the L2 line
+  stops at what was detected, when, and how the signal classified, not what it implies about the
+  ground situation. The clusters stayed 12/12 conflict-adjacent and 12/12 high-relevance
   ([[thermal-escalations]]).
 
 ## Disaster alerts and radiation
 
-- The GDACS/EONET disaster slate holds **29 active events** on the 09-27 pull (unchanged from
-  09-24), but the mix underneath shifted: the severe-storm slate rose to **13** (from 9) as
-  Major Hurricane Polo eased from Category 5 to **Category 3** (windKt 105, 952 mb, NHC track),
-  carried tracks continued for Hurricane Odalys, Hurricane Nolo, Tropical Depression Eighteen-E,
-  Tropical Cyclone ONE-26 and Tropical Storm Fay, and fresh entries opened for **Tropical Storm
-  Gonzalo**, **Typhoon Surigae** and **Typhoon Dujuan**; Sea and Lake Ice eased to **10** (from
-  12); the 5 multi-country droughts (East Africa, the Horn of Africa, Central America/Caribbean,
-  a large European group and Madagascar) and the 1 volcano (Krakatau) held byte-identical; the
-  2 floods **cleared**. azimuth records the count and category slate as the observed feed state,
-  taking no position on any of it ([[natural-events]]).
-- Radiation held flat: EPA RadNet again returned **zero** US stations this pull (unchanged from
-  09-24), leaving only the carried Safecast Fukushima reading at **74.3 nSv/h**, still NORMAL and
-  the same historical observation as 09-24 — a continued feed-availability contraction rather
-  than a radiation event; 0 anomalies, 0 elevated and 0 spikes ([[radiation-observations]]).
+- The GDACS/EONET disaster slate **grew to 33 active events** on the 09-29 pull (from 29 on
+  09-27): the severe-storm slate rose to **15** (from 13) as Hurricane Polo eased further from
+  Category 3 to **Category 1** (windKt 65), Hurricane Nolo held at Category 3 (windKt 100), and
+  fresh entries opened for **Tropical Storm Hanna** (windKt 40) and **Tropical Storm Rachel**
+  (windKt 50) alongside the carried Fay track; Sea and Lake Ice firmed to **11** (from 10); the 5
+  multi-country droughts (East Africa, the Horn of Africa, Central America/Caribbean, a large
+  European group and Madagascar) and the 1 volcano (Krakatau) held; the **2 floods re-entered** the
+  slate. azimuth records the count and category slate as the observed feed state, taking no position
+  on any of it ([[natural-events]]).
+- Radiation **moved sharply this pull**: EPA RadNet **came back online with 10 US stations** (from
+  zero for weeks) — ambient background readings from 27 nSv/h (Seattle) and 28 (Honolulu) up to
+  54 (Albany) and **71 (Boston, the highest US station)** — alongside the carried Safecast Fukushima
+  reading at **74.3 nSv/h**, for 11 readings total. The feed scored **1 anomaly and 1 elevated**,
+  0 spikes across the eleven — a return of feed availability, reported as recorded ambient values,
+  not a radiation event ([[radiation-observations]]).
 
 ## Reading the week
 
-- The 2026-09-27 pull shows the strongest-fire sample's **leader flipping** as intensity firmed
-  at the top: the top-250-by-FRP cap held at 250 detections, now of 7,578 rows (up sharply from
-  500 on 09-24), and the region tally now reads **Iran 136 / Russia 74 / Turkey 21 / Syria 8 /
-  Saudi Arabia 7 / Ukraine 4** (from Russia 119 / Iran 110 / Turkey 11 / Saudi Arabia 8 / Ukraine
-  2), the top-3 FRP values rose to **~147.7 / 96.3 / 96.3 MW** (from ~88 / 79 / 74), and all 250
-  still carried an emergency flag ([[wildfire-detections]]). The thermal-escalation picture held
-  its 12-cluster, 12/12-conflict-adjacent, 12/12-high-relevance, all-PERSISTENT shape while the
-  country split **extended toward Iran and gained a first Israel/Gaza cluster** — 9 Iran / 2
-  Russia / 1 Israel/Gaza (from 8 Iran / 4 Russia) — sharpest z rising to 14.64 (from 3.21) even as
-  the largest cluster eased to ~1,805 MW (from ~2,868) ([[thermal-escalations]]). The disaster
-  slate held at **29 active events** (unchanged) but reshuffled underneath: severe storms rose to
-  13 (from 9) on Hurricane Polo's easing to Category 3 and fresh Gonzalo/Surigae/Dujuan tracks,
-  Sea/Lake Ice eased to 10 (from 12), the 2 floods cleared, while the 5 droughts and 1 volcano
-  held ([[natural-events]]). Radiation held its single carried Fukushima reading (74.3 nSv/h,
-  NORMAL) as EPA RadNet again returned zero US stations, 0 anomalies on both pulls
+- The 2026-09-29 pull shows the strongest-fire sample's **leader flipping back** as intensity firmed
+  further at the top: the top-250-by-FRP cap held at 250 detections, now of 9,372 rows (up from
+  7,578 on 09-27), and the region tally now reads **Russia 98 / Iran 93 / Saudi Arabia 40 /
+  Ukraine 7 / Turkey 7 / Syria 5** (from Iran 136 / Russia 74 / Turkey 21 / Syria 8 / Saudi Arabia
+  7 / Ukraine 4), the top-3 FRP values rose to **~192.7 / 161.8 / 143.3 MW** (from ~147.7 / 96.3 /
+  96.3), and all 250 still carried an emergency flag ([[wildfire-detections]]). The thermal-escalation
+  picture held its 12-cluster, 12/12-conflict-adjacent, 12/12-high-relevance, all-PERSISTENT shape
+  while the country split **extended toward Iran as the other entrants eased** — 11 Iran / 1 Russia
+  (from 9 Iran / 2 Russia / 1 Israel/Gaza) — sharpest z easing to 4.66 (from 14.64) and the largest
+  cluster easing to ~1,734 MW (from ~1,805) ([[thermal-escalations]]). The disaster slate **grew to
+  33 active events** (from 29): severe storms rose to 15 (from 13) on Hurricane Polo's easing to
+  Category 1 and fresh Hanna/Rachel tracks, Sea/Lake Ice firmed to 11 (from 10), the 2 floods
+  re-entered, while the 5 droughts and 1 volcano held ([[natural-events]]). Radiation **moved
+  sharply** as EPA RadNet came back online with 10 US stations (27–71 nSv/h) alongside the carried
+  Fukushima reading (74.3 nSv/h) — 11 readings, the feed scoring 1 anomaly / 1 elevated / 0 spikes
   ([[radiation-observations]]). azimuth records the detections, the cluster statuses, the alert
   categories and the sensor values, links each to its L1 note, and stops there — what the
   satellites and stations measured, not what may follow
@@ -129,6 +130,7 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 ## Changelog
 
+- 2026-09-30 — daily-ingest synthesis (2026-W40): absorbed the 2026-09-29 pull, two days on from 09-27. The wildfire top-250-by-FRP sample (of 9,372 rows the endpoint returned, up from 7,578 on 09-27) flipped its leader back: Russia 98 / Iran 93 / Saudi Arabia 40 / Ukraine 7 / Turkey 7 / Syria 5 (from Iran 136 / Russia 74 / Turkey 21 / Syria 8 / Saudi Arabia 7 / Ukraine 4) — Russia retook the lead, Saudi Arabia surged 7 → 40, Turkey collapsed 21 → 7 — intensity firming further to top-3 FRP ~192.7 / 161.8 / 143.3 MW (from ~147.7 / 96.3 / 96.3, the top two in Ukraine at ~48.4N 36.0E, the third in Saudi Arabia), all 250 emergency-flagged, 0 possible-explosion flags. Thermal escalations: 12 clusters, all conflict-adjacent + high-relevance + PERSISTENT, country split extended toward Iran as the other entrants eased — 11 Iran / 1 Russia (from 9 Iran / 2 Russia / 1 Israel/Gaza) — sharpest z eased to 4.66 (from 14.64), largest eased to ~1,734 MW (from ~1,805). Natural events grew to 33 (from 29): severe storms rose to 15 (from 13) as Hurricane Polo eased to Category 1 (from Category 3), Nolo held Category 3, and fresh Tropical Storms Hanna and Rachel opened; Sea/Lake Ice firmed to 11 (from 10); the 2 floods re-entered; the 5 droughts and 1 volcano (Krakatau) held. Radiation moved sharply: EPA RadNet came back online with 10 US stations (27–71 nSv/h) alongside the carried Safecast Fukushima reading (74.3 nSv/h) — 11 readings, the feed scoring 1 anomaly / 1 elevated / 0 spikes. Rewrote the intro, at-a-glance, fire, thermal, disaster/radiation and reading sections. Observed-only framing held; no position on any conflict the data sits near ([[wildfire-detections]], [[thermal-escalations]], [[natural-events]], [[radiation-observations]]).
 - 2026-09-28 — daily-ingest synthesis (2026-W39): absorbed the 2026-09-27 pull, three days on from 09-24. The wildfire top-250-by-FRP sample (of 7,578 rows the endpoint returned, up sharply from 500 on 09-24) flipped its leader: Iran 136 / Russia 74 / Turkey 21 / Syria 8 / Saudi Arabia 7 / Ukraine 4 (from Russia 119 / Iran 110 / Turkey 11 / Saudi Arabia 8 / Ukraine 2), intensity firming at the top to top-3 FRP ~147.7 / 96.3 / 96.3 MW (from ~88 / 79 / 74), all 250 emergency-flagged, 0 possible-explosion flags. Thermal escalations: 12 clusters, all conflict-adjacent + high-relevance + PERSISTENT, country split extended toward Iran and gained a first Israel/Gaza cluster — 9 Iran / 2 Russia / 1 Israel/Gaza (from 8 Iran / 4 Russia) — sharpest z rose to 14.64 (from 3.21), largest eased to ~1,805 MW (from ~2,868). Natural events held at 29 (unchanged) but reshuffled: severe storms rose to 13 (from 9) as Major Hurricane Polo eased to Category 3 (from Category 5) and fresh Tropical Storm Gonzalo, Typhoon Surigae and Typhoon Dujuan tracks opened, Sea/Lake Ice eased to 10 (from 12), the 2 floods cleared; the 5 droughts and 1 volcano (Krakatau) held byte-identical. Radiation held its single carried Fukushima Safecast reading (74.3 nSv/h NORMAL), EPA RadNet again zero US stations; 0 anomalies both pulls. Rewrote the intro, at-a-glance, fire, thermal, disaster/radiation and reading sections. Observed-only framing held; no position on any conflict the data sits near ([[wildfire-detections]]).
 
 - 2026-09-24 — daily-ingest synthesis (2026-W39): absorbed the 2026-09-24 pull, a routine day-on-day refresh — four-channel read. The wildfire top-250-by-FRP sample (of 500 rows the endpoint returned, held from 09-23) narrowed Russia's lead: Russia 119 / Iran 110 / Turkey 11 / Saudi Arabia 8 / Ukraine 2 (from Russia 139 / Iran 100 / Syria 3 / Ukraine 3 / Saudi Arabia 2 / Turkey 2 / North Korea 1), intensity easing further to top-3 FRP ~88 / 79 / 74 MW (from ~177 / 126 / 125), all 250 emergency-flagged. Thermal escalations: 12 clusters, all conflict-adjacent + high-relevance + PERSISTENT, country split flipped majority to 8 Iran / 4 Russia (from 9 Russia / 3 Iran), sharpest z eased to 3.21 (from 22.23), largest ~2,868 MW (from ~5,430). Natural events rose to 29 (from 27): severe storms to 9 (from 7) as Hurricane Polo hit Category 5 (from 4), Tropical Depression Fifteen-E was named Tropical Storm Nolo, and fresh Fay/Tropical Cyclone ONE-26 tracks opened; the 5 droughts, 2 floods, 1 volcano and 12 Sea/Lake Ice tracks all held byte-identical. Radiation contracted to 1 reading (from 3) as EPA RadNet returned zero US stations (from 2 — Boston, Albany), leaving only the carried Fukushima Safecast reading (74.3 nSv/h NORMAL); 0 anomalies both pulls. Rewrote the intro, at-a-glance, fire, thermal, disaster/radiation and reading sections. Observed-only framing held; no position on any conflict the data sits near ([[wildfire-detections]], [[thermal-escalations]], [[natural-events]], [[radiation-observations]]).
