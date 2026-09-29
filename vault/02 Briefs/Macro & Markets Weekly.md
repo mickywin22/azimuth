@@ -2,8 +2,8 @@
 title: Macro & Markets Weekly
 type: L2-brief
 theme: macro-markets
-week: 2026-W39
-updated: 2026-09-28T00:00:00Z
+week: 2026-W40
+updated: 2026-09-30T00:00:00Z
 sources: [crypto-quotes, world-bank-gdp, world-bank-cpi, world-bank-unemployment, world-bank-indicators]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -16,25 +16,25 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 > market prices as observed facts** — a quote is what a market printed, recorded with its
 > change and its source — under the `no-investment-framing` caution: nothing here is advice,
 > a target, or a forecast. Every claim links to the L1 note it rests on.
-> Last updated from the 2026-09-27 pull, a week-on-week print against the 2026-09-24 baseline: the
-> crypto channel swung back **broadly green — nine of ten tracked assets up on the week**, led by
-> Chainlink (+16.86%) and Solana (+9.28%), with TRON the lone faller (-1.47%), while the World Bank
-> Open Data channel (GDP/CPI/unemployment, seven reporting economies) **held byte-identical** to
-> 09-24, as expected for annual reference-year data that does not move week to week.
+> Last updated from the 2026-09-29 pull, a week-on-week print against the 2026-09-27 baseline: the
+> crypto channel turned **mixed — five of ten tracked assets up, five down**, led higher by
+> Chainlink (+7.82%) and Avalanche (+7.16%) while Solana (-2.49%) led the fallers, with the large
+> caps split (Bitcoin -0.52%, Ethereum +1.29%); the World Bank Open Data channel
+> (GDP/CPI/unemployment, seven reporting economies) **held byte-identical** to 09-27, as expected
+> for annual reference-year data that does not move week to week.
 
 ## This week at a glance
 
-- The CoinGecko-fed crypto channel's **2026-09-27 pull** printed **broadly green — 9 of 10 tracked
-  assets up week-on-week** against the 09-24 baseline: **Bitcoin $84,844** (+1.61%, from $83,502),
-  **Ethereum $2,707.53** (+2.24%, from $2,648.15), **BNB $779.69** (+1.36%, from $769.20),
-  **Solana $123.80** (+9.28%, from $113.29), and **XRP $1.54** (+4.76%, from $1.47) — Solana the
-  second-strongest gainer of the panel ([[crypto-quotes]]).
-- Across the wider ten-asset panel the green sweep holds: **ADA $0.256469** (+8.62%), **DOGE
-  $0.09785** (+5.53%), **TRX $0.334166** (-1.47%, the panel's lone faller), **AVAX $10.97**
-  (+7.87%) and **LINK $14.28** (+16.86%, the panel's steepest gainer) — nine of the ten assets
-  closed 09-27 above their 09-24 baseline, the move measured against the prior brief's printed
-  levels ([[crypto-quotes]]).
-- **The World Bank Open Data direct channel held byte-identical to 09-24** across all seven
+- The CoinGecko-fed crypto channel's **2026-09-29 pull** printed **mixed — 5 of 10 tracked
+  assets up week-on-week** against the 09-27 baseline: **Bitcoin $84,399** (-0.52%, from $84,844),
+  **Ethereum $2,742.48** (+1.29%, from $2,707.53), **BNB $766.34** (-1.71%, from $779.69),
+  **Solana $120.72** (-2.49%, from $123.80, the panel's steepest faller), and **XRP $1.549**
+  (+0.59%, from $1.54) ([[crypto-quotes]]).
+- Across the wider ten-asset panel the split holds: **ADA $0.253372** (-1.21%), **DOGE
+  $0.096027** (-1.86%), **TRX $0.335463** (+0.39%), **AVAX $11.76** (+7.16%) and **LINK $15.40**
+  (+7.82%, the panel's steepest gainer) — five of the ten assets closed 09-29 above their 09-27
+  baseline, the move measured against the prior brief's printed levels ([[crypto-quotes]]).
+- **The World Bank Open Data direct channel held byte-identical to 09-27** across all seven
   reporting economies — only the `retrieved` timestamp advanced. **GDP (current US$, 2025):**
   United States **$30.77T**, China **$19.50T**, Germany **$5.05T**, Japan **$4.44T**, United
   Kingdom **$4.00T**, India **$3.96T**, France **$3.37T** ([[world-bank-gdp]]). **CPI inflation
@@ -55,14 +55,15 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 ## Reading the week
 
-- The 2026-09-27 pull reads a **clean week-on-week rebound** against the 09-24 baseline: Bitcoin
-  rose to $84,844 (+1.61%, from $83,502), Ethereum to $2,707.53 (+2.24%, from $2,648.15), Solana to
-  $123.80 (+9.28%, from $113.29), BNB to $779.69 (+1.36%, from $769.20) and XRP to $1.54 (+4.76%,
-  from $1.47) — nine of ten tracked assets closed higher on the week, led by Chainlink (+16.86%, to
-  $14.28) and Solana (+9.28%) at one end and TRON (-1.47%, to $0.334166) the lone faller at the
-  other. These are the venue's numbers, not azimuth's view: no target, no direction call, no
-  investment framing — the caution is the contract, not a disclaimer ([[crypto-quotes]]).
-- The World Bank Open Data direct channel **held byte-identical to 09-24** across all seven
+- The 2026-09-29 pull reads a **mixed week-on-week print** against the 09-27 baseline: Bitcoin
+  eased to $84,399 (-0.52%, from $84,844), BNB to $766.34 (-1.71%, from $779.69) and Solana to
+  $120.72 (-2.49%, from $123.80), while Ethereum firmed to $2,742.48 (+1.29%, from $2,707.53) and
+  XRP to $1.549 (+0.59%, from $1.54) — five of ten tracked assets closed higher on the week, led by
+  Chainlink (+7.82%, to $15.40) and Avalanche (+7.16%, to $11.76) at one end and Solana (-2.49%) the
+  steepest faller at the other. These are the venue's numbers, not azimuth's view: no target, no
+  direction call, no investment framing — the caution is the contract, not a disclaimer
+  ([[crypto-quotes]]).
+- The World Bank Open Data direct channel **held byte-identical to 09-27** across all seven
   reporting economies — the annual reference-year figures do not move week to week, so a stable read
   is expected and this cycle delivered one. Read as recorded national accounts, not a forecast: the
   United States carries the largest 2025 output at $30.77T (France the smallest of the seven at
@@ -73,6 +74,7 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 ## Changelog
 
+- 2026-09-30 — daily-ingest synthesis (2026-W40): week-on-week print vs 2026-09-27. The crypto panel turned mixed — 5 of 10 tracked assets up on the week: Bitcoin $84,399 (-0.52%, from $84,844), Ethereum $2,742.48 (+1.29%, from $2,707.53), BNB $766.34 (-1.71%, from $779.69), Solana $120.72 (-2.49%, from $123.80, the steepest faller), XRP $1.549 (+0.59%, from $1.54), ADA $0.253372 (-1.21%), DOGE $0.096027 (-1.86%), TRX $0.335463 (+0.39%), Avalanche $11.76 (+7.16%), Chainlink $15.40 (+7.82%, the steepest gainer). The World Bank Open Data direct channel (GDP/CPI/unemployment, seven reporting economies) held byte-identical to 09-27 — only the `retrieved` timestamp advanced, as expected for annual reference-year data. Rewrote the intro, at-a-glance and reading sections. no-investment-framing caution held ([[crypto-quotes]], [[world-bank-gdp]], [[world-bank-cpi]], [[world-bank-unemployment]]).
 - 2026-09-28 — daily-ingest synthesis (2026-W39): week-on-week print vs 2026-09-24. The crypto panel swung back broadly green — 9 of 10 tracked assets up on the week: Bitcoin $84,844 (+1.61%, from $83,502), Ethereum $2,707.53 (+2.24%, from $2,648.15), BNB $779.69 (+1.36%, from $769.20), Solana $123.80 (+9.28%, from $113.29), XRP $1.54 (+4.76%, from $1.47), ADA $0.256469 (+8.62%), DOGE $0.09785 (+5.53%), TRX $0.334166 (-1.47%, the panel's lone faller), Avalanche $10.97 (+7.87%), Chainlink $14.28 (+16.86%, the panel's steepest gainer). The World Bank Open Data direct channel (GDP/CPI/unemployment, seven reporting economies) held byte-identical to 09-24 — only the `retrieved` timestamp advanced, as expected for annual reference-year data. Rewrote the intro, at-a-glance and reading sections. no-investment-framing caution held ([[crypto-quotes]], [[world-bank-gdp]], [[world-bank-cpi]], [[world-bank-unemployment]]).
 - 2026-09-24 — daily-ingest synthesis (2026-W39): day-over-day print vs 2026-09-23. The crypto panel swept fully red — 10 of 10 tracked assets down on the day: Bitcoin $83,502 (-2.36%, from $85,587), Ethereum $2,648.15 (-2.70%, from $2,724.52), BNB $769.20 (-1.59%, from $781.86), Solana $113.29 (-2.90%, from $116.79), XRP $1.47 (-6.75%, from $1.58), ADA $0.236121 (-5.72%), DOGE $0.092726 (-6.50%), TRX $0.339154 (-1.08%, the panel's mildest faller), Avalanche $10.17 (-8.06%, the panel's steepest faller), Chainlink $12.22 (-3.95%). The World Bank Open Data direct channel (GDP/CPI/unemployment, seven reporting economies) held byte-identical to 09-23 — only the `retrieved` timestamp advanced, as expected for annual reference-year data. Rewrote the intro, at-a-glance and reading sections. no-investment-framing caution held ([[crypto-quotes]], [[world-bank-gdp]], [[world-bank-cpi]], [[world-bank-unemployment]]).
 - 2026-09-23 — daily-ingest synthesis (2026-W39): absorbed the 2026-09-22 ingest after a 20-day curator gap. The crypto panel rallied broadly across the gap — Bitcoin $86,029 (from $77,971), Ethereum $2,743.97 (from $2,455), BNB $786.66, Solana $117.14, XRP $1.53, all five majors up ~10-15%, the smaller majors (ADA, DOGE, TRX, AVAX, LINK) higher too; this pull carries no 24h change field, so the move is read as a gap level change, not day-over-day. The World Bank Open Data direct channel widened from five to seven reporting economies (US and UK now published): GDP 2025 US $30.77T > China $19.50T > Germany $5.05T > Japan $4.44T > UK $4.00T > India $3.96T > France $3.37T; CPI 2025 UK 3.88% highest, China 0.06% lowest; unemployment 2025 France 7.54% highest, Japan 2.45% lowest. Rewrote the intro, at-a-glance, honest-scope and reading sections. no-investment-framing caution held ([[crypto-quotes]], [[world-bank-gdp]], [[world-bank-cpi]], [[world-bank-unemployment]]).
