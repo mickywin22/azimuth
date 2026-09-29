@@ -220,13 +220,13 @@
         {
           "pred": "week",
           "label": "week",
-          "value": "2026-W39",
+          "value": "2026-W40",
           "datatype": "string"
         },
         {
           "pred": "updated",
           "label": "updated at",
-          "value": "2026-09-28T00:00:00Z",
+          "value": "2026-09-30T00:00:00Z",
           "datatype": "dateTime"
         },
         {
@@ -291,13 +291,13 @@
         {
           "pred": "week",
           "label": "week",
-          "value": "2026-W39",
+          "value": "2026-W40",
           "datatype": "string"
         },
         {
           "pred": "updated",
           "label": "updated at",
-          "value": "2026-09-28T00:00:00Z",
+          "value": "2026-09-30T00:00:00Z",
           "datatype": "dateTime"
         },
         {
@@ -346,13 +346,13 @@
         {
           "pred": "week",
           "label": "week",
-          "value": "2026-W39",
+          "value": "2026-W40",
           "datatype": "string"
         },
         {
           "pred": "updated",
           "label": "updated at",
-          "value": "2026-09-28T00:00:00Z",
+          "value": "2026-09-30T00:00:00Z",
           "datatype": "dateTime"
         },
         {
@@ -401,13 +401,13 @@
         {
           "pred": "week",
           "label": "week",
-          "value": "2026-W39",
+          "value": "2026-W40",
           "datatype": "string"
         },
         {
           "pred": "updated",
           "label": "updated at",
-          "value": "2026-09-28T00:00:00Z",
+          "value": "2026-09-30T00:00:00Z",
           "datatype": "dateTime"
         },
         {
@@ -480,13 +480,13 @@
         {
           "pred": "week",
           "label": "week",
-          "value": "2026-W39",
+          "value": "2026-W40",
           "datatype": "string"
         },
         {
           "pred": "updated",
           "label": "updated at",
-          "value": "2026-09-28T00:00:00Z",
+          "value": "2026-09-30T00:00:00Z",
           "datatype": "dateTime"
         },
         {
@@ -559,13 +559,13 @@
         {
           "pred": "week",
           "label": "week",
-          "value": "2026-W39",
+          "value": "2026-W40",
           "datatype": "string"
         },
         {
           "pred": "updated",
           "label": "updated at",
-          "value": "2026-09-28T00:00:00Z",
+          "value": "2026-09-30T00:00:00Z",
           "datatype": "dateTime"
         },
         {
@@ -614,13 +614,13 @@
         {
           "pred": "week",
           "label": "week",
-          "value": "2026-W39",
+          "value": "2026-W40",
           "datatype": "string"
         },
         {
           "pred": "updated",
           "label": "updated at",
-          "value": "2026-09-28T00:00:00Z",
+          "value": "2026-09-30T00:00:00Z",
           "datatype": "dateTime"
         },
         {
@@ -669,13 +669,13 @@
         {
           "pred": "week",
           "label": "week",
-          "value": "2026-W39",
+          "value": "2026-W40",
           "datatype": "string"
         },
         {
           "pred": "updated",
           "label": "updated at",
-          "value": "2026-09-28T00:00:00Z",
+          "value": "2026-09-30T00:00:00Z",
           "datatype": "dateTime"
         },
         {
@@ -724,13 +724,13 @@
         {
           "pred": "week",
           "label": "week",
-          "value": "2026-W39",
+          "value": "2026-W40",
           "datatype": "string"
         },
         {
           "pred": "updated",
           "label": "updated at",
-          "value": "2026-09-28T00:00:00Z",
+          "value": "2026-09-30T00:00:00Z",
           "datatype": "dateTime"
         },
         {
@@ -811,13 +811,13 @@
         {
           "pred": "week",
           "label": "week",
-          "value": "2026-W39",
+          "value": "2026-W40",
           "datatype": "string"
         },
         {
           "pred": "updated",
           "label": "updated at",
-          "value": "2026-09-28T00:00:00Z",
+          "value": "2026-09-30T00:00:00Z",
           "datatype": "dateTime"
         },
         {
@@ -866,13 +866,13 @@
         {
           "pred": "week",
           "label": "week",
-          "value": "2026-W39",
+          "value": "2026-W40",
           "datatype": "string"
         },
         {
           "pred": "updated",
           "label": "updated at",
-          "value": "2026-09-28T00:00:00Z",
+          "value": "2026-09-30T00:00:00Z",
           "datatype": "dateTime"
         },
         {
@@ -921,13 +921,13 @@
         {
           "pred": "week",
           "label": "week",
-          "value": "2026-W39",
+          "value": "2026-W40",
           "datatype": "string"
         },
         {
           "pred": "updated",
           "label": "updated at",
-          "value": "2026-09-28T00:00:00Z",
+          "value": "2026-09-30T00:00:00Z",
           "datatype": "dateTime"
         },
         {
@@ -976,13 +976,13 @@
         {
           "pred": "week",
           "label": "week",
-          "value": "2026-W39",
+          "value": "2026-W40",
           "datatype": "string"
         },
         {
           "pred": "updated",
           "label": "updated at",
-          "value": "2026-09-27T04:00:00Z",
+          "value": "2026-09-29T04:00:00Z",
           "datatype": "dateTime"
         },
         {
@@ -1159,13 +1159,13 @@
         {
           "pred": "week",
           "label": "week",
-          "value": "2026-W39",
+          "value": "2026-W40",
           "datatype": "string"
         },
         {
           "pred": "updated",
           "label": "updated at",
-          "value": "2026-09-27T04:00:00Z",
+          "value": "2026-09-29T04:00:00Z",
           "datatype": "dateTime"
         },
         {

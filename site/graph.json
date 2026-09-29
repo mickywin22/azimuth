@@ -896,6 +896,7 @@
       "entity_kind": "region",
       "theme": "shared",
       "themes": [
+        "cyber-watch",
         "energy-supply",
         "environmental-hazards",
         "humanitarian"
@@ -1702,6 +1703,7 @@
       "entity_kind": "region",
       "theme": "shared",
       "themes": [
+        "cyber-watch",
         "environmental-hazards",
         "geophysical",
         "humanitarian",
@@ -3158,6 +3160,13 @@
     },
     {
       "source": "entity:belgium",
+      "target": "brief:cyber-watch-weekly",
+      "cross_theme": true,
+      "rel": "mentioned-in",
+      "weight": 0
+    },
+    {
+      "source": "entity:belgium",
       "target": "brief:energy-supply-weekly",
       "cross_theme": true,
       "rel": "mentioned-in",
@@ -4233,6 +4242,13 @@
       "target": "source:disease-outbreaks",
       "cross_theme": false,
       "rel": "named-in"
+    },
+    {
+      "source": "entity:japan",
+      "target": "brief:cyber-watch-weekly",
+      "cross_theme": true,
+      "rel": "mentioned-in",
+      "weight": 0
     },
     {
       "source": "entity:japan",
