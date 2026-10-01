@@ -897,7 +897,6 @@
       "entity_kind": "region",
       "theme": "shared",
       "themes": [
-        "cyber-watch",
         "energy-supply",
         "environmental-hazards",
         "humanitarian"
@@ -1306,6 +1305,7 @@
       "entity_kind": "region",
       "theme": "shared",
       "themes": [
+        "cyber-watch",
         "energy-supply",
         "environmental-hazards",
         "humanitarian"
@@ -1750,7 +1750,6 @@
       "entity_kind": "region",
       "theme": "shared",
       "themes": [
-        "cyber-watch",
         "environmental-hazards",
         "geophysical",
         "humanitarian",
@@ -1797,6 +1796,7 @@
       "theme": "shared",
       "themes": [
         "cyber-watch",
+        "environmental-hazards",
         "geophysical",
         "humanitarian",
         "macro-markets",
@@ -3221,13 +3221,6 @@
     },
     {
       "source": "entity:belgium",
-      "target": "brief:cyber-watch-weekly",
-      "cross_theme": true,
-      "rel": "mentioned-in",
-      "weight": 0
-    },
-    {
-      "source": "entity:belgium",
       "target": "brief:energy-supply-weekly",
       "cross_theme": true,
       "rel": "mentioned-in",
@@ -3759,6 +3752,13 @@
       "target": "source:displacement-flows",
       "cross_theme": false,
       "rel": "named-in"
+    },
+    {
+      "source": "entity:poland",
+      "target": "brief:cyber-watch-weekly",
+      "cross_theme": true,
+      "rel": "mentioned-in",
+      "weight": 0
     },
     {
       "source": "entity:poland",
@@ -4371,13 +4371,6 @@
     },
     {
       "source": "entity:japan",
-      "target": "brief:cyber-watch-weekly",
-      "cross_theme": true,
-      "rel": "mentioned-in",
-      "weight": 0
-    },
-    {
-      "source": "entity:japan",
       "target": "brief:environmental-hazards-weekly",
       "cross_theme": true,
       "rel": "mentioned-in",
@@ -4443,6 +4436,13 @@
     {
       "source": "entity:china",
       "target": "brief:cyber-watch-weekly",
+      "cross_theme": true,
+      "rel": "mentioned-in",
+      "weight": 0
+    },
+    {
+      "source": "entity:china",
+      "target": "brief:environmental-hazards-weekly",
       "cross_theme": true,
       "rel": "mentioned-in",
       "weight": 0
