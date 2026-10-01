@@ -3,7 +3,7 @@ title: Prediction Markets Weekly
 type: L2-brief
 theme: prediction-markets
 week: 2026-W40
-updated: 2026-09-30T00:00:00Z
+updated: 2026-10-01T00:00:00Z
 sources: [prediction-markets]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -17,63 +17,74 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 > reports it the same way it reports a gas-storage figure or an earthquake magnitude. It is
 > **not** a forecast azimuth makes, and **not** an instruction to trade: odds are not
 > predictions, and nothing here is investment advice. azimuth reports the priced number and its
-> source, and takes no position on the underlying question. (This cycle absorbs the 2026-09-29
-> ingest, a two-day advance on 09-27, extending the **no-rotation** run that began after the
-> ninth rotation landed on 08-01: Polymarket's "Will the U.S. invade Iran before 2027?" is still the
-> sole quoted market, the yes price **eased to 0.145** from 0.155, and cumulative volume ticked up
-> ~$0.24M to ~$69.99M — the deepest book the brief has recorded.)
+> source, and takes no position on the underlying question. (This cycle absorbs the 2026-10-01
+> ingest, which **widens the feed from a single market to a 50-market panel** — the breadth the scope
+> note has promised since the brief began, now delivered in one step. The feed carries **44 Polymarket
+> + 6 Kalshi** listings totalling **~$379M** cumulative volume. Polymarket's "Will the U.S. invade Iran
+> before 2027?" is still the **deepest book** at **~$70.3M**, its quoted yes price **held at 0.135
+> (13.5% implied probability)**; the panel is **Iran / Middle-East dominated** — roughly a dozen of the
+> 50 questions price some facet of the Iran situation — alongside AI/tech (NVIDIA, Anthropic, Gemini),
+> crypto token-launch and US-politics questions. All numbers are venue-quoted prices recorded as
+> observed facts, never forecasts or advice.)
 
 ## This week at a glance
 
-- The WorldMonitor prediction-market feed's single live listing **held its place**: Polymarket's
-  **"Will the U.S. invade Iran before 2027?"** is still the sole quoted market on the 2026-09-29
-  pull, the same no-rotation run that has held since the ninth rotation landed on 08-01
+- The WorldMonitor prediction-market feed **widened from one listing to 50** on the 2026-10-01 pull:
+  **44 Polymarket + 6 Kalshi** priced questions totalling **~$379M** cumulative traded volume — the
+  breadth the brief's scope note has anticipated since its single-market start, delivered in one step
   ([[prediction-markets]]).
-- The quoted **yes price eased to 0.145 (14.5% implied probability)** from 0.155 at the prior
-  09-27 reading — a 1.0-percentage-point decline in the venue-priced probability over the two-day
-  gap, resuming the slow drift lower. The venue's number is recorded as an observed fact; azimuth
-  takes no position on the underlying question ([[prediction-markets]]).
-- Cumulative traded volume rose from **~$69.75M** (09-27) to **~$69.99M** (09-29) — a
-  **~$0.24M / ~0.3% increase** — continuing the steady growth this listing has shown since its
-  07-31 debut, and the **deepest book recorded** in the brief's run. Volume is reported as a measure
-  of liquidity behind the quoted odds, not as a signal to act on ([[prediction-markets]]).
+- The carried market **held its price**: Polymarket's **"Will the U.S. invade Iran before 2027?"** is
+  still the **deepest book** at **~$70.3M** and its quoted **yes price held at 0.135 (13.5% implied
+  probability)**, unchanged from the prior cycle. The venue's number is recorded as an observed fact;
+  azimuth takes no position on the underlying question ([[prediction-markets]]).
+- The panel is **Iran / Middle-East dominated**: roughly a dozen of the 50 questions price some facet
+  of the Iran situation — US invasion (0.135), an Israel–Iran ceasefire holding through October
+  (0.815), Iran leadership change by year-end (0.115), a US–Iran nuclear deal (0.125), the Strait of
+  Hormuz returning to normal traffic (0.195) and the Bab el-Mandeb Strait staying closed (0.165) among
+  them — alongside AI/tech, crypto token-launch and US-politics questions. Each price is the venue's,
+  reported as a liquidity-weighted observed fact, not a signal to act on ([[prediction-markets]]).
 
-## The market
+## The panel
 
-- Polymarket's quoted **yes price of 0.145** (as of the 09-29 pull) is the observed datum:
-  traders are collectively paying about 14.5 cents for a contract that pays out 1.00 if the
-  market's stated condition — a US invasion of Iran before 2027 — resolves true, which by
-  construction reads as a **14.5% implied probability** priced by the venue, down from 0.155
-  (15.5%) at 09-27 and still well below the **0.245 (24.5%)** ninth-rotation debut — resuming the
-  slow drift lower. The question is a geopolitical one; azimuth's report is not a call on it: it
-  records the venue's number and takes no position on the outcome or the market's resolution
-  ([[prediction-markets]]).
-- The **~$69.99M cumulative traded volume** recorded on the 09-29 pull is the liquidity behind that
-  price, up **~$0.24M** from **~$69.75M** on the 09-27 pull — a continuation of the steady book
-  growth this listing has shown since it first appeared on 07-31, and the deepest book the brief has
-  recorded. Volume is reported as a measure of how much weight sits behind the quoted odds, not as a
-  signal to act on ([[prediction-markets]]).
+- **Deepest books (by cumulative volume).** The liquidity concentrates in the Iran/Middle-East
+  cluster: **"Will the U.S. invade Iran before 2027?"** (0.135, ~$70.3M, the deepest), **"Will Mojtaba
+  Khamenei be head of state in Iran end of 2026?"** (0.878, ~$39.7M), **"Israel x Iran ceasefire
+  continues through October 31?"** (0.815, ~$32.4M), **"Iran leadership change by December 31?"**
+  (0.115, ~$26.6M) and Kalshi's **"Will the Citrini scenario happen?"** (0.230, ~$25.9M). Each figure
+  is the venue's quoted price and recorded book size, reported as observed facts ([[prediction-markets]]).
+- **Highest-priced questions (the near-certain tail).** Six of the 50 price above 0.80: Mojtaba
+  Khamenei as head of state (0.878), Polymarket's **"Will STRC hit $100 by December 31?"** (0.880),
+  **"Gemini 4.0 released by October 31, 2026?"** (0.870), **"Microstrategy delisted from MSCI index by
+  December 31?"** (0.855), **"Variational FDV above $500M one day after launch?"** (0.830) and the
+  Israel–Iran ceasefire holding (0.815). A high price reads as a high venue-implied probability; it is
+  the market's number, not azimuth's forecast ([[prediction-markets]]).
+- **Non-geopolitical clusters.** AI/tech prices **"Will NVIDIA be the largest company in the world by
+  market cap on December 31?"** at 0.795 (~$7.6M) and **"Anthropic IPO before 2027?"** at 0.780
+  (~$7.4M); crypto carries a string of token-launch FDV questions (mostly priced 0.10–0.20); US
+  politics runs Kalshi's 2028 nominee ladders (Newsom 0.130, Rubio 0.170) and a Fed-funds-rate
+  question (0.227). The venue prices are observed datapoints; azimuth takes no position on any of the
+  underlying questions ([[prediction-markets]]).
 
 ## Reading the week
 
-- A two-day read: the feed's single live contract is still Polymarket's "Will the U.S.
-  invade Iran before 2027?", and the venue's quoted price **eased to a 14.5% implied probability**
-  (09-27 → 09-29, from 15.5%) while cumulative volume rose **~$0.24M** to **~$69.99M**, the
-  deepest book yet recorded — price drifting lower again as liquidity keeps deepening, the recurring
-  pattern of this listing. azimuth states what was recorded and stops there: the odds are the
-  market's, not azimuth's, and the editorial line forbids reading them as either a forecast or a
+- The cycle's story is the **feed itself widening** from one rotating listing to a 50-market panel.
+  The carried deepest book — "Will the U.S. invade Iran before 2027?" — held at 0.135 (13.5% implied
+  probability) on ~$70.3M, while the newly-visible panel reveals an Iran / Middle-East-heavy book:
+  the single market the brief tracked for weeks turns out to have been the deepest node of a large,
+  mostly-geopolitical cluster. azimuth states what was recorded and stops there: every price is the
+  market's, not azimuth's, and the editorial line forbids reading any of them as a forecast or a
   reason to trade ([[prediction-markets]]).
-- **Breadth note (honest scope):** the live feed still lists exactly one market at a time. The
-  09-29 pull carries no rotation — continuing the no-rotation run since the ninth rotation landed
-  on 08-01, following nine rotations recorded earlier (Greenland →
-  Russia → Israel → US–Iran uranium → Iran–MOU → Iran-regime → Base-token → Fed-rate-cuts →
-  US-invade-Iran). A two-day gap between adjacent-cycle pulls is still a clean comparison window.
-  As the upstream feed carries a broader market set, this note widens to report the spread of
-  priced questions; until then it tracks whatever single market the feed quotes, reporting price,
-  volume and listing changes as observed facts ([[prediction-markets]]).
+- **Breadth note (honest scope — now resolved):** the single-market era is over. The 2026-10-01 pull
+  lists 50 markets (44 Polymarket + 6 Kalshi), so this brief now reports the **spread** of priced
+  questions — deepest books, highest-priced tail, and the thematic clusters (Iran/Middle-East, AI/tech,
+  crypto, US politics) — rather than a single rotating contract. Where a question persists cycle-to-cycle
+  (the US-invade-Iran market), its price and book stay week-on-week comparable; newly-surfaced questions
+  are reported at their first quoted level. All figures are venue-quoted observed facts
+  ([[prediction-markets]]).
 
 ## Changelog
 
+- 2026-10-01 — daily-ingest synthesis (2026-W40): absorbed the 2026-10-01 ingest — the feed WIDENED from a single rotating listing to a 50-market panel (44 Polymarket + 6 Kalshi, ~$379M cumulative volume), resolving the single-market scope note the brief has carried since 2026-06-26. The carried deepest book, Polymarket's "Will the U.S. invade Iran before 2027?", held its quoted yes price at 0.135 (13.5% implied probability) on ~$70.3M. The panel is Iran / Middle-East dominated (~a dozen questions: Israel–Iran ceasefire 0.815, Iran leadership change 0.115, US–Iran nuclear deal 0.125, Strait of Hormuz normal 0.195, Bab el-Mandeb closed 0.165, Mojtaba Khamenei head of state 0.878); six questions price above 0.80 (STRC $100 0.880, Gemini 4.0 by Oct 31 0.870, Microstrategy MSCI delist 0.855); non-geopolitical clusters cover AI/tech (NVIDIA largest company 0.795, Anthropic IPO 0.780), crypto FDV token-launches and US-politics ladders. Rewrote the intro, at-a-glance, panel (formerly single-market) and reading sections and resolved the breadth note. Odds-are-not-forecasts / no-investment-framing held; no position taken on any underlying question ([[prediction-markets]]).
 - 2026-09-30 — daily-ingest synthesis (2026-W40): absorbed the 2026-09-29 ingest, a two-day advance on 09-27. The feed still lists a single market — Polymarket's "Will the U.S. invade Iran before 2027?" — extending the no-rotation run since 08-01. The quoted yes price eased to 0.145 (14.5% implied probability) from 0.155 at 09-27, a 1.0-percentage-point decline resuming the slow drift lower off the 0.245 debut; cumulative traded volume ticked up ~$0.24M (~0.3%) to ~$69.99M from ~$69.75M — still the deepest book the brief has recorded. Updated the intro, at-a-glance, market and reading sections. Odds-are-not-forecasts / no-investment-framing held; no position taken on the underlying question ([[prediction-markets]]).
 - 2026-09-28 — daily-ingest synthesis (2026-W39): absorbed the 2026-09-27 ingest, a three-day advance on 09-24. The feed still lists a single market — Polymarket's "Will the U.S. invade Iran before 2027?" — extending the no-rotation run since 08-01. The quoted yes price rose to 0.155 (15.5% implied probability) from 0.135 at 09-24, a 2.0-percentage-point rise reversing the recent slow drift lower and returning to the level held on 08-31/09-02; cumulative traded volume rose ~$1.18M (~1.7%) to ~$69.75M from ~$68.57M — still the deepest book the brief has recorded. Updated the intro, at-a-glance, market and reading sections. Odds-are-not-forecasts / no-investment-framing held; no position taken on the underlying question ([[prediction-markets]]).
 - 2026-09-24 — daily-ingest synthesis (2026-W39): absorbed the 2026-09-24 ingest, an adjacent-day advance on 09-23. The feed still lists a single market — Polymarket's "Will the U.S. invade Iran before 2027?" — extending the no-rotation run since 08-01. The quoted yes price eased to 0.135 (13.5% implied probability) from 0.145 at 09-23, a 1.0-percentage-point day-over-day drop and a continued slow drift lower off the 0.245 debut; cumulative traded volume ticked up ~$0.17M (~0.25%) to ~$68.57M from ~$68.40M — still the deepest book the brief has recorded. Updated the intro, at-a-glance, market and reading sections. Odds-are-not-forecasts / no-investment-framing held; no position taken on the underlying question ([[prediction-markets]]).
