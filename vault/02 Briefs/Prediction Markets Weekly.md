@@ -3,7 +3,7 @@ title: Prediction Markets Weekly
 type: L2-brief
 theme: prediction-markets
 week: 2026-W40
-updated: 2026-10-01T00:00:00Z
+updated: 2026-10-03T00:00:00Z
 sources: [prediction-markets]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -17,61 +17,64 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 > reports it the same way it reports a gas-storage figure or an earthquake magnitude. It is
 > **not** a forecast azimuth makes, and **not** an instruction to trade: odds are not
 > predictions, and nothing here is investment advice. azimuth reports the priced number and its
-> source, and takes no position on the underlying question. (This cycle absorbs the 2026-10-01
-> ingest, which **widens the feed from a single market to a 50-market panel** — the breadth the scope
-> note has promised since the brief began, now delivered in one step. The feed carries **44 Polymarket
-> + 6 Kalshi** listings totalling **~$379M** cumulative volume. Polymarket's "Will the U.S. invade Iran
-> before 2027?" is still the **deepest book** at **~$70.3M**, its quoted yes price **held at 0.135
-> (13.5% implied probability)**; the panel is **Iran / Middle-East dominated** — roughly a dozen of the
-> 50 questions price some facet of the Iran situation — alongside AI/tech (NVIDIA, Anthropic, Gemini),
-> crypto token-launch and US-politics questions. All numbers are venue-quoted prices recorded as
+> source, and takes no position on the underlying question. (This cycle absorbs the 2026-10-02 and
+> 2026-10-03 ingests — the **50-market panel held its breadth** (44 Polymarket + 6 Kalshi), cumulative
+> volume firming **~$379M → ~$388M**. The notable move is the deepest book: Polymarket's "Will the U.S.
+> invade Iran before 2027?" **re-priced up from 0.135 to 0.165 (13.5% → 16.5% implied)** on ~$71.3M,
+> the largest single shift on the panel. The AI/tech tail firmed too — NVIDIA-largest-company 0.795 →
+> 0.82, Anthropic-IPO-before-2027 0.78 → 0.825, STRC-hits-$100 0.88 → 0.895 — while the other deep Iran
+> books held (Mojtaba Khamenei head of state ~0.872, Israel–Iran ceasefire 0.815, Iran leadership change
+> 0.115). The panel stays Iran / Middle-East dominated. All numbers are venue-quoted prices recorded as
 > observed facts, never forecasts or advice.)
 
 ## This week at a glance
 
-- The WorldMonitor prediction-market feed **widened from one listing to 50** on the 2026-10-01 pull:
-  **44 Polymarket + 6 Kalshi** priced questions totalling **~$379M** cumulative traded volume — the
-  breadth the brief's scope note has anticipated since its single-market start, delivered in one step
+- The WorldMonitor prediction-market feed **held its 50-market panel** on the 2026-10-03 pull: the same
+  **44 Polymarket + 6 Kalshi** priced questions, cumulative traded volume firming **~$379M → ~$388M**
+  — the widened breadth delivered on 2026-10-01 stood rather than reverting to the old single listing
   ([[prediction-markets]]).
-- The carried market **held its price**: Polymarket's **"Will the U.S. invade Iran before 2027?"** is
-  still the **deepest book** at **~$70.3M** and its quoted **yes price held at 0.135 (13.5% implied
-  probability)**, unchanged from the prior cycle. The venue's number is recorded as an observed fact;
-  azimuth takes no position on the underlying question ([[prediction-markets]]).
-- The panel is **Iran / Middle-East dominated**: roughly a dozen of the 50 questions price some facet
-  of the Iran situation — US invasion (0.135), an Israel–Iran ceasefire holding through October
-  (0.815), Iran leadership change by year-end (0.115), a US–Iran nuclear deal (0.125), the Strait of
-  Hormuz returning to normal traffic (0.195) and the Bab el-Mandeb Strait staying closed (0.165) among
-  them — alongside AI/tech, crypto token-launch and US-politics questions. Each price is the venue's,
-  reported as a liquidity-weighted observed fact, not a signal to act on ([[prediction-markets]]).
+- The deepest book **re-priced up**: Polymarket's **"Will the U.S. invade Iran before 2027?"** remains
+  the **deepest book** at **~$71.3M** and its quoted **yes price rose from 0.135 to 0.165 (13.5% → 16.5%
+  implied probability)** — the largest single move on the panel. The venue's number is recorded as an
+  observed fact; azimuth takes no position on the underlying question ([[prediction-markets]]).
+- The panel stays **Iran / Middle-East dominated**: roughly a dozen of the 50 questions price some facet
+  of the Iran situation — US invasion (0.165), an Israel–Iran ceasefire holding through October
+  (0.815, held), Iran leadership change by year-end (0.115, held), a US–Iran nuclear deal (0.13) and the
+  Bab el-Mandeb Strait staying closed (0.175) among them — alongside AI/tech, crypto token-launch and
+  US-politics questions. Each price is the venue's, reported as a liquidity-weighted observed fact, not a
+  signal to act on ([[prediction-markets]]).
 
 ## The panel
 
 - **Deepest books (by cumulative volume).** The liquidity concentrates in the Iran/Middle-East
-  cluster: **"Will the U.S. invade Iran before 2027?"** (0.135, ~$70.3M, the deepest), **"Will Mojtaba
-  Khamenei be head of state in Iran end of 2026?"** (0.878, ~$39.7M), **"Israel x Iran ceasefire
-  continues through October 31?"** (0.815, ~$32.4M), **"Iran leadership change by December 31?"**
-  (0.115, ~$26.6M) and Kalshi's **"Will the Citrini scenario happen?"** (0.230, ~$25.9M). Each figure
-  is the venue's quoted price and recorded book size, reported as observed facts ([[prediction-markets]]).
-- **Highest-priced questions (the near-certain tail).** Six of the 50 price above 0.80: Mojtaba
-  Khamenei as head of state (0.878), Polymarket's **"Will STRC hit $100 by December 31?"** (0.880),
-  **"Gemini 4.0 released by October 31, 2026?"** (0.870), **"Microstrategy delisted from MSCI index by
-  December 31?"** (0.855), **"Variational FDV above $500M one day after launch?"** (0.830) and the
-  Israel–Iran ceasefire holding (0.815). A high price reads as a high venue-implied probability; it is
-  the market's number, not azimuth's forecast ([[prediction-markets]]).
-- **Non-geopolitical clusters.** AI/tech prices **"Will NVIDIA be the largest company in the world by
-  market cap on December 31?"** at 0.795 (~$7.6M) and **"Anthropic IPO before 2027?"** at 0.780
-  (~$7.4M); crypto carries a string of token-launch FDV questions (mostly priced 0.10–0.20); US
-  politics runs Kalshi's 2028 nominee ladders (Newsom 0.130, Rubio 0.170) and a Fed-funds-rate
-  question (0.227). The venue prices are observed datapoints; azimuth takes no position on any of the
-  underlying questions ([[prediction-markets]]).
+  cluster: **"Will the U.S. invade Iran before 2027?"** (0.165, ~$71.3M, the deepest and this cycle's
+  mover), **"Will Mojtaba Khamenei be head of state in Iran end of 2026?"** (0.872, ~$39.7M),
+  **"Israel x Iran ceasefire continues through October 31?"** (0.815, ~$32.5M), **"Iran leadership
+  change by December 31?"** (0.115, ~$26.7M) and Kalshi's **"Will the Citrini scenario happen?"**
+  (0.220, ~$25.9M); the Fed's October decision (0.825, ~$24.3M) is the next-deepest. Each figure is the
+  venue's quoted price and recorded book size, reported as observed facts ([[prediction-markets]]).
+- **Highest-priced questions (the near-certain tail).** Several of the 50 price above 0.80: Polymarket's
+  **"Will STRC hit $100 by December 31?"** (0.895, up from 0.880), Mojtaba Khamenei as head of state
+  (0.872), **"Gemini 4.0 released?"** (0.865), **"Variational FDV above $500M one day after launch?"**
+  (0.835), the **Fed October decision** (0.825), **"Anthropic IPO before 2027?"** (0.825, up from 0.780),
+  **"NVIDIA the largest company end-December?"** (0.82, up from 0.795) and the Israel–Iran ceasefire
+  holding (0.815). A high price reads as a high venue-implied probability; it is the market's number, not
+  azimuth's forecast ([[prediction-markets]]).
+- **Non-geopolitical clusters firmed.** AI/tech re-rated up this cycle — **"Will NVIDIA be the largest
+  company in the world by market cap on December 31?"** to 0.82 (~$7.7M, from 0.795) and **"Anthropic IPO
+  before 2027?"** to 0.825 (~$7.5M, from 0.780); crypto carries a string of token-launch FDV questions
+  (mostly priced 0.10–0.20); US politics runs Kalshi's 2028 nominee ladders and a Fed-funds-rate question.
+  The venue prices are observed datapoints; azimuth takes no position on any of the underlying questions
+  ([[prediction-markets]]).
 
 ## Reading the week
 
-- The cycle's story is the **feed itself widening** from one rotating listing to a 50-market panel.
-  The carried deepest book — "Will the U.S. invade Iran before 2027?" — held at 0.135 (13.5% implied
-  probability) on ~$70.3M, while the newly-visible panel reveals an Iran / Middle-East-heavy book:
-  the single market the brief tracked for weeks turns out to have been the deepest node of a large,
-  mostly-geopolitical cluster. azimuth states what was recorded and stops there: every price is the
+- The cycle's story is the **50-market panel holding its breadth** while its deepest book re-priced up.
+  "Will the U.S. invade Iran before 2027?" rose from 0.135 to 0.165 (13.5% → 16.5% implied) on ~$71.3M —
+  the panel's largest single move — and the AI/tech tail firmed (NVIDIA-largest 0.795 → 0.82, Anthropic
+  IPO 0.78 → 0.825, STRC $100 0.88 → 0.895) while the other deep Iran books (Mojtaba ~0.872, ceasefire
+  0.815, leadership change 0.115) held. The widened panel delivered on 2026-10-01 stood rather than
+  reverting to a single listing. azimuth states what was recorded and stops there: every price is the
   market's, not azimuth's, and the editorial line forbids reading any of them as a forecast or a
   reason to trade ([[prediction-markets]]).
 - **Breadth note (honest scope — now resolved):** the single-market era is over. The 2026-10-01 pull
@@ -84,6 +87,7 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 ## Changelog
 
+- 2026-10-03 — daily-ingest synthesis (2026-W40): absorbed the 2026-10-02 and 2026-10-03 ingests — the 50-market panel HELD its breadth (44 Polymarket + 6 Kalshi), cumulative volume firming ~$379M → ~$388M (confirming the 2026-10-01 widening was not a one-pull artifact). The deepest book, Polymarket's "Will the U.S. invade Iran before 2027?", re-priced UP from 0.135 to 0.165 (13.5% → 16.5% implied) on ~$71.3M — the panel's largest single move. The AI/tech tail firmed: NVIDIA-largest-company 0.795 → 0.82, Anthropic-IPO-before-2027 0.78 → 0.825, STRC-hits-$100 0.88 → 0.895. The other deep Iran books held (Mojtaba Khamenei ~0.872, Israel–Iran ceasefire 0.815, Iran leadership change 0.115, US–Iran nuclear deal 0.13); Bab el-Mandeb-closed firmed to 0.175. Rewrote the intro, at-a-glance, panel and reading sections around the panel hold and the deepest-book re-pricing. Odds-are-not-forecasts / no-investment-framing held; no position taken on any underlying question ([[prediction-markets]]).
 - 2026-10-01 — daily-ingest synthesis (2026-W40): absorbed the 2026-10-01 ingest — the feed WIDENED from a single rotating listing to a 50-market panel (44 Polymarket + 6 Kalshi, ~$379M cumulative volume), resolving the single-market scope note the brief has carried since 2026-06-26. The carried deepest book, Polymarket's "Will the U.S. invade Iran before 2027?", held its quoted yes price at 0.135 (13.5% implied probability) on ~$70.3M. The panel is Iran / Middle-East dominated (~a dozen questions: Israel–Iran ceasefire 0.815, Iran leadership change 0.115, US–Iran nuclear deal 0.125, Strait of Hormuz normal 0.195, Bab el-Mandeb closed 0.165, Mojtaba Khamenei head of state 0.878); six questions price above 0.80 (STRC $100 0.880, Gemini 4.0 by Oct 31 0.870, Microstrategy MSCI delist 0.855); non-geopolitical clusters cover AI/tech (NVIDIA largest company 0.795, Anthropic IPO 0.780), crypto FDV token-launches and US-politics ladders. Rewrote the intro, at-a-glance, panel (formerly single-market) and reading sections and resolved the breadth note. Odds-are-not-forecasts / no-investment-framing held; no position taken on any underlying question ([[prediction-markets]]).
 - 2026-09-30 — daily-ingest synthesis (2026-W40): absorbed the 2026-09-29 ingest, a two-day advance on 09-27. The feed still lists a single market — Polymarket's "Will the U.S. invade Iran before 2027?" — extending the no-rotation run since 08-01. The quoted yes price eased to 0.145 (14.5% implied probability) from 0.155 at 09-27, a 1.0-percentage-point decline resuming the slow drift lower off the 0.245 debut; cumulative traded volume ticked up ~$0.24M (~0.3%) to ~$69.99M from ~$69.75M — still the deepest book the brief has recorded. Updated the intro, at-a-glance, market and reading sections. Odds-are-not-forecasts / no-investment-framing held; no position taken on the underlying question ([[prediction-markets]]).
 - 2026-09-28 — daily-ingest synthesis (2026-W39): absorbed the 2026-09-27 ingest, a three-day advance on 09-24. The feed still lists a single market — Polymarket's "Will the U.S. invade Iran before 2027?" — extending the no-rotation run since 08-01. The quoted yes price rose to 0.155 (15.5% implied probability) from 0.135 at 09-24, a 2.0-percentage-point rise reversing the recent slow drift lower and returning to the level held on 08-31/09-02; cumulative traded volume rose ~$1.18M (~1.7%) to ~$69.75M from ~$68.57M — still the deepest book the brief has recorded. Updated the intro, at-a-glance, market and reading sections. Odds-are-not-forecasts / no-investment-framing held; no position taken on the underlying question ([[prediction-markets]]).
