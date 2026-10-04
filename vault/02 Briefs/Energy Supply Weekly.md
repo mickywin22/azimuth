@@ -3,7 +3,7 @@ title: Energy Supply Weekly
 type: L2-brief
 theme: energy-supply
 week: 2026-W40
-updated: 2026-10-03T00:00:00Z
+updated: 2026-10-04T00:00:00Z
 sources: [natural-gas-storage-eu, crude-oil-inventories, fuel-prices, energy-prices]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -14,28 +14,29 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 > Synthesised from the week's L1 source notes under `../01 Sources/`. The `azimuth-curator`
 > fleet role evolves this single note in place each week — it deepens this brief and appends
 > a dated `## Changelog` line rather than forking a new file. Every claim links to the L1
-> note it rests on. (This cycle absorbs the 2026-10-02 and 2026-10-03 pulls — a gas-side build cycle
-> with a crude-feed re-base, while the screen and the pump both held. EU gas storage **advanced a fresh
-> reporting week to 3,415 Bcf** (week ending 2026-09-25, **+64 Bcf**, the twenty-fourth straight build
-> and the largest weekly add of the refill run). The US crude-inventory feed **re-based this cycle to
-> the EIA commercial-crude series** — it now reports **427.32 million barrels** for the week ending
-> 2026-09-25 (**+0.9 Mb w/w**); the prior ~711 Mb figure was a feed-scale artifact and is **not
-> comparable**, so no week-on-week stock delta is drawn across the break. Spot crude **held** — **WTI
-> $93.57/barrel (−9.6% w/w)** and **Brent $117.08/barrel (−5.7% w/w)** carried unchanged with no fresh
-> price week — and the road-fuel panel **held** at its 2026-09-21 observations (German diesel €2.457/L,
+> note it rests on. (This cycle absorbs the 2026-10-04 pull — a clean hold across all four feeds, none
+> of which prints daily: EU gas storage, US crude inventories, spot crude and the road-fuel panel all
+> carried the 10-03 values unchanged, the next gas/crude weekly print not yet due. EU gas storage **holds
+> at 3,415 Bcf** (week ending 2026-09-25, **+64 Bcf**, the twenty-fourth straight build and the largest
+> weekly add of the refill run). The US crude-inventory feed carries the **EIA commercial-crude series**
+> — **427.32 million barrels** for the week ending 2026-09-25 (**+0.9 Mb w/w**); the pre-rebase ~711 Mb
+> figure was a feed-scale artifact and is **not comparable**, so no week-on-week stock delta is drawn
+> across that break. Spot crude **held** — **WTI $93.57/barrel (−9.6% w/w)** and **Brent $117.08/barrel
+> (−5.7% w/w)** carried unchanged with no fresh price week — and the road-fuel panel **held** at its
+> 2026-09-21 observations (German diesel €2.457/L,
 > E5 petrol €2.348/L, 32 countries, New Zealand still failing the pull). The read: the refill side logged
-> its biggest build of the run while the price screen and the pump both sat still, and the crude series
-> quietly corrected to its proper commercial-crude level.)
+> its biggest build of the run while the price screen and the pump sit still; this 10-04 pull re-confirmed
+> every one of those readings with no fresh weekly print due yet.)
 
 ## This week at a glance
 
-- EU gas storage **advanced a fresh reporting week** to **3,415 Bcf** (week ending 2026-09-25, **+64
+- EU gas storage **holds at its latest reporting week** of **3,415 Bcf** (week ending 2026-09-25, **+64
   Bcf** w/w) — the **twenty-fourth straight build** and the **largest weekly add of the whole refill
-  run**, the injection season still accelerating rather than tapering ([[natural-gas-storage-eu]]).
-- The US crude-inventory feed **re-based to the EIA commercial-crude series** this cycle, now reporting
+  run**; the 10-04 pull carried the same week, the next GIE print not yet due ([[natural-gas-storage-eu]]).
+- The US crude-inventory feed carries the **EIA commercial-crude series**, reporting
   **427.32 million barrels** for the week ending 2026-09-25 (**+0.9 Mb** w/w, a small build off 426.4 Mb
-  for 09-18) — the prior ~711 Mb figure was a feed-scale artifact and is **not comparable**, so no
-  week-on-week delta is drawn across the break ([[crude-oil-inventories]]).
+  for 09-18) — the pre-rebase ~711 Mb figure was a feed-scale artifact and is **not comparable**, so no
+  week-on-week delta is drawn across that break; the 10-04 pull carried the same week ([[crude-oil-inventories]]).
 - Spot crude and the pump both **held**: the energy-prices feed carried **WTI $93.57/barrel (−9.6% w/w)**
   and **Brent $117.08/barrel (−5.7% w/w)** unchanged with no fresh price week, and the road-fuel panel
   held at its 2026-09-21 observations — German diesel **€2.457/L**, E5 petrol **€2.348/L**, the
@@ -81,13 +82,15 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
   the prior ~711 Mb figure sat on a different scale and is not comparable, so the brief reports the
   current level and draws no cross-break delta — a feed correction, not a real draw. Spot crude held
   (WTI $93.57 −9.6%, Brent $117.08 −5.7%, no fresh price week) and the road-fuel panel held at its
-  2026-09-21 observations (German diesel €2.457/L, E5 €2.348/L). The read of the cycle: the refill side
-  logged its biggest build yet while the screen and the pump sat still and the crude series quietly
-  corrected — storage the only genuine mover ([[energy-prices]], [[crude-oil-inventories]],
+  2026-09-21 observations (German diesel €2.457/L, E5 €2.348/L). The read: the refill side's latest
+  weekly print is its biggest build yet while the screen and the pump sit still and the crude series
+  carries its corrected commercial-crude level — the 2026-10-04 pull re-confirmed all four with no fresh
+  weekly print due ([[energy-prices]], [[crude-oil-inventories]],
   [[natural-gas-storage-eu]], [[fuel-prices]]).
 
 ## Changelog
 
+- 2026-10-04 — daily-ingest synthesis (2026-W40): absorbed the 2026-10-04 pull, a clean hold across all four feeds — none prints daily and no fresh weekly report was due. EU gas storage held at 3,415 Bcf (week ending 2026-09-25, +64 Bcf, the twenty-fourth straight build), US crude inventories held at 427.32 Mb (09-25, EIA commercial-crude series), spot crude held (WTI $93.57 −9.6% w/w, Brent $117.08 −5.7% w/w) and the road-fuel panel held at its 2026-09-21 observations (German diesel €2.457/L, E5 €2.348/L, 32 countries). Bumped the cutoff to the 10-04 pull and softened the intro / at-a-glance / reading framing from "this cycle's move" to "latest print re-confirmed"; no figure changed. Observed-only framing held ([[natural-gas-storage-eu]], [[crude-oil-inventories]], [[energy-prices]], [[fuel-prices]]).
 - 2026-10-03 — daily-ingest synthesis (2026-W40): absorbed the 2026-10-02 and 2026-10-03 pulls — a gas-side build cycle with a crude-feed re-base, the price screen and the pump both held. EU gas storage advanced a fresh reporting week to 3,415 Bcf (week ending 2026-09-25, +64 Bcf), the twenty-fourth straight build and the largest weekly add of the whole refill run. The US crude-inventory feed re-based to the EIA commercial-crude series, now reporting 427.32 Mb for 2026-09-25 (+0.9 Mb w/w, off 426.4 Mb for 09-18); the prior ~711 Mb figure was a feed-scale artifact and is not comparable, so no cross-break week-on-week stock delta is drawn. Spot crude held (WTI $93.57 −9.6%, Brent $117.08 −5.7%, no fresh price week) and the road-fuel panel held at its 2026-09-21 observations (German diesel €2.457/L, E5 €2.348/L, New Zealand still failing the pull). Rewrote the intro, at-a-glance, storage, price and reading sections around the record-of-run gas build and the honest crude re-base ([[natural-gas-storage-eu]], [[crude-oil-inventories]], [[energy-prices]], [[fuel-prices]]).
 - 2026-10-01 — daily-ingest synthesis (2026-W40): absorbed the 2026-10-01 pull — a two-feed oil-side
   movement cycle that decoupled the screen from the stockpile. Spot crude sold off a fresh price week
