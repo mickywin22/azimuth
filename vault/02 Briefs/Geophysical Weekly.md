@@ -3,7 +3,7 @@ title: Geophysical Weekly
 type: L2-brief
 theme: geophysical
 week: 2026-W40
-updated: 2026-10-01T00:00:00Z
+updated: 2026-10-03T00:00:00Z
 sources: [earthquakes]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -14,75 +14,82 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 > Synthesised from the week's L1 source notes under `../01 Sources/`. The `azimuth-curator`
 > fleet role evolves this single note in place each week. azimuth reports **observed**
 > seismicity from the USGS feed — what was recorded, never what will happen. Every claim
-> links to the L1 note it rests on. (This cycle absorbs the 2026-10-01 pull, the window firming
-> through the week: 134 M4.5+ (50 M5+, 1 M6+, 0 M7+), up from 125 (43/1/0) on 2026-09-29 — the M5+
-> line the clearest mover, +7. The Tadine, New Caledonia offshore swarm grew further to 35 events
-> and still carries the window's sole M6+ — the M6.6 (10 km), the strongest event for a third
-> straight cycle. The second tier lost its M5.7: the carried M5.7 180 km NW of Hihifo, Tonga aged
-> past the seven-day trailing edge, leaving a band of M5.6s led by a fresh M5.6 94 km SW of
-> Tamarindo, Costa Rica (8 km). 89 of 134 shocks stayed shallow ≤15 km and the deep-focus anchor
-> held at a 602.2 km shock beneath the Fiji region.)
+> links to the L1 note it rests on. (This cycle absorbs the 2026-10-02 and 2026-10-03 pulls, the
+> window easing: 128 M4.5+ (49 M5+, 0 M6+, 0 M7+) to 2026-10-03, down from 134 (50/1/0) on
+> 2026-10-01 — the headline the **loss of the window's sole M6+**. The M6.6 80 km ENE of Tadine,
+> New Caledonia aged past the seven-day trailing edge, leaving **zero M6+** for the first time in
+> four cycles and dropping the strongest recorded event to an **M5.8 165 km SSE of Vilyuchinsk,
+> Russia** (29.5 km) — the cap of a fresh 13-event Kamchatka/Vilyuchinsk offshore swarm that is the
+> cycle's new dominant strong cluster. The Tadine swarm decayed to 20 events (from 35) and now tops
+> out at M5.3. 78 of 128 shocks stayed shallow ≤15 km and the deep-focus anchor held at a 602.2 km
+> shock beneath the Fiji region.)
 
 ## This week at a glance
 
-- The USGS feed recorded **134** magnitude-4.5-or-greater earthquakes in the rolling window
-  retrieved 2026-10-01, of which **50 were M5+**, **one reached M6+** and **none reached M7** —
-  up from **125 (43/1/0)** on 2026-09-29, the M5+ line firming +7 over the week ([[earthquakes]]).
-- The window's sole **M6+ held**: the **M6.6 80 km ENE of Tadine, New Caledonia** (10 km) remains
-  the strongest event and the only M6+ for a third straight cycle, anchoring the still-growing
-  Tadine offshore swarm — no new M6+ entered and none aged off ([[earthquakes]]).
-- **New Caledonia held first and grew to 35** on the extending Tadine swarm; **Indonesia held
-  second, easing to 12** (from 13); the **Philippines firmed to 7**, **Japan rebuilt to 6** (from 3),
-  the **South Sandwich Islands cluster held at 6**; **Papua New Guinea eased to 5** and **Colombia to
-  5**, **China held at 5** ([[earthquakes]]).
+- The USGS feed recorded **128** magnitude-4.5-or-greater earthquakes in the rolling window
+  retrieved 2026-10-03, of which **49 were M5+**, **none reached M6+** and **none reached M7** —
+  down from **134 (50/1/0)** on 2026-10-01, the M6+ line the clearest mover (−1 to zero) ([[earthquakes]]).
+- The window **lost its only M6+**: the **M6.6 80 km ENE of Tadine, New Caledonia** (10 km) aged
+  past the seven-day trailing edge, leaving **no M6+ for the first time in four cycles**. The new
+  strongest recorded event is an **M5.8 165 km SSE of Vilyuchinsk, Russia** (29.5 km) ([[earthquakes]]).
+- **New Caledonia held first but eased to 20** as the Tadine swarm decayed (from 35); **Russia jumped
+  to second at 13** — its entire count a fresh Kamchatka/Vilyuchinsk offshore swarm; **Indonesia held
+  at 12**, **Japan rebuilt to 9** (from 6), the **Philippines firmed to 8** (from 7); **Papua New
+  Guinea firmed to 6** and the **South Sandwich Islands cluster held at 6**, **Solomon Islands to 5**,
+  **China eased to 4** and the **Balleny Islands region entered at 3** ([[earthquakes]]).
 
 ## Largest events
 
-- The **M6.6**, 10 km deep, **80 km ENE of Tadine, New Caledonia** holds as the window's strongest
-  event and sole M6+ for a third cycle, anchoring the now-35-event Tadine offshore swarm
-  ([[earthquakes]]).
-- Next-strongest: the top tier **lost its M5.7** — the carried **M5.7 180 km NW of Hihifo, Tonga**
-  aged past the seven-day trailing edge — leaving a band of **M5.6s** led by a fresh **M5.6 94 km SW
-  of Tamarindo, Costa Rica** (8 km, a new entrant and the cycle's only strong eastern-Pacific shock),
-  the carried **M5.6 74 km S of Yonakuni, Japan** (11 km) and the **M5.6 72 km ESE of Kokopo, Papua
-  New Guinea** (70 km, carried) ([[earthquakes]]).
-- The rest of the top tier: an **M5.5 southern Mid-Atlantic Ridge** (10 km) and an **M5.5 61 km ENE
-  of Tadine, New Caledonia** (10 km, part of the Tadine swarm), with the carried **M5.4** shocks
-  north of Svalbard and off Port McNeill, Canada still inside the window ([[earthquakes]]).
+- With the M6.6 gone, the window's strongest event is now an **M5.8 165 km SSE of Vilyuchinsk,
+  Russia** (29.5 km) — a fresh entrant capping a 13-event Kamchatka/Vilyuchinsk offshore swarm
+  (M4.5–M5.8), the cycle's new dominant strong cluster ([[earthquakes]]).
+- The second tier is a band of carried **M5.6s**: the **M5.6 94 km SW of Tamarindo, Costa Rica**
+  (8 km, the only strong eastern-Pacific shock), the **M5.6 74 km S of Yonakuni, Japan** (11 km) and
+  the **M5.6 72 km ESE of Kokopo, Papua New Guinea** (70 km) all held inside the window ([[earthquakes]]).
+- The rest of the top tier: an **M5.5 southern Mid-Atlantic Ridge** (10 km), a fresh **M5.4 in the
+  Balleny Islands region** (10 km) and a carried **M5.4 231 km WSW of Port McNeill, Canada** (10 km);
+  the Tadine swarm's own top event fell to an **M5.3 76 km NE of Tadine, New Caledonia** (10 km) as it
+  decayed ([[earthquakes]]).
 
 ## Where the activity clustered
 
-- **New Caledonia held first and grew to 35 events** on the extending Tadine offshore trend
-  (M4.7–M6.6, almost entirely 10 km shallow) — the cycle's still-dominant cluster; **Indonesia held
-  second, easing to 12** (from 13) on residual Flores/Ternate activity ([[earthquakes]]).
-- The **Philippines firmed to 7** and **Japan rebuilt to 6** (from 3) on fresh Yonakuni/offshore
-  activity; the **South Sandwich Islands cluster held at 6**; **Papua New Guinea eased to 5** as the
-  Kokopo cluster decayed, **Colombia eased to 5** and **China held at 5** — the strong-event weight
-  staying anchored in the Southwest-Pacific subduction arc ([[earthquakes]]).
+- **New Caledonia held first but eased to 20 events** as the Tadine offshore swarm decayed from
+  35 (now M4.5–M5.3, almost entirely 10 km shallow) and lost its M6.6; **Russia jumped to second at
+  13** — its whole count a fresh Kamchatka/Vilyuchinsk offshore swarm (M4.5–M5.8), the week's new
+  dominant strong cluster and the source of the window's strongest event ([[earthquakes]]).
+- **Indonesia held at 12** on residual Flores/Ruteng and Halmahera activity, **Japan rebuilt to 9**
+  (from 6) on fresh Yonakuni/Honshū shocks and the **Philippines firmed to 8** (from 7); **Papua New
+  Guinea firmed to 6** on the Kokopo cluster, the **South Sandwich Islands cluster held at 6**,
+  **Solomon Islands rose to 5**, **China eased to 4** and the **Balleny Islands region entered at 3**
+  — the strong-event weight shifting from the Southwest-Pacific arc toward the Kamchatka margin
+  ([[earthquakes]]).
 
 ## Depth profile
 
-- The shallow proportion firmed with the count: **89 of the 134 events sit at ≤15 km** (from 79 of
-  125), still pulled up by the near-entirely-shallow Tadine, New Caledonia swarm. The deep-focus
-  anchor **held** at a **602.2 km** shock beneath the **Fiji region** — the Tonga–Fiji deep slab
-  still at the base of the depth profile ([[earthquakes]]).
+- The shallow proportion eased with the count: **78 of the 128 events sit at ≤15 km** (from 89 of
+  134), still pulled up by the near-entirely-shallow Tadine and Kamchatka/Vilyuchinsk swarms. The
+  deep-focus anchor **held** at a **602.2 km** shock beneath the **Fiji region** — the Tonga–Fiji
+  deep slab still at the base of the depth profile ([[earthquakes]]).
 
 ## Reading the week
 
-- Volume and the strong-event tally both firmed through the week: **134 M4.5+ (50 M5+, 1 M6+, 0 M7+)**
-  to 2026-10-01, up from 125 (43/1/0) on 2026-09-29, the M5+ line the clearest mover (+7). The
-  **M6.6** off Tadine, New Caledonia (10 km) held as the window's sole M6+ and strongest event for a
-  third cycle, anchoring the Tadine offshore swarm that grew to 35 events. The top tier lost its M5.7
-  as the carried M5.7 180 km NW of Hihifo, Tonga aged past the seven-day trailing edge, leaving a band
-  of M5.6s led by a fresh M5.6 94 km SW of Tamarindo, Costa Rica (8 km). New Caledonia held first (35),
-  Indonesia eased to second (12), the Philippines firmed to 7 and Japan rebuilt to 6, the South
-  Sandwich cluster held at 6, Papua New Guinea and Colombia eased to 5, China held at 5. 89 of 134
-  shocks stayed shallow ≤15 km and the deepest focus held at 602.2 km beneath the Fiji region. azimuth
-  records what the instruments measured — magnitude, location, depth, time — and stops there, making
-  no forecast of what comes next ([[earthquakes]]).
+- Volume and the strong-event tally both eased through the window: **128 M4.5+ (49 M5+, 0 M6+, 0 M7+)**
+  to 2026-10-03, down from 134 (50/1/0) on 2026-10-01, the M6+ line the clearest mover (−1 to zero).
+  The **M6.6** off Tadine, New Caledonia (10 km) aged past the seven-day trailing edge, leaving the
+  window with no M6+ for the first time in four cycles and dropping the strongest recorded event to an
+  **M5.8 165 km SSE of Vilyuchinsk, Russia** (29.5 km). That M5.8 caps a fresh 13-event
+  Kamchatka/Vilyuchinsk offshore swarm — the week's new dominant strong cluster — which lifted Russia
+  from 4 to 13 and into second place as the Tadine swarm decayed to 20 (from 35, now topping out at
+  M5.3). New Caledonia held first (20), Russia took second (13), Indonesia held at 12, Japan rebuilt to
+  9 and the Philippines firmed to 8, Papua New Guinea firmed to 6, the South Sandwich cluster held at 6,
+  Solomon Islands rose to 5, China eased to 4, the Balleny Islands region entered at 3. 78 of 128 shocks
+  stayed shallow ≤15 km and the deepest focus held at 602.2 km beneath the Fiji region. azimuth records
+  what the instruments measured — magnitude, location, depth, time — and stops there, making no forecast
+  of what comes next ([[earthquakes]]).
 
 ## Changelog
 
+- 2026-10-03 — daily-ingest synthesis (2026-W40): absorbed the 2026-10-02 and 2026-10-03 pulls, the window easing. The rolling window to 2026-10-03 fell to 128 M4.5+ (49 M5+, 0 M6+, 0 M7+ — from 134/50/1/0 on 10-01), the M6+ line the clearest mover. The M6.6 80 km ENE of Tadine, New Caledonia (10 km) aged past the seven-day trailing edge, leaving no M6+ for the first time in four cycles and dropping the strongest recorded event to an M5.8 165 km SSE of Vilyuchinsk, Russia (29.5 km), which caps a fresh 13-event Kamchatka/Vilyuchinsk offshore swarm — the week's new dominant strong cluster. The Tadine swarm decayed to 20 events (from 35) and tops out at M5.3. New Caledonia held first at 20, Russia jumped to second at 13 (its whole count the Kamchatka swarm), Indonesia held 12, Japan rebuilt to 9 and the Philippines firmed to 8, Papua New Guinea firmed to 6, the South Sandwich cluster held at 6, Solomon Islands rose to 5, China eased to 4, the Balleny Islands region entered at 3. 78 of 128 shocks shallow ≤15 km; deepest focus held at 602.2 km beneath the Fiji region. Rewrote the intro, at-a-glance, largest-events, clustering, depth and reading sections. Observed-only framing held ([[earthquakes]]).
 - 2026-10-01 — daily-ingest synthesis (2026-W40): absorbed the 2026-10-01 pull, the window firming through the week. The rolling window to 2026-10-01 rose to 134 M4.5+ (50 M5+, 1 M6+, 0 M7+ — from 125/43/1/0 on 09-29), the M5+ line the clearest mover (+7). The M6.6 80 km ENE of Tadine, New Caledonia (10 km) held as the sole M6+ and strongest event for a third straight cycle, anchoring the Tadine swarm that grew to 35 events. The top tier lost its M5.7 as the carried M5.7 180 km NW of Hihifo, Tonga aged past the seven-day trailing edge, leaving a band of M5.6s led by a fresh M5.6 94 km SW of Tamarindo, Costa Rica (8 km, the cycle's only strong eastern-Pacific shock). New Caledonia held first at 35, Indonesia eased to 12, the Philippines firmed to 7 and Japan rebuilt to 6 (from 3), the South Sandwich cluster held at 6, Papua New Guinea and Colombia eased to 5, China held at 5. 89 of 134 shocks shallow ≤15 km; deepest focus held at 602.2 km beneath the Fiji region. Rewrote the intro, at-a-glance, largest-events, clustering, depth and reading sections. Observed-only framing held ([[earthquakes]]).
 - 2026-09-30 — daily-ingest synthesis (2026-W40): absorbed the 2026-09-29 pull, a quiet consolidation of last cycle's surge. The rolling window to 2026-09-29 firmed marginally to 125 M4.5+ (43 M5+, 1 M6+, 0 M7+ — from 123/43/1/0 on 09-27). The M6.6 80 km ENE of Tadine, New Caledonia (10 km) held as the sole M6+ and strongest event for a second cycle, anchoring the Tadine swarm that grew to 33 events. A fresh South Sandwich Islands cluster entered at 6 (two M4.8, ~35 km); the carried M5.7 south of Africa aged past the seven-day trailing edge, replaced in the top tier by fresh M5.4 shocks north of Svalbard (10 km) and 231 km WSW of Port McNeill, Canada (10 km). New Caledonia held first at 33, Indonesia eased to 13 (from 15), Colombia and China held at 6, Papua New Guinea eased to 5. 79 of 125 shocks shallow ≤15 km; deepest focus deepened to 602.2 km beneath the Fiji region (from 528.3 km). Rewrote the intro, at-a-glance, largest-events, clustering, depth and reading sections. Observed-only framing held ([[earthquakes]]).
 - 2026-09-28 — daily-ingest synthesis (2026-W39): absorbed the 2026-09-27 pull, the sharpest day-on-day jump since the brief began. The rolling window to 2026-09-27 rose to 123 M4.5+ (43 M5+, 1 M6+, 0 M7+ — from 101/32/2/0 on 09-24) on a fresh 25-event swarm off Tadine, New Caledonia capped by a new M6.6 (10 km), the window's new sole M6+ as the carried M6.5 169 km W of Nikolski, Alaska (98 km) and M6.4 49 km NNE of Kainantu, PNG (104 km) both aged past the seven-day trailing edge. The carried M5.7 south of Africa held a third straight cycle and the M5.7 180 km NW of Hihifo, Tonga (fresh on 09-24) also carried on; a fresh M5.6 entered near Kokopo, PNG. New Caledonia debuted first at 25, Indonesia eased to second at 15 (from 17), Japan fell to 8 (from 14), Papua New Guinea rebuilt to 6 (from 2) on the Kokopo cluster, Colombia held at 5, Turkey held at 2. 79 of 123 shocks shallow ≤15 km (from 54/101); deepest focus shifted to 528.3 km south of the Fiji Islands as the carried 548.4 km Fiji focus aged off. Rewrote the intro, at-a-glance, largest-events, clustering, depth and reading sections. Observed-only framing held ([[earthquakes]]).
