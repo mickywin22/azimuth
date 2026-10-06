@@ -27,6 +27,11 @@ if TYPE_CHECKING:
 __all__ = ["brief_band_html"]
 
 _FIELD_RE = re.compile(r"^\| (\w+) \| (.*) \|$")
+# Pre-cap total from an L1 note's honesty caption (ingest/pull.py render_note):
+#   "> **Payload cap ...:** showing top 250 by `frp` of 500 rows."  (or "first N of M rows")
+# so the derived key-figure band can state the cap against the real row count instead of
+# silently showing the capped sample as if it were the whole feed.
+_CAP_TOTAL_RE = re.compile(r"showing (?:top|first) \d+(?: by `[^`]+`)? of (\d+) rows")
 
 
 def _fields(path: Path) -> dict[str, str]:
@@ -49,6 +54,17 @@ def _load(day_dir: Path, source_key: str, field_name: str) -> Any:
         return json.loads(raw)
     except ValueError:
         return None
+
+
+def _cap_total(path: Path) -> int | None:
+    """Pre-cap row count from a capped L1 note's honesty caption, or None when the note is
+    uncapped / absent / unparseable. Lets the band say "250 of 500" instead of a silent "250"."""
+    try:
+        text = path.read_text(encoding="utf-8")
+    except OSError:
+        return None
+    m = _CAP_TOTAL_RE.search(text)
+    return int(m.group(1)) if m else None
 
 
 def _chip(value: str, caption: str) -> dict[str, str]:
@@ -162,7 +178,16 @@ def _hazards(day: Path) -> list[dict[str, Any]]:
     out: list[dict[str, Any]] = []
     fires = _load(day, "wildfire-detections", "fireDetections") or []
     if fires:
-        out.append(_chip(str(len(fires)), "top fire detections by FRP"))
+        shown = len(fires)
+        # The feed's totalCount swings cycle-to-cycle (e.g. 500 -> 6,657); azimuth caps the L1
+        # note to the top-N by FRP. State that cap against the real row count so the band never
+        # presents the capped sample as the whole feed (the truncation stays non-silent).
+        total = _cap_total(day / "wildfire-detections.md")
+        if total is not None and total > shown:
+            caption = f"top {shown} of {total:,} fire detections (by FRP)"
+        else:
+            caption = "top fire detections by FRP"
+        out.append(_chip(str(shown), caption))
         # Exact country attribution from the feed's own per-detection region field
         # (IQ #1161 — deterministic, no reverse-geocode). The dominant country + its share.
         geo = country_tally(fires)
