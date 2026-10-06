@@ -124,6 +124,17 @@ and `build_answers.py --check` ALL exit 0 is a logged no-op. **No manual run is 
      (`"Russia 243 / Iran 5 / Ukraine 2"`) — do not approximate the country from latitude/longitude.
      The FIRMS feed ships `region` on every row, so no reverse-geocode is needed (IQ #1161); a row
      that is genuinely missing `region` is reported "unattributed", never guessed.
+   - **A capped feed's cap is stated against its real row count — never silently.** Some feeds
+     swing their `totalCount` cycle-to-cycle (e.g. `wildfire-detections` 500 -> 6,657), so
+     azimuth caps the L1 note to the top-N rows by FRP and records an honest caption in the note:
+     `> **Payload cap ...:** showing top N by` `frp` `of M rows`. When you brief such a theme,
+     read M from that caption and state the cap explicitly — "top 250 of 500 fire detections by
+     FRP" — so the capped sample is never presented as the whole feed. You do **not** compute or
+     eyeball M; it is already in the note's caption, and the build-time key-figure band
+     (`synthesis/brief_stats.py` `_hazards`, tested in `tests/unit/test_brief_stats.py`) derives
+     the identical "N of M" chip from the same caption. So the honest band is inherited
+     automatically whenever `totalCount` swings — just make the brief prose match it, no
+     per-cycle caption babysitting.
    - Do **not** create a new file for an existing theme. One brief per theme, evolving.
 4. **Honour each source's `synthesis_cautions`.** `report-observed-not-predicted` (earthquakes)
    means report what was recorded, never what will happen; `no-investment-framing` /
