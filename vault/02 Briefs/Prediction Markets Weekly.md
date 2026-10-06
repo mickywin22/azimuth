@@ -2,8 +2,8 @@
 title: Prediction Markets Weekly
 type: L2-brief
 theme: prediction-markets
-week: 2026-W40
-updated: 2026-10-04T00:00:00Z
+week: 2026-W41
+updated: 2026-10-06T00:00:00Z
 sources: [prediction-markets]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -17,70 +17,70 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 > reports it the same way it reports a gas-storage figure or an earthquake magnitude. It is
 > **not** a forecast azimuth makes, and **not** an instruction to trade: odds are not
 > predictions, and nothing here is investment advice. azimuth reports the priced number and its
-> source, and takes no position on the underlying question. (This cycle absorbs the 2026-10-04
-> ingest — the **50-market panel held its breadth** (now 43 Polymarket + 7 Kalshi), cumulative
-> volume firming **~$388M → ~$430M**. The notable move is a **fresh deep Iran book entering the top**:
-> Polymarket's "US announces end of Iranian blockade by October 31" surfaced at **0.195 (~$35.3M, the
-> panel's third-deepest book)**, while the standing "Will the U.S. invade Iran before 2027?" **eased
-> 0.165 → 0.155 (16.5% → 15.5% implied)** and the Israel–Iran ceasefire **firmed 0.815 → 0.830**. The
-> AI/tech tail was mixed — NVIDIA-largest-company firmed 0.82 → 0.835 while Anthropic-IPO-before-2027
-> eased 0.825 → 0.815 and STRC-hits-$100 eased 0.895 → 0.835 — and the other deep Iran books held
-> (Mojtaba Khamenei head of state ~0.874, Iran leadership change 0.115). The panel stays Iran /
-> Middle-East dominated. All numbers are venue-quoted prices recorded as observed facts, never
-> forecasts or advice.)
+> source, and takes no position on the underlying question. (This cycle absorbs the 2026-10-06
+> ingest — the **50-market panel held its breadth** (43 Polymarket + 7 Kalshi), cumulative volume
+> easing **~$430M → ~$409M**. The notable move is the **"US announces end of Iranian blockade by
+> October 31" book dropping out of the panel** — the fresh ~$35.3M entrant the prior cycle flagged is
+> no longer listed — while the standing "Will the U.S. invade Iran before 2027?" **eased 0.155 → 0.145
+> (15.5% → 14.5% implied)**, the Israel–Iran ceasefire **firmed 0.830 → 0.835** and Mojtaba Khamenei
+> head of state **firmed ~0.874 → 0.880**. The AI/tech tail was mixed — NVIDIA-largest-company firmed
+> 0.835 → 0.850 and STRC-hits-$100 firmed 0.835 → 0.865 while Anthropic-IPO-before-2027 held ~0.815 —
+> and the other Iran books eased (Iran leadership change 0.115 → 0.105, US–Iran nuclear deal 0.135 →
+> 0.125, Bab el-Mandeb closed 0.175 → 0.145). The panel stays Iran / Middle-East dominated. All numbers
+> are venue-quoted prices recorded as observed facts, never forecasts or advice.)
 
 ## This week at a glance
 
-- The WorldMonitor prediction-market feed **held its 50-market panel** on the 2026-10-04 pull: now
-  **43 Polymarket + 7 Kalshi** priced questions, cumulative traded volume firming **~$388M → ~$430M**
-  — the widened breadth delivered earlier in the cycle stood rather than reverting to the old single
-  listing ([[prediction-markets]]).
-- A **fresh deep Iran book entered the top**: Polymarket's **"US announces end of Iranian blockade by
-  October 31"** surfaced at **0.195 (19.5% implied, ~$35.3M, the panel's third-deepest book)**, while
-  the standing **"Will the U.S. invade Iran before 2027?"** (still the deepest at **~$71.5M**) **eased
-  from 0.165 to 0.155 (16.5% → 15.5%)**. The venue's numbers are recorded as observed facts; azimuth
-  takes no position on the underlying questions ([[prediction-markets]]).
+- The WorldMonitor prediction-market feed **held its 50-market panel** on the 2026-10-06 pull:
+  **43 Polymarket + 7 Kalshi** priced questions, cumulative traded volume easing **~$430M → ~$409M**
+  — the widened breadth stood, the slight volume dip a routine book-size move ([[prediction-markets]]).
+- The notable move is a **deep Iran book dropping out of the panel**: the **"US announces end of
+  Iranian blockade by October 31"** entrant the prior cycle flagged (~$35.3M) is **no longer listed**,
+  while the standing **"Will the U.S. invade Iran before 2027?"** (still the deepest at **~$72.2M**)
+  **eased from 0.155 to 0.145 (15.5% → 14.5%)**. The venue's numbers are recorded as observed facts;
+  azimuth takes no position on the underlying questions ([[prediction-markets]]).
 - The panel stays **Iran / Middle-East dominated**: roughly a dozen of the 50 questions price some facet
-  of the Iran situation — US invasion (0.155), the fresh blockade-ends book (0.195), an Israel–Iran
-  ceasefire holding through October (0.830, firmed), Iran leadership change by year-end (0.115, held), a
-  US–Iran nuclear deal (0.135) and the Bab el-Mandeb Strait staying closed (0.175) among them —
-  alongside AI/tech, crypto token-launch and US-politics questions. Each price is the venue's, reported
-  as a liquidity-weighted observed fact, not a signal to act on ([[prediction-markets]]).
+  of the Iran situation — US invasion (0.145), an Israel–Iran ceasefire holding through October (0.835,
+  firmed), Iran leadership change by year-end (0.105, eased), a US–Iran nuclear deal (0.125, eased), the
+  Bab el-Mandeb Strait staying closed (0.145, eased) and the Strait of Hormuz returning to normal
+  (0.185) among them — alongside AI/tech, crypto token-launch and US-politics questions. Each price is
+  the venue's, reported as a liquidity-weighted observed fact, not a signal to act on
+  ([[prediction-markets]]).
 
 ## The panel
 
 - **Deepest books (by cumulative volume).** The liquidity concentrates in the Iran/Middle-East
-  cluster: **"Will the U.S. invade Iran before 2027?"** (0.155, ~$71.5M, still the deepest),
-  **"Will Mojtaba Khamenei be head of state in Iran end of 2026?"** (0.874, ~$39.8M), the fresh
-  **"US announces end of Iranian blockade by October 31"** (0.195, ~$35.3M, this cycle's new entrant),
-  **"Israel x Iran ceasefire continues through October 31?"** (0.830, ~$32.6M) and **"Iran leadership
-  change by December 31?"** (0.115, ~$26.7M); Kalshi's **"Will the Citrini scenario happen?"** (0.220,
-  ~$25.9M) is the next-deepest. Each figure is the venue's quoted price and recorded book size, reported
-  as observed facts ([[prediction-markets]]).
+  cluster: **"Will the U.S. invade Iran before 2027?"** (0.145, ~$72.2M, still the deepest),
+  **"Will Mojtaba Khamenei be head of state in Iran end of 2026?"** (0.880, ~$39.9M),
+  **"Israel x Iran ceasefire continues through October 31?"** (0.835, ~$32.8M), Kalshi's **"no change
+  in Fed interest rates after the October meeting"** (0.815, ~$27.0M) and **"Iran leadership change by
+  December 31?"** (0.105, ~$26.9M); Kalshi's **"Will the Citrini scenario happen?"** (0.220, ~$25.9M)
+  is the next-deepest. Each figure is the venue's quoted price and recorded book size, reported as
+  observed facts ([[prediction-markets]]).
 - **Highest-priced questions (the near-certain tail).** Several of the 50 price above 0.80: Mojtaba
-  Khamenei as head of state (0.874), **"Gemini 4.0 released?"** (0.875), **"Variational FDV above $500M
-  one day after launch?"** (0.840), **"Will STRC hit $100 by December 31?"** (0.835, down from 0.895),
-  **"NVIDIA the largest company end-December?"** (0.835, up from 0.82), the Israel–Iran ceasefire holding
-  (0.830) and **"Anthropic IPO before 2027?"** (0.815, down from 0.825). A high price reads as a high
+  Khamenei as head of state (0.880), **"NVIDIA the largest company end-December?"** (0.850, up from
+  0.835), **"Will STRC hit $100 by December 31?"** (0.865, up from 0.835), the Israel–Iran ceasefire
+  holding (0.835) and **"Anthropic IPO before 2027?"** (0.815, held). A high price reads as a high
   venue-implied probability; it is the market's number, not azimuth's forecast ([[prediction-markets]]).
-- **Non-geopolitical clusters were mixed.** AI/tech split this cycle — **"Will NVIDIA be the largest
-  company in the world by market cap on December 31?"** firmed to 0.835 (from 0.82) while **"Anthropic IPO
-  before 2027?"** eased to 0.815 (from 0.825) and **"Will STRC hit $100?"** eased to 0.835 (from 0.895);
-  crypto carries a string of token-launch FDV questions (mostly priced 0.10–0.20); US politics runs
-  Kalshi's 2028 nominee ladders and a Fed-funds-rate question. The venue prices are observed datapoints;
-  azimuth takes no position on any of the underlying questions ([[prediction-markets]]).
+- **Non-geopolitical clusters were mixed.** AI/tech firmed this cycle — **"Will NVIDIA be the largest
+  company in the world by market cap on December 31?"** firmed to 0.850 (from 0.835) and **"Will STRC
+  hit $100?"** firmed to 0.865 (from 0.835) while **"Anthropic IPO before 2027?"** held ~0.815; crypto
+  carries a string of token-launch FDV questions (mostly priced 0.10–0.20); US politics runs Kalshi's
+  2028 nominee ladders (Gavin Newsom 0.130 the deepest) and a Fed-funds-rate question. The venue prices
+  are observed datapoints; azimuth takes no position on any of the underlying questions
+  ([[prediction-markets]]).
 
 ## Reading the week
 
-- The cycle's story is the **50-market panel holding its breadth** while a **fresh deep Iran book
-  entered the top**. Polymarket's "US announces end of Iranian blockade by October 31" surfaced at 0.195
-  on ~$35.3M (the panel's third-deepest book) while the standing "Will the U.S. invade Iran before
-  2027?" eased from 0.165 to 0.155 (16.5% → 15.5% implied) and the Israel–Iran ceasefire firmed to 0.830
-  (from 0.815); the AI/tech tail was mixed (NVIDIA-largest 0.82 → 0.835, Anthropic IPO 0.825 → 0.815,
-  STRC $100 0.895 → 0.835). Cumulative volume firmed ~$388M → ~$430M; the panel composition eased to 43
-  Polymarket + 7 Kalshi. azimuth states what was recorded and stops there: every price is the market's,
-  not azimuth's, and the editorial line forbids reading any of them as a forecast or a reason to trade
-  ([[prediction-markets]]).
+- The cycle's story is the **50-market panel holding its breadth** while a **deep Iran book dropped out
+  of the top**. Polymarket's "US announces end of Iranian blockade by October 31" — the ~$35.3M entrant
+  the prior cycle flagged — is no longer listed, while the standing "Will the U.S. invade Iran before
+  2027?" eased from 0.155 to 0.145 (15.5% → 14.5% implied), the Israel–Iran ceasefire firmed to 0.835
+  (from 0.830) and Mojtaba Khamenei head of state firmed to 0.880 (from ~0.874); the AI/tech tail firmed
+  (NVIDIA-largest 0.835 → 0.850, STRC $100 0.835 → 0.865, Anthropic IPO held ~0.815). Cumulative volume
+  eased ~$430M → ~$409M; the panel composition held at 43 Polymarket + 7 Kalshi. azimuth states what was
+  recorded and stops there: every price is the market's, not azimuth's, and the editorial line forbids
+  reading any of them as a forecast or a reason to trade ([[prediction-markets]]).
 - **Breadth note (honest scope — now resolved):** the single-market era is over. The 2026-10-01 pull
   lists 50 markets (44 Polymarket + 6 Kalshi), so this brief now reports the **spread** of priced
   questions — deepest books, highest-priced tail, and the thematic clusters (Iran/Middle-East, AI/tech,
@@ -91,6 +91,7 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 ## Changelog
 
+- 2026-10-06 — daily-ingest synthesis (2026-W41): absorbed the 2026-10-05 and 2026-10-06 ingests — the 50-market panel held its breadth (43 Polymarket + 7 Kalshi), cumulative volume easing ~$430M → ~$409M. The notable move is the "US announces end of Iranian blockade by October 31" book dropping out of the panel (the ~$35.3M entrant the prior cycle flagged is no longer listed); "Will the U.S. invade Iran before 2027?" eased 0.155 → 0.145 (still deepest at ~$72.2M), the Israel–Iran ceasefire firmed 0.830 → 0.835 and Mojtaba Khamenei head of state firmed ~0.874 → 0.880. The AI/tech tail firmed — NVIDIA-largest-company 0.835 → 0.850, STRC-$100 0.835 → 0.865, Anthropic-IPO held ~0.815 — while the other Iran books eased (Iran leadership change 0.115 → 0.105, US–Iran nuclear deal 0.135 → 0.125, Bab el-Mandeb closed 0.175 → 0.145). The panel stays Iran / Middle-East dominated. Rewrote the intro, at-a-glance, panel and reading sections. All numbers venue-quoted observed facts; no-investment-framing / odds-are-not-forecasts caution held ([[prediction-markets]]).
 - 2026-10-04 — daily-ingest synthesis (2026-W40): absorbed the 2026-10-04 ingest — the 50-market panel held its breadth (now 43 Polymarket + 7 Kalshi), cumulative volume firming ~$388M → ~$430M. The notable move is a fresh deep Iran book entering the top: "US announces end of Iranian blockade by October 31" surfaced at 0.195 (~$35.3M, third-deepest), while "Will the U.S. invade Iran before 2027?" eased 0.165 → 0.155 (still deepest at ~$71.5M) and the Israel–Iran ceasefire firmed 0.815 → 0.830. The AI/tech tail was mixed — NVIDIA-largest-company 0.82 → 0.835, Anthropic-IPO 0.825 → 0.815, STRC-$100 0.895 → 0.835 — while Mojtaba Khamenei head of state (~0.874) and Iran leadership change (0.115) held. The panel stays Iran / Middle-East dominated. Rewrote the intro, at-a-glance, panel and reading sections. All numbers venue-quoted observed facts; no-investment-framing / odds-are-not-forecasts caution held ([[prediction-markets]]).
 
 - 2026-10-03 — daily-ingest synthesis (2026-W40): absorbed the 2026-10-02 and 2026-10-03 ingests — the 50-market panel HELD its breadth (44 Polymarket + 6 Kalshi), cumulative volume firming ~$379M → ~$388M (confirming the 2026-10-01 widening was not a one-pull artifact). The deepest book, Polymarket's "Will the U.S. invade Iran before 2027?", re-priced UP from 0.135 to 0.165 (13.5% → 16.5% implied) on ~$71.3M — the panel's largest single move. The AI/tech tail firmed: NVIDIA-largest-company 0.795 → 0.82, Anthropic-IPO-before-2027 0.78 → 0.825, STRC-hits-$100 0.88 → 0.895. The other deep Iran books held (Mojtaba Khamenei ~0.872, Israel–Iran ceasefire 0.815, Iran leadership change 0.115, US–Iran nuclear deal 0.13); Bab el-Mandeb-closed firmed to 0.175. Rewrote the intro, at-a-glance, panel and reading sections around the panel hold and the deepest-book re-pricing. Odds-are-not-forecasts / no-investment-framing held; no position taken on any underlying question ([[prediction-markets]]).
