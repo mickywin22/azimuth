@@ -918,6 +918,7 @@
       "entity_kind": "region",
       "theme": "shared",
       "themes": [
+        "cyber-watch",
         "energy-supply",
         "environmental-hazards",
         "humanitarian"
@@ -3305,6 +3306,13 @@
       "target": "source:displacement-flows",
       "cross_theme": false,
       "rel": "named-in"
+    },
+    {
+      "source": "entity:belgium",
+      "target": "brief:cyber-watch-weekly",
+      "cross_theme": true,
+      "rel": "mentioned-in",
+      "weight": 0
     },
     {
       "source": "entity:belgium",
