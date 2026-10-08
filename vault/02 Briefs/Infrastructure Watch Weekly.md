@@ -3,7 +3,7 @@ title: Infrastructure Watch Weekly
 type: L2-brief
 theme: infrastructure-watch
 week: 2026-W41
-updated: 2026-10-06T00:00:00Z
+updated: 2026-10-08T00:00:00Z
 sources: [internet-outages]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -16,30 +16,29 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 > infrastructure disruption events** — an internet outage is an observed network measurement
 > (Cloudflare Radar), with the cause category the source itself assigns — and takes no
 > position on any actor involved. Every claim links to the L1 note it rests on. This cycle
-> absorbs the 2026-10-06 pull: the active set **grew to 13 outages** (from 10 on 10-04) as a **new
-> cable-cut cause category entered** — two network-level fibre cuts (Haiti's Digicel, Guyana's GT&T) —
-> alongside a fresh Eswatini (Swaziland) nationwide power outage. **Iraq still dominates with 6 of the
-> 13 events** (all government-directed "exam shutdown" suspensions, the special round that started
-> 2026-09-26 running through 2026-10-10); Portugal carries 2 cyberattack disruptions on MEO/AS3243, and
-> Cuba and Honduras nationwide power blackouts — every prior row held, the growth all in the new
-> cable-cut and Eswatini entries. Cause split now **6 government-directed / 3 power-outage / 2
-> cyberattack / 2 cable-cut**. (Pull date of current cycle: 2026-10-06.)
+> absorbs the 2026-10-08 pull: the active set **eased to 12 outages** (from 13 on 10-06) as one of the
+> Iraq exam-shutdown rows aged off the rolling window — the cause mix otherwise unchanged. **Iraq still
+> dominates with 5 of the 12 events** (all government-directed "exam shutdown" suspensions, the special
+> round that started 2026-09-26 running through 2026-10-10); Portugal carries 2 cyberattack disruptions
+> on MEO/AS3243, Haiti and Guyana a cable-cut apiece, and Eswatini, Cuba and Honduras nationwide power
+> blackouts — every non-Iraq row held, the only move the single Iraq row clearing. Cause split now **5
+> government-directed / 3 power-outage / 2 cyberattack / 2 cable-cut**. (Pull date of current cycle: 2026-10-08.)
 
 ## This week at a glance
 
-- The Cloudflare Radar channel records **13 active internet outages** on 10-06 — **3 nationwide**,
-  **4 network-level** and **6 regional** in scope. By the source's own cause category: **6
+- The Cloudflare Radar channel records **12 active internet outages** on 10-08 — **3 nationwide**,
+  **4 network-level** and **5 regional** in scope. By the source's own cause category: **5
   government-directed**, **3 power-outage**, **2 cyberattack** and **2 cable-cut** — government-directed
-  still the largest category; the set grew by 3 rows since 10-04 as the cable-cut category entered
+  still the largest category; the set eased by 1 row since 10-06 as one Iraq exam-shutdown row aged off
   ([[internet-outages]]).
-- **Seven countries hold the 13 events, and Iraq alone carries 6 of them** — all government-directed
+- **Seven countries hold the 12 events, and Iraq alone carries 5 of them** — all government-directed
   exam-shutdown suspensions; Portugal carries 2 cyberattack disruptions, Haiti and Guyana a cable-cut
-  apiece (network-level), and Eswatini, Cuba and Honduras a nationwide power-outage apiece — Iraq,
-  Portugal, Cuba and Honduras all held; Haiti, Guyana and Eswatini are the new entries
+  apiece (network-level), and Eswatini, Cuba and Honduras a nationwide power-outage apiece — every
+  non-Iraq row held; the only move is one Iraq row clearing (6 → 5)
   ([[internet-outages]]).
-- The composition **stays anchored on the Iraq exam-shutdown pattern** but widened its cause mix: the
-  Iraq events are fresh detection rows for the special round that started 2026-09-26 (running through
-  2026-10-10); severity splits **6 MAJOR / 4 PARTIAL / 3 TOTAL** ([[internet-outages]]).
+- The composition **stays anchored on the Iraq exam-shutdown pattern**: the
+  Iraq events are detection rows for the special round that started 2026-09-26 (running through
+  2026-10-10); severity splits **5 MAJOR / 4 PARTIAL / 3 TOTAL** ([[internet-outages]]).
 
 ## Honest scope
 
@@ -51,20 +50,20 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 ## Reading the week
 
-- **Iraq dominates the set with 6 government-directed events**, all the source's recurring "exam
+- **Iraq dominates the set with 5 government-directed events**, all the source's recurring "exam
   shutdown" pattern — short (roughly 30-to-90-minute) regional internet suspensions in the early
   hours, the special round that started 2026-09-26 and runs through 2026-10-10 in the current
-  window; the Iraq rows held at 6 this cycle. azimuth records the cause label the source assigns and
-  takes no position on the practice ([[internet-outages]]).
+  window; the Iraq rows eased 6 → 5 this cycle as one detection row aged off. azimuth records the cause
+  label the source assigns and takes no position on the practice ([[internet-outages]]).
 - **Portugal holds two cyberattack-labelled events** — traffic disruptions observed on MEO
   (AS3243) on 2026-09-13 and 2026-09-14, both partial-severity and short (~45-105 minutes) — the
   first cyberattack-cause readings the brief has carried, the source's own category
   ([[internet-outages]]).
-- **Two cable-cut events entered the set this cycle** — Haiti's Digicel network (fibre-optic cable
+- **Two cable-cut events hold in the set** — Haiti's Digicel network (fibre-optic cable
   damage on Route Nationale) and Guyana's GT&T (a cut fibre-optic cable causing significant
-  disruption), both network-level — the first cable-cut-cause readings the brief has carried, the
-  source's own category ([[internet-outages]]).
-- **Eswatini (Swaziland) holds a fresh nationwide power outage** — the source attributes it to planned
+  disruption), both network-level — the cable-cut-cause readings that entered last cycle, carried
+  unchanged, the source's own category ([[internet-outages]]).
+- **Eswatini (Swaziland) holds a nationwide power outage** — the source attributes it to planned
   outages by the Eswatini Electricity Company — joining the standing power-outage set
   ([[internet-outages]]).
 - **Cuba holds a nationwide total-severity power outage** (2026-09-18 → 2026-09-21, roughly three
@@ -85,6 +84,7 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 ## Changelog
 
+- 2026-10-08 — daily-ingest synthesis (2026-W41): absorbed the 2026-10-07 and 2026-10-08 pulls — the active set eased to 12 outages (from 13 on 10-06) as one Iraq exam-shutdown detection row aged off the rolling window; the cause mix otherwise unchanged. Iraq eased to 5 government-directed exam-shutdown events (the 2026-09-26 → 2026-10-10 special round), Portugal held 2 cyberattack disruptions on MEO/AS3243, Haiti and Guyana a cable-cut apiece, and Eswatini, Cuba and Honduras their nationwide power blackouts — every non-Iraq row held. Cause split 5 government-directed / 3 power-outage / 2 cyberattack / 2 cable-cut; scope 5 regional / 4 network / 3 nationwide; severity 5 MAJOR / 4 PARTIAL / 3 TOTAL; seven countries held. Chokepoint-status channel still unsurfaced. Advanced the cutoff and reframed the intro, at-a-glance and reading sections around the single Iraq row clearing. Source-cause-only, no-position framing held ([[internet-outages]]).
 - 2026-10-06 — daily-ingest synthesis (2026-W41): absorbed the 2026-10-05 and 2026-10-06 pulls — the active set grew to 13 outages (from 10 on 10-04) as a new cable-cut cause category entered: two network-level fibre cuts (Haiti's Digicel, Guyana's GT&T), alongside a fresh Eswatini (Swaziland) nationwide power outage. Iraq held 6 government-directed exam-shutdown events (the 2026-09-26 → 2026-10-10 special round), Portugal 2 cyberattack disruptions on MEO/AS3243, Cuba and Honduras their nationwide power blackouts — all held. Cause split 6 government-directed / 3 power-outage / 2 cyberattack / 2 cable-cut; scope 6 regional / 4 network / 3 nationwide; severity 6 MAJOR / 4 PARTIAL / 3 TOTAL; seven countries (from four). Chokepoint-status channel still unsurfaced. Rewrote the intro, at-a-glance and reading sections around the cable-cut entry and the set growth. Source-cause-only, no-position framing held ([[internet-outages]]).
 - 2026-10-04 — daily-ingest synthesis (2026-W40): absorbed the 2026-10-04 pull, a clean hold. The active set held at 10 outages, byte-identical to 10-03 — the same cause split (6 government-directed / 2 cyberattack / 2 power-outage) and country set (Iraq 6, Portugal 2, Cuba 1, Honduras 1), no row aged off and no new cause category entered. Iraq still carries 6 of 10 (government-directed "exam shutdown" suspensions, the 2026-09-26 → 2026-10-10 special round), alongside two Portugal cyberattack disruptions, the Cuba nationwide blackout and the Honduras grid failure. Bumped the cutoff and logged the hold; no figure moved. Source-cause-only, no-position framing held ([[internet-outages]]).
 
