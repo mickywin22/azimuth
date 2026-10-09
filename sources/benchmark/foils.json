@@ -2,50 +2,34 @@
   "$note": "Captured snapshot of the COMPARED forecast/intelligence product for the azimuth benchmark (synthesis/benchmark.py). Quoted by product + capture date; NOT surfaced as an azimuth channel and NOT an L1 source. Refresh with pull_benchmark_foils.py.",
   "endpoint": "/api/forecast/v1/get-forecasts",
   "attribution": "WorldMonitor (api.worldmonitor.app) — model-generated forecast/assessment product",
-  "feed_generated_at": 1791464492009,
+  "feed_generated_at": 1791551063536,
   "feed_degraded": false,
-  "captured_at": "2026-10-08T13:20:38Z",
-  "n_forecasts_seen": 14,
+  "captured_at": "2026-10-09T13:09:11Z",
+  "n_forecasts_seen": 6,
   "topics": {
     "energy-supply": {
       "foil": {
-        "id": "fc-market-fd587dc3",
+        "id": "fc-market-6f0958df",
         "domain": "market",
-        "region": "Black Sea",
-        "title": "Energy repricing risk from Black Sea maritime disruption state",
-        "probability": 0.644,
-        "prior_probability": 0.645,
+        "region": "Middle East",
+        "title": "Energy repricing risk from Middle East security escalation state",
+        "probability": 0.579,
+        "prior_probability": 0.579,
         "confidence": 0.75,
         "time_horizon": "30d",
         "trend": "stable",
         "projections": {},
-        "scenario_short": "Black Sea maritime disruption, confirmed at 78% state confidence with 68% pressure, transmits through global crude spread stress to energy markets, keeping repricing risk elevated near 64% over 30 days.",
-        "perspective_strategic": "The 78% state confirmation and 68% pressure on global crude spread stress indicate a durable, not transient, disruption state; the single transmission edge to Energy suggests a focused market channel rather than diffuse risk, with 6 urgent critical signals reinforcing the energy repricing path.",
-        "perspective_contrarian": "The counter-evidence is the 75% confidence ceiling itself, which bounds action; the absence of directly matched Black Sea reporting—flagged as the key unknown—means the 78% state confirmation may be over-weighted relative to thin source diversity, allowing the contrarian branch's 56% projection to materialize if containment signals emerge.",
-        "actor_lens": "Commodity traders: Price whether stress in Black Sea becomes durable over the 30d. Rebalance positions if the probability path moves away from 64%.",
-        "top_signal": "Black Sea maritime disruption state is feeding energy repricing through global crude spread stress, with 68% pressure and 78% state confirmation"
+        "scenario_short": "Middle East security escalation state will sustain energy repricing pressure near 58% over 30 days, driven by 6 urgent critical signals and 72% state confirmation of energy supply shock transmission.",
+        "perspective_strategic": "The 58% pressure and 72% state confirmation indicate a stable but elevated risk of energy repricing through supply shock, with the strongest transmission path running through energy supply shock across 1 edge toward Energy.",
+        "perspective_contrarian": "The 75% confidence level still leaves room for reversal, and the current 58% baseline could decline if no more directly matched reporting on Middle East emerges, allowing actors to prioritize containment over escalation.",
+        "actor_lens": "Commodity traders: Price whether stress in Middle East becomes durable over the 30d. Rebalance positions if the probability path moves away from 58%.",
+        "top_signal": "Middle East security escalation state is feeding energy repricing through energy supply shock, with 58% pressure and 72% state confirmation"
       },
       "absence_reason": null
     },
     "supply-chain-inflation": {
-      "foil": {
-        "id": "fc-market-fd587dc3",
-        "domain": "market",
-        "region": "Black Sea",
-        "title": "Energy repricing risk from Black Sea maritime disruption state",
-        "probability": 0.644,
-        "prior_probability": 0.645,
-        "confidence": 0.75,
-        "time_horizon": "30d",
-        "trend": "stable",
-        "projections": {},
-        "scenario_short": "Black Sea maritime disruption, confirmed at 78% state confidence with 68% pressure, transmits through global crude spread stress to energy markets, keeping repricing risk elevated near 64% over 30 days.",
-        "perspective_strategic": "The 78% state confirmation and 68% pressure on global crude spread stress indicate a durable, not transient, disruption state; the single transmission edge to Energy suggests a focused market channel rather than diffuse risk, with 6 urgent critical signals reinforcing the energy repricing path.",
-        "perspective_contrarian": "The counter-evidence is the 75% confidence ceiling itself, which bounds action; the absence of directly matched Black Sea reporting—flagged as the key unknown—means the 78% state confirmation may be over-weighted relative to thin source diversity, allowing the contrarian branch's 56% projection to materialize if containment signals emerge.",
-        "actor_lens": "Commodity traders: Price whether stress in Black Sea becomes durable over the 30d. Rebalance positions if the probability path moves away from 64%.",
-        "top_signal": "Black Sea maritime disruption state is feeding energy repricing through global crude spread stress, with 68% pressure and 78% state confirmation"
-      },
-      "absence_reason": null
+      "foil": null,
+      "absence_reason": "No maritime/inflation forecast in the feed this cycle — azimuth reports the observed energy-price facts it can see, not a disruption probability."
     },
     "seismic-infrastructure": {
       "foil": null,
