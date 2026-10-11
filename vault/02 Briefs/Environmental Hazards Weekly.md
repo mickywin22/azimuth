@@ -3,7 +3,7 @@ title: Environmental Hazards Weekly
 type: L2-brief
 theme: environmental-hazards
 week: 2026-W41
-updated: 2026-10-08T00:00:00Z
+updated: 2026-10-11T00:00:00Z
 sources: [wildfire-detections, thermal-escalations, natural-events, radiation-observations]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -16,71 +16,72 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 > environmental hazards — active-fire detections, clustered thermal anomalies, disaster
 > alerts and ambient-radiation readings — what the instruments recorded, never what will
 > happen, and never a position on any conflict the data sits near. Every claim links to the
-> L1 note it rests on. (This cycle absorbs the 2026-10-07 and 2026-10-08 pulls. The wildfire note renders
-> the top 250 detections by fire radiative power out of the **500 rows** its caption carries (down from
-> 6,657), so the active-fire figures below describe that strongest-fires subset rather than the full
-> detection set — [[wildfire-detections]]. The headline this cycle is **Iran still leading as the tail
-> broadens**: the strongest-fire sample reads **Iran 127 / Russia 61 / Turkey 25 / Ukraine 22 /
-> Syria 10** (from Iran 141 / Russia 73 / Ukraine 13 / Turkey 13 / Saudi Arabia 8) — Iran and Russia both
-> eased while **Turkey rebuilt 13 → 25**, Ukraine firmed 13 → 22 and Syria re-entered at 10 — top-end
-> intensity rising to top-3 FRP **~148.7 / 115.2 / 108.0 MW** (from ~105.7 / 105.7 / 66.0); the
-> thermal-cluster split **concentrated to 8 Iran / 4 Russia** (from 7/5), all-persistent with the sharpest
-> z firming to **4.09** on an Iran cluster; the disaster slate **rose to 29 as severe storms rebuilt and a
-> Taal eruption and a Vanuatu earthquake entered**; and radiation **held all-within-normal** — no spike,
-> no elevated flag, the largest departure a below-baseline Anchorage reading at z −1.71.)
+> L1 note it rests on. (This cycle absorbs the 2026-10-09 → 2026-10-11 pulls. The wildfire note renders
+> the top 250 detections by fire radiative power out of the **500 rows** its caption carries, so the
+> active-fire figures below describe that strongest-fires subset rather than the full detection set —
+> [[wildfire-detections]]. The headline this cycle is **Iran holding the lead as the Turkey/Ukraine tail
+> firms**: the strongest-fire sample reads **Iran 125 / Russia 47 / Turkey 34 / Ukraine 32 / Saudi Arabia
+> 7 / North Korea 5** (from Iran 127 / Russia 61 / Turkey 25 / Ukraine 22 / Syria 10 / Saudi Arabia 4) —
+> Iran held roughly flat and Russia eased while **Turkey firmed 25 → 34**, Ukraine firmed 22 → 32 and Syria
+> dropped out — top-end intensity easing to top-3 FRP **~140.3 / 140.3 / 110.1 MW** (from ~148.7 / 115.2 /
+> 108.0); the thermal-cluster split **concentrated further to 11 Iran / 1 Russia** (from 8/4), all-persistent
+> with the sharpest z easing to **2.94** on an Iran cluster; the disaster slate **eased to 28 with a Cat 4
+> Hurricane Simon leading the severe-storm track and a Panama earthquake entering**; and radiation carried
+> **one ELEVATED flag** — an Albany, NY reading at 53 nSv/h (z +2.07), still inside the normal ambient band,
+> no spike.)
 
 ## This week at a glance
 
 - The NASA FIRMS VIIRS feed's **top-250-by-FRP cap held at 250 detections**, out of the **500 rows**
-  the note's caption carries (down from 6,657 on 10-06); the strongest-fire sample's country split read
-  **Iran 127 / Russia 61 / Turkey 25 / Ukraine 22 / Syria 10 / Saudi Arabia 4** plus one North Korea
-  (from Iran 141 / Russia 73 / Ukraine 13 / Turkey 13 / Saudi Arabia 8), every
+  the note's caption carries; the strongest-fire sample's country split read
+  **Iran 125 / Russia 47 / Turkey 34 / Ukraine 32 / Saudi Arabia 7 / North Korea 5**
+  (from Iran 127 / Russia 61 / Turkey 25 / Ukraine 22 / Syria 10 / Saudi Arabia 4), every
   one of the 250 still carrying an **emergency flag** and 0 possible-explosion flags. **Iran kept its
-  lead** as both it and Russia eased (141 → 127, 73 → 61), while **Turkey rebuilt 13 → 25**, Ukraine
-  firmed 13 → 22 and Syria re-entered at 10; intensity rose at the top — the top-3 fire-radiative-power
-  values climbed to **~148.7 / 115.2 / 108.0 MW** (from ~105.7 / 105.7 / 66.0), the strongest a Russia
-  detection ([[wildfire-detections]]).
+  lead** holding roughly flat (127 → 125) as Russia eased (61 → 47), while **Turkey firmed 25 → 34**,
+  Ukraine firmed 22 → 32 and Syria dropped out; intensity eased at the top — the top-3 fire-radiative-power
+  values settled to **~140.3 / 140.3 / 110.1 MW** (from ~148.7 / 115.2 / 108.0) ([[wildfire-detections]]).
 - The FIRMS thermal-escalation feed again clustered the window into **12 signals**, all 12
   `conflict_adjacent`, all 12 `THERMAL_RELEVANCE_HIGH` and all 12 `THERMAL_STATUS_PERSISTENT`
-  (0 spike), the country attribution **concentrating toward Iran** — **8 Iran / 4 Russia**
-  (from 7 Iran / 5 Russia) — while the sharpest z-score **firmed to 4.09** (from 3.07, now on an Iran
+  (0 spike), the country attribution **concentrating further toward Iran** — **11 Iran / 1 Russia**
+  (from 8 Iran / 4 Russia) — while the sharpest z-score **eased to 2.94** (from 4.09, still on an Iran
   cluster) ([[thermal-escalations]]).
-- The GDACS / NASA EONET disaster feed **rose to 29 active events** (from 22 on 10-06, all 29 open):
-  the **severe-storm category rebuilt to 12** (from 7) on fresh tropical-cyclone tracks, **floods stayed
-  at 0**, the multi-country droughts held at **4**, Sea and Lake Ice held at **11**, and a **Taal volcano
-  eruption** and a **Vanuatu earthquake** each entered at 1 ([[natural-events]]).
-- Radiation **held at 11 readings** and **held all-within-normal**: **10 EPA RadNet US
-  stations** plus the carried Safecast Fukushima reading, ambient background from **27 nSv/h** to
-  **74.3 nSv/h (Fukushima)**; this pull scored **no SPIKE and no ELEVATED flag** — the largest departure
-  a **below-baseline Anchorage reading at 32 nSv/h, z −1.71**, inside the normal band — a quiet series on
+- The GDACS / NASA EONET disaster feed **eased to 28 active events** (from 29, all 28 open):
+  the **severe-storm category held near 11** led by a **Category 4 Hurricane Simon** (eastern Pacific,
+  130 kt, 933 mb), **floods stayed at 0**, the multi-country droughts held at **4**, Sea and Lake Ice held
+  near **10**, a **Taal volcano eruption** held and a **Panama earthquake** (the M7.7) and a Vanuatu
+  earthquake each sat at 1 ([[natural-events]]).
+- Radiation **held at 11 readings** and carried **one ELEVATED flag** this pull: **10 EPA RadNet US
+  stations** plus the carried Safecast Fukushima reading, ambient background from **26 nSv/h** to
+  **74.3 nSv/h (Fukushima)**; the elevated flag sits on an **Albany, NY reading at 53 nSv/h (z +2.07)**,
+  above its 48.1 baseline but still inside the normal ambient band, with **no SPIKE** — a quiet series on
   still-low ambient levels ([[radiation-observations]]).
 
 ## Active fire — where the detections clustered
 
 - The top-250-by-FRP sample attributes — by each detection's own `region` field, deterministically
-  tallied — as **Iran 141 / Russia 73 / Ukraine 13 / Turkey 13 / Saudi Arabia 8** plus one each
-  North Korea on the 10-08 pull, from the 10-06 split of Iran 141 / Russia 73 /
-  Ukraine 13 / Turkey 13 / Saudi Arabia 8: **Iran kept its lead** while both it and Russia eased
-  (141 → 127, 73 → 61), **Turkey rebuilt 13 → 25**, Ukraine firmed 13 → 22, Syria re-entered at 10 and
-  Saudi Arabia eased 8 → 4. The detection count stayed capped at
+  tallied — as **Iran 125 / Russia 47 / Turkey 34 / Ukraine 32 / Saudi Arabia 7 / North Korea 5**
+  on the 10-11 pull, from the 10-08 split of Iran 127 / Russia 61 / Turkey 25 / Ukraine 22 /
+  Syria 10 / Saudi Arabia 4: **Iran kept its lead** holding roughly flat (127 → 125) while Russia eased
+  (61 → 47), **Turkey firmed 25 → 34**, Ukraine firmed 22 → 32, North Korea firmed to 5 and Syria dropped
+  out. The detection count stayed capped at
   250, all 250 still carried an emergency flag and 0 carried a possible-explosion flag, while intensity
-  rose at the top — the top-3 FRP values climbed to **~148.7 / 115.2 / 108.0 MW** (from ~105.7 / 105.7 /
-  66.0), the strongest a Russia detection, the second in Ukraine ([[wildfire-detections]]).
+  eased at the top — the top-3 FRP values settled to **~140.3 / 140.3 / 110.1 MW** (from ~148.7 / 115.2 /
+  108.0) ([[wildfire-detections]]).
 - azimuth caps this L1 note to the top 250 detections by FRP — the strongest, most energetic
   fires — because the endpoint returns the full set and ignores limit parameters; the cap is
   recorded in the note's own caption so the truncation is never silent (the caption states the
-  **top 250 of 500 rows** this pull, the full set sharply smaller than the 6,657 of 10-06). The country
+  **top 250 of 500 rows** this pull). The country
   split and FRP figures above are exact for that capped top-250 subset, not necessarily representative of
   the full set ([[wildfire-detections]]).
 
 ## Thermal escalations — the clustered signal
 
-- The feed again clustered the window into **12 thermal-escalation signals** on the 10-08 pull.
+- The feed again clustered the window into **12 thermal-escalation signals** on the 10-11 pull.
   All 12 clusters carried `conflict_adjacent` and all 12 `THERMAL_RELEVANCE_HIGH`, and the status
   mix held **all 12 `THERMAL_STATUS_PERSISTENT`** (persistentCount 12, spikeCount 0), the
-  country attribution **concentrating back toward Iran** — **8 Iran / 4 Russia**, from 7 Iran /
-  5 Russia the prior pull. The sharpest z-score **firmed to 4.09** (from 3.07), now on an Iran cluster,
-  the Iran clusters still sitting on the SW-Iran Khuzestan band around 30–32N 47–48E
+  country attribution **concentrating further toward Iran** — **11 Iran / 1 Russia**, from 8 Iran /
+  4 Russia the prior pull. The sharpest z-score **eased to 2.94** (from 4.09), still on an Iran cluster,
+  the Iran clusters still sitting on the SW-Iran Khuzestan band around 30–32N 47–49E
   ([[thermal-escalations]]).
 - azimuth reports the Iran/Russia split and the all-persistent status as the observed feed output
   and takes no position on it — a thermal cluster is a measured radiance aggregate, and the L2 line
@@ -90,35 +91,37 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 ## Disaster alerts and radiation
 
-- The GDACS/EONET disaster slate **rose to 29 active events** on the 10-08 pull (from 22 on
-  10-06, all 29 open): the severe-storm category rebuilt to **12** (from 7) on fresh tropical-cyclone
-  tracks; **floods stayed at 0**; the multi-country droughts held at **4**; Sea and Lake Ice held at
-  **11**; and a **Taal volcano eruption** and a **Vanuatu earthquake** each entered at 1. azimuth records
-  the count and category slate as the observed feed state, taking no position on any of it ([[natural-events]]).
+- The GDACS/EONET disaster slate **eased to 28 active events** on the 10-11 pull (from 29 on
+  10-08, all 28 open): the severe-storm category held near **11**, led by a **Category 4 Hurricane Simon**
+  (eastern Pacific, 130 kt, 933 mb) with an Isaias-26 Cat 3 and a Simon-26 Cat 1 also tracked; **floods
+  stayed at 0**; the multi-country droughts held at **4**; Sea and Lake Ice held near **10**; a **Taal
+  volcano eruption** held and the **Panama earthquake** (the M7.7) joined the Vanuatu earthquake at 1 each.
+  azimuth records the count and category slate as the observed feed state, taking no position on any of it ([[natural-events]]).
 - Radiation **held at 11 readings** this pull and **held all-within-normal**: the **10 EPA RadNet US
   stations** stayed online — ambient background from 27 nSv/h up to **74.3** — the **74.3 nSv/h** top
-  the carried Safecast Fukushima reading. This pull the feed scored **no SPIKE and no ELEVATED flag**,
-  the largest departure a **below-baseline Anchorage reading at 32 nSv/h, z −1.71**, inside the normal
-  band — a quiet series on still-low ambient levels ([[radiation-observations]]).
+  the carried Safecast Fukushima reading (74.3 nSv/h, the series top). This pull the feed scored **no
+  SPIKE but one ELEVATED flag** — an **Albany, NY reading at 53 nSv/h (z +2.07)**, above its 48.1 baseline
+  but still inside the normal ambient band — the series otherwise quiet on still-low ambient levels ([[radiation-observations]]).
 
 ## Reading the week
 
-- The 2026-10-08 pull shows the strongest-fire sample with **Iran still leading as the tail broadens**:
-  the top-250-by-FRP cap held at 250 detections of 500 rows, and the region tally now reads
-  **Iran 127 / Russia 61 / Turkey 25 / Ukraine 22 / Syria 10 / Saudi Arabia 4** (from Iran 141 /
-  Russia 73 / Ukraine 13 / Turkey 13 / Saudi Arabia 8) — Iran and Russia both eased while Turkey rebuilt
-  13 → 25, Ukraine firmed 13 → 22 and Syria re-entered at 10 — the top-3 FRP values rising to
-  **~148.7 / 115.2 / 108.0 MW** (from ~105.7 / 105.7 / 66.0), the strongest a Russia detection, and all
+- The 2026-10-11 pull shows the strongest-fire sample with **Iran holding the lead as the Turkey/Ukraine
+  tail firms**: the top-250-by-FRP cap held at 250 detections of 500 rows, and the region tally now reads
+  **Iran 125 / Russia 47 / Turkey 34 / Ukraine 32 / Saudi Arabia 7 / North Korea 5** (from Iran 127 /
+  Russia 61 / Turkey 25 / Ukraine 22 / Syria 10 / Saudi Arabia 4) — Iran held roughly flat and Russia
+  eased while Turkey firmed 25 → 34, Ukraine firmed 22 → 32 and Syria dropped out — the top-3 FRP values
+  easing to **~140.3 / 140.3 / 110.1 MW** (from ~148.7 / 115.2 / 108.0), and all
   250 still carried an emergency flag ([[wildfire-detections]]). The
   thermal-escalation picture held its 12-cluster, 12/12-conflict-adjacent, 12/12-high-relevance,
-  all-PERSISTENT shape while the country split **concentrated toward Iran** — 8 Iran / 4 Russia (from
-  7 Iran / 5 Russia) — the sharpest z **firming to 4.09** (from 3.07, now on an Iran cluster)
-  ([[thermal-escalations]]). The disaster slate **rose to 29 active events** (from 22):
-  severe storms rebuilt to 12 (from 7) on fresh tropical-cyclone tracks, floods stayed at 0, droughts
-  held at 4, Sea/Lake Ice held at 11, and a Taal eruption and a Vanuatu earthquake entered ([[natural-events]]). Radiation
-  **held at 11 readings** — 10 EPA RadNet US stations (27–74.3 nSv/h) alongside the carried Fukushima
-  reading (74.3 nSv/h) — and **held all-within-normal**, no SPIKE and no ELEVATED flag, the largest
-  departure a below-baseline Anchorage reading at 32 nSv/h (z −1.71) inside the normal band ([[radiation-observations]]). azimuth records the detections, the cluster statuses, the alert
+  all-PERSISTENT shape while the country split **concentrated further toward Iran** — 11 Iran / 1 Russia
+  (from 8 Iran / 4 Russia) — the sharpest z **easing to 2.94** (from 4.09, still on an Iran cluster)
+  ([[thermal-escalations]]). The disaster slate **eased to 28 active events** (from 29):
+  severe storms held near 11 led by a Category 4 Hurricane Simon (eastern Pacific, 130 kt, 933 mb), floods
+  stayed at 0, droughts held at 4, Sea/Lake Ice held near 10, and the Taal eruption held while the Panama
+  M7.7 earthquake joined the Vanuatu earthquake ([[natural-events]]). Radiation
+  **held at 11 readings** — 10 EPA RadNet US stations (26–65 nSv/h) alongside the carried Fukushima
+  reading (74.3 nSv/h, the series top) — and carried **one ELEVATED flag**, no SPIKE, on an Albany, NY
+  reading at 53 nSv/h (z +2.07) still inside the normal ambient band ([[radiation-observations]]). azimuth records the detections, the cluster statuses, the alert
   categories and the sensor values, links each to its L1 note, and stops there — what the
   satellites and stations measured, not what may follow
   ([[wildfire-detections]], [[thermal-escalations]], [[natural-events]],
@@ -126,6 +129,7 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 ## Changelog
 
+- 2026-10-11 — daily-ingest synthesis (2026-W41): absorbed the 2026-10-09 → 2026-10-11 pulls. The wildfire top-250-by-FRP sample (of 500 rows) read Iran 125 / Russia 47 / Turkey 34 / Ukraine 32 / Saudi Arabia 7 / North Korea 5 (from Iran 127 / Russia 61 / Turkey 25 / Ukraine 22 / Syria 10 / Saudi Arabia 4) — Iran held roughly flat and Russia eased while Turkey firmed 25 → 34, Ukraine firmed 22 → 32 and Syria dropped out — with top-3 FRP easing to ~140.3 / 140.3 / 110.1 MW (from ~148.7 / 115.2 / 108.0), all 250 emergency-flagged. Thermal held its 12-cluster all-PERSISTENT, 12/12 conflict-adjacent + high-relevance shape while the split concentrated further to 11 Iran / 1 Russia (from 8/4), the sharpest z easing to 2.94 (from 4.09, still an Iran cluster). The disaster slate eased to 28 active events (from 29, all open) — severe storms held near 11 led by a Category 4 Hurricane Simon (eastern Pacific, 130 kt, 933 mb), Sea/Lake Ice near 10, droughts 4, the Taal eruption held and the Panama M7.7 earthquake joined the Vanuatu earthquake. Radiation held at 11 readings and carried one ELEVATED flag (no SPIKE) — an Albany, NY reading at 53 nSv/h (z +2.07) still inside the normal ambient band, Fukushima 74.3 nSv/h the series top. Rewrote the intro, at-a-glance, active-fire, thermal, disaster+radiation and reading sections. Observed-only, no-position framing held ([[wildfire-detections]], [[thermal-escalations]], [[natural-events]], [[radiation-observations]]).
 - 2026-10-08 — daily-ingest synthesis (2026-W41): absorbed the 2026-10-07 and 2026-10-08 pulls. The wildfire top-250-by-FRP sample (of 500 rows, down from 6,657 on 10-06) read Iran 127 / Russia 61 / Turkey 25 / Ukraine 22 / Syria 10 / Saudi Arabia 4 plus one North Korea (from Iran 141 / Russia 73 / Ukraine 13 / Turkey 13 / Saudi Arabia 8) — Iran and Russia both eased while Turkey rebuilt 13 → 25, Ukraine firmed 13 → 22 and Syria re-entered at 10 — with top-3 FRP rising to ~148.7 / 115.2 / 108.0 MW (from ~105.7 / 105.7 / 66.0, the strongest a Russia detection), all 250 emergency-flagged. Thermal held its 12-cluster all-PERSISTENT, 12/12 conflict-adjacent + high-relevance shape while the split concentrated to 8 Iran / 4 Russia (from 7/5), the sharpest z firming to 4.09 (from 3.07, now an Iran cluster). The disaster slate rose to 29 active events (from 22, all 29 open) — severe storms rebuilt to 12 (from 7) on fresh tropical-cyclone tracks, Sea/Lake Ice 11, droughts 4, a Taal eruption and a Vanuatu earthquake entered. Radiation held at 11 readings and held all-within-normal (no SPIKE, no ELEVATED; largest departure a below-baseline Anchorage 32 nSv/h, z −1.71). Rewrote the intro, at-a-glance, active-fire, thermal, disaster+radiation and reading sections. Observed-only, no-position framing held ([[wildfire-detections]], [[thermal-escalations]], [[natural-events]], [[radiation-observations]]).
 - 2026-10-06 — daily-ingest synthesis (2026-W41): absorbed the 2026-10-05 and 2026-10-06 pulls. The wildfire top-250-by-FRP sample (of 6,657 rows, up from 500 on 10-04) read Iran 141 / Russia 73 / Ukraine 13 / Turkey 13 / Saudi Arabia 8 plus one each Israel/Gaza and North Korea (from Iran 129 / Turkey 33 / Russia 32 / Saudi Arabia 28 / Ukraine 24 / Syria 4) — Iran firmed its lead (+12) while Russia rebuilt 32 → 73, Turkey eased 33 → 13, Saudi Arabia 28 → 8, Syria dropped out — with top-3 FRP firming to ~105.7 / 105.7 / 66.0 MW (from ~95.4 / 71.1 / 65.3), all 250 emergency-flagged. Thermal held its 12-cluster all-PERSISTENT, 12/12 conflict-adjacent + high-relevance shape while the split eased back to 7 Iran / 5 Russia (from 11/1), the sharpest z easing to 3.07 (from 4.70, now a Russia cluster). The disaster slate eased to 22 active events (from 26, all 22 open) — severe storms eased to 7 (from 10), Sea/Lake Ice 11, droughts 4, the Krakatau volcano dropped off. Radiation held at 11 readings and held all-within-normal (no SPIKE, no ELEVATED; sharpest San Francisco 38 nSv/h, z 1.34). Rewrote the intro, at-a-glance, active-fire, thermal, disaster+radiation and reading sections. Observed-only, no-position framing held ([[wildfire-detections]], [[thermal-escalations]], [[natural-events]], [[radiation-observations]]).
 - 2026-10-04 — daily-ingest synthesis (2026-W40): absorbed the 2026-10-04 pull, a sharp concentration onto Iran. The strongest-fire top-250-by-FRP sample (of 500 rows) flipped its lead to Iran 129 / Turkey 33 / Russia 32 / Saudi Arabia 28 / Ukraine 24 / Syria 4 (from Russia 128 / Iran 84 / Ukraine 24 / Saudi Arabia 13 / North Korea 1) — Russia collapsed 128 → 32 as Turkey and Syria re-entered — with top-3 FRP jumping to ~95.4 / 71.1 / 65.3 MW (from ~66.3 / 42.5 / 40.7), the strongest at ~30.4N 47.3E in SW Iran, all 250 still emergency-flagged. Thermal held its 12-cluster all-PERSISTENT, 12/12 conflict-adjacent + high-relevance shape while the split concentrated to 11 Iran / 1 Russia (from 8/4), the sharpest z firming to 4.70 (from 4.52) and the largest cluster easing to ~774 MW (from ~914). The disaster slate eased to 26 active events (from 27, 25 open) as one cyclone closed — severe storms 10, Sea/Lake Ice 11, droughts 4, Krakatau volcano 1. Radiation held at 11 readings and flipped back to all-within-normal (no SPIKE, no ELEVATED; sharpest San Francisco 38 nSv/h, z 1.89), the prior DC spike gone. Rewrote the intro, at-a-glance, active-fire, thermal, disaster+radiation and reading sections. Observed-only, no-position framing held ([[wildfire-detections]], [[thermal-escalations]], [[natural-events]], [[radiation-observations]]).
