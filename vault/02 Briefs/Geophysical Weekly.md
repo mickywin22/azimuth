@@ -2,8 +2,8 @@
 title: Geophysical Weekly
 type: L2-brief
 theme: geophysical
-week: 2026-W41
-updated: 2026-10-11T00:00:00Z
+week: 2026-W42
+updated: 2026-10-13T00:00:00Z
 sources: [earthquakes]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -14,82 +14,83 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 > Synthesised from the week's L1 source notes under `../01 Sources/`. The `azimuth-curator`
 > fleet role evolves this single note in place each week. azimuth reports **observed**
 > seismicity from the USGS feed — what was recorded, never what will happen. Every claim
-> links to the L1 note it rests on. (This cycle absorbs the 2026-10-09 → 2026-10-11 pulls, the window
-> surging as a major Panama sequence enters: **155 M4.5+ (39 M5+, 4 M6+, 1 M7+)** to 2026-10-11, up from
-> 121 (35/1/0) on 2026-10-08 — the count jumped 34 and the strong-event line stepped up hard, M6+ from one
-> to four and the **window's first M7+** entering. The new strongest recorded event is a shallow **M7.7
-> 12 km WSW of Pitaloza Arriba, Panama** (13 km) — the first M7+ in the window since the July Puerto Madero
-> sequence — capping a dense Panama offshore/onshore cluster that also produced an **M6.6 14 km W of Río
-> Grande** (10 km), an **M6.0 7 km N of La Tronosa** (10 km) and an **M5.8 1 km S of El Cacao** (10 km),
-> all shallow. The carried **M6.3 102 km NE of Norsup, Vanuatu** (10 km) holds as the fourth M6+. The
-> clustering re-ordered sharply: **Panama surged to the count lead at 49** on the M7.7 aftershock swarm,
-> **Indonesia held 19**, **Russia eased to 9** (from 18) as the Kamchatka/Vilyuchinsk swarm decayed off the
-> trailing edge, the **Fiji region held 7**, **Papua New Guinea held 6**, **Japan eased to 5** and the
-> **Philippines held 5**. 87 of 155 shocks stayed shallow ≤15 km and the deep-focus anchor deepened to a
-> **640 km** shock beneath **Fiji** (97 km E of Levuka) as a fresh deep Fiji focus entered.)
+> links to the L1 note it rests on. (This cycle absorbs the 2026-10-12 → 2026-10-13 pulls, the window
+> extending as the Panama sequence runs on: **181 M4.5+ (44 M5+, 8 M6+, 1 M7+)** to 2026-10-13, up from
+> 155 (39/4/1) on 2026-10-11 — the count up 26 and the M6+ line doubling from four to eight. The strongest
+> recorded event **carries unchanged** — the shallow **M7.7 12 km WSW of Pitaloza Arriba, Panama** (13 km),
+> the window's sole M7+. The M6+ band firmed sharply: the Panama trend still supplies the **M6.6 14 km W of
+> Río Grande** (10 km), a fresh **M6.1 17 km W of Río Grande** (11 km) and the **M6.0 7 km N of La Tronosa**
+> (10 km), two fresh **central Mid-Atlantic Ridge** shocks entered (**M6.9** and **M6.7**, both 10 km), a
+> fresh **M6.2 79 km SSE of Panguna, Papua New Guinea** (53 km) entered and the carried **M6.3 102 km NE of
+> Norsup, Vanuatu** (10 km) holds. The clustering held its shape: **Panama extended its lead to 63** on the
+> M7.7 aftershock swarm, **Indonesia firmed to 25**, **Russia firmed to 12**, the **Fiji region held 7**,
+> **Japan held 6**, the **Philippines held 5** and **Tonga** firmed to **5**. 108 of 181 shocks stayed
+> shallow ≤15 km and the deep-focus anchor **held at 640 km** beneath **Fiji** (97 km E of Levuka).)
 
 ## This week at a glance
 
-- The USGS feed recorded **155** magnitude-4.5-or-greater earthquakes in the rolling window
-  retrieved 2026-10-11, of which **39 were M5+**, **four reached M6+** and **one reached M7** —
-  up from **121 (35/1/0)** on 2026-10-08, the count jumping 34 and the strong-event line stepping up
-  hard as a major Panama sequence entered ([[earthquakes]]).
-- The window **gains its first M7+** since the July Puerto Madero sequence; the strongest recorded event
-  is a shallow **M7.7 12 km WSW of Pitaloza Arriba, Panama** (13 km), capping a Panama cluster that also
-  produced an **M6.6 14 km W of Río Grande** (10 km), an **M6.0 7 km N of La Tronosa** (10 km) and an
-  **M5.8 1 km S of El Cacao** (10 km); the carried **M6.3 102 km NE of Norsup, Vanuatu** (10 km) holds as
-  the fourth M6+ ([[earthquakes]]).
-- **Panama surged to the count lead at 49** on the M7.7 aftershock swarm; **Indonesia held 19**, **Russia
-  eased to 9** (from 18) as the Kamchatka/Vilyuchinsk offshore swarm decayed off the trailing edge, the
-  **Fiji region held 7**, **Papua New Guinea held 6**, **Japan eased to 5** (from 8), the **Philippines
-  held 5** and **Tonga**, **Vanuatu** and a firming **Chile cluster** each held **4** ([[earthquakes]]).
+- The USGS feed recorded **181** magnitude-4.5-or-greater earthquakes in the rolling window
+  retrieved 2026-10-13, of which **44 were M5+**, **eight reached M6+** and **one reached M7** —
+  up from **155 (39/4/1)** on 2026-10-11, the count up 26 and the M6+ line doubling from four to eight
+  as the Panama sequence ran on and fresh Mid-Atlantic Ridge and PNG shocks entered ([[earthquakes]]).
+- The window **holds its single M7+**; the strongest recorded event carries unchanged — the shallow
+  **M7.7 12 km WSW of Pitaloza Arriba, Panama** (13 km). The eight M6+ are the Panama trend's **M6.6 14 km
+  W of Río Grande** (10 km), a fresh **M6.1 17 km W of Río Grande** (11 km) and **M6.0 7 km N of La
+  Tronosa** (10 km), two fresh **central Mid-Atlantic Ridge** shocks (**M6.9** and **M6.7**, both 10 km), a
+  fresh **M6.2 79 km SSE of Panguna, Papua New Guinea** (53 km) and the carried **M6.3 102 km NE of Norsup,
+  Vanuatu** (10 km) ([[earthquakes]]).
+- **Panama extended the count lead to 63** on the M7.7 aftershock swarm; **Indonesia firmed to 25**,
+  **Russia firmed to 12**, the **Fiji region held 7**, **Japan held 6**, the **Philippines held 5**,
+  **Tonga** firmed to **5** and **Papua New Guinea held 5** — the strong-event weight still concentrated on
+  the Panama trend ([[earthquakes]]).
 
 ## Largest events
 
-- A major eastern-Pacific sequence tops the window: the shallow **M7.7 12 km WSW of Pitaloza Arriba,
-  Panama** (13 km) is the strongest recorded event and the window's first M7+ since July, an onshore/coastal
+- A major eastern-Pacific sequence still tops the window: the shallow **M7.7 12 km WSW of Pitaloza Arriba,
+  Panama** (13 km) carries as the strongest recorded event and the window's sole M7+, an onshore/coastal
   Panama shock off the usual western-Pacific arcs ([[earthquakes]]).
-- The Panama sequence supplies three of the four M6+: the **M6.6 14 km W of Río Grande** (10 km), the
-  **M6.0 7 km N of La Tronosa** (10 km) and the capping **M5.8 1 km S of El Cacao** (10 km), all shallow
-  and clustered on the same trend ([[earthquakes]]).
-- The fourth M6+ sits far off: the carried **M6.3 102 km NE of Norsup, Vanuatu** (10 km) holds on the
-  Vanuatu arc, with an **M5.9 west of Macquarie Island** (10 km) leading the sub-M6 band and the
-  Kamchatka/Vilyuchinsk Russian swarm now decayed below the strong tier ([[earthquakes]]).
+- The Panama trend supplies three of the eight M6+: the **M6.6 14 km W of Río Grande** (10 km), a fresh
+  **M6.1 17 km W of Río Grande** (11 km) and the **M6.0 7 km N of La Tronosa** (10 km), all shallow and
+  clustered on the same trend ([[earthquakes]]).
+- Five M6+ sit off the Panama trend: two fresh **central Mid-Atlantic Ridge** shocks (**M6.9** and **M6.7**,
+  both 10 km) entered as a mid-ocean-ridge pair, a fresh **M6.2 79 km SSE of Panguna, Papua New Guinea**
+  (53 km) entered and the carried **M6.3 102 km NE of Norsup, Vanuatu** (10 km) holds on the Vanuatu arc
+  ([[earthquakes]]).
 
 ## Where the activity clustered
 
-- **Panama took the count lead, surging to 49 events** on the M7.7 aftershock swarm — now the window's
-  dominant cluster by a wide margin and the cap-setter of its strongest shocks; **Indonesia held 19**
-  on carried Flores/Halmahera activity, slipping to second ([[earthquakes]]).
-- **Russia eased to 9** (from 18) as the Kamchatka/Vilyuchinsk offshore swarm decayed off the trailing
-  edge; the **Fiji region held 7**, **Papua New Guinea held 6**, **Japan eased to 5** on Honshū/Kamchatka
-  shocks, the **Philippines held 5** and **Tonga**, **Vanuatu** and a firming **Chile cluster** each held
-  **4** — the strong-event weight concentrated almost entirely on the Panama trend this cycle ([[earthquakes]]).
+- **Panama extended the count lead to 63 events** on the M7.7 aftershock swarm — still the window's
+  dominant cluster by a wide margin and the cap-setter of its strongest shocks; **Indonesia firmed to 25**
+  on carried Flores/Halmahera activity, holding second ([[earthquakes]]).
+- **Russia firmed to 12** on continued Kamchatka activity; the **Fiji region held 7**, **Japan held 6**
+  on Honshū/Kamchatka shocks, the **Philippines held 5**, **Tonga** firmed to **5** and **Papua New
+  Guinea held 5** on the fresh Panguna M6.2 — the strong-event weight still concentrated almost entirely
+  on the Panama trend this cycle ([[earthquakes]]).
 
 ## Depth profile
 
-- The shallow proportion rose with the count: **87 of the 155 events sit at ≤15 km** (from 51 of 121),
-  the near-entirely-shallow Panama sequence (M7.7/M6.6/M6.0/M5.8 all 10–13 km) tilting the window toward
-  the shallow side. The deep-focus anchor **deepened** to a **640 km** shock beneath **Fiji** (97 km E of
-  Levuka, from 602.3 km) as a fresh deep Fiji focus entered — the deep slab still at the base of the depth
-  profile ([[earthquakes]]).
+- The shallow proportion stayed high as the count grew: **108 of the 181 events sit at ≤15 km** (from 87
+  of 155), the near-entirely-shallow Panama sequence (M7.7/M6.6/M6.1/M6.0 all 10–13 km) plus the two 10 km
+  Mid-Atlantic Ridge shocks keeping the window tilted shallow. The deep-focus anchor **held at 640 km**
+  beneath **Fiji** (97 km E of Levuka) — the deep slab still at the base of the depth profile
+  ([[earthquakes]]).
 
 ## Reading the week
 
-- Volume surged and a major Panama sequence drove the cycle: **155 M4.5+ (39 M5+, 4 M6+, 1 M7+)** to
-  2026-10-11, up from 121 (35/1/0) on 2026-10-08 — the count jumped 34, M6+ from one to four and the
-  window's first M7+ entered. The strongest recorded event is a shallow **M7.7 12 km WSW of Pitaloza
-  Arriba, Panama** (13 km), the first M7+ since the July Puerto Madero sequence, capping a Panama cluster
-  that also produced an **M6.6 Río Grande** (10 km), an **M6.0 La Tronosa** (10 km) and an **M5.8 El
-  Cacao** (10 km); the carried **M6.3 Norsup, Vanuatu** (10 km) holds as the fourth M6+. Panama surged to
-  the count lead at 49, Indonesia held 19, Russia eased to 9 as the Kamchatka swarm decayed, the Fiji
-  region held 7, Papua New Guinea held 6, Japan eased to 5, the Philippines held 5 and Tonga, Vanuatu and
-  a firming Chile cluster each held 4. 87 of 155 shocks stayed shallow ≤15 km and the deepest focus
-  deepened to 640 km beneath Fiji. azimuth records what the instruments measured — magnitude, location,
+- The window extended and the M6+ band doubled: **181 M4.5+ (44 M5+, 8 M6+, 1 M7+)** to 2026-10-13, up
+  from 155 (39/4/1) on 2026-10-11 — the count up 26 and M6+ from four to eight. The strongest recorded
+  event carries unchanged — a shallow **M7.7 12 km WSW of Pitaloza Arriba, Panama** (13 km), the window's
+  sole M7+. The eight M6+ are the Panama trend's **M6.6 / M6.1 Río Grande** and **M6.0 La Tronosa**
+  (10–11 km), two fresh **central Mid-Atlantic Ridge** shocks (**M6.9** and **M6.7**, both 10 km), a fresh
+  **M6.2 Panguna, PNG** (53 km) and the carried **M6.3 Norsup, Vanuatu** (10 km). Panama extended the count
+  lead to 63, Indonesia firmed to 25, Russia firmed to 12, the Fiji region held 7, Japan held 6, the
+  Philippines held 5 and Tonga and PNG each held 5. 108 of 181 shocks stayed shallow ≤15 km and the deepest
+  focus held at 640 km beneath Fiji. azimuth records what the instruments measured — magnitude, location,
   depth, time — and stops there, making no forecast of what comes next ([[earthquakes]]).
 
 ## Changelog
 
+- 2026-10-13 — daily-ingest synthesis (2026-W42): absorbed the 2026-10-12 → 2026-10-13 pulls, the window extending as the Panama sequence ran on. The rolling window to 2026-10-13 rose to 181 M4.5+ (44 M5+, 8 M6+, 1 M7+ — from 155/39/4/1 on 10-11), the count up 26 and the M6+ line doubling from four to eight. The strongest recorded event carries unchanged — the shallow M7.7 12 km WSW of Pitaloza Arriba, Panama (13 km), the sole M7+. The M6+ band firmed: the Panama trend's M6.6 Río Grande (10 km), a fresh M6.1 17 km W of Río Grande (11 km) and M6.0 La Tronosa (10 km); two fresh central Mid-Atlantic Ridge shocks (M6.9, M6.7, both 10 km) entered; a fresh M6.2 79 km SSE of Panguna, PNG (53 km) entered; the carried M6.3 Norsup, Vanuatu (10 km) holds. Panama extended the count lead to 63, Indonesia firmed to 25, Russia firmed to 12, the Fiji region held 7, Japan held 6, the Philippines held 5, Tonga and PNG each held 5. 108 of 181 shocks shallow ≤15 km; deepest focus held at 640 km beneath Fiji (97 km E of Levuka). Rewrote the intro, at-a-glance, largest-events, clustering, depth and reading sections. Observed-only framing held ([[earthquakes]]).
 - 2026-10-11 — daily-ingest synthesis (2026-W41): absorbed the 2026-10-09 → 2026-10-11 pulls, the window surging as a major Panama sequence entered. The rolling window to 2026-10-11 rose to 155 M4.5+ (39 M5+, 4 M6+, 1 M7+ — from 121/35/1/0 on 10-08), the count up 34, M6+ from one to four and the window's first M7+. The new strongest recorded event is a shallow M7.7 12 km WSW of Pitaloza Arriba, Panama (13 km) — the first M7+ since the July Puerto Madero sequence — capping a Panama cluster that also produced an M6.6 14 km W of Río Grande (10 km), an M6.0 7 km N of La Tronosa (10 km) and an M5.8 1 km S of El Cacao (10 km), all shallow; the carried M6.3 102 km NE of Norsup, Vanuatu (10 km) holds as the fourth M6+. Panama surged to the count lead at 49 on the aftershock swarm, Indonesia held 19, Russia eased to 9 (from 18) as the Kamchatka/Vilyuchinsk swarm decayed off the trailing edge, the Fiji region held 7, Papua New Guinea held 6, Japan eased to 5 (from 8), the Philippines held 5, Tonga/Vanuatu/Chile each held 4. 87 of 155 shocks shallow ≤15 km; deepest focus deepened to 640 km beneath Fiji (97 km E of Levuka, from 602.3 km). Rewrote the intro, at-a-glance, largest-events, clustering, depth and reading sections. Observed-only framing held ([[earthquakes]]).
 - 2026-10-08 — daily-ingest synthesis (2026-W41): absorbed the 2026-10-07 and 2026-10-08 pulls, the window firming and a fresh major entering. The rolling window to 2026-10-08 rose to 121 M4.5+ (35 M5+, 1 M6+, 0 M7+ — from 114/36/0/0 on 10-06), a fresh M6+ breaking the three-cycle M6 drought. The new strongest recorded event is an M6.3 102 km NE of Norsup, Vanuatu (10 km), the sole M6+, displacing the carried M5.9 39 km WSW of Tambolaka, Indonesia (46 km) to second; a fresh M5.8 262 km SSW of Severo-Kurilsk, Russia (29 km) and the carried M5.8 Vilyuchinsk (29.5 km) cap the Kamchatka margin. Indonesia took the count lead at 19 (from 15), Russia eased to 18 (from 16) but held second on the Kamchatka/Vilyuchinsk swarm, Papua New Guinea held 9, Japan eased to 8 (from 10), the Philippines held ~5, Solomon Islands held 4, the Myanmar sequence firmed to 4, the Turkey sequence held 3 and a fresh Chile cluster entered at 3. 51 of 121 shocks shallow ≤15 km; deepest focus deepened back to 602.3 km beneath the Fiji region (from 575.0 km Philippines). Rewrote the intro, at-a-glance, largest-events, clustering, depth and reading sections. Observed-only framing held ([[earthquakes]]).
 - 2026-10-06 — daily-ingest synthesis (2026-W41): absorbed the 2026-10-05 and 2026-10-06 pulls, the window easing. The rolling window to 2026-10-06 fell to 114 M4.5+ (36 M5+, 0 M6+, 0 M7+ — from 134/47/0/0 on 10-04), both the count and the M5+ line easing as the older tail aged off, no M6+ for a third cycle. The strongest recorded event carried unchanged — the M5.9 39 km WSW of Tambolaka, Indonesia (46 km) caps the window, the M5.8 165 km SSE of Vilyuchinsk, Russia (29.5 km) second. Russia eased to 16 but held the count lead on the Kamchatka/Vilyuchinsk swarm, Indonesia rose to 15, Papua New Guinea rebuilt to 9, Japan held 10, the Philippines eased to 7, Solomon Islands to 4, Tonga held 3, the Turkey sequence held 3 and a fresh Myanmar sequence entered at 3, while the New Caledonia Tadine swarm decayed out of the ranking to 2 (from 12). 58 of 114 shocks shallow ≤15 km; deepest focus eased to 575.0 km beneath the Philippines (from 602.2 km Fiji). Rewrote the intro, at-a-glance, largest-events, clustering, depth and reading sections. Observed-only framing held ([[earthquakes]]).
