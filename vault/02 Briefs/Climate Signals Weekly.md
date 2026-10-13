@@ -2,8 +2,8 @@
 title: Climate Signals Weekly
 type: L2-brief
 theme: climate-signals
-week: 2026-W41
-updated: 2026-10-11T00:00:00Z
+week: 2026-W42
+updated: 2026-10-13T00:00:00Z
 sources: [climate-anomalies, co2-monitoring, sea-ice-extent]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -17,100 +17,101 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 > recorded regional temperature/precipitation anomalies — never a forecast of what the climate
 > will do. Every claim links to the L1 note it rests on. This brief reads three independent
 > instrument channels at once (atmospheric chemistry, the cryosphere/ocean, regional reanalysis)
-> for the week 2026-10-05 to 2026-10-11 (the 2026-10-11 pull), three days on from the 2026-10-08 cycle.
-> This cycle CO2 firmed a fraction to 426.43 ppm with the monthly average advancing a fresh print to
-> 426.07 ppm for 2026-09, Arctic extent kept recovering to 6.02 million km² at a deeper −1.89 million km²
-> anomaly with global sea level stepping up to 112 mm, and the regional-anomaly map **firmed its extremes
-> while broadening warm** — 18 of 23 zones warm (from 17), the mean anomaly a touch softer from +1.88 °C to
-> **+1.66 °C**. The EXTREME band **firmed to three cells**, all warm: **California leapt to +7.9 °C** (from
-> +9.3) and is now the cycle's hottest cell, the **Western Antarctic Ice Sheet cooled sharply to +6.8 °C**
-> (from +12.6) and **Ukraine entered EXTREME at +5.5 °C**; **Greenland (−3.9 °C)** is the coldest cell but
-> only MODERATE, leaving no EXTREME cold cell this cycle.
+> for the week 2026-10-07 to 2026-10-13 (the 2026-10-13 pull), two days on from the 2026-10-11 cycle.
+> This cycle CO2 firmed a fraction to 426.56 ppm with the monthly average holding its fresh print at
+> 426.07 ppm for 2026-09, Arctic extent kept recovering to 6.18 million km² at a fractionally shallower
+> −1.86 million km² anomaly with global sea level holding at 112 mm, and the regional-anomaly map **eased
+> its extremes while staying warm-dominated** — 16 of 23 zones strictly warm, the mean anomaly a touch
+> softer from +1.66 °C to **+1.64 °C**. The EXTREME band **eased to two cells**, both warm: **Ukraine
+> +5.3 °C** and the **Western Antarctic Ice Sheet +5.1 °C** (from +6.8), while **California eased out of
+> EXTREME to +4.5 °C MODERATE** (from +7.9) — no longer the cycle's hottest cell; **Greenland (−1.7 °C)**
+> is the coldest cell but only NORMAL, leaving no EXTREME cold cell this cycle.
 
 ## This week at a glance
 
 - The atmospheric baseline firmed a fraction while the cryosphere kept recovering off its minimum: the
-  co2-monitoring feed **firmed to 426.43 ppm** (from 426.39), the **monthly average advancing a fresh
-  print to 426.07 ppm for 2026-09** (from 427.55 for 2026-08), annual growth still +2.83 ppm/yr, Arctic
-  extent rose to **6.02 million km²** at a deeper **−1.89 million km²** anomaly (from 5.96 / −1.69 — extent
-  up, the deficit vs the reference widening), global sea level **stepped up to 112 mm** above the 1993
-  reference (from 110.6), and the sea-surface-temperature anomaly held at **+0.61 °C** ([[co2-monitoring]], [[sea-ice-extent]]).
-- The regional anomaly channel **firmed its extremes while broadening warm**: the
-  climate-anomalies feed's zone count held at **23** for the week to 2026-10-11, splitting **18 warm /
-  5 cold** (from 17 / 6), severity at **18 NORMAL / 2 MODERATE / 3 EXTREME** — the EXTREME band firmed
-  to three warm cells as **California leapt to +7.9 °C** (now the hottest cell), the **Western Antarctic
-  Ice Sheet cooled sharply to +6.8 °C** (from +12.6) and **Ukraine entered EXTREME at +5.5 °C**, while
-  **Greenland (−3.9 °C)** is the coldest cell but only MODERATE, leaving no EXTREME cold cell, and the mean
-  anomaly softening from +1.88 °C to **+1.66 °C** ([[climate-anomalies]]).
-- Net for the week: the atmospheric baseline firmed a fraction with the monthly average advancing to
-  September, the cryosphere kept recovering in extent with its anomaly widening, sea level stepped up, and
-  the regional map broadened warm while firming its extremes — California leaping to +7.9 °C as the hottest
-  cell while the Western Antarctic warm cell cooled sharply to +6.8 °C — three independent instrument reads,
-  none forecasting what comes next ([[co2-monitoring]], [[sea-ice-extent]], [[climate-anomalies]]).
+  co2-monitoring feed **firmed to 426.56 ppm** (from 426.43), the **monthly average holding its fresh
+  print at 426.07 ppm for 2026-09**, annual growth still +2.83 ppm/yr, Arctic
+  extent rose to **6.18 million km²** at a fractionally shallower **−1.86 million km²** anomaly (from 6.02 /
+  −1.89 — extent up, the deficit vs the reference narrowing a touch), global sea level **held at 112 mm**
+  above the 1993 reference, and the sea-surface-temperature anomaly held at **+0.61 °C** ([[co2-monitoring]], [[sea-ice-extent]]).
+- The regional anomaly channel **eased its extremes while staying warm-dominated**: the
+  climate-anomalies feed's zone count held at **23** for the week to 2026-10-13, strictly **16 warm /
+  5 cold** (plus Amazon MIXED and a North Atlantic WET cell), severity at **16 NORMAL / 5 MODERATE /
+  2 EXTREME** — the EXTREME band eased to two warm cells as **Ukraine (+5.3 °C)** and the **Western
+  Antarctic Ice Sheet (+5.1 °C**, from +6.8) held EXTREME while **California eased out to +4.5 °C MODERATE**
+  (from +7.9), and **Greenland (−1.7 °C)** is the coldest cell but only NORMAL, leaving no EXTREME cold
+  cell, the mean anomaly softening from +1.66 °C to **+1.64 °C** ([[climate-anomalies]]).
+- Net for the week: the atmospheric baseline firmed a fraction with the monthly average holding at
+  September, the cryosphere kept recovering in extent with its anomaly narrowing a touch, sea level held, and
+  the regional map eased its extremes while staying warm-dominated — California dropping out of EXTREME to
+  +4.5 °C while Ukraine (+5.3 °C) and the Western Antarctic warm cell (+5.1 °C) held EXTREME — three
+  independent instrument reads, none forecasting what comes next ([[co2-monitoring]], [[sea-ice-extent]], [[climate-anomalies]]).
 
 ## Atmospheric chemistry (Mauna Loa)
 
-- The co2-monitoring feed **firmed to 426.43 ppm** (from the 426.39 print), with the **monthly average
-  advancing a fresh print to 426.07 ppm for 2026-09** (from 427.55 for 2026-08) and the recorded **annual
-  growth rate holding at +2.83 ppm/yr** — the reading sits about **1.74 ppm above** the year-ago
-  424.69 ppm the feed carries ([[co2-monitoring]]).
-- At 426.43 ppm the recorded concentration still sits about **52% above the 280 ppm pre-industrial
-  baseline** the feed carries; the same pull records **methane easing to 1,934.57 ppb** (from 1,939.44) and
-  **nitrous oxide holding at 339.86 ppb**, the trace-gas lines near-flat alongside the fractional CO2
+- The co2-monitoring feed **firmed to 426.56 ppm** (from the 426.43 print), with the **monthly average
+  holding at 426.07 ppm for 2026-09** and the recorded **annual growth rate holding at +2.83 ppm/yr** —
+  the reading sits about **2.47 ppm above** the year-ago 424.09 ppm the feed carries ([[co2-monitoring]]).
+- At 426.56 ppm the recorded concentration still sits about **52% above the 280 ppm pre-industrial
+  baseline** the feed carries; the same pull records **methane holding at 1,934.57 ppb** and
+  **nitrous oxide holding at 339.86 ppb**, the trace-gas lines flat alongside the fractional CO2
   firming ([[co2-monitoring]]).
 
 ## Cryosphere & ocean (sea-ice channel)
 
-- Arctic sea-ice extent is recorded at **6.02 million km²**, up from **5.96 million km²** the
-  prior cycle — the feed's 12-month series holding its 2026-10 value as extent recovers — at a
-  deeper **anomaly of −1.89 million km²** (from −1.69): the extent kept rising off the
-  September minimum while its gap below the reference widened further, the feed's `arcticTrend` still
+- Arctic sea-ice extent is recorded at **6.18 million km²**, up from **6.02 million km²** the
+  prior cycle — the feed's 12-month series advancing its 2026-10 value as extent recovers — at a
+  fractionally shallower **anomaly of −1.86 million km²** (from −1.89): the extent kept rising off the
+  September minimum while its gap below the reference narrowed a touch, the feed's `arcticTrend` still
   flagged `below_average` ([[sea-ice-extent]]).
 - The same ocean channel reports a global sea-surface-temperature anomaly **holding at +0.61 °C**,
-  mean sea level **stepping up to 112 mm above the 1993 reference** (from 110.6, a fresh print; recorded
-  annual rise of 4.4 mm/yr, unchanged) and ocean heat content (0–700 m) **holding at 228.45 ZJ** — ice
-  extent and sea level the cryosphere movers this cycle, SST and ocean heat content flat ([[sea-ice-extent]]).
+  mean sea level **holding at 112 mm above the 1993 reference** (recorded annual rise of 4.4 mm/yr,
+  unchanged) and ocean heat content (0–700 m) **holding at 228.45 ZJ** — Arctic extent the sole cryosphere
+  mover this cycle, SST, sea level and ocean heat content all flat ([[sea-ice-extent]]).
 
 ## Regional anomaly map (23 zones)
 
-- The climate-anomalies feed **firmed its extremes while broadening warm** this cycle: the
-  monitored zone count held at **23** for the week to 2026-10-11, splitting **18 warm / 5 cold**
-  (from 17 / 6), with severity at **18 NORMAL / 2 MODERATE / 3 EXTREME** — the EXTREME count rose by one
-  and all three cells are warm ([[climate-anomalies]]).
-- The warm side now carries three EXTREME cells and its head re-ordered: **California leapt to +7.9 °C**
-  (from +9.3 but now the cycle's and the brief's warmest regional reading as others cooled), the **Western
-  Antarctic Ice Sheet cooled sharply to +6.8 °C** (from +12.6) and **Ukraine entered EXTREME at +5.5 °C**;
-  below them **East Asia (+3.2 °C, MODERATE)**, **Amazon (+2.9 °C)** and **South Asia (+2.5 °C)** lead the
-  NORMAL warm band ([[climate-anomalies]]).
-- The cold side eased to five cells with its coldest only MODERATE: **Greenland (−3.9 °C)** is the cycle's
-  coldest cell at MODERATE, with the **Horn of Africa (−0.5 °C)**, **Sahel (−0.4 °C)** and **Coral Triangle
-  (−0.4 °C)** the other shallow cold readings — no EXTREME cold cell this cycle, and the warm field widened
-  to dominate 18 of 23 zones ([[climate-anomalies]]).
+- The climate-anomalies feed **eased its extremes while staying warm-dominated** this cycle: the
+  monitored zone count held at **23** for the week to 2026-10-13, strictly **16 warm / 5 cold** (plus
+  Amazon MIXED and a North Atlantic WET cell), with severity at **16 NORMAL / 5 MODERATE / 2 EXTREME** —
+  the EXTREME count eased by one and both cells are warm ([[climate-anomalies]]).
+- The warm side now carries two EXTREME cells and its head re-ordered: **Ukraine (+5.3 °C)** is now the
+  cycle's warmest regional reading, the **Western Antarctic Ice Sheet eased to +5.1 °C** (from +6.8, still
+  EXTREME) and **California eased out of EXTREME to +4.5 °C MODERATE** (from +7.9); below them **East Asia
+  (+4.1 °C, MODERATE)**, **Central Asia (+3.9 °C, MODERATE)** and **Amazon (+3.0 °C)** lead the rest of the
+  warm band ([[climate-anomalies]]).
+- The cold side held at five cells with its coldest only NORMAL: **Greenland (−1.7 °C)** is the cycle's
+  coldest cell at NORMAL, with the **Horn of Africa (−0.6 °C)**, **Coral Triangle (−0.3 °C)** and
+  **Caribbean (−0.2 °C)** the other shallow cold readings — no EXTREME cold cell this cycle, and the warm
+  field still dominates the map ([[climate-anomalies]]).
 
 ## Reading the week
 
 - Read together, the channels describe a recorded picture where the atmospheric baseline **firmed a
   fraction with the monthly average advancing to September**, the cryosphere **kept recovering in extent**,
-  and the regional map **broadened warm while firming its extremes**: a **Mauna Loa CO2 print firming to
-  426.43 ppm** (monthly average 426.07 ppm for 2026-09, about 52% above pre-industrial, +2.83 ppm/yr
-  recorded growth), an Arctic extent that rose to **6.02 million km²** at a deeper **−1.89 million km²
-  anomaly**, a global sea level **stepping up to 112 mm** above the 1993 reference with SST holding at
-  +0.61 °C, and a regional map holding 23 zones at **18 warm / 5 cold** with three EXTREME warm cells —
-  California +7.9 °C the warmest, the Western Antarctic Ice Sheet cooling to +6.8 °C and Ukraine entering
-  at +5.5 °C, no EXTREME cold cell as Greenland (−3.9 °C) stayed MODERATE. azimuth reports what the instruments measured
+  and the regional map **eased its extremes while staying warm-dominated**: a **Mauna Loa CO2 print firming
+  to 426.56 ppm** (monthly average 426.07 ppm for 2026-09, about 52% above pre-industrial, +2.83 ppm/yr
+  recorded growth), an Arctic extent that rose to **6.18 million km²** at a fractionally shallower
+  **−1.86 million km² anomaly**, a global sea level **holding at 112 mm** above the 1993 reference with SST
+  holding at +0.61 °C, and a regional map holding 23 zones strictly **16 warm / 5 cold** with two EXTREME
+  warm cells — Ukraine +5.3 °C the warmest and the Western Antarctic Ice Sheet easing to +5.1 °C, as
+  California dropped out of EXTREME to +4.5 °C MODERATE and no EXTREME cold cell formed (Greenland −1.7 °C
+  NORMAL). azimuth reports what the instruments measured
   — the value, the anomaly sign, the severity flag — and stops there; the editorial line keeps the brief
   to observed facts and excludes any projection of what follows ([[co2-monitoring]], [[sea-ice-extent]], [[climate-anomalies]]).
 - The synthesis value this cycle is the contrast between the atmospheric/ocean baselines sitting
-  near-still (CO2 firming a fraction with its monthly average advancing to September, SST and ocean heat
-  content flat, sea level stepping up a fresh print) and the regional channel's firming extremes — the mean
-  anomaly a touch softer from +1.88 °C to +1.66 °C even as the EXTREME band firmed to three warm cells at a
-  re-ordered head (California leaping to +7.9 °C as the warmest while the Western Antarctic Ice Sheet cooled
-  sharply to +6.8 °C and Ukraine entered at +5.5 °C) — plus the sea-ice cross-signal of extent still rising
-  while its anomaly widens, a set of reads a static single-source bundle cannot assemble
+  near-still (CO2 firming a fraction with its monthly average holding at September, SST, sea level and ocean
+  heat content flat) and the regional channel's easing extremes — the mean anomaly a touch softer from
+  +1.66 °C to +1.64 °C as the EXTREME band eased to two warm cells at a re-ordered head (Ukraine +5.3 °C now
+  the warmest while the Western Antarctic Ice Sheet eased to +5.1 °C and California dropped out of EXTREME to
+  +4.5 °C) — plus the sea-ice cross-signal of extent still rising while its anomaly narrows a touch, a set of
+  reads a static single-source bundle cannot assemble
   ([[sea-ice-extent]], [[climate-anomalies]], [[co2-monitoring]]).
 
 ## Changelog
 
+- 2026-10-13 — daily-ingest synthesis (2026-W42): absorbed the 2026-10-12 → 2026-10-13 pulls (regional-anomaly week 2026-10-07 to 2026-10-13). The atmospheric baseline firmed a fraction with its monthly average holding (CO2 426.56 ppm, from 426.43; monthly average 426.07 ppm for 2026-09; +2.83 ppm/yr; CH4 held 1,934.57 ppb, N2O held 339.86 ppb; ~2.47 ppm above year-ago 424.09), Arctic extent rose to 6.18 million km² (from 6.02) at a fractionally shallower −1.86 million km² anomaly (from −1.89) with sea level holding 112 mm, SST +0.61 °C and ocean heat content 228.45 ZJ all flat. The regional map held 23 zones but eased its extremes and stayed warm-dominated: strictly 16 warm / 5 cold (plus Amazon MIXED, North Atlantic WET), severity 16 NORMAL / 5 MODERATE / 2 EXTREME (from 18/2/3) with two EXTREME warm cells — Ukraine +5.3 °C now the warmest, the Western Antarctic Ice Sheet easing to +5.1 °C (from +6.8) — while California eased out of EXTREME to +4.5 °C MODERATE (from +7.9) and Greenland (−1.7 °C) is the coldest cell but only NORMAL, no EXTREME cold cell; the mean anomaly softened from +1.66 °C to +1.64 °C. Rewrote the intro, at-a-glance, atmospheric, cryosphere, regional-map and reading sections. Observed-only framing held ([[co2-monitoring]], [[sea-ice-extent]], [[climate-anomalies]]).
 - 2026-10-11 — daily-ingest synthesis (2026-W41): absorbed the 2026-10-09 → 2026-10-11 pulls (regional-anomaly week 2026-10-05 to 2026-10-11). The atmospheric baseline firmed a fraction with the monthly average advancing a fresh print (CO2 426.43 ppm, from 426.39; monthly average 426.07 ppm for 2026-09, from 427.55 for 2026-08; +2.83 ppm/yr; CH4 eased to 1,934.57 ppb, N2O 339.86 ppb; ~1.74 ppm above year-ago 424.69), Arctic extent rose to 6.02 million km² (from 5.96) at a deeper −1.89 million km² anomaly (from −1.69) with sea level stepping up to 112 mm (from 110.6), SST +0.61 °C and ocean heat content 228.45 ZJ. The regional map held 23 zones but firmed its extremes and broadened warm: 18 warm / 5 cold (from 17 / 6), severity 18 NORMAL / 2 MODERATE / 3 EXTREME (from 18/3/2) with three EXTREME warm cells — California leapt to +7.9 °C (now the hottest cell), the Western Antarctic Ice Sheet cooled sharply to +6.8 °C (from +12.6) and Ukraine entered EXTREME at +5.5 °C — while Greenland (−3.9 °C) is the coldest cell but only MODERATE, no EXTREME cold cell; the mean anomaly softened from +1.88 °C to +1.66 °C. Rewrote the intro, at-a-glance, atmospheric, cryosphere, regional-map and reading sections. Observed-only framing held ([[co2-monitoring]], [[sea-ice-extent]], [[climate-anomalies]]).
 - 2026-10-08 — daily-ingest synthesis (2026-W41): absorbed the 2026-10-07 and 2026-10-08 pulls (regional-anomaly week 2026-10-02 to 2026-10-08). The atmospheric baseline firmed a fraction (CO2 426.39 ppm, from 425.3; monthly 427.55, +2.83 ppm/yr; CH4 1,939.44 ppb, N2O 339.82 ppb held; ~1.70 ppm above year-ago 424.69), Arctic extent rose to 5.96 million km² (from 5.8) at a deeper −1.69 million km² anomaly (from −1.57) with sea level holding 110.6 mm, SST +0.61 °C and ocean heat content 228.45 ZJ. The regional map held 23 zones but eased its extremes: 17 warm / 6 cold (from 18 / 5), severity 18 NORMAL / 3 MODERATE / 2 EXTREME (from 15/5/3) as the EXTREME band eased to two warm cells — Western Antarctic Ice Sheet eased to +12.6 °C (from +13.3, still hottest) and California firmed to +9.3 °C (from +8.3) — while Southern Africa eased to −3.1 °C (from −5.9) and dropped out of EXTREME, leaving no EXTREME cold cell; the mean anomaly softened from +1.97 °C to +1.88 °C. Rewrote the intro, at-a-glance, atmospheric, cryosphere, regional-map and reading sections. Observed-only framing held ([[co2-monitoring]], [[sea-ice-extent]], [[climate-anomalies]]).
 - 2026-10-06 — daily-ingest synthesis (2026-W41): absorbed the 2026-10-05 and 2026-10-06 pulls (regional-anomaly week 2026-09-30 to 2026-10-06). The atmospheric baseline eased a fraction (CO2 425.3 ppm, from 425.84; monthly 427.55, +2.83 ppm/yr; CH4 1,939.44 ppb, N2O 339.82 ppb held), Arctic extent rose to 5.8 million km² (from 5.71) at a fractionally deeper −1.57 million km² anomaly with sea level holding 110.6 mm, SST +0.61 °C and ocean heat content 228.45 ZJ. The regional map held 23 zones at 18 warm / 5 cold (unchanged) but concentrated its extremes: the EXTREME band narrowed to three (15 NORMAL / 5 MODERATE / 3 EXTREME) as the Western Antarctic Ice Sheet leapt to +13.3 °C (the brief's hottest regional cell) and California firmed to +8.3 °C, while the Tibetan Plateau (+4.0) and Europe (+4.6) eased out of EXTREME to MODERATE and Southern Africa deepened to −5.9 °C the sole EXTREME cold cell; the mean anomaly softened from +2.03 °C to +1.97 °C. Rewrote the intro, at-a-glance, atmospheric, cryosphere, regional-map and reading sections. Observed-only framing held ([[co2-monitoring]], [[sea-ice-extent]], [[climate-anomalies]]).
