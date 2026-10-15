@@ -3,7 +3,7 @@ title: Humanitarian Watch Weekly
 type: L2-brief
 theme: humanitarian
 week: 2026-W42
-updated: 2026-10-13T00:00:00Z
+updated: 2026-10-16T00:00:00Z
 sources: [displacement-flows]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -107,6 +107,7 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 ## Changelog
 
+- 2026-10-16 — daily-ingest flowback (2026-W42): the 2026-10-14 and 2026-10-15 UNHCR/OCHA pulls held byte-identical to 10-13 — the published-year (2025) global forcibly-displaced total of 106,175,975 (64,239,352 IDPs / 28,461,306 refugees / 8,998,097 asylum seekers / 4,477,220 stateless) and the full top-flow table (Sudan, Syria, Ukraine, Colombia, DR Congo leading) all unchanged, as expected for an annual release that revises only periodically; only the retrieval timestamp advanced. The flat run now spans 91 days (2026-07-16 → 10-15). `updated` advanced; no figure moved. Observed-statistic, no-cause-blame framing held ([[displacement-flows]]).
 - 2026-10-13 — daily-ingest synthesis (2026-W42): absorbed the 2026-10-12 → 2026-10-13 pulls, a clean hold. The UNHCR/OCHA published-year (2025) figures carried byte-identical to 10-11 — the global forcibly-displaced total of 106,175,975 (64,239,352 IDPs / 28,461,306 refugees / 8,998,097 asylum seekers / 4,477,220 stateless) and the full top-flow table (Sudan, Syria, Ukraine, Colombia, DR Congo leading) all unchanged — as expected for an annual release that revises only periodically; only the retrieval timestamp advanced. The flat run now spans 89 days (2026-07-16 → 10-13). Advanced all in-brief dates and the flat-run length; no figure moved. Observed-statistic, no-cause-blame framing held ([[displacement-flows]]).
 - 2026-10-11 — daily-ingest synthesis (2026-W41): absorbed the 2026-10-09 → 2026-10-11 pulls, a clean hold. The UNHCR/OCHA published-year (2025) figures carried byte-identical to 10-08 — the global forcibly-displaced total of 106,175,975 (64,239,352 IDPs / 28,461,306 refugees / 8,998,097 asylum seekers / 4,477,220 stateless) and the full top-flow table (Sudan, Syria, Ukraine, Colombia, DR Congo leading) all unchanged — as expected for an annual release that revises only periodically; only the retrieval timestamp advanced. The flat run now spans 87 days (2026-07-16 → 10-11). Advanced all in-brief dates and the flat-run length; no figure moved. Observed-statistic, no-cause-blame framing held ([[displacement-flows]]).
 - 2026-10-08 — daily-ingest synthesis (2026-W41): absorbed the 2026-10-07 and 2026-10-08 pulls, a clean hold. The UNHCR/OCHA published-year (2025) figures carried byte-identical to 10-06 — the global forcibly-displaced total of 106,175,975 (64,239,352 IDPs / 28,461,306 refugees / 8,998,097 asylum seekers / 4,477,220 stateless) and the full top-flow table (Sudan, Syria, Ukraine, Colombia, DR Congo leading) all unchanged — as expected for an annual release that revises only periodically; only the retrieval timestamp advanced. The flat run now spans 84 days (2026-07-16 → 10-08). Advanced all in-brief dates and the flat-run length; no figure moved. Observed-statistic, no-cause-blame framing held ([[displacement-flows]]).
