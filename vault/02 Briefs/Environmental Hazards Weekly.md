@@ -3,7 +3,7 @@ title: Environmental Hazards Weekly
 type: L2-brief
 theme: environmental-hazards
 week: 2026-W42
-updated: 2026-10-13T00:00:00Z
+updated: 2026-10-16T00:00:00Z
 sources: [wildfire-detections, thermal-escalations, natural-events, radiation-observations]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -16,111 +16,110 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 > environmental hazards — active-fire detections, clustered thermal anomalies, disaster
 > alerts and ambient-radiation readings — what the instruments recorded, never what will
 > happen, and never a position on any conflict the data sits near. Every claim links to the
-> L1 note it rests on. (This cycle absorbs the 2026-10-12 → 2026-10-13 pulls. The wildfire note carries
-> **182 detections** directly this cycle (the feed reports **207 rows** total, single page) — no top-N FRP
-> cap was applied, so the figures below describe the note's full detection set —
-> [[wildfire-detections]]. The headline this cycle is a **sharp regime change: the fire field flipped from
-> the conflict-zone concentration to a Canadian boreal one**. By the feed's own `region` field the tally
-> now reads **British Columbia 73 / Quebec 41 / Russia 21 / Parks Canada 19 / Ontario 12 / Northwest
-> Territories 5 / Yukon 4 / Saskatchewan 3** — Canadian provinces dominating the detections with Russia the
-> largest non-Canadian label, a complete rotation off the prior Iran 125 / Russia 47 / Turkey 34 split; all
-> 182 still carry an **emergency flag**, 0 a possible-explosion flag, and top-end intensity **collapsed** to
-> top-3 FRP **~16.2 / 14.1 / 14.1 MW** (from ~140.3 / 140.3 / 110.1). The thermal-cluster slate held **12
-> clusters** but its relevance **collapsed** — **6 conflict-adjacent** (from 12), **0 high-relevance** (from
-> 12), **1 persistent** (from 12), 0 spike; the disaster slate **eased to 26 events** with a **Cat 3
-> Tropical Cyclone Isaias-26 (105 kt)** now leading the severe-storm track and Hurricane Simon eased to Cat
-> 1; and radiation ran **clean — 0 ELEVATED, 0 anomaly, 0 spike** across 10 EPA stations.)
+> L1 note it rests on. (This cycle absorbs the 2026-10-14 → 2026-10-15 pulls. The wildfire feed's top-N FRP
+> cap **re-applied** — the note carries the **top 250 detections by FRP of 500 rows** (the `totalCount`
+> field reads 5,075 against the prior cycle's 207) — [[wildfire-detections]]. The headline this cycle is a
+> **sharp regime change back: the fire field flipped from the Canadian boreal concentration to the
+> conflict-zone one**. By the feed's own `region` field the capped tally now reads **Iran 175 / Russia 56 /
+> Ukraine 10 / Saudi Arabia 9** — Iran dominating the strongest detections, a complete rotation off last
+> cycle's British Columbia 73 / Quebec 41 / Russia 21 Canadian boreal split; all 250 carry an **emergency
+> flag**, 0 a possible-explosion flag, and top-end intensity **surged** to top-3 FRP **~150.5 / 99.8 /
+> 81.5 MW** (from ~16.2 / 14.1 / 14.1). The thermal-cluster slate held **12 clusters** but its relevance
+> **surged back** — **12 conflict-adjacent** (from 6), **12 high-relevance** (from 0), **12 persistent**
+> (from 1), 0 spike, **11 of 12 clusters in Iran** (centroids ~30–32°N, 47–48°E) with peak cluster FRP
+> **~1,984 MW**; the disaster slate **firmed to 27 events** with a **Cat 3 Tropical Cyclone Isaias-26
+> (105 kt)** still leading the severe-storm track as Hurricane Simon weakened to a tropical storm and
+> Hurricane Trudy entered; and radiation ran **clean — 0 ELEVATED, 0 anomaly, 0 spike** across 10 EPA stations.)
 
 ## This week at a glance
 
-- The NASA FIRMS VIIRS feed's **top-250-by-FRP cap held at 250 detections**, out of the **500 rows**
-  the note carries directly this cycle (207 rows reported total, single page, no FRP cap applied); the
-  region tally now reads **British Columbia 73 / Quebec 41 / Russia 21 / Parks Canada 19 / Ontario 12 /
-  Northwest Territories 5 / Yukon 4 / Saskatchewan 3**, a complete rotation off the prior Iran 125 /
-  Russia 47 / Turkey 34 / Ukraine 32 split — **Canadian provinces now dominate the detections** with
-  Russia the largest non-Canadian label; all 182 still carry an **emergency flag** and 0 a
-  possible-explosion flag, and intensity **collapsed** at the top — the top-3 fire-radiative-power
-  values settled to **~16.2 / 14.1 / 14.1 MW** (from ~140.3 / 140.3 / 110.1) ([[wildfire-detections]]).
-- The FIRMS thermal-escalation feed again clustered the window into **12 signals**, but the relevance
-  **collapsed** this cycle — **6 `conflict_adjacent`** (from 12), **0 `THERMAL_RELEVANCE_HIGH`** (from 12),
-  **1 `THERMAL_STATUS_PERSISTENT`** (from 12) and 0 spike — the feed carrying the cluster count without a
-  per-cluster country label this pull, so no country split is drawn ([[thermal-escalations]]).
-- The GDACS / NASA EONET disaster feed **eased to 26 active events** (from 28, all 26 open):
-  the **severe-storm category held near 9** now led by a **Category 3 Tropical Cyclone Isaias-26** (105 kt)
-  with Hurricane Simon eased to **Cat 1** (80 kt), **floods stayed at 0**, the multi-country droughts held
-  at **4**, Sea and Lake Ice held at **10**, two **volcano** events held and one **earthquake** event sat
-  at 1 ([[natural-events]]).
+- The NASA FIRMS VIIRS feed's **top-250-by-FRP cap re-applied at 250 detections**, out of the **500 rows**
+  the note caption records (the feed's `totalCount` field reads 5,075, up from the prior cycle's 207); the
+  capped region tally now reads **Iran 175 / Russia 56 / Ukraine 10 / Saudi Arabia 9**, a complete rotation
+  off last cycle's British Columbia 73 / Quebec 41 / Russia 21 Canadian boreal split — **Iran now dominates
+  the strongest detections** with Russia the largest non-Iran label; all 250 carry an **emergency flag** and
+  0 a possible-explosion flag, and intensity **surged** at the top — the top-3 fire-radiative-power
+  values rose to **~150.5 / 99.8 / 81.5 MW** (from ~16.2 / 14.1 / 14.1) ([[wildfire-detections]]).
+- The FIRMS thermal-escalation feed again clustered the window into **12 signals**, and the relevance
+  **surged back** this cycle — **12 `conflict_adjacent`** (from 6), **12 `THERMAL_RELEVANCE_HIGH`** (from 0),
+  **12 `THERMAL_STATUS_PERSISTENT`** (from 1) and 0 spike — **11 of the 12 clusters carry an Iran country
+  label** (centroids ~30–32°N, 47–48°E), one Russia, with peak cluster FRP ~1,984 MW ([[thermal-escalations]]).
+- The GDACS / NASA EONET disaster feed **firmed to 27 active events** (from 26, 25 open):
+  the **severe-storm category held near 6** still led by a **Category 3 Tropical Cyclone Isaias-26** (105 kt)
+  as **Hurricane Simon weakened to a tropical storm** (~50 kt) and **Hurricane Trudy entered** (~65 kt),
+  **floods stayed at 0**, the multi-country droughts held at **4** and Sea and Lake Ice firmed to **11**,
+  with the two volcano eruptions (Kanlaon, Taal) holding ([[natural-events]]).
 - Radiation **held at 10 EPA readings** and ran **clean** this pull — **0 ELEVATED, 0 anomaly, 0 spike**:
-  the **10 EPA RadNet US stations** stayed online on still-low ambient background, the prior cycle's single
-  Albany, NY ELEVATED flag clearing — a quiet series with no flag of any kind this cycle
-  ([[radiation-observations]]).
+  the **10 EPA RadNet US stations** stayed online on still-low ambient background — a quiet series with no
+  flag of any kind this cycle ([[radiation-observations]]).
 
 ## Active fire — where the detections clustered
 
-- The detection set attributes — by each detection's own `region` field, deterministically
-  tallied — as **British Columbia 73 / Quebec 41 / Russia 21 / Parks Canada 19 / Ontario 12 / Northwest
-  Territories 5 / Yukon 4 / Saskatchewan 3** on the 10-13 pull, a complete rotation off the 10-11 split of
-  Iran 125 / Russia 47 / Turkey 34 / Ukraine 32 / Saudi Arabia 7 / North Korea 5: **the conflict-zone
-  concentration cleared entirely and a Canadian boreal field took over**, Canadian provinces holding the
-  top of the tally with Russia the largest non-Canadian label. All 182 detections carried an emergency flag
-  and 0 carried a possible-explosion flag, while intensity **collapsed** at the top — the top-3 FRP values
-  settled to **~16.2 / 14.1 / 14.1 MW** (from ~140.3 / 140.3 / 110.1) ([[wildfire-detections]]).
-- This cycle the endpoint returned a smaller set (207 rows reported, 182 carried in the note, single page)
-  and **no top-N FRP cap was applied** — the note's figures describe the full detection set it carries, not
-  a strongest-fires subset. The country split and FRP figures above are exact for that set; attribution is
-  by each row's own `region` field, which for Canada is reported at the province/agency level
-  ([[wildfire-detections]]).
+- The capped detection set attributes — by each detection's own `region` field, deterministically
+  tallied — as **Iran 175 / Russia 56 / Ukraine 10 / Saudi Arabia 9** on the 10-15 pull, a complete rotation
+  off the 10-13 split of British Columbia 73 / Quebec 41 / Russia 21 / Parks Canada 19 / Ontario 12: **the
+  Canadian boreal field cleared and the conflict-zone concentration took back over**, Iran holding the
+  top of the tally with Russia the largest non-Iran label. All 250 detections carried an emergency flag
+  and 0 carried a possible-explosion flag, while intensity **surged** at the top — the top-3 FRP values
+  rose to **~150.5 / 99.8 / 81.5 MW** (from ~16.2 / 14.1 / 14.1) ([[wildfire-detections]]).
+- This cycle the endpoint returned the large set again (the note caption records the **top 250 by FRP of
+  500 rows**, the `totalCount` field reading 5,075) and the **top-N FRP cap re-applied** — the note's figures
+  describe the strongest-250 subset by fire radiative power, not the whole feed. The country split above is
+  exact for that capped set; attribution is by each row's own `region` field ([[wildfire-detections]]).
 
 ## Thermal escalations — the clustered signal
 
-- The feed again clustered the window into **12 thermal-escalation signals** on the 10-13 pull, but the
-  relevance mix **collapsed**: **6 of 12 carried `conflict_adjacent`** (from all 12), **0 carried
-  `THERMAL_RELEVANCE_HIGH`** (from all 12), and the status mix fell to **1 `THERMAL_STATUS_PERSISTENT`**
-  (persistentCount 1 from 12, spikeCount 0, elevatedCount 0, highRelevanceCount 0). The feed carried the
-  cluster count and the summary flags without a per-cluster country label this pull, so no country split
-  is drawn ([[thermal-escalations]]).
-- azimuth reports the cluster count and the summary classification as the observed feed output
-  and takes no position on it — a thermal cluster is a measured radiance aggregate, and the L2 line
-  stops at what was detected, when, and how the signal classified, not what it implies about the
-  ground situation. The high-relevance / all-persistent concentration of prior cycles cleared this pull
-  ([[thermal-escalations]]).
+- The feed again clustered the window into **12 thermal-escalation signals** on the 10-15 pull, and the
+  relevance mix **surged back**: **12 of 12 carried `conflict_adjacent`** (from 6), **12 carried
+  `THERMAL_RELEVANCE_HIGH`** (from 0), and the status mix rose to **12 `THERMAL_STATUS_PERSISTENT`**
+  (persistentCount 12 from 1, spikeCount 0, elevatedCount 0). This pull carried per-cluster country labels:
+  **11 of the 12 clusters sit in Iran** (centroids clustered ~30–32°N, 47–48°E), one in Russia, with peak
+  cluster total-FRP **~1,984 MW** — the all-persistent, all-high-relevance concentration of earlier cycles
+  returned ([[thermal-escalations]]).
+- azimuth reports the cluster count, the country labels and the summary classification as the observed feed
+  output and takes no position on it — a thermal cluster is a measured radiance aggregate, and the L2 line
+  stops at what was detected, where, when, and how the signal classified, not what it implies about the
+  ground situation ([[thermal-escalations]]).
 
 ## Disaster alerts and radiation
 
-- The GDACS/EONET disaster slate **eased to 26 active events** on the 10-13 pull (from 28 on
-  10-11, all 26 open): the severe-storm category held near **9**, now led by a **Category 3 Tropical
-  Cyclone Isaias-26** (105 kt) with **Hurricane Simon eased to Cat 1** (80 kt); **floods stayed at 0**; the
-  multi-country droughts held at **4**; Sea and Lake Ice held at **10**; two **volcano** events held and
-  one **earthquake** event sat at 1. azimuth records the count and category slate as the observed feed
+- The GDACS/EONET disaster slate **firmed to 27 active events** on the 10-15 pull (from 26 on
+  10-13, 25 open): the severe-storm category held near **6**, still led by a **Category 3 Tropical
+  Cyclone Isaias-26** (105 kt) as **Hurricane Simon weakened to a tropical storm** (~50 kt) and
+  **Hurricane Trudy entered** (~65 kt); **floods stayed at 0**; the
+  multi-country droughts held at **4**; Sea and Lake Ice firmed to **11**; and the two **volcano**
+  eruptions (Kanlaon, Taal) held. azimuth records the count and category slate as the observed feed
   state, taking no position on any of it ([[natural-events]]).
 - Radiation **ran clean** this pull — **10 EPA RadNet US stations** reporting, **0 ELEVATED, 0 anomaly,
-  0 spike**: the stations stayed online on still-low ambient background, and the prior cycle's single
-  **Albany, NY ELEVATED flag (53 nSv/h, z +2.07) cleared** — a quiet series with no flag of any kind this
-  cycle ([[radiation-observations]]).
+  0 spike**: the stations stayed online on still-low ambient background — a quiet series with no flag of any
+  kind this cycle ([[radiation-observations]]).
 
 ## Reading the week
 
-- The 2026-10-13 pull shows a **sharp regime change in the fire field — a complete rotation from the
-  conflict-zone concentration to a Canadian boreal one**: the note carries 182 detections directly (207
-  reported, no FRP cap), and the region tally now reads **British Columbia 73 / Quebec 41 / Russia 21 /
-  Parks Canada 19 / Ontario 12 / Northwest Territories 5 / Yukon 4 / Saskatchewan 3** (from Iran 125 /
-  Russia 47 / Turkey 34 / Ukraine 32 / Saudi Arabia 7 / North Korea 5) — Canadian provinces now dominate
-  with Russia the largest non-Canadian label — the top-3 FRP values **collapsing** to **~16.2 / 14.1 /
-  14.1 MW** (from ~140.3 / 140.3 / 110.1), all 182 still carrying an emergency flag ([[wildfire-detections]]). The
-  thermal-escalation picture held 12 clusters but its relevance **collapsed** — 6 of 12 conflict-adjacent
-  (from 12), 0 high-relevance (from 12), 1 persistent (from 12), 0 spike, no country label carried this
-  pull ([[thermal-escalations]]). The disaster slate **eased to 26 active events** (from 28):
-  severe storms held near 9 now led by a Category 3 Tropical Cyclone Isaias-26 (105 kt) with Hurricane
-  Simon eased to Cat 1, floods stayed at 0, droughts held at 4, Sea/Lake Ice held at 10, two volcano events
-  held and one earthquake event sat at 1 ([[natural-events]]). Radiation
-  **ran clean** — 10 EPA RadNet US stations reporting, 0 ELEVATED, 0 anomaly, 0 spike, the prior Albany, NY
-  flag clearing ([[radiation-observations]]). azimuth records the detections, the cluster statuses, the alert
+- The 2026-10-15 pull shows a **sharp regime change back in the fire field — a complete rotation from the
+  Canadian boreal concentration to the conflict-zone one**: the top-N FRP cap re-applied (the note carries
+  the top 250 by FRP of 500 rows, the `totalCount` field reading 5,075), and the capped region tally now
+  reads **Iran 175 / Russia 56 / Ukraine 10 / Saudi Arabia 9** (from British Columbia 73 / Quebec 41 /
+  Russia 21 / Parks Canada 19 / Ontario 12) — Iran now dominates
+  with Russia the largest non-Iran label — the top-3 FRP values **surging** to **~150.5 / 99.8 /
+  81.5 MW** (from ~16.2 / 14.1 / 14.1), all 250 carrying an emergency flag ([[wildfire-detections]]). The
+  thermal-escalation picture held 12 clusters and its relevance **surged back** — 12 of 12 conflict-adjacent
+  (from 6), 12 high-relevance (from 0), 12 persistent (from 1), 0 spike, 11 of 12 clusters carrying an Iran
+  country label (centroids ~30–32°N, 47–48°E) with peak cluster FRP ~1,984 MW
+  ([[thermal-escalations]]). The disaster slate **firmed to 27 active events** (from 26):
+  severe storms held near 6 still led by a Category 3 Tropical Cyclone Isaias-26 (105 kt) as Hurricane
+  Simon weakened to a tropical storm and Hurricane Trudy entered, floods stayed at 0, droughts held at 4,
+  Sea/Lake Ice firmed to 11 and the two volcano eruptions (Kanlaon, Taal) held ([[natural-events]]). Radiation
+  **ran clean** — 10 EPA RadNet US stations reporting, 0 ELEVATED, 0 anomaly, 0 spike
+  ([[radiation-observations]]). azimuth records the detections, the cluster statuses, the alert
   categories and the sensor values, links each to its L1 note, and stops there — what the
   satellites and stations measured, not what may follow
   ([[wildfire-detections]], [[thermal-escalations]], [[natural-events]],
   [[radiation-observations]]).
 
 ## Changelog
+
+- 2026-10-16 — daily-ingest synthesis (2026-W42): absorbed the 2026-10-14 → 2026-10-15 pulls. The headline is a sharp regime change BACK in the fire field — a complete rotation from last cycle's Canadian boreal concentration to the conflict-zone one. The wildfire top-N FRP cap re-applied (the note carries the top 250 by FRP of 500 rows per its caption, the `totalCount` field reading 5,075 from the prior 207); the capped `region` tally reads Iran 175 / Russia 56 / Ukraine 10 / Saudi Arabia 9 (from British Columbia 73 / Quebec 41 / Russia 21), all 250 carrying an emergency flag and 0 a possible-explosion flag, with top-3 FRP surging to ~150.5 / 99.8 / 81.5 MW (from ~16.2 / 14.1 / 14.1). The thermal-escalation slate held 12 clusters but its relevance surged back — 12 conflict-adjacent (from 6), 12 high-relevance (from 0), 12 persistent (from 1), 0 spike — with 11 of 12 clusters carrying an Iran country label (centroids ~30–32°N, 47–48°E) and peak cluster FRP ~1,984 MW. The GDACS/EONET disaster slate firmed to 27 events (from 26) with a Cat 3 Tropical Cyclone Isaias-26 (105 kt) still leading as Hurricane Simon weakened to a tropical storm and Hurricane Trudy entered; Sea/Lake Ice firmed to 11, droughts held 4, the two volcano eruptions held. Radiation ran clean — 10 EPA stations, 0 ELEVATED / 0 anomaly / 0 spike. Rewrote the intro, at-a-glance, active-fire, thermal, disaster/radiation and reading sections. Observed-only, no-conflict-position framing held ([[wildfire-detections]], [[thermal-escalations]], [[natural-events]], [[radiation-observations]]).
 
 - 2026-10-13 — daily-ingest synthesis (2026-W42): absorbed the 2026-10-12 → 2026-10-13 pulls — a sharp regime change in the fire field. The wildfire note carried 182 detections directly (207 rows reported, single page, no FRP cap this cycle), and the region tally rotated completely off the conflict zones to a Canadian boreal field: British Columbia 73 / Quebec 41 / Russia 21 / Parks Canada 19 / Ontario 12 / Northwest Territories 5 / Yukon 4 / Saskatchewan 3 (from Iran 125 / Russia 47 / Turkey 34 / Ukraine 32 / Saudi Arabia 7 / North Korea 5), Canadian provinces now dominating with Russia the largest non-Canadian label; top-3 FRP collapsed to ~16.2 / 14.1 / 14.1 MW (from ~140.3 / 140.3 / 110.1), all 182 emergency-flagged, 0 possible-explosion. Thermal held 12 clusters but its relevance collapsed — 6 of 12 conflict-adjacent (from 12), 0 high-relevance (from 12), 1 persistent (from 12), 0 spike, no per-cluster country label carried. The disaster slate eased to 26 active events (from 28, all open) — severe storms near 9 now led by a Category 3 Tropical Cyclone Isaias-26 (105 kt) with Hurricane Simon eased to Cat 1, Sea/Lake Ice 10, droughts 4, two volcano events, one earthquake event. Radiation ran clean — 10 EPA stations, 0 ELEVATED / 0 anomaly / 0 spike, the prior Albany, NY flag clearing. Rewrote the intro, at-a-glance, active-fire, thermal, disaster+radiation and reading sections. Observed-only, no-position framing held ([[wildfire-detections]], [[thermal-escalations]], [[natural-events]], [[radiation-observations]]).
 - 2026-10-11 — daily-ingest synthesis (2026-W41): absorbed the 2026-10-09 → 2026-10-11 pulls. The wildfire top-250-by-FRP sample (of 500 rows) read Iran 125 / Russia 47 / Turkey 34 / Ukraine 32 / Saudi Arabia 7 / North Korea 5 (from Iran 127 / Russia 61 / Turkey 25 / Ukraine 22 / Syria 10 / Saudi Arabia 4) — Iran held roughly flat and Russia eased while Turkey firmed 25 → 34, Ukraine firmed 22 → 32 and Syria dropped out — with top-3 FRP easing to ~140.3 / 140.3 / 110.1 MW (from ~148.7 / 115.2 / 108.0), all 250 emergency-flagged. Thermal held its 12-cluster all-PERSISTENT, 12/12 conflict-adjacent + high-relevance shape while the split concentrated further to 11 Iran / 1 Russia (from 8/4), the sharpest z easing to 2.94 (from 4.09, still an Iran cluster). The disaster slate eased to 28 active events (from 29, all open) — severe storms held near 11 led by a Category 4 Hurricane Simon (eastern Pacific, 130 kt, 933 mb), Sea/Lake Ice near 10, droughts 4, the Taal eruption held and the Panama M7.7 earthquake joined the Vanuatu earthquake. Radiation held at 11 readings and carried one ELEVATED flag (no SPIKE) — an Albany, NY reading at 53 nSv/h (z +2.07) still inside the normal ambient band, Fukushima 74.3 nSv/h the series top. Rewrote the intro, at-a-glance, active-fire, thermal, disaster+radiation and reading sections. Observed-only, no-position framing held ([[wildfire-detections]], [[thermal-escalations]], [[natural-events]], [[radiation-observations]]).
