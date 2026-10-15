@@ -3,7 +3,7 @@ title: Cyber Watch Weekly
 type: L2-brief
 theme: cyber-watch
 week: 2026-W42
-updated: 2026-10-13T00:00:00Z
+updated: 2026-10-16T00:00:00Z
 sources: [cyber-threats]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -15,77 +15,78 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 > fleet role evolves this single note in place each cycle. azimuth reports **recorded cyber
 > threat indicators** — an IOC is an observed fact (a host, an IP, a first-seen timestamp,
 > a severity as the tracker scored it) — and never attributes intent, names a victim, or
-> predicts an attack. Every claim links to the L1 note it rests on. Cutoff: the **2026-10-13**
-> pull. The surfaced band **broke its composition this cycle** — the all-CRITICAL / all-MALWARE_HOST shape
-> gave way. The 500 surfaced rows now split **264 MEDIUM / 236 HIGH severity** (no CRITICAL this page) and
-> **264 MALWARE_HOST / 236 C2_SERVER** by type, a new command-and-control class entering alongside the
-> malware hosts; and the scale **fell sharply** — pagination `totalCount` **1,338 → 515** (net −823). By
-> indicator-IP geolocation the attributed set **flipped from US-led to China-led**: **China 106** leads by
-> a wide margin, then **Hong Kong 31**, **the United States 13**, **Singapore 13**, **Germany 6** and
-> **Switzerland 6**, with **301 of 500 rows unattributed** (largely the new C2-server class). Twenty
-> distinct attributed geographies.
+> predicts an attack. Every claim links to the L1 note it rests on. Cutoff: the **2026-10-15**
+> pull. The surfaced band **snapped back to its uniform composition this cycle** — the prior cycle's
+> MEDIUM/HIGH + MALWARE_HOST/C2_SERVER break reversed. The 500 surfaced rows are now **all 500 CRITICAL
+> severity** and **all 500 MALWARE_HOST** by type, the command-and-control class exiting the surfaced page;
+> and the scale **surged** — pagination `totalCount` **515 → 1,208** (net +693). By indicator-IP
+> geolocation the attributed set **flipped back from China-led to US-led**: **United States 103** leads,
+> then **China 46**, **Netherlands 42**, **Germany 24**, **the United Kingdom 23**, **France 20**,
+> **South Korea 19** and **Canada 18**, with **0 rows unattributed** and **64 distinct attributed
+> geographies** — a far broader spread than the prior cycle's China-concentrated 20.
 
 ## This week at a glance
 
-- The abuse.ch / AbuseIPDB channel surfaced **500 indicators** on the 2026-10-13 pull with a **broken
-  composition** — no longer the uniform all-CRITICAL / all-MALWARE_HOST band: the 500 rows split
-  **264 MEDIUM / 236 HIGH** by severity (no CRITICAL this page) and **264 MALWARE_HOST / 236 C2_SERVER**
-  by type, a new command-and-control class entering; feed pagination reads `nextCursor` 500 of
-  `totalCount` **515**, down sharply from 10-11's **1,338** (net −823) ([[cyber-threats]]).
-- By indicator-IP geolocation the attributed set **flipped to China-led**: **China (106)** leads by a wide
-  margin, then **Hong Kong (31)**, the **United States (13)**, **Singapore (13)**, **Germany (6)**,
-  **Switzerland (6)**, **South Korea (5)** and **Japan (5)** — the familiar hosting-heavy geographies where
+- The abuse.ch / AbuseIPDB channel surfaced **500 indicators** on the 2026-10-15 pull with its **uniform
+  composition restored** — back to the all-CRITICAL / all-MALWARE_HOST band: the 500 rows are
+  **all 500 CRITICAL** by severity and **all 500 MALWARE_HOST** by type, the command-and-control class
+  exiting the page; feed pagination reads `nextCursor` 500 of `totalCount` **1,208**, up sharply from
+  10-13's **515** (net +693) ([[cyber-threats]]).
+- By indicator-IP geolocation the attributed set **flipped back to US-led**: the **United States (103)**
+  leads, then **China (46)**, the **Netherlands (42)**, **Germany (24)**, the **United Kingdom (23)**,
+  **France (20)**, **South Korea (19)** and **Canada (18)** — the familiar hosting-heavy geographies where
   infrastructure is registered, not a map of actors ([[cyber-threats]]).
-- **301 of the 500 rows carry no country** this cycle (largely the new C2-server class, which the feed
-  surfaces without a geolocation), leaving **20 distinct attributed geographies** — a far more
-  concentrated, China-weighted attributed distribution than the prior US-led spread ([[cyber-threats]]).
+- **0 of the 500 rows carry no country** this cycle (the malware-host rows are all geolocated),
+  across **64 distinct attributed geographies** — a far broader, US-weighted attributed distribution than the
+  prior cycle's China-concentrated 20 ([[cyber-threats]]).
 
 ## Honest scope
 
-- **The surfaced critical band held its composition but not its scale this cycle.** All 500
-  rows this cycle split MEDIUM/HIGH severity and MALWARE_HOST/C2_SERVER type — the uniform
-  all-CRITICAL / all-MALWARE_HOST composition broke — while `totalCount` fell a genuine net −823
-  (1,338 → 515) — azimuth reports both the composition break and the scale fall as real day-to-day
-  feed changes, not a directional trend ([[cyber-threats]]).
+- **The surfaced critical band restored both its composition and lifted its scale this cycle.** All 500
+  rows this cycle are CRITICAL severity and MALWARE_HOST type — the uniform
+  all-CRITICAL / all-MALWARE_HOST composition snapped back as the prior cycle's C2-server break reversed —
+  while `totalCount` rose a genuine net +693 (515 → 1,208) — azimuth reports both the composition snap-back
+  and the scale rise as real day-to-day feed changes, not a directional trend ([[cyber-threats]]).
 - **Country is geolocation of the indicator IP, not attribution of an actor.** The source records
   an IP, its geolocation and a severity score; azimuth reports the distribution of hosting
   geographies and makes no inference about who operates them or whom they target
   ([[cyber-threats]]).
 
-## Move since prior reading (2026-10-11 → 2026-10-13)
+## Move since prior reading (2026-10-13 → 2026-10-15)
 
-- **Moved: composition broke.** The prior all-CRITICAL / all-MALWARE_HOST band gave way — the 500 rows
-  now split **264 MEDIUM / 236 HIGH** severity and **264 MALWARE_HOST / 236 C2_SERVER** type, a new
-  command-and-control class entering the surfaced set for the first time this run ([[cyber-threats]]).
-- **Moved: total scale fell sharply.** Pagination `totalCount` fell **1,338 → 515** (net −823) —
-  the largest single-cycle contraction recorded in this brief, reversing the two-cycle rebound
-  ([[cyber-threats]]).
-- **Moved: the geolocation mix flipped to China-led.** Of the attributed rows **China leads at 106**
-  by a wide margin, then **Hong Kong 31**, the **United States 13**, **Singapore 13**, **Germany 6** and
-  **Switzerland 6** — a China-weighted concentration against the prior US-led spread ([[cyber-threats]]).
-- **Unattributed rows jumped:** **301 of 500** carry no country this cycle (largely the new C2-server
-  class), leaving 20 distinct attributed geographies against the prior 63 ([[cyber-threats]]).
-- azimuth reads the composition break, the scale fall and the geo flip as genuine day-on-day feed
-  changes this cycle — a new C2-server class, a net −823 contraction and a China-led attributed mix —
+- **Moved: composition snapped back.** The prior cycle's MEDIUM/HIGH + MALWARE_HOST/C2_SERVER break
+  reversed — the 500 rows are now **all 500 CRITICAL** severity and **all 500 MALWARE_HOST** type, the
+  command-and-control class exiting the surfaced set again ([[cyber-threats]]).
+- **Moved: total scale surged.** Pagination `totalCount` rose **515 → 1,208** (net +693) —
+  reversing the prior cycle's sharp contraction ([[cyber-threats]]).
+- **Moved: the geolocation mix flipped back to US-led.** Of the attributed rows the **United States leads
+  at 103**, then **China 46**, the **Netherlands 42**, **Germany 24**, the **United Kingdom 23**,
+  **France 20**, **South Korea 19** and **Canada 18** — a broad US-weighted spread against the prior
+  China-concentrated mix ([[cyber-threats]]).
+- **Unattributed rows cleared:** **0 of 500** carry no country this cycle (all malware-host rows
+  geolocated), across 64 distinct attributed geographies against the prior 20 ([[cyber-threats]]).
+- azimuth reads the composition snap-back, the scale rise and the geo flip as genuine day-on-day feed
+  changes this cycle — the C2-server class exiting, a net +693 expansion and a US-led attributed mix —
   while still making no claim about actors, motive or forecast beyond the recorded numbers
   ([[cyber-threats]]).
 
 ## Reading the week
 
-- The 500 surfaced indicators this cycle split **264 CYBER_THREAT_TYPE_MALWARE_HOST / 236
-  CYBER_THREAT_TYPE_C2_SERVER** by type and **264 CRITICALITY_LEVEL_MEDIUM / 236 CRITICALITY_LEVEL_HIGH**
-  by severity — the uniform all-CRITICAL / all-MALWARE_HOST composition of prior cycles broke, a new
-  command-and-control class entering the surfaced set ([[cyber-threats]]).
-- The geolocation distribution stays hosting-shaped but **flipped to China-led** this cycle: of the
-  attributed rows China leads at 106, then Hong Kong 31, the US 13, Singapore 13, Germany 6 and
-  Switzerland 6 — while 301 of the 500 rows carry no country (largely the new C2-server class),
-  a far more concentrated attributed mix than the prior US-led spread ([[cyber-threats]]).
+- The 500 surfaced indicators this cycle are **all CYBER_THREAT_TYPE_MALWARE_HOST** by type and
+  **all CRITICALITY_LEVEL_CRITICAL** by severity — the uniform all-CRITICAL / all-MALWARE_HOST composition
+  snapped back as the prior cycle's command-and-control break reversed ([[cyber-threats]]).
+- The geolocation distribution stays hosting-shaped and **flipped back to US-led** this cycle: of the
+  attributed rows the US leads at 103, then China 46, the Netherlands 42, Germany 24, the UK 23, France 20,
+  South Korea 19 and Canada 18 — with 0 of the 500 rows carrying no country across 64 distinct geographies,
+  a far broader spread than the prior cycle's China-concentrated mix ([[cyber-threats]]).
 - azimuth records each indicator's type, severity and geolocation exactly as the tracker scored
-  them, notes the page carries 500 of a `totalCount` that fell net −823 to 515, and reads the
-  composition break and geolocation flip as genuine day-on-day feed changes rather than a
+  them, notes the page carries 500 of a `totalCount` that rose net +693 to 1,208, and reads the
+  composition snap-back and geolocation flip as genuine day-on-day feed changes rather than a
   claim about who operates or targets that infrastructure ([[cyber-threats]]).
 
 ## Changelog
+
+- 2026-10-16 — daily-ingest synthesis (2026-W42): absorbed the 2026-10-14 → 2026-10-15 pulls. The surfaced band snapped back to its uniform composition — the prior cycle's MEDIUM/HIGH + MALWARE_HOST/C2_SERVER break reversed, the 500 rows now all 500 CRITICAL severity and all 500 MALWARE_HOST type as the command-and-control class exited the page. Scale surged: pagination `totalCount` rose 515 → 1,208 (net +693), reversing the prior cycle's contraction. By indicator-IP geolocation the attributed set flipped back from China-led to US-led: US 103, China 46, Netherlands 42, Germany 24, UK 23, France 20, South Korea 19, Canada 18, with 0 unattributed rows across 64 distinct geographies (against the prior cycle's China-concentrated 20). Rewrote the intro, at-a-glance, honest-scope, move-since and reading sections. Observed-indicator framing held — no actor attribution, no victim, no forecast ([[cyber-threats]]).
 
 - 2026-10-13 — daily-ingest synthesis (2026-W42): absorbed the 2026-10-12 → 2026-10-13 pulls — the surfaced composition broke. The 500 rows no longer run uniform all-CRITICAL / all-MALWARE_HOST: they split 264 MEDIUM / 236 HIGH by severity (no CRITICAL this page) and 264 MALWARE_HOST / 236 C2_SERVER by type, a new command-and-control class entering. Scale fell sharply — pagination `totalCount` 1,338 → 515 (net −823), the largest single-cycle contraction recorded in this brief. The geolocation mix flipped from US-led to China-led: of the attributed rows China leads at 106, then Hong Kong 31, the US 13, Singapore 13, Germany 6, Switzerland 6; 301 of 500 rows unattributed (largely the C2-server class), 20 distinct attributed geographies (from 63). Rewrote the intro, at-a-glance, honest-scope, move and reading sections around the composition break, scale fall and geo flip. No-attribution framing held ([[cyber-threats]]).
 - 2026-10-11 — daily-ingest synthesis (2026-W41): absorbed the 2026-10-09 → 2026-10-11 pulls. Composition held (500 surfaced indicators all CRITICAL / MALWARE_HOST / AbuseIPDB score-100 / no malware family) while scale rose again — pagination `totalCount` 1,146 → 1,338 (net +192), a second straight rebound. The geolocation mix spread off the US as the UK firmed back into the tier: the United States eased its lead 110 → 103, China firmed to second 49 → 53, the Netherlands rose to third 36 → 41, the United Kingdom firmed sharply back into the tier at 37 and South Korea firmed 14 → 22, while Vietnam eased 20 → 15 and Hong Kong 18 → 11; distinct geographies ticked to 63 (from 62). Rewrote the intro, at-a-glance, honest-scope, move and reading sections. No-attribution framing held ([[cyber-threats]]).
