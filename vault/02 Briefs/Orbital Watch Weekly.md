@@ -3,7 +3,7 @@ title: Orbital Watch Weekly
 type: L2-brief
 theme: orbital-watch
 week: 2026-W42
-updated: 2026-10-13T00:00:00Z
+updated: 2026-10-16T00:00:00Z
 sources: [orbital-satellites]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -54,6 +54,7 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 ## Changelog
 
+- 2026-10-16 — daily-ingest flowback (2026-W42): a seventh straight honest flat cycle. The 2026-10-14 and 2026-10-15 pulls held the catalogue at 98 objects with the byte-identical operator-country (US 38 / CN 30 / EU 19 / IN 7 / TR 3 / KR 1) and type (optical 47 / military 34 / SAR 17) composition as 10-13; only the TLE line sets advanced to the fresh 2026-10-15 epoch as the objects propagate along their orbits. `updated` advanced and the hold logged; no count, operator or type label changed. Observed-counts-only framing held ([[orbital-satellites]]).
 - 2026-10-13 — daily-ingest synthesis (2026-W42): absorbed the 2026-10-12 → 2026-10-13 pulls, a sixth straight honest flat cycle. The catalogue held at 98 objects with the byte-identical object-id set and the same operator-country (US 38 / CN 30 / EU 19 / IN 7 / TR 3 / KR 1) and type (optical 47 / military 34 / SAR 17) composition as 10-11; only the TLE line sets advanced to the fresh 2026-10-13 epoch (roughly day-of-year 286 ≈ 13 October) as the objects propagate along their orbits. Bumped the cutoff and logged the hold; no count, operator or type label changed. Observed-counts-only framing held ([[orbital-satellites]]).
 - 2026-10-11 — daily-ingest synthesis (2026-W41): absorbed the 2026-10-09 → 2026-10-11 pulls, a fifth straight honest flat cycle. The catalogue held at 98 objects with the byte-identical object-id set and the same operator-country (US 38 / CN 30 / EU 19 / IN 7 / TR 3 / KR 1) and type (optical 47 / military 34 / SAR 17) composition as 10-08; only the TLE line sets advanced to the fresh 2026-10-11 epoch (roughly day-of-year 284 ≈ 11 October) as the objects propagate along their orbits. Bumped the cutoff and logged the hold; no count, operator or type label changed. Observed-counts-only framing held ([[orbital-satellites]]).
 - 2026-10-08 — daily-ingest synthesis (2026-W41): absorbed the 2026-10-07 and 2026-10-08 pulls, a fourth straight honest flat cycle. The catalogue held at 98 objects with the byte-identical object-id set and the same operator-country (US 38 / CN 30 / EU 19 / IN 7 / TR 3 / KR 1) and type (optical 47 / military 34 / SAR 17) composition as 10-06; only the TLE line sets advanced to the fresh 2026-10-08 epoch (roughly day-of-year 281 ≈ 8 October) as the objects propagate along their orbits. Bumped the cutoff and logged the hold; no count, operator or type label changed. Observed-counts-only framing held ([[orbital-satellites]]).
