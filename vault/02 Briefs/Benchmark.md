@@ -3,7 +3,7 @@ title: Benchmark — Facts vs Forecast vs Intelligence
 type: L2-brief
 theme: cross-theme
 week: 2026-W42
-updated: 2026-10-15T04:00:00Z
+updated: 2026-10-16T04:00:00Z
 sources: [crude-oil-inventories, earthquakes, energy-prices, natural-gas-storage-eu]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources; the forecast/intelligence columns quote WorldMonitor as the COMPARED product, not an azimuth channel
@@ -11,7 +11,7 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 # Benchmark — azimuth vs a forecast vs an intelligence feed
 
-> *Why not just read a forecast or an intelligence feed?* Here is the same world-topic through three columns: **azimuth** (observed facts from the live bundle, every claim linked to its L1 source), a **FORECAST** product (a model probability), and an **INTELLIGENCE** product (an analyst assessment). It is a fair contrast, not a strawman: azimuth wins on provenance, neutrality and reproducibility; a forecast / intel feed legitimately wins on **forward-looking coverage** — it predicts, azimuth reports what already happened. The forecast / intelligence columns quote WorldMonitor as the *compared product* (captured 2026-10-15T11:20:17Z), deliberately NOT a clickable L1 link — because that is exactly the difference.
+> *Why not just read a forecast or an intelligence feed?* Here is the same world-topic through three columns: **azimuth** (observed facts from the live bundle, every claim linked to its L1 source), a **FORECAST** product (a model probability), and an **INTELLIGENCE** product (an analyst assessment). It is a fair contrast, not a strawman: azimuth wins on provenance, neutrality and reproducibility; a forecast / intel feed legitimately wins on **forward-looking coverage** — it predicts, azimuth reports what already happened. The forecast / intelligence columns quote WorldMonitor as the *compared product* (captured 2026-10-16T11:15:02Z), deliberately NOT a clickable L1 link — because that is exactly the difference.
 
 ## EU / global energy supply security
 
@@ -19,23 +19,23 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 ### azimuth — observed facts (EU gas storage + US crude inventories + Energy prices)
 
-- EU gas storage stands at 3,500 Bcf (+85 Bcf w/w) as of 2026-10-02 — an observed reading ([[natural-gas-storage-eu]])
-- US crude inventories drew down -3 to 424 Mb (EIA week of 2026-10-02) — an observed reading ([[crude-oil-inventories]])
-- Spot crude as reported: WTI $98.07/bbl (+4.8 w/w), Brent $120.03/bbl (+2.5 w/w) — the observed price tape ([[energy-prices]])
+- EU gas storage stands at 3,567 Bcf (+67 Bcf w/w) as of 2026-10-09 — an observed reading ([[natural-gas-storage-eu]])
+- US crude inventories drew down -9 to 416 Mb (EIA week of 2026-10-09) — an observed reading ([[crude-oil-inventories]])
+- Spot crude as reported: WTI $96.88/bbl (-1.2 w/w), Brent $127.43/bbl (+6.2 w/w) — the observed price tape ([[energy-prices]])
 
 ### FORECAST product — model projection (compared)
 
-> Assigns a **73% probability** over 30d that “Energy repricing risk from Middle East security escalation state” — confidence 75%, trend stable.
+> Assigns a **71% probability** over 30d that “Energy repricing risk from Red Sea maritime disruption state” — confidence 75%, trend stable.
 >
-> — *WorldMonitor forecast feed (model projection), captured 2026-10-15T11:20:17Z*
+> — *WorldMonitor forecast feed (model projection), captured 2026-10-16T11:15:02Z*
 
 ### INTELLIGENCE product — analyst assessment (compared)
 
-> The 73% probability with 75% confidence reflects a stable but fragile equilibrium, where 9 clustered situations and 39 linked forecasts create a canonical state path that is feeding energy repricing through supply shock, but the 75% confidence level indicates bounded action.
+> The 74% energy supply shock pressure and 77% state confirmation indicate a durable disruption state, with 7 urgent critical signals reinforcing energy price sensitivity over the 30-day horizon.
 >
-> Actor lens: Commodity traders: Price whether stress in Middle East becomes durable over the 30d. Rebalance positions if the probability path moves away from 73%.
+> Actor lens: Commodity traders: Price whether stress in Red Sea becomes durable over the 30d. Rebalance positions if the probability path moves away from 71%.
 >
-> — *WorldMonitor intelligence assessment (analyst judgement), captured 2026-10-15T11:20:17Z*
+> — *WorldMonitor intelligence assessment (analyst judgement), captured 2026-10-16T11:15:02Z*
 
 ### Scorecard
 
@@ -58,22 +58,22 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 ### azimuth — observed facts (Energy prices + US crude inventories)
 
-- WTI crude as reported: $98.07/bbl (+4.8 w/w) — the observed energy-cost input to inflation, not a forecast of it ([[energy-prices]])
-- US crude stocks -3 (week of 2026-10-02) — the observed physical balance behind the cost line, every figure clickable ([[crude-oil-inventories]])
+- WTI crude as reported: $96.88/bbl (-1.2 w/w) — the observed energy-cost input to inflation, not a forecast of it ([[energy-prices]])
+- US crude stocks -9 (week of 2026-10-09) — the observed physical balance behind the cost line, every figure clickable ([[crude-oil-inventories]])
 
 ### FORECAST product — model projection (compared)
 
-> Assigns a **72% probability** over 30d that “Energy repricing risk from Red Sea maritime disruption state” — confidence 75%, trend stable.
+> Assigns a **71% probability** over 30d that “Energy repricing risk from Red Sea maritime disruption state” — confidence 75%, trend stable.
 >
-> — *WorldMonitor forecast feed (model projection), captured 2026-10-15T11:20:17Z*
+> — *WorldMonitor forecast feed (model projection), captured 2026-10-16T11:15:02Z*
 
 ### INTELLIGENCE product — analyst assessment (compared)
 
-> The 72% probability with 75% confidence reflects a stable but fragile equilibrium, where 1 clustered situation and 1 linked forecast create a canonical state path that is feeding energy repricing through supply shock, but the 75% confidence level indicates bounded action.
+> The 74% energy supply shock pressure and 77% state confirmation indicate a durable disruption state, with 7 urgent critical signals reinforcing energy price sensitivity over the 30-day horizon.
 >
-> Actor lens: Commodity traders: Price whether stress in Red Sea becomes durable over the 30d. Rebalance positions if the probability path moves away from 72%.
+> Actor lens: Commodity traders: Price whether stress in Red Sea becomes durable over the 30d. Rebalance positions if the probability path moves away from 71%.
 >
-> — *WorldMonitor intelligence assessment (analyst judgement), captured 2026-10-15T11:20:17Z*
+> — *WorldMonitor intelligence assessment (analyst judgement), captured 2026-10-16T11:15:02Z*
 
 ### Scorecard
 
@@ -237,3 +237,4 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 - 2026-10-13 — regenerated the facts-vs-forecast-vs-intelligence benchmark from the 2026-10-13 live bundle (2026-W42); 3 head-to-head topics, every azimuth claim L1-sourced, foil snapshot quoted as the compared product.
 - 2026-10-14 — regenerated the facts-vs-forecast-vs-intelligence benchmark from the 2026-10-14 live bundle (2026-W42); 3 head-to-head topics, every azimuth claim L1-sourced, foil snapshot quoted as the compared product.
 - 2026-10-15 — regenerated the facts-vs-forecast-vs-intelligence benchmark from the 2026-10-15 live bundle (2026-W42); 3 head-to-head topics, every azimuth claim L1-sourced, foil snapshot quoted as the compared product.
+- 2026-10-16 — regenerated the facts-vs-forecast-vs-intelligence benchmark from the 2026-10-16 live bundle (2026-W42); 3 head-to-head topics, every azimuth claim L1-sourced, foil snapshot quoted as the compared product.
