@@ -2,8 +2,8 @@
 title: Conflict Watch Weekly
 type: L2-brief
 theme: conflict-watch
-week: 2026-W42
-updated: 2026-10-16T00:00:00Z
+week: 2026-W43
+updated: 2026-10-22T00:00:00Z
 sources: [conflict-events-ucdp]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -16,75 +16,91 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 > events** — who, where, when, and the source's own fatality estimate — and never assigns
 > blame, takes a side, or predicts escalation: an event record is an observed fact, an opinion
 > about it is not surfaced (the editorial line). Every claim links to the L1 note it rests on.
-> Last pull: **2026-10-13** — the **2026-10-12 → 2026-10-13 pulls carried the byte-identical window**,
-> a clean hold extending the flat span that has now run unchanged since the 2026-10-01 roll (UCDP is a
-> lagged monthly-cadence research dataset, so a multi-day flat span is expected, not a gap). The
-> published window held at **2025-12-22 → 2026-09-10**, the row count held at the **2,306** cap, and
-> summed best-estimate fatalities held at **13,146** — the exact composition the 2026-10-01 cycle
-> absorbed. The single state-based Russia–Ukraine dyad record (UCDP id 640738, dated 2026-08-01 →
-> 2026-08-31) that carries **deathsBest 5,017** on its own remains in place, unchanged
+> Last pull: **2026-10-22** — the **2026-10-21 pull broke the flat span** that had held unchanged
+> since the 2026-10-01 roll. UCDP's published window advanced **24 days**, from **2025-12-22 →
+> 2026-09-10** to **2025-12-22 → 2026-10-04**; the row count rose **2,306 → 2,514** (+208: 1,992 new
+> ids entered, 1,784 aged out of the window); summed best-estimate fatalities rose **13,146 → 16,269**
+> (+3,123). The **2026-10-22** pull then held byte-identical to 10-21 — a one-day flat span after the
+> roll. The single state-based Russia–Ukraine dyad record azimuth has tracked since 2026-09-24 (UCDP
+> id 640738, dated 2026-08-01 → 2026-08-31, deathsBest 5,017) has rolled off the window; the same
+> **Government of Russia (Soviet Union) vs Government of Ukraine** dyad now carries forward as a new
+> record (id 643870, dated 2026-09-01 → 2026-10-01) with **deathsBest 5,714**
 > ([[conflict-events-ucdp]]).
 
 ## Honest scope — a lagged research dataset, not a live wire
 
 - The channel is the **UCDP** (Uppsala Conflict Data Program) georeferenced event feed — a
-  research-grade dataset published with a verification lag, not a breaking-news wire. Since the
-  2026-10-01 roll of the window's trailing edge, the catalog has held byte-identical through the
-  2026-10-13 pull: **2,306 events** (the API cap), published window **2025-12-22 → 2026-09-10**,
-  summed best-estimate fatalities **13,146**. The brief describes the most recent *published* conflict
-  record, and says so; a flat span like this reflects UCDP's verification window sitting still, not a
-  live de-escalation ([[conflict-events-ucdp]]).
+  research-grade dataset published with a verification lag, not a breaking-news wire. The catalog held
+  byte-identical from the 2026-10-01 roll through the 2026-10-20 pull, then rolled forward on
+  2026-10-21 and has since held flat through 2026-10-22: **2,514 events**, published window
+  **2025-12-22 → 2026-10-04**, summed best-estimate fatalities **16,269**. The previously-quoted
+  "2,306-event cap" is now superseded by this roll — it was never a hard API limit, just the highest
+  row count this brief had observed since the 2026-09-24 pull. The brief describes the most recent
+  *published* conflict record, and says so; a roll like this reflects UCDP's verification window
+  moving forward, not a live escalation ([[conflict-events-ucdp]]).
 
 ## This window at a glance
 
-- **2026-10-13 pull: the window held byte-identical.** The catalog holds at the **2,306-event** cap
-  with the published window at **2025-12-22 → 2026-09-10** — unchanged across the 10-02 → 10-13 pulls,
-  the flat span continuing since the 2026-10-01 roll, every row and date identical
+- **2026-10-22 pull: the window held byte-identical to 10-21.** The catalog holds at **2,514 events**
+  with the published window at **2025-12-22 → 2026-10-04** — unchanged since the 10-21 roll, every row
+  and date identical ([[conflict-events-ucdp]]).
+- The 2,514 recorded events carry a summed best-estimate of **16,269 fatalities** (UCDP's
+  `deathsBest` field — the source's own estimate, reported as published), up **+3,123** from the
+  13,146 held through 10-20. The id 640738 Government of Russia (Soviet Union) vs Government of
+  Ukraine state-based record (dated 2026-08-01 → 2026-08-31, deathsBest 5,017) has rolled off; the same
+  dyad now carries forward as id 643870 (dated 2026-09-01 → 2026-10-01) with **deathsBest 5,714**
   ([[conflict-events-ucdp]]).
-- The 2,306 recorded events carry a summed best-estimate of **13,146 fatalities** (UCDP's
-  `deathsBest` field — the source's own estimate, reported as published), **held** across the
-  10-02 → 10-13 pulls. The single Government of Russia (Soviet Union) vs Government of Ukraine
-  state-based record (id 640738, dated 2026-08-01 → 2026-08-31) with **deathsBest 5,017** on its own
-  remains on the books, unmoved ([[conflict-events-ucdp]]).
-- **Ukraine still leads the event count at 485**, ahead of **Mexico (225)**, **Colombia (214)**,
-  **Nigeria (188)**, **Pakistan (177)**, **Yemen (134)**, **Ethiopia (105)**, **Mali (82)**,
-  **Burkina Faso (73)** and **Israel (64)** — Mexico reclaimed second over Colombia and DR Congo
-  dropped out of the top ten as the window rolled back ([[conflict-events-ucdp]]).
-- **Ukraine still leads summed deathsBest at 6,099**, ahead of **Yemen (1,469)**, **Nigeria
-  (1,268)**, **Pakistan (616)**, **Sudan (596)**, **Ethiopia (514)**, **Somalia (301)**,
-  **Colombia (279)**, **Mexico (266)** and **Burkina Faso (230)** — Yemen reclaimed second and Sudan
-  re-entered as the older rows dropped away ([[conflict-events-ucdp]]).
-- The violence-type split returned to **1,445 state-based / 542 non-state / 319 one-sided** of the
-  2,306 events (from 1,481/512/313) — state-based still the largest category, back at its 09-27 share
+- **Ukraine still leads the event count at 439** (down from 485 as older rows aged out), ahead of
+  **Mexico (280)**, **Yemen (North Yemen) (252)**, **Colombia (211)**, **Pakistan (175)**, **Nigeria
+  (171)**, **Ethiopia (148)**, **Israel (100)**, **Mali (98)** and **Myanmar (Burma) (67)** — Yemen's
+  event count nearly doubled and jumped from sixth to third, Mexico overtook Colombia into second, and
+  Burkina Faso (73 on 10-16) dropped out of the top ten ([[conflict-events-ucdp]]).
+- **Ukraine still leads summed deathsBest at 6,670** (up from 6,099), ahead of **Yemen (North Yemen)
+  (3,797, up from 1,469)**, **Ethiopia (757)**, **Pakistan (747)**, **Nigeria (710, down from
+  1,268)**, **Sudan (601)**, **Mexico (441)**, **Somalia (348)**, **Colombia (256)** and **Mali
+  (218)** — Yemen's fatality total more than doubled to take second from Nigeria, whose summed
+  deathsBest nearly halved as older high-fatality rows aged out; Burkina Faso (230) dropped out of the
+  top ten ([[conflict-events-ucdp]]).
+- The violence-type split moved to **1,569 state-based / 653 non-state / 292 one-sided** of the 2,514
+  events (from 1,445/542/319) — state-based still the largest category, non-state its biggest relative
+  gainer (+111), one-sided the only category to shrink (−27) ([[conflict-events-ucdp]]).
+
+## Move since prior reading (2026-10-16 → 2026-10-22)
+
+- **A window roll, the first real move since 2026-10-01.** The catalog held byte-identical through
+  2026-10-20, then on the 2026-10-21 pull UCDP's published window advanced 24 days (2025-12-22 →
+  2026-09-10 to 2025-12-22 → 2026-10-04); the row count rose 2,306 → 2,514 (1,992 new ids entered,
+  1,784 aged out) and summed deathsBest rose 13,146 → 16,269 (+3,123). The 2026-10-22 pull then held
+  that new state byte-identical to 10-21 ([[conflict-events-ucdp]]).
+- The id 640738 record (Government of Russia (Soviet Union) vs Government of Ukraine, state-based,
+  dated 2026-08-01 → 2026-08-31, deathsBest 5,017) rolled off the window; the same dyad reappears as id
+  643870 (dated 2026-09-01 → 2026-10-01, deathsBest 5,714) — a newer, slightly larger record in the
+  same recurring single-dyad pattern azimuth has tracked since 2026-09-24
   ([[conflict-events-ucdp]]).
-
-## Move since prior reading (2026-10-11 → 2026-10-13)
-
-- **No move — a clean hold.** The 2026-10-12 → 2026-10-13 pulls carried the window byte-identical to
-  10-11: the **2,306**-row cap, the published window **2025-12-22 → 2026-09-10** and every row and
-  date unchanged. The flat span now runs continuously since the 2026-10-01 roll ([[conflict-events-ucdp]]).
-- Summed deathsBest **held at 13,146**. The id 640738 record (Government of Russia (Soviet Union) vs
-  Government of Ukraine, state-based, dated 2026-08-01 → 2026-08-31) still carries the same
-  **deathsBest 5,017** — no row moved this cycle ([[conflict-events-ucdp]]).
-- The leaderboards held: **Ukraine stays first on events (485) and deathsBest (6,099)**, Mexico (225)
-  second over Colombia (214) on events, and on deathsBest Yemen (1,469), Nigeria (1,268), Pakistan
-  (616) and Sudan (596) hold their order ([[conflict-events-ucdp]]).
-- The violence-type split held at **1,445/542/319** (state-based/non-state/one-sided) — state-based
-  still the largest category ([[conflict-events-ucdp]]).
+- The leaderboards moved: **Ukraine stays first on events (439, from 485) and deathsBest (6,670, from
+  6,099)**; Yemen (North Yemen) jumped from 134 to 252 events and from 1,469 to 3,797 deathsBest,
+  taking second place on fatalities from Nigeria (whose total fell 1,268 → 710); Mexico (280) overtook
+  Colombia (211) into second on events ([[conflict-events-ucdp]]).
+- The violence-type split moved from **1,445/542/319** to **1,569/653/292** (state-based/non-state/
+  one-sided) — the first change to this split since the 2026-10-01 revert ([[conflict-events-ucdp]]).
 
 ## Reading the window
 
-- Read as a record, not a forecast: the 10-12 → 10-13 pulls held the window byte-identical to 10-11
-  — the same 2,306 rows, the same 13,146 summed deathsBest, the same leaderboards — a clean multi-day
-  hold on the lagged UCDP dataset, not a live de-escalation or escalation. The single-event
-  concentration azimuth flagged earlier — the id 640738 Government of Russia (Soviet Union) vs
-  Government of Ukraine state-based record spanning August 2026 (deathsBest 5,017) — still accounts for
-  the bulk of Ukraine's fatality lead and is unchanged this cycle. A flat span like this is itself a
-  data point about UCDP's verification window, not evidence of anything moving this week. azimuth
-  reports the recorded events, the parties as UCDP names them, and the source's own fatality
-  estimates — and stops there ([[conflict-events-ucdp]]).
+- Read as a record, not a forecast: the 2026-10-21 pull moved UCDP's verification window forward for
+  the first time since the 2026-10-01 revert — a routine roll on a lagged research dataset, not a
+  live escalation or de-escalation. Most of the fatality increase (+3,123 summed deathsBest) traces to
+  two things: Yemen's recorded event count and fatality total both rising sharply as new rows entered
+  the newly-extended window, and the recurring single-dyad concentration — the Government of Russia
+  (Soviet Union) vs Government of Ukraine state-based record — reappearing at a newer date (id 643870,
+  Sep 2026, deathsBest 5,714) in place of the one that aged out (id 640738, Aug 2026, deathsBest
+  5,017). Nigeria's fall in summed deathsBest (1,268 → 710) reflects older high-fatality rows rolling
+  out of the published window, not a recorded change in events on the ground. azimuth reports the
+  recorded events, the parties as UCDP names them, and the source's own fatality estimates — and stops
+  there ([[conflict-events-ucdp]]).
 
 ## Changelog
+
+- 2026-10-22 — daily-ingest synthesis (2026-W43): the 2026-10-21 pull broke the flat span that had held since the 2026-10-01 roll — UCDP's published window advanced 24 days (2025-12-22 → 2026-09-10 to 2025-12-22 → 2026-10-04), the row count rose 2,306 → 2,514 (+208: 1,992 new ids entered, 1,784 aged out), and summed deathsBest rose 13,146 → 16,269 (+3,123). The 2026-10-22 pull held byte-identical to 10-21 (same 2,514 ids) — a one-day flat span after the roll. The id 640738 Russia–Ukraine state-based record (Aug 2026, deathsBest 5,017) rolled off; the same Government of Russia (Soviet Union) vs Government of Ukraine dyad now carries forward as id 643870 (Sep 2026, deathsBest 5,714). Leaderboards moved: Ukraine stays first on events (439, from 485) and deathsBest (6,670, from 6,099); Yemen (North Yemen) jumped from 134 to 252 events and 1,469 to 3,797 deathsBest, overtaking Nigeria into second on deaths; Mexico (280) overtook Colombia (211) into second on events; violence split moved to 1,569/653/292 state-based/non-state/one-sided (from 1,445/542/319). Rewrote intro, honest-scope, at-a-glance, move and reading sections around the roll; the previously-quoted "2,306-event cap" is superseded — it was never a true API limit, just the prior observed ceiling. Observed-record, no-blame framing held ([[conflict-events-ucdp]]).
 
 - 2026-10-16 — daily-ingest flowback (2026-W42): the 2026-10-14 and 2026-10-15 UCDP pulls held byte-identical to 10-13 — the 2,306-event cap, the published window 2025-12-22 → 2026-09-10, the summed deathsBest 13,146 and the id 640738 Russia–Ukraine state-based record (deathsBest 5,017) all unmoved; the leaderboards (Ukraine first on events 485 and deathsBest 6,099; Mexico 225 / Colombia 214 on events; Yemen 1,469 / Nigeria 1,268 on deaths) and the 1,445/542/319 state-based/non-state/one-sided split carried unchanged. A clean hold extending the flat span since the 2026-10-01 roll; `updated` advanced so the freshness gate records the latest L1 day was absorbed, no figure changed. Observed-record, no-blame framing held ([[conflict-events-ucdp]]).
 - 2026-10-13 — daily-ingest synthesis (2026-W42): absorbed the 2026-10-12 → 2026-10-13 pulls — a clean hold extending the flat span since the 2026-10-01 roll. The window held byte-identical to 10-11: 2,306-event cap, published window 2025-12-22 → 2026-09-10, summed deathsBest 13,146, the id 640738 Russia–Ukraine state-based record (deathsBest 5,017) unmoved. Leaderboards held (Ukraine first on events 485 and deathsBest 6,099; Mexico 225 / Colombia 214 on events; Yemen 1,469 / Nigeria 1,268 on deaths) and the violence-type split held at 1,445/542/319 (state-based/non-state/one-sided). Advanced the pull-date cutoff to 10-13 across the intro, honest-scope, at-a-glance, move and reading sections; no figure changed. Observed-record, no-blame framing held ([[conflict-events-ucdp]]).
