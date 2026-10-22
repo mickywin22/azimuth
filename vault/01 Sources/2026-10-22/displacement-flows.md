@@ -3,14 +3,14 @@ type: "L1-source"
 source: "UNHCR Refugee Data + UN OCHA HAPI (refugee / asylum / IDP counts)"
 source_key: "displacement-flows"
 endpoint: "/api/displacement/v1/get-displacement-summary"
-retrieved: "2026-10-22T11:42:34Z"
+retrieved: "2026-10-22T23:36:28Z"
 license: "CC-BY-4.0"
 attribution: "Data: UNHCR + UN OCHA HAPI via WorldMonitor (api.worldmonitor.app)"
 ---
 
 # UNHCR Refugee Data + UN OCHA HAPI (refugee / asylum / IDP counts)
 
-> L1 source pull — `displacement-flows` from `/api/displacement/v1/get-displacement-summary` at 2026-10-22T11:42:34Z. Verbatim transform; never edit by hand.
+> L1 source pull — `displacement-flows` from `/api/displacement/v1/get-displacement-summary` at 2026-10-22T23:36:28Z. Verbatim transform; never edit by hand.
 
 | field | value |
 | --- | --- |

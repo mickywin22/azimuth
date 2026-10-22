@@ -3,14 +3,14 @@ type: "L1-source"
 source: "UCDP (Uppsala Conflict Data Program — Georeferenced Event Dataset)"
 source_key: "conflict-events-ucdp"
 endpoint: "/api/conflict/v1/list-ucdp-events"
-retrieved: "2026-10-22T11:42:34Z"
+retrieved: "2026-10-22T23:36:28Z"
 license: "CC-BY-4.0"
 attribution: "Data: UCDP (Uppsala Conflict Data Program) via WorldMonitor (api.worldmonitor.app)"
 ---
 
 # UCDP (Uppsala Conflict Data Program — Georeferenced Event Dataset)
 
-> L1 source pull — `conflict-events-ucdp` from `/api/conflict/v1/list-ucdp-events` at 2026-10-22T11:42:34Z. Verbatim transform; never edit by hand.
+> L1 source pull — `conflict-events-ucdp` from `/api/conflict/v1/list-ucdp-events` at 2026-10-22T23:36:28Z. Verbatim transform; never edit by hand.
 
 | field | value |
 | --- | --- |

@@ -3,14 +3,14 @@ type: "L1-source"
 source: "U.S. EIA (Energy Information Administration)"
 source_key: "crude-oil-inventories"
 endpoint: "/api/economic/v1/get-crude-inventories"
-retrieved: "2026-10-22T11:42:34Z"
+retrieved: "2026-10-22T23:36:28Z"
 license: "US-Gov-public-domain"
 attribution: "Data: U.S. EIA via WorldMonitor (api.worldmonitor.app)"
 ---
 
 # U.S. EIA (Energy Information Administration)
 
-> L1 source pull — `crude-oil-inventories` from `/api/economic/v1/get-crude-inventories` at 2026-10-22T11:42:34Z. Verbatim transform; never edit by hand.
+> L1 source pull — `crude-oil-inventories` from `/api/economic/v1/get-crude-inventories` at 2026-10-22T23:36:28Z. Verbatim transform; never edit by hand.
 
 | field | value |
 | --- | --- |

@@ -3,14 +3,14 @@ type: "L1-source"
 source: "CelesTrak TLE element sets (derived from US Space Command public catalog)"
 source_key: "orbital-satellites"
 endpoint: "/api/intelligence/v1/list-satellites"
-retrieved: "2026-10-22T11:42:34Z"
+retrieved: "2026-10-22T23:36:28Z"
 license: "US-Gov-public-domain"
 attribution: "Data: CelesTrak TLE (US Space Command public catalog) via WorldMonitor (api.worldmonitor.app)"
 ---
 
 # CelesTrak TLE element sets (derived from US Space Command public catalog)
 
-> L1 source pull — `orbital-satellites` from `/api/intelligence/v1/list-satellites` at 2026-10-22T11:42:34Z. Verbatim transform; never edit by hand.
+> L1 source pull — `orbital-satellites` from `/api/intelligence/v1/list-satellites` at 2026-10-22T23:36:28Z. Verbatim transform; never edit by hand.
 
 | field | value |
 | --- | --- |

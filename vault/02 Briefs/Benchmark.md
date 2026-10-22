@@ -11,7 +11,7 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 # Benchmark — azimuth vs a forecast vs an intelligence feed
 
-> *Why not just read a forecast or an intelligence feed?* Here is the same world-topic through three columns: **azimuth** (observed facts from the live bundle, every claim linked to its L1 source), a **FORECAST** product (a model probability), and an **INTELLIGENCE** product (an analyst assessment). It is a fair contrast, not a strawman: azimuth wins on provenance, neutrality and reproducibility; a forecast / intel feed legitimately wins on **forward-looking coverage** — it predicts, azimuth reports what already happened. The forecast / intelligence columns quote WorldMonitor as the *compared product* (captured 2026-10-22T11:42:41Z), deliberately NOT a clickable L1 link — because that is exactly the difference.
+> *Why not just read a forecast or an intelligence feed?* Here is the same world-topic through three columns: **azimuth** (observed facts from the live bundle, every claim linked to its L1 source), a **FORECAST** product (a model probability), and an **INTELLIGENCE** product (an analyst assessment). It is a fair contrast, not a strawman: azimuth wins on provenance, neutrality and reproducibility; a forecast / intel feed legitimately wins on **forward-looking coverage** — it predicts, azimuth reports what already happened. The forecast / intelligence columns quote WorldMonitor as the *compared product* (captured 2026-10-22T23:36:34Z), deliberately NOT a clickable L1 link — because that is exactly the difference.
 
 ## EU / global energy supply security
 
@@ -19,23 +19,23 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 ### azimuth — observed facts (EU gas storage + US crude inventories + Energy prices)
 
-- EU gas storage stands at 3,567 Bcf (+67 Bcf w/w) as of 2026-10-09 — an observed reading ([[natural-gas-storage-eu]])
+- EU gas storage stands at 3,644 Bcf (+77 Bcf w/w) as of 2026-10-16 — an observed reading ([[natural-gas-storage-eu]])
 - US crude inventories drew down -3 to 413 Mb (EIA week of 2026-10-16) — an observed reading ([[crude-oil-inventories]])
 - Spot crude as reported: WTI $99.93/bbl (+3.1 w/w), Brent $125.59/bbl (-1.4 w/w) — the observed price tape ([[energy-prices]])
 
 ### FORECAST product — model projection (compared)
 
-> Assigns a **62% probability** over 30d that “Energy repricing risk from Korean Peninsula security escalation state” — confidence 75%, trend stable.
+> Assigns a **40% probability** over 30d that “Oil price impact from Strait of Hormuz disruption” — confidence 58%, trend stable.
 >
-> — *WorldMonitor forecast feed (model projection), captured 2026-10-22T11:42:41Z*
+> — *WorldMonitor forecast feed (model projection), captured 2026-10-22T23:36:34Z*
 
 ### INTELLIGENCE product — analyst assessment (compared)
 
-> Korean Peninsula security escalation state is feeding energy repricing through oil macro shock, with 62% pressure and 70% state confirmation is setting the strategic baseline, and the current 62% probability implies a live but not settled risk path.
+> The critical Strait of Hormuz risk and oil sensitivity of 0.8 indicate a moderate-probability, stable market path, with the 58% confidence suggesting moderate signal reliability.
 >
-> Actor lens: Commodity traders: Price whether stress in Korean Peninsula becomes durable over the 30d. Rebalance positions if the probability path moves away from 62%.
+> Actor lens: Commodity traders: Price whether stress in Middle East becomes durable over the 30d. Rebalance positions if the probability path moves away from 40%.
 >
-> — *WorldMonitor intelligence assessment (analyst judgement), captured 2026-10-22T11:42:41Z*
+> — *WorldMonitor intelligence assessment (analyst judgement), captured 2026-10-22T23:36:34Z*
 
 ### Scorecard
 
@@ -63,32 +63,26 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 ### FORECAST product — model projection (compared)
 
-> Assigns a **41% probability** over 7d that “Supply chain disruption: Kerch Strait” — confidence 25%, trend stable.
->
-> — *WorldMonitor forecast feed (model projection), captured 2026-10-22T11:42:41Z*
+> No maritime/inflation forecast in the feed this cycle — azimuth reports the observed energy-price facts it can see, not a disruption probability.
 
 ### INTELLIGENCE product — analyst assessment (compared)
 
-> Kerch Strait disruption detected is setting the strategic baseline, and the current 41% probability implies a live but not settled risk path.
->
-> Actor lens: Shipping operators: Keep critical flows through Kerch Strait functioning over the 7d. Adjust routing and contingency plans around Kerch Strait.
->
-> — *WorldMonitor intelligence assessment (analyst judgement), captured 2026-10-22T11:42:41Z*
+> No maritime/inflation forecast in the feed this cycle — azimuth reports the observed energy-price facts it can see, not a disruption probability.
 
 ### Scorecard
 
 | Dimension | azimuth | Forecast | Intelligence |
 | --- | --- | --- | --- |
-| Every claim sourced? ✅ | Yes — each claim links to its L1 note | No — the probability is asserted, not sourced | No — the assessment is asserted, not sourced |
-| Observed vs predicted? ✅ | Observed — reports what already happened | Predicted — a probability over a horizon | Assessed — an analyst judgement |
-| Neutral vs takes a position? ✅ | Neutral — states the signal, takes no side | Takes a position — it is a forward call | Takes a position — actor lenses imply action |
-| Reproducible / regenerable? ✅ | Yes — rerun the open-data pipeline, same result | No — a model output you cannot rebuild | No — a judgement you cannot rebuild |
-| Free + open-licensed? ✅ | Yes — CC-BY-4.0, public-domain sources | Compared product (proprietary model output) | Compared product (proprietary model output) |
-| Forward-looking coverage? | No — azimuth is a rear/now view, not a crystal ball | Yes — this is its job: it looks ahead | Yes — it offers a forward assessment |
+| Every claim sourced? ✅ | Yes — each claim links to its L1 note | — | — |
+| Observed vs predicted? ✅ | Observed — reports what already happened | — | — |
+| Neutral vs takes a position? ✅ | Neutral — states the signal, takes no side | — | — |
+| Reproducible / regenerable? ✅ | Yes — rerun the open-data pipeline, same result | — | — |
+| Free + open-licensed? ✅ | Yes — CC-BY-4.0, public-domain sources | — | — |
+| Forward-looking coverage? | No — azimuth is a rear/now view, not a crystal ball | — | — |
 
 ### Verdict
 
-- **Trust test:** the forecast assigns a probability to a maritime-disruption / inflation path; azimuth does not predict the disruption — it surfaces the observed energy-cost facts it CAN see, each linked to source. Read the forecast for the forward call; read azimuth for the verifiable, neutral baseline it is told against ([[energy-prices]], [[crude-oil-inventories]])
+- **Trust test:** no maritime/inflation forecast this cycle — azimuth reports the observed energy-price facts, not a disruption probability it cannot source ([[energy-prices]])
 
 ## A seismic event near infrastructure
 
@@ -96,7 +90,7 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 ### azimuth — observed facts (Geophysical)
 
-- Largest recorded event this week: M6.9 76 km NE of Ozernovskiy, Russia — one of 38 events at or above M5 USGS logged, an observed record ([[earthquakes]])
+- Largest recorded event this week: M7 191 km ENE of Nagqu, China — one of 40 events at or above M5 USGS logged, an observed record ([[earthquakes]])
 - azimuth reports what USGS RECORDED, never what may happen next — a sourced, neutral record of seismicity, regenerable from the open USGS feed ([[earthquakes]])
 
 ### FORECAST product — model projection (compared)

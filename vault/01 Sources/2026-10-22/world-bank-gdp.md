@@ -3,14 +3,14 @@ type: "L1-source"
 source: "World Bank Open Data (GDP, current US$)"
 source_key: "world-bank-gdp"
 endpoint: "worldbank:NY.GDP.MKTP.CD"
-retrieved: "2026-10-22T11:42:34Z"
+retrieved: "2026-10-22T23:36:28Z"
 license: "CC-BY-4.0"
 attribution: "Data: World Bank Open Data (api.worldbank.org)"
 ---
 
 # World Bank Open Data (GDP, current US$)
 
-> L1 source pull — `world-bank-gdp` from `worldbank:NY.GDP.MKTP.CD` at 2026-10-22T11:42:34Z. Verbatim transform; never edit by hand.
+> L1 source pull — `world-bank-gdp` from `worldbank:NY.GDP.MKTP.CD` at 2026-10-22T23:36:28Z. Verbatim transform; never edit by hand.
 
 | country | iso3 | indicator | indicator_code | date | value |
 | --- | --- | --- | --- | --- | --- |

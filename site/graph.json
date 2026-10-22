@@ -339,7 +339,7 @@
           "theme": "geophysical",
           "source": "earthquakes",
           "day": "2026-10-22",
-          "text": "\u2026-5.1295, \"longitude\": 152.2467}, \"magnitude\": 4.8, \"occurredAt\": 1792646639562, \"place\": \"86 km S of Kokopo, Papua New Guinea\", \"source\": \"usgs\", \"sourceUrl\": \"https://earthquake.usgs.gov/earthquakes/eventpage/us6000u417\"}, {\"depthKm\":\u2026"
+          "text": "\u2026\": -5.728, \"longitude\": 152.2646}, \"magnitude\": 5, \"occurredAt\": 1792699504207, \"place\": \"153 km S of Kokopo, Papua New Guinea\", \"source\": \"usgs\", \"sourceUrl\": \"https://earthquake.usgs.gov/earthquakes/eventpage/us6000u473\"}, {\"depthKm\":\u2026"
         },
         {
           "theme": "humanitarian",
@@ -433,7 +433,7 @@
           "theme": "environmental-hazards",
           "source": "radiation-observations",
           "day": "2026-10-22",
-          "text": "\u2026utingSources\": [\"RADIATION_SOURCE_EPA_RADNET\"], \"convertedFromCpm\": false, \"corroborated\": false, \"country\": \"United States\", \"delta\": 0, \"freshness\": \"RADIATION_FRESHNESS_LIVE\", \"id\": \"epa:DC:WASHINGTON:1792666140000\", \"location\": {\u2026"
+          "text": "\u2026utingSources\": [\"RADIATION_SOURCE_EPA_RADNET\"], \"convertedFromCpm\": false, \"corroborated\": false, \"country\": \"United States\", \"delta\": -0.3, \"freshness\": \"RADIATION_FRESHNESS_LIVE\", \"id\": \"epa:AK:ANCHORAGE:1792709220000\", \"location\":\u2026"
         },
         {
           "theme": "humanitarian",
@@ -582,7 +582,7 @@
           "theme": "climate-signals",
           "source": "climate-anomalies",
           "day": "2026-10-22",
-          "text": "\u2026ipDelta\": 1.9, \"severity\": \"ANOMALY_SEVERITY_NORMAL\", \"tempDelta\": 1.4, \"type\": \"ANOMALY_TYPE_WARM\", \"zone\": \"California\"}, {\"location\": {\"latitude\": -3.4, \"longitude\": -60}, \"period\": \"2026-10-16 to 2026-10-22\", \"precipDelta\": 1.\u2026"
+          "text": "\u2026ipDelta\": 1.1, \"severity\": \"ANOMALY_SEVERITY_NORMAL\", \"tempDelta\": 1.4, \"type\": \"ANOMALY_TYPE_WARM\", \"zone\": \"California\"}, {\"location\": {\"latitude\": -3.4, \"longitude\": -60}, \"period\": \"2026-10-16 to 2026-10-22\", \"precipDelta\": 1.\u2026"
         }
       ]
     },
@@ -630,7 +630,8 @@
         "environmental-hazards",
         "geophysical",
         "humanitarian",
-        "infrastructure-watch"
+        "infrastructure-watch",
+        "prediction-markets"
       ],
       "evidence": [
         {
@@ -644,6 +645,12 @@
           "source": "displacement-flows",
           "day": "2026-10-22",
           "text": "\u2026tRefugees\": 14333, \"hostTotal\": 15910, \"idps\": 0, \"location\": {\"latitude\": 6.4, \"longitude\": -66.6}, \"name\": \"Venezuela (Bolivarian Republic of)\", \"refugees\": 417010, \"stateless\": 0, \"totalDisplaced\": 1598166}, {\"asylumSeekers\":\u2026"
+        },
+        {
+          "theme": "prediction-markets",
+          "source": "prediction-markets",
+          "day": "2026-10-22",
+          "text": "\u2026\"which-countries-will-recognize-israel-by-december-31\", \"source\": \"MARKET_SOURCE_POLYMARKET\", \"title\": \"Will Venezuela recognize Israel by December 31?\", \"url\": \"https://polymarket.com/event/which-countries-will-recognize-israel\u2026"
         }
       ]
     },
@@ -702,7 +709,7 @@
           "theme": "climate-signals",
           "source": "climate-anomalies",
           "day": "2026-10-22",
-          "text": "\u2026ipDelta\": 0.5, \"severity\": \"ANOMALY_SEVERITY_NORMAL\", \"tempDelta\": 0.5, \"type\": \"ANOMALY_TYPE_WARM\", \"zone\": \"Australia\"}, {\"location\": {\"latitude\": 38, \"longitude\": 20}, \"period\": \"2026-10-16 to 2026-10-22\", \"precipDelta\": -2.9,\u2026"
+          "text": "\u2026ipDelta\": 0.2, \"severity\": \"ANOMALY_SEVERITY_NORMAL\", \"tempDelta\": 0.7, \"type\": \"ANOMALY_TYPE_WARM\", \"zone\": \"Australia\"}, {\"location\": {\"latitude\": 38, \"longitude\": 20}, \"period\": \"2026-10-16 to 2026-10-22\", \"precipDelta\": -2.9,\u2026"
         },
         {
           "theme": "humanitarian",
@@ -988,7 +995,7 @@
           "theme": "climate-signals",
           "source": "climate-anomalies",
           "day": "2026-10-22",
-          "text": "\u2026ipDelta\": 4, \"severity\": \"ANOMALY_SEVERITY_MODERATE\", \"tempDelta\": 3.1, \"type\": \"ANOMALY_TYPE_WARM\", \"zone\": \"Ukraine\"}, {\"location\": {\"latitude\": 51, \"longitude\": 10}, \"period\": \"2026-10-16 to 2026-10-22\", \"precipDelta\": 0.1,\u2026"
+          "text": "\u2026Delta\": 4.2, \"severity\": \"ANOMALY_SEVERITY_MODERATE\", \"tempDelta\": 3.1, \"type\": \"ANOMALY_TYPE_WARM\", \"zone\": \"Ukraine\"}, {\"location\": {\"latitude\": 51, \"longitude\": 10}, \"period\": \"2026-10-16 to 2026-10-22\", \"precipDelta\": 0.1,\u2026"
         },
         {
           "theme": "conflict-watch",
@@ -1006,7 +1013,7 @@
           "theme": "environmental-hazards",
           "source": "wildfire-detections",
           "day": "2026-10-22",
-          "text": "\u2026: \"active\", \"location\": {\"latitude\": 44.20916, \"longitude\": 22.94295}, \"possibleExplosion\": false, \"region\": \"Ukraine\", \"satellite\": \"N21\", \"source\": \"firms\"}, {\"brightness\": 347.51, \"confidence\": \"FIRE_CONFIDENCE_NOMINAL\", \"da\u2026"
+          "text": "\u2026d\": \"active\", \"location\": {\"latitude\": 47.79376, \"longitude\": 39.356}, \"possibleExplosion\": false, \"region\": \"Ukraine\", \"satellite\": \"N\", \"source\": \"firms\"}, {\"brightness\": 350.81, \"confidence\": \"FIRE_CONFIDENCE_NOMINAL\", \"dayN\u2026"
         },
         {
           "theme": "humanitarian",
@@ -1018,7 +1025,7 @@
           "theme": "prediction-markets",
           "source": "prediction-markets",
           "day": "2026-10-22",
-          "text": "\u2026iceChange24h\": -0.16, \"yesPriceChange7d\": -0.04}, {\"category\": \"\", \"closesAt\": 1798779540000, \"id\": \"russia-x-ukraine-ceasefire-agreement-by\", \"source\": \"MARKET_SOURCE_POLYMARKET\", \"title\": \"Russia x Ukraine ceasefire agreement\u2026"
+          "text": "\u20263, \"yesPrice\": 0.13, \"yesPriceChange7d\": -0.015}, {\"category\": \"\", \"closesAt\": 1798754340000, \"id\": \"russia-x-ukraine-ceasefire-by\", \"source\": \"MARKET_SOURCE_POLYMARKET\", \"title\": \"Russia x Ukraine ceasefire by December 31, 202\u2026"
         }
       ]
     },
@@ -1038,7 +1045,7 @@
           "theme": "geophysical",
           "source": "earthquakes",
           "day": "2026-10-22",
-          "text": "\u20261796, \"longitude\": 165.4616}, \"magnitude\": 5, \"occurredAt\": 1792608064974, \"place\": \"198 km WNW of Port-Olry, Vanuatu\", \"source\": \"usgs\", \"sourceUrl\": \"https://earthquake.usgs.gov/earthquakes/eventpage/us6000u3xx\"}, {\"depthKm\":\u2026"
+          "text": "\u2026085, \"longitude\": 165.6239}, \"magnitude\": 4.9, \"occurredAt\": 1792671777822, \"place\": \"200 km NW of Port-Olry, Vanuatu\", \"source\": \"usgs\", \"sourceUrl\": \"https://earthquake.usgs.gov/earthquakes/eventpage/us6000u432\"}, {\"depthKm\":\u2026"
         },
         {
           "theme": "humanitarian",
@@ -1459,7 +1466,7 @@
           "theme": "environmental-hazards",
           "source": "thermal-escalations",
           "day": "2026-10-22",
-          "text": "\u2026IGH\", \"context\": \"THERMAL_CONTEXT_CONFLICT_ADJACENT\", \"countDelta\": 3.3, \"countryCode\": \"RU\", \"countryName\": \"Russia\", \"firstDetectedAt\": \"2026-10-21T19:34:00.000Z\", \"frpDelta\": 38.5, \"id\": \"ru:57-5-107-5:2026102209\", \"lastDet\u2026"
+          "text": "\u2026GH\", \"context\": \"THERMAL_CONTEXT_CONFLICT_ADJACENT\", \"countDelta\": 34.8, \"countryCode\": \"RU\", \"countryName\": \"Russia\", \"firstDetectedAt\": \"2026-10-22T05:46:00.000Z\", \"frpDelta\": 953.9, \"id\": \"ru:59-5-100-5:2026102221\", \"lastDe\u2026"
         },
         {
           "theme": "environmental-hazards",
@@ -1471,7 +1478,7 @@
           "theme": "geophysical",
           "source": "earthquakes",
           "day": "2026-10-22",
-          "text": "\u2026\": 160.2671}, \"magnitude\": 4.5, \"occurredAt\": 1792658058537, \"place\": \"136 km NE of Petropavlovsk-Kamchatsky, Russia\", \"source\": \"usgs\", \"sourceUrl\": \"https://earthquake.usgs.gov/earthquakes/eventpage/us6000u423\"}, {\"depthKm\":\u2026"
+          "text": "\u2026ongitude\": 154.9209}, \"magnitude\": 4.8, \"occurredAt\": 1792703399090, \"place\": \"269 km SSW of Severo-Kuril\u2019sk, Russia\", \"source\": \"usgs\", \"sourceUrl\": \"https://earthquake.usgs.gov/earthquakes/eventpage/us6000u47l\"}, {\"depthKm\":\u2026"
         },
         {
           "theme": "infrastructure-watch",
@@ -1483,7 +1490,7 @@
           "theme": "prediction-markets",
           "source": "prediction-markets",
           "day": "2026-10-22",
-          "text": "\u20265, \"yesPriceChange24h\": -0.16, \"yesPriceChange7d\": -0.04}, {\"category\": \"\", \"closesAt\": 1798779540000, \"id\": \"russia-x-ukraine-ceasefire-agreement-by\", \"source\": \"MARKET_SOURCE_POLYMARKET\", \"title\": \"Russia x Ukraine ceasefire\u2026"
+          "text": "\u2026.952204003, \"yesPrice\": 0.13, \"yesPriceChange7d\": -0.015}, {\"category\": \"\", \"closesAt\": 1798754340000, \"id\": \"russia-x-ukraine-ceasefire-by\", \"source\": \"MARKET_SOURCE_POLYMARKET\", \"title\": \"Russia x Ukraine ceasefire by Decemb\u2026"
         },
         {
           "theme": "public-health",
@@ -1517,7 +1524,7 @@
           "theme": "environmental-hazards",
           "source": "wildfire-detections",
           "day": "2026-10-22",
-          "text": "\u2026: \"active\", \"location\": {\"latitude\": 41.13569, \"longitude\": 27.08012}, \"possibleExplosion\": false, \"region\": \"Turkey\", \"satellite\": \"N21\", \"source\": \"firms\"}, {\"brightness\": 367, \"confidence\": \"FIRE_CONFIDENCE_HIGH\", \"dayNight\u2026"
+          "text": "\u2026: \"active\", \"location\": {\"latitude\": 40.42073, \"longitude\": 34.70876}, \"possibleExplosion\": false, \"region\": \"Turkey\", \"satellite\": \"N21\", \"source\": \"firms\"}, {\"brightness\": 350.68, \"confidence\": \"FIRE_CONFIDENCE_NOMINAL\", \"da\u2026"
         },
         {
           "theme": "public-health",
@@ -1809,10 +1816,16 @@
       ],
       "evidence": [
         {
+          "theme": "environmental-hazards",
+          "source": "natural-events",
+          "day": "2026-10-22",
+          "text": "\u2026Storm Vance\", \"windKt\": 55}, {\"alertLevel\": \"Red\", \"category\": \"earthquakes\", \"categoryTitle\": \"Earthquake in China\", \"closed\": false, \"conePolygon\": [], \"date\": 1792679620000, \"description\": \"Earthquake in China - Magnitude\u2026"
+        },
+        {
           "theme": "geophysical",
           "source": "earthquakes",
           "day": "2026-10-22",
-          "text": "\u20269037, \"longitude\": 95.6436}, \"magnitude\": 5.1, \"occurredAt\": 1792478483116, \"place\": \"263 km WSW of Yanglong, China\", \"source\": \"usgs\", \"sourceUrl\": \"https://earthquake.usgs.gov/earthquakes/eventpage/us6000u3ka\"}, {\"depthKm\":\u2026"
+          "text": "\u2026: 32.3707, \"longitude\": 93.9886}, \"magnitude\": 5, \"occurredAt\": 1792692404294, \"place\": \"207 km ENE of Nagqu, China\", \"source\": \"usgs\", \"sourceUrl\": \"https://earthquake.usgs.gov/earthquakes/eventpage/us6000u45j\"}, {\"depthKm\":\u2026"
         },
         {
           "theme": "humanitarian",
@@ -1911,7 +1924,7 @@
           "theme": "prediction-markets",
           "source": "prediction-markets",
           "day": "2026-10-22",
-          "text": "\u2026, \"yesPriceChange24h\": -0.005, \"yesPriceChange7d\": -0.02}, {\"category\": \"\", \"closesAt\": 1798779540000, \"id\": \"india-strike-on-pakistan-by\", \"source\": \"MARKET_SOURCE_POLYMARKET\", \"title\": \"Will India strike Pakistan by Decembe\u2026"
+          "text": "\u2026\"yesPriceChange24h\": -0.005, \"yesPriceChange7d\": -0.045}, {\"category\": \"\", \"closesAt\": 1798779540000, \"id\": \"india-strike-on-pakistan-by\", \"source\": \"MARKET_SOURCE_POLYMARKET\", \"title\": \"Will India strike Pakistan by Decembe\u2026"
         },
         {
           "theme": "public-health",
@@ -1936,7 +1949,7 @@
           "theme": "geophysical",
           "source": "earthquakes",
           "day": "2026-10-22",
-          "text": "\u2026.6727, \"longitude\": -174.5697}, \"magnitude\": 4.8, \"occurredAt\": 1792434466554, \"place\": \"88 km WNW of Hihifo, Tonga\", \"source\": \"usgs\", \"sourceUrl\": \"https://earthquake.usgs.gov/earthquakes/eventpage/us6000u3g6\"}, {\"depthKm\":\u2026"
+          "text": "\u20261269, \"longitude\": -173.3304}, \"magnitude\": 4.9, \"occurredAt\": 1792696016074, \"place\": \"104 km NNE of Hihifo, Tonga\", \"source\": \"usgs\", \"sourceUrl\": \"https://earthquake.usgs.gov/earthquakes/eventpage/us6000u46r\"}, {\"depthKm\":\u2026"
         },
         {
           "theme": "humanitarian",
@@ -1979,7 +1992,7 @@
           "theme": "energy-supply",
           "source": "crude-oil-inventories",
           "day": "2026-10-22",
-          "text": "--- type: \"L1-source\" source: \"U.S. EIA (Energy Information Administration)\" source_key: \"crude-oil-inventories\" endpoint: \"/api/economic/v1/get-crude-inventories\" retrieved: \"2026-10-22T11:42:34Z\" license\u2026"
+          "text": "--- type: \"L1-source\" source: \"U.S. EIA (Energy Information Administration)\" source_key: \"crude-oil-inventories\" endpoint: \"/api/economic/v1/get-crude-inventories\" retrieved: \"2026-10-22T23:36:28Z\" license\u2026"
         },
         {
           "theme": "energy-supply",
@@ -1991,7 +2004,7 @@
           "theme": "prediction-markets",
           "source": "prediction-markets",
           "day": "2026-10-22",
-          "text": "\u2026288066001, \"yesPrice\": 0.195, \"yesPriceChange7d\": -0.035}, {\"category\": \"\", \"closesAt\": 1798779540000, \"id\": \"crude-oil-all-time-high-by\", \"source\": \"MARKET_SOURCE_POLYMARKET\", \"title\": \"Will Crude Oil reach a new all-time hi\u2026"
+          "text": "\u2026.501703001, \"yesPrice\": 0.225, \"yesPriceChange24h\": 0.03}, {\"category\": \"\", \"closesAt\": 1798779540000, \"id\": \"crude-oil-all-time-high-by\", \"source\": \"MARKET_SOURCE_POLYMARKET\", \"title\": \"Will Crude Oil reach a new all-time hi\u2026"
         }
       ]
     },
@@ -2019,13 +2032,13 @@
           "theme": "environmental-hazards",
           "source": "thermal-escalations",
           "day": "2026-10-22",
-          "text": "\u2026GH\", \"context\": \"THERMAL_CONTEXT_CONFLICT_ADJACENT\", \"countDelta\": 98.2, \"countryCode\": \"IR\", \"countryName\": \"Iran\", \"firstDetectedAt\": \"2026-10-21T09:00:00.000Z\", \"frpDelta\": 672.6, \"id\": \"ir:31-0-49-0:2026102209\", \"lastDet\u2026"
+          "text": "\u2026IGH\", \"context\": \"THERMAL_CONTEXT_CONFLICT_ADJACENT\", \"countDelta\": 7.4, \"countryCode\": \"IR\", \"countryName\": \"Iran\", \"firstDetectedAt\": \"2026-10-21T21:44:00.000Z\", \"frpDelta\": 61.5, \"id\": \"ir:27-5-52-0:2026102221\", \"lastDete\u2026"
         },
         {
           "theme": "environmental-hazards",
           "source": "wildfire-detections",
           "day": "2026-10-22",
-          "text": "\u2026: \"active\", \"location\": {\"latitude\": 30.75218, \"longitude\": 48.26977}, \"possibleExplosion\": false, \"region\": \"Iran\", \"satellite\": \"N20\", \"source\": \"firms\"}, {\"brightness\": 349.44, \"confidence\": \"FIRE_CONFIDENCE_NOMINAL\", \"da\u2026"
+          "text": "\u2026: \"active\", \"location\": {\"latitude\": 37.69464, \"longitude\": 59.32843}, \"possibleExplosion\": false, \"region\": \"Iran\", \"satellite\": \"N21\", \"source\": \"firms\"}, {\"brightness\": 346.17, \"confidence\": \"FIRE_CONFIDENCE_NOMINAL\", \"da\u2026"
         },
         {
           "theme": "geophysical",
@@ -2145,6 +2158,18 @@
       ]
     },
     {
+      "id": "event:us6000u43g",
+      "label": "M7 \u00b7 Nagqu, China",
+      "kind": "entity",
+      "entity_kind": "event",
+      "theme": "geophysical",
+      "themes": [
+        "geophysical"
+      ],
+      "magnitude": 7,
+      "url": "sources/2026-10-22/earthquakes.html"
+    },
+    {
       "id": "event:us6000u2mq",
       "label": "M6.9 \u00b7 Ozernovskiy, Russia",
       "kind": "entity",
@@ -2195,18 +2220,6 @@
     {
       "id": "event:us6000u3ga",
       "label": "M5.7 \u00b7 Port-Olry, Vanuatu",
-      "kind": "entity",
-      "entity_kind": "event",
-      "theme": "geophysical",
-      "themes": [
-        "geophysical"
-      ],
-      "magnitude": 5.7,
-      "url": "sources/2026-10-22/earthquakes.html"
-    },
-    {
-      "id": "event:us6000u2y1",
-      "label": "M5.7 \u00b7 Khuzdar, Pakistan",
       "kind": "entity",
       "entity_kind": "event",
       "theme": "geophysical",
@@ -2904,6 +2917,19 @@
       "cross_theme": true,
       "rel": "mentioned-in",
       "weight": 0
+    },
+    {
+      "source": "entity:venezuela",
+      "target": "brief:prediction-markets-weekly",
+      "cross_theme": true,
+      "rel": "mentioned-in",
+      "weight": 1
+    },
+    {
+      "source": "entity:venezuela",
+      "target": "source:prediction-markets",
+      "cross_theme": false,
+      "rel": "named-in"
     },
     {
       "source": "entity:argentina",
@@ -4463,7 +4489,13 @@
       "target": "brief:environmental-hazards-weekly",
       "cross_theme": true,
       "rel": "mentioned-in",
-      "weight": 0
+      "weight": 1
+    },
+    {
+      "source": "entity:china",
+      "target": "source:natural-events",
+      "cross_theme": false,
+      "rel": "named-in"
     },
     {
       "source": "entity:china",
@@ -4902,6 +4934,18 @@
       "weight": 0
     },
     {
+      "source": "event:us6000u43g",
+      "target": "brief:geophysical-weekly",
+      "cross_theme": false,
+      "rel": "reported-in"
+    },
+    {
+      "source": "event:us6000u43g",
+      "target": "entity:china",
+      "cross_theme": false,
+      "rel": "located-in"
+    },
+    {
       "source": "event:us6000u2mq",
       "target": "brief:geophysical-weekly",
       "cross_theme": false,
@@ -4960,12 +5004,6 @@
       "target": "entity:vanuatu",
       "cross_theme": false,
       "rel": "located-in"
-    },
-    {
-      "source": "event:us6000u2y1",
-      "target": "brief:geophysical-weekly",
-      "cross_theme": false,
-      "rel": "reported-in"
     }
   ]
 }

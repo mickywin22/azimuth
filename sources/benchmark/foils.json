@@ -2,50 +2,34 @@
   "$note": "Captured snapshot of the COMPARED forecast/intelligence product for the azimuth benchmark (synthesis/benchmark.py). Quoted by product + capture date; NOT surfaced as an azimuth channel and NOT an L1 source. Refresh with pull_benchmark_foils.py.",
   "endpoint": "/api/forecast/v1/get-forecasts",
   "attribution": "WorldMonitor (api.worldmonitor.app) — model-generated forecast/assessment product",
-  "feed_generated_at": 1792666898741,
+  "feed_generated_at": 1792710164928,
   "feed_degraded": false,
-  "captured_at": "2026-10-22T11:42:41Z",
-  "n_forecasts_seen": 8,
+  "captured_at": "2026-10-22T23:36:34Z",
+  "n_forecasts_seen": 4,
   "topics": {
     "energy-supply": {
       "foil": {
-        "id": "fc-market-9267c611",
+        "id": "fc-market-3b03eb86",
         "domain": "market",
-        "region": "Korean Peninsula",
-        "title": "Energy repricing risk from Korean Peninsula security escalation state",
-        "probability": 0.619,
-        "prior_probability": 0.619,
-        "confidence": 0.75,
+        "region": "Middle East",
+        "title": "Oil price impact from Strait of Hormuz disruption",
+        "probability": 0.4,
+        "prior_probability": 0.4,
+        "confidence": 0.583,
         "time_horizon": "30d",
         "trend": "stable",
         "projections": {},
-        "scenario_short": "Korean Peninsula security escalation state is feeding energy repricing through oil macro shock, with 62% pressure and 70% state confirmation. For now, the base case stays near 65% over the 30d. Actors absorb the...",
-        "perspective_strategic": "Korean Peninsula security escalation state is feeding energy repricing through oil macro shock, with 62% pressure and 70% state confirmation is setting the strategic baseline, and the current 62% probability implies a live but not settled risk path.",
-        "perspective_contrarian": "The current 75% confidence level still leaves room for reversal. If that restraint persists, the forecast can move below the current 62% baseline. Actors prioritize containment and the system drifts toward stabilization unless new hard signals emerge.",
-        "actor_lens": "Commodity traders: Price whether stress in Korean Peninsula becomes durable over the 30d. Rebalance positions if the probability path moves away from 62%.",
-        "top_signal": "Korean Peninsula security escalation state is feeding energy repricing through oil macro shock, with 62% pressure and 70% state confirmation"
+        "scenario_short": "Oil price impact from Strait of Hormuz disruption will remain moderate over the next 30 days, with Strait of Hormuz risk at critical and oil sensitivity at 0.8, as headlines report tanker damage and oil prices topping...",
+        "perspective_strategic": "The critical Strait of Hormuz risk and oil sensitivity of 0.8 indicate a moderate-probability, stable market path, with the 58% confidence suggesting moderate signal reliability.",
+        "perspective_contrarian": "The 58% confidence level and absence of a decisive break in evidence could allow actors to contain the disruption, potentially reducing the probability below 40% if no new hard signals emerge.",
+        "actor_lens": "Commodity traders: Price whether stress in Middle East becomes durable over the 30d. Rebalance positions if the probability path moves away from 40%.",
+        "top_signal": "Strait of Hormuz risk: critical"
       },
       "absence_reason": null
     },
     "supply-chain-inflation": {
-      "foil": {
-        "id": "fc-supply_chain-89d5ab89",
-        "domain": "supply_chain",
-        "region": "Kerch Strait",
-        "title": "Supply chain disruption: Kerch Strait",
-        "probability": 0.408,
-        "prior_probability": 0.408,
-        "confidence": 0.25,
-        "time_horizon": "7d",
-        "trend": "stable",
-        "projections": {},
-        "scenario_short": "Kerch Strait disruption detected. For now, the base case stays near 42% over the 7d. Actors absorb the current evidence mix without a decisive break toward either shock or relief.",
-        "perspective_strategic": "Kerch Strait disruption detected is setting the strategic baseline, and the current 41% probability implies a live but not settled risk path.",
-        "perspective_contrarian": "No directly matched headlines are currently attached to Kerch Strait. If that restraint persists, the forecast can move below the current 41% baseline. Actors prioritize containment and the system drifts toward stabilization unless new hard signals emerge.",
-        "actor_lens": "Shipping operators: Keep critical flows through Kerch Strait functioning over the 7d. Adjust routing and contingency plans around Kerch Strait.",
-        "top_signal": "Kerch Strait disruption detected"
-      },
-      "absence_reason": null
+      "foil": null,
+      "absence_reason": "No maritime/inflation forecast in the feed this cycle — azimuth reports the observed energy-price facts it can see, not a disruption probability."
     },
     "seismic-infrastructure": {
       "foil": null,

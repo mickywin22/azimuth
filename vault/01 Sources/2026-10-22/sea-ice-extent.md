@@ -3,14 +3,14 @@ type: "L1-source"
 source: "NSIDC / NOAA@NSIDC Sea Ice Index (satellite-passive-microwave sea-ice extent)"
 source_key: "sea-ice-extent"
 endpoint: "/api/climate/v1/get-ocean-ice-data"
-retrieved: "2026-10-22T11:42:34Z"
+retrieved: "2026-10-22T23:36:28Z"
 license: "US-Gov-public-domain"
 attribution: "Data: NSIDC Sea Ice Index via WorldMonitor (api.worldmonitor.app)"
 ---
 
 # NSIDC / NOAA@NSIDC Sea Ice Index (satellite-passive-microwave sea-ice extent)
 
-> L1 source pull — `sea-ice-extent` from `/api/climate/v1/get-ocean-ice-data` at 2026-10-22T11:42:34Z. Verbatim transform; never edit by hand.
+> L1 source pull — `sea-ice-extent` from `/api/climate/v1/get-ocean-ice-data` at 2026-10-22T23:36:28Z. Verbatim transform; never edit by hand.
 
 | field | value |
 | --- | --- |
