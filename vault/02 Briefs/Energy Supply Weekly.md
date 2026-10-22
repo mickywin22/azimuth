@@ -2,8 +2,8 @@
 title: Energy Supply Weekly
 type: L2-brief
 theme: energy-supply
-week: 2026-W42
-updated: 2026-10-16T00:00:00Z
+week: 2026-W43
+updated: 2026-10-22T00:00:00Z
 sources: [natural-gas-storage-eu, crude-oil-inventories, fuel-prices, energy-prices]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -14,80 +14,89 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 > Synthesised from the week's L1 source notes under `../01 Sources/`. The `azimuth-curator`
 > fleet role evolves this single note in place each week — it deepens this brief and appends
 > a dated `## Changelog` line rather than forking a new file. Every claim links to the L1
-> note it rests on. (The 2026-10-14 → 2026-10-15 pulls carried no fresh reporting period in any of the four feeds — EU gas storage, US crude inventories, the spot screen and the road-fuel panel all repeated their 2026-10-13 prints (only the retrieval timestamp moved), an honest flat cycle on top of the prior move. The last movement cycle absorbed the 2026-10-12 → 2026-10-13 pulls — a single-feed pump-side
-> movement cycle, the mirror of last cycle's gas-side one: the road-fuel panel advanced a fresh observation
-> week and turned sharply lower, while the two stockpiles and the spot screen all held. The road-fuel panel
-> **advanced to its 2026-10-05 observations** and sold off broadly — German diesel **€2.254/L (−7.61% w/w**,
-> down from €2.437), E5 petrol **€2.196/L (−6.46% w/w**, down from €2.345), **26 of 32 markets down on
-> diesel** against 6 up (steepest falls Poland −14.45% / Germany −7.61% / Estonia −6.49%, steepest rises
-> Brazil +4.21% / Ireland +1.81% / UK +1.21%); the priciest diesel is **Finland**, the priciest petrol
-> **Denmark**, **Malaysia** cheapest on both, New Zealand still failing the pull (32 countries,
-> `allSourcesFresh: false`). Upstream **held**: EU gas storage **held at 3,500 Bcf** for the week ending
-> 2026-10-02 (+85 Bcf, the twenty-fifth straight build and the largest add of the whole refill run), the US
-> crude-inventory feed **held at 424.13 million barrels** for 2026-10-02 (−3.19 Mb), and spot crude **held**
-> — **WTI $98.07/barrel (+4.8% w/w)** and **Brent $120.03/barrel (+2.5% w/w)**, Brent still over $120 and the
-> Brent–WTI spread at ~$22. The read: the pump was the sole mover — a broad −6 to −7% retail easing finally
-> catching down to the softer upstream — while the gas build, the crude stock and the spot screen all sat on
-> last cycle's prints.)
+> note it rests on. (The 2026-10-16 → 2026-10-22 pulls were a three-feed movement cycle, gas the lone
+> hold. US crude inventories **advanced a fresh reporting week to 412.52 million barrels** for the week
+> ending 2026-10-16 (**−3.06 Mb w/w**), the **third straight draw** off the 424.13 Mb/09-25 base, following
+> −8.56 Mb for 10-09 and −3.19 Mb for 10-02. Spot crude **split direction** for the first time in this
+> brief's run — **WTI $99.93/barrel (+3.1% w/w**, from $96.88) climbed while **Brent $125.59/barrel
+> (−1.4% w/w**, from $127.43) eased, narrowing the Brent–WTI spread to **~$25.7** from ~$30.6. The road-fuel
+> panel **advanced to its 2026-10-12 observations** and rebounded modestly after the prior cycle's sharp
+> plunge — German diesel **€2.270/L (+0.93% w/w**, up from €2.254), E5 petrol **€2.214/L (+1.04% w/w**, up
+> from €2.196), **24 of 32 markets down on diesel** against 8 up (steepest falls Estonia −3.76% / Sweden
+> −3.01% / Slovenia −2.98%, steepest rises Poland +1.93% / Austria +1.34% / Hungary +0.94%); priciest diesel
+> still **Finland**, priciest petrol still **Denmark**, **Malaysia** cheapest on both, New Zealand still
+> failing the pull (32 countries, `allSourcesFresh: false`). EU gas storage **held at 3,567 Bcf** for the
+> week ending 2026-10-09 (+67 Bcf, the **twenty-sixth straight build**, decelerating from the record +85 Bcf
+> add); no fresh reporting week landed this cycle — this also corrects the brief's running figure, which had
+> lagged at the 2026-10-02 print even though the 10-09 print was already live by the 2026-10-16 pull. The
+> read: the drawing crude stock and the diverging spot screen are this cycle's story — US crude tightening
+> against a Brent pullback — while the pump only partially retraces last cycle's broad easing and gas sits
+> still.)
 
 ## This week at a glance
 
-- The road-fuel panel **advanced a fresh observation week to 2026-10-05** and turned sharply lower — German
-  diesel **€2.254/L (−7.61% w/w**, from €2.437), E5 petrol **€2.196/L (−6.46% w/w**, from €2.345), **26 of
-  32 markets down on diesel** against 6 up (steepest falls Poland −14.45% / Germany −7.61% / Estonia −6.49%,
-  steepest rises Brazil +4.21% / Ireland +1.81% / UK +1.21%); priciest diesel **Finland**, priciest petrol
-  **Denmark**, **Malaysia** cheapest on both, New Zealand still failing the pull (32 countries) ([[fuel-prices]]).
-- EU gas storage **held at 3,500 Bcf** for the week ending 2026-10-02 (**+85 Bcf** w/w) — the **twenty-fifth
-  straight build** and the **largest weekly add of the whole refill run**; no fresh reporting week this cycle
+- EU gas storage **held at 3,567 Bcf** for the week ending 2026-10-09 (**+67 Bcf** w/w) — the **twenty-sixth
+  straight build**, decelerating from the record +85 Bcf add; no fresh reporting week this cycle
   ([[natural-gas-storage-eu]]).
-- The US crude-inventory feed **held** on the EIA commercial-crude series at **424.13 million barrels** for
-  the week ending 2026-10-02 (**−3.19 Mb** w/w), and spot crude **held** — **WTI $98.07/barrel (+4.8% w/w)**
-  and **Brent $120.03/barrel (+2.5% w/w)**, Brent still over $120 and the spread at ~$22 ([[crude-oil-inventories]], [[energy-prices]]).
+- US crude inventories **advanced a fresh reporting week** to **412.52 million barrels** for the week ending
+  2026-10-16 (**−3.06 Mb** w/w) — the **third straight draw**, following −8.56 Mb (10-09) and −3.19 Mb
+  (10-02) ([[crude-oil-inventories]]).
+- Spot crude **split direction** — **WTI $99.93/barrel (+3.1% w/w)** climbed while **Brent $125.59/barrel
+  (−1.4% w/w)** eased, narrowing the Brent–WTI spread to **~$25.7** ([[energy-prices]]).
+- The road-fuel panel **advanced a fresh observation week to 2026-10-12** and rebounded modestly after the
+  prior cycle's sharp plunge — German diesel **€2.270/L (+0.93% w/w**, from €2.254), E5 petrol **€2.214/L
+  (+1.04% w/w**, from €2.196), **24 of 32 markets down on diesel** against 8 up (steepest falls Estonia
+  −3.76% / Sweden −3.01% / Slovenia −2.98%, steepest rises Poland +1.93% / Austria +1.34% / Hungary +0.94%);
+  priciest diesel still **Finland**, priciest petrol still **Denmark**, **Malaysia** cheapest on both, New
+  Zealand still failing the pull (32 countries) ([[fuel-prices]]).
 
 ## Storage and inventories
 
-- EU gas storage **held at 3,500 Bcf** for the week ending 2026-10-02 (**+85 Bcf** w/w) — the twenty-fifth
-  straight build and the **largest weekly add of the whole refill run**, up from +64 Bcf for 09-25, +53 Bcf
-  for 09-18 and +44 Bcf for 09-11; no fresh reporting week this cycle, last cycle's record-of-run build
-  carried unchanged ([[natural-gas-storage-eu]]).
-- The US crude-inventory feed **held** on the EIA commercial-crude series at **424.13 million barrels**
-  for the week ending 2026-10-02 (**−3.19 Mb** w/w, off 427.32 Mb for 09-25, 426.4 Mb for 09-18 and
-  423.4 Mb for 09-11). No fresh reporting week this cycle — last cycle's **first draw** after the small
-  +0.9 Mb build carried unchanged ([[crude-oil-inventories]]).
-- Both stockpiles **held** this cycle: gas on its record-of-run +85 Bcf build to 3,500 Bcf, crude on its
-  3.2 Mb draw off the commercial level — neither advanced a fresh reporting week, the whole upstream sitting
-  still while the pump moved ([[natural-gas-storage-eu]], [[crude-oil-inventories]]).
+- EU gas storage **held at 3,567 Bcf** for the week ending 2026-10-09 (**+67 Bcf** w/w) — the twenty-sixth
+  straight build, down from the record +85 Bcf add for 10-02, +64 Bcf for 09-25 and +53 Bcf for 09-18; no
+  fresh reporting week landed across the 2026-10-16 → 2026-10-22 pulls ([[natural-gas-storage-eu]]).
+- US crude inventories **drew a third straight week** — **412.52 million barrels** for the week ending
+  2026-10-16 (**−3.06 Mb** w/w), off 415.58 Mb for 10-09 (−8.56 Mb) and 424.13 Mb for 10-02 (−3.19 Mb); the
+  stock has now shed roughly 14.8 Mb across the three-week draw run that followed the small +0.92 Mb build
+  for 09-25 ([[crude-oil-inventories]]).
+- The two stockpiles **diverged further** this cycle: gas sitting on its held twenty-sixth-build print while
+  crude extended its draw run to three straight weeks — the refill side idle, the oil side still tightening
+  ([[natural-gas-storage-eu]], [[crude-oil-inventories]]).
 
 ## Prices
 
-- Both crude benchmarks **held** this cycle: the energy-prices feed carried **WTI $98.07/barrel (+4.8%
-  w/w)** and **Brent $120.03/barrel (+2.5% w/w)** unchanged, Brent still over $120 and the Brent–WTI spread
-  holding at ~$22 — last cycle's bounce stood rather than extended ([[energy-prices]]).
-- The road-fuel panel **advanced a fresh observation week to 2026-10-05** and turned sharply lower — German
-  diesel **€2.254/L (−7.61% w/w**, from €2.437), E5 petrol **€2.196/L (−6.46% w/w**, from €2.345), **26 of 32
-  markets down on diesel** against 6 up; steepest falls Poland −14.45%, Germany −7.61%, Estonia −6.49%,
-  steepest rises Brazil +4.21%, Ireland +1.81%, UK +1.21%; priciest diesel **Finland**, priciest petrol
-  **Denmark**, Malaysia cheapest on both, New Zealand still failing the pull (32 countries,
-  `allSourcesFresh: false`) ([[fuel-prices]]).
-- With the spot screen **held** and the pump dropping a broad −6 to −7%, the **pump-vs-screen gap widened**
-  this cycle — the retail panel easing hard toward the softer upstream while the benchmarks that hold
-  ~4.8%/+2.5% higher sat still, the pump finally closing distance to the held screen rather than the screen
-  moving ([[fuel-prices]], [[energy-prices]]).
+- The two crude benchmarks **split direction** this cycle: **WTI climbed to $99.93/barrel (+3.1% w/w**, from
+  $96.88) while **Brent eased to $125.59/barrel (−1.4% w/w**, from $127.43) — the Brent–WTI spread narrowing
+  to **~$25.7** from ~$30.6, the first cycle the two benchmarks have moved opposite ways in this brief's run
+  ([[energy-prices]]).
+- The road-fuel panel **advanced a fresh observation week to 2026-10-12** and rebounded modestly after the
+  prior cycle's sharp plunge — German diesel **€2.270/L (+0.93% w/w**, from €2.254), E5 petrol **€2.214/L
+  (+1.04% w/w**, from €2.196), **24 of 32 markets down on diesel** against 8 up; steepest falls Estonia
+  −3.76%, Sweden −3.01%, Slovenia −2.98%; steepest rises Poland +1.93%, Austria +1.34%, Hungary +0.94%;
+  priciest diesel still **Finland**, priciest petrol still **Denmark**, Malaysia cheapest on both, New
+  Zealand still failing the pull (32 countries, `allSourcesFresh: false`) ([[fuel-prices]]).
+- With the spot screen splitting and the pump only partly retracing last cycle's broad plunge, the
+  **pump-vs-screen gap held roughly steady** this cycle — the retail rebound of +0.9/+1.0% is far smaller
+  than either benchmark's move, so the pump neither closed nor widened its distance from the screen in a
+  clean direction ([[fuel-prices]], [[energy-prices]]).
 
 ## Reading the week
 
-- A single-feed pump-side move — the retail panel the sole mover across the cycle, the mirror of last
-  cycle's gas-side one. The road-fuel panel advanced a fresh observation week to 2026-10-05 and turned
-  sharply lower: German diesel €2.254/L (−7.61% w/w), E5 €2.196/L (−6.46%), 26 of 32 markets down on diesel
-  (steepest Poland −14.45%, Germany −7.61%, Estonia −6.49%), priciest diesel Finland, priciest petrol
-  Denmark, Malaysia cheapest. Upstream held: EU gas storage 3,500 Bcf for 2026-10-02 (+85 Bcf, twenty-fifth
-  build, largest of the run), US crude 424.13 Mb for 2026-10-02 (−3.19 Mb), spot crude WTI $98.07 (+4.8%) /
-  Brent $120.03 (+2.5%, over $120, spread ~$22). The read: the pump finally caught down to the softer
-  upstream — a broad −6 to −7% retail easing — while the gas build, the crude stock and the spot screen all
-  sat on last cycle's prints across the 10-12 → 10-13 pulls ([[fuel-prices]], [[natural-gas-storage-eu]], [[crude-oil-inventories]], [[energy-prices]]).
+- A three-feed movement cycle, gas the lone hold. US crude inventories drew a third straight week to
+  412.52 Mb (−3.06 Mb) for the week ending 2026-10-16. Spot crude split direction for the first time in
+  this brief's run — WTI $99.93 (+3.1%) up, Brent $125.59 (−1.4%) down, narrowing the Brent–WTI spread to
+  ~$25.7 from ~$30.6. The road-fuel panel advanced to 2026-10-12 observations and rebounded modestly
+  (German diesel +0.93% to €2.270/L, E5 +1.04% to €2.214/L) after the prior week's sharp −6/−7% plunge, 24
+  of 32 markets down on diesel against 8 up (steepest falls Estonia −3.76%, Sweden −3.01%, Slovenia −2.98%).
+  EU gas storage held at 3,567 Bcf for the week ending 2026-10-09 (+67 Bcf, the twenty-sixth straight
+  build, decelerating from the record +85 Bcf). The read: the drawing crude stock and the diverging spot
+  screen are this cycle's story — US crude tightening against a Brent pullback — while the pump only
+  partially retraces last cycle's broad easing and gas sits still ([[crude-oil-inventories]],
+  [[energy-prices]], [[fuel-prices]], [[natural-gas-storage-eu]]).
 
 ## Changelog
 
+- 2026-10-22 — daily-ingest synthesis (2026-W43): a three-feed movement cycle, gas the lone hold. US crude inventories advanced a fresh reporting week to 412.52 million barrels for the week ending 2026-10-16 (−3.06 Mb w/w, the third straight draw off the 424.13 Mb/09-25 base, following −8.56 Mb for 10-09 and −3.19 Mb for 10-02). Spot crude split direction for the first time in this brief's run — WTI $99.93/barrel (+3.1% w/w, from $96.88) and Brent $125.59/barrel (−1.4% w/w, from $127.43), the Brent–WTI spread narrowing to ~$25.7 from ~$30.6. The road-fuel panel advanced a fresh observation week to 2026-10-12 and rebounded modestly after the prior cycle's sharp −6/−7% plunge: German diesel €2.270/L (+0.93% w/w, from €2.254), E5 €2.214/L (+1.04% w/w, from €2.196), 24 of 32 markets down on diesel against 8 up (steepest falls Estonia −3.76% / Sweden −3.01% / Slovenia −2.98%, steepest rises Poland +1.93% / Austria +1.34% / Hungary +0.94%), priciest diesel still Finland, priciest petrol still Denmark, Malaysia cheapest, New Zealand still failing the pull. EU gas storage carried no fresh reporting week — held at 3,567 Bcf for the week ending 2026-10-09 (+67 Bcf, the twenty-sixth straight build, decelerating from the record +85 Bcf); this also corrects the brief's running figure, which had lagged at the 2026-10-02 print (3,500 Bcf) even though the 10-09 print was already live in the feed by the 2026-10-16 pull. Rewrote the intro, at-a-glance, storage, price and reading sections around the crude-draw / Brent-pullback / pump-rebound move against the held gas build ([[crude-oil-inventories]], [[energy-prices]], [[fuel-prices]], [[natural-gas-storage-eu]]).
 - 2026-10-16 — daily-ingest flowback (2026-W42): an honest flat cycle. The 2026-10-14 and 2026-10-15 WorldMonitor pulls carried no new reporting period in any of the four feeds — EU gas storage (3,500 Bcf, week ending 2026-10-02, +85 Bcf, twenty-fifth build), US crude inventories (424.13 Mb, 2026-10-02, −3.19 Mb), spot crude (WTI $98.07 +4.8% w/w, Brent $120.03 +2.5% w/w, Brent over $120, spread ~$22) and the road-fuel panel (2026-10-05 observations, German diesel €2.254/L −7.61%, E5 €2.196/L −6.46%, 26 of 32 markets down on diesel, Finland priciest diesel, Denmark priciest petrol, Malaysia cheapest, New Zealand failing the pull, 32 countries) were byte-identical to the 2026-10-13 ingest apart from the retrieval timestamp. Figures held with no fabricated movement; `updated` advanced so the freshness gate records the latest L1 day was absorbed ([[natural-gas-storage-eu]], [[crude-oil-inventories]], [[energy-prices]], [[fuel-prices]]).
 - 2026-10-13 — daily-ingest synthesis (2026-W42): absorbed the 2026-10-12 → 2026-10-13 pulls — a single-feed pump-side movement cycle, the mirror of the prior gas-side one. The road-fuel panel advanced a fresh observation week to 2026-10-05 and turned sharply lower: German diesel €2.254/L (−7.61% w/w, from €2.437), E5 €2.196/L (−6.46%, from €2.345), 26 of 32 markets down on diesel against 6 up (steepest falls Poland −14.45% / Germany −7.61% / Estonia −6.49%, steepest rises Brazil +4.21% / Ireland +1.81% / UK +1.21%); priciest diesel Finland, priciest petrol Denmark, Malaysia cheapest on both, New Zealand still failing the pull (32 countries). EU gas storage (3,500 Bcf, week ending 2026-10-02, +85 Bcf, twenty-fifth build), US crude inventories (424.13 Mb, 2026-10-02, −3.19 Mb) and spot crude (WTI $98.07 +4.8% w/w, Brent $120.03 +2.5% w/w, Brent over $120, spread ~$22) all carried no fresh reporting week and were held. Rewrote the intro, at-a-glance, storage, price and reading sections around the broad pump easing catching down to the held upstream ([[fuel-prices]], [[natural-gas-storage-eu]], [[crude-oil-inventories]], [[energy-prices]]).
 - 2026-10-11 — daily-ingest synthesis (2026-W41): absorbed the 2026-10-09 → 2026-10-11 pulls — a single-feed gas-side movement cycle. EU gas storage advanced a fresh reporting week to 3,500 Bcf for the week ending 2026-10-02 (+85 Bcf w/w, up from 3,415 Bcf for 09-25) — the twenty-fifth straight build and the largest weekly add of the whole refill run, still accelerating from +64 Bcf. US crude inventories (424.13 Mb, week ending 2026-10-02, −3.19 Mb), spot crude (WTI $98.07 +4.8% w/w, Brent $120.03 +2.5% w/w, Brent over $120, spread ~$22) and the road-fuel panel (2026-09-28 observations, German diesel €2.437/L, E5 €2.345/L, Denmark priciest on both, Malaysia cheapest, New Zealand failing the pull, 32 countries) all carried no fresh reporting week and were held. Rewrote the intro, at-a-glance, storage, price and reading sections around the record-of-run gas build against the held oil stock, held screen and held pump ([[natural-gas-storage-eu]], [[crude-oil-inventories]], [[energy-prices]], [[fuel-prices]]).
