@@ -3,14 +3,14 @@ type: "L1-source"
 source: "NOAA Global Monitoring Laboratory (atmospheric CO2 record)"
 source_key: "co2-monitoring"
 endpoint: "/api/climate/v1/get-co2-monitoring"
-retrieved: "2026-10-23T00:50:03Z"
+retrieved: "2026-10-23T11:30:41Z"
 license: "US-Gov-public-domain"
 attribution: "Data: NOAA Global Monitoring Laboratory via WorldMonitor (api.worldmonitor.app)"
 ---
 
 # NOAA Global Monitoring Laboratory (atmospheric CO2 record)
 
-> L1 source pull — `co2-monitoring` from `/api/climate/v1/get-co2-monitoring` at 2026-10-23T00:50:03Z. Verbatim transform; never edit by hand.
+> L1 source pull — `co2-monitoring` from `/api/climate/v1/get-co2-monitoring` at 2026-10-23T11:30:41Z. Verbatim transform; never edit by hand.
 
 | field | value |
 | --- | --- |

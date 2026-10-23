@@ -3,14 +3,14 @@ type: "L1-source"
 source: "WorldMonitor aggregated fuel-price feed"
 source_key: "fuel-prices"
 endpoint: "/api/economic/v1/list-fuel-prices"
-retrieved: "2026-10-23T00:50:03Z"
+retrieved: "2026-10-23T11:30:41Z"
 license: "API-ToS-derived"
 attribution: "Data: WorldMonitor fuel-price feed (api.worldmonitor.app)"
 ---
 
 # WorldMonitor aggregated fuel-price feed
 
-> L1 source pull — `fuel-prices` from `/api/economic/v1/list-fuel-prices` at 2026-10-23T00:50:03Z. Verbatim transform; never edit by hand.
+> L1 source pull — `fuel-prices` from `/api/economic/v1/list-fuel-prices` at 2026-10-23T11:30:41Z. Verbatim transform; never edit by hand.
 
 | field | value |
 | --- | --- |

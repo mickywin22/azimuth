@@ -3,14 +3,14 @@ type: "L1-source"
 source: "WorldMonitor aggregated energy spot/forward feed"
 source_key: "energy-prices"
 endpoint: "/api/economic/v1/get-energy-prices"
-retrieved: "2026-10-23T00:50:03Z"
+retrieved: "2026-10-23T11:30:41Z"
 license: "API-ToS-derived"
 attribution: "Data: WorldMonitor energy-price feed (api.worldmonitor.app)"
 ---
 
 # WorldMonitor aggregated energy spot/forward feed
 
-> L1 source pull — `energy-prices` from `/api/economic/v1/get-energy-prices` at 2026-10-23T00:50:03Z. Verbatim transform; never edit by hand.
+> L1 source pull — `energy-prices` from `/api/economic/v1/get-energy-prices` at 2026-10-23T11:30:41Z. Verbatim transform; never edit by hand.
 
 | field | value |
 | --- | --- |

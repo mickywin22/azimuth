@@ -2,10 +2,10 @@
   "$note": "Captured snapshot of the COMPARED forecast/intelligence product for the azimuth benchmark (synthesis/benchmark.py). Quoted by product + capture date; NOT surfaced as an azimuth channel and NOT an L1 source. Refresh with pull_benchmark_foils.py.",
   "endpoint": "/api/forecast/v1/get-forecasts",
   "attribution": "WorldMonitor (api.worldmonitor.app) — model-generated forecast/assessment product",
-  "feed_generated_at": 1792713831642,
+  "feed_generated_at": 1792753500091,
   "feed_degraded": false,
-  "captured_at": "2026-10-23T00:50:12Z",
-  "n_forecasts_seen": 7,
+  "captured_at": "2026-10-23T11:30:48Z",
+  "n_forecasts_seen": 6,
   "topics": {
     "energy-supply": {
       "foil": {
@@ -19,9 +19,9 @@
         "time_horizon": "30d",
         "trend": "stable",
         "projections": {},
-        "scenario_short": "Oil price impact from Strait of Hormuz disruption sits at 40% with stable trend, driven by critical Strait risk and oil sensitivity of 0.8, but confidence at 58% limits conviction over 30 days.",
-        "perspective_strategic": "Strait of Hormuz risk: critical is setting the strategic baseline, and the current 40% probability implies a live but not settled risk path.",
-        "perspective_contrarian": "The current 58% confidence level still leaves room for reversal; if that restraint persists, the forecast can move below 40% toward 32%, as actors prioritize containment and the system drifts toward stabilization unless new hard signals emerge.",
+        "scenario_short": "Oil price impact from Strait of Hormuz disruption is at 40% over 30 days, with Strait of Hormuz risk critical and oil sensitivity at 0.8, amid headlines of tanker damage.",
+        "perspective_strategic": "The critical Strait of Hormuz risk and oil sensitivity of 0.8 signal high vulnerability, with headlines of 7 tankers damaged reinforcing disruption risk.",
+        "perspective_contrarian": "The 58% confidence level still allows for reversal, and actors may prioritize containment unless new hard signals emerge, potentially stabilizing the system.",
         "actor_lens": "Commodity traders: Price whether stress in Middle East becomes durable over the 30d. Rebalance positions if the probability path moves away from 40%.",
         "top_signal": "Strait of Hormuz risk: critical"
       },
