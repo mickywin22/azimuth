@@ -2,34 +2,50 @@
   "$note": "Captured snapshot of the COMPARED forecast/intelligence product for the azimuth benchmark (synthesis/benchmark.py). Quoted by product + capture date; NOT surfaced as an azimuth channel and NOT an L1 source. Refresh with pull_benchmark_foils.py.",
   "endpoint": "/api/forecast/v1/get-forecasts",
   "attribution": "WorldMonitor (api.worldmonitor.app) — model-generated forecast/assessment product",
-  "feed_generated_at": 1792753500091,
+  "feed_generated_at": 1792836078805,
   "feed_degraded": false,
-  "captured_at": "2026-10-23T11:30:48Z",
-  "n_forecasts_seen": 6,
+  "captured_at": "2026-10-24T10:52:04Z",
+  "n_forecasts_seen": 10,
   "topics": {
     "energy-supply": {
       "foil": {
-        "id": "fc-market-3b03eb86",
+        "id": "fc-market-3f4aec15",
         "domain": "market",
-        "region": "Middle East",
-        "title": "Oil price impact from Strait of Hormuz disruption",
-        "probability": 0.4,
-        "prior_probability": 0.4,
-        "confidence": 0.583,
+        "region": "Red Sea",
+        "title": "Energy repricing risk from Red Sea maritime disruption state",
+        "probability": 0.655,
+        "prior_probability": 0.666,
+        "confidence": 0.75,
         "time_horizon": "30d",
         "trend": "stable",
         "projections": {},
-        "scenario_short": "Oil price impact from Strait of Hormuz disruption is at 40% over 30 days, with Strait of Hormuz risk critical and oil sensitivity at 0.8, amid headlines of tanker damage.",
-        "perspective_strategic": "The critical Strait of Hormuz risk and oil sensitivity of 0.8 signal high vulnerability, with headlines of 7 tankers damaged reinforcing disruption risk.",
-        "perspective_contrarian": "The 58% confidence level still allows for reversal, and actors may prioritize containment unless new hard signals emerge, potentially stabilizing the system.",
-        "actor_lens": "Commodity traders: Price whether stress in Middle East becomes durable over the 30d. Rebalance positions if the probability path moves away from 40%.",
-        "top_signal": "Strait of Hormuz risk: critical"
+        "scenario_short": "Red Sea maritime disruption will continue to feed energy repricing through an oil macro shock, with 62% pressure and 74% state confirmation, as Brent crude tops $116 and Iran's trade squeeze spreads from sea to land.",
+        "perspective_strategic": "The 62% pressure and 74% state confirmation indicate a strong transmission path through oil macro shock, with 5 urgent critical signals reinforcing Energy pressure, suggesting the disruption is becoming structurally priced in.",
+        "perspective_contrarian": "The absence of more directly matched reporting on Red Sea and the bounded 75% confidence level could allow the system to stabilize, as commodity traders rebalance positions if the probability path moves away from 66%.",
+        "actor_lens": "Commodity traders: Price whether stress in Red Sea becomes durable over the 30d. Rebalance positions if the probability path moves away from 66%.",
+        "top_signal": "Red Sea maritime disruption state is feeding energy repricing through oil macro shock, with 62% pressure and 74% state confirmation"
       },
       "absence_reason": null
     },
     "supply-chain-inflation": {
-      "foil": null,
-      "absence_reason": "No maritime/inflation forecast in the feed this cycle — azimuth reports the observed energy-price facts it can see, not a disruption probability."
+      "foil": {
+        "id": "fc-market-3f4aec15",
+        "domain": "market",
+        "region": "Red Sea",
+        "title": "Energy repricing risk from Red Sea maritime disruption state",
+        "probability": 0.655,
+        "prior_probability": 0.666,
+        "confidence": 0.75,
+        "time_horizon": "30d",
+        "trend": "stable",
+        "projections": {},
+        "scenario_short": "Red Sea maritime disruption will continue to feed energy repricing through an oil macro shock, with 62% pressure and 74% state confirmation, as Brent crude tops $116 and Iran's trade squeeze spreads from sea to land.",
+        "perspective_strategic": "The 62% pressure and 74% state confirmation indicate a strong transmission path through oil macro shock, with 5 urgent critical signals reinforcing Energy pressure, suggesting the disruption is becoming structurally priced in.",
+        "perspective_contrarian": "The absence of more directly matched reporting on Red Sea and the bounded 75% confidence level could allow the system to stabilize, as commodity traders rebalance positions if the probability path moves away from 66%.",
+        "actor_lens": "Commodity traders: Price whether stress in Red Sea becomes durable over the 30d. Rebalance positions if the probability path moves away from 66%.",
+        "top_signal": "Red Sea maritime disruption state is feeding energy repricing through oil macro shock, with 62% pressure and 74% state confirmation"
+      },
+      "absence_reason": null
     },
     "seismic-infrastructure": {
       "foil": null,
