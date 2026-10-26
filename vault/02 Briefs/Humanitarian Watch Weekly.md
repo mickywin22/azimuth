@@ -2,8 +2,8 @@
 title: Humanitarian Watch Weekly
 type: L2-brief
 theme: humanitarian
-week: 2026-W43
-updated: 2026-10-22T00:00:00Z
+week: 2026-W44
+updated: 2026-10-26T00:00:00Z
 sources: [displacement-flows]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -15,10 +15,11 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 > fleet role evolves this single note in place each cycle. azimuth reports **recorded
 > displacement statistics** — a refugee or IDP population count is an observed figure
 > published by UNHCR / UN OCHA — and never assigns cause-blame or projects flows. Every claim
-> links to the L1 note it rests on. Data as of the **2026-10-22** pull (daily cadence continues). The
+> links to the L1 note it rests on. Data as of the **2026-10-26** pull (daily cadence continues). The
 > published-year (2025) figures **held exactly** — the global totals and the full top-flow table
-> carried byte-identical to the 10-13 pull — as expected for an annual UNHCR release that revises only
-> periodically; only the retrieval timestamp advanced.
+> carried byte-identical across the 2026-10-23 → 2026-10-26 pulls (and back to the 10-13 pull) — as
+> expected for an annual UNHCR release that revises only periodically; only the retrieval timestamp
+> advanced.
 
 ## This week at a glance
 
@@ -28,9 +29,9 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
   — the source's own category totals, held flat across the 2026-08-18 → 08-20 pulls and back
   through the entire 2026-08-07 → 08-17 window absorbed the prior cycles, reported as published
   ([[displacement-flows]]).
-- The 2026-10-14 → 10-22 advance changed nothing: the same global aggregate —
+- The 2026-10-23 → 10-26 advance changed nothing: the same global aggregate —
   106,175,975 total / 64,239,352 IDPs / 28,461,306 refugees / 8,998,097 asylum seekers /
-  4,477,220 stateless — is what the 2026-10-22 pull returns, matching 2026-10-13 figure-for-figure
+  4,477,220 stateless — is what the 2026-10-26 pull returns, matching 2026-10-13 figure-for-figure
   (the payloads differ only in the `retrieved`/`fetchedAt` timestamp). A flat published-year
   cycle is the expected shape for this channel, not a stale brief ([[displacement-flows]]).
 - Combining each country's own IDP, refugee-abroad, asylum-seeker-abroad and stateless counts
@@ -106,6 +107,8 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
   ([[displacement-flows]]).
 
 ## Changelog
+
+- 2026-10-26 — daily-ingest flowback (2026-W44): an honest flat cycle. The 2026-10-23 → 2026-10-26 UNHCR/OCHA pulls returned the published-year (2025) figures byte-identical — 106,175,975 forcibly displaced (64,239,352 IDPs / 28,461,306 refugees / 8,998,097 asylum seekers / 4,477,220 stateless) — matching the 10-13 pull figure-for-figure, the payloads differing only in the retrieval timestamp. A flat published-year cycle is the expected shape for this annual release, not a stale brief. Advanced `week` and `updated` so the freshness gate records the latest L1 day was absorbed; no figure changed ([[displacement-flows]]).
 
 - 2026-10-22 — daily-ingest synthesis (2026-W43): absorbed the 2026-10-17 → 2026-10-22 UNHCR/OCHA pulls, a clean hold. The published-year (2025) global forcibly-displaced total of 106,175,975 (64,239,352 IDPs / 28,461,306 refugees / 8,998,097 asylum seekers / 4,477,220 stateless) and the full top-flow table (Sudan, Syria, Ukraine, Colombia, DR Congo leading) all carried byte-identical to 10-16 — as expected for an annual release that revises only periodically; only the retrieval timestamp advanced each day. The flat run now spans 98 days (2026-07-16 → 10-22). Advanced all in-brief dates and the flat-run length; no figure moved. Observed-statistic, no-cause-blame framing held ([[displacement-flows]]).
 - 2026-10-16 — daily-ingest flowback (2026-W42): the 2026-10-14 and 2026-10-15 UNHCR/OCHA pulls held byte-identical to 10-13 — the published-year (2025) global forcibly-displaced total of 106,175,975 (64,239,352 IDPs / 28,461,306 refugees / 8,998,097 asylum seekers / 4,477,220 stateless) and the full top-flow table (Sudan, Syria, Ukraine, Colombia, DR Congo leading) all unchanged, as expected for an annual release that revises only periodically; only the retrieval timestamp advanced. The flat run now spans 91 days (2026-07-16 → 10-15). `updated` advanced; no figure moved. Observed-statistic, no-cause-blame framing held ([[displacement-flows]]).
