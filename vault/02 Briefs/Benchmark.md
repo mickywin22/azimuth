@@ -3,7 +3,7 @@ title: Benchmark — Facts vs Forecast vs Intelligence
 type: L2-brief
 theme: cross-theme
 week: 2026-W44
-updated: 2026-10-30T04:00:00Z
+updated: 2026-10-31T04:00:00Z
 sources: [crude-oil-inventories, earthquakes, energy-prices, natural-gas-storage-eu]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources; the forecast/intelligence columns quote WorldMonitor as the COMPARED product, not an azimuth channel
@@ -11,7 +11,7 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 # Benchmark — azimuth vs a forecast vs an intelligence feed
 
-> *Why not just read a forecast or an intelligence feed?* Here is the same world-topic through three columns: **azimuth** (observed facts from the live bundle, every claim linked to its L1 source), a **FORECAST** product (a model probability), and an **INTELLIGENCE** product (an analyst assessment). It is a fair contrast, not a strawman: azimuth wins on provenance, neutrality and reproducibility; a forecast / intel feed legitimately wins on **forward-looking coverage** — it predicts, azimuth reports what already happened. The forecast / intelligence columns quote WorldMonitor as the *compared product* (captured 2026-10-30T12:44:36Z), deliberately NOT a clickable L1 link — because that is exactly the difference.
+> *Why not just read a forecast or an intelligence feed?* Here is the same world-topic through three columns: **azimuth** (observed facts from the live bundle, every claim linked to its L1 source), a **FORECAST** product (a model probability), and an **INTELLIGENCE** product (an analyst assessment). It is a fair contrast, not a strawman: azimuth wins on provenance, neutrality and reproducibility; a forecast / intel feed legitimately wins on **forward-looking coverage** — it predicts, azimuth reports what already happened. The forecast / intelligence columns quote WorldMonitor as the *compared product* (captured 2026-10-31T12:16:06Z), deliberately NOT a clickable L1 link — because that is exactly the difference.
 
 ## EU / global energy supply security
 
@@ -25,17 +25,17 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 ### FORECAST product — model projection (compared)
 
-> Assigns a **72% probability** over 30d that “Energy repricing risk from Red Sea maritime disruption state” — confidence 75%, trend stable.
+> Assigns a **69% probability** over 30d that “Energy repricing risk from Red Sea maritime disruption state” — confidence 75%, trend stable.
 >
-> — *WorldMonitor forecast feed (model projection), captured 2026-10-30T12:44:36Z*
+> — *WorldMonitor forecast feed (model projection), captured 2026-10-31T12:16:06Z*
 
 ### INTELLIGENCE product — analyst assessment (compared)
 
-> The 71% pressure and 79% state confirmation indicate a structurally reinforced energy repricing path through gas supply stress, but the absence of directly matched reporting caps confidence at 75%, suggesting the market is pricing in disruption without full confirmation.
+> The 68% energy supply shock pressure and 78% state confirmation, reinforced by 6 urgent critical signals, indicate a durable but not yet decisive repricing risk that traders are pricing at 69%.
 >
-> Actor lens: Commodity traders: Price whether stress in Red Sea becomes durable over the 30d. Rebalance positions if the probability path moves away from 72%.
+> Actor lens: Commodity traders: Price whether stress in Red Sea becomes durable over the 30d. Rebalance positions if the probability path moves away from 69%.
 >
-> — *WorldMonitor intelligence assessment (analyst judgement), captured 2026-10-30T12:44:36Z*
+> — *WorldMonitor intelligence assessment (analyst judgement), captured 2026-10-31T12:16:06Z*
 
 ### Scorecard
 
@@ -63,17 +63,17 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 ### FORECAST product — model projection (compared)
 
-> Assigns a **72% probability** over 30d that “Energy repricing risk from Red Sea maritime disruption state” — confidence 75%, trend stable.
+> Assigns a **69% probability** over 30d that “Energy repricing risk from Red Sea maritime disruption state” — confidence 75%, trend stable.
 >
-> — *WorldMonitor forecast feed (model projection), captured 2026-10-30T12:44:36Z*
+> — *WorldMonitor forecast feed (model projection), captured 2026-10-31T12:16:06Z*
 
 ### INTELLIGENCE product — analyst assessment (compared)
 
-> The 71% pressure and 79% state confirmation indicate a structurally reinforced energy repricing path through gas supply stress, but the absence of directly matched reporting caps confidence at 75%, suggesting the market is pricing in disruption without full confirmation.
+> The 68% energy supply shock pressure and 78% state confirmation, reinforced by 6 urgent critical signals, indicate a durable but not yet decisive repricing risk that traders are pricing at 69%.
 >
-> Actor lens: Commodity traders: Price whether stress in Red Sea becomes durable over the 30d. Rebalance positions if the probability path moves away from 72%.
+> Actor lens: Commodity traders: Price whether stress in Red Sea becomes durable over the 30d. Rebalance positions if the probability path moves away from 69%.
 >
-> — *WorldMonitor intelligence assessment (analyst judgement), captured 2026-10-30T12:44:36Z*
+> — *WorldMonitor intelligence assessment (analyst judgement), captured 2026-10-31T12:16:06Z*
 
 ### Scorecard
 
@@ -96,7 +96,7 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 ### azimuth — observed facts (Geophysical)
 
-- Largest recorded event this week: M6.9 197 km WNW of Port-Olry, Vanuatu — one of 80 events at or above M5 USGS logged, an observed record ([[earthquakes]])
+- Largest recorded event this week: M6.5 Bonin Islands, Japan region — one of 60 events at or above M5 USGS logged, an observed record ([[earthquakes]])
 - azimuth reports what USGS RECORDED, never what may happen next — a sourced, neutral record of seismicity, regenerable from the open USGS feed ([[earthquakes]])
 
 ### FORECAST product — model projection (compared)
@@ -252,3 +252,4 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 - 2026-10-28 — regenerated the facts-vs-forecast-vs-intelligence benchmark from the 2026-10-28 live bundle (2026-W44); 3 head-to-head topics, every azimuth claim L1-sourced, foil snapshot quoted as the compared product.
 - 2026-10-29 — regenerated the facts-vs-forecast-vs-intelligence benchmark from the 2026-10-29 live bundle (2026-W44); 3 head-to-head topics, every azimuth claim L1-sourced, foil snapshot quoted as the compared product.
 - 2026-10-30 — regenerated the facts-vs-forecast-vs-intelligence benchmark from the 2026-10-30 live bundle (2026-W44); 3 head-to-head topics, every azimuth claim L1-sourced, foil snapshot quoted as the compared product.
+- 2026-10-31 — regenerated the facts-vs-forecast-vs-intelligence benchmark from the 2026-10-31 live bundle (2026-W44); 3 head-to-head topics, every azimuth claim L1-sourced, foil snapshot quoted as the compared product.
