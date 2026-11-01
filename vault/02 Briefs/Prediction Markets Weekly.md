@@ -3,7 +3,7 @@ title: Prediction Markets Weekly
 type: L2-brief
 theme: prediction-markets
 week: 2026-W44
-updated: 2026-10-27T00:00:00Z
+updated: 2026-11-01T00:00:00Z
 sources: [prediction-markets]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -17,88 +17,77 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 > reports it the same way it reports a gas-storage figure or an earthquake magnitude. It is
 > **not** a forecast azimuth makes, and **not** an instruction to trade: odds are not
 > predictions, and nothing here is investment advice. azimuth reports the priced number and its
-> source, and takes no position on the underlying question. (This cycle absorbs the 2026-10-23 → 2026-10-27
-> ingests — the **50-market panel held its breadth** but its composition **rotated as October closed**:
-> the Kalshi share rose to **8 (from 6 — now 42 Polymarket + 8 Kalshi)** as several **October-dated books
-> resolved off the panel** — the **"no change in Fed interest rates after the October meeting"** book (the
-> prior cycle's headline at 0.895), the **"Israel x Iran ceasefire continues through October 31"** book
-> (~$38.5M, third-deepest last cycle) and the **"Anthropic IPO before 2027"** book all dropped out as their
-> windows closed, replaced by December-dated and crypto questions (a **"Russia x Ukraine ceasefire by
-> December"** book, an **"Ethereum dip to $1,500 by December"** book entering the deep tier at ~$18.7M).
-> The standing **"Will the U.S. invade Iran before 2027?"** firmed to **0.175 (17.5% implied, still the
-> deepest at ~$75.6M)**; the other Iran books mostly held (Khamenei head of state ~0.857, Iran leadership
-> change 0.145, US–Iran nuclear deal 0.135) while Bab el-Mandeb eased 0.170 → 0.155 and the Citrini
-> scenario firmed 0.190 → 0.200. The week's biggest priced shift was the fresh Kalshi **"Bank of Canada no
-> change"** book easing **−0.255 over 7d to 0.156**, with the "10-year Treasury yield hits 5.5%" book
-> easing 0.141 → 0.126. Cumulative traded volume across the 50 books eased to **~$371M** (from ~$407M on
-> the same sum-of-books basis; this corrects the prior cycle's ~$456M panel-sum). The panel stays Iran /
-> Middle-East dominated. All numbers are venue-quoted prices recorded as observed facts, never forecasts
-> or advice.)
+> source, and takes no position on the underlying question. (This cycle absorbs the 2026-10-28 → 2026-11-01
+> ingests — the **50-market panel held its breadth** but its composition **rotated hard**: the panel went
+> **all-Polymarket (from 42 Polymarket + 8 Kalshi)** as the **entire Kalshi book set dropped off** — the
+> Citrini-scenario, Bank-of-Canada and Treasury-yield Kalshi questions all gone. A new deepest book led the
+> panel: **"Netanyahu out by end of 2026?"** at **0.185 (18.5% implied, now the deepest at ~$124.9M)** —
+> itself the week's biggest priced faller, easing **−0.215 over 7d** — displacing **"Will the U.S. invade
+> Iran before 2027?"** (0.175, ~$76.1M, eased −0.02 over 7d) to second. The other Iran books mostly held:
+> Khamenei head of state **0.864** (+0.01), Iran leadership change **0.135** (−0.005), US–Iran nuclear deal
+> **0.135** (−0.01), while **Bab el-Mandeb eased to 0.115** (from 0.155) and the **"Anthropic IPO before
+> 2027"** book re-entered the near-certain tail at **0.895** (+0.125 over 7d). Cumulative traded volume
+> across the 50 books **rose to ~$495M** (from ~$371M on the same sum-of-books basis). The panel stays
+> Iran / Middle-East dominated, now topped by the Netanyahu book. All numbers are venue-quoted prices
+> recorded as observed facts, never forecasts or advice.)
 
 ## This week at a glance
 
-- The WorldMonitor prediction-market feed **held its 50-market panel** on the 2026-10-27 pull but the mix
-  rotated as October closed: **42 Polymarket + 8 Kalshi** priced questions (the Kalshi share up from 6),
-  cumulative traded volume across the 50 books easing to **~$371M** (from ~$407M on the same sum-of-books
-  basis) — the breadth stood for a fifth straight cycle even as individual October-dated contracts
-  resolved off ([[prediction-markets]]).
-- The notable move is **composition, not a single price**: several **October-dated books resolved off the
-  panel** as the month closed — the prior cycle's headline **"no change in Fed interest rates after the
-  October meeting"** book (last at 0.895), the **"Israel x Iran ceasefire continues through October 31"**
-  book (~$38.5M, third-deepest last cycle) and the **"Anthropic IPO before 2027"** book all dropped out,
-  replaced by December-dated and crypto questions. The standing **"Will the U.S. invade Iran before
-  2027?"** (still the deepest at **~$75.6M**) **firmed to 0.175 (17.5% implied)**. The venue's numbers are
-  recorded as observed facts; azimuth takes no position on the underlying questions ([[prediction-markets]]).
+- The WorldMonitor prediction-market feed **held its 50-market panel** on the 2026-11-01 pull but the mix
+  rotated hard: now **all 50 Polymarket** (the 8 Kalshi books all dropped off), cumulative traded volume
+  across the 50 books **rising to ~$495M** (from ~$371M on the same sum-of-books basis) — the breadth stood
+  for a sixth straight cycle even as the Kalshi set resolved/rotated off ([[prediction-markets]]).
+- The notable move is **a new deepest book and the Kalshi exit**: **"Netanyahu out by end of 2026?"**
+  entered as the single deepest at **~$124.9M**, priced **0.185 (18.5% implied)** and itself the week's
+  biggest faller (**−0.215 over 7d**), displacing **"Will the U.S. invade Iran before 2027?"** (0.175,
+  ~$76.1M, eased −0.02 over 7d) to second. The venue's numbers are recorded as observed facts; azimuth
+  takes no position on the underlying questions ([[prediction-markets]]).
 - The panel stays **Iran / Middle-East dominated**: roughly a dozen of the 50 questions price some facet
-  of the Iran situation — US invasion (0.175, firmed), Iran leadership change by year-end (0.145, held), a
-  US–Iran nuclear deal (0.135, held), Mojtaba Khamenei as head of state (0.857, held) and the Bab el-Mandeb
-  Strait staying closed (0.155, eased) among them — alongside AI/tech, crypto token-launch and US-politics
-  questions. The week's biggest priced shift sits outside that cluster: a fresh Kalshi **"Bank of Canada no
-  change"** book eased **−0.255 over 7d to 0.156**. Each price is the venue's, reported as a
-  liquidity-weighted observed fact, not a signal to act on ([[prediction-markets]]).
+  of the Iran/Israel situation — the Netanyahu book (0.185, new deepest), US invasion of Iran (0.175,
+  eased), Iran leadership change by year-end (0.135, held), a US–Iran nuclear deal (0.135, eased), Mojtaba
+  Khamenei as head of state (0.864, firmed) and the Bab el-Mandeb Strait staying closed (0.115, eased −0.05)
+  among them — alongside AI/tech, crypto token-launch and US-politics questions. Each price is the venue's,
+  reported as a liquidity-weighted observed fact, not a signal to act on ([[prediction-markets]]).
 
 ## The panel
 
-- **Deepest books (by cumulative volume).** The liquidity concentrates in the Iran/Middle-East
-  cluster: **"Will the U.S. invade Iran before 2027?"** (0.175, ~$75.6M, still the deepest),
-  **"Will Mojtaba Khamenei be head of state in Iran end of 2026?"** (0.857, ~$40.5M),
-  **"Iran leadership change by December 31?"** (0.145, ~$28.1M), Kalshi's **"Will the Citrini scenario
-  happen?"** (0.200, ~$25.95M) and **"US-Iran Final Nuclear Deal by December 31, 2026?"** (0.135, ~$20.4M);
-  a fresh **"Will Ethereum dip to $1,500 by December 31, 2026?"** book entered the deep tier at ~$18.7M.
-  The prior cycle's second- and third-deepest — the Fed-no-change book and the Israel–Iran-ceasefire-through-
-  October book — both dropped off as their October windows closed. Each figure is the venue's quoted price
-  and recorded book size, reported as observed facts ([[prediction-markets]]).
-- **Highest-priced questions (the near-certain tail).** The tail thinned and rotated as the October-dated
-  high books resolved off: it now runs **"Microstrategy delisted from MSCI index by December"** (0.890),
-  **"Variational FDV above $500M one day after launch?"** (0.885), a **"US-Iran ceasefire continues through
-  the [period]"** book (0.875, firmed +0.10 over 7d) and **Mojtaba Khamenei** as head of state (0.857); the
-  prior cycle's Fed-no-change (0.895), Anthropic-IPO (0.865) and Google-best-AI-model (0.888) tail members
-  all dropped out. A high price reads as a high venue-implied probability; it is the market's number, not
-  azimuth's forecast ([[prediction-markets]]).
-- **Non-geopolitical clusters rotated as the calendar turned.** AI/tech thinned — the Anthropic-IPO and
-  NVIDIA-largest-company books dropped out with the October close; crypto carries a string of token-launch
-  and price-threshold questions (the fresh **"Ethereum dip to $1,500 by December"** book at 0.120 entering
-  the deep tier at ~$18.7M, **"Variational FDV above $500M one day after launch?"** holding the tail at
-  0.885); US-and-macro politics runs Kalshi's rate-decision books, where the fresh **"Bank of Canada no
-  change"** book (0.156, −0.255 over 7d) was the week's biggest priced shift and the **"10-year Treasury
-  yield hits 5.5%"** book eased 0.141 → 0.126. The venue prices are observed datapoints; azimuth takes no
-  position on any of the underlying questions ([[prediction-markets]]).
+- **Deepest books (by cumulative volume).** A fresh book now leads: **"Netanyahu out by end of 2026?"**
+  (0.185, ~$124.9M, the new deepest), ahead of the Iran/Middle-East cluster — **"Will the U.S. invade Iran
+  before 2027?"** (0.175, ~$76.1M), **"Will Mojtaba Khamenei be head of state in Iran end of 2026?"**
+  (0.864, ~$40.6M), **"Iran leadership change by December 31?"** (0.135, ~$28.5M), **"US-Iran Final Nuclear
+  Deal by December 31, 2026?"** (0.135, ~$20.9M) and a US-politics **"Will Republicans lose [five Senate
+  seats]?"** book (0.245, ~$20.8M); the **"Will Ethereum dip to $1,500 by December 31, 2026?"** book
+  (0.117, ~$19.1M) and **"Bab el-Mandeb Strait effectively closed by December 31?"** (0.115, ~$17.8M) round
+  out the deep tier. Each figure is the venue's quoted price and recorded book size, reported as observed
+  facts ([[prediction-markets]]).
+- **Highest-priced questions (the near-certain tail).** The tail re-formed around returning books: it now
+  runs **"Anthropic IPO before 2027?"** (0.895, back on, +0.125 over 7d), **"US x Yemen ceasefire continues
+  through November 30?"** (0.880, +0.105), **"Variational FDV above $500M one day after launch?"** (0.875)
+  and **Mojtaba Khamenei** as head of state (0.864, +0.01), with **"Will the Democrats win the Michigan
+  Senate race in 2026?"** (0.815, +0.095) next. A high price reads as a high venue-implied probability; it
+  is the market's number, not azimuth's forecast ([[prediction-markets]]).
+- **Non-geopolitical clusters rotated with the Kalshi exit.** AI/tech firmed — the Anthropic-IPO book
+  re-entered the tail at 0.895 (+0.125 over 7d); crypto carries a string of token-launch and price-threshold
+  questions (the **"Ethereum dip to $1,500 by December"** book at 0.117 in the deep tier at ~$19.1M,
+  **"Variational FDV above $500M one day after launch?"** in the tail at 0.875); US-and-macro politics now
+  runs Polymarket books only, led by the **"Republicans lose [five Senate seats]"** book (0.245, ~$20.8M)
+  and the **"Democrats win the Michigan Senate race"** book (0.815, +0.095 over 7d) — the Kalshi rate-decision
+  books (Bank of Canada, Treasury-yield, Citrini scenario) all dropped off this cycle. The venue prices are
+  observed datapoints; azimuth takes no position on any of the underlying questions ([[prediction-markets]]).
 
 ## Reading the week
 
-- The cycle's story is the **50-market panel holding its breadth while its composition rotated as October
-  closed**. Several October-dated contracts resolved off the panel — the prior cycle's headline "no change
-  in Fed interest rates after the October meeting" book (last at 0.895), the "Israel x Iran ceasefire
-  continues through October 31" book (~$38.5M, third-deepest last cycle) and the "Anthropic IPO before
-  2027" book — replaced by December-dated and crypto questions, and the Kalshi share rose 6 → 8 (now 42
-  Polymarket + 8 Kalshi). The standing "Will the U.S. invade Iran before 2027?" firmed 0.165 → 0.175 (still
-  deepest at ~$75.6M); the other Iran books mostly held (Khamenei head of state ~0.857, Iran leadership
-  change 0.145, US–Iran nuclear deal 0.135) while Bab el-Mandeb eased 0.170 → 0.155 and the Citrini
-  scenario firmed 0.190 → 0.200. The week's biggest priced shift was the fresh Kalshi "Bank of Canada no
-  change" book easing −0.255 over 7d to 0.156. Cumulative volume across the 50 books eased to ~$371M (from
-  ~$407M on the same sum-of-books basis). azimuth states what was recorded and stops there: every price is
-  the market's, not azimuth's, and the editorial line forbids reading any of them as a forecast or a reason
-  to trade ([[prediction-markets]]).
+- The cycle's story is the **50-market panel holding its breadth while its composition rotated hard** —
+  the panel going **all-Polymarket** as the 8 Kalshi books (Citrini scenario, Bank of Canada, Treasury-yield
+  among them) all dropped off, and a **new deepest book arriving**: "Netanyahu out by end of 2026?" (0.185,
+  ~$124.9M), itself the week's biggest faller at −0.215 over 7d, displacing "Will the U.S. invade Iran
+  before 2027?" (0.175, ~$76.1M, eased −0.02) to second. The other Iran books mostly held (Khamenei head of
+  state 0.864 firmed +0.01, Iran leadership change 0.135, US–Iran nuclear deal 0.135) while Bab el-Mandeb
+  eased 0.155 → 0.115 and the "Anthropic IPO before 2027" book re-entered the near-certain tail at 0.895
+  (+0.125 over 7d). Cumulative volume across the 50 books rose to ~$495M (from ~$371M on the same
+  sum-of-books basis). azimuth states what was recorded and stops there: every price is the market's, not
+  azimuth's, and the editorial line forbids reading any of them as a forecast or a reason to trade
+  ([[prediction-markets]]).
 - **Breadth note (honest scope — now resolved):** the single-market era is over. The 2026-10-01 pull
   lists 50 markets (44 Polymarket + 6 Kalshi), so this brief now reports the **spread** of priced
   questions — deepest books, highest-priced tail, and the thematic clusters (Iran/Middle-East, AI/tech,
@@ -109,6 +98,7 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 ## Changelog
 
+- 2026-11-01 — daily-ingest synthesis (2026-W44): absorbed the 2026-10-28 → 2026-11-01 ingests — the 50-market panel held its breadth while its composition rotated hard. The panel went all-Polymarket (from 42 Polymarket + 8 Kalshi) as the entire Kalshi book set dropped off — the Citrini-scenario, Bank-of-Canada and Treasury-yield Kalshi questions all gone. A new deepest book arrived: "Netanyahu out by end of 2026?" (0.185, 18.5% implied, ~$124.9M), itself the week's biggest faller at −0.215 over 7d, displacing "Will the U.S. invade Iran before 2027?" (0.175, ~$76.1M, eased −0.02) to second. The other Iran books mostly held (Mojtaba Khamenei head of state 0.864 firmed +0.01, Iran leadership change 0.135, US–Iran nuclear deal 0.135) while Bab el-Mandeb eased 0.155 → 0.115 and the "Anthropic IPO before 2027" book re-entered the near-certain tail at 0.895 (+0.125 over 7d), alongside "US x Yemen ceasefire through November 30" (0.880) and Variational FDV above $500M (0.875). Cumulative volume across the 50 books rose to ~$495M (from ~$371M on the same sum-of-books basis). Rewrote the intro, at-a-glance, panel and reading sections. All numbers venue-quoted observed facts; no-investment-framing / odds-are-not-forecasts caution held ([[prediction-markets]]).
 - 2026-10-27 — daily-ingest synthesis (2026-W44): absorbed the 2026-10-23 → 2026-10-27 ingests — the 50-market panel held its breadth while its composition rotated as October closed. Several October-dated contracts resolved off the panel: the prior cycle's headline "no change in Fed interest rates after the October meeting" book (last at 0.895), the "Israel x Iran ceasefire continues through October 31" book (~$38.5M, third-deepest last cycle) and the "Anthropic IPO before 2027" book, replaced by December-dated and crypto questions (a "Russia x Ukraine ceasefire by December" book, an "Ethereum dip to $1,500 by December" book entering the deep tier at ~$18.7M); the Kalshi share rose 6 → 8 (now 42 Polymarket + 8 Kalshi). The standing "Will the U.S. invade Iran before 2027?" firmed 0.165 → 0.175 (still deepest at ~$75.6M); the other Iran books mostly held (Khamenei ~0.856 → 0.857, Iran leadership change held 0.145, US–Iran nuclear deal held 0.135) while Bab el-Mandeb eased 0.170 → 0.155 and the Citrini scenario firmed 0.190 → 0.200. The week's biggest priced shift was the fresh Kalshi "Bank of Canada no change" book easing −0.255 over 7d to 0.156, with the "10-year Treasury yield hits 5.5%" book easing 0.141 → 0.126. Cumulative volume across the 50 books eased to ~$371M (from ~$407M on the same sum-of-books basis; this corrects the prior cycle's ~$456M panel-sum, which was not reproducible from the same L1). Rewrote the intro, at-a-glance, panel and reading sections. All numbers venue-quoted observed facts; no-investment-framing / odds-are-not-forecasts caution held ([[prediction-markets]]).
 - 2026-10-22 — daily-ingest synthesis (2026-W43): absorbed the 2026-10-17 → 2026-10-22 ingests — the 50-market panel held its breadth (44 Polymarket + 6 Kalshi), cumulative volume firming ~$437M → ~$456M (~+$19M, ~+4.3%). The notable move is the Fed-no-change book firming hard, reversing last cycle's ease: 0.725 → 0.895 (~$54.7M, up from ~$40.9M), the panel's biggest priced shift, carrying the book back above the 0.80 near-certain tail. "Will the U.S. invade Iran before 2027?" eased 0.165 → 0.155 (still deepest at ~$74.97M); the Anthropic-IPO book also firmed hard (0.735 → 0.865, thin at ~$7.56M); the composition rotated — the "Will STRC hit $100?" book dropped out of the panel as "Will NVIDIA be the largest company in the world by market cap on October 31?" re-entered (0.868, thin at ~$0.69M), the reverse of last cycle's swap — and the other Iran books mostly firmed (Iran leadership change 0.115 → 0.125, US–Iran nuclear deal 0.125 → 0.145, Khamenei head of state held ~0.872 → 0.870, Bab el-Mandeb closed held 0.155) while the Israel–Iran ceasefire eased 0.845 → 0.815. Rewrote the intro, at-a-glance, panel and reading sections. All numbers venue-quoted observed facts; no-investment-framing / odds-are-not-forecasts caution held ([[prediction-markets]]).
 - 2026-10-16 — daily-ingest synthesis (2026-W42): absorbed the 2026-10-14 → 2026-10-15 ingests — the 50-market panel held its breadth (44 Polymarket + 6 Kalshi), cumulative volume easing ~$479M → ~$437M. The notable move is the Fed-no-change book easing hard (0.795 → 0.725, ~$40.9M, now second-deepest), the panel's biggest priced shift, while "Will the U.S. invade Iran before 2027?" held 0.165 (still the deepest at ~$74.1M), the Israel–Iran ceasefire eased to 0.845 and Mojtaba Khamenei head of state eased to ~0.872. The composition rotated — the "US announces end of Iranian blockade by October 31" and NVIDIA-largest-company books dropped out of the panel as the Anthropic-IPO (0.735) and STRC-$100 (0.843) books re-entered — and the other Iran books eased (US–Iran nuclear deal 0.145 → 0.125, Bab el-Mandeb closed 0.165 → 0.155, Iran leadership change held 0.115). Rewrote the intro, at-a-glance, panel and reading sections. All numbers venue-quoted observed facts, no-investment-framing / odds-are-not-forecasts cautions held ([[prediction-markets]]).
