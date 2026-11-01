@@ -3,7 +3,7 @@ title: Public Health Weekly
 type: L2-brief
 theme: public-health
 week: 2026-W44
-updated: 2026-10-27T00:00:00Z
+updated: 2026-11-01T00:00:00Z
 sources: [disease-outbreaks]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -15,76 +15,76 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 > fleet role evolves this single note in place each cycle. azimuth reports **recorded disease
 > outbreak notifications** — the disease, the place, the case count and the alert level as the
 > reporting body published them — never a health prediction, never advice. Every claim links
-> to the L1 note it rests on. (Updated across the 2026-10-23 → 2026-10-27 ingests, measured against
-> the 2026-10-22 reading: a continued mild easing cycle — the active slate **eased to 132 notifications**
-> (from 139) and the split eased on the watch band at **106 watch / 26 alert** (from 113 / 26, alert held
-> exactly). The disease mix moved both ways — **measles eased to 48** (from 51), **polio eased to 17**
-> (from 21) and the **"polio-vs-diphtheria" order flipped** as **diphtheria firmed to 18** (from 17) —
-> while **Ebola firmed to 7** (from 5), hepatitis A held 7 and whooping cough held 5; **summed cases
-> eased to ~317,100** (317,122), the drop concentrated in churn among small entries. The case-count
-> leaderboard is byte-identical, topping out on the **58,000-case Gaza City chicken-pox** (watch) and
-> **50,820-case DR Congo measles** (alert), with the **22,328-case Bangladesh measles alert** and
-> **22,000-case Yemen measles/cholera watch** holding. By country the US stays most-cited at **22**
-> (eased from 24), ahead of Bangladesh 10 (held) and Nigeria 9 (held), with Brazil 7, Afghanistan 6 and
-> 7 notifications unattributed (from 9).)
+> to the L1 note it rests on. (Updated across the 2026-10-28 → 2026-11-01 ingests, measured against
+> the 2026-10-27 reading: a continued mild easing cycle — the active slate **eased to 121 notifications**
+> (from 132) with **both bands easing** at **97 watch / 24 alert** (from 106 / 26). The disease mix eased
+> broadly — **measles eased to 42** (from 48), **hepatitis A eased to 6** (from 7) and **whooping cough
+> eased to 3** (from 5) — while **diphtheria held 18** and **polio held 17**, so the diphtheria-over-polio
+> order carried, and **Ebola held 7**; **summed cases eased to ~295,500** (295,533, from ~317,100), the
+> drop spread across small and measles entries. The case-count leaderboard is byte-identical, topping out
+> on the **58,000-case Gaza City chicken-pox** (watch) and **50,820-case DR Congo measles** (alert), with
+> the **22,328-case Bangladesh measles alert** and **22,000-case Yemen measles/cholera watch** holding. By
+> country the US stays most-cited at **22** (held), ahead of Nigeria 9 (held) and Bangladesh 8 (eased from
+> 10), with Brazil 6, Afghanistan 6 and 7 notifications unattributed (held).)
 
 ## This week at a glance
 
-- The WHO / CDC outbreak channel carries **132 active outbreak notifications** on the 2026-10-27
-  pull — **106 watch / 26 alert** — the headcount **eased** by 7 from the 10-22 reading while the
-  alert band held exactly at 26 and the watch band eased 113 → 106; summed case counts across
-  the slate total **~317,100** (317,122), down on churn among small entries ([[disease-outbreaks]]).
-- **Highest single case counts** the feed carries this pull are **unchanged** from 10-22: a
+- The WHO / CDC outbreak channel carries **121 active outbreak notifications** on the 2026-11-01
+  pull — **97 watch / 24 alert** — the headcount **eased** by 11 from the 10-27 reading with both
+  bands easing (watch 106 → 97, alert 26 → 24); summed case counts across the slate total
+  **~295,500** (295,533), down from ~317,100 on churn across small and measles entries
+  ([[disease-outbreaks]]).
+- **Highest single case counts** the feed carries this pull are **unchanged** from 10-27: a
   **58,000-case Chicken Pox notification in Gaza City** (watch), ahead of a
   **50,820-case Measles alert in the Democratic Republic of Congo**, a **22,328-case Bangladesh
   measles alert**, a **22,000-case Measles/Cholera watch in Yemen** and a Bangladesh measles watch
   (**21,212**) — the top entries hold the same disease, place, band and case count they carried on
-  the 10-22 pull ([[disease-outbreaks]]).
-- **The slate eased on the watch band:** the headcount eased 139 → 132 while the split moved
-  113 / 26 → 106 / 26 — alert held exactly, watch down −7 — the drop concentrated in churn among
-  small and zero-case entries ([[disease-outbreaks]]).
-- **Measles remains the largest disease category** at **48 of 132 notifications** (eased from 51),
-  but the **second rank flipped**: **diphtheria firmed to 18** (from 17) to overtake **polio, which
-  eased to 17** (from 21); Ebola firmed 5 → 7, while hepatitis A (7) and whooping cough (5) held.
+  the 10-27 pull ([[disease-outbreaks]]).
+- **The slate eased across both bands:** the headcount eased 132 → 121 while the split moved
+  106 / 26 → 97 / 24 — watch down −9, alert down −2 — the drop spread across small and measles
+  entries ([[disease-outbreaks]]).
+- **Measles remains the largest disease category** at **42 of 121 notifications** (eased from 48),
+  with the **second rank holding**: **diphtheria held 18** ahead of **polio, which held 17**; Ebola
+  held 7, while hepatitis A eased 7 → 6 and whooping cough eased 5 → 3.
   azimuth records each notification in the disease category and alert band the reporting body
   assigned it ([[disease-outbreaks]]).
-- **By country, the United States is the most-cited source of notifications at 22** (eased from 24),
-  ahead of Bangladesh (10, held), Nigeria (9, held), Brazil (7) and Afghanistan (6). A further **7
-  notifications carry no country attribution** (eased from 9) — azimuth reports this as
+- **By country, the United States is the most-cited source of notifications at 22** (held),
+  ahead of Nigeria (9, held), Bangladesh (8, eased from 10), Brazil (6) and Afghanistan (6). A further
+  **7 notifications carry no country attribution** (held) — azimuth reports this as
   unattributed, not as a country ([[disease-outbreaks]]).
 
 ## Reading the week
 
-- The slate eased again this cycle: the headcount **eased to 132** from 139, the band split
-  easing on the watch side (113 / 26 → 106 / 26 — alert held exactly, watch down 7).
-  Summed cases eased to **~317,100** (317,122) on churn among small and zero-case entries, the
+- The slate eased again this cycle: the headcount **eased to 121** from 132, both bands easing
+  (106 / 26 → 97 / 24 — watch down 9, alert down 2).
+  Summed cases eased to **~295,500** (295,533) from ~317,100 across small and measles entries, the
   big case-bearing notifications all holding — a continued mild easing cycle, not a contraction
   ([[disease-outbreaks]]).
-- The **disease-mix order shifted**: measles stayed the largest category but eased 51 → 48, and
-  the second rank **flipped** as **diphtheria firmed 17 → 18** to overtake **polio, which eased
-  21 → 17**; Ebola firmed 5 → 7 while hepatitis A (7) and whooping cough (5) held. The eased
-  watch band and the smaller measles and polio counts are the move; the alert band held its 26
+- The **disease mix eased broadly**: measles stayed the largest category but eased 48 → 42, while
+  the second rank **held** — **diphtheria held 18** ahead of **polio at 17**; Ebola held 7 while
+  hepatitis A eased 7 → 6 and whooping cough eased 5 → 3. The eased watch band and the smaller
+  measles count are the move; the diphtheria-over-polio order carried
   ([[disease-outbreaks]]).
 - The per-notification **case-count leaderboard holds byte-identical**: a **58,000-case
   Chicken Pox notification in Gaza City** (watch) and a **50,820-case Measles alert in the DR
   Congo** top the slate, ahead of a **22,328-case Bangladesh measles alert**, a **22,000-case
   Measles/Cholera watch in Yemen** and a Bangladesh measles watch (21,212) — none of the
-  high-case entries moved this cycle, so the summed-case ease sits entirely in the small-entry
-  churn ([[disease-outbreaks]]).
-- By country the **United States stays most-cited but eased 24 → 22**, ahead of Bangladesh (10,
-  held), Nigeria (9, held), Brazil (7) and Afghanistan (6), and **7 notifications carry no country
-  attribution** (eased from 9) — reported separately, not counted as a country ([[disease-outbreaks]]).
+  high-case entries moved this cycle, so the summed-case ease sits in the smaller measles and
+  small-entry churn ([[disease-outbreaks]]).
+- By country the **United States stays most-cited and held at 22**, ahead of Nigeria (9,
+  held), Bangladesh (8, eased from 10), Brazil (6) and Afghanistan (6), and **7 notifications carry no
+  country attribution** (held) — reported separately, not counted as a country ([[disease-outbreaks]]).
 - azimuth records the notifications as the reporting body published them — disease category,
   country of notification (where attributed), case count and alert level — and attaches no
-  assessment of risk, spread or response. A measles-led slate that eased to 132 notifications
-  with the watch band down seven and the alert band holding at 26, summed cases easing to ~317,100
-  on small-entry churn, the diphtheria-over-polio rank flip, and the Gaza City chicken-pox, DR
-  Congo measles and Yemen measles/cholera entries holding at the top of the case counts, is what
-  the WHO/CDC channel carried on the 2026-10-27 pull; nothing beyond the recorded counts is
-  inferred ([[disease-outbreaks]]).
+  assessment of risk, spread or response. A measles-led slate that eased to 121 notifications
+  with both bands down (watch −9, alert −2), summed cases easing to ~295,500, the
+  diphtheria-over-polio order holding, and the Gaza City chicken-pox, DR Congo measles and Yemen
+  measles/cholera entries holding at the top of the case counts, is what the WHO/CDC channel carried
+  on the 2026-11-01 pull; nothing beyond the recorded counts is inferred ([[disease-outbreaks]]).
 
 ## Changelog
 
+- 2026-11-01 — daily-ingest synthesis (2026-W44): absorbed the 2026-10-28 → 2026-11-01 ingests, measured against the 2026-10-27 reading — a continued mild easing cycle. The active slate eased 132 → 121 notifications and both bands eased, 97 watch / 24 alert (from 106 / 26 — watch −9, alert −2). Measles eased 48 → 42 and the second rank held — diphtheria held 18 ahead of polio at 17; Ebola held 7, hepatitis A eased 7 → 6, whooping cough eased 5 → 3. Summed cases eased to ~295,500 (295,533, from ~317,100) across small and measles entries — the high-case leaderboard held byte-identical (Gaza City chicken-pox 58,000 watch and DR Congo measles 50,820 alert at the top, with the Bangladesh measles alert 22,328, Yemen measles/cholera 22,000 watch and Bangladesh measles watch 21,212 following). By country the US held most-cited at 22; Nigeria held 9, Bangladesh eased 10 → 8, Brazil 6, Afghanistan 6; 7 notifications stayed unattributed (held). Updated the intro, at-a-glance and reading sections to the 11-01 figures. Observed-notification framing held — no risk/spread/response assessment ([[disease-outbreaks]]).
 - 2026-10-27 — daily-ingest synthesis (2026-W44): absorbed the 2026-10-23 → 2026-10-27 ingests, measured against the 2026-10-22 reading — a continued mild easing cycle. The active slate eased 139 → 132 notifications and the band split eased on the watch side, 106 watch / 26 alert (from 113 / 26, alert held exactly). Measles eased 51 → 48 and the second rank flipped — diphtheria firmed 17 → 18 to overtake polio, which eased 21 → 17; Ebola firmed 5 → 7, hepatitis A held 7, whooping cough held 5. Summed cases eased to ~317,100 (317,122) on churn among small and zero-case entries — the high-case leaderboard held byte-identical (Gaza City chicken-pox 58,000 watch and DR Congo measles 50,820 alert at the top, with the Bangladesh measles alert 22,328, Yemen measles/cholera 22,000 watch and Bangladesh measles watch 21,212 following). By country the US eased most-cited 24 → 22; Bangladesh held 10, Nigeria held 9, Brazil 7, Afghanistan 6; 7 notifications stayed unattributed (from 9). (Note: the live 2026-10-22 L1 file sums to 137 notifications / 320,041 cases, slightly below the prior cycle's stated 139 / 323,533 — the week-on-week here is framed off the prior brief's recorded figures, with this cycle's numbers read fresh from the live 2026-10-27 file.) Updated the intro, at-a-glance and reading sections to the 10-27 figures. Observed-notification framing held — no risk/spread/response assessment ([[disease-outbreaks]]).
 - 2026-10-22 — daily-ingest synthesis (2026-W43): absorbed the 2026-10-17 → 2026-10-22 ingests, measured against the 2026-10-16 reading — a mild easing cycle. The active slate eased 142 → 139 notifications (7 departures, 4 arrivals) and the band split shifted one notch toward watch, 113 watch / 26 alert (from 113 / 29, watch held exactly). Measles eased 52 → 51, diphtheria eased 18 → 17, Ebola eased 6 → 5; polio held 21, hepatitis A held 7, whooping cough held 6, Chicken Pox held 4, avian flu held 4. Summed cases eased −14,845 to 323,533, fully explained by a 14,841-case Bangladesh measles watch notification aging off plus a 4-case Minna, Nigeria diphtheria alert departure (14,841 + 4 = 14,845 exactly); the remaining five departures and four arrivals were all zero-case re-notifications (Ebola/Congo-Kinshasa re-ids plus a new North Kivu watch, a Measles/Pennsylvania watch replaced by a Measles/United States watch, and an Unknown Disease/Global-update watch replaced by a new Unknown Disease/Saudi Arabia watch — Saudi Arabia's first appearance in the country mix). The case-count leaderboard held byte-identical — Gaza City chicken-pox 58,000 (watch) and DR Congo measles 50,820 (alert) at the top, with the Bangladesh measles alert 22,328, Yemen measles/cholera 22,000 (watch) and the Bangladesh measles cluster (21,212 / 19,904 / 19,835 / 18,726) following. By country the US held most-cited at 24; Bangladesh eased 11 → 10, Nigeria eased 10 → 9, DR Congo eased 6 → 5; Brazil, Afghanistan, Pakistan and Russia all held; 9 notifications stayed unattributed (from 10). Updated the intro, at-a-glance and reading sections to the 10-22 figures. Observed-notification framing held — no risk/spread/response assessment ([[disease-outbreaks]]).
 - 2026-10-13 — daily-ingest synthesis (2026-W42): absorbed the 2026-10-12 → 2026-10-13 ingests — a near-flat cycle. The active slate eased a touch to 129 notifications (from 130) and the band split held toward watch at 104 watch / 25 alert (from 105 / 25). Measles held 49 while polio eased 19 → 18 and diphtheria held 15; Ebola held 6, hepatitis A and whooping cough held 5 each. Summed cases held −11 to 302,883; the case-count leaderboard is unchanged — Gaza City chicken-pox 58,000 (watch) and DR Congo measles 50,820 (alert) at the top with the Yemen measles/cholera 22,000 (watch) and Bangladesh measles 21,212 / 19,904 / 19,835 following. By country US held 21, ahead of Bangladesh 10, Nigeria 9, Afghanistan 7, Brazil 7; 10 unattributed. Rewrote the intro, at-a-glance and reading sections around the flat cycle. Observed-notification framing held — no risk/spread/response assessment ([[disease-outbreaks]]).
