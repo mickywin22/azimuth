@@ -3,7 +3,7 @@ title: Conflict Watch Weekly
 type: L2-brief
 theme: conflict-watch
 week: 2026-W44
-updated: 2026-10-27T00:00:00Z
+updated: 2026-11-01T00:00:00Z
 sources: [conflict-events-ucdp]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -16,16 +16,16 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 > events** — who, where, when, and the source's own fatality estimate — and never assigns
 > blame, takes a side, or predicts escalation: an event record is an observed fact, an opinion
 > about it is not surfaced (the editorial line). Every claim links to the L1 note it rests on.
-> Last pull: **2026-10-27** — the catalogue **held byte-identical across the 2026-10-23 → 2026-10-27
+> Last pull: **2026-11-01** — the catalogue **held byte-identical across the 2026-10-28 → 2026-11-01
 > pulls**, extending the flat span that began when the 2026-10-21 roll settled. That roll (the last
 > movement) advanced UCDP's published window **24 days**, from **2025-12-22 → 2026-09-10** to
 > **2025-12-22 → 2026-10-04**; the row count rose **2,306 → 2,514** (+208: 1,992 new ids entered,
 > 1,784 aged out of the window); summed best-estimate fatalities rose **13,146 → 16,269** (+3,123).
-> Every pull since — 10-22 through 10-27 — has held byte-identical to the post-roll catalogue, a
-> **seven-day flat span** as expected for a verification-lagged research feed. The single state-based Russia–Ukraine dyad record azimuth has tracked since 2026-09-24 (UCDP
-> id 640738, dated 2026-08-01 → 2026-08-31, deathsBest 5,017) has rolled off the window; the same
-> **Government of Russia (Soviet Union) vs Government of Ukraine** dyad now carries forward as a new
-> record (id 643870, dated 2026-09-01 → 2026-10-01) with **deathsBest 5,714**
+> Every pull since — 10-22 through 11-01 — has held byte-identical to the post-roll catalogue, now an
+> **eleven-day flat span** as expected for a verification-lagged research feed. The single state-based Russia–Ukraine dyad record azimuth has tracked since 2026-09-24 (UCDP
+> id 640738, dated 2026-08-01 → 2026-08-31, deathsBest 5,017) rolled off the window at that roll; the same
+> **Government of Russia (Soviet Union) vs Government of Ukraine** dyad carries forward as the catalogue's
+> largest record (id 643870, dated 2026-09-01 → 2026-09-30) with **deathsBest 5,714**
 > ([[conflict-events-ucdp]]).
 
 ## Honest scope — a lagged research dataset, not a live wire
@@ -33,7 +33,7 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 - The channel is the **UCDP** (Uppsala Conflict Data Program) georeferenced event feed — a
   research-grade dataset published with a verification lag, not a breaking-news wire. The catalog held
   byte-identical from the 2026-10-01 roll through the 2026-10-20 pull, then rolled forward on
-  2026-10-21 and has since held flat through 2026-10-27: **2,514 events**, published window
+  2026-10-21 and has since held flat through 2026-11-01: **2,514 events**, published window
   **2025-12-22 → 2026-10-04**, summed best-estimate fatalities **16,269**. The previously-quoted
   "2,306-event cap" is now superseded by this roll — it was never a hard API limit, just the highest
   row count this brief had observed since the 2026-09-24 pull. The brief describes the most recent
@@ -42,9 +42,9 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 ## This window at a glance
 
-- **2026-10-22 pull: the window held byte-identical to 10-21.** The catalog holds at **2,514 events**
-  with the published window at **2025-12-22 → 2026-10-04** — unchanged since the 10-21 roll, every row
-  and date identical ([[conflict-events-ucdp]]).
+- **2026-11-01 pull: the window still held byte-identical to the 10-21 roll.** The catalog holds at
+  **2,514 events** with the published window at **2025-12-22 → 2026-10-04** — unchanged across every
+  pull since the 10-21 roll, every row and date identical through 11-01 ([[conflict-events-ucdp]]).
 - The 2,514 recorded events carry a summed best-estimate of **16,269 fatalities** (UCDP's
   `deathsBest` field — the source's own estimate, reported as published), up **+3,123** from the
   13,146 held through 10-20. The id 640738 Government of Russia (Soviet Union) vs Government of
@@ -66,13 +66,16 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
   events (from 1,445/542/319) — state-based still the largest category, non-state its biggest relative
   gainer (+111), one-sided the only category to shrink (−27) ([[conflict-events-ucdp]]).
 
-## Move since prior reading (2026-10-16 → 2026-10-22)
+## Move since prior reading (2026-10-27 → 2026-11-01)
 
-- **A window roll, the first real move since 2026-10-01.** The catalog held byte-identical through
-  2026-10-20, then on the 2026-10-21 pull UCDP's published window advanced 24 days (2025-12-22 →
-  2026-09-10 to 2025-12-22 → 2026-10-04); the row count rose 2,306 → 2,514 (1,992 new ids entered,
-  1,784 aged out) and summed deathsBest rose 13,146 → 16,269 (+3,123). The 2026-10-22 pull then held
-  that new state byte-identical to 10-21 ([[conflict-events-ucdp]]).
+- **No move this cycle — the flat span extended to eleven days.** The catalog held byte-identical
+  across every pull from 2026-10-22 through 2026-11-01, so the 2026-10-27 → 2026-11-01 window shows
+  zero change: 2,514 events, published window 2025-12-22 → 2026-10-04, summed deathsBest 16,269, every
+  leaderboard row and date identical ([[conflict-events-ucdp]]).
+- **The last real move remains the 2026-10-21 roll.** On that pull UCDP's published window advanced
+  24 days (2025-12-22 → 2026-09-10 to 2025-12-22 → 2026-10-04); the row count rose 2,306 → 2,514
+  (1,992 new ids entered, 1,784 aged out) and summed deathsBest rose 13,146 → 16,269 (+3,123). Every
+  pull since has held that post-roll state byte-identical ([[conflict-events-ucdp]]).
 - The id 640738 record (Government of Russia (Soviet Union) vs Government of Ukraine, state-based,
   dated 2026-08-01 → 2026-08-31, deathsBest 5,017) rolled off the window; the same dyad reappears as id
   643870 (dated 2026-09-01 → 2026-10-01, deathsBest 5,714) — a newer, slightly larger record in the
@@ -87,9 +90,10 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 ## Reading the window
 
-- Read as a record, not a forecast: the 2026-10-21 pull moved UCDP's verification window forward for
-  the first time since the 2026-10-01 revert — a routine roll on a lagged research dataset, not a
-  live escalation or de-escalation. Most of the fatality increase (+3,123 summed deathsBest) traces to
+- Read as a record, not a forecast: this cycle held byte-identical, so the brief carries the
+  post-roll state from the 2026-10-21 pull — the last time UCDP's verification window moved forward,
+  a routine roll on a lagged research dataset, not a live escalation or de-escalation. Most of that
+  roll's fatality increase (+3,123 summed deathsBest) traces to
   two things: Yemen's recorded event count and fatality total both rising sharply as new rows entered
   the newly-extended window, and the recurring single-dyad concentration — the Government of Russia
   (Soviet Union) vs Government of Ukraine state-based record — reappearing at a newer date (id 643870,
@@ -101,6 +105,7 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 ## Changelog
 
+- 2026-11-01 — daily-ingest flowback (2026-W44): an honest flat cycle. The 2026-10-28 → 2026-11-01 UCDP pulls carried no fresh published window — the catalogue held byte-identical to the post-10-21-roll state (2,514 events, published window 2025-12-22 → 2026-10-04, summed best-estimate fatalities 16,269, Ukraine 439 events the most and 6,670 deathsBest, Mexico 280, Yemen 252 / 3,797; the Government of Russia (Soviet Union) vs Government of Ukraine record id 643870 the largest at deathsBest 5,714). This extends the flat span to eleven days since the roll settled, the expected shape for a verification-lagged research feed. Advanced `updated` and extended the flat-span framing to the 11-01 pull; no figure changed and observed-only framing held ([[conflict-events-ucdp]]).
 - 2026-10-27 — daily-ingest flowback (2026-W44): an honest flat cycle. The 2026-10-27 UCDP pull carried no fresh published window — the catalogue held byte-identical to the post-10-21-roll state (2,514 events, published window 2025-12-22 → 2026-10-04, summed best-estimate fatalities 16,269, Ukraine 439 events the most, Mexico 280, Yemen 252; state-based 1,569 / non-state 653 / one-sided 292). This extends the flat span to seven days since the roll settled, the expected shape for a verification-lagged research feed. Advanced `updated` so the freshness gate records the latest L1 day was absorbed; no figure changed and observed-only framing held ([[conflict-events-ucdp]]).
 - 2026-10-26 — daily-ingest flowback (2026-W44): an honest flat cycle. The 2026-10-23 → 2026-10-26 UCDP pulls carried no fresh published window — the catalogue held byte-identical to the post-10-21-roll state (2,514 events, published window 2025-12-22 → 2026-10-04, summed best-estimate fatalities 16,269, Ukraine 439 events the most). This extends the flat span to six days since the roll settled, the expected shape for a verification-lagged research feed. Advanced `week` and `updated` so the freshness gate records the latest L1 day was absorbed; no figure changed and observed-only framing held ([[conflict-events-ucdp]]).
 
