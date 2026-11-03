@@ -2,10 +2,10 @@
   "$note": "Captured snapshot of the COMPARED forecast/intelligence product for the azimuth benchmark (synthesis/benchmark.py). Quoted by product + capture date; NOT surfaced as an azimuth channel and NOT an L1 source. Refresh with pull_benchmark_foils.py.",
   "endpoint": "/api/forecast/v1/get-forecasts",
   "attribution": "WorldMonitor (api.worldmonitor.app) — model-generated forecast/assessment product",
-  "feed_generated_at": 1793631892880,
+  "feed_generated_at": 1793714539632,
   "feed_degraded": false,
-  "captured_at": "2026-11-02T15:39:09Z",
-  "n_forecasts_seen": 8,
+  "captured_at": "2026-11-03T14:03:08Z",
+  "n_forecasts_seen": 9,
   "topics": {
     "energy-supply": {
       "foil": {
@@ -13,17 +13,17 @@
         "domain": "market",
         "region": "Red Sea",
         "title": "Energy repricing risk from Red Sea maritime disruption state",
-        "probability": 0.726,
-        "prior_probability": 0.756,
+        "probability": 0.725,
+        "prior_probability": 0.703,
         "confidence": 0.75,
         "time_horizon": "30d",
         "trend": "stable",
         "projections": {},
-        "scenario_short": "Energy repricing risk from Red Sea maritime disruption state will remain elevated near 73% over the next 30 days, driven by 77% energy supply shock pressure and 80% state confirmation, though oil prices have already...",
-        "perspective_strategic": "The 77% energy supply shock pressure and 80% state confirmation indicate a durable disruption baseline, but the 6% oil price drop on US-Iran peace talks suggests markets are pricing in a potential de-escalation that could undercut the current path.",
-        "perspective_contrarian": "The 6% oil price decline on renewed US-Iran peace talks directly contradicts the 77% energy supply shock pressure, suggesting diplomatic channels could reverse the disruption state if talks progress.",
+        "scenario_short": "Energy repricing risk from Red Sea maritime disruption stands at 73% over 30 days, with 78% pressure and 79% state confirmation feeding energy supply shock, reinforced by 7 urgent critical signals and headlines about...",
+        "perspective_strategic": "Red Sea maritime disruption state with 78% pressure and 79% state confirmation, combined with 7 urgent critical signals, indicates strong energy repricing pressure, but the single clustered situation and single linked forecast suggest narrow transmission pathways.",
+        "perspective_contrarian": "Counter-evidence includes U.S. crude oil falls below $95 per barrel as market hopes for diplomatic resolution to Iran war, suggesting diplomatic progress could reduce energy repricing pressure despite the 78% state confirmation.",
         "actor_lens": "Commodity traders: Price whether stress in Red Sea becomes durable over the 30d. Rebalance positions if the probability path moves away from 73%.",
-        "top_signal": "Red Sea maritime disruption state is feeding energy repricing through energy supply shock, with 77% pressure and 80% state confirmation"
+        "top_signal": "Red Sea maritime disruption state is feeding energy repricing through energy supply shock, with 78% pressure and 79% state confirmation"
       },
       "absence_reason": null
     },
@@ -33,17 +33,17 @@
         "domain": "market",
         "region": "Red Sea",
         "title": "Energy repricing risk from Red Sea maritime disruption state",
-        "probability": 0.726,
-        "prior_probability": 0.756,
+        "probability": 0.725,
+        "prior_probability": 0.703,
         "confidence": 0.75,
         "time_horizon": "30d",
         "trend": "stable",
         "projections": {},
-        "scenario_short": "Energy repricing risk from Red Sea maritime disruption state will remain elevated near 73% over the next 30 days, driven by 77% energy supply shock pressure and 80% state confirmation, though oil prices have already...",
-        "perspective_strategic": "The 77% energy supply shock pressure and 80% state confirmation indicate a durable disruption baseline, but the 6% oil price drop on US-Iran peace talks suggests markets are pricing in a potential de-escalation that could undercut the current path.",
-        "perspective_contrarian": "The 6% oil price decline on renewed US-Iran peace talks directly contradicts the 77% energy supply shock pressure, suggesting diplomatic channels could reverse the disruption state if talks progress.",
+        "scenario_short": "Energy repricing risk from Red Sea maritime disruption stands at 73% over 30 days, with 78% pressure and 79% state confirmation feeding energy supply shock, reinforced by 7 urgent critical signals and headlines about...",
+        "perspective_strategic": "Red Sea maritime disruption state with 78% pressure and 79% state confirmation, combined with 7 urgent critical signals, indicates strong energy repricing pressure, but the single clustered situation and single linked forecast suggest narrow transmission pathways.",
+        "perspective_contrarian": "Counter-evidence includes U.S. crude oil falls below $95 per barrel as market hopes for diplomatic resolution to Iran war, suggesting diplomatic progress could reduce energy repricing pressure despite the 78% state confirmation.",
         "actor_lens": "Commodity traders: Price whether stress in Red Sea becomes durable over the 30d. Rebalance positions if the probability path moves away from 73%.",
-        "top_signal": "Red Sea maritime disruption state is feeding energy repricing through energy supply shock, with 77% pressure and 80% state confirmation"
+        "top_signal": "Red Sea maritime disruption state is feeding energy repricing through energy supply shock, with 78% pressure and 79% state confirmation"
       },
       "absence_reason": null
     },
