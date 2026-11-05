@@ -1828,7 +1828,8 @@
         "humanitarian",
         "macro-markets",
         "orbital-watch",
-        "prediction-markets"
+        "prediction-markets",
+        "public-health"
       ],
       "evidence": [
         {
@@ -4604,6 +4605,13 @@
       "target": "source:prediction-markets",
       "cross_theme": false,
       "rel": "named-in"
+    },
+    {
+      "source": "entity:china",
+      "target": "brief:public-health-weekly",
+      "cross_theme": true,
+      "rel": "mentioned-in",
+      "weight": 0
     },
     {
       "source": "entity:chile",
