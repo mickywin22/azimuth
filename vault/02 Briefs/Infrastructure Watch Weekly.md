@@ -2,8 +2,8 @@
 title: Infrastructure Watch Weekly
 type: L2-brief
 theme: infrastructure-watch
-week: 2026-W44
-updated: 2026-11-01T00:00:00Z
+week: 2026-W45
+updated: 2026-11-05T00:00:00Z
 sources: [internet-outages]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -16,83 +16,73 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 > infrastructure disruption events** — an internet outage is an observed network measurement
 > (Cloudflare Radar), with the cause category the source itself assigns — and takes no
 > position on any actor involved. Every claim links to the L1 note it rests on. This cycle
-> absorbs the 2026-10-28 → 2026-11-01 pulls: the active set **eased to 12 outages** (from 13 on
-> 10-27) as **an Ethiopia government-directed row and an Iraq exam-shutdown row aged off** and
-> **Eswatini's power-outage cleared**, while **two fresh power-outages entered** — **Guyana**
-> (nationwide) and **Bangladesh** (regional). **Iraq now carries 3 of the 12 events** (down from 4,
-> all still government-directed exam-shutdown suspensions, the special round that ran
-> 2026-09-26 → 2026-10-10); Uruguay and Haiti each still carry a cable-cut, Guyana, Namibia and
-> Sri Lanka their nationwide/regional power-outages, **Syria** its `MAINTENANCE`-cause network row,
-> and **Panama still carries its ongoing nationwide total natural-disaster outage** (the M7.7
-> earthquake still cutting Internet traffic, no recorded end) alongside Russia's unchanged
-> military-action-labelled network disruption. Cause split now **4 power-outage / 3
-> government-directed / 2 cable-cut / 1 natural-disaster / 1 military-action / 1 maintenance** —
-> government-directed eased (−2) while power-outage firmed (+1). The active set still spans **10
-> countries**.
-> (Pull date of current cycle: 2026-11-01.)
+> absorbs the 2026-11-02 → 2026-11-05 pulls: the outage set **eased to 10 records** (from 12 on
+> 11-01; 12 → 12 → 11 → 11 → 10 across the pulls) as **two Iraq exam-shutdown rows** (10-06, 10-08) and
+> **Haiti's cable-cut** aged off the rolling window, while **one fresh power-outage entered** — **Peru**,
+> where a national-grid failure cut electricity across the north on 2026-11-01 and hit Internet traffic in
+> Piura (19:45 → 22:30 UTC). **Every country now carries exactly one row**: Iraq's last exam-shutdown
+> detection (2026-10-10), Uruguay's cable-cut, Syria's `MAINTENANCE`-cause network row, Russia's
+> military-action-labelled network disruption, Panama's M7.7-earthquake outage and five power-outages
+> (Peru, Guyana, Bangladesh, Sri Lanka, Namibia). **Correction:** every row in the feed carries a recorded
+> end time — Panama's outage ended 2026-10-10 04:00 UTC and Russia's 2026-10-11 17:00 UTC — so the earlier
+> "ongoing, no recorded end" wording was wrong; the feed is a rolling window of recent outage records, not
+> a list of live outages. Cause split now **5 power-outage / 1 government-directed / 1 cable-cut / 1
+> natural-disaster / 1 military-action / 1 maintenance**, across **10 countries**.
+> (Pull date of current cycle: 2026-11-05.)
 
 ## This week at a glance
 
-- The Cloudflare Radar channel records **12 active internet outages** on 11-01 — **4
-  nationwide**, **5 regional** and **3 network-level** in scope. By the source's own cause
-  category: **4 power-outage**, **3 government-directed**, **2 cable-cut**, **1
-  natural-disaster**, **1 military-action** and **1 maintenance** — the set eased by a net 1
-  row since 10-27; the six cause categories all carried ([[internet-outages]]).
-- **Ten countries hold the 12 events, and Iraq carries 3 of them** (eased from 4) — all
-  government-directed exam-shutdown suspensions; Uruguay and Haiti carry a cable-cut apiece;
-  Guyana, Namibia and Sri Lanka each a nationwide power-outage and Bangladesh a regional one;
-  **Panama a nationwide total outage from the M7.7 earthquake** (natural-disaster, ongoing);
-  **Russia a network disruption the source labels military-action**; and **Syria a network
-  disruption the source labels maintenance** ([[internet-outages]]).
-- The composition **shifted at the edges**: an Ethiopia government-directed row and an Iraq
-  exam-shutdown row aged off and Eswatini's power-outage cleared, while Guyana and Bangladesh
-  power-outages entered; severity now splits **5 MAJOR / 4 TOTAL / 3 PARTIAL** ([[internet-outages]]).
+- The Cloudflare Radar channel records **10 outage records** in its rolling window on 11-05 — **4
+  nationwide**, **4 regional** and **2 network-level** in scope; severity **4 MAJOR / 4 TOTAL / 2
+  PARTIAL**. By the source's own cause category: **5 power-outage**, **1 government-directed**, **1
+  cable-cut**, **1 natural-disaster**, **1 military-action** and **1 maintenance** — the six cause
+  categories all carried ([[internet-outages]]).
+- **Ten countries, one record each**: five power-outages (**Peru**, **Guyana**, **Bangladesh**, **Sri
+  Lanka**, **Namibia**), **Iraq**'s remaining exam-shutdown suspension, **Uruguay**'s cable-cut,
+  **Panama**'s M7.7-earthquake outage (natural-disaster), **Russia**'s network disruption the source
+  labels military-action and **Syria**'s network disruption the source labels maintenance
+  ([[internet-outages]]).
+- The composition **shifted at the edges**: two Iraq exam-shutdown rows and Haiti's cable-cut aged off,
+  and the Peru power-outage entered; every record in the window carries a recorded end time
+  ([[internet-outages]]).
 
 ## Honest scope
 
-- The theme registry lists a second channel (IMF PortWatch chokepoint status) that
-  remains unsurfaced: the upstream endpoint has returned HTTP 404 since 2026-06-25, with zero
-  committed L1 notes to date (no chokepoint-status note in the 2026-09-22 ingest); this brief
-  scopes to the live internet-outage channel and widens when the second channel lands
+- **The feed is a rolling window of recent outage records, not a live-outage board.** Each row carries
+  the source's `detectedAt` and `endedAt` times; on the 11-05 pull all ten rows have a recorded end, the
+  oldest detection dating to 2026-10-07 (Russia) and the newest to 2026-11-01 (Peru). Earlier cycles of
+  this brief described Panama and Russia as "ongoing, no recorded end" — the L1 shows both ended
+  (2026-10-10 and 2026-10-11), and that wording is corrected here ([[internet-outages]]).
+- The theme registry lists a second channel (IMF PortWatch chokepoint status) that remains unsurfaced:
+  no chokepoint-status L1 note has been committed to date (none through the 2026-11-05 ingest); this
+  brief scopes to the live internet-outage channel and widens when the second channel lands
   ([[internet-outages]]).
 
 ## Reading the week
 
-- **Iraq eases to 3 government-directed events this cycle** (from 4) — all the source's
-  recurring "exam shutdown" pattern, short regional internet suspensions in the early hours,
-  the special round that ran 2026-09-26 → 2026-10-10; one detection rolled off the window.
-  azimuth records the cause label the source assigns and takes no position on the practice
-  ([[internet-outages]]).
-- **Two fresh rows entered this cycle:** nationwide and regional power-outages in Guyana (a
-  national-grid transmission-line trip) and Bangladesh, while an Ethiopia government-directed
-  restriction, an Iraq exam-shutdown detection and Eswatini's power-outage aged off the rolling
-  window — every other prior row (Uruguay, Haiti, Panama, Russia, Namibia, Syria, Sri Lanka and
-  the three remaining Iraq rows) carried unchanged ([[internet-outages]]).
-- **The move spanned two cause bands:** government-directed eased 5 → 3 (one Iraq row plus the
-  Ethiopia restriction aging off) and the power band rotated (Eswatini out, Guyana and Bangladesh
-  in, net +1) — the set from 13 to 12 outages, still across ten countries ([[internet-outages]]).
-- **Cable-cut holds at two events, unchanged** — Uruguay's ANTEL backbone cut and
-  Haiti's Digicel network (fibre-optic cable damage on Route Nationale), both carried
-  unchanged this cycle ([[internet-outages]]).
-- **Power-outage firmed to four events** — Guyana's nationwide national-grid transmission-line
-  trip and Bangladesh's regional outage entered, joining the Namibia substation fault and the
-  Sri Lanka nationwide blackout; Eswatini's planned-outage row cleared this cycle
-  ([[internet-outages]]).
-- **Panama holds its nationwide total-severity natural-disaster outage** — the source
-  attributes a significant drop in Internet traffic across Panama to the M7.7 earthquake (detected
-  2026-10-10, still ongoing with no recorded end), carried unchanged and a cross-channel echo of the
-  Geophysical brief's Panama major ([[internet-outages]]).
-- **Russia holds its network military-action-labelled disruption, carried unchanged** — Yandex
-  data-centre shutdowns the source attributes to drone-strike damage in Sasovo, Ryazan and
-  Vladimir, still with no recorded end ([[internet-outages]]).
-- The set eased at the edges this cycle: an Ethiopia government-directed row, an Iraq exam-shutdown
-  detection and Eswatini's power-outage aged off while two fresh power-outages (Guyana, Bangladesh)
-  entered — taking the set from 13 to 12 outages, still across ten countries and still spanning six
-  cause categories (government-directed −2, power-outage +1) ([[internet-outages]]).
+- **One fresh record entered this cycle: a Peru power-outage.** The source records a failure on Peru's
+  national power grid that cut electricity across northern Peru on 2026-11-01, impacting Internet traffic
+  in Piura from about 19:45 UTC to 22:30 UTC — a regional, MAJOR-severity row ([[internet-outages]]).
+- **Three records aged off the rolling window:** two Iraq exam-shutdown detections (2026-10-06 and
+  2026-10-08) and Haiti's Digicel cable-cut, taking the set from 12 to 10 outages and Iraq from 3 rows to
+  1 ([[internet-outages]]).
+- **Power-outage is now the dominant cause at five records** — Peru (regional, MAJOR), Guyana
+  (nationwide, TOTAL), Bangladesh (regional, MAJOR), Sri Lanka (nationwide, TOTAL) and Namibia
+  (nationwide, TOTAL) ([[internet-outages]]).
+- **Government-directed eased to a single record** — Iraq's 2026-10-10 exam-shutdown suspension, the last
+  of the special round that ran 2026-09-26 → 2026-10-10; azimuth records the cause label the source
+  assigns and takes no position on the practice ([[internet-outages]]).
+- **Cable-cut eased to one record** — Uruguay's ANTEL backbone cut, now the only cable row after Haiti's
+  aged off ([[internet-outages]]).
+- **Panama's natural-disaster record and Russia's military-action-labelled record carried**, each with a
+  recorded end: the source attributes Panama's nationwide traffic drop to the M7.7 earthquake (2026-10-09
+  18:00 → 2026-10-10 04:00 UTC) and Russia's network disruption to Yandex data-centre shutdowns after
+  drone-strike damage in Sasovo, Ryazan and Vladimir (2026-10-07 → 2026-10-11) ([[internet-outages]]).
 - azimuth reports the measurements and the source's cause labels, and stops there
   ([[internet-outages]]).
 
 ## Changelog
+- 2026-11-05 — daily-ingest synthesis (2026-W45): absorbed the 2026-11-02 → 2026-11-05 pulls; the outage set eased 12 → 10 (12/12/11/11/10 by day) as two Iraq exam-shutdown rows (10-06, 10-08) and Haiti's cable-cut aged off and a Peru national-grid power-outage (2026-11-01, Piura, regional MAJOR) entered. Cause split 5 power / 1 government-directed / 1 cable-cut / 1 natural-disaster / 1 military-action / 1 maintenance; severity 4 MAJOR / 4 TOTAL / 2 PARTIAL; 10 countries, one row each. Correction: every row carries a recorded `endedAt` — Panama ended 2026-10-10 and Russia 2026-10-11 — so the prior "ongoing, no recorded end" wording and the "active outages" framing were wrong; reframed as a rolling window of recent outage records and noted in Honest scope. Chokepoint-status still has no committed L1 note. Rewrote all sections. Observed-only framing held ([[internet-outages]]).
 
 - 2026-11-01 — daily-ingest synthesis (2026-W44): absorbed the 2026-10-28 → 2026-11-01 pulls. The active set eased to 12 outages (from 13 on 10-27) as an Ethiopia government-directed restriction and an Iraq exam-shutdown detection aged off and Eswatini's power-outage cleared, while two fresh power-outages entered (Guyana nationwide, Bangladesh regional). Iraq eased to 3 of the 12 events (from 4, all still government-directed exam-shutdown suspensions); Uruguay and Haiti held a cable-cut apiece, Guyana / Namibia / Sri Lanka their nationwide-or-regional power-outages, Syria its MAINTENANCE-cause network row, Panama its ongoing nationwide total natural-disaster outage (M7.7 earthquake, no recorded end) and Russia its military-action-labelled network disruption — all non-departing rows carried unchanged. Cause split 4 power-outage / 3 government-directed / 2 cable-cut / 1 natural-disaster / 1 military-action / 1 maintenance (government-directed −2, power-outage +1); scope 5 regional / 4 nationwide / 3 network; severity 5 MAJOR / 4 TOTAL / 3 PARTIAL; ten countries (held). Chokepoint-status channel still unsurfaced. Rewrote the intro, at-a-glance and reading sections around the two departures, Eswatini clearing and the Guyana/Bangladesh power-outage arrivals. Observed-measurement, no-actor-position framing held ([[internet-outages]]).
 - 2026-10-27 — daily-ingest synthesis (2026-W44): absorbed the 2026-10-23 → 2026-10-27 pulls. The active set eased to 13 outages (from 15 on 10-22) as two Iraq "exam shutdown" detections aged off the rolling window; every other row held unchanged (no entries, no cause category cleared). Iraq eased to 4 of the 13 events (from 6, all still government-directed exam-shutdown suspensions); Uruguay and Haiti held a cable-cut apiece, Eswatini / Namibia / Sri Lanka their nationwide power-outages, Syria its MAINTENANCE-cause network row, Ethiopia its regional government-directed restriction, Panama its ongoing nationwide total natural-disaster outage (M7.7 earthquake, no recorded end) and Russia its military-action-labelled network disruption — all carried unchanged. Cause split 5 government-directed / 3 power-outage / 2 cable-cut / 1 natural-disaster / 1 military-action / 1 maintenance (only the government-directed band moved, −2); scope 6 regional / 4 nationwide / 3 network; severity 6 MAJOR / 4 TOTAL / 3 PARTIAL; ten countries (held). Chokepoint-status channel still unsurfaced. Rewrote the intro, at-a-glance and reading sections around the two Iraq departures and the held composition. Observed-measurement, no-actor-position framing held ([[internet-outages]]).
