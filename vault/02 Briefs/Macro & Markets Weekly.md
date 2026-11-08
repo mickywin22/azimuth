@@ -3,7 +3,7 @@ title: Macro & Markets Weekly
 type: L2-brief
 theme: macro-markets
 week: 2026-W45
-updated: 2026-11-05T00:00:00Z
+updated: 2026-11-08T00:00:00Z
 sources: [crypto-quotes, world-bank-gdp, world-bank-cpi, world-bank-unemployment, world-bank-indicators]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -16,31 +16,31 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 > market prices as observed facts** — a quote is what a market printed, recorded with its
 > change and its source — under the `no-investment-framing` caution: nothing here is advice,
 > a target, or a forecast. Every claim links to the L1 note it rests on.
-> Last updated from the 2026-11-05 pull, a print against the 2026-11-01 baseline: the crypto channel
-> **turned higher after four straight down weeks** — **7 of 10 tracked assets up on the cycle**, only BNB,
-> Avalanche and Chainlink lower. **Bitcoin +1.97% to $79,394** (back toward $80,000) and **Ethereum +5.22%
-> to $2,380.10** led the large caps, with **XRP +4.00% to $1.30**, **TRON +2.39% to $0.317913**, **Cardano
-> +0.56% to $0.194188**, **Solana +0.39% to $95.14** and **Dogecoin +0.08% to $0.07567** also higher, against
-> **Chainlink −1.98% to $11.40**, **Avalanche −1.03% to $8.68** and **BNB −0.57% to $709.01** lower. The feed's
-> own 24-hour change was **9 of 10 up on the day** (Ethereum +2.79% the steepest), only **TRON (−0.30%)**
-> down. The World Bank Open Data channel's **GDP, CPI and unemployment legs all re-pulled and held
-> byte-identical** (seven economies, annual 2025 values) — as expected for reference-year data that does
-> not move week to week.
+> Last updated from the 2026-11-08 pull, a print against the 2026-11-05 baseline: the crypto channel
+> **turned lower again after one up cycle** — **9 of 10 tracked assets down on the cycle**, only TRON
+> higher. **Bitcoin −4.32% to $75,964** and **Ethereum −5.93% to $2,238.86** led the large caps lower, with
+> **XRP −10.77% to $1.16** the panel's steepest decline, **Cardano −7.13% to $0.180348**, **Solana −5.84% to
+> $89.58**, **Dogecoin −5.78% to $0.071294**, **Avalanche −5.76% to $8.18**, **Chainlink −5.70% to $10.75** and
+> **BNB −1.51% to $698.32** also lower, against **TRON +0.74% to $0.320281** the lone riser. The feed's own
+> 24-hour change split **5 up / 5 down on the day** (BNB +0.67% the strongest, Cardano −1.09% the weakest).
+> The World Bank Open Data channel's **GDP, CPI and unemployment legs all re-pulled with every value
+> unchanged** (seven economies, annual 2025 values; only the retrieval timestamp moved) — as expected for
+> reference-year data that does not move week to week ([[crypto-quotes]], [[world-bank-gdp]]).
 
 ## This week at a glance
 
-- The CoinGecko-fed crypto channel's **2026-11-05 pull** printed **7 of 10 tracked assets up** against
-  the 11-01 baseline, the first up cycle after four straight down weeks: **Bitcoin $79,394** (+1.97%, from
-  $77,862), **Ethereum $2,380.10** (+5.22%, from $2,262), **XRP $1.30** (+4.00%, from $1.25), **Cardano
-  $0.194188** (+0.56%, from $0.193109) and **Dogecoin $0.07567** (+0.08%, from $0.07561)
+- The CoinGecko-fed crypto channel's **2026-11-08 pull** printed **9 of 10 tracked assets down** against
+  the 11-05 baseline, reversing last cycle's up move: **Bitcoin $75,964** (−4.32%, from $79,394),
+  **Ethereum $2,238.86** (−5.93%, from $2,380.10), **XRP $1.16** (−10.77%, from $1.30), **Cardano
+  $0.180348** (−7.13%, from $0.194188) and **Dogecoin $0.071294** (−5.78%, from $0.07567)
   ([[crypto-quotes]]).
-- Across the wider ten-asset panel the rebound was uneven: **TRX $0.317913** (+2.39%) and **SOL $95.14**
-  (+0.39%) higher, with **LINK $11.40** (−1.98%), **AVAX $8.68** (−1.03%) and **BNB $709.01** (−0.57%) the
-  three decliners — last cycle's two risers (Chainlink, Avalanche) both turned lower. The feed's own
-  24-hour `change` field read **nine of ten up on the day** (Ethereum +2.79% the steepest, Solana +2.49%,
-  Cardano +2.48%, Bitcoin +1.44%), only TRON (−0.30%) down ([[crypto-quotes]]).
+- Across the wider ten-asset panel the decline was broad: **SOL $89.58** (−5.84%), **AVAX $8.18**
+  (−5.76%), **LINK $10.75** (−5.70%) and **BNB $698.32** (−1.51%) lower, with **TRX $0.320281** (+0.74%)
+  the only asset higher on the cycle. The feed's own 24-hour `change` field split **five up / five down
+  on the day** — BNB +0.67%, XRP +0.41%, Bitcoin +0.22%, TRON +0.20% and Ethereum +0.03% up; Cardano
+  −1.09%, Avalanche −0.72%, Dogecoin −0.50%, Chainlink −0.48% and Solana −0.07% down ([[crypto-quotes]]).
 - **The World Bank Open Data direct channel re-pulled all three legs this cycle, every value
-  byte-identical** to the carried 2025 prints.
+  unchanged** from the carried 2025 prints (the notes differ only in the retrieval timestamp).
   **GDP (current US$, 2025):** United States **$30.77T**, China **$19.50T**, Germany **$5.05T**,
   Japan **$4.44T**, United Kingdom **$4.00T**, India **$3.96T**, France **$3.37T** ([[world-bank-gdp]]).
   **CPI inflation (annual %, 2025):** UK **3.88%**, Japan **3.17%**, US **2.95%**
@@ -58,20 +58,20 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
   macro-indicator source. The tariff and consumer-price channels are not yet surfaced upstream. This
   brief scopes to the live channels and widens as the others land ([[crypto-quotes]], [[world-bank-gdp]]).
 - The crypto feed's own `change7d` field reads **0** for every asset on both pulls, so the
-  week-on-week moves in this brief are computed from the two dated L1 prices (11-01 → 11-05), not taken
+  week-on-week moves in this brief are computed from the two dated L1 prices (11-05 → 11-08), not taken
   from a feed-supplied weekly figure ([[crypto-quotes]]).
 
 ## Reading the week
 
-- The 2026-11-05 pull reads the **first up cycle after four straight down weeks** against the 11-01
-  baseline: Bitcoin rose to $79,394 (+1.97%) and Ethereum to $2,380.10 (+5.22%, the panel's largest move),
-  with XRP $1.30 (+4.00%), TRON $0.317913 (+2.39%), Cardano, Solana and Dogecoin edging higher — seven of
-  ten up — while Chainlink ($11.40, −1.98%), Avalanche ($8.68, −1.03%) and BNB ($709.01, −0.57%) eased.
-  The 24-hour tape agreed, nine of ten up on the day with only TRON lower. These are the venue's numbers,
-  not azimuth's view: no target, no direction call, no investment framing — the caution is the contract,
+- The 2026-11-08 pull reads a **broad down cycle** against the 11-05 baseline, reversing the prior
+  cycle's rebound: Bitcoin fell to $75,964 (−4.32%) and Ethereum to $2,238.86 (−5.93%), XRP posted the
+  panel's largest move at $1.16 (−10.77%), and Cardano, Solana, Dogecoin, Avalanche and Chainlink each fell
+  between 5.7% and 7.2% — nine of ten down — while TRON ($0.320281, +0.74%) edged higher and BNB
+  ($698.32, −1.51%) eased least. The 24-hour tape was split five-five. These are the venue's numbers, not
+  azimuth's view: no target, no direction call, no investment framing — the caution is the contract,
   not a disclaimer ([[crypto-quotes]]).
 - The World Bank Open Data direct channel **re-pulled all three legs this cycle (GDP, CPI and
-  unemployment), every value byte-identical** to the carried 2025 prints — the reference-year figures do
+  unemployment), every value unchanged** from the carried 2025 prints — the reference-year figures do
   not move week to week, so a stable read is expected. Read as recorded national accounts, not a
   forecast: the United States carries the largest 2025 output at $30.77T (France the smallest of the
   seven at $3.37T), the UK the highest 2025 consumer-price inflation at 3.88% (China the lowest at
@@ -80,6 +80,7 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
   [[world-bank-unemployment]]).
 
 ## Changelog
+- 2026-11-08 — daily-ingest synthesis (2026-W45): absorbed the 2026-11-08 pull against the 2026-11-05 baseline. Crypto turned lower again — 9 of 10 down on the cycle: BTC −4.32% to $75,964, ETH −5.93% to $2,238.86, XRP −10.77% to $1.16 (steepest), ADA −7.13%, SOL −5.84%, DOGE −5.78%, AVAX −5.76%, LINK −5.70%, BNB −1.51%; TRX +0.74% the lone riser. Feed 24h change split 5 up / 5 down. World Bank GDP / CPI / unemployment re-pulled, every value unchanged (timestamp only) ([[crypto-quotes]], [[world-bank-gdp]], [[world-bank-cpi]], [[world-bank-unemployment]]).
 - 2026-11-05 — daily-ingest synthesis (2026-W45): absorbed the 2026-11-02 → 2026-11-05 pulls against the 2026-11-01 baseline. Crypto turned higher after four down weeks: 7 of 10 up (BTC $79,394 +1.97%, ETH $2,380.10 +5.22%, XRP $1.30 +4.00%, TRX +2.39%, ADA +0.56%, SOL +0.39%, DOGE +0.08%), LINK −1.98%, AVAX −1.03%, BNB −0.57% lower; 24h tape 9 of 10 up (only TRX −0.30%). Added a scope note that the feed's change7d reads 0, so weekly moves are computed from the two dated L1 prices. World Bank GDP / CPI / unemployment re-pulled byte-identical (2025 values). Rewrote all sections. No-investment-framing caution held ([[crypto-quotes]], [[world-bank-gdp]], [[world-bank-cpi]], [[world-bank-unemployment]]).
 
 - 2026-11-01 — daily-ingest synthesis (2026-W44): absorbed the 2026-10-28 → 2026-11-01 pulls; print vs the 2026-10-27 baseline. The crypto panel eased for a fourth straight week — 8 of 10 tracked assets down w/w, only Chainlink and Avalanche higher: Bitcoin $77,862 (-2.43%, from $79,802, deeper below $80,000), Ethereum $2,262 (-2.20%, from $2,312.85), Solana $94.77 (-5.29%, the steepest w/w faller), TRON $0.3105 (-5.25%), Cardano $0.193109 (-4.98%), XRP $1.25 (-3.85%), BNB $713.06 (-3.55%), Dogecoin $0.07561 (-2.01%), Chainlink $11.63 (+2.74%) and Avalanche $8.77 (+0.23%, the two risers). But the feed's own 24-hour change turned mostly green — eight of ten up on the day (Avalanche +3.24% the steepest, Bitcoin +0.52%, Ethereum +0.64%, BNB +1.03%), only Solana (-1.18%) and TRON (-2.73%) down: the weekly drift held lower while the daily tape stabilised. The World Bank Open Data channel re-pulled all three legs this cycle (GDP, CPI, unemployment — seven economies, annual 2025 values), every value byte-identical to the carried prints. Rewrote the intro, at-a-glance and reading sections. no-investment-framing caution held ([[crypto-quotes]], [[world-bank-gdp]], [[world-bank-cpi]], [[world-bank-unemployment]]).
