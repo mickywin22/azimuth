@@ -3,7 +3,7 @@ title: Orbital Watch Weekly
 type: L2-brief
 theme: orbital-watch
 week: 2026-W45
-updated: 2026-11-05T00:00:00Z
+updated: 2026-11-08T00:00:00Z
 sources: [orbital-satellites]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -16,43 +16,44 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 > element sets** — a satellite's TLE-derived position, altitude, inclination and velocity are
 > observed public data (CelesTrak, from US Space Command releases) — and never speculates on
 > a satellite's mission or intent beyond the catalogue's own type label. Every claim links to
-> the L1 note it rests on. (Last pull: 2026-11-05 ingest — the tracked catalogue **held flat at 98
-> objects**, with the same operator-country and type composition it carried on 2026-11-01 (US 38 /
+> the L1 note it rests on. (Last pull: 2026-11-08 ingest — the tracked catalogue **held flat at 98
+> objects**, with the same operator-country and type composition it carried on 2026-11-05 (US 38 /
 > CN 30 / EU 19 / IN 7 / TR 3 / KR 1; optical 47 / military 34 / SAR 17) and the identical set of object ids
-> across every daily pull 11-02 through 11-05. The TLE line sets (`line1`/`line2`) advanced to fresh
-> epochs on each pull — the 11-05 band sits at day-of-year roughly 308.3–309.0 (≈ 4–5 November), from
-> roughly 301.5–305.3 on 11-01 — the satellites moved along their orbits, but the catalogue counts,
-> operators and type labels are unchanged: a twelfth straight honest flat cycle, reported as observed
-> counts only.)
+> across every daily pull 11-06 through 11-08. The TLE line sets (`line1`/`line2`) advanced to fresh
+> epochs on each pull — the 11-08 band sits at day-of-year roughly 310.3–312.4 (≈ 6–8 November), from
+> roughly 308.3–309.0 on 11-05 — the satellites moved along their orbits, but the catalogue counts,
+> operators and type labels are unchanged: a thirteenth straight honest flat cycle, reported as observed
+> counts only [[orbital-satellites]].)
 
 ## This week at a glance
 
-- The CelesTrak channel tracks **98 catalogued satellites** in the 11-05 pull — **unchanged** from the 98
-  in the 2026-11-01 pull, and from every daily pull in between (11-02 through 11-04); 0 added, 0 removed,
+- The CelesTrak channel tracks **98 catalogued satellites** in the 11-08 pull — **unchanged** from the 98
+  in the 2026-11-05 pull, and from every daily pull in between (11-06 and 11-07); 0 added, 0 removed,
   identical object ids across all days. Each object carries a live two-line element set whose epoch
   advanced with each pull, but the object count held ([[orbital-satellites]]).
-- By operator country the 11-05 pull records: **the US in the lead at 38 objects**, ahead of **China
-  (30)** and the **EU (19)**, with India (7), Turkey (3) and South Korea (1) — identical to the 2026-11-01
+- By operator country the 11-08 pull records: **the US in the lead at 38 objects**, ahead of **China
+  (30)** and the **EU (19)**, with India (7), Turkey (3) and South Korea (1) — identical to the 2026-11-05
   composition, the catalogue's own attribution field reported as published ([[orbital-satellites]]).
-- By the catalogue's type label the 11-05 pull records **47 optical-imaging** objects, **34 military**
-  and **17 SAR** (synthetic-aperture radar) — held steady across all three type bands from 2026-11-01
-  through 11-05; the feed's classification, not azimuth's ([[orbital-satellites]]).
+- By the catalogue's type label the 11-08 pull records **47 optical-imaging** objects, **34 military**
+  and **17 SAR** (synthetic-aperture radar) — held steady across all three type bands from 2026-11-05
+  through 11-08; the feed's classification, not azimuth's ([[orbital-satellites]]).
 
 ## Reading the week
 
-- The 11-02 through 11-05 pulls form an **honest flat cycle**, the twelfth straight: the tracked
+- The 11-06 through 11-08 pulls form an **honest flat cycle**, the thirteenth straight: the tracked
   catalogue held at 98 objects with the same operator-country split (US 38 / CN 30 / EU 19) and type
-  split (optical 47 / military 34 / SAR 17) it carried on 2026-11-01, and the object ids are identical
+  split (optical 47 / military 34 / SAR 17) it carried on 2026-11-05, and the object ids are identical
   across every day of the cycle. Only the TLE epochs advanced with each fresh pull — the tracked band
-  moved from roughly day-of-year 305 (≈ 1 November) to roughly 309 (≈ 5 November) — the satellites
-  propagating along their orbits. azimuth reports the catalogue's own counts and labels as published —
-  no movement is invented where the feed shows none ([[orbital-satellites]]).
+  moved from roughly day-of-year 308–309 (≈ 4–5 November) to roughly 310–312 (≈ 6–8 November) — the
+  satellites propagating along their orbits. azimuth reports the catalogue's own counts and labels as
+  published — no movement is invented where the feed shows none ([[orbital-satellites]]).
 - With the composition unchanged, **the US leads the tracked catalogue at 38 objects**, ahead of China
   (30) and the EU (19), and optical imaging stays the largest type band at 47. These are observed
   catalogue composition counts, not a capability or intent comparison between operators
   ([[orbital-satellites]]).
 
 ## Changelog
+- 2026-11-08 — daily-ingest synthesis (2026-W45): absorbed the 2026-11-06 → 2026-11-08 pulls — a thirteenth straight honest flat cycle. Catalogue held at 98 objects with identical object ids on every pull (US 38 / CN 30 / EU 19 / IN 7 / TR 3 / KR 1; optical 47 / military 34 / SAR 17); only the TLE epochs advanced (band ≈ day-of-year 310.3–312.4 on 11-08, from 308.3–309.0 on 11-05) ([[orbital-satellites]]).
 - 2026-11-05 — daily-ingest synthesis (2026-W45): absorbed the 2026-11-02 → 2026-11-05 pulls; the catalogue held flat at 98 objects with identical object ids on every pull and the same composition (US 38 / CN 30 / EU 19 / IN 7 / TR 3 / KR 1; optical 47 / military 34 / SAR 17) — the twelfth straight flat cycle. TLE epochs advanced from ≈ day 301.5–305.3 (11-01) to ≈ day 308.3–309.0 (11-05). Rewrote the intro, at-a-glance and reading sections. Observed-only framing held ([[orbital-satellites]]).
 
 - 2026-11-01 — daily-ingest flowback (2026-W44): an honest flat cycle, the eleventh straight. The 2026-10-28 → 2026-11-01 CelesTrak pulls held the tracked catalogue at 98 objects with the same operator-country split (US 38 / CN 30 / EU 19 / IN 7 / TR 3 / KR 1) and type split (optical 47 / military 34 / SAR 17) carried since 2026-10-27, object ids byte-identical; only the TLE epochs advanced to roughly day-of-year 305 (≈ 1 November) as the satellites propagated along their orbits. Advanced `updated` so the freshness gate records the latest L1 day was absorbed; no count changed and observed-only framing held ([[orbital-satellites]]).
