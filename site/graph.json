@@ -1539,7 +1539,8 @@
         "climate-signals",
         "cyber-watch",
         "environmental-hazards",
-        "geophysical"
+        "geophysical",
+        "prediction-markets"
       ],
       "evidence": [
         {
@@ -1835,8 +1836,7 @@
         "humanitarian",
         "macro-markets",
         "orbital-watch",
-        "prediction-markets",
-        "public-health"
+        "prediction-markets"
       ],
       "evidence": [
         {
@@ -4197,6 +4197,13 @@
       "rel": "named-in"
     },
     {
+      "source": "entity:taiwan",
+      "target": "brief:prediction-markets-weekly",
+      "cross_theme": true,
+      "rel": "mentioned-in",
+      "weight": 0
+    },
+    {
       "source": "entity:brazil",
       "target": "brief:conflict-watch-weekly",
       "cross_theme": true,
@@ -4631,13 +4638,6 @@
       "target": "source:prediction-markets",
       "cross_theme": false,
       "rel": "named-in"
-    },
-    {
-      "source": "entity:china",
-      "target": "brief:public-health-weekly",
-      "cross_theme": true,
-      "rel": "mentioned-in",
-      "weight": 0
     },
     {
       "source": "entity:chile",
