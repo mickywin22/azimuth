@@ -3,7 +3,7 @@ title: Geophysical Weekly
 type: L2-brief
 theme: geophysical
 week: 2026-W45
-updated: 2026-11-05T00:00:00Z
+updated: 2026-11-08T00:00:00Z
 sources: [earthquakes]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -14,76 +14,72 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 > Synthesised from the week's L1 source notes under `../01 Sources/`. The `azimuth-curator`
 > fleet role evolves this single note in place each week. azimuth reports **observed**
 > seismicity from the USGS feed — what was recorded, never what will happen. Every claim
-> links to the L1 note it rests on. (This cycle absorbs the 2026-11-02 → 2026-11-05 pulls, the rolling window
-> **easing for a third straight cycle**: **90 M4.5+ (26 M5+, 3 M6+, strongest M6.2)** to 2026-11-05, down
-> from 137 (52/5, strongest M6.4) on 2026-11-01 — the count off 47 and M5+ halved as the **M6.4 southeast
-> of Easter Island** and two Port-Olry M6.0 shocks aged off the trailing edge ([[earthquakes]]). The
-> **deep M6.2 43 km ESE of Port-Olry, Vanuatu** (142.8 km) now leads, with a shallow **M6.0 165 km NW of
-> Port-Olry** (10 km) and the deep **M6.0 58 km SSE of Shima, Japan** (352.4 km) completing a three-shock
-> M6+ roster. **Vanuatu still leads the count at 17** (from 37), ahead of **Japan** (8, plus 2 Japan-region
-> offshore), a fresh **Mid-Indian Ridge** cluster (6), **Philippines** and **Russia** (5 each). **46 of 90**
-> shocks stayed shallow <=15 km and the deep-focus anchor **shoaled to 556.5 km** beneath the **Fiji
-> region** as the 641.8 km Levuka event rolled out ([[earthquakes]]).)
+> links to the L1 note it rests on. (This cycle absorbs the 2026-11-06 → 2026-11-08 pulls: the rolling
+> window held near its eased level at **88 M4.5+ (21 M5+, 2 M6+, strongest M6.1)** to 2026-11-08, from 90
+> (26/3, strongest M6.2) on 2026-11-05 — but the **M6+ roster turned over completely**. All three
+> Vanuatu/Shima M6+ shocks aged off the trailing edge and two fresh **M6.1** events entered: a shallow
+> **M6.1 144 km SE of Hasaki, Japan** (29 km, 2026-11-06) and a **deep M6.1 in the Fiji region** (535 km,
+> 2026-11-05) ([[earthquakes]]). The **Vanuatu swarm collapsed to 3** (from 17), handing the count lead to
+> **Japan** (9), ahead of the **Mid-Indian Ridge** (6), **Philippines** and **Indonesia** (5 each). The
+> shallow share fell to **35 of 88** <=15 km, and the deep-focus anchor **deepened to 607.0 km** beneath
+> Mindanao, Philippines ([[earthquakes]]).)
 
 ## This week at a glance
 
-- The USGS feed recorded **90** magnitude-4.5-or-greater earthquakes in the rolling window
-  retrieved 2026-11-05 (events 2026-10-29 → 2026-11-05), of which **26 reached M5+** and **three reached
-  M6+**, the strongest an **M6.2** — down from **137 (52 M5+, 5 M6+, strongest M6.4)** on 2026-11-01, the
-  count off 47 and M5+ halved ([[earthquakes]]).
-- The **M6.4 southeast of Easter Island** that led last cycle has aged off; the window's strongest is
-  now the **deep M6.2 43 km ESE of Port-Olry, Vanuatu** (142.8 km), with a shallow **M6.0 165 km NW of
-  Port-Olry** (10 km) and a deep **M6.0 58 km SSE of Shima, Japan** (352.4 km) the only other M6+ shocks
-  ([[earthquakes]]).
-- **Vanuatu still leads the count at 17** (from 37) — 15 of them placed off Port-Olry; **Japan**
-  holds 8 (plus two Japan-region offshore events), a fresh **Mid-Indian Ridge** cluster adds 6, and
-  **Philippines** and **Russia** hold 5 each ([[earthquakes]]).
+- The USGS feed recorded **88** magnitude-4.5-or-greater earthquakes in the rolling window
+  retrieved 2026-11-08 (events 2026-11-01 → 2026-11-08), of which **21 reached M5+** and **two reached
+  M6+**, the strongest an **M6.1** — near-flat on the count from **90 (26 M5+, 3 M6+, strongest M6.2)** on
+  2026-11-05, with M5+ down 5 ([[earthquakes]]).
+- The M6+ band **turned over**: the deep M6.2 and shallow M6.0 off Port-Olry, Vanuatu and the deep M6.0
+  off Shima, Japan all aged off, replaced by a shallow **M6.1 144 km SE of Hasaki, Japan** (29 km) and a
+  deep **M6.1 in the Fiji region** (535 km) ([[earthquakes]]).
+- **Japan now leads the count at 9** (from 8) as **Vanuatu fell to 3** (from 17); the **Mid-Indian
+  Ridge** holds 6, **Philippines** and **Indonesia** 5 each ([[earthquakes]]).
 
 ## Largest events
 
-- No fresh major entered the window this cycle: all three M6+ shocks (2026-10-29 → 2026-11-01) were
-  already on the 2026-11-01 roster. The **deep M6.2 43 km ESE of Port-Olry, Vanuatu** (142.8 km) now
-  leads alone after the shallow **M6.4 southeast of Easter Island** (10 km) rolled out ([[earthquakes]]).
-- The rest of the roster is a shallow **M6.0 165 km NW of Port-Olry, Vanuatu** (10 km) and the deep
-  **M6.0 58 km SSE of Shima, Japan** (352.4 km) on the western-Pacific slab; the second shallow
-  Port-Olry M6.0 (214 km NW) aged off with the Easter Island shock ([[earthquakes]]).
-- The fresh M5+ band is led by two **M5.4** shocks — **24 km NNW of Rioblanco, Colombia** (10 km) and
-  **203 km NW of Port-Olry, Vanuatu** (10 km) — followed by M5.3 events off **Palekastro, Greece**
-  (48.5 km) and a run of M5.2 shocks across Kyrgyzstan, the Mid-Indian Ridge, the Volcano Islands and
-  Panama ([[earthquakes]]).
+- Two fresh **M6.1** shocks lead the window: a shallow **M6.1 144 km SE of Hasaki, Japan** (29 km,
+  2026-11-06), and a deep **M6.1 in the Fiji region** (535 km, 2026-11-05) on the
+  Tonga-Fiji slab. No M6+ event from the prior roster survives in the window ([[earthquakes]]).
+- Below them the M5+ band is led by a shallow **M5.8 on the central Mid-Atlantic Ridge** (10 km,
+  2026-11-07) and two **M5.5** shocks in central Japan — **10 km NW of Hamakita** (38.1 km) and **74 km
+  NE of Hasaki** (31.7 km), both 2026-11-07 ([[earthquakes]]).
+- The still-in-window early-November M5+ events continue: the **M5.4 24 km NNW of Rioblanco, Colombia**
+  (10 km), the **M5.3 81 km SSE of Palekastro, Greece** (48.5 km) and M5.2 shocks in Kyrgyzstan, on the
+  Mid-Indian Ridge and in the Volcano Islands, Japan region ([[earthquakes]]).
 
 ## Where the activity clustered
 
-- **Vanuatu kept the count lead at 17 events** (from 37), 15 of them placed off Port-Olry, most on the offshore swarm
-  ~150-240 km NW of the town — still the source of two of the three M6+ shocks ([[earthquakes]]).
-- **Japan** held 8 events plus two in the offshore Volcano/Izu Islands Japan region; a fresh
-  **Mid-Indian Ridge** sequence (six M4.6-5.2 shocks) entered the clustering table, **Philippines** and
-  **Russia** held 5 each, and four **Greece** events (three south of Crete off Palekastro, M4.7-5.3) and four
-  **Papua New Guinea** events filled out the list. The **China/Nagqu** sequence, at 6 last cycle, is down
-  to a single M4.7 ([[earthquakes]]).
+- **Japan took the count lead at 9 events** (from 8) — three of them off the Kanto coast near Hasaki
+  and Asahi (including the M6.1 and an M5.5), plus the M5.5 near Hamakita and events off Miyako, Watari,
+  Honmachi, Yonakuni and Muroto-misakicho; this is the window's strong-event focus this cycle
+  ([[earthquakes]]).
+- The **Vanuatu swarm collapsed to 3 events** (from 17) as the Port-Olry sequence aged off. The
+  **Mid-Indian Ridge** held 6, **Philippines** and **Indonesia** 5 each, **Greece** (south of Crete off
+  Palekastro) and **Papua New Guinea** 4 each, and the **Fiji region**, **south of the Fiji Islands**,
+  **South Sandwich Islands region** and the **China/Nagqu** area 3 each ([[earthquakes]]).
 
 ## Depth profile
 
-- The shallow share held near half with the smaller count: **46 of the 90 events sit at or below 15 km**
-  (from 84 of 137), the Port-Olry swarm and the Mid-Indian Ridge sequence (all at 10 km) the main shallow
-  contributors ([[earthquakes]]).
-- The deep end **shoaled**: the 641.8 km focus beneath the Fiji region (the Levuka M5.5) aged off, and
-  the window's deepest is now an **M4.6 in the Fiji region at 556.5 km**, followed by an **M4.8 in the
-  Sea of Okhotsk** (554.4 km) and an **M4.5 288 km SSE of Muroto-misakicho, Japan** (510.1 km)
-  ([[earthquakes]]).
+- The shallow share dropped as the Port-Olry swarm (all at 10 km) rolled out: **35 of the 88 events sit
+  at or below 15 km** (from 46 of 90), the Mid-Indian Ridge sequence and the Mid-Atlantic Ridge M5.8 now
+  the main shallow contributors ([[earthquakes]]).
+- The deep end **deepened**: the window's deepest is now an **M4.9 41 km WSW of Gadung, Philippines at
+  607.0 km**, below the **deep M6.1 in the Fiji region** (535 km) and a cluster of 500-575 km events
+  south of the Fiji Islands; the prior 556.5 km anchor sits inside that band ([[earthquakes]]).
 
 ## Reading the week
 
-- The window eased for a third straight cycle as the late-October majors aged off: **90 M4.5+ (26 M5+,
-  3 M6+, strongest M6.2)** to 2026-11-05, down from 137 (52/5, strongest M6.4) on 2026-11-01 — the count
-  off 47 and M5+ halved, with no fresh M6+ recorded since 2026-11-01. The deep M6.2 Port-Olry, Vanuatu
-  (142.8 km) now leads, with a shallow M6.0 Port-Olry and the deep M6.0 off Shima, Japan completing the
-  roster. Vanuatu kept the count lead at 17, Japan held 8, a fresh Mid-Indian Ridge cluster added 6 and
-  Philippines and Russia held 5 each; 46 of 90 shocks stayed shallow and the deepest focus shoaled to
-  556.5 km in the Fiji region. azimuth records what the instruments measured — magnitude, location,
-  depth, time — and stops there, making no forecast of what comes next ([[earthquakes]]).
+- The window held near-flat on count — **88 M4.5+ (21 M5+, 2 M6+, strongest M6.1)** to 2026-11-08, from
+  90 (26/3, strongest M6.2) on 2026-11-05 — but its composition shifted: the Vanuatu swarm that led for
+  weeks aged off (17 → 3), Japan's Pacific coast moved to the front with the shallow M6.1 off Hasaki and
+  two M5.5 shocks, and a deep M6.1 entered on the Fiji slab. 35 of 88 shocks stayed shallow and the
+  deepest focus reached 607.0 km beneath Mindanao. azimuth records what the instruments measured —
+  magnitude, location, depth, time — and stops there, making no forecast of what comes next
+  ([[earthquakes]]).
 
 ## Changelog
+- 2026-11-08 — daily-ingest synthesis (2026-W45): absorbed the 2026-11-06 → 2026-11-08 USGS pulls; the rolling window to 2026-11-08 held near-flat at 88 M4.5+ (21 M5+, 2 M6+, strongest M6.1 — from 90/26/3, strongest M6.2) but the M6+ roster turned over completely: the deep M6.2 and shallow M6.0 off Port-Olry and the deep M6.0 off Shima aged off; a shallow M6.1 144 km SE of Hasaki, Japan (29 km) and a deep M6.1 in the Fiji region (535 km) entered. Vanuatu collapsed 17 → 3 and Japan took the count lead at 9; shallow share 35 of 88 (from 46 of 90); deepest focus deepened from 556.5 km to 607.0 km (Gadung, Philippines) ([[earthquakes]]).
 - 2026-11-05 — daily-ingest synthesis (2026-W45): absorbed the 2026-11-02 → 2026-11-05 USGS pulls; the rolling window to 2026-11-05 eased to 90 M4.5+ (26 M5+, 3 M6+, strongest M6.2 — from 137/52/5, strongest M6.4). The M6.4 southeast of Easter Island and two shallow Port-Olry M6.0 shocks aged off, leaving the deep M6.2 43 km ESE of Port-Olry, Vanuatu (142.8 km) in the lead; no fresh M6+ since 2026-11-01. Vanuatu kept the count lead at 17 (from 37), a Mid-Indian Ridge cluster entered at 6, China/Nagqu faded to one; deepest focus shoaled from 641.8 km to 556.5 km (Fiji region); 46 of 90 shallow ≤15 km. Rewrote the at-a-glance, largest-events, clustering, depth and reading sections. Observed-only framing held ([[earthquakes]]).
 
 - 2026-10-27 — daily-ingest synthesis (2026-W44): absorbed the 2026-10-27 pull, the rolling window easing back from the prior surge as older majors aged off the trailing edge. The window to 2026-10-27 eased to 181 M4.5+ (65 M5+, 5 M6+, 1 M7.0 — from 187/72/8/3 on 10-26), the count off 6, M5+ down 7 and the M7 band narrowing from three to one as the two deep Bonin Islands, Japan-region M7.0 shocks (~473 km) rolled out of the window. A single M7.0 now leads: the shallow M7.0 191 km ENE of Nagqu, China (18 km). The Port-Olry, Vanuatu swarm held the count lead at 64 events (from 66) and supplied three more M6+ — an M6.9 (10 km), an M6.3 (10 km) and an M6.1 (116 km); the fourth Vanuatu M6.3 (16 km) of last cycle aged off, and a deep M6.5 Bonin Islands (492.4 km) caps the five-strong M6+ roster. The China cluster held at 21 on the Nagqu sequence; Indonesia firmed to 8 and the Japan region to 7, Russia held 7, Alaska eased to 6 and the Philippines entered at 5. 117 of 181 shocks stayed shallow at or below 15 km; the deepest focus held at 641.8 km beneath the Fiji region (an M5.5 283 km E of Levuka). Rewrote the intro, at-a-glance, largest-events, clustering, depth and reading sections. Observed-only framing held ([[earthquakes]]).
