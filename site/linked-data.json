@@ -5,12 +5,12 @@
   "data_base": "https://mickywin22.github.io/azimuth/data/",
   "counts": {
     "subjects": 3057,
-    "data_triples": 24518,
+    "data_triples": 24516,
     "schema_triples": 75,
     "classes": 3,
     "properties": 10,
     "concepts_shown": 41,
-    "restsOn_edges": 68,
+    "restsOn_edges": 66,
     "bridges": 23
   },
   "census": [
@@ -220,13 +220,13 @@
         {
           "pred": "week",
           "label": "week",
-          "value": "2026-W45",
+          "value": "2026-W46",
           "datatype": "string"
         },
         {
           "pred": "updated",
           "label": "updated at",
-          "value": "2026-11-08T00:00:00Z",
+          "value": "2026-11-12T00:00:00Z",
           "datatype": "dateTime"
         },
         {
@@ -291,13 +291,13 @@
         {
           "pred": "week",
           "label": "week",
-          "value": "2026-W45",
+          "value": "2026-W46",
           "datatype": "string"
         },
         {
           "pred": "updated",
           "label": "updated at",
-          "value": "2026-11-08T00:00:00Z",
+          "value": "2026-11-12T00:00:00Z",
           "datatype": "dateTime"
         },
         {
@@ -346,13 +346,13 @@
         {
           "pred": "week",
           "label": "week",
-          "value": "2026-W45",
+          "value": "2026-W46",
           "datatype": "string"
         },
         {
           "pred": "updated",
           "label": "updated at",
-          "value": "2026-11-08T00:00:00Z",
+          "value": "2026-11-12T00:00:00Z",
           "datatype": "dateTime"
         },
         {
@@ -401,13 +401,13 @@
         {
           "pred": "week",
           "label": "week",
-          "value": "2026-W45",
+          "value": "2026-W46",
           "datatype": "string"
         },
         {
           "pred": "updated",
           "label": "updated at",
-          "value": "2026-11-08T00:00:00Z",
+          "value": "2026-11-12T00:00:00Z",
           "datatype": "dateTime"
         },
         {
@@ -480,13 +480,13 @@
         {
           "pred": "week",
           "label": "week",
-          "value": "2026-W45",
+          "value": "2026-W46",
           "datatype": "string"
         },
         {
           "pred": "updated",
           "label": "updated at",
-          "value": "2026-11-08T00:00:00Z",
+          "value": "2026-11-12T00:00:00Z",
           "datatype": "dateTime"
         },
         {
@@ -559,13 +559,13 @@
         {
           "pred": "week",
           "label": "week",
-          "value": "2026-W45",
+          "value": "2026-W46",
           "datatype": "string"
         },
         {
           "pred": "updated",
           "label": "updated at",
-          "value": "2026-11-08T00:00:00Z",
+          "value": "2026-11-12T00:00:00Z",
           "datatype": "dateTime"
         },
         {
@@ -614,13 +614,13 @@
         {
           "pred": "week",
           "label": "week",
-          "value": "2026-W45",
+          "value": "2026-W46",
           "datatype": "string"
         },
         {
           "pred": "updated",
           "label": "updated at",
-          "value": "2026-11-08T00:00:00Z",
+          "value": "2026-11-12T00:00:00Z",
           "datatype": "dateTime"
         },
         {
@@ -669,13 +669,13 @@
         {
           "pred": "week",
           "label": "week",
-          "value": "2026-W45",
+          "value": "2026-W46",
           "datatype": "string"
         },
         {
           "pred": "updated",
           "label": "updated at",
-          "value": "2026-11-08T00:00:00Z",
+          "value": "2026-11-12T00:00:00Z",
           "datatype": "dateTime"
         },
         {
@@ -724,13 +724,13 @@
         {
           "pred": "week",
           "label": "week",
-          "value": "2026-W45",
+          "value": "2026-W46",
           "datatype": "string"
         },
         {
           "pred": "updated",
           "label": "updated at",
-          "value": "2026-11-08T00:00:00Z",
+          "value": "2026-11-12T00:00:00Z",
           "datatype": "dateTime"
         },
         {
@@ -811,13 +811,13 @@
         {
           "pred": "week",
           "label": "week",
-          "value": "2026-W45",
+          "value": "2026-W46",
           "datatype": "string"
         },
         {
           "pred": "updated",
           "label": "updated at",
-          "value": "2026-11-08T00:00:00Z",
+          "value": "2026-11-12T00:00:00Z",
           "datatype": "dateTime"
         },
         {
@@ -866,13 +866,13 @@
         {
           "pred": "week",
           "label": "week",
-          "value": "2026-W45",
+          "value": "2026-W46",
           "datatype": "string"
         },
         {
           "pred": "updated",
           "label": "updated at",
-          "value": "2026-11-08T00:00:00Z",
+          "value": "2026-11-12T00:00:00Z",
           "datatype": "dateTime"
         },
         {
@@ -921,13 +921,13 @@
         {
           "pred": "week",
           "label": "week",
-          "value": "2026-W45",
+          "value": "2026-W46",
           "datatype": "string"
         },
         {
           "pred": "updated",
           "label": "updated at",
-          "value": "2026-11-08T00:00:00Z",
+          "value": "2026-11-12T00:00:00Z",
           "datatype": "dateTime"
         },
         {
@@ -976,13 +976,13 @@
         {
           "pred": "week",
           "label": "week",
-          "value": "2026-W45",
+          "value": "2026-W46",
           "datatype": "string"
         },
         {
           "pred": "updated",
           "label": "updated at",
-          "value": "2026-11-08T04:00:00Z",
+          "value": "2026-11-12T04:00:00Z",
           "datatype": "dateTime"
         },
         {
@@ -1159,13 +1159,13 @@
         {
           "pred": "week",
           "label": "week",
-          "value": "2026-W45",
+          "value": "2026-W46",
           "datatype": "string"
         },
         {
           "pred": "updated",
           "label": "updated at",
-          "value": "2026-11-08T04:00:00Z",
+          "value": "2026-11-12T04:00:00Z",
           "datatype": "dateTime"
         },
         {
@@ -1348,22 +1348,6 @@
           "dir": "out",
           "target": "key:world-bank-cpi",
           "targetLabel": "world-bank-cpi",
-          "targetClass": "L1-source"
-        },
-        {
-          "pred": "restsOn",
-          "label": "rests on",
-          "dir": "out",
-          "target": "key:world-bank-gdp",
-          "targetLabel": "world-bank-gdp",
-          "targetClass": "L1-source"
-        },
-        {
-          "pred": "restsOn",
-          "label": "rests on",
-          "dir": "out",
-          "target": "key:world-bank-unemployment",
-          "targetLabel": "world-bank-unemployment",
           "targetClass": "L1-source"
         }
       ]
@@ -3013,14 +2997,6 @@
           "target": "brief:top5-answers",
           "targetLabel": "Top5 Answers",
           "targetClass": "L2-brief"
-        },
-        {
-          "pred": "restsOn",
-          "label": "feeds",
-          "dir": "in",
-          "target": "brief:world-watch-weekly",
-          "targetLabel": "World Watch Weekly",
-          "targetClass": "L2-brief"
         }
       ]
     },
@@ -3148,14 +3124,6 @@
           "dir": "in",
           "target": "brief:top5-answers",
           "targetLabel": "Top5 Answers",
-          "targetClass": "L2-brief"
-        },
-        {
-          "pred": "restsOn",
-          "label": "feeds",
-          "dir": "in",
-          "target": "brief:world-watch-weekly",
-          "targetLabel": "World Watch Weekly",
           "targetClass": "L2-brief"
         }
       ]
@@ -3410,8 +3378,7 @@
       "label": "world-bank-gdp",
       "briefs": [
         "Macro & Markets Weekly",
-        "Top5 Answers",
-        "World Watch Weekly"
+        "Top5 Answers"
       ]
     },
     {
@@ -3419,8 +3386,7 @@
       "label": "world-bank-unemployment",
       "briefs": [
         "Macro & Markets Weekly",
-        "Top5 Answers",
-        "World Watch Weekly"
+        "Top5 Answers"
       ]
     }
   ]

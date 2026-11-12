@@ -1398,7 +1398,6 @@
         "environmental-hazards",
         "geophysical",
         "humanitarian",
-        "prediction-markets",
         "public-health"
       ],
       "evidence": [
@@ -1558,8 +1557,7 @@
         "climate-signals",
         "cyber-watch",
         "energy-supply",
-        "environmental-hazards",
-        "prediction-markets"
+        "environmental-hazards"
       ],
       "evidence": [
         {
@@ -1667,10 +1665,9 @@
       "label": "diesel",
       "kind": "entity",
       "entity_kind": "commodity",
-      "theme": "shared",
+      "theme": "energy-supply",
       "themes": [
-        "energy-supply",
-        "prediction-markets"
+        "energy-supply"
       ],
       "evidence": [
         {
@@ -4008,13 +4005,6 @@
     },
     {
       "source": "entity:mexico",
-      "target": "brief:prediction-markets-weekly",
-      "cross_theme": true,
-      "rel": "mentioned-in",
-      "weight": 0
-    },
-    {
-      "source": "entity:mexico",
       "target": "brief:public-health-weekly",
       "cross_theme": true,
       "rel": "mentioned-in",
@@ -4238,13 +4228,6 @@
       "weight": 0
     },
     {
-      "source": "entity:taiwan",
-      "target": "brief:prediction-markets-weekly",
-      "cross_theme": true,
-      "rel": "mentioned-in",
-      "weight": 0
-    },
-    {
       "source": "entity:brazil",
       "target": "brief:conflict-watch-weekly",
       "cross_theme": true,
@@ -4371,7 +4354,7 @@
     {
       "source": "entity:diesel",
       "target": "brief:energy-supply-weekly",
-      "cross_theme": true,
+      "cross_theme": false,
       "rel": "mentioned-in",
       "weight": 1
     },
@@ -4380,13 +4363,6 @@
       "target": "source:fuel-prices",
       "cross_theme": false,
       "rel": "named-in"
-    },
-    {
-      "source": "entity:diesel",
-      "target": "brief:prediction-markets-weekly",
-      "cross_theme": true,
-      "rel": "mentioned-in",
-      "weight": 0
     },
     {
       "source": "entity:petrol",
