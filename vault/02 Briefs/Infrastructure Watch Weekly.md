@@ -2,8 +2,8 @@
 title: Infrastructure Watch Weekly
 type: L2-brief
 theme: infrastructure-watch
-week: 2026-W45
-updated: 2026-11-08T00:00:00Z
+week: 2026-W46
+updated: 2026-11-12T00:00:00Z
 sources: [internet-outages]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -16,69 +16,68 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 > infrastructure disruption events** — an internet outage is an observed network measurement
 > (Cloudflare Radar), with the cause category the source itself assigns — and takes no
 > position on any actor involved. Every claim links to the L1 note it rests on. This cycle
-> absorbs the 2026-11-06 → 2026-11-08 pulls: the outage set **eased to 9 records** (from 10 on
-> 11-05) as **Iraq's last exam-shutdown row** (2026-10-10) and **Panama's M7.7-earthquake outage** dropped
-> out of the window, while **one fresh record entered** — the **Dominican Republic**, where a network fault
-> caused a near-total loss of Internet traffic from Claro Dominicana (AS6400) on 2026-11-06 (16:45 →
-> 18:45 UTC), the first row the source labels **technical-problem**. **Every country still carries
-> exactly one row**: five power-outages (Peru, Guyana, Bangladesh, Sri Lanka, Namibia), Uruguay's
-> cable-cut, Syria's `MAINTENANCE`-cause network row, Russia's military-action-labelled network
-> disruption and the Dominican Republic's technical-problem row. Every row carries a recorded end time —
-> the feed is a rolling window of recent outage records, not a list of live outages. Cause split now
-> **5 power-outage / 1 technical-problem / 1 cable-cut / 1 military-action / 1 maintenance**, across
-> **9 countries**; the government-directed and natural-disaster categories have no row this cycle
+> absorbs the 2026-11-09 → 2026-11-12 pulls: the outage set **eased to 7 records** (from 9 on 11-08).
+> **Three older rows left the window** — **Russia**'s military-action-labelled network row (2026-10-07,
+> gone from 11-09), **Uruguay**'s cable-cut (2026-10-13, gone from 11-11) and **Namibia**'s power outage
+> (2026-10-14, gone from 11-12) — while **one fresh record entered**: a regional **Ukraine** power outage
+> on 2026-11-08 (03:15 → 21:00 UTC) in Dnipropetrovsk Oblast. **Every country still carries exactly one
+> row**: five power-outages (Ukraine, Peru, Guyana, Bangladesh, Sri Lanka), the Dominican Republic's
+> technical-problem row and Syria's `MAINTENANCE`-cause network row. Every row carries a recorded end
+> time — the feed is a rolling window of recent outage records, not a list of live outages. Cause split
+> now **5 power-outage / 1 technical-problem / 1 maintenance**, across **7 countries**; the cable-cut,
+> military-action, government-directed and natural-disaster categories have no row this cycle
 > ([[internet-outages]]).
-> (Pull date of current cycle: 2026-11-08.)
+> (Pull date of current cycle: 2026-11-12.)
 
 ## This week at a glance
 
-- The Cloudflare Radar channel records **9 outage records** in its rolling window on 11-08 — **3
-  nationwide**, **3 regional** and **3 network-level** in scope; severity **3 TOTAL / 3 MAJOR / 3
-  PARTIAL**. By the source's own cause category: **5 power-outage**, **1 technical-problem**, **1
-  cable-cut**, **1 military-action** and **1 maintenance** ([[internet-outages]]).
-- **Nine countries, one record each**: five power-outages (**Peru**, **Guyana**, **Bangladesh**, **Sri
-  Lanka**, **Namibia**), **Uruguay**'s cable-cut, the **Dominican Republic**'s network fault
-  (technical-problem), **Russia**'s network disruption the source labels military-action and **Syria**'s
-  network disruption the source labels maintenance ([[internet-outages]]).
-- The composition **shifted at the edges**: Iraq's exam-shutdown row and Panama's earthquake outage
-  left the window, and the Dominican Republic row entered; every record in the window carries a recorded
-  end time ([[internet-outages]]).
+- The Cloudflare Radar channel records **7 outage records** in its rolling window on 11-12 — **2
+  nationwide**, **3 regional** and **2 network-level** in scope; severity **2 TOTAL / 3 MAJOR / 2
+  PARTIAL**. By the source's own cause category: **5 power-outage**, **1 technical-problem** and **1
+  maintenance** ([[internet-outages]]).
+- **Seven countries, one record each**: five power-outages (**Ukraine**, **Peru**, **Guyana**,
+  **Bangladesh**, **Sri Lanka**), the **Dominican Republic**'s network fault (technical-problem) and
+  **Syria**'s network disruption the source labels maintenance ([[internet-outages]]).
+- The window **shed its three oldest rows and gained one**: Russia, Uruguay and Namibia left one by one,
+  the Ukraine row entered on 11-09; every record in the window carries a recorded end time
+  ([[internet-outages]]).
 
 ## Honest scope
 
 - **The feed is a rolling window of recent outage records, not a live-outage board.** Each row carries
-  the source's `detectedAt` and `endedAt` times; on the 11-08 pull all nine rows have a recorded end, the
-  oldest detection dating to 2026-10-07 (Russia) and the newest to 2026-11-06 (Dominican Republic). The
-  window does not drop rows strictly by age — Russia's 2026-10-07 row carried while Panama's 2026-10-09
-  and Iraq's 2026-10-10 rows left — so azimuth reports which rows the source returns, not an inferred
+  the source's `detectedAt` and `endedAt` times; on the 11-12 pull all seven rows have a recorded end, the
+  oldest detection dating to 2026-10-17 (Sri Lanka) and the newest to 2026-11-08 (Ukraine). This cycle
+  the rows left in detection order (10-07, then 10-13, then 10-14), unlike the prior cycle when Russia's
+  10-07 row outlasted younger ones — azimuth reports which rows the source returns, not an inferred
   cut-off date ([[internet-outages]]).
 - The theme registry lists a second channel (IMF PortWatch chokepoint status) that remains unsurfaced:
-  no chokepoint-status L1 note has been committed to date (none through the 2026-11-08 ingest); this
+  no chokepoint-status L1 note has been committed to date (none through the 2026-11-12 ingest); this
   brief scopes to the live internet-outage channel and widens when the second channel lands
   ([[internet-outages]]).
 
 ## Reading the week
 
-- **One fresh record entered this cycle: a Dominican Republic network fault.** The source records a
-  network fault that caused a near-total loss of Internet traffic from Claro Dominicana (AS6400),
-  affecting fixed and mobile services on 2026-11-06 from about 16:45 UTC to 18:45 UTC — a network-level,
-  PARTIAL-severity row, and the window's first **technical-problem** cause label ([[internet-outages]]).
-- **Two records left the window:** Iraq's 2026-10-10 exam-shutdown suspension — the last row of the
-  special round that ran 2026-09-26 → 2026-10-10 — and Panama's M7.7-earthquake outage (2026-10-09 18:00 →
-  2026-10-10 04:00 UTC), taking the set from 10 to 9 outages and clearing the government-directed and
-  natural-disaster categories ([[internet-outages]]).
-- **Power-outage stays the dominant cause at five records** — Peru (regional, MAJOR; the 2026-11-01
-  national-grid failure that hit Piura), Guyana (nationwide, TOTAL), Bangladesh (regional, MAJOR), Sri
-  Lanka (nationwide, TOTAL) and Namibia (nationwide, TOTAL) ([[internet-outages]]).
-- **Cable-cut holds at one record** — Uruguay's ANTEL backbone cut ([[internet-outages]]).
-- **Russia's military-action-labelled record carried**, with a recorded end: the source attributes the
-  network disruption to Yandex data-centre shutdowns after drone-strike damage in Sasovo, Ryazan and
-  Vladimir (2026-10-07 → 2026-10-11); azimuth records the cause label the source assigns and takes no
-  position on it ([[internet-outages]]).
+- **One fresh record entered this cycle: a Ukraine regional power outage.** The source records power
+  outages that significantly reduced Internet traffic from Dnipropetrovsk Oblast on 2026-11-08, from about
+  03:15 UTC to 21:00 UTC — a regional, MAJOR-severity row. The source's own description attributes the
+  power outages to Russian strikes on energy infrastructure; azimuth records the cause category
+  (power-outage) and that description as the source publishes them and takes no position on it
+  ([[internet-outages]]).
+- **Three records left the window:** Russia's network disruption the source labelled military-action
+  (2026-10-07 → 2026-10-11), Uruguay's ANTEL backbone cable-cut (2026-10-13) and Namibia's nationwide
+  power outage (2026-10-14), taking the set from 9 to 7 and clearing the cable-cut and military-action
+  categories ([[internet-outages]]).
+- **Power-outage stays the dominant cause at five records** — Ukraine (regional, MAJOR), Peru (regional,
+  MAJOR; the 2026-11-01 national-grid failure that hit Piura), Guyana (nationwide, TOTAL), Bangladesh
+  (regional, MAJOR) and Sri Lanka (nationwide, TOTAL) ([[internet-outages]]).
+- **The Dominican Republic's network fault carried** — Claro Dominicana (AS6400), 2026-11-06 16:45 →
+  18:45 UTC, PARTIAL — still the window's only technical-problem row, next to Syria's maintenance row
+  ([[internet-outages]]).
 - azimuth reports the measurements and the source's cause labels, and stops there
   ([[internet-outages]]).
 
 ## Changelog
+- 2026-11-13 — daily-ingest synthesis (2026-W46): absorbed the 2026-11-09 → 2026-11-12 pulls. Outage set eased to 7 records (from 9): Russia's military-action row (10-07), Uruguay's cable-cut (10-13) and Namibia's power outage (10-14) left the window in detection order; a Ukraine regional power outage entered (Dnipropetrovsk Oblast, 2026-11-08 03:15 → 21:00 UTC, MAJOR). Cause split 5 power-outage / 1 technical-problem / 1 maintenance across 7 countries; scope 2 nationwide / 3 regional / 2 network; severity 2 TOTAL / 3 MAJOR / 2 PARTIAL. Chokepoint channel still unsurfaced ([[internet-outages]]).
 - 2026-11-08 — daily-ingest synthesis (2026-W45): absorbed the 2026-11-06 → 2026-11-08 pulls. Outage set eased to 9 records (from 10): Iraq's last exam-shutdown row (2026-10-10) and Panama's M7.7-earthquake outage left the window; a Dominican Republic network fault entered (Claro Dominicana AS6400, 2026-11-06 16:45 → 18:45 UTC, PARTIAL) — the first technical-problem cause label. Cause split 5 power-outage / 1 technical-problem / 1 cable-cut / 1 military-action / 1 maintenance across 9 countries; scope 3 nationwide / 3 regional / 3 network; severity 3 TOTAL / 3 MAJOR / 3 PARTIAL. Noted that the window does not drop rows strictly by age (Russia's 10-07 row carried). Chokepoint channel still unsurfaced ([[internet-outages]]).
 - 2026-11-05 — daily-ingest synthesis (2026-W45): absorbed the 2026-11-02 → 2026-11-05 pulls; the outage set eased 12 → 10 (12/12/11/11/10 by day) as two Iraq exam-shutdown rows (10-06, 10-08) and Haiti's cable-cut aged off and a Peru national-grid power-outage (2026-11-01, Piura, regional MAJOR) entered. Cause split 5 power / 1 government-directed / 1 cable-cut / 1 natural-disaster / 1 military-action / 1 maintenance; severity 4 MAJOR / 4 TOTAL / 2 PARTIAL; 10 countries, one row each. Correction: every row carries a recorded `endedAt` — Panama ended 2026-10-10 and Russia 2026-10-11 — so the prior "ongoing, no recorded end" wording and the "active outages" framing were wrong; reframed as a rolling window of recent outage records and noted in Honest scope. Chokepoint-status still has no committed L1 note. Rewrote all sections. Observed-only framing held ([[internet-outages]]).
 
