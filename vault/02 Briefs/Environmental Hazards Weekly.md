@@ -2,8 +2,8 @@
 title: Environmental Hazards Weekly
 type: L2-brief
 theme: environmental-hazards
-week: 2026-W45
-updated: 2026-11-08T00:00:00Z
+week: 2026-W46
+updated: 2026-11-12T00:00:00Z
 sources: [wildfire-detections, thermal-escalations, natural-events, radiation-observations]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -16,58 +16,59 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 > environmental hazards — active-fire detections, clustered thermal anomalies, disaster
 > alerts and ambient-radiation readings — what the instruments recorded, never what will
 > happen, and never a position on any conflict the data sits near. Every claim links to the
-> L1 note it rests on. (This cycle absorbs the 2026-11-06 → 2026-11-08 pulls, comparing the 2026-11-08 pull
-> against the 2026-11-05 baseline. The wildfire feed's top-N FRP cap **held** — the note carries the **top
-> 250 detections by FRP of 500 rows** (the `totalCount` field reads **2,014**, down from 2,605 on 11-05) —
-> [[wildfire-detections]]. The capped tally **kept its Iran lead and broadened**: by the feed's own `region`
-> field it now reads **Iran 148 / Russia 54 / Turkey 21 / North Korea 12 / Saudi Arabia 9 / Ukraine 5 /
-> Taiwan 1** (from Iran 151 / Russia 57 / Saudi Arabia 32 / Turkey 6 / Israel/Gaza 2 / Ukraine 2), 0
-> unattributed; all 250 still carry an **emergency flag**, 0 a possible-explosion flag, and top-end
-> intensity **firmed** to top-3 FRP **~87.4 / 78.1 / 73.9 MW** (from ~70.9 / 57.6 / 55.4), all three in Iran.
-> The thermal-cluster slate **held 12 clusters** in its all-persistent, all-high-relevance,
-> all-conflict-adjacent shape — **12 / 12 / 12, 0 spike** — with the country split easing to **9 Iran /
-> 3 Russia** (from 11 / 1), peak cluster FRP **easing to ~389 MW** (from ~504 MW, still Iran) and the sharpest
-> z-score **rising to 4.17** (from 2.34) [[thermal-escalations]]. The disaster slate **held at 18 events**
-> but rotated: severe storms **rose to 3** — **Tropical Storm Pena** entered in the central Pacific, the
-> GDACS Red-alert MURASU-26 entry left the slate while JTWC still tracks **Tropical Cyclone Murasu**, and
-> **Super Typhoon In-fa** remains — while the **Taal** eruption dropped off, leaving **Kanlaon** the one
-> volcano entry [[natural-events]]; radiation **ran clean — 0 ELEVATED, 0 anomaly, 0 spike** across 10 EPA
-> stations + 1 Safecast reading [[radiation-observations]].)
+> L1 note it rests on. (This cycle absorbs the 2026-11-09 → 2026-11-12 pulls, comparing the 2026-11-12 pull
+> against the 2026-11-08 baseline. The wildfire feed's top-N FRP cap **held** — the note carries the **top
+> 250 detections by FRP of 500 rows** (the `totalCount` field reads **3,302**, up from 2,014 on 11-08, after
+> 3,239 / 2,668 / 1,996 on 11-09 → 11-11) — [[wildfire-detections]]. The capped tally **concentrated sharply on
+> Iran**: by the feed's own `region` field it now reads **Iran 214 / Russia 11 / North Korea 6 / Turkey 6 /
+> Saudi Arabia 5 / Syria 4 / Ukraine 4** (from Iran 148 / Russia 54 / Turkey 21 / North Korea 12 / Saudi
+> Arabia 9 / Ukraine 5 / Taiwan 1), 0 unattributed; all 250 still carry an **emergency flag**, 0 a
+> possible-explosion flag, and top-end intensity **eased** to top-3 FRP **~78.5 / 75.9 / 72.6 MW** (from
+> ~87.4 / 78.1 / 73.9), all three in Iran. The thermal-cluster slate **held 12 clusters** in its
+> all-persistent, all-high-relevance, all-conflict-adjacent shape — **12 / 12 / 12, 0 spike** — but the
+> country split moved to **12 Iran / 0 Russia** (from 9 / 3), peak cluster FRP **jumped to ~1,011 MW** (from
+> ~389 MW) and the sharpest z-score **rose to 7.97** (from 4.17) [[thermal-escalations]]. The disaster slate
+> **rose to 19 events, all open**: severe storms **rose to 4** — **Typhoon Cempaka** and **Tropical Cyclone
+> 03S** entered and Pena now carries two entries (an NHC tropical-depression entry and a JTWC tropical-storm
+> entry), while **Super Typhoon In-fa** and **Tropical Cyclone Murasu** left — a **fourth Orange drought**
+> (northern South America) entered, and the **Kanlaon** volcano entry dropped off [[natural-events]];
+> radiation logged **1 spike-severity reading** — Albany, NY — with **0 ELEVATED** across 10 EPA stations
+> + 1 Safecast reading [[radiation-observations]].)
 
 ## This week at a glance
 
 - The NASA FIRMS VIIRS feed's **top-250-by-FRP cap held at 250 detections**, out of the **500 rows** the
-  note caption records (the feed's `totalCount` field reads **2,014** on 11-08, down from 2,605 on 11-05);
-  the capped region tally **kept its Iran lead and broadened to seven countries** — **Iran 148 / Russia 54 /
-  Turkey 21 / North Korea 12 / Saudi Arabia 9 / Ukraine 5 / Taiwan 1** (0 unattributed); all 250 still
-  carry an **emergency flag** and 0 a possible-explosion flag, while intensity **firmed** — top-3 FRP
-  **~87.4 / 78.1 / 73.9 MW** (from ~70.9 / 57.6 / 55.4) ([[wildfire-detections]]).
+  note caption records (the feed's `totalCount` field reads **3,302** on 11-12, up from 2,014 on 11-08);
+  the capped region tally **concentrated on Iran** — **Iran 214 / Russia 11 / North Korea 6 / Turkey 6 /
+  Saudi Arabia 5 / Syria 4 / Ukraine 4** (0 unattributed); all 250 still carry an **emergency flag** and 0 a
+  possible-explosion flag, while intensity **eased** — top-3 FRP **~78.5 / 75.9 / 72.6 MW** (from ~87.4 /
+  78.1 / 73.9) ([[wildfire-detections]]).
 - The FIRMS thermal-escalation feed again clustered its 24-hour window into **12 signals** with the
   summary shape **held flat** — **12 `conflict_adjacent`, 12 `THERMAL_RELEVANCE_HIGH`, 12
-  `THERMAL_STATUS_PERSISTENT`, 0 spike** — while the per-cluster country split **eased to 9 Iran /
-  3 Russia** (from 11 / 1), peak cluster total-FRP **eased to ~389 MW** (from ~504 MW) and the sharpest
-  z-score **rose to 4.17** (from 2.34) ([[thermal-escalations]]).
-- The GDACS / NASA EONET disaster feed **held at 18 active events** (17 open, 1 closed, from 16 / 2):
-  severe storms **rose to 3** (from 2) as **Tropical Storm Pena** entered, Sea and Lake Ice **held at 11**,
-  the three multi-country droughts **held** Orange, and the volcano entries **thinned to 1** (Kanlaon,
-  Orange, closed-but-tracked) as Taal dropped off ([[natural-events]]).
-- Radiation **held at 10 EPA stations + 1 Safecast reading** and ran **clean on 11-08** — **0 ELEVATED,
-  0 anomaly, 0 spike** (2 low-confidence readings) ([[radiation-observations]]).
+  `THERMAL_STATUS_PERSISTENT`, 0 spike** — while every cluster is now labelled **Iran** (from 9 Iran /
+  3 Russia), peak cluster total-FRP **rose to ~1,011 MW** (from ~389 MW) and the sharpest z-score **rose
+  to 7.97** (from 4.17) ([[thermal-escalations]]).
+- The GDACS / NASA EONET disaster feed **rose to 19 active events** (19 open, 0 closed, from 17 / 1):
+  severe storms **rose to 4** (from 3), Sea and Lake Ice **held at 11**, droughts **rose to 4** (all
+  Orange) and the volcano category **emptied** as Kanlaon dropped off ([[natural-events]]).
+- Radiation **held at 10 EPA stations + 1 Safecast reading** and logged **1 anomaly** on 11-12 — a
+  **spike-severity** reading at **Albany, NY** — with **0 ELEVATED** and 0 corroborated (2 low-confidence
+  readings) ([[radiation-observations]]).
 
 ## Active fire — where the detections clustered
 
 - The capped detection set attributes — by each detection's own `region` field, deterministically
-  tallied — as **Iran 148 / Russia 54 / Turkey 21 / North Korea 12 / Saudi Arabia 9 / Ukraine 5 /
-  Taiwan 1** (0 unattributed) on the 11-08 pull, against **Iran 151 / Russia 57 / Saudi Arabia 32 /
-  Turkey 6 / Israel/Gaza 2 / Ukraine 2** on 11-05: **Iran and Russia held near-flat** (151 → 148,
-  57 → 54), **Turkey firmed** (6 → 21), **North Korea** (12) and **Taiwan** (1) entered, **Saudi Arabia
-  eased** (32 → 9) and Israel/Gaza dropped out. All 250 detections carried an emergency flag and 0 a
+  tallied — as **Iran 214 / Russia 11 / North Korea 6 / Turkey 6 / Saudi Arabia 5 / Syria 4 / Ukraine 4**
+  (0 unattributed) on the 11-12 pull, against **Iran 148 / Russia 54 / Turkey 21 / North Korea 12 / Saudi
+  Arabia 9 / Ukraine 5 / Taiwan 1** on 11-08: **Iran rose** (148 → 214, now 86% of the capped set),
+  **Russia fell** (54 → 11), **Turkey** (21 → 6), **North Korea** (12 → 6) and **Saudi Arabia** (9 → 5)
+  eased, **Syria** (4) entered and Taiwan dropped out. All 250 detections carried an emergency flag and 0 a
   possible-explosion flag on both pulls ([[wildfire-detections]]).
-- Intensity **firmed** at the top of the capped set — top-3 fire-radiative-power values of
-  **~87.4 / 78.1 / 73.9 MW** on 11-08, all three Iran-labelled detections, from ~70.9 / 57.6 / 55.4 MW on
-  11-05 (when the strongest was Israel/Gaza-labelled) ([[wildfire-detections]]).
-- The endpoint's full set (the note caption records the **top 250 by FRP of 500 rows**) reads **2,014**
-  on 11-08 (`totalCount` field), down from 2,605 on 11-05 — the **top-N FRP cap held at 250 of 500 rows**.
+- Intensity **eased** at the top of the capped set — top-3 fire-radiative-power values of
+  **~78.5 / 75.9 / 72.6 MW** on 11-12, all three Iran-labelled detections, from ~87.4 / 78.1 / 73.9 MW on
+  11-08 (also all Iran) ([[wildfire-detections]]).
+- The endpoint's full set (the note caption records the **top 250 by FRP of 500 rows**) reads **3,302**
+  on 11-12 (`totalCount` field), up from 2,014 on 11-08 — the **top-N FRP cap held at 250 of 500 rows**.
   The note's figures describe only the strongest-250 subset by fire radiative power, never the whole
   feed; the country split above is exact for that capped set, attribution by each row's own `region`
   field ([[wildfire-detections]]).
@@ -77,11 +78,11 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 - The feed clustered its 24-hour observation window into **12 thermal-escalation signals**, and the
   summary shape **held flat**: **12 of 12 `conflict_adjacent`, 12 `THERMAL_RELEVANCE_HIGH`, 12
   `THERMAL_STATUS_PERSISTENT`, 0 spike, 0 elevated** ([[thermal-escalations]]).
-- The per-cluster country split **eased to 9 Iran / 3 Russia** on 11-08 (from 11 Iran / 1 Russia on
-  11-05), the three Russia clusters sitting at ~57.6-58.2°N. Peak cluster total-FRP **eased to ~389 MW**
-  (centroid ~27.5°N, 52.6°E, **Iran**) from **~504 MW** (~27.7°N, 52.2°E, also Iran), while the sharpest
-  cluster z-score **rose to 4.17** (from 2.34) on a smaller Iran cluster (~128.5 MW at ~30.2°N, 47.4°E):
-  the largest cluster cooled while one cluster moved further from its own baseline
+- The per-cluster country split **moved to 12 Iran / 0 Russia** on 11-12 (from 9 Iran / 3 Russia on
+  11-08). Peak cluster total-FRP **rose to ~1,011 MW** (centroid ~31.0°N, 47.3°E, **Iran**) from **~389 MW**
+  (~27.5°N, 52.6°E, also Iran), with the next two clusters at ~964 MW (~30.3°N, 47.4°E) and ~785 MW
+  (~30.8°N, 48.3°E); the sharpest cluster z-score **rose to 7.97** (from 4.17) on a ~745 MW cluster at
+  ~31.3°N, 48.1°E — the cluster aggregates on this pull sit well above the prior cycle's
   ([[thermal-escalations]]).
 - azimuth reports the cluster count, the country labels and the summary classification as the observed
   feed output and takes no position on it — a thermal cluster is a measured radiance aggregate, and the
@@ -90,35 +91,41 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 ## Disaster alerts and radiation
 
-- The GDACS/EONET disaster slate **held at 18 active events** on the 11-08 pull (17 open / 1 closed, from
-  16 / 2). Severe storms **rose to 3** (from 2): **Tropical Storm Pena** entered in the central Pacific
-  (NHC, 50 kt at ~11.4°N, 154.5°W); the GDACS Red-alert **MURASU-26** entry (id 1001346) left the slate
-  while the JTWC entry **Tropical Cyclone Murasu** (65 kt at ~15.8°N, 80.2°E) is now carried; and **Super
-  Typhoon In-fa** (60 kt at ~29.4°N, 141.5°E) remains tracked ([[natural-events]]).
-- Sea and Lake Ice **held at 11**; the three multi-country droughts **held** Orange (the African,
-  Central-American/Caribbean and European entries); the volcano entries **thinned to one** — **Kanlaon**
-  held Orange, still flagged closed, while the **Taal** entry dropped off. azimuth records the count and
+- The GDACS/EONET disaster slate **rose to 19 active events** on the 11-12 pull (19 open / 0 closed, from
+  17 / 1). Severe storms **rose to 4** (from 3): **Pena** now carries two entries — the NHC entry, downgraded
+  to **Tropical Depression Pena** (30 kt, ~9.8°N, 172.0°W, from a 50 kt tropical storm on 11-08), and a JTWC
+  entry **Tropical Storm Pena** — while **Typhoon Cempaka** (~30.2°N, 154.1°E) and **Tropical Cyclone 03S**
+  (~11.3°S, 50.5°E) entered, both JTWC; **Super Typhoon In-fa** and **Tropical Cyclone Murasu** left the slate
+  ([[natural-events]]).
+- Sea and Lake Ice **held at 11**; the drought entries **rose to four**, all Orange — the African,
+  Central-American/Caribbean and European entries carried and a **northern South American** entry (Aruba,
+  Brazil, Colombia, Costa Rica, French Guiana, Guyana, Panama, Suriname, Venezuela) entered; the volcano
+  category **emptied** as the closed-but-tracked **Kanlaon** entry dropped off. azimuth records the count and
   category slate as the observed feed state ([[natural-events]]).
-- Radiation ran **clean this cycle**: the 11-08 pull reads **0 ELEVATED, 0 anomaly, 0 spike** across
-  **10 EPA RadNet US stations + 1 Safecast reading** (2 low-confidence readings, 0 corroborated
-  anomalies) — a quiet ambient-radiation read, unchanged from 11-05 ([[radiation-observations]]).
+- Radiation logged **one anomaly this cycle**: the 11-12 pull reads **1 spike-severity reading, 0
+  ELEVATED** across **10 EPA RadNet US stations + 1 Safecast reading** — the EPA RadNet station at **Albany,
+  NY** recorded **65 nSv/h** against a **51.1 nSv/h** baseline (+13.9), at medium confidence, single-source
+  and **not corroborated**; 2 readings are low-confidence. azimuth reports the reading and its own
+  severity label as the feed published them, and draws no conclusion beyond the recorded value
+  ([[radiation-observations]]).
 
 ## Reading the week
 
-- The 2026-11-08 pull shows the **fire picture holding its Iran lead while broadening and firming at the
-  top**: the top-N FRP cap held (top 250 by FRP of 500 rows, `totalCount` 2,014, down from 2,605), the
-  capped tally reading **Iran 148 / Russia 54 / Turkey 21 / North Korea 12 / Saudi Arabia 9 / Ukraine 5 /
-  Taiwan 1** and the top-3 FRP firming to **~87.4 / 78.1 / 73.9 MW** ([[wildfire-detections]]). The
-  thermal-cluster layer held its 12-cluster persistent, conflict-adjacent shape with Russia back to three
-  clusters, the peak cluster easing to ~389 MW and the sharpest z-score up to 4.17
-  ([[thermal-escalations]]). The disaster slate held at 18 but rotated — Tropical Storm Pena in, the GDACS
-  Red-alert entry and Taal out ([[natural-events]]) — and radiation stayed clean
+- The 2026-11-12 pull shows the **fire picture concentrating on Iran while easing at the top**: the top-N
+  FRP cap held (top 250 by FRP of 500 rows, `totalCount` 3,302, up from 2,014), the capped tally reading
+  **Iran 214 / Russia 11 / North Korea 6 / Turkey 6 / Saudi Arabia 5 / Syria 4 / Ukraine 4** and the top-3
+  FRP easing to **~78.5 / 75.9 / 72.6 MW** ([[wildfire-detections]]). The thermal-cluster layer held its
+  12-cluster persistent, conflict-adjacent shape with every cluster now in Iran, the peak cluster rising to
+  ~1,011 MW and the sharpest z-score to 7.97 ([[thermal-escalations]]). The disaster slate rose to 19 and
+  rotated — Cempaka, 03S and a second Pena entry in, In-fa, Murasu and Kanlaon out, a fourth drought added
+  ([[natural-events]]) — and radiation logged a single uncorroborated spike-severity reading at Albany
   ([[radiation-observations]]). azimuth records the detections, the cluster statuses, the alert categories
   and the sensor values, links each to its L1 note, and stops there — what the satellites and stations
   measured, not what may follow ([[wildfire-detections]], [[thermal-escalations]], [[natural-events]],
   [[radiation-observations]]).
 
 ## Changelog
+- 2026-11-13 — daily-ingest synthesis (2026-W46): absorbed the 2026-11-09 → 2026-11-12 pulls. Wildfire cap held at top 250 by FRP of 500 rows (`totalCount` 3,302, from 2,014); capped tally Iran 214 / Russia 11 / North Korea 6 / Turkey 6 / Saudi Arabia 5 / Syria 4 / Ukraine 4 (from Iran 148 / Russia 54 / Turkey 21 / North Korea 12 / Saudi Arabia 9 / Ukraine 5 / Taiwan 1), 0 unattributed; top-3 FRP eased to ~78.5 / 75.9 / 72.6 MW. Thermal slate held 12 persistent / conflict-adjacent / high-relevance clusters, now 12 Iran / 0 Russia (from 9/3), peak ~1,011 MW (from ~389), sharpest z 7.97 (from 4.17). Disaster slate rose to 19, all open: Typhoon Cempaka, TC 03S and a JTWC Pena entry in (NHC Pena downgraded to a 30 kt depression), In-fa, Murasu and Kanlaon out, a northern South American drought added (4 Orange droughts). Radiation: 1 uncorroborated spike-severity reading (Albany, NY, 65 vs 51.1 nSv/h), 0 ELEVATED ([[wildfire-detections]], [[thermal-escalations]], [[natural-events]], [[radiation-observations]]).
 - 2026-11-08 — daily-ingest synthesis (2026-W45): absorbed the 2026-11-06 → 2026-11-08 pulls. Wildfire cap held at top 250 by FRP of 500 rows (`totalCount` 2,014, from 2,605); capped tally Iran 148 / Russia 54 / Turkey 21 / North Korea 12 / Saudi Arabia 9 / Ukraine 5 / Taiwan 1 (from Iran 151 / Russia 57 / Saudi Arabia 32 / Turkey 6 / Israel/Gaza 2 / Ukraine 2), 0 unattributed; top-3 FRP firmed to ~87.4 / 78.1 / 73.9 MW. Thermal slate held 12 persistent / conflict-adjacent / high-relevance clusters, split 9 Iran / 3 Russia (from 11/1), peak ~389 MW (from ~504), sharpest z 4.17 (from 2.34). Disaster slate held at 18: Tropical Storm Pena entered, GDACS Red MURASU-26 entry left (JTWC Murasu carried), Taal dropped (Kanlaon remains). Radiation clean ([[wildfire-detections]], [[thermal-escalations]], [[natural-events]], [[radiation-observations]]).
 - 2026-11-05 — daily-ingest synthesis (2026-W45): absorbed the 2026-11-02 → 2026-11-05 pulls. Wildfire cap held (top 250 by FRP of 500 rows; totalCount 4,861 → 2,605); capped region tally flipped to Iran 151 / Russia 57 / Saudi Arabia 32 / Turkey 6 / Israel/Gaza 2 / Ukraine 2 (from Russia 131 / Iran 104 / Saudi Arabia 13 / Syria 2), 0 unattributed via fire_geo.country_tally; top-3 FRP eased to ~70.9 / 57.6 / 55.4 MW. Thermal: 12 clusters, shape held, split 11 IR / 1 RU (from 7/5), peak ~504 MW in Iran (from ~1,095 MW Russia), max z 2.34 (from 7.52). Disasters 20 → 18: storms 5 → 2 (GDACS 1001346 FOUR-26 → MURASU-26, Cat 1, 157 km/h; In-fa), ice 10 → 11, droughts 3 and volcanoes 2 held Orange. Radiation clean. Rewrote all sections. Observed-only framing held ([[wildfire-detections]], [[thermal-escalations]], [[natural-events]], [[radiation-observations]]).
 
