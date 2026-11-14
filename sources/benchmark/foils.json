@@ -2,10 +2,10 @@
   "$note": "Captured snapshot of the COMPARED forecast/intelligence product for the azimuth benchmark (synthesis/benchmark.py). Quoted by product + capture date; NOT surfaced as an azimuth channel and NOT an L1 source. Refresh with pull_benchmark_foils.py.",
   "endpoint": "/api/forecast/v1/get-forecasts",
   "attribution": "WorldMonitor (api.worldmonitor.app) — model-generated forecast/assessment product",
-  "feed_generated_at": 1794578681442,
+  "feed_generated_at": 1794661430484,
   "feed_degraded": false,
-  "captured_at": "2026-11-13T14:29:48Z",
-  "n_forecasts_seen": 10,
+  "captured_at": "2026-11-14T13:24:49Z",
+  "n_forecasts_seen": 7,
   "topics": {
     "energy-supply": {
       "foil": {
@@ -13,17 +13,17 @@
         "domain": "market",
         "region": "Red Sea",
         "title": "Energy repricing risk from Red Sea maritime disruption state",
-        "probability": 0.682,
-        "prior_probability": 0.651,
+        "probability": 0.65,
+        "prior_probability": 0.652,
         "confidence": 0.75,
         "time_horizon": "30d",
         "trend": "stable",
         "projections": {},
-        "scenario_short": "Red Sea maritime disruption will sustain energy repricing over 30d, driven by 64% pressure and 79% state confirmation of an energy supply shock, with 6 urgent critical signals reinforcing the path.",
-        "perspective_strategic": "The 64% pressure and 79% state confirmation indicate a stable but elevated risk of energy repricing, with the strongest transmission path running through energy supply shock toward Energy.",
-        "perspective_contrarian": "Counter-evidence includes the IEA's oil market surplus forecast and the second weekly decline in oil prices, which could stall repricing if supply concerns ease and no new hard signals emerge.",
-        "actor_lens": "Commodity traders: Price whether stress in Red Sea becomes durable over the 30d. Rebalance positions if the probability path moves away from 68%.",
-        "top_signal": "Red Sea maritime disruption state is feeding energy repricing through energy supply shock, with 64% pressure and 79% state confirmation"
+        "scenario_short": "Energy repricing from Red Sea maritime disruption will remain elevated at 65% probability over 30 days, driven by 58% energy supply shock pressure and 76% state confirmation from 5 urgent critical signals.",
+        "perspective_strategic": "The 58% pressure and 76% state confirmation indicate a strong but not certain transmission path through energy supply shock, with 5 urgent critical signals reinforcing the risk.",
+        "perspective_contrarian": "The 75% confidence level still leaves room for reversal, and the Iraq oil production surge to 2019 high suggests alternative supply routes could mitigate Red Sea disruption effects.",
+        "actor_lens": "Commodity traders: Price whether stress in Red Sea becomes durable over the 30d. Rebalance positions if the probability path moves away from 65%.",
+        "top_signal": "Red Sea maritime disruption state is feeding energy repricing through energy supply shock, with 58% pressure and 76% state confirmation"
       },
       "absence_reason": null
     },
@@ -33,17 +33,17 @@
         "domain": "market",
         "region": "Red Sea",
         "title": "Energy repricing risk from Red Sea maritime disruption state",
-        "probability": 0.682,
-        "prior_probability": 0.651,
+        "probability": 0.65,
+        "prior_probability": 0.652,
         "confidence": 0.75,
         "time_horizon": "30d",
         "trend": "stable",
         "projections": {},
-        "scenario_short": "Red Sea maritime disruption will sustain energy repricing over 30d, driven by 64% pressure and 79% state confirmation of an energy supply shock, with 6 urgent critical signals reinforcing the path.",
-        "perspective_strategic": "The 64% pressure and 79% state confirmation indicate a stable but elevated risk of energy repricing, with the strongest transmission path running through energy supply shock toward Energy.",
-        "perspective_contrarian": "Counter-evidence includes the IEA's oil market surplus forecast and the second weekly decline in oil prices, which could stall repricing if supply concerns ease and no new hard signals emerge.",
-        "actor_lens": "Commodity traders: Price whether stress in Red Sea becomes durable over the 30d. Rebalance positions if the probability path moves away from 68%.",
-        "top_signal": "Red Sea maritime disruption state is feeding energy repricing through energy supply shock, with 64% pressure and 79% state confirmation"
+        "scenario_short": "Energy repricing from Red Sea maritime disruption will remain elevated at 65% probability over 30 days, driven by 58% energy supply shock pressure and 76% state confirmation from 5 urgent critical signals.",
+        "perspective_strategic": "The 58% pressure and 76% state confirmation indicate a strong but not certain transmission path through energy supply shock, with 5 urgent critical signals reinforcing the risk.",
+        "perspective_contrarian": "The 75% confidence level still leaves room for reversal, and the Iraq oil production surge to 2019 high suggests alternative supply routes could mitigate Red Sea disruption effects.",
+        "actor_lens": "Commodity traders: Price whether stress in Red Sea becomes durable over the 30d. Rebalance positions if the probability path moves away from 65%.",
+        "top_signal": "Red Sea maritime disruption state is feeding energy repricing through energy supply shock, with 58% pressure and 76% state confirmation"
       },
       "absence_reason": null
     },
