@@ -3,7 +3,7 @@ title: Geophysical Weekly
 type: L2-brief
 theme: geophysical
 week: 2026-W46
-updated: 2026-11-12T00:00:00Z
+updated: 2026-11-15T00:00:00Z
 sources: [earthquakes]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -14,71 +14,69 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 > Synthesised from the week's L1 source notes under `../01 Sources/`. The `azimuth-curator`
 > fleet role evolves this single note in place each week. azimuth reports **observed**
 > seismicity from the USGS feed — what was recorded, never what will happen. Every claim
-> links to the L1 note it rests on. (This cycle absorbs the 2026-11-09 → 2026-11-12 pulls: the rolling
-> window **rose** to **103 M4.5+ (27 M5+, 3 M6+, strongest M6.4)** to 2026-11-12, from 88 (21/2, strongest
-> M6.1) on 2026-11-08 — after a dip to 83 on the 11-09 and 11-10 pulls. A new strongest event entered: a
-> shallow **M6.4 30 km WSW of Lata, Solomon Islands** (17 km, 2026-11-09), joining the **M6.1 144 km SE of
-> Hasaki, Japan** (29 km, 2026-11-06) and the **deep M6.1 in the Fiji region** (535 km, 2026-11-05), both
-> still in the window ([[earthquakes]]). **Indonesia took the count lead at 15**, ahead of **Japan** (13), with
-> the **Solomon Islands**, **Vanuatu** and **south of the Fiji Islands** at 6 each. The shallow share rose to
-> **45 of 103** <=15 km, and the deep-focus anchor holds at **607.0 km** beneath Mindanao, Philippines
-> ([[earthquakes]]).)
+> links to the L1 note it rests on. (This cycle absorbs the 2026-11-13 → 2026-11-15 pulls: the rolling
+> window **rose again** to **119 M4.5+ (32 M5+, 1 M6+, strongest M6.4)** to 2026-11-15, from 103 (27/3,
+> strongest M6.4) on 2026-11-12 — by pull 109 → 123 → 119. The **M6+ band thinned to one**: the shallow
+> **M6.4 30 km WSW of Lata, Solomon Islands** (17 km, 2026-11-09) still leads, while the two M6.1 shocks off
+> Hasaki, Japan and in the Fiji region aged off the trailing edge ([[earthquakes]]). **Indonesia extended its
+> count lead to 18**, Japan eased to 9, and **Papua New Guinea**, **south of the Fiji Islands** and the
+> **Solomon Islands** follow at 6 each. The shallow share climbed to **64 of 119** <=15 km, and the deepest
+> focus is now **587.4 km in the Fiji region** after the 607.0 km Mindanao anchor aged off ([[earthquakes]]).)
 
 ## This week at a glance
 
-- The USGS feed recorded **103** magnitude-4.5-or-greater earthquakes in the rolling window
-  retrieved 2026-11-12 (events 2026-11-05 → 2026-11-12), of which **27 reached M5+** and **three reached
-  M6+**, the strongest an **M6.4** — up from **88 (21 M5+, 2 M6+, strongest M6.1)** on 2026-11-08; by pull
-  the count ran 83 → 83 → 95 → 103 ([[earthquakes]]).
-- The M6+ band **gained a new top event**: a shallow **M6.4 30 km WSW of Lata, Solomon Islands** (17 km,
-  2026-11-09); the M6.1 off Hasaki, Japan and the deep M6.1 in the Fiji region carried ([[earthquakes]]).
-- **Indonesia leads the count at 15**, **Japan** holds 13 (from 9), and the **Solomon Islands** (6),
-  **Vanuatu** (6, from 3) and **south of the Fiji Islands** (6) follow ([[earthquakes]]).
+- The USGS feed recorded **119** magnitude-4.5-or-greater earthquakes in the rolling window
+  retrieved 2026-11-15 (events 2026-11-08 → 2026-11-15), of which **32 reached M5+** and **one reached
+  M6+**, the strongest an **M6.4** — up from **103 (27 M5+, 3 M6+, strongest M6.4)** on 2026-11-12; by pull
+  the count ran 109 → 123 → 119 ([[earthquakes]]).
+- The M6+ band **narrowed to a single event**: the shallow **M6.4 30 km WSW of Lata, Solomon Islands**
+  (17 km, 2026-11-09) carried, while the M6.1 off Hasaki, Japan (2026-11-06) and the deep M6.1 in the Fiji
+  region (2026-11-05) aged out of the seven-day window ([[earthquakes]]).
+- **Indonesia leads the count at 18** (from 15), **Japan** eased to 9 (from 13), and **Papua New Guinea**
+  (6, from 4), **south of the Fiji Islands** (6) and the **Solomon Islands** (6) follow ([[earthquakes]]).
 
 ## Largest events
 
-- A fresh **M6.4 30 km WSW of Lata, Solomon Islands** (17 km, 2026-11-09) now leads the window, followed
-  the next day by an **M5.2 19 km WSW of Lata** (10 km, 2026-11-10). The two **M6.1** shocks from the prior
-  cycle remain in the window: the shallow one **144 km SE of Hasaki, Japan** (29 km, 2026-11-06) and the
-  deep one in the **Fiji region** (535 km, 2026-11-05) ([[earthquakes]]).
-- Below them the M5+ band is led by the shallow **M5.8 on the central Mid-Atlantic Ridge** (10 km,
-  2026-11-07), a new **M5.7 106 km ENE of Hasaki, Japan** (24.2 km, 2026-11-09) and three **M5.5** shocks —
-  **40 km S of Puerto San José, Guatemala** (59.7 km, 2026-11-10, new), **8 km E of Shinshiro, Japan**
-  (37.1 km) and **74 km NE of Hasaki, Japan** (31.7 km), the last two from 2026-11-07 ([[earthquakes]]).
-- Other new M5+ entries this cycle include an **M5.4 in the South Sandwich Islands region** (121.6 km,
-  2026-11-12), **M5.4** shocks at **Pulau Pulau Tanimbar** and **160 km E of Masohi, Indonesia** (both
-  10 km), an **M5.3 80 km ENE of Lagunas, Peru** and an **M5.2 near Popondetta, Papua New Guinea** (124.2 km)
-  ([[earthquakes]]).
+- The shallow **M6.4 30 km WSW of Lata, Solomon Islands** (17 km, 2026-11-09) is the window's only M6+
+  event. Behind it sit two fresh **M5.8** shocks, both shallow at 10 km: **79 km WSW of Changuillo, Peru**
+  (2026-11-13) and **148 km NW of Kavieng, Papua New Guinea** (2026-11-12) ([[earthquakes]]).
+- The carried **M5.7 106 km ENE of Hasaki, Japan** (24.2 km, 2026-11-09) is next, followed by three
+  **M5.5** shocks — a deep one in the **Fiji region** (469.9 km, 2026-11-15, new), one on the **northern
+  Mid-Atlantic Ridge** (10 km, 2026-11-14, new) and the carried one **40 km S of Puerto San José,
+  Guatemala** (59.7 km, 2026-11-10) ([[earthquakes]]).
+- Other new M5+ entries this cycle include **M5.2** shocks in the **State of Yap, Micronesia** and **off the
+  west coast of northern Sumatra** (both 10 km, 2026-11-14), **79 km NE of Kuqa, China** and on the **West
+  Chile Rise** (both 10 km, 2026-11-13) ([[earthquakes]]).
 
 ## Where the activity clustered
 
-- **Indonesia leads at 15 events** — spread from Sumatra and Java to Maluku and Papua, with two events
-  each near Tanimbar, Masohi (including the two M5.4 shocks) and Tobelo — ahead of **Japan at 13**, where the Kanto coast off Hasaki carries the M6.1, the new
-  M5.7 and an M5.5 ([[earthquakes]]).
-- The **Solomon Islands** (6, around the M6.4 off Lata), **Vanuatu** (6, up from 3) and **south of the Fiji
-  Islands** (6) form the next tier, then **Chile** (5), the **South Sandwich Islands region**, **Russia** and
-  **Papua New Guinea** (4 each), and **Guatemala**, **Alaska** and the **central Mid-Atlantic Ridge** (3
-  each) ([[earthquakes]]).
+- **Indonesia leads at 18 events** — spread from Sumatra and Java to Flores (Ruteng), Lombok, Sulawesi
+  (Bitung), Maluku (Masohi, Tobelo, Labuha) and Papua (Fakfak, Abepura) — ahead of **Japan at 9**, down from
+  13 as the early-November Kanto-coast events off Hasaki aged off ([[earthquakes]]).
+- **Papua New Guinea** (6, around the new M5.8 off Kavieng), **south of the Fiji Islands** (6) and the
+  **Solomon Islands** (6) form the next tier, then the **Philippines**, **Russia**, **Chile**, the **South
+  Sandwich Islands region** and **Vanuatu** (4 each), and **Tonga**, **Argentina**, **Peru**, **China** and
+  the **western Indian-Antarctic Ridge** (3 each) ([[earthquakes]]).
 
 ## Depth profile
 
-- The shallow share rose: **45 of the 103 events sit at or below 15 km** (from 35 of 88), with the
-  Indonesian, Solomon Islands and Mid-Atlantic Ridge shocks the main shallow contributors
-  ([[earthquakes]]).
-- The deep end held: the window's deepest is still the **M4.9 41 km WSW of Gadung, Philippines at 607.0
-  km**, followed by an M4.5 in the Fiji region at 571.9 km and the 527–536 km band south of the Fiji Islands
-  that includes the **deep M6.1 in the Fiji region** (535 km) ([[earthquakes]]).
+- The shallow share rose again: **64 of the 119 events sit at or below 15 km** (from 45 of 103), with the
+  Indonesian, Papua New Guinea and ridge shocks the main shallow contributors ([[earthquakes]]).
+- The deep end **shallowed**: the 607.0 km event beneath Mindanao, Philippines aged off, so the window's
+  deepest is now an **M4.5 in the Fiji region at 587.4 km**, followed by the 527–564 km band south of the Fiji
+  Islands and the new deep **M5.5 in the Fiji region** (469.9 km) ([[earthquakes]]).
 
 ## Reading the week
 
-- The window rose on count — **103 M4.5+ (27 M5+, 3 M6+, strongest M6.4)** to 2026-11-12, from 88 (21/2,
-  strongest M6.1) on 2026-11-08 — and gained a new strongest event, the shallow M6.4 off Lata in the
-  Solomon Islands. Indonesia and Japan carry the count, Japan's Kanto coast stays the strong-event focus
-  with the M6.1 and a new M5.7 off Hasaki, 45 of 103 shocks sit shallow, and the deepest focus holds at
-  607.0 km beneath Mindanao. azimuth records what the instruments measured — magnitude, location, depth,
-  time — and stops there, making no forecast of what comes next ([[earthquakes]]).
+- The window rose on count — **119 M4.5+ (32 M5+, 1 M6+, strongest M6.4)** to 2026-11-15, from 103 (27/3,
+  strongest M6.4) on 2026-11-12 — while the strong-event band thinned as two M6.1 shocks aged off. Indonesia
+  carries the count, the Solomon Islands M6.4 still caps the window, more than half the shocks sit shallow,
+  and the deepest focus moved to 587.4 km beneath the Fiji region. azimuth records what the instruments
+  measured — magnitude, location, depth, time — and stops there, making no forecast of what comes next
+  ([[earthquakes]]).
 
 ## Changelog
+- 2026-11-16 — daily-ingest synthesis (2026-W46): absorbed the 2026-11-13 → 2026-11-15 USGS pulls; the rolling window to 2026-11-15 rose to 119 M4.5+ (32 M5+, 1 M6+, strongest M6.4 — from 103/27/3; by pull 109 → 123 → 119). The M6.4 off Lata, Solomon Islands carried as the sole M6+ while the Hasaki and Fiji-region M6.1 shocks aged off; fresh M5.8 shocks off Changuillo, Peru and Kavieng, Papua New Guinea. Indonesia extended the count lead to 18, Japan eased to 9; shallow share 64 of 119 (from 45 of 103); deepest focus moved to 587.4 km (Fiji region) as the 607.0 km Mindanao anchor aged off. Rewrote the intro, at-a-glance, largest-events, clustering, depth and reading sections. Observed-only framing held ([[earthquakes]]).
 - 2026-11-13 — daily-ingest synthesis (2026-W46): absorbed the 2026-11-09 → 2026-11-12 USGS pulls; the rolling window to 2026-11-12 rose to 103 M4.5+ (27 M5+, 3 M6+, strongest M6.4 — from 88/21/2, strongest M6.1; 83 on the 11-09 and 11-10 pulls). A shallow M6.4 30 km WSW of Lata, Solomon Islands (17 km, 2026-11-09) became the strongest event; the Hasaki and Fiji-region M6.1 shocks carried; new M5.7 106 km ENE of Hasaki. Indonesia took the count lead at 15 ahead of Japan 13; shallow share 45 of 103 (from 35 of 88); deepest focus held at 607.0 km (Gadung, Philippines) ([[earthquakes]]).
 - 2026-11-08 — daily-ingest synthesis (2026-W45): absorbed the 2026-11-06 → 2026-11-08 USGS pulls; the rolling window to 2026-11-08 held near-flat at 88 M4.5+ (21 M5+, 2 M6+, strongest M6.1 — from 90/26/3, strongest M6.2) but the M6+ roster turned over completely: the deep M6.2 and shallow M6.0 off Port-Olry and the deep M6.0 off Shima aged off; a shallow M6.1 144 km SE of Hasaki, Japan (29 km) and a deep M6.1 in the Fiji region (535 km) entered. Vanuatu collapsed 17 → 3 and Japan took the count lead at 9; shallow share 35 of 88 (from 46 of 90); deepest focus deepened from 556.5 km to 607.0 km (Gadung, Philippines) ([[earthquakes]]).
 - 2026-11-05 — daily-ingest synthesis (2026-W45): absorbed the 2026-11-02 → 2026-11-05 USGS pulls; the rolling window to 2026-11-05 eased to 90 M4.5+ (26 M5+, 3 M6+, strongest M6.2 — from 137/52/5, strongest M6.4). The M6.4 southeast of Easter Island and two shallow Port-Olry M6.0 shocks aged off, leaving the deep M6.2 43 km ESE of Port-Olry, Vanuatu (142.8 km) in the lead; no fresh M6+ since 2026-11-01. Vanuatu kept the count lead at 17 (from 37), a Mid-Indian Ridge cluster entered at 6, China/Nagqu faded to one; deepest focus shoaled from 641.8 km to 556.5 km (Fiji region); 46 of 90 shallow ≤15 km. Rewrote the at-a-glance, largest-events, clustering, depth and reading sections. Observed-only framing held ([[earthquakes]]).
