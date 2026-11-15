@@ -1554,6 +1554,7 @@
       "entity_kind": "region",
       "theme": "shared",
       "themes": [
+        "climate-signals",
         "cyber-watch",
         "energy-supply",
         "environmental-hazards"
@@ -4187,6 +4188,13 @@
       "target": "source:disease-outbreaks",
       "cross_theme": false,
       "rel": "named-in"
+    },
+    {
+      "source": "entity:taiwan",
+      "target": "brief:climate-signals-weekly",
+      "cross_theme": true,
+      "rel": "mentioned-in",
+      "weight": 0
     },
     {
       "source": "entity:taiwan",
