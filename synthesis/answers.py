@@ -270,24 +270,50 @@ def _weeks_latest(raw: str | None, value_key: str, change_key: str) -> dict[str,
     return {"period": latest.get("period"), "value": val, "change": chg, "streak": streak}
 
 
-def _q1_verdict(gas_building: bool) -> tuple[str, str]:
+def _q1_verdict(
+    gas_building: bool, crude_draw: bool | None = None, px_fell: bool | None = None
+) -> tuple[str, str]:
     """Q1 verdict — a pure function of the gas-storage direction (the load-bearing sign).
 
     Returns ``(verdict_md_body, truth_table_branch)``. Storage *filling* is the physical
     buffer growing → leans well-supplied; storage *drawing down* is that buffer shrinking
     → leans fragile. Flip the gas sign and the verdict flips with it.
+
+    The supporting clauses follow the SIGN of their own inputs, never a canned draw-week
+    story: ``crude_draw`` (US crude stock change < 0; ``None`` = no crude reading) picks
+    "draw to watch" vs "build too" (and "drew down too" vs "offset by a build" on the
+    fragile side), ``px_fell`` (WTI change < 0; ``None`` = no price
+    reading) picks "spot crude eased" vs "spot crude firmed".
     """
     if gas_building:
+        if px_fell is None:
+            px_clause = ""
+        else:
+            px_clause = " and spot crude eased" if px_fell else " and spot crude firmed"
+        if crude_draw is None:
+            crude_clause = ""
+        elif crude_draw:
+            crude_clause = ", while the US crude draw is the single signal to watch"
+        else:
+            crude_clause = (
+                ", and US crude stocks built too, so no tightening shows in the physical balances"
+            )
         return (
-            "**Verdict — the data leans well-supplied, not fragile.** Storage is filling "
-            "and spot crude eased, while the multi-week US crude draw is the single signal "
-            "to watch; azimuth states what the feeds show, not a safety call",
+            "**Verdict — the data leans well-supplied, not fragile.** Storage is filling"
+            f"{px_clause}{crude_clause}; azimuth states what the feeds show, not a safety call",
             "gas storage building",
         )
+    if crude_draw is None:
+        fragile_crude = ""
+    elif crude_draw:
+        fragile_crude = ", and US crude stocks drew down too"
+    else:
+        fragile_crude = ", only partly offset by a US crude build"
     return (
         "**Verdict — the data leans fragile, not well-supplied.** Storage is drawing down — "
-        "the physical buffer Europe leans on is shrinking, not filling; that is the fragile "
-        "side of the read; azimuth states what the feeds show, not a safety call",
+        "the physical buffer Europe leans on is shrinking, not filling"
+        f"{fragile_crude}; that is the fragile side of the read; azimuth states what the "
+        "feeds show, not a safety call",
         "gas storage drawing down",
     )
 
@@ -330,14 +356,19 @@ def _answer_q1(bundle: dict[str, tuple[str, str]]) -> Answer:
                 f"{_signed(crude['change'])} (EIA week of {crude['period']}) to "
                 f"{_fmt(crude['value'])}"
                 + (
-                    f" — the {crude['streak']}th straight weekly {'draw' if draw else 'build'}, "
-                    "the one tightening signal in the picture"
+                    f" — the {_ordinal(crude['streak'])} straight weekly "
+                    + (
+                        "draw, the one tightening signal in the picture"
+                        if draw
+                        else "build, adding to the physical buffer"
+                    )
                     if crude["streak"] >= 2
                     else ""
                 ),
                 "crude-oil-inventories",
             )
         )
+    px_fell = _spot_fell(prices)
     if wti or brent:
         channels.append("Energy prices")
         parts = []
@@ -347,19 +378,30 @@ def _answer_q1(bundle: dict[str, tuple[str, str]]) -> Answer:
             parts.append(f"Brent ${brent.get('price')}/bbl ({_num(brent.get('change'))})")
         claims.append(
             _claim(
-                "**Spot crude eased** this week — " + ", ".join(parts) + " on the reported "
-                "week-on-week change, so the price tape is not signalling scarcity",
+                {
+                    True: "**Spot crude eased** this week — ",
+                    False: "**Spot crude firmed** this week — ",
+                    None: "**Spot crude** this week — ",
+                }[px_fell]
+                + ", ".join(parts)
+                + " on the reported week-on-week change, so the price tape "
+                + {
+                    True: "is not signalling scarcity",
+                    False: "points firmer, not looser",
+                    None: "gives no clear direction",
+                }[px_fell],
                 "energy-prices",
             )
         )
     # the sourced verdict — facts in, position out (a pure function of the gas sign)
     if gas and crude:
         gas_building = (gas["change"] or 0) >= 0
-        verdict_md, branch = _q1_verdict(gas_building)
+        crude_draw = (crude["change"] or 0) < 0
+        verdict_md, branch = _q1_verdict(gas_building, crude_draw, px_fell)
         cite = ("natural-gas-storage-eu", "crude-oil-inventories", "energy-prices")
         claims.insert(0, _claim(verdict_md, *cite))
         # counterfactual: flip the gas-storage sign -> the verdict recomputes off the same fn
-        flipped_md, flipped_branch = _q1_verdict(not gas_building)
+        flipped_md, flipped_branch = _q1_verdict(not gas_building, crude_draw, px_fell)
         whatif = WhatIf(
             input_label="EU gas storage weekly change",
             real_value=f"{_signed(gas['change'])} Bcf ({'building' if gas_building else 'drawing down'})",
@@ -433,7 +475,12 @@ def _answer_q2(bundle: dict[str, tuple[str, str]]) -> Answer:
         claims.append(
             _claim(
                 f"**Supply side:** US crude stocks {inv_dir} — {_signed(crude['change'])} "
-                f"week of {crude['period']}. A draw normally argues for FIRMER prices",
+                f"week of {crude['period']}. "
+                + (
+                    "A draw normally argues for FIRMER prices"
+                    if inv_dir == "tightened"
+                    else "A build normally argues for SOFTER prices"
+                ),
                 "crude-oil-inventories",
             )
         )
@@ -443,7 +490,9 @@ def _answer_q2(bundle: dict[str, tuple[str, str]]) -> Answer:
         claims.append(
             _claim(
                 f"**Price side:** WTI ${wti.get('price')}/bbl {px_dir} ({_num(wti.get('change'))} "
-                "reported w/w) — the actual tape, against what the inventory draw implied",
+                "reported w/w) — the actual tape, against what the inventory "
+                + {"tightened": "draw", "loosened": "build"}.get(inv_dir or "", "signal")
+                + " implied",
                 "energy-prices",
             )
         )
@@ -606,9 +655,7 @@ def _answer_q4(bundle: dict[str, tuple[str, str]]) -> Answer:
         claims.append(
             _claim(
                 "**What it connects to:** the move sits inside the inventories-vs-price loop — "
-                "US crude drew down while spot prices eased, so the headline swing reflects "
-                "demand-side repricing rippling from the spot tape into the physical balances "
-                "and on to pump prices",
+                + _q4_ripple(crude, prices),
                 "crude-oil-inventories",
                 "energy-prices",
                 "fuel-prices",
@@ -713,6 +760,56 @@ def _answer_q5(bundle: dict[str, tuple[str, str]], registry: dict[str, Any]) -> 
 
 
 # --- small typed helpers -------------------------------------------------------------
+def _ordinal(n: int) -> str:
+    """``1st`` / ``2nd`` / ``3rd`` / ``4th`` … ``11th`` / ``12th`` / ``13th`` / ``21st``."""
+    suffix = "th" if 10 <= n % 100 <= 20 else {1: "st", 2: "nd", 3: "rd"}.get(n % 10, "th")
+    return f"{n}{suffix}"
+
+
+def _px_fell(wti: dict[str, Any] | None) -> bool | None:
+    """WTI week-on-week direction: True = fell, False = rose/flat, None = no reading."""
+    if wti is None:
+        return None
+    chg = _to_num(wti.get("change"))
+    return None if chg is None else chg < 0
+
+
+def _spot_fell(prices: Any) -> bool | None:
+    """Spot-crude direction for the Q1/Q4 prose: WTI first, Brent when WTI has no reading.
+
+    Zero change counts as "not fell" (firmed/flat), the same ``>= 0`` convention the gas and
+    crude stock signs use throughout this module.
+    """
+    fell = _px_fell(_first(prices, "commodity", "wti"))
+    if fell is None:
+        fell = _px_fell(_first(prices, "commodity", "brent"))
+    return fell
+
+
+def _q4_ripple(crude: dict[str, Any] | None, prices: Any) -> str:
+    """Q4 ripple sentence — follows the SIGN of the crude stock change and the WTI change.
+
+    Same 2x2 as the Q2 verdict: stocks and price moving the 'expected' way (draw + rise,
+    build + fall) is a supply-side read; against each other (draw + fall, build + rise)
+    is a demand-side read. A missing input degrades to a direction-free sentence.
+    ``crude`` is the latest-week reading ``_answer_q4`` already parsed (one source of truth).
+    """
+    px_fell = _spot_fell(prices)
+    if crude is None or crude.get("change") is None or px_fell is None:
+        return (
+            "the headline swing ripples from the spot tape into the physical balances "
+            "and on to pump prices"
+        )
+    draw = (crude["change"] or 0) < 0
+    stocks = "US crude drew down" if draw else "US crude stocks built"
+    tape = "spot prices eased" if px_fell else "spot prices firmed"
+    side = "demand-side" if draw == px_fell else "supply-side"
+    return (
+        f"{stocks} while {tape}, so the headline swing reflects {side} repricing rippling "
+        "from the spot tape into the physical balances and on to pump prices"
+    )
+
+
 def _to_num(v: Any) -> float | None:
     try:
         return float(v)

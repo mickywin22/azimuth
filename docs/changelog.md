@@ -206,6 +206,15 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Initial project scaffold from coding factory template
 
 ### Fixed
+- **The "Ask the data" answers no longer narrate a crude draw in a build week (2026-11-16, KR-B):**
+  the Q1 verdict ("the multi-week US crude draw is the single signal to watch"), the Q2 claims
+  ("A draw normally argues for FIRMER prices", "what the inventory draw implied") and the Q4
+  ripple ("US crude drew down while spot prices eased") were canned for a draw week, so a US crude
+  build was published as a draw. `synthesis/answers.py` now words each of them from the sign of
+  the crude stock change (and the spot-price clauses from the sign of the WTI change), the Q1
+  streak line reads "3rd" not "3th", and a build streak is no longer called "the one tightening
+  signal". Guarded by `tests/unit/test_answers.py` (a build week never mentions a draw; a
+  rising-price week never says "eased"; a draw week keeps its draw wording).
 - **Broken link + gate transparency in the docs index (2026-07-01, KR-C):** `docs/README.md`
   linked `security/c1c-history-decision.md`, which is staged on the public-flip branch and is
   not on `main` — a dead link on the public-grade front door. Replaced it with a non-linking
