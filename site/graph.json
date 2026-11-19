@@ -506,6 +506,7 @@
         "environmental-hazards",
         "geophysical",
         "humanitarian",
+        "prediction-markets",
         "public-health"
       ],
       "evidence": [
@@ -1569,7 +1570,8 @@
         "climate-signals",
         "cyber-watch",
         "energy-supply",
-        "environmental-hazards"
+        "environmental-hazards",
+        "prediction-markets"
       ],
       "evidence": [
         {
@@ -1636,7 +1638,8 @@
       "themes": [
         "energy-supply",
         "environmental-hazards",
-        "humanitarian"
+        "humanitarian",
+        "public-health"
       ],
       "evidence": [
         {
@@ -1847,6 +1850,7 @@
         "humanitarian",
         "macro-markets",
         "orbital-watch",
+        "prediction-markets",
         "public-health"
       ],
       "evidence": [
@@ -2802,6 +2806,13 @@
     },
     {
       "source": "entity:philippines",
+      "target": "brief:prediction-markets-weekly",
+      "cross_theme": true,
+      "rel": "mentioned-in",
+      "weight": 0
+    },
+    {
+      "source": "entity:philippines",
       "target": "brief:public-health-weekly",
       "cross_theme": true,
       "rel": "mentioned-in",
@@ -4220,6 +4231,13 @@
       "weight": 0
     },
     {
+      "source": "entity:taiwan",
+      "target": "brief:prediction-markets-weekly",
+      "cross_theme": true,
+      "rel": "mentioned-in",
+      "weight": 0
+    },
+    {
       "source": "entity:brazil",
       "target": "brief:conflict-watch-weekly",
       "cross_theme": true,
@@ -4329,6 +4347,13 @@
       "target": "source:displacement-flows",
       "cross_theme": false,
       "rel": "named-in"
+    },
+    {
+      "source": "entity:sweden",
+      "target": "brief:public-health-weekly",
+      "cross_theme": true,
+      "rel": "mentioned-in",
+      "weight": 0
     },
     {
       "source": "entity:diesel",
@@ -4638,6 +4663,13 @@
     {
       "source": "entity:china",
       "target": "brief:orbital-watch-weekly",
+      "cross_theme": true,
+      "rel": "mentioned-in",
+      "weight": 0
+    },
+    {
+      "source": "entity:china",
+      "target": "brief:prediction-markets-weekly",
       "cross_theme": true,
       "rel": "mentioned-in",
       "weight": 0
