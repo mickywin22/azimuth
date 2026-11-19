@@ -2,8 +2,8 @@
 title: Humanitarian Watch Weekly
 type: L2-brief
 theme: humanitarian
-week: 2026-W46
-updated: 2026-11-15T00:00:00Z
+week: 2026-W47
+updated: 2026-11-19T00:00:00Z
 sources: [displacement-flows]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -15,97 +15,76 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 > fleet role evolves this single note in place each cycle. azimuth reports **recorded
 > displacement statistics** — a refugee or IDP population count is an observed figure
 > published by UNHCR / UN OCHA — and never assigns cause-blame or projects flows. Every claim
-> links to the L1 note it rests on. Data as of the **2026-11-15** pull (daily cadence continues). The
-> published-year (2025) figures **held exactly** — the global totals and the full top-flow table
-> carried byte-identical across the 2026-11-13 → 2026-11-15 pulls (and back to the 10-13 pull) — as
-> expected for an annual UNHCR release that revises only periodically; only the retrieval timestamp
-> advanced.
+> links to the L1 note it rests on. Data as of the **2026-11-19** pull (daily cadence continues). The
+> channel **rolled its published year from 2025 to 2026 on the 2026-11-17 pull** — the first change to the
+> payload since the flat run began on 2026-07-16 — and held the new figures on 11-18 and 11-19. The global
+> forcibly displaced total moved to **106,757,820** (from 106,175,975), and the country table, the rankings
+> and the corridor list all re-based on the new reference year ([[displacement-flows]]).
 
 ## This week at a glance
 
-- The UNHCR/OCHA channel's current published year (**2025**) records a global forcibly
-  displaced total of **106,175,975 people** (~106.2M): **64,239,352 internally displaced
-  (IDPs)**, **28,461,306 refugees**, **8,998,097 asylum seekers** and **4,477,220 stateless**
-  — the source's own category totals, held flat on every pull since 2026-07-16, reported as published
+- The UNHCR/OCHA channel's current published year is now **2026**, recording a global forcibly
+  displaced total of **106,757,820 people** (~106.8M): **64,937,492 internally displaced (IDPs)**,
+  **28,505,014 refugees**, **8,577,140 asylum seekers** and **4,738,174 stateless** — the source's own category
+  totals, reported as published ([[displacement-flows]]).
+- Against the 2025 reference year carried through the 11-16 pull, the new year records **+581,845** in total:
+  IDPs **+698,140**, refugees **+43,708**, stateless **+260,954**, and asylum seekers **−420,957**. These are
+  differences between two published reference years, not a measured week-on-week flow
   ([[displacement-flows]]).
-- The 2026-11-13 → 11-15 advance changed nothing: the same global aggregate —
-  106,175,975 total / 64,239,352 IDPs / 28,461,306 refugees / 8,998,097 asylum seekers /
-  4,477,220 stateless — is what the 2026-11-15 pull returns, matching 2026-10-13 figure-for-figure
-  (the payloads differ only in the `retrieved`/`fetchedAt` timestamp). A flat published-year
-  cycle is the expected shape for this channel, not a stale brief ([[displacement-flows]]).
 - Combining each country's own IDP, refugee-abroad, asylum-seeker-abroad and stateless counts
-  gives a total-forcibly-displaced-by-country-of-origin ranking: **Sudan (12.90M)**, **Syria
-  (10.56M)**, **Ukraine (8.96M)**, **Colombia (7.54M)**, **DR Congo (7.01M)** and
-  **Afghanistan (6.14M)** — the same six countries the per-category rankings below point to,
-  now summed into one figure per origin ([[displacement-flows]]).
+  gives a total-forcibly-displaced-by-country-of-origin ranking: **Sudan (12.58M**, from 12.90M), **Syria
+  (10.70M**, from 10.56M), **Ukraine (9.09M**, from 8.96M), **Colombia (7.50M)**, **DR Congo (6.78M**, from
+  7.01M) and **Afghanistan (5.84M**, from 6.14M) — the same six countries in the same order as the 2025 year
+  ([[displacement-flows]]).
 - The five largest recorded origin → asylum-country refugee corridors are **Syria → Türkiye
-  (2.35M)**, **Sudan → Chad (1.33M)**, **Myanmar → Bangladesh (1.18M)**, **Ukraine → Germany
-  (1.17M)** and **Afghanistan → Pakistan (1.16M)** — bilateral flow counts as the source
-  publishes them ([[displacement-flows]]).
-- The dataset still carries per-country figures for **212 countries/territories**. By
-  **internally displaced population**, the six largest recorded stocks on the 2026-11-15 pull
-  remain **Sudan (9,139,309)**, **Colombia (7,157,716)**, **DR Congo (5,669,479)**, **Syria
-  (5,542,227)**, **Yemen (4,795,983)** and **Ukraine (3,712,000)** — unchanged row-for-row from
-  the prior cycle, figures as the source publishes them ([[displacement-flows]]).
-- By **refugee stock**, the largest recorded populations are unchanged too: **Ukraine
-  (5,224,131)**, **Syria (4,865,764)**, **Sudan (2,820,737)**, **Afghanistan (2,671,560)**,
-  **South Sudan (2,386,499)** and **Myanmar (1,524,378)** — cross-border origin counts as the
+  (2.25M**, from 2.35M), **Sudan → Chad (1.37M)**, **Ukraine → Germany (1.21M)**, **Myanmar → Bangladesh
+  (1.20M)** and **South Sudan → Uganda (1.04M)**. **Afghanistan → Pakistan** fell out of the top five to
+  **0.82M** (from 1.16M), and **Syria → Lebanon** rose to **0.89M** (from 0.53M) — bilateral flow counts as the
   source publishes them ([[displacement-flows]]).
-- Week-on-week: the 2026-09-02 through 2026-11-15 pulls are **byte-identical** across the full
-  payload — global aggregates, all 212 country rows and every ranking above moved by zero (the
-  pulls differ only in the `retrieved`/`fetchedAt` timestamp). There is no evidence of a revision
-  across the W36 → W46 boundary — a fully flat span held through the 20-day curator gap
-  (09-03 → 09-22) and the daily cadence since (09-23 → 11-15), reported honestly rather than
-  manufactured ([[displacement-flows]]).
+- The dataset now carries per-country figures for **210 countries/territories** (from 212: Micronesia, the Cook
+  Islands and the Tibetan entry left, New Caledonia entered). By **internally displaced population**, the six
+  largest recorded stocks are **Sudan (8,685,273)**, **Colombia (7,149,587)**, **Syria (5,542,227)**, **DR Congo
+  (5,352,213)**, **Yemen (5,201,088)** and **Myanmar (3,948,628)** — Myanmar replaces Ukraine (3,871,000) in the
+  top six ([[displacement-flows]]).
+- By **refugee stock**, the largest recorded populations are **Ukraine (5,191,571)**, **Syria (5,014,619)**,
+  **Sudan (2,932,135)**, **South Sudan (2,432,262)**, **Afghanistan (2,362,041**, from 2,671,560) and **Myanmar
+  (1,549,943)** — South Sudan now ahead of Afghanistan; cross-border origin counts as the source publishes them
+  ([[displacement-flows]]).
 
 ## Honest scope — annual statistics, weekly heartbeat
 
-- UNHCR publishes these statistics on an **annual reference year** (currently 2025) with
-  periodic revisions — so week-on-week this brief typically holds flat and moves when the
-  source revises or rolls the year. The weekly cycle records that heartbeat honestly: a flat
-  week is the source being stable, not the brief being stale ([[displacement-flows]]).
-- The flat run first recorded from 2026-07-16 has now held through the 2026-11-15 pull — 122
-  days (2026-07-16 → 11-15) without a single revision to the 2025 reference-year aggregate
-  (106,175,975 total / 64,239,352 IDPs / 28,461,306 refugees / 8,998,097 asylum seekers /
-  4,477,220 stateless), consistent with the annual-snapshot cadence and spanning the routine
-  daily cadence, the earlier ingestion gaps, the 09-03 to 09-22 curator gap (daily L1 ingests
-  continued; this brief simply wasn't re-synthesised), the 09-23 to 11-15 daily-cadence
-  continuation, and the 2026-W33 through W46 week boundaries ([[displacement-flows]]).
+- UNHCR publishes these statistics on an **annual reference year** with periodic revisions — so week-on-week
+  this brief typically holds flat and moves when the source revises or rolls the year. This cycle is the
+  roll: the payload was byte-identical from 2026-07-16 through the 11-16 pull (123 days), then switched to the
+  2026 reference year on 11-17 ([[displacement-flows]]).
+- **A year roll is a re-base, not a trend.** The 2025 and 2026 figures are two published snapshots; azimuth
+  reports the differences between them but does not read them as a rate of displacement between 11-16 and
+  11-17. Country rows can also enter or leave the table with a roll, as three did this cycle
+  ([[displacement-flows]]).
 
 ## Reading the week
 
-- Two of every three forcibly displaced people in the 2025 published year are displaced
-  *within* their own country — the 64,239,352 IDP figure dwarfs the cross-border refugee
-  count of 28,461,306. azimuth reports the totals, the categories and the corridors as the
-  UN agencies publish them, and attaches no forecast and no attribution of blame
-  ([[displacement-flows]]).
-- The per-country detail resolves the IDP burden more sharply than a combined-stock ordering
-  does: **Sudan** carries the largest single IDP population at **9,139,309**, but **Colombia
-  (7,157,716)**, **DR Congo (5,669,479)**, **Syria (5,542,227)** and **Yemen (4,795,983)** each
-  record a larger internal-displacement stock than any country's refugee count — internal
-  displacement, not cross-border flight, is where the deepest populations sit. **Ukraine** carries
-  the largest refugee stock at **5,224,131**, ahead of Syria (4,865,764) and Sudan (2,820,737).
-  These are recorded stocks as the source publishes them on the 2026-11-15 pull; no move since
-  the prior published year or the prior cycle is implied ([[displacement-flows]]).
-- Summing each origin country's own IDP, refugee, asylum-seeker and stateless counts into one
-  total-displaced figure keeps the same top tier but re-orders it: **Sudan (12.90M)** still
-  leads, but **Syria (10.56M)** moves ahead of **Ukraine (8.96M)** once Syria's IDP and refugee
-  counts are combined, with **Colombia (7.54M)**, **DR Congo (7.01M)** and **Afghanistan
-  (6.14M)** closing the top six — a broader lens than the single-category stocks above, same
-  underlying source figures ([[displacement-flows]]).
-- The largest recorded bilateral refugee corridors sit downstream of that same origin
-  ranking: **Syria → Türkiye (2.35M)** is the single largest flow, followed by **Sudan → Chad
-  (1.33M)**, **Myanmar → Bangladesh (1.18M)**, **Ukraine → Germany (1.17M)** and **Afghanistan
-  → Pakistan (1.16M)** — recorded corridor counts, not a projection of future movement
-  ([[displacement-flows]]).
-- The global aggregate totals held flat across the full 2026-07-16 → 11-15 window — 122 days
-  of ingest cycles plus the earlier ingestion gaps, the 09-03 to 09-22 curator gap and the
-  09-23 to 11-15 daily-cadence continuation — consistent with the annual-snapshot cadence of
-  UNHCR/OCHA publishing. The per-country detail rows above reflect the source as ingested on
-  2026-11-15, the latest L1 day absorbed this cycle
-  ([[displacement-flows]]).
+- About **three in five** forcibly displaced people in the 2026 published year are displaced *within* their
+  own country — the 64,937,492 IDP figure is more than double the cross-border refugee count of 28,505,014, and
+  the IDP share rose with the roll while the asylum-seeker count fell. azimuth reports the totals, the
+  categories and the corridors as the UN agencies publish them, and attaches no forecast and no attribution
+  of blame ([[displacement-flows]]).
+- The per-country detail shows internal displacement holding the deepest populations: **Sudan** carries the
+  largest single IDP population at **8,685,273** (from 9,139,309), and **Colombia (7,149,587)**, **Syria
+  (5,542,227)**, **DR Congo (5,352,213)** and **Yemen (5,201,088**, from 4,795,983) each record a larger
+  internal-displacement stock than any country's refugee count. **Ukraine** still carries the largest refugee
+  stock at **5,191,571**, with Syria (5,014,619) closer behind than in 2025 ([[displacement-flows]]).
+- Summing each origin country's own IDP, refugee, asylum-seeker and stateless counts keeps the same six origins
+  in the same order — **Sudan (12.58M)**, **Syria (10.70M)**, **Ukraine (9.09M)**, **Colombia (7.50M)**, **DR Congo
+  (6.78M)**, **Afghanistan (5.84M)** — with Sudan, DR Congo and Afghanistan lower and Syria and Ukraine higher
+  than in the 2025 year ([[displacement-flows]]).
+- The corridor list re-ordered with the roll: **Syria → Türkiye (2.25M)** stays the largest recorded flow, but
+  **Afghanistan → Pakistan** dropped to 0.82M and out of the top five while **Syria → Lebanon** rose to 0.89M
+  and **South Sudan → Uganda (1.04M)** moved into fifth — recorded corridor counts, not a projection of future
+  movement ([[displacement-flows]]).
 
 ## Changelog
+- 2026-11-20 — daily-ingest synthesis (2026-W47): absorbed the 2026-11-16 → 2026-11-19 pulls — the published year ROLLED from 2025 to 2026 on the 11-17 pull, ending the byte-identical run held since 2026-07-16 (123 days). New global total 106,757,820 (+581,845): IDPs 64,937,492, refugees 28,505,014, asylum seekers 8,577,140, stateless 4,738,174. Table 212 → 210 countries; IDP top six now Sudan 8.69M, Colombia, Syria, DR Congo, Yemen, Myanmar (Ukraine out); refugee top six led by Ukraine 5.19M; origin ranking order unchanged (Sudan 12.58M first). Corridors: Afghanistan → Pakistan fell to 0.82M (out of top five), Syria → Lebanon rose to 0.89M, South Sudan → Uganda now fifth. Rewrote every section and the honest-scope note around the year roll ([[displacement-flows]]).
 - 2026-11-16 — daily-ingest synthesis (2026-W46): absorbed the 2026-11-13 → 2026-11-15 pulls — an honest flat cycle. The displacement payload is byte-identical to the 11-12 pull apart from the `retrieved`/`fetchedAt` timestamps: 2025 reference-year totals (106,175,975 / 64,239,352 IDPs / 28,461,306 refugees / 8,998,097 asylum seekers / 4,477,220 stateless), all 212 country rows and every ranking unchanged. Flat run now 122 days (2026-07-16 → 11-15). Advanced the as-of dates; no figure changed ([[displacement-flows]]).
 - 2026-11-13 — daily-ingest synthesis (2026-W46): absorbed the 2026-11-09 → 2026-11-12 pulls. The UNHCR/OCHA payload held identical to the 2026-11-08 pull apart from the `fetchedAt` timestamp (2025 reference year: 106,175,975 total / 64,239,352 IDPs / 28,461,306 refugees / 8,998,097 asylum seekers / 4,477,220 stateless; all 212 country rows and the top-flow table unchanged) — the flat span since 2026-07-16 now runs 119 days. No revision to report ([[displacement-flows]]).
 - 2026-11-08 — daily-ingest synthesis (2026-W45): absorbed the 2026-11-06 → 2026-11-08 pulls. The UNHCR/OCHA payload held byte-identical to the 2026-11-05 pull (2025 reference year: 106,175,975 total / 64,239,352 IDPs / 28,461,306 refugees / 8,998,097 asylum seekers / 4,477,220 stateless; all 212 country rows and the top-flow table unchanged) — the flat span since 2026-07-16 now runs 115 days. No revision to report ([[displacement-flows]]).
