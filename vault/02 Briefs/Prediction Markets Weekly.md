@@ -2,8 +2,8 @@
 title: Prediction Markets Weekly
 type: L2-brief
 theme: prediction-markets
-week: 2026-W46
-updated: 2026-11-15T00:00:00Z
+week: 2026-W47
+updated: 2026-11-19T00:00:00Z
 sources: [prediction-markets]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -17,85 +17,83 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 > reports it the same way it reports a gas-storage figure or an earthquake magnitude. It is
 > **not** a forecast azimuth makes, and **not** an instruction to trade: odds are not
 > predictions, and nothing here is investment advice. azimuth reports the priced number and its
-> source, and takes no position on the underlying question. (This cycle absorbs the 2026-11-13 → 2026-11-15
-> ingests — the **50-market panel held its breadth and closed all-Polymarket** again (a single Kalshi book,
-> "Will Elon Musk visit Mars in his lifetime?", appeared on the 11-13 and 11-14 pulls only), and **churned
-> less than last cycle**: **21 of the 50 books rotated out and 21 new ones entered**, 29 carrying across. The
-> headline arrival is **"US announces end of Iranian blockade by December 31, 2026?"** (0.188, **~$53.2M**),
-> now the second-deepest book, beside a run of short-dated Bitcoin-threshold books; departures include the
-> Ethereum-$1,500, Discord-not-IPO, AI-bubble and Khamenei books. **"Will David Lisnard win the 2027 French
-> presidential election?"** stays the deepest book (0.159, ~$175.8M), and the carried **December Fed-hike book
-> eased to 0.865** (from 0.895) while its book grew to ~$34.5M. Cumulative traded volume across the 50 books
-> **rose to ~$369.5M** (from ~$322.1M; ~$347.4M on 11-13 and ~$379.4M on 11-14) — partly the blockade book
-> entering, a panel-composition effect. All numbers are venue-quoted prices recorded as observed facts, never
-> forecasts or advice [[prediction-markets]].)
+> source, and takes no position on the underlying question. (This cycle absorbs the 2026-11-16 → 2026-11-19
+> ingests — the **50-market panel held its breadth, all-Polymarket on every pull**, and **churned less again**:
+> **18 of the 50 books rotated out and 18 new ones entered**, 32 carrying across from 11-15. Two long-standing
+> carried books **left the panel** — the **December Fed-hike book** and **"NATO x Russia military clash by
+> December 31, 2026?"** — so neither has a quoted price this cycle. The deepest new arrival is **"Will
+> Anthropic's market cap be less than $1.25T at market close on IPO day?"** (0.142, ~$14.8M), now third.
+> **"Will David Lisnard win the 2027 French presidential election?"** stays the deepest book (0.186, from 0.159;
+> ~$179.4M) and the **Iranian-blockade book** stays second (0.167, from 0.188; ~$54.0M). Cumulative traded volume
+> across the 50 books **eased to ~$353.8M** (from ~$369.5M; ~$380.7M, ~$343.8M and ~$335.9M on 11-16 → 11-18) — a
+> panel-composition effect as much as a market one. All numbers are venue-quoted prices recorded as observed
+> facts, never forecasts or advice [[prediction-markets]].)
 
 ## This week at a glance
 
-- The WorldMonitor prediction-market feed **held its 50-market panel** on the 2026-11-15 pull, all
-  Polymarket again after a one-book Kalshi entry on 11-13 and 11-14; **21 of the 50 books rotated** — 29
-  carried from 11-12 — and cumulative traded volume across the 50 books **rose to ~$369.5M** (from ~$322.1M)
-  ([[prediction-markets]]).
+- The WorldMonitor prediction-market feed **held its 50-market panel** on the 2026-11-19 pull, all
+  Polymarket on every pull this cycle; **18 of the 50 books rotated** — 32 carried from 11-15 — and cumulative
+  traded volume across the 50 books **eased to ~$353.8M** (from ~$369.5M) ([[prediction-markets]]).
 - **"Will David Lisnard win the 2027 French presidential election?"** stays the single deepest book at
-  **~$175.8M**, quoted at **0.159 (15.9% implied**, from 0.162). The new **"US announces end of Iranian
-  blockade by December 31, 2026?"** entered second at **~$53.2M** (0.188). The venue's numbers are recorded
-  as observed facts; azimuth takes no position on the underlying questions ([[prediction-markets]]).
-- The panel **re-mixed again**: out went Ethereum-$1,500 and -$1,600, Solana-$60, Zcash-$2,000,
-  Discord-not-IPO, Anthropic-market-cap, AI-bubble, the two Gemini books, the US–Iran uranium-cap book and the
-  Khamenei book; in came the Iranian-blockade book, five short-dated Bitcoin-threshold books, a Solana-$50 book,
-  three token-launch valuation books, three Jensen Huang / NVIDIA books, a Waymo-cities book and a 10-year
-  Treasury-yield book ([[prediction-markets]]).
+  **~$179.4M**, quoted at **0.186 (18.6% implied**, from 0.159). **"US announces end of Iranian blockade by
+  December 31, 2026?"** holds second at **~$54.0M** (0.167, from 0.188). The venue's numbers are recorded as
+  observed facts; azimuth takes no position on the underlying questions ([[prediction-markets]]).
+- The panel **re-mixed again**: out went the December Fed-hike, NATO–Russia clash, Saudi–Houthi ceasefire,
+  China–Philippines clash, Helen Zille, PSOE, COVID-variant, AI-safety-bill and two Jensen Huang books, the Anthropic-best-model,
+  Variational-FDV and Kaohsiung-mayor books, plus five short-dated Bitcoin and Solana threshold books; in came two Anthropic IPO-valuation books, a Google-best-model
+  book, US–Iran diplomatic-meeting and Witkoff books, two Houthi books, a Tesla–SpaceX merger book, a
+  Venezuela-election book, a White House press-secretary book, two token-launch books, and US-strikes, Texas data-center,
+  Jensen Huang search, Bitcoin-vs-gold, Moonshot AI and Taiwan-premier books ([[prediction-markets]]).
 
 ## The panel
 
 - **Deepest books (by cumulative volume).** **"Will David Lisnard win the 2027 French presidential
-  election?"** (0.159, ~$175.8M) leads, then the new **"US announces end of Iranian blockade by December 31,
-  2026?"** (0.188, ~$53.2M), **"Will the Fed increase interest rates by 25 bps after the December 2026
-  meeting?"** (0.865, ~$34.5M, from ~$27.0M), **"NATO x Russia military clash by December 31, 2026?"**
-  (0.105, ~$13.4M, unchanged), **"Iran full airspace closure by December 31?"** (0.175, ~$11.6M, from
-  0.225), **"Russia x Ukraine ceasefire agreement by December 31, 2026?"** (0.115, ~$11.0M, from 0.135), the
-  new **"Will Bitcoin dip to $57,500 in November?"** (0.224, ~$9.5M) and **"Will Israel strike 4 countries in
-  2026?"** (0.81, ~$7.8M). Each figure is the venue's quoted price and recorded book size, reported as
-  observed facts ([[prediction-markets]]).
-- **Highest-priced questions (the near-certain tail).** Six books sit above 0.25 (from four): the new
-  short-dated **"Will the price of Bitcoin be above $62,000 on November 17?"** (0.884) tops the panel, ahead
-  of the new **"Will Waymo operate in 12-15 cities on December 31 2026?"** (0.873), the **December Fed-hike
-  book** (0.865, from 0.895), **"Will AI solve 0 more Millennium Prize Problems in 2026?"** (0.86), the new
-  **"Variational FDV above $500M one day after launch?"** (0.815) and **"Will Israel strike 4 countries in
-  2026?"** (0.81). A high price reads as a high venue-implied probability; it is the market's number, not
-  azimuth's forecast ([[prediction-markets]]).
-- **Biggest priced moves among the books shown.** 42 of the 50 books carry a 7d change field. **"Will Helen
-  Zille be the next mayor of Johannesburg?"** fell hardest (to 0.125, −0.405 over 7d), followed by **"Pete
-  Hegseth out as Secretary of Defense by December 31?"** (0.155, −0.28), **"Will the 5-year Treasury yield dip
-  below 4.45% before 2027?"** (0.225, −0.24) and **"Will Pete Hegseth leave the Trump administration before
-  2027?"** (0.165, −0.22). The **Bitcoin-$57,500-in-November** book rose most (+0.179), ahead of the Waymo
-  book (+0.166) and **"Will the 30-year Treasury yield hit 5.70% before 2027?"** (0.21, +0.12). The venue
-  prices are observed datapoints; azimuth takes no position on any of the underlying questions
+  election?"** (0.186, ~$179.4M) leads, then **"US announces end of Iranian blockade by December 31, 2026?"**
+  (0.167, ~$54.0M), the new **"Will Anthropic's market cap be less than $1.25T at market close on IPO day?"**
+  (0.142, ~$14.8M), **"Iran full airspace closure by December 31?"** (0.195, ~$11.8M, from 0.175), **"Russia x
+  Ukraine ceasefire agreement by December 31, 2026?"** (0.105, ~$11.3M, from 0.115), **"Will Bitcoin dip to
+  $57,500 in November?"** (0.234, ~$11.2M, from 0.224), **"Will Israel strike 4 countries in 2026?"** (0.847,
+  ~$7.8M, from 0.81) and **"Will Indiana enact a data center moratorium by December 31, 2027?"** (0.195, ~$6.4M).
+  Each figure is the venue's quoted price and recorded book size, reported as observed facts
   ([[prediction-markets]]).
-- **Thematic clusters.** Geopolitics keeps the NATO–Russia, Russia–Ukraine ceasefire, Iran-airspace and
-  Israel-strikes books and adds the Iranian-blockade, Saudi–Houthi ceasefire, Nabatieh and Ukraine
-  peace-referendum books; politics keeps the Lisnard-2027 and Hegseth books; macro is the December
-  Fed-hike book plus 5-, 10- and 30-year Treasury-yield books; crypto is now led by short-dated Bitcoin
-  thresholds beside Solana and token-launch valuation books; tech adds Jensen Huang / NVIDIA and Waymo books.
-  Every price is the venue's ([[prediction-markets]]).
+- **Highest-priced questions (the near-certain tail).** Six books sit above 0.25 (unchanged count, new
+  membership): **"Will AI solve 0 more Millennium Prize Problems in 2026?"** (0.88, from 0.86) tops the panel,
+  ahead of the new **"Will Predict.fun launch a token by December 31, 2026?"** (0.866), **"Will Waymo operate in
+  12-15 cities on December 31 2026?"** (0.85, from 0.873), **"Will Israel strike 4 countries in 2026?"** (0.847),
+  the new **"Will Google have the best AI model at the end of December 2026?"** (0.83) and the new **"Will the US
+  strike 8 countries in 2026?"** (0.786). A high price reads as a high venue-implied probability; it is the
+  market's number, not azimuth's forecast ([[prediction-markets]]).
+- **Biggest priced moves among the books shown.** 46 of the 50 books carry a 7d change field. **"Next White
+  House Press Secretary announced by November 30, 2026?"** fell hardest (to 0.165, −0.25 over 7d), followed by
+  **"Will Anthropic's IPO valuation be between $1.25T and $1.50T?"** (0.15, −0.222), **"Will Bitcoin outperform
+  Gold in 2026?"** (0.13, −0.19) and **"Will Theo launch a token by December 31 2026?"** (0.113, −0.16). The
+  **Bitcoin-$57,500-in-November** book rose most (+0.18), ahead of the Google-best-model book (+0.11) and the
+  Tesla–SpaceX merger book (0.165, +0.065). The venue prices are observed datapoints; azimuth takes no position
+  on any of the underlying questions ([[prediction-markets]]).
+- **Thematic clusters.** Geopolitics keeps the Russia–Ukraine ceasefire, Iran-airspace, Iranian-blockade,
+  Israel-strikes and Ukraine peace-referendum books and adds US–Iran diplomatic-meeting, Houthi, US-strikes and
+  Venezuela-election books, while the NATO–Russia and China–Philippines books left; macro lost its December
+  Fed-hike book; tech now centres on the Anthropic IPO, Google-best-model, Tesla–SpaceX and data-center
+  moratorium books; crypto keeps the Bitcoin-$57,500 book beside token-launch books. Every price is the
+  venue's ([[prediction-markets]]).
 
 ## Reading the week
 
-- The cycle's story is the **panel holding its 50-market breadth while 21 books rotated** — fewer than the
-  26 of last cycle. The French-election book stays far deepest, a new Iran-blockade book took second place,
-  and crypto exposure shifted from Ethereum and altcoin thresholds to short-dated Bitcoin price books. Among
-  carried books the December Fed-hike book eased (0.895 → 0.865) while its book grew by ~$7.5M, and
-  Iran-airspace eased 0.225 → 0.175. azimuth states what was recorded and stops there: every price is the
-  market's, not azimuth's, and the editorial line forbids reading any of them as a forecast or a reason to
-  trade ([[prediction-markets]]).
+- The cycle's story is the **panel holding its 50-market breadth while 18 books rotated** — fewer than the 21
+  of last cycle — and two long-carried anchors leaving: the December Fed-hike book and the NATO–Russia book.
+  The French-election book stays far deepest and firmed (0.159 → 0.186), the Iranian-blockade book eased
+  (0.188 → 0.167), and an Anthropic IPO-valuation book entered third. azimuth states what was recorded and stops
+  there: every price is the market's, not azimuth's, and the editorial line forbids reading any of them as a
+  forecast or a reason to trade ([[prediction-markets]]).
 - **Breadth note (honest scope):** this brief reports the **spread** of priced questions — deepest books,
   highest-priced tail, biggest moves and thematic clusters — rather than a single contract. Where a
-  question persists cycle-to-cycle (Lisnard, NATO–Russia, Fed December hike), its price and book stay
-  week-on-week comparable; newly-surfaced questions are reported at their first quoted level, and the
-  panel-wide volume sum is only comparable when the panel's membership is, which it was not this cycle
-  ([[prediction-markets]]).
+  question persists cycle-to-cycle (Lisnard, Iranian blockade, Iran airspace, Russia–Ukraine ceasefire), its
+  price and book stay week-on-week comparable; newly-surfaced questions are reported at their first quoted
+  level, and the panel-wide volume sum is only comparable when the panel's membership is, which it was not
+  this cycle ([[prediction-markets]]).
 
 ## Changelog
+- 2026-11-20 — daily-ingest synthesis (2026-W47): absorbed the 2026-11-16 → 2026-11-19 pulls. The 50-market panel held, all-Polymarket on every pull; 18 books rotated out and 18 in (32 carried). The December Fed-hike and NATO–Russia books left the panel; an Anthropic IPO market-cap book entered third (0.142, ~$14.8M). Lisnard-2027 stays deepest (0.186 from 0.159, ~$179.4M), Iranian-blockade second (0.167 from 0.188, ~$54.0M). Six books above 0.25 (Millennium-Prize 0.88 tops). Panel volume eased to ~$353.8M (from ~$369.5M), a composition effect. Rewrote the intro, at-a-glance, panel and reading sections. Observed-price framing, no investment or forecast language ([[prediction-markets]]).
 - 2026-11-16 — daily-ingest synthesis (2026-W46): absorbed the 2026-11-13 → 2026-11-15 ingests. Panel held at 50 books (all Polymarket on 11-15; one Kalshi book on 11-13 and 11-14 only) with 21 rotated (29 carried). Lisnard-2027 stayed deepest (0.159, ~$175.8M); new "US announces end of Iranian blockade by December 31, 2026?" entered second (0.188, ~$53.2M); five short-dated Bitcoin-threshold books entered as Ethereum/altcoin thresholds left. December Fed-hike eased 0.895 → 0.865 (book ~$34.5M). Sum-of-books volume ~$369.5M (from ~$322.1M, partly composition). Biggest move: Zille-Johannesburg-mayor −0.405 to 0.125 ([[prediction-markets]]).
 - 2026-11-13 — daily-ingest synthesis (2026-W46): absorbed the 2026-11-09 → 2026-11-12 ingests. Panel held at 50 books (all Polymarket on 11-12; one Kalshi book on 11-10 and 11-11 only) but 26 rotated (24 carried); the deepest book US-invade-Iran (~$78.4M) left and "Will David Lisnard win the 2027 French presidential election?" entered as the new deepest (0.162, ~$173.4M), so the sum-of-books volume rose to ~$322.1M (from ~$225.6M — a composition effect). December Fed-hike book firmed 0.765 → 0.895. Biggest move: Hegseth-leave-administration −0.39 to 0.165 ([[prediction-markets]]).
 - 2026-11-08 — daily-ingest synthesis (2026-W45): absorbed the 2026-11-06 → 2026-11-08 ingests. Panel held at 50 all-Polymarket books but 19 rotated (31 carried); the deepest book "Netanyahu out by end of 2026?" (~$125.2M) left, so the sum-of-books volume fell to ~$225.6M (from ~$338.5M — a composition effect). US-invade-Iran is now deepest (~$78.4M, 0.105, −0.06 7d); arrivals include Ethereum-$1,500 (0.104, ~$19.5M), US-strike-on-Cuba (0.115) and Anthropic-IPO-before-2027 (0.87). Biggest move: Gemini-Pro-release −0.43 to 0.14 ([[prediction-markets]]).
