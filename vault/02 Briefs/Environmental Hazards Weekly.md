@@ -93,7 +93,8 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
   18 / 0; by pull 17 → 15 → 17). The GDACS **Tropical Cyclone Akvan-26** row (Orange, 83 km/h on 11-19) left
   the slate, while the two EONET severe-storm rows that were untitled on 11-19 now carry names — **Tropical
   Cyclone Akvan** (~17.2°N, 84.7°E, Bay of Bengal) and **Tropical Cyclone Xavier** (~11.6°S, 167.6°W, South
-  Pacific) ([[natural-events]]).
+  Pacific). The feed carries no field linking the EONET Akvan row to the departed GDACS Akvan-26 row, so azimuth
+  reports the shared name and nearby position as published and does not merge the two records ([[natural-events]]).
 - Sea and Lake Ice **held at 11** (after dipping to 9 on the 11-21 pull); the drought entries **held at
   four**, all Orange — the East African, Central-American/Caribbean, European and northern South American
   entries all carried. azimuth records the count and category slate as the observed feed state
