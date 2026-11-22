@@ -506,7 +506,6 @@
         "environmental-hazards",
         "geophysical",
         "humanitarian",
-        "prediction-markets",
         "public-health"
       ],
       "evidence": [
@@ -1659,8 +1658,7 @@
         "conflict-watch",
         "energy-supply",
         "environmental-hazards",
-        "humanitarian",
-        "public-health"
+        "humanitarian"
       ],
       "evidence": [
         {
@@ -1883,7 +1881,6 @@
         "humanitarian",
         "macro-markets",
         "orbital-watch",
-        "prediction-markets",
         "public-health"
       ],
       "evidence": [
@@ -2833,13 +2830,6 @@
     },
     {
       "source": "entity:philippines",
-      "target": "brief:prediction-markets-weekly",
-      "cross_theme": true,
-      "rel": "mentioned-in",
-      "weight": 0
-    },
-    {
-      "source": "entity:philippines",
       "target": "brief:public-health-weekly",
       "cross_theme": true,
       "rel": "mentioned-in",
@@ -4421,13 +4411,6 @@
       "rel": "named-in"
     },
     {
-      "source": "entity:sweden",
-      "target": "brief:public-health-weekly",
-      "cross_theme": true,
-      "rel": "mentioned-in",
-      "weight": 0
-    },
-    {
       "source": "entity:diesel",
       "target": "brief:energy-supply-weekly",
       "cross_theme": false,
@@ -4735,13 +4718,6 @@
     {
       "source": "entity:china",
       "target": "brief:orbital-watch-weekly",
-      "cross_theme": true,
-      "rel": "mentioned-in",
-      "weight": 0
-    },
-    {
-      "source": "entity:china",
-      "target": "brief:prediction-markets-weekly",
       "cross_theme": true,
       "rel": "mentioned-in",
       "weight": 0
