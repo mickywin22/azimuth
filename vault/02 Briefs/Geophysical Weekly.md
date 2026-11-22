@@ -3,7 +3,7 @@ title: Geophysical Weekly
 type: L2-brief
 theme: geophysical
 week: 2026-W47
-updated: 2026-11-19T00:00:00Z
+updated: 2026-11-22T00:00:00Z
 sources: [earthquakes]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -14,67 +14,70 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 > Synthesised from the week's L1 source notes under `../01 Sources/`. The `azimuth-curator`
 > fleet role evolves this single note in place each week. azimuth reports **observed**
 > seismicity from the USGS feed — what was recorded, never what will happen. Every claim
-> links to the L1 note it rests on. (This cycle absorbs the 2026-11-16 → 2026-11-19 pulls: the rolling
-> window **eased on count** to **107 M4.5+** to 2026-11-19, from 119 on 2026-11-15 — by pull 114 → 107 → 105 →
-> 107 — while the strong band **firmed to 39 M5+ and 2 M6+**, from 32 and 1. A new strongest event leads: the
-> **M6.6 148 km WSW of Tual, Indonesia** (68 km, 2026-11-16), joined by an **M6.1 on the Pacific-Antarctic
-> Ridge** (10 km, 2026-11-18); the Solomon Islands M6.4 aged off ([[earthquakes]]). **Indonesia still leads at
-> 10** but its margin narrowed sharply, with **Papua New Guinea at 9** and **Peru** and the **Philippines** at 7
-> each. The shallow share held at **63 of 107** <=15 km and the deepest focus stays **587.4 km in the Fiji
-> region** ([[earthquakes]]).)
+> links to the L1 note it rests on. (This cycle absorbs the 2026-11-20 → 2026-11-22 pulls: the rolling
+> window **eased again on count** to **97 M4.5+** to 2026-11-22, from 107 on 2026-11-19 — by pull 108 → 98 →
+> 97 — while the strong band **firmed to 41 M5+ and 4 M6+**, from 39 and 2. Two new M6+ events lead: an
+> **M6.8 105 km NE of Lospalos, Timor Leste** (132.1 km, 2026-11-21) and an **M6.7 9 km NE of Carhuamayo,
+> Peru** (108.0 km, 2026-11-21) ([[earthquakes]]). **Indonesia still leads at 11**, with **Peru up to 9** and
+> **Japan** and **Papua New Guinea** at 7 each. The shallow share eased to **54 of 97** <=15 km, and the
+> deepest focus **shallowed to 487.4 km NW of Gorontalo, Indonesia** as the Fiji deep shocks aged off
+> ([[earthquakes]]).)
 
 ## This week at a glance
 
-- The USGS feed recorded **107** magnitude-4.5-or-greater earthquakes in the rolling window
-  retrieved 2026-11-19 (events 2026-11-12 → 2026-11-19), of which **39 reached M5+** and **two reached
-  M6+**, the strongest an **M6.6** — against **119 (32 M5+, 1 M6+, strongest M6.4)** on 2026-11-15; by pull
-  the count ran 114 → 107 → 105 → 107 ([[earthquakes]]).
-- The M6+ band **turned over completely**: the **M6.6 148 km WSW of Tual, Indonesia** (68 km, 2026-11-16) and
-  the **M6.1 on the Pacific-Antarctic Ridge** (10 km, 2026-11-18) are both new, while the M6.4 off Lata,
-  Solomon Islands (2026-11-09) aged out of the seven-day window ([[earthquakes]]).
-- **Indonesia leads at 10** (from 18), with **Papua New Guinea** (9, from 6), **Peru** (7) and the
-  **Philippines** (7) close behind and **Japan** at 6 ([[earthquakes]]).
+- The USGS feed recorded **97** magnitude-4.5-or-greater earthquakes in the rolling window
+  retrieved 2026-11-22 (events 2026-11-15 → 2026-11-22), of which **41 reached M5+** and **four reached
+  M6+**, the strongest an **M6.8** — against **107 (39 M5+, 2 M6+, strongest M6.6)** on 2026-11-19; by pull
+  the count ran 108 → 98 → 97 ([[earthquakes]]).
+- The M6+ band **doubled**: the **M6.8 105 km NE of Lospalos, Timor Leste** (132.1 km) and the **M6.7 9 km NE
+  of Carhuamayo, Peru** (108.0 km), both on 2026-11-21, join the carried **M6.6 149 km WSW of Tual, Indonesia**
+  (68 km, 2026-11-16) and the **Pacific-Antarctic Ridge** shock of 2026-11-18, which the feed now lists at
+  **M6.0** (M6.1 on the 11-19 pull) ([[earthquakes]]).
+- **Indonesia leads at 11** (from 10), with **Peru** (9, from 7), **Japan** (7) and **Papua New Guinea** (7,
+  from 9) behind and **Vanuatu** at 5 ([[earthquakes]]).
 
 ## Largest events
 
-- The **M6.6 148 km WSW of Tual, Indonesia** (68 km, 2026-11-16) is the window's strongest, ahead of the
-  shallow **M6.1 on the Pacific-Antarctic Ridge** (10 km, 2026-11-18). Behind them sits a fresh **M5.9 85 km
-  WNW of San Juan, Peru** (21.9 km, 2026-11-18) ([[earthquakes]]).
-- A cluster of **M5.8** shocks follows — three new on 2026-11-18: **40 km N of Ruteng, Indonesia** (10 km),
-  **99 km ESE of Madang, Papua New Guinea** (52.3 km) and **150 km SW of Merizo Village, Guam** (10 km) — plus the
-  carried M5.8 shocks **79 km WSW of Changuillo, Peru** (2026-11-13) and **148 km NW of Kavieng, Papua New
-  Guinea** (2026-11-12) ([[earthquakes]]).
-- Other new M5+ entries include an **M5.5 9 km E of Union, Philippines** (10 km, 2026-11-15), an intermediate-depth
-  **M5.4 20 km NW of Anamizu, Japan** (273.6 km, 2026-11-16), a shallow **M5.4 95 km WSW of Changuillo, Peru**
-  (2026-11-16) and an **M5.3 16 km ESE of Comandău, Romania** (130.3 km, 2026-11-18) ([[earthquakes]]).
+- The **M6.8 105 km NE of Lospalos, Timor Leste** (132.1 km, 2026-11-21) is the window's strongest, ahead of
+  the **M6.7 9 km NE of Carhuamayo, Peru** (108.0 km, 2026-11-21) and the carried **M6.6 off Tual,
+  Indonesia**. The Carhuamayo area also logged two further **M5.0** shocks at about 108–111 km depth on 11-21
+  and 11-22 ([[earthquakes]]).
+- A fresh shallow **M5.9 238 km SW of Yanglong, China** (10 km, 2026-11-21) sits level with the carried
+  **M5.9 85 km WNW of San Juan, Peru** (2026-11-18); the three **M5.8** shocks of 2026-11-18 (Ruteng, Madang,
+  Guam) carry over ([[earthquakes]]).
+- Other new M5+ entries include an **M5.6 southeast of the Loyalty Islands** (10 km, 2026-11-20), an **M5.4
+  224 km NE of Bitung, Indonesia** (43.7 km, 2026-11-22), an **M5.4 on the Carlsberg Ridge** (2026-11-20), an
+  **M5.2 112 km SSE of Tateyama, Japan** (2026-11-21) and an **M5.1 45 km SE of Ürümqi, China** (10 km,
+  2026-11-22) ([[earthquakes]]).
 
 ## Where the activity clustered
 
-- **Indonesia leads at 10 events**, down from 18 as the earlier Sumatra–Maluku run aged off, with **Papua New
-  Guinea at 9** — around Madang, Rabaul and Kavieng — right behind ([[earthquakes]]).
-- **Peru** (7, including the M5.9 near San Juan and two shocks off Changuillo) and the **Philippines** (7) form
-  the next tier, then **Japan** (6) and **Russia** (5), and **Tanzania**, **Guam**, the **West Chile Rise**,
-  **Vanuatu**, **south of the Kermadec Islands**, **Tonga**, **Argentina** and the **western Indian-Antarctic
-  Ridge** (3 each) ([[earthquakes]]).
+- **Indonesia leads at 11 events**, from Bitung and Gorontalo in the north to Ruteng and the Tual sea, with
+  **Peru at 9** — the Carhuamayo group plus the San Juan and Changuillo shocks — now in second ([[earthquakes]]).
+- **Japan** (7) and **Papua New Guinea** (7) form the next tier, then **Vanuatu** (5), **Chile** and **Russia**
+  (4 each), and **China**, the **Philippines**, **southeast of the Loyalty Islands**, **Tanzania** and **Guam**
+  (3 each) ([[earthquakes]]).
 
 ## Depth profile
 
-- The shallow share held: **63 of the 107 events sit at or below 15 km** (from 64 of 119), with the Peru,
-  Guam and ridge shocks among the main shallow contributors ([[earthquakes]]).
-- The deep end is **unchanged at the top**: the window's deepest is still an **M4.5 in the Fiji region at
-  587.4 km** (2026-11-14), followed by **south of the Fiji Islands** (563.3 km), **278 km E of Levuka, Fiji**
-  (527.1 km) and **24 km S of Yacuiba, Bolivia** (506.3 km) ([[earthquakes]]).
+- The shallow share eased: **54 of the 97 events sit at or below 15 km** (from 63 of 107), with the ridge,
+  Loyalty Islands and western China shocks among the main shallow contributors ([[earthquakes]]).
+- The deep end **shallowed**: the Fiji-region deep shocks (587.4 km and below) aged out of the window, so the
+  deepest is now an **M5.1 169 km NW of Gorontalo, Indonesia at 487.4 km** (2026-11-15), followed by **south
+  of the Kermadec Islands** (337.1 km), **256 km SSE of Ambon, Indonesia** (306.0 km) and **20 km NW of
+  Anamizu, Japan** (273.6 km). Both new M6+ shocks sit at intermediate depth, 108–132 km ([[earthquakes]]).
 
 ## Reading the week
 
-- The window eased on count — **107 M4.5+** to 2026-11-19, from 119 on 2026-11-15 — while the strong band
-  firmed to **39 M5+ and 2 M6+**, capped by a new **M6.6 off Tual, Indonesia**. Indonesia's count lead over
-  Papua New Guinea narrowed to one event, Peru rose into the top tier, more than half the shocks sit shallow,
-  and the deepest focus held at 587.4 km beneath the Fiji region. azimuth records what the instruments
-  measured — magnitude, location, depth, time — and stops there, making no forecast of what comes next
-  ([[earthquakes]]).
+- The window eased again on count — **97 M4.5+** to 2026-11-22, from 107 on 2026-11-19 — while the strong
+  band firmed to **41 M5+ and 4 M6+**, led by two new intermediate-depth shocks on 2026-11-21 off Timor Leste
+  (M6.8) and in central Peru (M6.7). Indonesia keeps the count lead, Peru moved into second, just over half
+  the shocks sit shallow, and the deepest focus rose to 487.4 km as the Fiji deep cluster aged off. azimuth
+  records what the instruments measured — magnitude, location, depth, time — and stops there, making no
+  forecast of what comes next ([[earthquakes]]).
 
 ## Changelog
+- 2026-11-23 — daily-ingest synthesis (2026-W47): absorbed the 2026-11-20 → 2026-11-22 USGS pulls; the rolling window to 2026-11-22 eased to 97 M4.5+ (by pull 108 → 98 → 97) while the strong band firmed to 41 M5+ and 4 M6+ (from 39/2). New strongest M6.8 105 km NE of Lospalos, Timor Leste (132.1 km, 11-21) and an M6.7 near Carhuamayo, Peru (108.0 km, 11-21); the carried Pacific-Antarctic Ridge shock is now listed M6.0 (was M6.1). Fresh M5.9 SW of Yanglong, China. Indonesia leads at 11, Peru 9, Japan and Papua New Guinea 7 each; shallow share 54 of 97; deepest focus now 487.4 km NW of Gorontalo, Indonesia, as the Fiji deep shocks aged off. Rewrote the intro, at-a-glance, largest-events, clustering, depth and reading sections. Observed-only framing held ([[earthquakes]]).
 - 2026-11-20 — daily-ingest synthesis (2026-W47): absorbed the 2026-11-16 → 2026-11-19 USGS pulls; the rolling window to 2026-11-19 eased to 107 M4.5+ (by pull 114 → 107 → 105 → 107) while the strong band firmed to 39 M5+ and 2 M6+ (from 32/1). New strongest M6.6 148 km WSW of Tual, Indonesia (68 km, 11-16) plus an M6.1 on the Pacific-Antarctic Ridge; the Solomon Islands M6.4 aged off. Fresh M5.9 near San Juan, Peru and three M5.8 shocks on 11-18 (Ruteng, Madang, Guam). Indonesia leads at 10 (from 18), Papua New Guinea 9, Peru and the Philippines 7 each; shallow share 63 of 107; deepest focus held at 587.4 km (Fiji region). Rewrote the intro, at-a-glance, largest-events, clustering, depth and reading sections. Observed-only framing held ([[earthquakes]]).
 - 2026-11-16 — daily-ingest synthesis (2026-W46): absorbed the 2026-11-13 → 2026-11-15 USGS pulls; the rolling window to 2026-11-15 rose to 119 M4.5+ (32 M5+, 1 M6+, strongest M6.4 — from 103/27/3; by pull 109 → 123 → 119). The M6.4 off Lata, Solomon Islands carried as the sole M6+ while the Hasaki and Fiji-region M6.1 shocks aged off; fresh M5.8 shocks off Changuillo, Peru and Kavieng, Papua New Guinea. Indonesia extended the count lead to 18, Japan eased to 9; shallow share 64 of 119 (from 45 of 103); deepest focus moved to 587.4 km (Fiji region) as the 607.0 km Mindanao anchor aged off. Rewrote the intro, at-a-glance, largest-events, clustering, depth and reading sections. Observed-only framing held ([[earthquakes]]).
 - 2026-11-13 — daily-ingest synthesis (2026-W46): absorbed the 2026-11-09 → 2026-11-12 USGS pulls; the rolling window to 2026-11-12 rose to 103 M4.5+ (27 M5+, 3 M6+, strongest M6.4 — from 88/21/2, strongest M6.1; 83 on the 11-09 and 11-10 pulls). A shallow M6.4 30 km WSW of Lata, Solomon Islands (17 km, 2026-11-09) became the strongest event; the Hasaki and Fiji-region M6.1 shocks carried; new M5.7 106 km ENE of Hasaki. Indonesia took the count lead at 15 ahead of Japan 13; shallow share 45 of 103 (from 35 of 88); deepest focus held at 607.0 km (Gadung, Philippines) ([[earthquakes]]).
