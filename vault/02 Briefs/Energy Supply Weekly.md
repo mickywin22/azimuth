@@ -54,7 +54,7 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 ## Prices
 
-- The two crude benchmarks **advanced to the 2026-11-13 price week and both fell a second week** —
+- The two crude benchmarks **hold the 2026-11-13 price week, in which both fell a second week** —
   **Brent $92.78/barrel (−7.6% w/w** from $100.41) and **WTI $90.78/barrel (−5.4% w/w** from $95.97). Both rows
   carry `priceSource: EIA`, `priceBasis: spot`, `frequency: weekly` and `stale: false` ([[energy-prices]]).
 - The **Brent–WTI spread narrowed again to ~$2.00**, from ~$4.44 for 11-06 and ~$15.58 for 10-30 — the
@@ -64,8 +64,8 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
   −7.62%; the only rises Mexico +0.17% and Finland +0.20%). German diesel **€2.253/L** (−3.14% w/w) and E5
   petrol **€2.067/L** (−4.71%); Denmark's diesel **€2.4347/L** (−5.55%) and Finland's **€2.4847/L**
   ([[fuel-prices]]).
-- The panel **shrank to 44 countries** on **10 of 11** sources (`allSourcesFresh: false`, `failedSources:
-  New Zealand`), and **Qatar** — last cycle's cheapest on both grades — is no longer in the payload. The feed
+- The panel **holds at 44 countries** on **10 of 11** sources (`allSourcesFresh: false`, `failedSources:
+  New Zealand`), and **Qatar** — cheapest on both grades through the 2026-11-10 fetch — is no longer in the payload. The feed
   now names **Norway** priciest on both diesel and petrol (NOK 27.52/L diesel ≈ $2.85, a September monthly
   mean ranked against weekly prints elsewhere) and **Taiwan** cheapest on both (≈ $0.90/L diesel, ≈ $0.94/L
   petrol). Observation dates run 2026-07-08 → 2026-11-17, so the cross-country ranking mixes print vintages
@@ -79,74 +79,6 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
   For the second common week running, both stockpiles built. azimuth reports the recorded levels and moves
   and takes no view on where storage or prices go next ([[natural-gas-storage-eu]], [[crude-oil-inventories]],
   [[energy-prices]], [[fuel-prices]]).
-
-## Changelog` line rather than forking a new file. Every claim links to the L1
-> note it rests on. (The 2026-11-20 → 2026-11-22 pulls were a **gas-only cycle** — EU gas storage advanced to
-> the week ending 2026-11-13 on the 11-20 pull, while US crude stocks, both spot crude prices and the road-fuel
-> panel carried what the 11-19 synthesis already absorbed. EU gas storage **built +20 Bcf to 3,882 Bcf** — the
-> thirty-first straight build and the smallest add in the feed's eight-week series. Both stockpiles now report
-> the **same week (2026-11-13) and both built** — gas +20 Bcf, US crude **+3.38 Mb to 417.80 million barrels**.
-> Spot crude held at **Brent $92.78/barrel (−7.6% w/w)** and **WTI $90.78/barrel (−5.4% w/w)**, spread ~$2.00.
-> The road-fuel panel held its 2026-11-17 fetch — German diesel **€2.253/L**, E5 **€2.067/L**, **Norway**
-> priciest and **Taiwan** cheapest on both grades ([[natural-gas-storage-eu]], [[crude-oil-inventories]],
-> [[energy-prices]], [[fuel-prices]]).)
-
-## This week at a glance
-
-- EU gas storage **built to 3,882 Bcf** for the week ending 2026-11-13 (+20 Bcf w/w, from 3,862 Bcf) — the
-  thirty-first straight build and the smallest add in the eight-week series, landing on the 11-20 pull
-  ([[natural-gas-storage-eu]]).
-- US crude inventories **held at 417.80 million barrels** for the week ending 2026-11-13 (+3.38 Mb w/w, the
-  second straight build) — no fresh reporting week in the 11-20 → 11-22 pulls ([[crude-oil-inventories]]).
-- Spot crude **held its 2026-11-13 price week** — **Brent $92.78/barrel (−7.6% w/w)**, **WTI $90.78/barrel
-  (−5.4% w/w)** — byte-identical on all three pulls ([[energy-prices]]).
-- The road-fuel panel **held its 2026-11-17 fetch** at **44 countries** on **10 of 11** sources (New Zealand
-  failing) — German diesel **€2.253/L**, E5 petrol **€2.067/L**, priciest **Norway** and cheapest **Taiwan**
-  on both grades ([[fuel-prices]]).
-
-## Storage and inventories
-
-- EU gas storage **built to 3,882 Bcf** for the week ending 2026-11-13 (+20 Bcf w/w, from 3,862 Bcf for
-  11-06) — the **thirty-first straight build**, and the add slowed sharply from +61, +77 and +80 Bcf in the
-  three prior weeks. The feed's eight-week series now runs 2026-09-25 → 2026-11-13 and records **+467 Bcf**
-  across that span (from 3,415 Bcf); +20 Bcf is the smallest weekly add in that window
-  ([[natural-gas-storage-eu]]).
-- US crude inventories **held at 417.80 million barrels** for the week ending 2026-11-13 (+3.38 Mb w/w) — a
-  **second straight build** after +4.66 Mb for 11-06, which ended a five-week draw run (−0.87, −1.89,
-  −3.06, −8.56, −3.19 Mb for 10-30 back to 10-02). Stocks sit above the 415.58 Mb recorded for 10-09 and
-  about 9.5 Mb below the 427.32 Mb recorded for 2026-09-25 ([[crude-oil-inventories]]).
-- The two stockpiles **report the same week again (2026-11-13) and both built** — gas +20 Bcf, crude
-  +3.38 Mb — the second common week in a row with a build on both sides ([[natural-gas-storage-eu]],
-  [[crude-oil-inventories]]).
-
-## Prices
-
-- The two crude benchmarks **advanced to the 2026-11-13 price week and both fell a second week** —
-  **Brent $92.78/barrel (−7.6% w/w** from $100.41) and **WTI $90.78/barrel (−5.4% w/w** from $95.97). Both rows
-  carry `priceSource: EIA`, `priceBasis: spot`, `frequency: weekly` and `stale: false` ([[energy-prices]]).
-- The **Brent–WTI spread narrowed again to ~$2.00**, from ~$4.44 for 11-06 and ~$15.58 for 10-30 — the
-  tightest gap in this brief's run ([[energy-prices]]).
-- The road-fuel panel **carried its 2026-11-17 fetch** (previous fetch 2026-11-10), which **eased broadly**: 38 of
-  44 diesel rows fell week-on-week against 2 up (steepest falls Brazil −13.33%, France −9.87%, Luxembourg
-  −7.62%; the only rises Mexico +0.17% and Finland +0.20%). German diesel **€2.253/L** (−3.14% w/w) and E5
-  petrol **€2.067/L** (−4.71%); Denmark's diesel **€2.4347/L** (−5.55%) and Finland's **€2.4847/L**
-  ([[fuel-prices]]).
-- The panel **shrank to 44 countries** on **10 of 11** sources (`allSourcesFresh: false`, `failedSources:
-  New Zealand`), and **Qatar** — last cycle's cheapest on both grades — is no longer in the payload. The feed
-  now names **Norway** priciest on both diesel and petrol (NOK 27.52/L diesel ≈ $2.85, a September monthly
-  mean ranked against weekly prints elsewhere) and **Taiwan** cheapest on both (≈ $0.90/L diesel, ≈ $0.94/L
-  petrol). Observation dates run 2026-07-08 → 2026-11-17, so the cross-country ranking mixes print vintages
-  ([[fuel-prices]]).
-
-## Reading the week
-
-- A crude-and-pump cycle — US crude inventories built a second week (417.80 Mb, +3.38 Mb, week ending
-  2026-11-13), spot crude fell a second week (Brent $92.78, −7.6%; WTI $90.78, −5.4%) with the Brent–WTI
-  spread down to about $2, and the road-fuel panel's 2026-11-17 fetch recorded broad easing at the pump,
-  while EU gas storage carried its 11-06 week. The pump easing and the crude price fall now print in the
-  same direction across overlapping weeks. azimuth reports the recorded levels and moves and takes no view
-  on where prices go next ([[crude-oil-inventories]], [[energy-prices]], [[fuel-prices]],
-  [[natural-gas-storage-eu]]).
 
 ## Changelog
 - 2026-11-23 — daily-ingest synthesis (2026-W47): absorbed the 2026-11-20 → 2026-11-22 pulls, a gas-only cycle. EU gas storage built a thirty-first straight week to 3,882 Bcf (week ending 2026-11-13, +20 Bcf, the smallest add in the eight-week series; +467 Bcf across 09-25 → 11-13), landing on the 11-20 pull. US crude inventories (417.80 Mb, +3.38 Mb, same week), spot crude (Brent $92.78, WTI $90.78, spread ~$2.00) and the road-fuel panel's 2026-11-17 fetch (DE diesel €2.253/L, E5 €2.067/L) held. Both stockpiles now report 11-13 and both built. Rewrote the intro, at-a-glance, storage and reading sections ([[natural-gas-storage-eu]], [[crude-oil-inventories]], [[energy-prices]], [[fuel-prices]]).

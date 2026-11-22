@@ -59,7 +59,7 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
   (276)**, **Colombia (264**, from 209), **Ethiopia (260**, from 148), **Pakistan (195)**, **Nigeria (170)**,
   **Israel (110)**, **Mali (105)** and **Syria (101)** ([[conflict-events-ucdp]]).
 - **Ukraine leads summed deathsBest at 6,656** (from 6,680), ahead of **Yemen (North Yemen) (1,782**, from
-  3,797), **Nigeria (1,239**, from 710), **Sudan (1,057**, from 601), **Ethiopia (801)**, **Pakistan (610)**,
+  3,797), **Nigeria (1,239**, from 710), **Sudan (1,057**, from 601), **Ethiopia (801**, from 757), **Pakistan (610**, from 747),
   **DR Congo (Zaire) (379)**, **Colombia (317)**, **Mexico (316)** and **Somalia (312)**
   ([[conflict-events-ucdp]]).
 - The violence-type split moved to **1,806 state-based / 791 non-state / 321 one-sided** of the 2,918
@@ -67,7 +67,8 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 ## Move since prior reading (2026-11-19 → 2026-11-22)
 
-- **A monthly roll on 11-21.** The 11-20 pull still matched the 11-19 catalogue; the 11-21 pull replaced it:
+- **A monthly roll on 11-21.** The 11-20 pull still matched the 11-19 catalogue (2,514 events, window to
+  2026-10-04, `candidateVersion` 26.0.9); the 11-21 pull replaced it:
   **1,990 rows out** (almost all dated September 2026) and **2,394 rows in** (almost all dated October 2026),
   **524 carried** — the December 2025 tranche plus a few late-summer rows. The 11-22 pull matches 11-21 row
   for row ([[conflict-events-ucdp]]).
