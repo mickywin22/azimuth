@@ -3,7 +3,7 @@ title: Environmental Hazards Weekly
 type: L2-brief
 theme: environmental-hazards
 week: 2026-W47
-updated: 2026-11-19T00:00:00Z
+updated: 2026-11-22T00:00:00Z
 sources: [wildfire-detections, thermal-escalations, natural-events, radiation-observations]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -16,55 +16,57 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 > environmental hazards — active-fire detections, clustered thermal anomalies, disaster
 > alerts and ambient-radiation readings — what the instruments recorded, never what will
 > happen, and never a position on any conflict the data sits near. Every claim links to the
-> L1 note it rests on. (This cycle absorbs the 2026-11-16 → 2026-11-19 pulls, comparing the 2026-11-19 pull
-> against the 2026-11-15 baseline. The wildfire feed's top-N FRP cap **held** — the note carries the **top
-> 250 detections by FRP of 500 rows** (the `totalCount` field reads **2,600**, down from 3,875 on 11-15, after
-> 3,477 / 3,962 / 3,334 on 11-16 → 11-18) — [[wildfire-detections]]. The capped tally **spread out from
-> Iran**: by the feed's own `region` field it now reads **Iran 182 / Saudi Arabia 32 / Russia 24 / North Korea 7
-> / Syria 4 / Ukraine 1** (from Iran 228 / Russia 14 / Turkey 4 / Saudi Arabia 2 / Syria 2), 0 unattributed; all
-> 250 still carry an **emergency flag**, 0 a possible-explosion flag, and top-end intensity **rose** to top-3 FRP
-> **~189.3 / 124.6 / 121.6 MW** (from ~147.5 / 145.4 / 140.1), all three in Iran. The thermal-cluster slate
-> **held 12 clusters** in its all-persistent, all-high-relevance, all-conflict-adjacent shape — **12 / 12 / 12,
-> 0 spike** — but now labels **11 Iran / 1 Russia**, with peak cluster FRP **easing to ~865 MW** (from ~1,245
-> MW) and the sharpest z-score **easing to 2.07** (from 5.48) [[thermal-escalations]]. The disaster slate
-> **rose to 18 events, all open**: **Typhoon Cempaka** and **Tropical Storm Pena** left and **Tropical Cyclone
-> Akvan-26** (Orange, 83 km/h) entered in the Bay of Bengal [[natural-events]]; radiation logged **1
-> anomaly** on 11-19 — an **ELEVATED** reading at San Francisco — across 10 EPA stations + 1 Safecast reading
-> [[radiation-observations]].)
+> L1 note it rests on. (This cycle absorbs the 2026-11-20 → 2026-11-22 pulls, comparing the 2026-11-22 pull
+> against the 2026-11-19 baseline. The wildfire feed's top-N FRP cap **held** — the note carries the **top
+> 250 detections by FRP of 500 rows** (the `totalCount` field reads **4,153**, up from 2,600 on 11-19, after
+> 3,743 / 3,383 on 11-20 → 11-21) — [[wildfire-detections]]. The capped tally **spread further from Iran**: by
+> the feed's own `region` field it now reads **Iran 135 / Russia 53 / North Korea 36 / Saudi Arabia 24 / Turkey 1
+> / Ukraine 1** (from Iran 182 / Saudi Arabia 32 / Russia 24 / North Korea 7 / Syria 4 / Ukraine 1), 0
+> unattributed; all 250 still carry an **emergency flag**, 0 a possible-explosion flag, and top-end intensity
+> **fell sharply** to top-3 FRP **~87.5 / 81.0 / 70.6 MW** (from ~189.3 / 124.6 / 121.6), the top two now in
+> Russia. The thermal-cluster slate **held 12 clusters** in its all-persistent, all-high-relevance,
+> all-conflict-adjacent shape — **12 / 12 / 12, 0 spike** — now labelled **9 Iran / 3 Russia**, with peak
+> cluster FRP **rising to ~1,077 MW** in Siberia (from ~865 MW) and the sharpest z-score **rising to 4.47**
+> (from 2.07) [[thermal-escalations]]. The disaster slate **eased to 17 events, all open**: the GDACS
+> **Tropical Cyclone Akvan-26** row left while the EONET storm rows now carry the names **Akvan** and
+> **Xavier** [[natural-events]]; radiation logged **2 anomalies** on 11-22 — **ELEVATED** readings at Seattle
+> and Boston — across 10 EPA stations + 1 Safecast reading [[radiation-observations]].)
 
 ## This week at a glance
 
 - The NASA FIRMS VIIRS feed's **top-250-by-FRP cap held at 250 detections**, out of the **500 rows** the
-  note caption records (the feed's `totalCount` field reads **2,600** on 11-19, down from 3,875 on 11-15);
-  the capped region tally **spread out from Iran** — **Iran 182 / Saudi Arabia 32 / Russia 24 / North Korea 7
-  / Syria 4 / Ukraine 1** (0 unattributed); all 250 still carry an **emergency flag** and 0 a
-  possible-explosion flag, while the top value **rose** — top-3 FRP **~189.3 / 124.6 / 121.6 MW** (from
-  ~147.5 / 145.4 / 140.1) ([[wildfire-detections]]).
+  note caption records (the feed's `totalCount` field reads **4,153** on 11-22, up from 2,600 on 11-19);
+  the capped region tally **spread further from Iran** — **Iran 135 / Russia 53 / North Korea 36 / Saudi
+  Arabia 24 / Turkey 1 / Ukraine 1** (0 unattributed); all 250 still carry an **emergency flag** and 0 a
+  possible-explosion flag, while the top value **fell sharply** — top-3 FRP **~87.5 / 81.0 / 70.6 MW** (from
+  ~189.3 / 124.6 / 121.6) ([[wildfire-detections]]).
 - The FIRMS thermal-escalation feed again clustered its 24-hour window into **12 signals** with the summary
   shape **held flat** — **12 `conflict_adjacent`, 12 high-relevance, 12 `THERMAL_STATUS_PERSISTENT`, 0
-  spike** — but the labels now read **11 Iran / 1 Russia** (from 12 Iran), peak cluster total-FRP **eased to
-  ~865 MW** (from ~1,245 MW) and the sharpest z-score **eased to 2.07** (from 5.48) ([[thermal-escalations]]).
-- The GDACS / NASA EONET disaster feed **rose to 18 active events** (18 open, 0 closed, from 17 / 0):
-  severe storms **rose to 3** (from 2) as a new Bay of Bengal cyclone entered, Sea and Lake Ice **held at 11**
-  and droughts **held at 4** (all Orange) ([[natural-events]]).
-- Radiation **held at 10 EPA stations + 1 Safecast reading** and logged **1 anomaly** on 11-19 — an
-  **ELEVATED** reading at **San Francisco, CA** — with 0 corroborated (2 low-confidence readings); the 11-17
-  and 11-18 pulls logged none ([[radiation-observations]]).
+  spike** — but the labels now read **9 Iran / 3 Russia** (from 11 / 1), peak cluster total-FRP **rose to
+  ~1,077 MW** (from ~865 MW) and the sharpest z-score **rose to 4.47** (from 2.07) ([[thermal-escalations]]).
+- The GDACS / NASA EONET disaster feed **eased to 17 active events** (17 open, 0 closed, from 18 / 0; by pull
+  17 → 15 → 17): severe storms **eased to 2** (from 3), Sea and Lake Ice **held at 11** and droughts **held at
+  4** (all Orange) ([[natural-events]]).
+- Radiation **held at 10 EPA stations + 1 Safecast reading** and logged **2 anomalies** on 11-22 — **ELEVATED**
+  readings at **Seattle, WA** and **Boston, MA** — with 0 corroborated (2 low-confidence readings); the 11-20
+  pull logged one at Washington, DC and the 11-21 pull none ([[radiation-observations]]).
 
 ## Active fire — where the detections clustered
 
 - The capped detection set attributes — by each detection's own `region` field, deterministically
-  tallied — as **Iran 182 / Saudi Arabia 32 / Russia 24 / North Korea 7 / Syria 4 / Ukraine 1** (0
-  unattributed) on the 11-19 pull, against **Iran 228 / Russia 14 / Turkey 4 / Saudi Arabia 2 / Syria 2** on
-  11-15: **Iran eased** (228 → 182, now 73% of the capped set), **Saudi Arabia** rose sharply (2 → 32),
-  **Russia** firmed (14 → 24), **North Korea** and **Ukraine** returned and **Turkey** dropped out. By pull, Iran
-  read 175 → 208 → 208 → 182, and Syria briefly rose to 25 on 11-16. All 250 detections carried an emergency
-  flag and 0 a possible-explosion flag on every pull ([[wildfire-detections]]).
-- At the top of the capped set the single strongest value **rose** — top-3 fire-radiative-power values of
-  **~189.3 / 124.6 / 121.6 MW** on 11-19, all three Iran-labelled detections, from ~147.5 / 145.4 / 140.1 MW on
-  11-15. The 11-17 pull carried the cycle's highest single value, **~198.6 MW** ([[wildfire-detections]]).
-- The endpoint's full set (the note caption records the **top 250 by FRP of 500 rows**) reads **2,600**
-  on 11-19 (`totalCount` field), down from 3,875 on 11-15 — the **top-N FRP cap held at 250 of 500 rows**.
+  tallied — as **Iran 135 / Russia 53 / North Korea 36 / Saudi Arabia 24 / Turkey 1 / Ukraine 1** (0
+  unattributed) on the 11-22 pull, against **Iran 182 / Saudi Arabia 32 / Russia 24 / North Korea 7 / Syria 4
+  / Ukraine 1** on 11-19: **Iran eased again** (182 → 135, now 54% of the capped set), **Russia** more than
+  doubled (24 → 53), **North Korea** rose sharply (7 → 36), **Saudi Arabia** eased (32 → 24), **Turkey**
+  returned and **Syria** dropped out. By pull, Iran read 185 → 166 → 135 and Saudi Arabia peaked at 52 on
+  11-21. All 250 detections carried an emergency flag and 0 a possible-explosion flag on every pull
+  ([[wildfire-detections]]).
+- At the top of the capped set the strongest values **fell sharply** — top-3 fire-radiative-power values of
+  **~87.5 / 81.0 / 70.6 MW** on 11-22, the top two Russia-labelled detections in central Siberia (~60.4°N,
+  96.5°E) and the third in Iran, from ~189.3 / 124.6 / 121.6 MW (all Iran) on 11-19. The 11-21 pull carried
+  the cycle's highest single value, **~118.7 MW** ([[wildfire-detections]]).
+- The endpoint's full set (the note caption records the **top 250 by FRP of 500 rows**) reads **4,153**
+  on 11-22 (`totalCount` field), up from 2,600 on 11-19 — the **top-N FRP cap held at 250 of 500 rows**.
   The note's figures describe only the strongest-250 subset by fire radiative power, never the whole
   feed; the country split above is exact for that capped set, attribution by each row's own `region`
   field ([[wildfire-detections]]).
@@ -74,11 +76,12 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 - The feed clustered its 24-hour observation window into **12 thermal-escalation signals**, and the
   summary shape **held flat**: **12 of 12 `conflict_adjacent`, 12 high-relevance, 12
   `THERMAL_STATUS_PERSISTENT`, 0 spike, 0 elevated** ([[thermal-escalations]]).
-- The labels **broadened beyond Iran**: **11 Iran / 1 Russia** on 11-19, after
-  10 Iran / 2 Russia on 11-18 and 12 Iran on 11-16 and 11-17. Peak cluster total-FRP **eased to ~865 MW**
-  (centroid ~30.3°N, 47.4°E) from **~1,245 MW**, with the next two clusters at ~855 MW (~31.0°N, 47.3°E) and
-  ~580 MW (~30.7°N, 48.3°E); the sharpest cluster z-score **eased to 2.07** (from 5.48) on a ~424 MW cluster at
-  ~35.7°N, 44.0°E ([[thermal-escalations]]).
+- The labels **shifted toward Russia**: **9 Iran / 3 Russia** on 11-22, after 11 Iran / 1 Russia on 11-20
+  and 11-21. Peak cluster total-FRP **rose to ~1,077 MW** — a Russia-labelled cluster at ~60.4°N, 96.4°E,
+  all-night detections — from **~865 MW**, with the next two clusters at ~837 MW (~30.9°N, 47.3°E) and
+  ~750 MW (~30.3°N, 47.4°E), both Iran-labelled; the sharpest cluster z-score **rose to 4.47** (from 2.07) on a
+  ~512 MW Iran cluster at ~30.8°N, 48.3°E. The 11-20 pull carried the cycle's highest z-score, **5.72**
+  ([[thermal-escalations]]).
 - azimuth reports the cluster count, the country labels and the summary classification as the observed
   feed output and takes no position on it — a thermal cluster is a measured radiance aggregate, and the
   L2 line stops at what was detected, where, when, and how the signal classified, not what it implies
@@ -86,36 +89,39 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 ## Disaster alerts and radiation
 
-- The GDACS/EONET disaster slate **rose to 18 active events** on the 11-19 pull (18 open / 0 closed, from
-  17 / 0; by pull 18 → 19 → 18 → 18). **Typhoon Cempaka** and **Tropical Storm Pena** left the slate, and
-  **Tropical Cyclone Akvan-26** entered — a GDACS **Orange** tropical storm at ~16.0°N, 85.3°E in the Bay of
-  Bengal, maximum wind speed **83 km/h** — alongside two untitled EONET severe-storm rows (~15.1°N, 85.4°E and
-  ~10.6°S, 163.2°W) ([[natural-events]]).
-- Sea and Lake Ice **held at 11**; the drought entries **held at four**, all Orange — the East African,
-  Central-American/Caribbean, European and northern South American entries all carried. azimuth records the
-  count and category slate as the observed feed state ([[natural-events]]).
-- Radiation logged **one anomaly** on the 11-19 pull across **10 EPA RadNet US stations + 1 Safecast
-  reading**: the EPA station at **San Francisco, CA** recorded **40 nSv/h** against a **32.8 nSv/h** baseline
-  (+7.2, ELEVATED), at medium confidence, single-source and **not corroborated**; 2 readings are
-  low-confidence. The Honolulu and Houston anomalies of 11-15 no longer print. azimuth reports the readings and
-  their own severity labels as the feed published them, and draws no conclusion beyond the recorded values
-  ([[radiation-observations]]).
+- The GDACS/EONET disaster slate **eased to 17 active events** on the 11-22 pull (17 open / 0 closed, from
+  18 / 0; by pull 17 → 15 → 17). The GDACS **Tropical Cyclone Akvan-26** row (Orange, 83 km/h on 11-19) left
+  the slate, while the two EONET severe-storm rows that were untitled on 11-19 now carry names — **Tropical
+  Cyclone Akvan** (~17.2°N, 84.7°E, Bay of Bengal) and **Tropical Cyclone Xavier** (~11.6°S, 167.6°W, South
+  Pacific) ([[natural-events]]).
+- Sea and Lake Ice **held at 11** (after dipping to 9 on the 11-21 pull); the drought entries **held at
+  four**, all Orange — the East African, Central-American/Caribbean, European and northern South American
+  entries all carried. azimuth records the count and category slate as the observed feed state
+  ([[natural-events]]).
+- Radiation logged **two anomalies** on the 11-22 pull across **10 EPA RadNet US stations + 1 Safecast
+  reading**: the EPA station at **Seattle, WA** recorded **32 nSv/h** against a **28.9 nSv/h** baseline (+3.1)
+  and **Boston, MA** **72 nSv/h** against **67.8 nSv/h** (+4.2), both ELEVATED, at medium confidence,
+  single-source and **not corroborated**; 2 readings are low-confidence. The 11-20 pull logged one ELEVATED
+  reading at **Washington, DC** (34 vs 28.6 nSv/h), the 11-21 pull none, and the San Francisco anomaly of
+  11-19 no longer prints. azimuth reports the readings and their own severity labels as the feed published
+  them, and draws no conclusion beyond the recorded values ([[radiation-observations]]).
 
 ## Reading the week
 
-- The 2026-11-19 pull shows the **fire picture spreading out from Iran while the peak detection rose**: the
-  top-N FRP cap held (top 250 by FRP of 500 rows, `totalCount` 2,600, down from 3,875), the capped tally reading
-  **Iran 182 / Saudi Arabia 32 / Russia 24 / North Korea 7 / Syria 4 / Ukraine 1** and the top FRP rising to
-  **~189.3 MW** ([[wildfire-detections]]). The thermal-cluster layer held its 12-cluster, persistent,
-  conflict-adjacent shape but gained a Russia label, with the peak cluster and the sharpest z-score both easing
-  ([[thermal-escalations]]). The disaster slate rose to 18 as a Bay of Bengal cyclone replaced two Pacific
-  storms ([[natural-events]]), and radiation logged one uncorroborated anomaly, at San Francisco
-  ([[radiation-observations]]). azimuth records the detections, the cluster statuses, the alert categories
-  and the sensor values, links each to its L1 note, and stops there — what the satellites and stations
-  measured, not what may follow ([[wildfire-detections]], [[thermal-escalations]], [[natural-events]],
-  [[radiation-observations]]).
+- The 2026-11-22 pull shows the **fire picture spreading further from Iran while the peak detection fell**:
+  the top-N FRP cap held (top 250 by FRP of 500 rows, `totalCount` 4,153, up from 2,600), the capped tally
+  reading **Iran 135 / Russia 53 / North Korea 36 / Saudi Arabia 24 / Turkey 1 / Ukraine 1** and the top FRP
+  falling to **~87.5 MW** ([[wildfire-detections]]). The thermal-cluster layer held its 12-cluster, persistent,
+  conflict-adjacent shape but gained two Russia labels, with the peak cluster now in Siberia and the sharpest
+  z-score rising ([[thermal-escalations]]). The disaster slate eased to 17 as the GDACS Akvan row left and the
+  EONET storm rows took names ([[natural-events]]), and radiation logged two uncorroborated anomalies, at
+  Seattle and Boston ([[radiation-observations]]). azimuth records the detections, the cluster statuses, the
+  alert categories and the sensor values, links each to its L1 note, and stops there — what the satellites
+  and stations measured, not what may follow ([[wildfire-detections]], [[thermal-escalations]],
+  [[natural-events]], [[radiation-observations]]).
 
 ## Changelog
+- 2026-11-23 — daily-ingest synthesis (2026-W47): absorbed the 2026-11-20 → 2026-11-22 pulls (11-22 vs the 11-19 baseline). Wildfire top-N FRP cap held (top 250 by FRP of 500 rows; `totalCount` 4,153, from 2,600); capped tally spread further from Iran to Iran 135 / Russia 53 / North Korea 36 / Saudi Arabia 24 / Turkey 1 / Ukraine 1 (0 unattributed), all 250 emergency-flagged, top FRP fell to ~87.5 MW (Russia). Thermal slate held 12 persistent / high-relevance / conflict-adjacent clusters, 0 spike, now 9 Iran / 3 Russia; peak cluster ~1,077 MW in Siberia (from ~865), sharpest z-score 4.47 (from 2.07). Disaster slate 17 open (GDACS Akvan-26 row out; EONET storms now named Akvan and Xavier); radiation 2 uncorroborated ELEVATED anomalies at Seattle and Boston. Rewrote the intro, at-a-glance, fire, thermal, alerts and reading sections ([[wildfire-detections]], [[thermal-escalations]], [[natural-events]], [[radiation-observations]]).
 - 2026-11-20 — daily-ingest synthesis (2026-W47): absorbed the 2026-11-16 → 2026-11-19 pulls (11-19 vs the 11-15 baseline). Wildfire top-N FRP cap held (top 250 by FRP of 500 rows; `totalCount` 2,600, from 3,875); capped tally spread out from Iran to Iran 182 / Saudi Arabia 32 / Russia 24 / North Korea 7 / Syria 4 / Ukraine 1 (0 unattributed), all 250 emergency-flagged, top FRP ~189.3 MW. Thermal slate held 12 persistent / high-relevance / conflict-adjacent clusters, 0 spike, now 11 Iran / 1 Russia; peak cluster ~865 MW (from ~1,245), sharpest z-score 2.07 (from 5.48). Disaster slate 18 open (Cempaka and Pena out, Tropical Cyclone Akvan-26 Orange in); radiation 1 uncorroborated ELEVATED anomaly at San Francisco. Rewrote the intro, at-a-glance, fire, thermal, alerts and reading sections ([[wildfire-detections]], [[thermal-escalations]], [[natural-events]], [[radiation-observations]]).
 - 2026-11-16 — daily-ingest synthesis (2026-W46): absorbed the 2026-11-13 → 2026-11-15 pulls (baseline 11-12). Wildfire cap held at top 250 by FRP of 500 rows (`totalCount` 3,875, from 3,302); capped tally by `region` Iran 228 / Russia 14 / Turkey 4 / Saudi Arabia 2 / Syria 2 (North Korea and Ukraine out; 0 unattributed); 250 emergency, 0 possible-explosion; top-3 FRP rose to ~147.5 / 145.4 / 140.1 MW (11-14 peak ~234.2 MW). Thermal clusters held 12 / 12 / 12, 0 spike, all Iran; peak cluster ~1,245 MW (from ~1,011), top z-score 5.48 (from 7.97). Disaster slate fell to 17 open (storms 4 → 2: 03S and the NHC Pena entry out; storm wind fields absent from 11-15 rows). Radiation: 2 anomalies on 11-15 (Honolulu spike 28 vs 10.3 nSv/h; Houston ELEVATED 57 vs 42.8), uncorroborated. Rewrote all sections ([[wildfire-detections]], [[thermal-escalations]], [[natural-events]], [[radiation-observations]]).
 - 2026-11-13 — daily-ingest synthesis (2026-W46): absorbed the 2026-11-09 → 2026-11-12 pulls. Wildfire cap held at top 250 by FRP of 500 rows (`totalCount` 3,302, from 2,014); capped tally Iran 214 / Russia 11 / North Korea 6 / Turkey 6 / Saudi Arabia 5 / Syria 4 / Ukraine 4 (from Iran 148 / Russia 54 / Turkey 21 / North Korea 12 / Saudi Arabia 9 / Ukraine 5 / Taiwan 1), 0 unattributed; top-3 FRP eased to ~78.5 / 75.9 / 72.6 MW. Thermal slate held 12 persistent / conflict-adjacent / high-relevance clusters, now 12 Iran / 0 Russia (from 9/3), peak ~1,011 MW (from ~389), sharpest z 7.97 (from 4.17). Disaster slate rose to 19, all open: Typhoon Cempaka, TC 03S and a JTWC Pena entry in (NHC Pena downgraded to a 30 kt depression), In-fa, Murasu and Kanlaon out, a northern South American drought added (4 Orange droughts). Radiation: 1 uncorroborated spike-severity reading (Albany, NY, 65 vs 51.1 nSv/h), 0 ELEVATED ([[wildfire-detections]], [[thermal-escalations]], [[natural-events]], [[radiation-observations]]).
