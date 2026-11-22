@@ -3,7 +3,7 @@ title: Cyber Watch Weekly
 type: L2-brief
 theme: cyber-watch
 week: 2026-W47
-updated: 2026-11-19T00:00:00Z
+updated: 2026-11-22T00:00:00Z
 sources: [cyber-threats]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -15,79 +15,79 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 > fleet role evolves this single note in place each cycle. azimuth reports **recorded cyber
 > threat indicators** — an IOC is an observed fact (a host, an IP, a first-seen timestamp,
 > a severity as the tracker scored it) — and never attributes intent, names a victim, or
-> predicts an attack. Every claim links to the L1 note it rests on. Cutoff: the **2026-11-19**
+> predicts an attack. Every claim links to the L1 note it rests on. Cutoff: the **2026-11-22**
 > pull. The surfaced band **held its uniform composition** — all 500 rows on every daily pull from
-> 2026-11-16 through 2026-11-19 stayed **CRITICALITY_LEVEL_CRITICAL severity** and
+> 2026-11-20 through 2026-11-22 stayed **CRITICALITY_LEVEL_CRITICAL severity** and
 > **CYBER_THREAT_INDICATOR_TYPE_IP type**, carrying **no malware family**, with **no C2_SERVER-class rows**
-> surfacing at any point — the Feodo-Tracker split stays an honest **HOLD**. One **URLhaus** row returned on
-> 11-19 (499 AbuseIPDB + 1 URLhaus). Scale **rose then eased**: pagination `totalCount` went **1,355** (11-16)
-> → **1,371** (11-17) → **1,283** (11-18) → **1,248** (11-19), net −13 against 1,261 on 11-15. By the feed's own
-> `country` field the US count **swung** 124 → 113 → 130 → **95** (from 106). The **Netherlands 58** (unchanged)
-> holds second, **China 49** (from 37) third, then **Belgium 35**, **Germany 25** and **France 21** — with **0 rows
-> unattributed** and **61 distinct attributed geographies** (from 55) ([[cyber-threats]]).
+> surfacing at any point — the Feodo-Tracker split stays an honest **HOLD**. The lone **URLhaus** row of 11-19
+> left again (500 of 500 AbuseIPDB on every pull). Scale **held near flat then rose**: pagination `totalCount`
+> went **1,244** (11-20) → **1,249** (11-21) → **1,287** (11-22), net +39 against 1,248 on 11-19. By the feed's own
+> `country` field the US count **jumped** 134 → 122 → **171** (from 95). The **Netherlands 37** (from 58) holds
+> second, **Germany 36** (from 25) third, then **China 31**, **France 23** and **Canada 17** — with **0 rows
+> unattributed** and **57 distinct attributed geographies** (from 61) ([[cyber-threats]]).
 
 ## This week at a glance
 
-- The abuse.ch / AbuseIPDB channel surfaced **500 indicators** on every pull from 2026-11-16 through
-  2026-11-19 with its **uniform composition held**: all 500 rows stayed **CRITICALITY_LEVEL_CRITICAL**
+- The abuse.ch / AbuseIPDB channel surfaced **500 indicators** on every pull from 2026-11-20 through
+  2026-11-22 with its **uniform composition held**: all 500 rows stayed **CRITICALITY_LEVEL_CRITICAL**
   severity, **CYBER_THREAT_INDICATOR_TYPE_IP** type and **CYBER_THREAT_TYPE_MALWARE_HOST** class on every
   day, no command-and-control class ever entering the page ([[cyber-threats]]).
-- Feed pagination `totalCount` **rose then eased**: 1,261 (11-15) → **1,355** (11-16) → 1,371 (11-17) →
-  1,283 (11-18) → **1,248** (11-19), net −13 on the cycle ([[cyber-threats]]).
-- By the feed's own `country` field the **United States (95)** leads, down from 106, ahead of the
-  **Netherlands (58)**, **China (49)**, **Belgium (35)**, **Germany (25)**, **France (21)**, **South Korea
-  (16)**, **India (14)**, **Uzbekistan (12)** and **Romania (11)** — hosting-heavy geographies where
+- Feed pagination `totalCount` **held near flat then rose**: 1,248 (11-19) → **1,244** (11-20) → 1,249 (11-21)
+  → **1,287** (11-22), net +39 on the cycle ([[cyber-threats]]).
+- By the feed's own `country` field the **United States (171)** leads, up from 95, ahead of the
+  **Netherlands (37)**, **Germany (36)**, **China (31)**, **France (23)**, **Canada (17)**, **Belgium (13)**,
+  **Hong Kong (13)**, **Singapore (12)** and **Brazil (11)** — hosting-heavy geographies where
   infrastructure is registered, not a map of actors ([[cyber-threats]]).
-- **0 of the 500 rows carry no country** on the 2026-11-19 pull, across **61 distinct attributed
-  geographies** (48, 58 and 56 on 11-16 → 11-18) ([[cyber-threats]]).
+- **0 of the 500 rows carry no country** on the 2026-11-22 pull, across **57 distinct attributed
+  geographies** (59 and 56 on 11-20 → 11-21) ([[cyber-threats]]).
 
 ## Honest scope
 
 - **The surfaced critical band held its composition; only the scale and the geolocation mix moved.**
   All 500 rows stayed CRITICALITY_LEVEL_CRITICAL severity, CYBER_THREAT_INDICATOR_TYPE_IP type and
-  carried no malware family on every one of the 2026-11-16 → 2026-11-19 pulls — azimuth reports that
+  carried no malware family on every one of the 2026-11-20 → 2026-11-22 pulls — azimuth reports that
   stability as a feed-shape fact, not an inference that the underlying threat landscape held still
   ([[cyber-threats]]).
-- **Source mix: 500 of 500 AbuseIPDB on 11-16 → 11-18, then 499 AbuseIPDB + 1 URLhaus on 11-19** — the first
-  URLhaus row since 11-09 (a US-geolocated host tagged `malware_download`, `botnet`, `honeypot`)
-  ([[cyber-threats]]).
+- **Source mix: 500 of 500 AbuseIPDB on every pull 11-20 → 11-22** — the single URLhaus row that appeared on
+  11-19 did not carry into this cycle ([[cyber-threats]]).
 - **C2_SERVER / Feodo-Tracker split: HOLD.** No CYBER_THREAT_TYPE_C2_SERVER row appeared on any pull
   this cycle. azimuth reports the absence as this cycle's honest read, not a claim that the Feodo
   Tracker channel is empty or retired ([[cyber-threats]]).
 - **The page is capped at 500 of `totalCount`.** Each pull surfaces the first 500 rows of a larger
-  total (1,248 on 11-19), so the country mix describes the surfaced page, not the full feed. The day-to-day
-  swings in the US count (124 → 113 → 130 → 95) are swings in which 500 rows the page carries
+  total (1,287 on 11-22), so the country mix describes the surfaced page, not the full feed. The day-to-day
+  swings in the US count (134 → 122 → 171) are swings in which 500 rows the page carries
   ([[cyber-threats]]).
 - **Country is the feed's own geolocation of the indicator IP, not attribution of an actor.** azimuth
   reports the distribution of hosting geographies from that field and makes no inference about who
   operates them or whom they target ([[cyber-threats]]).
 
-## Move since prior reading (2026-11-15 → 2026-11-19)
+## Move since prior reading (2026-11-19 → 2026-11-22)
 
 - **Held: composition.** Every pull this cycle surfaced 500 of 500 CRITICAL / IP-type / malware-host rows,
   with no malware family and no C2_SERVER class ([[cyber-threats]]).
-- **Moved: total scale swung.** Pagination `totalCount` rose 1,261 → 1,355 on 11-16 and 1,371 on 11-17, then
-  fell to 1,283 and 1,248 — 13 below the 11-15 read ([[cyber-threats]]).
-- **Moved: the country mix churned.** By the feed's own `country` field the United States read 124, 113, 130
-  and 95 across the four pulls (from 106); the Netherlands ended where it started at 58 (44 → 47 → 50 in
-  between); China rose 37 → 49; Belgium rose 28 → 35 and Germany 20 → 25; Romania eased 21 → 11; Singapore
-  briefly reached 42 on 11-16 before easing to 10. **Uzbekistan (12)** entered the top ten as **Brazil** left
-  it ([[cyber-threats]]).
+- **Moved: total scale rose late.** Pagination `totalCount` read 1,244 on 11-20 and 1,249 on 11-21, then rose
+  to 1,287 on 11-22 — 39 above the 11-19 read ([[cyber-threats]]).
+- **Moved: the US share of the page jumped.** By the feed's own `country` field the United States read 134,
+  122 and 171 across the three pulls (from 95); the Netherlands eased 58 → 37; Germany rose 25 → 36 (43 on
+  11-20); China eased 49 → 31; Belgium fell 35 → 13. **Canada (17)**, **Hong Kong (13)**, **Singapore (12)**
+  and **Brazil (11)** entered the top ten as **South Korea**, **India**, **Uzbekistan** and **Romania** left it
+  ([[cyber-threats]]).
 - **Attribution coverage held at full.** **0 of 500** rows carried no country on any pull; distinct
-  attributed geographies read 48, 58, 56 and 61 ([[cyber-threats]]).
+  attributed geographies read 59, 56 and 57 ([[cyber-threats]]).
 
 ## Reading the week
 
-- Every one of the 2026-11-16 → 2026-11-19 pulls surfaced **500 of 500 CYBER_THREAT_INDICATOR_TYPE_IP**
+- Every one of the 2026-11-20 → 2026-11-22 pulls surfaced **500 of 500 CYBER_THREAT_INDICATOR_TYPE_IP**
   rows, **all CRITICALITY_LEVEL_CRITICAL**, with no malware family attributed — the uniform composition
   held the whole cycle with no command-and-control class on any single day ([[cyber-threats]]).
-- The geolocation distribution stays hosting-shaped and **US-led** (95 rows, 19% of the page on 11-19),
-  with the Netherlands and China behind it, while the total scale swung up and back to 1,248. azimuth
-  records each indicator's type, severity and geolocation exactly as the tracker scored them, and reads
-  these as day-on-day feed changes rather than a claim about who operates or targets that infrastructure
-  ([[cyber-threats]]).
+- The geolocation distribution stays hosting-shaped and is **more US-led than last cycle** (171 rows, 34% of
+  the page on 11-22, from 19%), with the Netherlands and Germany behind it, while the total scale edged up
+  to 1,287. azimuth records each indicator's type, severity and geolocation exactly as the tracker scored
+  them, and reads these as day-on-day feed changes rather than a claim about who operates or targets that
+  infrastructure ([[cyber-threats]]).
 
 ## Changelog
+- 2026-11-23 — daily-ingest synthesis (2026-W47): absorbed the 2026-11-20 → 2026-11-22 pulls. Composition held (500 of 500 CRITICAL / IP / malware-host, no malware family, no C2_SERVER — Feodo split stays HOLD); the lone URLhaus row of 11-19 left (500 of 500 AbuseIPDB). `totalCount` 1,244 → 1,249 → 1,287 (net +39 vs 1,248). Country mix: US 171 (from 95; 134/122/171 by pull, 34% of the page), Netherlands 37, Germany 36, China 31, France 23, Canada 17; Canada, Hong Kong, Singapore and Brazil entered the top ten, South Korea, India, Uzbekistan and Romania left; 0 unattributed, 57 geographies. Rewrote the intro, at-a-glance, scope, move and reading sections ([[cyber-threats]]).
 - 2026-11-20 — daily-ingest synthesis (2026-W47): absorbed the 2026-11-16 → 2026-11-19 pulls. Composition held (500 of 500 CRITICAL / IP / malware-host, no malware family, no C2_SERVER — Feodo split stays HOLD); one URLhaus row returned on 11-19 (499 AbuseIPDB + 1 URLhaus). `totalCount` 1,355 → 1,371 → 1,283 → 1,248 (net −13 vs 1,261). Country mix: US 95 (from 106; 124/113/130 by pull), Netherlands 58, China 49, Belgium 35, Germany 25, France 21; Uzbekistan entered the top ten, Brazil left; 0 unattributed, 61 geographies. Rewrote the intro, at-a-glance, scope, move and reading sections ([[cyber-threats]]).
 - 2026-11-16 — daily-ingest synthesis (2026-W46): absorbed the 2026-11-13 → 2026-11-15 pulls. Composition held: 500 of 500 CRITICAL / IP-type / malware-host rows from AbuseIPDB on every pull, no malware family, no C2_SERVER (Feodo split HOLD). totalCount eased 1,316 → 1,285 → 1,277 → 1,261 (net −55). Country mix churned: US 88 / 141 / 106 (from 97), Netherlands 58, China 37, Belgium 28, France 22, Romania 21; South Korea and India entered the top ten. 0 unattributed; 55 geographies (63 on 11-13). Rewrote the intro, at-a-glance, scope, move and reading sections ([[cyber-threats]]).
 - 2026-11-13 — daily-ingest synthesis (2026-W46): absorbed the 2026-11-09 → 2026-11-12 pulls. Composition held uniform (500 of 500 CRITICAL / IP-type / no malware family, no C2_SERVER rows; Feodo split HOLD); one URLhaus-sourced row on 11-09. `totalCount` rebuilt 1,045 → 1,287 → 1,277 → 1,278 → 1,316 (net +271). Country mix on 11-12: US 97 (from 150), Netherlands 62 (from 51), China 44, Belgium 32 (from 17), France 26 (from 13), Germany 21, Brazil 19; 0 unattributed; distinct geographies widened 50 → 54 ([[cyber-threats]]).
