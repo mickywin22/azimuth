@@ -9,9 +9,12 @@ presented as if it were the whole feed and the truncation is silent. These tests
 
 from __future__ import annotations
 
-from pathlib import Path
+from typing import TYPE_CHECKING
 
 from synthesis.brief_stats import _cap_total, _hazards
+
+if TYPE_CHECKING:
+    from pathlib import Path
 
 
 def _write_fire_note(day: Path, rows: list[dict[str, object]], *, cap_total: int | None) -> None:
