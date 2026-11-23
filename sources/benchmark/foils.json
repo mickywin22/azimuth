@@ -2,10 +2,10 @@
   "$note": "Captured snapshot of the COMPARED forecast/intelligence product for the azimuth benchmark (synthesis/benchmark.py). Quoted by product + capture date; NOT surfaced as an azimuth channel and NOT an L1 source. Refresh with pull_benchmark_foils.py.",
   "endpoint": "/api/forecast/v1/get-forecasts",
   "attribution": "WorldMonitor (api.worldmonitor.app) — model-generated forecast/assessment product",
-  "feed_generated_at": 1795356200662,
+  "feed_generated_at": 1795453449011,
   "feed_degraded": false,
-  "captured_at": "2026-11-22T14:28:47Z",
-  "n_forecasts_seen": 9,
+  "captured_at": "2026-11-23T17:57:58Z",
+  "n_forecasts_seen": 8,
   "topics": {
     "energy-supply": {
       "foil": {
@@ -13,17 +13,17 @@
         "domain": "market",
         "region": "Red Sea",
         "title": "Energy repricing risk from Red Sea maritime disruption state",
-        "probability": 0.683,
-        "prior_probability": 0.656,
+        "probability": 0.674,
+        "prior_probability": 0.699,
         "confidence": 0.75,
         "time_horizon": "30d",
         "trend": "stable",
         "projections": {},
-        "scenario_short": "Energy repricing risk from Red Sea maritime disruption will remain elevated at 68% over 30 days, as the state feeds energy repricing through supply shock with 69% pressure and 77% state confirmation.",
-        "perspective_strategic": "The 69% pressure and 77% state confirmation signals indicate a strong transmission path through energy supply shock, with 7 urgent critical signals reinforcing Energy pressure for Red Sea disruption.",
-        "perspective_contrarian": "The 75% confidence level still leaves room for reversal, and the absence of directly matched reporting on Red Sea means the path could stabilize below 68% if no new hard signals emerge.",
-        "actor_lens": "Commodity traders: Price whether stress in Red Sea becomes durable over the 30d. Rebalance positions if the probability path moves away from 68%.",
-        "top_signal": "Red Sea maritime disruption state is feeding energy repricing through energy supply shock, with 69% pressure and 77% state confirmation"
+        "scenario_short": "Energy repricing risk from Red Sea maritime disruption persists over the next 30 days, with 68% pressure and 78% state confirmation feeding through energy supply shock, keeping the forecast near 67%.",
+        "perspective_strategic": "The Red Sea disruption state, with 68% pressure and 78% state confirmation, signals a stable energy repricing risk, with the strongest transmission path running through energy supply shock toward Energy, per the canonical state path.",
+        "perspective_contrarian": "The 75% confidence level and the absence of new hard signals suggest that energy repricing risk could stall if large importers and policy officials successfully stabilize supply chains, preventing a break above the current baseline.",
+        "actor_lens": "Commodity traders: Price whether stress in Red Sea becomes durable over the 30d. Rebalance positions if the probability path moves away from 67%.",
+        "top_signal": "Red Sea maritime disruption state is feeding energy repricing through energy supply shock, with 68% pressure and 78% state confirmation"
       },
       "absence_reason": null
     },
@@ -33,17 +33,17 @@
         "domain": "market",
         "region": "Red Sea",
         "title": "Energy repricing risk from Red Sea maritime disruption state",
-        "probability": 0.683,
-        "prior_probability": 0.656,
+        "probability": 0.674,
+        "prior_probability": 0.699,
         "confidence": 0.75,
         "time_horizon": "30d",
         "trend": "stable",
         "projections": {},
-        "scenario_short": "Energy repricing risk from Red Sea maritime disruption will remain elevated at 68% over 30 days, as the state feeds energy repricing through supply shock with 69% pressure and 77% state confirmation.",
-        "perspective_strategic": "The 69% pressure and 77% state confirmation signals indicate a strong transmission path through energy supply shock, with 7 urgent critical signals reinforcing Energy pressure for Red Sea disruption.",
-        "perspective_contrarian": "The 75% confidence level still leaves room for reversal, and the absence of directly matched reporting on Red Sea means the path could stabilize below 68% if no new hard signals emerge.",
-        "actor_lens": "Commodity traders: Price whether stress in Red Sea becomes durable over the 30d. Rebalance positions if the probability path moves away from 68%.",
-        "top_signal": "Red Sea maritime disruption state is feeding energy repricing through energy supply shock, with 69% pressure and 77% state confirmation"
+        "scenario_short": "Energy repricing risk from Red Sea maritime disruption persists over the next 30 days, with 68% pressure and 78% state confirmation feeding through energy supply shock, keeping the forecast near 67%.",
+        "perspective_strategic": "The Red Sea disruption state, with 68% pressure and 78% state confirmation, signals a stable energy repricing risk, with the strongest transmission path running through energy supply shock toward Energy, per the canonical state path.",
+        "perspective_contrarian": "The 75% confidence level and the absence of new hard signals suggest that energy repricing risk could stall if large importers and policy officials successfully stabilize supply chains, preventing a break above the current baseline.",
+        "actor_lens": "Commodity traders: Price whether stress in Red Sea becomes durable over the 30d. Rebalance positions if the probability path moves away from 67%.",
+        "top_signal": "Red Sea maritime disruption state is feeding energy repricing through energy supply shock, with 68% pressure and 78% state confirmation"
       },
       "absence_reason": null
     },
