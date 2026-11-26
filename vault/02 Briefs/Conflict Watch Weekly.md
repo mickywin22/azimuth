@@ -2,8 +2,8 @@
 title: Conflict Watch Weekly
 type: L2-brief
 theme: conflict-watch
-week: 2026-W47
-updated: 2026-11-22T00:00:00Z
+week: 2026-W48
+updated: 2026-11-26T00:00:00Z
 sources: [conflict-events-ucdp]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -16,8 +16,9 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 > events** — who, where, when, and the source's own fatality estimate — and never assigns
 > blame, takes a side, or predicts escalation: an event record is an observed fact, an opinion
 > about it is not surfaced (the editorial line). Every claim links to the L1 note it rests on.
-> Last pull: **2026-11-22**. The catalogue **rolled forward** on the **2026-11-21** pull — the first roll since
-> 2026-10-21 — and the 11-22 pull matches it row for row. The count rose to **2,918 events** (from 2,514) and
+> Last pull: **2026-11-26**. The catalogue **held flat** across the 2026-11-23 → 2026-11-26 pulls: all four match
+> the catalogue that **rolled forward** on the **2026-11-21** pull row for row (same 2,918 events, same
+> `candidateVersion` 26.0.10). As of that roll the count rose to **2,918 events** (from 2,514) and
 > the published window advanced to **2025-12-22 → 2026-11-06** (from → 2026-10-04): the **September 2026
 > tranche (1,984 rows) rolled out** and an **October 2026 tranche (2,389 rows) rolled in**, while the 500
 > rows dated December 2025 carried. Summed best-estimate fatalities **eased to 15,246** (from 16,261). The
@@ -30,17 +31,17 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 - The channel is the **UCDP** (Uppsala Conflict Data Program) georeferenced event feed — a
   research-grade dataset published with a verification lag, not a breaking-news wire. The catalogue
-  rolled forward on 2026-11-21 and on the 11-22 pull reads **2,918 events**, published window
+  rolled forward on 2026-11-21 and on the 11-26 pull still reads **2,918 events**, published window
   **2025-12-22 → 2026-11-06**, summed best-estimate fatalities **15,246**. The brief describes the
   most recent *published* conflict record, and says so; the newest rows describe October 2026, about
-  three weeks behind the pull, which is the normal rhythm of a verification-lagged feed
+  three weeks behind the roll and four behind the latest pull, which is the normal rhythm of a verification-lagged feed
   ([[conflict-events-ucdp]]).
 - **A roll swaps a month, it does not append one.** The catalogue is two tranches: 500 rows dated December
   2025 that carried through this roll, and one recent month that replaced the previous one. So the
   country tallies below compare an October catalogue with a September one; they are not a running total
   ([[conflict-events-ucdp]]).
 - **Per-row location fields.** Each event carries `locationName` (a place label, e.g. "Pokrovsk
-  direction") and `hasPreciseLocation` (true/false). On the 11-22 pull **1,478 of 2,918** rows are flagged
+  direction") and `hasPreciseLocation` (true/false). On the 11-26 pull **1,478 of 2,918** rows are flagged
   precise and 1,440 are not — the largest record (id 648947) is labelled "Ukraine" with
   `hasPreciseLocation: false`, i.e. a country-level placement ([[conflict-events-ucdp]]).
 - The feed's **`candidateVersion` field moved to 26.0.10** on the 11-21 pull, after holding at 26.0.9 since
@@ -49,8 +50,8 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 
 ## This window at a glance
 
-- **2026-11-22 pull: 2,918 events over 2025-12-22 → 2026-11-06**, the window rolled forward a month on the
-  11-21 pull ([[conflict-events-ucdp]]).
+- **2026-11-26 pull: 2,918 events over 2025-12-22 → 2026-11-06**, unchanged on all four pulls since
+  2026-11-22; the window last rolled forward a month on the 11-21 pull ([[conflict-events-ucdp]]).
 - The 2,918 recorded events carry a summed best-estimate of **15,246 fatalities** (UCDP's `deathsBest`
   field — the source's own estimate, reported as published), from 16,261. The largest single record is the
   Government of Russia (Soviet Union) vs Government of Ukraine state-based dyad for October (id 648947,
@@ -65,7 +66,14 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 - The violence-type split moved to **1,806 state-based / 791 non-state / 321 one-sided** of the 2,918
   events (from 1,573 / 651 / 290) ([[conflict-events-ucdp]]).
 
-## Move since prior reading (2026-11-19 → 2026-11-22)
+## Move since prior reading (2026-11-22 → 2026-11-26)
+
+- **No change.** The 11-23, 11-24, 11-25 and 11-26 pulls each carry the identical catalogue — 2,918 events,
+  window 2025-12-22 → 2026-11-06, summed deathsBest 15,246, `candidateVersion` 26.0.10 — so every count,
+  country tally and largest record below stands as of the 11-21 roll. A flat run between monthly rolls is the
+  feed's normal rhythm ([[conflict-events-ucdp]]).
+
+## The last roll (2026-11-19 → 2026-11-22)
 
 - **A monthly roll on 11-21.** The 11-20 pull still matched the 11-19 catalogue (2,514 events, window to
   2026-10-04, `candidateVersion` 26.0.9); the 11-21 pull replaced it:
@@ -84,14 +92,15 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 ## Reading the window
 
 - Read as a record, not a forecast: the catalogue now shows UCDP's published October 2026 month next to its
-  carried December 2025 tranche. The roll arrived thirty-one days after the previous one, and azimuth draws
-  no inference about when the next lands. Roughly half the rows (1,440 of 2,918) are placed at a coarser
+  carried December 2025 tranche. The roll arrived thirty-one days after the previous one and has held for five
+  further pulls; azimuth draws no inference about when the next lands. Roughly half the rows (1,440 of 2,918) are placed at a coarser
   than exact location. The catalogue's weight stays concentrated in Ukraine (450 events, 6,656 summed
   deathsBest), while Yemen's (North Yemen) summed estimate roughly halved month on month and Nigeria and
   Sudan rose. azimuth reports the recorded events, the parties as UCDP names them, and the source's own
   fatality estimates — and stops there ([[conflict-events-ucdp]]).
 
 ## Changelog
+- 2026-11-27 — daily-ingest synthesis (2026-W48): absorbed the 2026-11-23 → 2026-11-26 pulls — a flat hold. All four pulls carry the catalogue of the 2026-11-21 roll row for row (2,918 events, window 2025-12-22 → 2026-11-06, summed deathsBest 15,246, candidateVersion 26.0.10). Updated the last-pull date, added a no-change section ahead of the last-roll detail, and kept every tally as of the 11-21 roll ([[conflict-events-ucdp]]).
 - 2026-11-23 — daily-ingest synthesis (2026-W47): absorbed the 2026-11-20 → 2026-11-22 UCDP pulls, a monthly roll. The 11-21 pull rolled the catalogue forward (first roll since 10-21): 2,918 events (from 2,514), window 2025-12-22 → 2026-11-06 (from → 10-04), the September 2026 tranche (1,990 rows out) replaced by October 2026 (2,394 in), 524 carried; summed deathsBest 15,246 (from 16,261); candidateVersion 26.0.10; 1,478 rows precise. Largest record now the October Russia–Ukraine dyad (id 648947, 5,640). Ukraine leads on count (450) and deathsBest (6,656); Yemen (North Yemen) fell to 1,782, Nigeria rose to 1,239, Sudan to 1,057; Ethiopia +112 events. Rewrote the intro, scope, at-a-glance, move and reading sections ([[conflict-events-ucdp]]).
 - 2026-11-20 — daily-ingest flowback (2026-W47): an honest flat cycle. The 2026-11-16 → 2026-11-19 UCDP pulls matched the 11-15 catalogue row for row apart from the retrieval timestamp — 2,514 events, window 2025-12-22 → 2026-10-04, summed deathsBest 16,261, candidateVersion 26.0.9, 1,202 rows precise. No figure changed; updated the last-pull date, the move section (no move this cycle, 11-13 edge swap kept for reference) and the flat span (now twenty-nine days since the 10-21 roll) ([[conflict-events-ucdp]]).
 - 2026-11-16 — daily-ingest synthesis (2026-W46): absorbed the 2026-11-13 → 2026-11-15 pulls. On 11-13 the catalogue swapped five rows at the window's opening date 2025-12-22 (two Colombia, two Mozambique, one Ecuador out; five Russia–Ukraine state-based records at deathsBest 2 each in) and then held on 11-14/11-15. Count (2,514), window (2025-12-22 → 2026-10-04) and candidateVersion 26.0.9 unchanged; summed deathsBest 16,269 → 16,261; split 1,573 / 651 / 290 (from 1,569 / 653 / 292); Ukraine 444 events / 6,680 deathsBest, Colombia 209 / 247. Reported as an edge revision, not a roll ([[conflict-events-ucdp]]).
