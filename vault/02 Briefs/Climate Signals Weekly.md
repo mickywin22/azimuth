@@ -2,8 +2,8 @@
 title: Climate Signals Weekly
 type: L2-brief
 theme: climate-signals
-week: 2026-W47
-updated: 2026-11-22T00:00:00Z
+week: 2026-W48
+updated: 2026-11-26T00:00:00Z
 sources: [climate-anomalies, co2-monitoring, sea-ice-extent]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -17,90 +17,90 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 > recorded regional temperature/precipitation anomalies — never a forecast of what the climate
 > will do. Every claim links to the L1 note it rests on. This brief reads three independent
 > instrument channels at once (atmospheric chemistry, the cryosphere/ocean, regional reanalysis)
-> for the week 2026-11-16 to 2026-11-22 (the 2026-11-22 pull). This cycle the regional map **split harder**
-> — two EXTREME warm cells returned while the cold side widened — and the slow baselines edged on: the Mauna
-> Loa line printed **429.16 ppm** (measured 2026-11-19) on the 11-22 pull and the **monthly average advanced to
-> 426.69 ppm for 2026-10**; **Arctic extent edged to 9.07 million km²** while the anomaly **widened past −2.0
-> to −2.02 million km²**; sea level held at **115.3 mm** and SST at +0.61 °C. The **19-zone** map kept its zone
-> set but moved to **13 warm / 5 cold / 1 mixed**, **4 MODERATE** and **2 EXTREME** cells, the mean anomaly
-> rising to **+1.57 °C** (from +1.31). **Central Asia (+6.2 °C)** and the **Western Antarctic Ice Sheet
-> (+5.6 °C)** are the EXTREME cells; **East Asia (−4.4 °C)** is now the coldest ([[co2-monitoring]],
-> [[sea-ice-extent]], [[climate-anomalies]]).
+> for the week 2026-11-20 to 2026-11-26 (the 2026-11-26 pull). This cycle the regional map **polarised
+> further** — **Greenland** jumped to an **EXTREME +9.0 °C** while **East Asia** deepened to an **EXTREME
+> −5.4 °C** — and the slow baselines moved in mixed directions: the Mauna Loa line printed **429.13 ppm**
+> (measured 2026-11-23) from 11-24, the year-ago reference stepping to **426.96 ppm**; **Arctic extent grew to
+> 9.29 million km²** and its anomaly **narrowed back inside −2.0 to −1.94 million km²**; and mean **sea level
+> stepped up to 118.3 mm** on the 11-26 pull (from 115.3). The **19-zone** map now reads **12 warm / 6 cold /
+> 1 mixed**, **5 MODERATE** and **3 EXTREME** cells, the mean anomaly easing to **+1.34 °C** (from +1.57)
+> ([[co2-monitoring]], [[sea-ice-extent]], [[climate-anomalies]]).
 
 ## This week at a glance
 
-- The atmospheric and cryosphere baselines **edged on**: the co2-monitoring feed carried **429.12 ppm**
-  (measured 2026-11-17) on the 11-20 and 11-21 pulls, then printed **429.16 ppm** (measured 2026-11-19) on
-  11-22, the year-ago reference now **426.57 ppm**, the **monthly average advancing to 426.69 ppm for
-  2026-10** (from 426.07 ppm for 2026-09), annual growth +2.84 ppm/yr; Arctic extent **edged to 9.07 million
-  km²** (9.05 → 9.07 → 9.07 by pull) with the anomaly **widening to −2.02 million km²**, global sea level
-  **holding at 115.3 mm** above the 1993 reference, and the sea-surface-temperature anomaly **holding at
-  +0.61 °C** ([[co2-monitoring]], [[sea-ice-extent]]).
-- The regional anomaly channel **split harder**, its week rolling to 2026-11-16 → 2026-11-22: the
-  climate-anomalies feed carries the same **19** zones, now **13 warm / 5 cold / 1 mixed** (from 16 warm /
-  2 cold / 1 wet), severity **13 NORMAL / 4 MODERATE / 2 EXTREME** (from 15/4/0), and the mean anomaly rose
-  from +1.31 °C to **+1.57 °C** ([[climate-anomalies]]).
-- Net for the week: the Arctic anomaly crossed −2.0 million km² for the first time in the feed's twelve-month
-  series, the Mauna Loa monthly average rolled forward a month, sea level, SST and ocean heat held, and the
-  regional map gained two EXTREME warm cells while five zones read cold — three independent instrument reads,
-  none forecasting what comes next ([[co2-monitoring]], [[sea-ice-extent]], [[climate-anomalies]]).
+- The baselines **moved in mixed directions**: the co2-monitoring feed carried **429.16 ppm** (measured
+  2026-11-19) on the 11-23 pull, then **429.13 ppm** (measured 2026-11-23) on the 11-24 → 11-26 pulls, the
+  year-ago reference stepping to **426.96 ppm**; the monthly average held at **426.69 ppm for 2026-10** and
+  annual growth at +2.84 ppm/yr. Arctic extent **grew to 9.29 million km²** (9.09 → 9.18 → 9.23 → 9.29 by
+  pull) with the anomaly **narrowing to −1.94 million km²**, and global sea level **stepped up to 118.3 mm**
+  above the 1993 reference while SST held at +0.61 °C ([[co2-monitoring]], [[sea-ice-extent]]).
+- The regional anomaly channel **polarised further**, its week rolling to 2026-11-20 → 2026-11-26: the
+  climate-anomalies feed carries the same **19** zones, now **12 warm / 6 cold / 1 mixed** (from 13 / 5 / 1),
+  severity **11 NORMAL / 5 MODERATE / 3 EXTREME** (from 13 / 4 / 2), and the mean anomaly eased from +1.57 °C
+  to **+1.34 °C**; on the 11-23 pull the map briefly carried **four** EXTREME cells ([[climate-anomalies]]).
+- Net for the week: the Arctic anomaly pulled back inside −2.0 million km² as extent kept growing, the
+  sea-level line printed its first step in weeks, the Mauna Loa reading eased 0.03 ppm, and the regional map
+  added a third EXTREME cell — one of them cold — three independent instrument reads, none forecasting what
+  comes next ([[co2-monitoring]], [[sea-ice-extent]], [[climate-anomalies]]).
 
 ## Atmospheric chemistry (Mauna Loa)
 
-- The co2-monitoring feed carried **429.12 ppm** (measured 2026-11-17) on the 11-20 and 11-21 pulls, then
-  printed **429.16 ppm** (measured 2026-11-19) on the 11-22 pull. The year-ago reference moved 426.84 →
-  **426.57 ppm**. The **monthly average advanced to 426.69 ppm for 2026-10** (anomaly +1.82 ppm), the feed's
-  twelve-month trend now running 2025-11 → 2026-10, and the recorded **annual growth rate ticked to
+- The co2-monitoring feed carried **429.16 ppm** (measured 2026-11-19) on the 11-23 pull, then printed
+  **429.13 ppm** (measured 2026-11-23) on the 11-24, 11-25 and 11-26 pulls. The year-ago reference moved
+  426.57 → **426.96 ppm**. The **monthly average held at 426.69 ppm for 2026-10** (anomaly +1.82 ppm), the
+  twelve-month trend still running 2025-11 → 2026-10, and the recorded **annual growth rate held at
   +2.84 ppm/yr** ([[co2-monitoring]]).
-- At 429.16 ppm the recorded concentration sits about **53% above the 280 ppm pre-industrial baseline** the
-  feed carries; the same pull records **methane at 1,936.37 ppb** (from 1,934.57) and **nitrous oxide at
-  340.02 ppb** (from 339.86), both trace-gas lines edging up with the monthly roll ([[co2-monitoring]]).
+- At 429.13 ppm the recorded concentration sits about **53% above the 280 ppm pre-industrial baseline** the
+  feed carries; **methane held at 1,936.37 ppb** and **nitrous oxide at 340.02 ppb**, both trace-gas lines
+  unchanged on every pull of the week ([[co2-monitoring]]).
 
 ## Cryosphere & ocean (sea-ice channel)
 
-- Arctic sea-ice extent is recorded **at 9.07 million km²** (from 8.99; 9.05 → 9.07 → 9.07 by pull, measured
-  2026-11-20) — the feed's **2026-11** month value updated in place, the 2026-10 month unchanged at 7.84
-  million km² (−1.88) — while the anomaly **widened to −2.02 million km²** (−1.99 → −2.02 → −2.02): the first
-  reading beyond −2.0 in the feed's twelve-month series (previous widest −1.93 for this month on the 11-19
-  pull, −1.91 for 2026-08), the feed's `arcticTrend` flagged `below_average` ([[sea-ice-extent]]).
-- The same ocean channel reports a global sea-surface-temperature anomaly **holding at +0.61 °C**, mean
-  sea level **holding at 115.3 mm above the 1993 reference** (recorded annual rise 4.4 mm/yr, unchanged)
-  and ocean heat content (0–700 m) **holding at 228.45 ZJ** ([[sea-ice-extent]]).
+- Arctic sea-ice extent is recorded **at 9.29 million km²** (from 9.07; 9.09 → 9.18 → 9.23 → 9.29 by pull,
+  measured 2026-11-25) — the feed's **2026-11** month value updated in place, the 2026-10 month unchanged at
+  7.84 million km² (−1.88) — while the anomaly **narrowed back to −1.94 million km²** (−1.99 → −1.92 → −1.91 →
+  −1.94), so the −2.02 reading of 11-22 stays the widest in the feed's twelve-month series; `arcticTrend`
+  stays `below_average` ([[sea-ice-extent]]).
+- The same ocean channel reports mean **sea level at 118.3 mm above the 1993 reference** on the 11-26 pull,
+  **up 3.0 mm** from the 115.3 mm it carried on every earlier pull of the week (recorded annual rise
+  4.4 mm/yr, unchanged); the sea-surface-temperature anomaly **held at +0.61 °C** and ocean heat content
+  (0–700 m) **at 228.45 ZJ** ([[sea-ice-extent]]).
 
 ## Regional anomaly map (19 zones)
 
-- The climate-anomalies feed's week **rolled to 2026-11-16 → 2026-11-22** and held **19** zones on every
-  pull — the same zone set as 11-19, so this cycle's shift is a change in readings, not in coverage. The 19
-  split **13 warm / 5 cold / 1 mixed**, severity **13 NORMAL / 4 MODERATE / 2 EXTREME** ([[climate-anomalies]]).
-- **Two EXTREME warm cells** lead: **Central Asia** at **+6.2 °C** (from +2.8 °C) and the **Western Antarctic
-  Ice Sheet** at **+5.6 °C** (from +4.2 °C MODERATE). **Greenland flipped warm** to **+4.1 °C** MODERATE (from
-  −1.8 °C, last cycle's coldest), level with the **Tibetan Plateau (+4.0 °C**, MODERATE); **Australia** flipped
-  warm to +1.3 °C (from −1.7) and the **Middle East** rose to +2.5 °C (from +0.6) ([[climate-anomalies]]).
-- The cold side **widened to five cells**: **East Asia (−4.4 °C**, MODERATE, from +0.8 °C warm, now the
-  coldest), **California (−3.3 °C**, MODERATE, retyped cold from wet), the **Arctic (−0.6 °C)**, **South Asia
-  (−0.4 °C)** and the **North Atlantic (−0.1 °C)**. The **Coral Triangle** is the one **mixed** cell (+2.4 °C,
-  −3.4 mm). Precipitation flags: **California (+5.9 mm)** stays the wettest ahead of **Europe (+5.6 mm)** and
-  the **Caribbean (+2.8 mm)**, while the **Coral Triangle (−3.4 mm)**, **Latin America (−2.7 mm)** and
-  **Southern Africa (−1.9 mm)** are the driest ([[climate-anomalies]]).
+- The climate-anomalies feed's week **rolled to 2026-11-20 → 2026-11-26** and held **19** zones on every
+  pull, so this cycle's shift is again a change in readings, not in coverage. By pull the EXTREME count ran
+  **4 → 3 → 3 → 3** and the mean anomaly **+1.58 → +1.51 → +1.53 → +1.34 °C**; the 11-26 map splits **12 warm /
+  6 cold / 1 mixed**, severity **11 NORMAL / 5 MODERATE / 3 EXTREME** ([[climate-anomalies]]).
+- **Greenland** now leads the warm side at an **EXTREME +9.0 °C** (from +4.1 °C MODERATE), with **Central Asia**
+  still EXTREME at **+6.1 °C** (from +6.2). The **Western Antarctic Ice Sheet** eased to **+3.5 °C** (MODERATE,
+  from +5.6 °C EXTREME), level with the **Tibetan Plateau (+3.3 °C)** and the **Congo Basin (+3.0 °C**, newly
+  MODERATE) ([[climate-anomalies]]).
+- The cold side **widened to six cells and deepened**: **East Asia** is now **EXTREME at −5.4 °C** (from
+  −4.4 °C MODERATE), **Europe flipped cold to −4.0 °C** (MODERATE), **California** held cold at −3.6 °C, and
+  **South Asia** (−1.3), the **North Atlantic** (−1.3) and **Ukraine** (−0.3) read mildly cold; the **Arctic**
+  turned warm at +0.6 °C. The **Coral Triangle** is still the one **mixed** cell (+2.8 °C, −3.4 mm).
+  Precipitation flags: the **North Atlantic (+2.8 mm)**, **Australia (+2.7 mm)** and **Ukraine (+2.2 mm)** are
+  the wettest, while the **Coral Triangle (−3.4 mm)**, **Congo Basin (−3.0 mm)**, **Latin America** and the
+  **Arctic** (−2.3 mm each) are the driest ([[climate-anomalies]]).
 
 ## Reading the week
 
-- Read together, the channels describe a recorded picture where the slow baselines **edged on** and the
-  regional map **split harder**: a Mauna Loa line at **429.16 ppm** (monthly average now 426.69 ppm for
-  2026-10, about 53% above pre-industrial, +2.84 ppm/yr recorded growth), an Arctic extent **near 9.07
-  million km²** with its anomaly **past −2.0 million km²** for the first time in the series, sea level at
-  **115.3 mm** with SST holding at +0.61 °C, and a 19-zone map at **13 warm / 5 cold / 1 mixed** with **two
-  EXTREME warm cells** and the mean anomaly at +1.57 °C. azimuth reports what the instruments measured — the
-  value, the anomaly sign, the severity flag — and stops there; the editorial line keeps the brief to observed
-  facts and excludes any projection of what follows ([[co2-monitoring]], [[sea-ice-extent]],
-  [[climate-anomalies]]).
-- The synthesis value this cycle is again a like-for-like comparison: the regional channel kept the same 19
-  zones, so the move to two EXTREME cells alongside five cold ones is a change in the readings themselves —
-  the mean anomaly rose +0.26 °C even as three more zones turned cold. Over the same days the Arctic extent
-  rose only 0.08 million km² while its anomaly widened 0.09 — two channels read side by side
-  ([[climate-anomalies]], [[sea-ice-extent]], [[co2-monitoring]]).
+- Read together, the channels describe a recorded picture where the slow baselines **moved in mixed
+  directions** and the regional map **polarised**: a Mauna Loa line at **429.13 ppm** (monthly average 426.69
+  ppm for 2026-10, about 53% above pre-industrial, +2.84 ppm/yr recorded growth), an Arctic extent **near 9.29
+  million km²** with its anomaly back at **−1.94 million km²**, sea level at **118.3 mm** with SST holding at
+  +0.61 °C, and a 19-zone map at **12 warm / 6 cold / 1 mixed** with **three EXTREME cells** — two warm, one
+  cold — and the mean anomaly at +1.34 °C. azimuth reports what the instruments measured — the value, the
+  anomaly sign, the severity flag — and stops there; the editorial line keeps the brief to observed facts and
+  excludes any projection of what follows ([[co2-monitoring]], [[sea-ice-extent]], [[climate-anomalies]]).
+- The synthesis value this cycle is the like-for-like spread: with the same 19 zones, the warmest reading rose
+  +2.8 °C (Greenland itself +4.9 °C) and the coldest fell 1.0 °C, so the map's range widened from 10.6 °C to **14.4 °C** even as the
+  mean eased 0.23 °C. Over the same days Arctic extent grew 0.22 million km² while its anomaly narrowed only
+  0.08 — two channels read side by side ([[climate-anomalies]], [[sea-ice-extent]], [[co2-monitoring]]).
 
 ## Changelog
+- 2026-11-27 — daily-ingest synthesis (2026-W48): absorbed the 2026-11-23 → 2026-11-26 pulls. Mauna Loa carried 429.16 ppm, then printed 429.13 ppm (measured 11-23; year-ago 426.96 ppm); monthly average 426.69 ppm (2026-10), growth +2.84 ppm/yr, methane and N2O unchanged. Arctic extent grew to 9.29 million km² (9.09 → 9.18 → 9.23 → 9.29) while the anomaly narrowed to −1.94; sea level stepped to 118.3 mm (from 115.3) on 11-26, SST +0.61 °C and ocean heat held. The regional map kept 19 zones and moved to 12 warm / 6 cold / 1 mixed, 11 NORMAL / 5 MODERATE / 3 EXTREME, mean +1.34 °C (from +1.57); Greenland EXTREME +9.0 °C, Central Asia +6.1 °C, East Asia EXTREME −5.4 °C, Europe flipped cold (−4.0 °C) ([[co2-monitoring]], [[sea-ice-extent]], [[climate-anomalies]]).
 - 2026-11-23 — daily-ingest synthesis (2026-W47): absorbed the 2026-11-20 → 2026-11-22 pulls. Mauna Loa carried 429.12 ppm, then printed 429.16 ppm (measured 11-19; year-ago 426.57 ppm); the monthly average advanced to 426.69 ppm for 2026-10 and growth to +2.84 ppm/yr; methane 1,936.37 ppb, N2O 340.02 ppb. Arctic extent edged to 9.07 million km² while the anomaly widened to −2.02 (first beyond −2.0 in the twelve-month series); sea level 115.3 mm, SST +0.61 °C, ocean heat 228.45 ZJ held. The regional map kept its 19 zones but split to 13 warm / 5 cold / 1 mixed, 13 NORMAL / 4 MODERATE / 2 EXTREME, mean +1.57 °C (from +1.31); Central Asia (+6.2 °C) and the Western Antarctic Ice Sheet (+5.6 °C) EXTREME, Greenland flipped warm (+4.1 °C), East Asia (−4.4 °C) now coldest, California retyped cold. Rewrote the intro, at-a-glance, chemistry, cryosphere, regional and reading sections ([[co2-monitoring]], [[sea-ice-extent]], [[climate-anomalies]]).
 - 2026-11-20 — daily-ingest synthesis (2026-W47): absorbed the 2026-11-16 → 2026-11-19 pulls. Mauna Loa printed 429.42 → 428.19 → 429.12 ppm (measured 11-12 / 11-15 / 11-17; year-ago 426.84 ppm; monthly average 426.07 ppm for 2026-09). Arctic extent near flat at 8.99 million km² while the anomaly widened to −1.93 (from −1.64); sea level 115.3 mm, SST +0.61 °C, ocean heat 228.45 ZJ held. The regional map kept its 19 zones but warmed to 16 warm / 2 cold / 1 wet, 15 NORMAL / 4 MODERATE / 0 EXTREME, mean +1.31 °C (from +0.72); the Western Antarctic Ice Sheet (+4.2 °C) flipped warm to lead, the Middle East, Europe and Arctic flipped warm, Greenland (−1.8 °C) now coldest, California typed wet (+6.8 mm). Rewrote the intro, at-a-glance, chemistry, cryosphere, regional and reading sections ([[co2-monitoring]], [[sea-ice-extent]], [[climate-anomalies]]).
 - 2026-11-16 — daily-ingest synthesis (2026-W46): absorbed the 2026-11-13 → 2026-11-15 pulls (regional week 2026-11-09 → 2026-11-15). CO2 printed 428 ppm on 11-13 then 429.42 ppm (measured 2026-11-12) on 11-14/11-15; year-ago reference 426.76; monthly 426.07 for 2026-09. Arctic extent refroze to 8.95 million km² (from 8.66), anomaly −1.64 (from −1.66); sea level 115.3 mm, SST +0.61 °C and OHC 228.45 ZJ held. Regional map narrowed from 23 to 19 zones (Sahel, Horn of Africa, Mediterranean, Taiwan Strait absent — reported as missing, not as normal) and cooled: 12 warm / 6 cold / 1 mixed, severity 17/2/0 — no EXTREME cell (Central Asia +6.9 → +1.1 °C), mean +0.72 °C (from +1.11). Warmest Tibetan Plateau +3.6 °C, coldest Middle East −3.3 °C (both MODERATE). Rewrote the intro, at-a-glance, chemistry, cryosphere, regional-map and reading sections ([[co2-monitoring]], [[sea-ice-extent]], [[climate-anomalies]]).
