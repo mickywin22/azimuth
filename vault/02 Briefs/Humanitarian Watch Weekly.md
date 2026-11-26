@@ -2,8 +2,8 @@
 title: Humanitarian Watch Weekly
 type: L2-brief
 theme: humanitarian
-week: 2026-W47
-updated: 2026-11-22T00:00:00Z
+week: 2026-W48
+updated: 2026-11-26T00:00:00Z
 sources: [displacement-flows]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -15,10 +15,10 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 > fleet role evolves this single note in place each cycle. azimuth reports **recorded
 > displacement statistics** — a refugee or IDP population count is an observed figure
 > published by UNHCR / UN OCHA — and never assigns cause-blame or projects flows. Every claim
-> links to the L1 note it rests on. Data as of the **2026-11-22** pull (daily cadence continues). The
+> links to the L1 note it rests on. Data as of the **2026-11-26** pull (daily cadence continues). The
 > channel **rolled its published year from 2025 to 2026 on the 2026-11-17 pull** — the first change to the
 > payload since the flat run began on 2026-07-16 — and has held the new figures on every pull since, 11-18
-> through 11-22 (only the retrieval timestamp moved). The global
+> through 11-26 (only the retrieval timestamp moved) — ten straight pulls on the 2026 year. The global
 > forcibly displaced total moved to **106,757,820** (from 106,175,975), and the country table, the rankings
 > and the corridor list all re-based on the new reference year ([[displacement-flows]]).
 
@@ -57,8 +57,8 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 - UNHCR publishes these statistics on an **annual reference year** with periodic revisions — so week-on-week
   this brief typically holds flat and moves when the source revises or rolls the year. This cycle is the
   roll: the payload was byte-identical from 2026-07-16 through the 11-16 pull (123 days), then switched to the
-  2026 reference year on 11-17. The 11-20, 11-21 and 11-22 pulls match the rolled 2026 figures value for value
-  apart from the retrieval timestamp — the new year is now holding flat ([[displacement-flows]]).
+  2026 reference year on 11-17. The 11-23, 11-24, 11-25 and 11-26 pulls match the rolled 2026 figures value for value
+  apart from the retrieval timestamp — the new year has now held flat for ten pulls since the roll ([[displacement-flows]]).
 - **A year roll is a re-base, not a trend.** The 2025 and 2026 figures are two published snapshots; azimuth
   reports the differences between them but does not read them as a rate of displacement between 11-16 and
   11-17. Country rows can also enter or leave the table with a roll, as three did this cycle
@@ -86,6 +86,7 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
   movement ([[displacement-flows]]).
 
 ## Changelog
+- 2026-11-27 — daily-ingest synthesis (2026-W48): absorbed the 2026-11-23 → 2026-11-26 pulls — a flat hold. The summary payload is identical on all four pulls to the 2026 reference year rolled in on 11-17 (total 106,757,820; only fetchedAt moved), now ten straight pulls on the new year. Updated the as-of date and the holding-flat note; every figure stands ([[displacement-flows]]).
 - 2026-11-23 — daily-ingest flowback (2026-W47): an honest flat cycle. The 2026-11-20 → 2026-11-22 pulls matched the rolled 2026 reference year value for value apart from the retrieval timestamp — global total 106,757,820 (IDPs 64,937,492, refugees 28,505,014, asylum seekers 8,577,140, stateless 4,738,174), 210 countries, rankings and corridors unchanged. No figure changed; updated the as-of date, the intro hold line and the honest-scope note ([[displacement-flows]]).
 - 2026-11-20 — daily-ingest synthesis (2026-W47): absorbed the 2026-11-16 → 2026-11-19 pulls — the published year ROLLED from 2025 to 2026 on the 11-17 pull, ending the byte-identical run held since 2026-07-16 (123 days). New global total 106,757,820 (+581,845): IDPs 64,937,492, refugees 28,505,014, asylum seekers 8,577,140, stateless 4,738,174. Table 212 → 210 countries; IDP top six now Sudan 8.69M, Colombia, Syria, DR Congo, Yemen, Myanmar (Ukraine out); refugee top six led by Ukraine 5.19M; origin ranking order unchanged (Sudan 12.58M first). Corridors: Afghanistan → Pakistan fell to 0.82M (out of top five), Syria → Lebanon rose to 0.89M, South Sudan → Uganda now fifth. Rewrote every section and the honest-scope note around the year roll ([[displacement-flows]]).
 - 2026-11-16 — daily-ingest synthesis (2026-W46): absorbed the 2026-11-13 → 2026-11-15 pulls — an honest flat cycle. The displacement payload is byte-identical to the 11-12 pull apart from the `retrieved`/`fetchedAt` timestamps: 2025 reference-year totals (106,175,975 / 64,239,352 IDPs / 28,461,306 refugees / 8,998,097 asylum seekers / 4,477,220 stateless), all 212 country rows and every ranking unchanged. Flat run now 122 days (2026-07-16 → 11-15). Advanced the as-of dates; no figure changed ([[displacement-flows]]).
