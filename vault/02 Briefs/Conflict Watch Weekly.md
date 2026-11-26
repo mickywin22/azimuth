@@ -33,8 +33,8 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
   research-grade dataset published with a verification lag, not a breaking-news wire. The catalogue
   rolled forward on 2026-11-21 and on the 11-26 pull still reads **2,918 events**, published window
   **2025-12-22 → 2026-11-06**, summed best-estimate fatalities **15,246**. The brief describes the
-  most recent *published* conflict record, and says so; the newest rows describe October 2026, about
-  three weeks behind the roll and four behind the latest pull, which is the normal rhythm of a verification-lagged feed
+  most recent *published* conflict record, and says so; the newest rows describe October 2026 — a month that
+  ended three weeks before the 11-21 roll and almost four before the 11-26 pull, which is the normal rhythm of a verification-lagged feed
   ([[conflict-events-ucdp]]).
 - **A roll swaps a month, it does not append one.** The catalogue is two tranches: 500 rows dated December
   2025 that carried through this roll, and one recent month that replaced the previous one. So the
