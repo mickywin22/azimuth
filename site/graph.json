@@ -1403,7 +1403,6 @@
         "environmental-hazards",
         "geophysical",
         "humanitarian",
-        "prediction-markets",
         "public-health"
       ],
       "evidence": [
@@ -1570,8 +1569,7 @@
         "cyber-watch",
         "energy-supply",
         "environmental-hazards",
-        "geophysical",
-        "prediction-markets"
+        "geophysical"
       ],
       "evidence": [
         {
@@ -4032,13 +4030,6 @@
     },
     {
       "source": "entity:mexico",
-      "target": "brief:prediction-markets-weekly",
-      "cross_theme": true,
-      "rel": "mentioned-in",
-      "weight": 0
-    },
-    {
-      "source": "entity:mexico",
       "target": "brief:public-health-weekly",
       "cross_theme": true,
       "rel": "mentioned-in",
@@ -4267,13 +4258,6 @@
       "target": "source:earthquakes",
       "cross_theme": false,
       "rel": "named-in"
-    },
-    {
-      "source": "entity:taiwan",
-      "target": "brief:prediction-markets-weekly",
-      "cross_theme": true,
-      "rel": "mentioned-in",
-      "weight": 0
     },
     {
       "source": "entity:brazil",
