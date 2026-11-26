@@ -2,8 +2,8 @@
 title: Orbital Watch Weekly
 type: L2-brief
 theme: orbital-watch
-week: 2026-W47
-updated: 2026-11-22T00:00:00Z
+week: 2026-W48
+updated: 2026-11-26T00:00:00Z
 sources: [orbital-satellites]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -16,45 +16,46 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 > element sets** — a satellite's TLE-derived position, altitude, inclination and velocity are
 > observed public data (CelesTrak, from US Space Command releases) — and never speculates on
 > a satellite's mission or intent beyond the catalogue's own type label. Every claim links to
-> the L1 note it rests on. (Last pull: 2026-11-22 ingest — the tracked catalogue **held flat at 98
-> objects**, with the same operator-country and type composition it carried on 2026-11-19 (US 38 /
+> the L1 note it rests on. (Last pull: 2026-11-26 ingest — the tracked catalogue **held flat at 98
+> objects**, with the same operator-country and type composition it carried on 2026-11-22 (US 38 /
 > CN 30 / EU 19 / IN 7 / TR 3 / KR 1; optical 47 / military 34 / SAR 17) and the identical set of object ids
-> across every daily pull 11-20 through 11-22. The TLE line sets (`line1`/`line2`) advanced to fresh
-> epochs on each pull for 97 of the 98 objects — on 11-22 those sit at day-of-year roughly 325.3–326.4
-> (≈ 21–22 November), from roughly 322.6–323.4 on 11-19. **TERRASAR-X did not advance**: its element set held
-> at ≈ 322.6 (≈ 18 November) on all three pulls, so it is again a lagging floor, now about three to four days
-> behind the rest. The catalogue counts, operators and type labels are unchanged: a seventeenth straight
-> honest flat cycle, reported as observed counts only [[orbital-satellites]].)
+> across every daily pull 11-23 through 11-26. **TERRASAR-X caught up**: its element set, held at ≈ 322.6
+> (≈ 18 November) through 11-22, jumped to ≈ 326.9 on the 11-23 pull and advanced with the rest after that.
+> The lagging floor passed to **YAOGAN-4**, whose element set held at ≈ 327.1 (≈ 23 November) on every pull
+> from 11-23 to 11-26; on 11-26 the other 97 sit at day-of-year roughly 329.4–330.3 (≈ 25–26 November). The
+> catalogue counts, operators and type labels are unchanged: an eighteenth straight honest flat cycle, reported
+> as observed counts only [[orbital-satellites]].)
 
 ## This week at a glance
 
-- The CelesTrak channel tracks **98 catalogued satellites** in the 11-22 pull — **unchanged** from the 98
-  in the 2026-11-19 pull, and from every daily pull in between (11-20 and 11-21); 0 added, 0 removed,
-  identical object ids across all days. Each object carries a two-line element set; 97 of the 98 epochs
-  advanced with each pull, TERRASAR-X's held at ≈ 18 November ([[orbital-satellites]]).
-- By operator country the 11-22 pull records: **the US in the lead at 38 objects**, ahead of **China
-  (30)** and the **EU (19)**, with India (7), Turkey (3) and South Korea (1) — identical to the 2026-11-19
+- The CelesTrak channel tracks **98 catalogued satellites** in the 11-26 pull — **unchanged** from the 98
+  in the 2026-11-22 pull, and from every daily pull in between (11-23 → 11-25); 0 added, 0 removed,
+  identical object ids across all days. Each object carries a two-line element set; on 11-26, 97 of the 98
+  epochs sit within about a day of the pull, YAOGAN-4's held at ≈ 23 November ([[orbital-satellites]]).
+- By operator country the 11-26 pull records: **the US in the lead at 38 objects**, ahead of **China
+  (30)** and the **EU (19)**, with India (7), Turkey (3) and South Korea (1) — identical to the 2026-11-22
   composition, the catalogue's own attribution field reported as published ([[orbital-satellites]]).
-- By the catalogue's type label the 11-22 pull records **47 optical-imaging** objects, **34 military**
-  and **17 SAR** (synthetic-aperture radar) — held steady across all three type bands from 2026-11-19
-  through 11-22; the feed's classification, not azimuth's ([[orbital-satellites]]).
+- By the catalogue's type label the 11-26 pull records **47 optical-imaging** objects, **34 military**
+  and **17 SAR** (synthetic-aperture radar) — held steady across all three type bands from 2026-11-22
+  through 11-26; the feed's classification, not azimuth's ([[orbital-satellites]]).
 
 ## Reading the week
 
-- The 11-20 through 11-22 pulls form an **honest flat cycle**, the seventeenth straight: the tracked
+- The 11-23 through 11-26 pulls form an **honest flat cycle**, the eighteenth straight: the tracked
   catalogue held at 98 objects with the same operator-country split (US 38 / CN 30 / EU 19) and type
-  split (optical 47 / military 34 / SAR 17) it carried on 2026-11-19, and the object ids are identical
-  across every day of the cycle. Only the TLE epochs advanced with each fresh pull — the tracked band moved
-  from roughly day-of-year 322.6–323.4 (≈ 18–19 November) to roughly 325.3–326.4 (≈ 21–22 November) — with
-  TERRASAR-X's element set held at ≈ 322.6, the one object whose published epoch did not move. azimuth
-  reports the catalogue's own counts, labels and epochs as published — no movement is invented where the
-  feed shows none ([[orbital-satellites]]).
+  split (optical 47 / military 34 / SAR 17) it carried on 2026-11-22, and the object ids are identical
+  across every day of the cycle. Only the TLE epochs moved — the tracked band advanced from roughly
+  day-of-year 325.3–326.4 (≈ 21–22 November) to roughly 329.4–330.3 (≈ 25–26 November), TERRASAR-X rejoined
+  it after four days as the lagging floor, and YAOGAN-4's element set took that place, held at ≈ 327.1 for
+  four pulls. azimuth reports the catalogue's own counts, labels and epochs as published — no movement is
+  invented where the feed shows none ([[orbital-satellites]]).
 - With the composition unchanged, **the US leads the tracked catalogue at 38 objects**, ahead of China
   (30) and the EU (19), and optical imaging stays the largest type band at 47. These are observed
   catalogue composition counts, not a capability or intent comparison between operators
   ([[orbital-satellites]]).
 
 ## Changelog
+- 2026-11-27 — daily-ingest synthesis (2026-W48): absorbed the 2026-11-23 → 2026-11-26 pulls — an eighteenth straight flat cycle. 98 objects, identical ids on every pull, US 38 / CN 30 / EU 19 / IN 7 / TR 3 / KR 1, optical 47 / military 34 / SAR 17. TERRASAR-X's element set caught up on 11-23 (≈ 322.6 → 326.9); YAOGAN-4 is the new lagging floor, held at ≈ 327.1 on 11-23 → 11-26 while the other 97 reached ≈ 329.4–330.3 ([[orbital-satellites]]).
 - 2026-11-23 — daily-ingest flowback (2026-W47): absorbed the 2026-11-20 → 2026-11-22 pulls — a seventeenth straight honest flat cycle. Catalogue held at 98 objects with identical ids on every pull (US 38 / CN 30 / EU 19 / IN 7 / TR 3 / KR 1; optical 47 / military 34 / SAR 17); 97 TLE epochs advanced, to day-of-year ~325.3–326.4 (≈ 21–22 November) on 11-22, while TERRASAR-X held at ≈ 322.6 (≈ 18 November) on all three pulls, a lagging floor again. Updated the intro, at-a-glance and reading sections ([[orbital-satellites]]).
 - 2026-11-20 — daily-ingest flowback (2026-W47): absorbed the 2026-11-16 → 2026-11-19 pulls — a sixteenth straight honest flat cycle. Catalogue held at 98 objects with identical ids on every pull (US 38 / CN 30 / EU 19 / IN 7 / TR 3 / KR 1; optical 47 / military 34 / SAR 17); only the TLE epochs advanced, to day-of-year ~322.6–323.4 (≈ 18–19 November) on 11-19, TERRASAR-X earliest at ≈ 322.6 but no multi-day lagging floor. Updated the intro, at-a-glance and reading sections ([[orbital-satellites]]).
 - 2026-11-16 — daily-ingest synthesis (2026-W46): absorbed the 2026-11-13 → 2026-11-15 pulls — a fifteenth straight honest flat cycle. Catalogue held at 98 objects with identical ids on every pull; operator split US 38 / CN 30 / EU 19 / IN 7 / TR 3 / KR 1 and type split optical 47 / military 34 / SAR 17 unchanged. TLE epochs advanced: on 11-15 all but one object at day-of-year ~318.6–319.4 (≈ 14–15 Nov), TERRASAR-X now the lagging floor at ~314.4 (from CARTOSAT-2E). Rewrote the intro, at-a-glance and reading sections ([[orbital-satellites]]).
