@@ -2,8 +2,8 @@
 title: Infrastructure Watch Weekly
 type: L2-brief
 theme: infrastructure-watch
-week: 2026-W47
-updated: 2026-11-22T00:00:00Z
+week: 2026-W48
+updated: 2026-11-26T00:00:00Z
 sources: [internet-outages]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -16,62 +16,62 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 > infrastructure disruption events** — an internet outage is an observed network measurement
 > (Cloudflare Radar), with the cause category the source itself assigns — and takes no
 > position on any actor involved. Every claim links to the L1 note it rests on. This cycle
-> absorbs the 2026-11-20 → 2026-11-22 pulls: the outage set **held at the same 6 records** on every pull,
-> and the one field that moved was an end time — the **nationwide, TOTAL-severity disruption in Pakistan**
-> (detected 2026-11-18 12:30 UTC), which had no recorded end on 11-19, now carries an **`endedAt` of
-> 2026-11-20 08:00 UTC**, about 43.5 hours after detection. The source's cause field still labels it
-> **UNKNOWN** while its description ties it to a **SEA-ME-WE 5 submarine-cable fault** off Pakistan's coast. **All
-> six rows now carry a recorded end time**, and **every country still carries exactly one row**. Cause split
-> holds at **4 power-outage / 1 technical-problem / 1 unknown**, across **6 countries**; the maintenance,
-> military-action, government-directed and natural-disaster categories have no row this cycle
-> ([[internet-outages]]). (Pull date of current cycle: 2026-11-22.)
+> absorbs the 2026-11-23 → 2026-11-26 pulls: the outage set **held at 6 records** on every pull but **rotated
+> one row** on 11-24 — a **nationwide, TOTAL-severity power outage in Côte d'Ivoire** (detected 2026-11-23 15:30
+> UTC, ended 18:45 UTC, about 3.25 hours) entered, and the oldest row, **Bangladesh**'s regional power outage of
+> 2026-10-27, left the window. The source's description ties the Côte d'Ivoire disruption to an incident on
+> the high-voltage grid around Abidjan. **All six rows carry a recorded end time**, and **every country still
+> carries exactly one row**. Cause split holds at **4 power-outage / 1 technical-problem / 1 unknown**, across
+> **6 countries**, while severity moved to **3 TOTAL / 2 MAJOR / 1 PARTIAL**; the maintenance, military-action,
+> government-directed and natural-disaster categories have no row this cycle ([[internet-outages]]). (Pull date
+> of current cycle: 2026-11-26.)
 
 ## This week at a glance
 
-- The Cloudflare Radar channel records **6 outage records** in its rolling window on 11-22 — **2
-  nationwide**, **3 regional** and **1 network-level** in scope; severity **2 TOTAL / 3 MAJOR / 1
-  PARTIAL**. By the source's own cause category: **4 power-outage**, **1 technical-problem** and **1
-  unknown** ([[internet-outages]]).
+- The Cloudflare Radar channel records **6 outage records** in its rolling window on 11-26 — **3
+  nationwide**, **2 regional** and **1 network-level** in scope (from 2 / 3 / 1); severity **3 TOTAL / 2 MAJOR
+  / 1 PARTIAL** (from 2 / 3 / 1). By the source's own cause category: **4 power-outage**, **1
+  technical-problem** and **1 unknown** ([[internet-outages]]).
 - **Six countries, one record each**: **Pakistan**'s nationwide disruption (cause unknown, description
-  citing a submarine-cable fault), four power-outages (**Ukraine**, **Peru**, **Guyana**, **Bangladesh**) and
+  citing a submarine-cable fault), four power-outages (**Côte d'Ivoire**, **Ukraine**, **Peru**, **Guyana**) and
   the **Dominican Republic**'s network fault (technical-problem) ([[internet-outages]]).
-- The window **held its membership** — no row entered or left on 11-20 → 11-22 — and the Pakistan row
-  gained a recorded end time, **2026-11-20 08:00 UTC** ([[internet-outages]]).
+- The window **rotated one row** — Côte d'Ivoire in, Bangladesh out on the 11-24 pull; the 11-23 pull matched
+  11-22 exactly, and 11-25 and 11-26 matched 11-24 ([[internet-outages]]).
 
 ## Honest scope
 
 - **The feed is a rolling window of recent outage records, not a live-outage board.** Each row carries
-  the source's `detectedAt` and `endedAt` times; on the 11-22 pull all six rows have a recorded end. The
-  Pakistan row's `endedAt` was empty on 11-19 and filled on the 11-20 pull — azimuth reports the end time as
-  the source published it, not as an independently confirmed restoration. The oldest detection dates to
-  2026-10-27 (Bangladesh) and the newest to 2026-11-18 (Pakistan); azimuth reports which rows the source
-  returns, not an inferred cut-off date ([[internet-outages]]).
+  the source's `detectedAt` and `endedAt` times; on the 11-26 pull all six rows have a recorded end. The
+  oldest detection now dates to 2026-10-30 (Guyana) and the newest to 2026-11-23 (Côte d'Ivoire); Bangladesh's
+  2026-10-27 row left as the new one arrived. azimuth reports which rows the source returns, not an inferred
+  cut-off date ([[internet-outages]]).
 - **Cause label and description can differ.** The Pakistan row's cause field reads `UNKNOWN` while its
   free-text description names a SEA-ME-WE 5 cable fault; azimuth reports both as published and counts the
   row under the source's own category (unknown), not under cable-cut ([[internet-outages]]).
 - The theme registry lists a second channel (IMF PortWatch chokepoint status) that remains unsurfaced:
-  no chokepoint-status L1 note has been committed to date (none through the 2026-11-22 ingest); this
+  no chokepoint-status L1 note has been committed to date (none through the 2026-11-26 ingest); this
   brief scopes to the live internet-outage channel and widens when the second channel lands
   ([[internet-outages]]).
 
 ## Reading the week
 
-- **No record entered or left this cycle; one closed.** Pakistan's nationwide disruption (detected
-  2026-11-18 12:30 UTC, TOTAL) now records an end at 2026-11-20 08:00 UTC — the window's longest recorded
-  duration, about 43.5 hours, against 3.5 hours for Guyana's nationwide TOTAL power outage. The source
-  attributes it in its description to a fault on the SEA-ME-WE 5 submarine cable off Pakistan's coast
+- **One record entered and one left this cycle.** Côte d'Ivoire's nationwide disruption (detected
+  2026-11-23 15:30 UTC, TOTAL) lasted about 3.25 hours, close to the 3.5 hours recorded for Guyana's
+  nationwide TOTAL power outage, while Pakistan's 2026-11-18 disruption keeps the window's longest recorded
+  duration at about 43.5 hours ([[internet-outages]]).
+- **Power-outage stays the dominant cause at four records** — Côte d'Ivoire (nationwide, TOTAL; a high-voltage
+  grid incident around Abidjan, per the source), Ukraine (regional, MAJOR; 2026-11-08, Dnipropetrovsk Oblast,
+  the source's description attributing it to Russian strikes on energy infrastructure), Peru (regional, MAJOR;
+  the 2026-11-01 national-grid failure that hit Piura) and Guyana (nationwide, TOTAL). azimuth records the cause
+  categories and the descriptions as the source publishes them and takes no position on them
   ([[internet-outages]]).
-- **Power-outage stays the dominant cause at four records** — Ukraine (regional, MAJOR; 2026-11-08,
-  Dnipropetrovsk Oblast, the source's description attributing it to Russian strikes on energy
-  infrastructure), Peru (regional, MAJOR; the 2026-11-01 national-grid failure that hit Piura), Guyana
-  (nationwide, TOTAL) and Bangladesh (regional, MAJOR). azimuth records the cause categories and the
-  descriptions as the source publishes them and takes no position on them ([[internet-outages]]).
 - **The Dominican Republic's network fault carried** — Claro Dominicana (AS6400), 2026-11-06 16:45 →
   18:45 UTC, PARTIAL — still the window's only technical-problem row ([[internet-outages]]).
 - azimuth reports the measurements and the source's cause labels, and stops there
   ([[internet-outages]]).
 
 ## Changelog
+- 2026-11-27 — daily-ingest synthesis (2026-W48): absorbed the 2026-11-23 → 2026-11-26 pulls. Window held at 6 records but rotated one row on 11-24: Côte d'Ivoire's nationwide TOTAL power outage (2026-11-23 15:30 → 18:45 UTC, high-voltage grid incident around Abidjan) entered, Bangladesh's 2026-10-27 regional row left. Cause split unchanged (4 power / 1 technical / 1 unknown); severity now 3 TOTAL / 2 MAJOR / 1 PARTIAL; scope 3 nationwide / 2 regional / 1 network. Chokepoint channel still unsurfaced ([[internet-outages]]).
 - 2026-11-23 — daily-ingest synthesis (2026-W47): absorbed the 2026-11-20 → 2026-11-22 pulls. The set held at the same 6 records on every pull; the only change was the Pakistan row (nationwide, TOTAL, detected 2026-11-18 12:30 UTC, cause field UNKNOWN, description citing a SEA-ME-WE 5 cable fault) gaining an `endedAt` of 2026-11-20 08:00 UTC (~43.5 h), so all six rows now carry an end time. Cause split 4 power-outage / 1 technical-problem / 1 unknown across 6 countries; severity 2 TOTAL / 3 MAJOR / 1 PARTIAL. Rewrote the intro, at-a-glance, scope and reading sections ([[internet-outages]]).
 - 2026-11-20 — daily-ingest synthesis (2026-W47): absorbed the 2026-11-16 → 2026-11-19 pulls. The set ran 6 → 5 → 5 → 6: Syria's maintenance-labelled row (detected 2026-10-19) left on 11-17, and a fresh nationwide, TOTAL-severity Pakistan disruption (detected 2026-11-18 12:30 UTC; cause field UNKNOWN, description citing a SEA-ME-WE 5 submarine-cable fault) entered on 11-19 with no recorded end time. Cause split 4 power-outage / 1 technical-problem / 1 unknown across 6 countries; severity 2 TOTAL / 3 MAJOR / 1 PARTIAL. Rewrote the intro, at-a-glance, scope and reading sections; added a cause-label-vs-description scope note ([[internet-outages]]).
 - 2026-11-16 — daily-ingest synthesis (2026-W46): absorbed the 2026-11-13 → 2026-11-15 pulls. The outage window held at 7 on 11-13/11-14 and eased to 6 on 11-15 as Sri Lanka's nationwide power outage (detected 2026-10-17, the oldest row) left; no fresh record entered. Now 6 countries, one row each: 4 power-outage (Ukraine, Peru, Guyana, Bangladesh) / 1 technical-problem (Dominican Republic) / 1 maintenance (Syria); severity 1 TOTAL / 3 MAJOR / 2 PARTIAL. Chokepoint-status channel still unsurfaced. Rewrote the intro, at-a-glance, scope and reading sections ([[internet-outages]]).
