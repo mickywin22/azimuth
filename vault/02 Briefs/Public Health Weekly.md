@@ -2,8 +2,8 @@
 title: Public Health Weekly
 type: L2-brief
 theme: public-health
-week: 2026-W47
-updated: 2026-11-22T00:00:00Z
+week: 2026-W48
+updated: 2026-11-26T00:00:00Z
 sources: [disease-outbreaks]
 license: CC-BY-4.0
 attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for upstream sources
@@ -15,61 +15,64 @@ attribution: azimuth (HemySphere doctrine demonstrator) — see CREDITS.md for u
 > fleet role evolves this single note in place each cycle. azimuth reports **recorded disease
 > outbreak notifications** — the disease, the place, the case count and the alert level as the
 > reporting body published them — never a health prediction, never advice. Every claim links
-> to the L1 note it rests on. (Updated across the 2026-11-20 → 2026-11-22 ingests, measured against
-> the 2026-11-19 reading: the active slate **grew to 116 notifications** (from 110; 108 → 122 → 116 by day) —
-> **96 watch / 20 alert** (from 90 / 20) — and **summed cases rose to ~220,600** (220,646, from 168,377).
-> Two large entries drove the rise: a **28,151-case diphtheria alert in Nigeria**, which now leads the case
-> leaderboard, and a **25,269-case Bangladesh measles alert**. Twenty notifications entered and fourteen left —
-> among the exits a **2,595-case Mozambique measles alert** and five US measles rows. The disease mix
-> broadened: **measles 39** (unchanged), **diphtheria 20** (from 17), **polio 17** (from 14). By country the US
-> stays most-cited at **23** (from 25), ahead of Nigeria 9, with 4 notifications unattributed
-> [[disease-outbreaks]].)
+> to the L1 note it rests on. (Updated across the 2026-11-23 → 2026-11-26 ingests, measured against
+> the 2026-11-22 reading: the active slate **eased to 114 notifications** (from 116; 115 → 115 → 114 → 114 by
+> day), and the feed's `alertLevelMethodologyVersion` **moved from v1 to v2** on the 11-25 pull, adding a third
+> band: the slate now reads **92 watch / 20 alert / 2 warning** (from 96 / 20 / 0). **Summed cases edged down to
+> ~220,100** (220,062, from 220,646) — the exact sum of six departed rows — and the case leaderboard is
+> unchanged, still led by the **28,151-case diphtheria alert in Nigeria**. Six notifications entered, all
+> zero-case, and eight left, among them a **393-case US measles alert**. Measles stays the largest category at
+> **38**; by country the US stays most-cited at **24**, with 4 notifications unattributed [[disease-outbreaks]].)
 
 ## This week at a glance
 
-- The WHO / CDC outbreak channel carries **116 active outbreak notifications** on the 2026-11-22 pull —
-  **96 watch / 20 alert** — up six from the 11-19 reading; summed case counts across the slate total
-  **~220,600** (220,646), up from 168,377 as two large new entries arrived ([[disease-outbreaks]]).
-- **Highest single case counts** the feed carries this pull: a new **28,151-case diphtheria alert in Nigeria**
-  now leads, ahead of a new **25,269-case Bangladesh measles alert**, the carried **22,328-case** Bangladesh
-  measles alert and the **22,000-case Measles/Cholera watch in Yemen**, then Bangladesh measles entries at
-  **21,212** (watch), **19,904** (alert) and **19,835** (watch) and a Mexico measles watch at **13,772**
-  ([[disease-outbreaks]]).
-- **Entries and exits:** twenty notifications entered — besides the Nigeria diphtheria and Bangladesh measles
-  alerts, a **649-case Wisconsin measles alert**, diphtheria watches in **Senegal (551)** and **Thailand (61)**,
-  measles in **Kazakhstan (303 watch, 45 alert)** and **Minnesota (160)**, polio watches in **Afghanistan
-  (50)**, **Pakistan (9)**, **Nigeria (5)** and **Syria (2)**, a hepatitis A watch in **Syria (35)**, and
-  zero-case rows including measles elimination-status watches for **Bolivia**, the **United States** and
-  **Mexico**. Fourteen left — a **2,595-case Mozambique measles alert**, a **293-case Peru** measles watch, five
-  US measles rows, a Tyumen measles watch, an Afghanistan polio watch (19), and zero-case Salmonella, Mpox,
-  Ebola and Bangladesh measles rows (Ebola and US rows partly re-issued under new ids). No continuing
-  notification changed its case count or alert level ([[disease-outbreaks]]).
-- **Measles remains the largest disease category** at **39 of 116 notifications** (unchanged), with
-  **diphtheria at 20** (from 17) and **polio at 17** (from 14); Ebola held at 7, hepatitis A at 5 and avian
-  flu at 4. azimuth records each notification in the disease category and alert band the reporting body
-  assigned it ([[disease-outbreaks]]).
-- **By country, the United States is the most-cited source of notifications at 23** (from 25), ahead of
-  Nigeria (9, from 7) and Senegal (6), with Bangladesh, Afghanistan, Pakistan and Brazil at 5 each. A further
-  **4 notifications carry no country attribution** (regional or global yellow-fever, rabies and hantavirus
-  rows) — azimuth reports this as unattributed, not as a country ([[disease-outbreaks]]).
+- The WHO / CDC outbreak channel carries **114 active outbreak notifications** on the 2026-11-26 pull —
+  **92 watch / 20 alert / 2 warning** — down two from the 11-22 reading; summed case counts across the slate
+  total **~220,100** (220,062), down 584 from 220,646 ([[disease-outbreaks]]).
+- **A methodology change, not only a data change:** the feed's `alertLevelMethodologyVersion` field read
+  **v1** through 11-24 and **v2** from 11-25, and a **`warning`** level first appears on the 11-24 pull (1 row)
+  and holds at 2 rows from 11-25. The two warning rows are an **Ebola notification for DR Congo** and the
+  **global yellow-fever notification**; azimuth reports the band as the feed labels it and does not rank it
+  against watch or alert ([[disease-outbreaks]]).
+- **Highest single case counts** are unchanged from 11-22: the **28,151-case diphtheria alert in Nigeria**
+  leads, ahead of the **25,269-case** and **22,328-case** Bangladesh measles alerts, the **22,000-case
+  Measles/Cholera watch in Yemen**, Bangladesh measles entries at **21,212** (watch), **19,904** (alert) and
+  **19,835** (watch), and a Mexico measles watch at **13,772** ([[disease-outbreaks]]).
+- **Entries and exits:** six notifications entered, all with **zero recorded cases** — an Ebola warning for DR
+  Congo, a multi-country hantavirus alert, and watches for avian flu in Mexico, influenza and measles in the
+  United States, and polio in Syria. Eight left — a **393-case US measles alert**, a **62-case Philippines
+  chickenpox** watch, a **57-case Senegal diphtheria** watch, polio watches for **DR Congo (37)** and **Nigeria
+  (34)**, a one-case Palermo diphtheria watch, a zero-case Wisconsin measles watch and a zero-case DR Congo
+  Ebola alert (re-issued under a new id at the warning level) ([[disease-outbreaks]]).
+- **Level changes among continuing rows:** a multi-country **Ebola** notification (DR Congo, Kenya and Nigeria)
+  and the **WHO African Region yellow-fever** row moved from watch to **alert**, the **global yellow-fever**
+  row moved from watch to **warning**, and a **Canada measles** row moved from alert to **watch**. No
+  continuing row changed its case count ([[disease-outbreaks]]).
+- **Measles remains the largest disease category** at **38 of 114 notifications** (from 39), with
+  **diphtheria at 18** (from 20) and **polio at 16** (from 17); Ebola held at 7, hepatitis A at 5 and avian flu
+  rose to 5. **By country the United States stays most-cited at 24** (from 23), ahead of Nigeria (8, from 9),
+  with Bangladesh, Afghanistan, Senegal, Pakistan and Brazil at 5 each. A further **4 notifications carry no
+  country attribution** (two yellow-fever and two hantavirus rows) — azimuth reports this as unattributed, not
+  as a country ([[disease-outbreaks]]).
 
 ## Reading the week
 
-- The headcount moved 110 → 116 with the alert band flat at 20 — a net of twenty arrivals and fourteen exits,
-  with no continuing notification changing level ([[disease-outbreaks]]).
-- **Summed cases rose by ~52,300** mostly for two reasons: the 28,151-case Nigeria diphtheria alert and the
-  25,269-case Bangladesh measles alert both entered; the largest exit, the 2,595-case Mozambique measles alert,
-  offset only a small part ([[disease-outbreaks]]).
-- The **disease mix broadened**: diphtheria gained three notifications (17 → 20) and polio three (14 → 17),
-  while measles held at 39 as entries and exits balanced ([[disease-outbreaks]]).
+- The headcount moved 116 → 114 with the alert band flat at 20 — a net of six arrivals and eight exits — while
+  the feed's own alert methodology moved to v2 and two rows now sit in a new warning band
+  ([[disease-outbreaks]]).
+- **Summed cases fell by exactly 584**, the case total of the departing rows (393 + 62 + 57 + 37 + 34 + 1); every
+  arrival carried zero cases and no continuing row changed its count ([[disease-outbreaks]]).
+- The **disease mix narrowed slightly**: diphtheria lost two notifications (20 → 18), polio and measles one
+  each, and avian flu gained one ([[disease-outbreaks]]).
 - azimuth records the notifications as the reporting body published them — disease category, country of
   notification (where attributed), case count and alert level — and attaches no assessment of risk,
-  spread or response. A measles-led slate of 116 notifications with summed cases of ~220,600, topped by
-  the Nigeria diphtheria alert, is what the WHO/CDC channel carried on the 2026-11-22 pull; a notification
-  leaving the slate is a change in what the feed lists, not a recorded end of an outbreak
-  ([[disease-outbreaks]]).
+  spread or response. A measles-led slate of 114 notifications with summed cases of ~220,100, topped by
+  the Nigeria diphtheria alert, is what the WHO/CDC channel carried on the 2026-11-26 pull; a notification
+  leaving the slate is a change in what the feed lists, not a recorded end of an outbreak, and a level change
+  under a new methodology version is a change in labelling as published ([[disease-outbreaks]]).
 
 ## Changelog
+- 2026-11-27 — daily-ingest synthesis (2026-W48): absorbed the 2026-11-23 → 2026-11-26 ingests. Slate eased to 114 (from 116); alertLevelMethodologyVersion moved v1 → v2 on 11-25 and a warning band appeared, now 92 watch / 20 alert / 2 warning (Ebola DR Congo, global yellow fever). Summed cases 220,062 (−584, exactly the departed rows). 6 zero-case entries, 8 exits incl. a 393-case US measles alert; 4 level changes among continuing rows. Leaderboard unchanged (Nigeria diphtheria 28,151). Measles 38, diphtheria 18, polio 16; US 24 most-cited, 4 unattributed ([[disease-outbreaks]]).
 - 2026-11-23 — daily-ingest synthesis (2026-W47): absorbed the 2026-11-20 → 2026-11-22 pulls. Slate grew 110 → 116 (96 watch / 20 alert); summed cases 168,377 → 220,646 as a 28,151-case Nigeria diphtheria alert and a 25,269-case Bangladesh measles alert entered. Twenty in (incl. Wisconsin measles 649, Senegal diphtheria 551, four polio watches), fourteen out (incl. a 2,595-case Mozambique measles alert, five US measles rows). Leaderboard now led by the Nigeria diphtheria alert; measles 39, diphtheria 20, polio 17; US most-cited at 23, 4 unattributed. Rewrote the intro, at-a-glance and reading sections ([[disease-outbreaks]]).
 - 2026-11-20 — daily-ingest synthesis (2026-W47): absorbed the 2026-11-16 → 2026-11-19 pulls. Slate shrank 119 → 110 (90 watch / 20 alert); summed cases 238,111 → 168,377 as the 50,820-case DR Congo measles alert (11-16) and an 18,726-case Bangladesh measles alert left. Fifteen out (incl. five polio watches), six zero-case entries (chikungunya Switzerland, avian flu Hunan, re-issued Ebola and US measles rows). Leaderboard now led by the 22,328-case Bangladesh measles alert; measles 39, diphtheria 17, polio 14; US most-cited at 25, 5 unattributed. Rewrote the intro, at-a-glance and reading sections ([[disease-outbreaks]]).
 - 2026-11-16 — daily-ingest synthesis (2026-W46): absorbed the 2026-11-13 → 2026-11-15 ingests (baseline 11-12). Slate 118 → 119 (98 watch / 21 alert, from 96 / 22). The 17,800-case Bangladesh measles alert left on 11-14, so summed cases fell to 238,111 (from 255,911). Zero-case watches entered for COVID (Florida), MERS (Qatar) and avian flu (Oregon); a US avian-flu watch left; a Nigeria Ebola and a US measles watch were re-issued under new ids. Measles 42 (from 43), polio 19, diphtheria 17. Leaderboard top unchanged (DR Congo measles 50,820). US most-cited at 24; 6 unattributed. Rewrote the intro, at-a-glance and reading sections ([[disease-outbreaks]]).
